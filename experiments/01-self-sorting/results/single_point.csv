@@ -1,0 +1,4 @@
+controller,n_units,trials,coordinator_kills,success_rate
+decentralized,10,300,0,1.0
+central_watchdog,11,300,26,0.9133333333333333
+central_closed,11,300,26,0.9133333333333333

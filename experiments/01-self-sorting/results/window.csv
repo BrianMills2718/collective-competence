@@ -1,0 +1,16 @@
+controller,delay_ops,perturbed,perturbed_after_stop,goal_held_at_end,median_ops_to_recover
+decentralized,0,1.0,0.0,1.0,37.0
+decentralized,5,1.0,0.0,1.0,33.5
+decentralized,20,1.0,0.0,1.0,34.5
+decentralized,60,1.0,0.0,1.0,35.5
+decentralized,200,1.0,0.0,1.0,36.0
+central_closed,0,1.0,0.0,1.0,21.5
+central_closed,5,1.0,0.0,0.9966666666666667,23
+central_closed,20,1.0,1.0,0.0,nan
+central_closed,60,1.0,1.0,0.0,nan
+central_closed,200,1.0,1.0,0.0,nan
+central_watchdog,0,1.0,0.0,1.0,21.5
+central_watchdog,5,1.0,0.0,1.0,23.0
+central_watchdog,20,1.0,0.0,1.0,23.0
+central_watchdog,60,1.0,0.0,1.0,23.0
+central_watchdog,200,1.0,0.0,1.0,23.0
