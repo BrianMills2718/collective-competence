@@ -48,7 +48,10 @@ def apply(world: SortingWorld, iv: Intervention, seed: int) -> None:
             world.cells[a + k], world.cells[b + k] = world.cells[b + k], world.cells[a + k]
         return
     if iv.kind == "freeze_cells":
-        k = max(1, round(iv.params["fraction"] * n))
+        # The paper specifies frozen cells as a count (1, 2, 3), not a fraction.
+        k = int(iv.params["count"]) if "count" in iv.params else max(
+            1, round(iv.params["fraction"] * n)
+        )
         mode = Freeze(iv.params.get("mode", "moveable"))
         for i in rng.sample(range(n), k):
             world.cells[i].freeze = mode

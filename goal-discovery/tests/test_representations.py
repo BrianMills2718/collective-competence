@@ -70,3 +70,15 @@ def test_empty_and_singleton_do_not_raise():
         for fn in (boundary_length, unlike_neighbor_fraction, largest_cluster_fraction,
                    sortedness_value, inversions):
             fn(obs(values))
+
+
+def test_sorted_prefix_fraction_measures_only_the_run_from_position_zero():
+    from src.experiments.sorting.representations import sorted_prefix_fraction
+
+    assert sorted_prefix_fraction(obs([0, 1, 2, 3])) == 1.0
+    assert sorted_prefix_fraction(obs([0, 1, 9, 2, 3])) == pytest.approx(3 / 5)
+    assert sorted_prefix_fraction(obs([5, 0, 1, 2, 3])) == pytest.approx(1 / 5)
+    # A long run in the middle is worth nothing to an insertion cell, which is
+    # exactly why this is not largest_cluster_fraction.
+    assert largest_cluster_fraction(obs([5, 0, 1, 2, 3])) == pytest.approx(4 / 5)
+    assert sorted_prefix_fraction(obs([])) == 0.0
