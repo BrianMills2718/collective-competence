@@ -1,0 +1,10 @@
+rule,value,threshold,passed
+D1_approach,1.0,0.95,True
+D1_maintenance,0.0,1.0,False
+D2_no_compensation,0.0,0.05,True
+D3_no_adaptation,1,1,True
+D4a_state_damage_free,1.0,0.95,True
+D4b_mechanism_damage_invisible,0.0,0.0,True
+D5_ratio_first,0.96875,1.0,True
+D5_ratio_last,0.9637305699481865,1.0,True
+D5_comparator_spread,0.005019430051813489,0.1,True

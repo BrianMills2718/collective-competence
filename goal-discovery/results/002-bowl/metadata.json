@@ -1,0 +1,139 @@
+{
+  "config": {
+    "adaptation": {
+      "disturbance": {
+        "kind": "displace",
+        "params": {
+          "count": 2,
+          "magnitude": 6.0
+        }
+      },
+      "episodes": 5
+    },
+    "branch": {
+      "conditions": [
+        {
+          "kind": "none",
+          "label": "none",
+          "params": {}
+        },
+        {
+          "kind": "displace",
+          "label": "displace_1",
+          "params": {
+            "count": 1,
+            "magnitude": 6.0
+          }
+        },
+        {
+          "kind": "displace",
+          "label": "displace_3",
+          "params": {
+            "count": 3,
+            "magnitude": 6.0
+          }
+        },
+        {
+          "kind": "kick",
+          "label": "kick_1",
+          "params": {
+            "count": 1,
+            "magnitude": 3.0
+          }
+        },
+        {
+          "kind": "freeze_coords",
+          "label": "freeze_1",
+          "params": {
+            "count": 1
+          }
+        },
+        {
+          "kind": "freeze_coords",
+          "label": "freeze_2",
+          "params": {
+            "count": 2
+          }
+        },
+        {
+          "kind": "freeze_coords",
+          "label": "freeze_3",
+          "params": {
+            "count": 3
+          }
+        }
+      ],
+      "horizon_minimum": 500,
+      "horizon_multiplier": 5,
+      "timing": 0.6
+    },
+    "phase": "control",
+    "seeds": {
+      "count": 40,
+      "start": 4000
+    },
+    "suite": "bowl",
+    "system": {
+      "damping": 0.08,
+      "eps": 0.001,
+      "max_ticks": 4000,
+      "n": 8,
+      "spread": 10.0,
+      "stiffness": 0.15
+    },
+    "thresholds": {
+      "D1_approach_rate": 0.95,
+      "D2_frozen_goal_ceiling": 0.05,
+      "D5_ratio_tolerance": 0.1
+    }
+  },
+  "git_commit": "1ca5c79299e9bc001cd1e512448ce2d7b8dc9a05",
+  "phase": "control",
+  "preregistration": "docs/hypotheses/002_bowl.md",
+  "representation_set_version": "bowl-reps-v1",
+  "rule_version": "bowl-v1",
+  "run_id": "002-bowl",
+  "seeds": [
+    4000,
+    4001,
+    4002,
+    4003,
+    4004,
+    4005,
+    4006,
+    4007,
+    4008,
+    4009,
+    4010,
+    4011,
+    4012,
+    4013,
+    4014,
+    4015,
+    4016,
+    4017,
+    4018,
+    4019,
+    4020,
+    4021,
+    4022,
+    4023,
+    4024,
+    4025,
+    4026,
+    4027,
+    4028,
+    4029,
+    4030,
+    4031,
+    4032,
+    4033,
+    4034,
+    4035,
+    4036,
+    4037,
+    4038,
+    4039
+  ],
+  "suite": "/home/brian/code/collective-competence/goal-discovery/configs/suites/bowl.yaml"
+}

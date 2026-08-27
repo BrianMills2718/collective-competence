@@ -1,0 +1,36 @@
+# Experiment 002, the passive control. Predictions in docs/hypotheses/002_bowl.md.
+suite: bowl
+phase: control
+
+system:
+  n: 8                  # coordinates, each an independent "component"
+  stiffness: 0.15
+  damping: 0.08
+  eps: 0.001
+  spread: 10.0
+  max_ticks: 4000
+
+seeds: {start: 4000, count: 40}
+
+branch:
+  timing: 0.6           # fraction of the unperturbed time-to-goal
+  horizon_multiplier: 5
+  horizon_minimum: 500
+  conditions:
+    - {label: "none",            kind: "none",          params: {}}
+    - {label: "displace_1",      kind: "displace",      params: {count: 1, magnitude: 6.0}}
+    - {label: "displace_3",      kind: "displace",      params: {count: 3, magnitude: 6.0}}
+    - {label: "kick_1",          kind: "kick",          params: {count: 1, magnitude: 3.0}}
+    - {label: "freeze_1",        kind: "freeze_coords", params: {count: 1}}
+    - {label: "freeze_2",        kind: "freeze_coords", params: {count: 2}}
+    - {label: "freeze_3",        kind: "freeze_coords", params: {count: 3}}
+
+# D3: repeat the same episode and check nothing improves.
+adaptation:
+  episodes: 5
+  disturbance: {kind: "displace", params: {count: 2, magnitude: 6.0}}
+
+thresholds:
+  D1_approach_rate: 0.95
+  D2_frozen_goal_ceiling: 0.05      # freezing must be near-total loss
+  D5_ratio_tolerance: 0.10          # |ratio - 1| must be within this

@@ -40,7 +40,20 @@ quantitative one. Candidate causes, none tested: my explicit activation sweep
 versus the reference's threads, or a difference in how frozen cells are placed.
 Recorded as an open discrepancy rather than explained away.
 
-## C2 — the result that moves Experiment 001 off the bottom rung
+## C2 — narrowed by experiment 002
+
+> **Read this first.** Experiment 002 ran the same test on a ball in a bowl,
+> which is passive by construction, and **the signal fires there too**: freezing
+> coordinates is invisible to every representation and costs 100% of goal
+> attainment, while displacing them is fully visible and costs nothing. So C2
+> detects that a representation set omits mechanism variables; it does **not**
+> distinguish an active system from a passive one. What separates 001 from 002
+> is redundancy — 0.97 goal attainment with three frozen cells against 0.00 with
+> one frozen coordinate. See
+> [the 002 results](002_bowl_results.md). The section below stands as written so
+> the narrowing is legible.
+
+## C2 — mechanism damage versus state damage
 
 Freezing cells mid-run changes no values, so **every representation in the
 frozen set reads identically the instant it fires** — the "changed a

@@ -17,7 +17,7 @@ representations and interventions are all written by hand.
 | | | |
 |---|---|---|
 | 001 | cell-view sorting (Zhang/Goldstein/Levin replication) | **complete** — discovery, validation, confirmation |
-| 002 | ball-in-bowl passive convergence | not started |
+| 002 | ball-in-bowl passive convergence | **complete** — control on the 001 instrument |
 | 003 | thermostat-like negative feedback | not started |
 | 004 | redundant compensatory controller | not started |
 | 005 | deterministic adaptation across episodes | not started |
@@ -33,8 +33,14 @@ The observable state is not sufficient to predict whether the goal is reached.
 Freezing three cells mid-run changes no values at all, so every representation
 reads identically the instant it fires, yet it costs the insertion algotype 97
 percentage points of goal attainment. Scrambling a fifth of the array — maximally
-visible to those same measures — costs it nothing. An attractor account predicts
-the opposite.
+visible to those same measures — costs it nothing.
+
+Experiment 002 then showed that a ball in a bowl does the same thing, so that
+test detects a gap in the representation set rather than anything about agency.
+**What actually separates the two systems is redundancy**: the array reaches its
+goal with three of forty cells frozen and unable to act, because neighbours
+carry them, while the bowl is stranded forever by one frozen coordinate of
+eight, because nothing can act on anything else.
 
 And two measures I invented to detect that failed and were withdrawn, which is
 in [the confirmation results](docs/hypotheses/001_sorting_confirmation_results.md)
