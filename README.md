@@ -2,25 +2,31 @@
 
 How does coupling among bounded local systems produce higher-level competence?
 
-Each experiment is a self-contained directory under `experiments/`, with its own
-script, writeup, and results. They are meant to be small: the point is to find
-out whether concepts like *goal*, *perturbation*, *recovery*, *coupling* and
-*collective competence* are actually measurable, before introducing anything as
-confounding as a language model.
+The point is to find out whether *goal*, *perturbation*, *recovery*, *coupling*
+and *collective competence* are actually measurable in systems small enough to
+be understood completely, before introducing anything as confounding as a
+language model.
 
-## Experiments
+## Where the work is
 
-| | | |
-|---|---|---|
-| 01 | [self-sorting agents with local defects](experiments/01-self-sorting/) | done |
-| 02 | tiny production / specialization world | not started |
-| 03 | dispersed information | not started |
-| 04 | communication | not started |
-| 05 | persistent organization | not started |
-| 06 | causal-emergence analysis of the transition systems above | not started |
-| 07 | LLM agents, only once the measurables hold up without them | not started |
+**[`goal-discovery/`](goal-discovery/)** is the current programme. It replaces
+the experiment ladder this README used to list, with a stricter one: a
+replication of a published system, pre-specified representations, a
+discovery/validation/confirmation split, snapshot-exact branching, and null
+models that have to be beaten before anything stronger than "it converges" may
+be claimed. Start at its
+[README](goal-discovery/README.md) and
+[experiment 001](goal-discovery/docs/hypotheses/001_sorting.md).
 
-## What experiment 01 found
+**[`experiments/01-self-sorting/`](experiments/01-self-sorting/)** is the pilot
+that came first and motivated it. Kept because its results still stand and
+because the way it went wrong is the reason the new programme is built the way
+it is: three of its first findings turned out to be implementation asymmetries
+rather than properties of the system, and one measure ("holds the goal") was a
+single sample of a fluctuating process. Those are exactly the failures the
+freeze-before-confirming and snapshot-exact-branching rules exist to prevent.
+
+## What the pilot found
 
 Local action noise barely affects whether a goal is reached — feedback, not
 decentralization, is the dividing line, and a controller that halts on "nothing
@@ -30,11 +36,21 @@ two opposing agents are as fatal at 4% of the population as at 20%. One
 opposing agent is tolerated for reachability but drops goal occupancy to about
 1/N.
 
-Details, including three implementation artifacts that had to be fixed before
-any of it was believable, are in
+Details, including the three implementation artifacts that had to be fixed
+before any of it was believable, are in
 [experiments/01-self-sorting/README.md](experiments/01-self-sorting/README.md).
+None of it has been through validation or confirmation in the sense
+`goal-discovery/` now defines, so read it as exploratory.
 
 ## Setup
+
+The current programme:
+
+```bash
+cd goal-discovery && make dayone
+```
+
+The pilot:
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install numpy matplotlib

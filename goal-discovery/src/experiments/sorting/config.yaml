@@ -1,0 +1,20 @@
+# Experiment 001 -- cell-view sorting. Day-one configuration.
+experiment_id: "001_sorting"
+rule_version: "sorting-v1"
+representation_set_version: "sorting-reps-v1"
+
+system:
+  n: 40                    # paper uses 100; 40 keeps day-one figures legible
+  algotype: "bubble"       # bubble | insertion | selection
+  order: "shuffled"        # deterministic stand-in for the reference's threads
+  max_ticks: 4000
+
+baseline:
+  seed: 1
+
+branch:
+  branch_tick: 33          # late: array is nearly sorted, so a block swap is real damage
+  horizon_ticks: 400
+  intervention:
+    kind: "block_swap"
+    params: {fraction: 0.2}

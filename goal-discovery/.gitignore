@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Runs are regenerable from their seed in seconds, so they are not committed --
+# except the two day-one runs, kept so a reader can inspect the evidence
+# without running anything.
+results/*
+!results/.gitkeep
+!results/dayone-baseline/
+!results/dayone-branch/
