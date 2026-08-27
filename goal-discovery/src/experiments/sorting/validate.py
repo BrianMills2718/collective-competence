@@ -86,6 +86,9 @@ def run_baseline(cfg: dict, arm: str, seed: int, tick_budget: int | None) -> dic
         "reached_zero": first_zero is not None,
         "escaped_zero": escaped,
         "steps": w.steps,
+        "swaps": w.swaps,
+        "boundary_min": min(trace),
+        "boundary_max": max(trace),
         "boundary_trace": trace,
         **{f"start_{k}": v for k, v in start.items()},
         **{f"end_{k}": v for k, v in end.items()},
@@ -286,9 +289,15 @@ def main() -> None:
                 budgets[seed] = r["quiesce_tick"]
             base.append(r)
         done = [r for r in base if r["arm"] == arm]
+        # Liveness. A null that fails to recover because it is inert would be a
+        # broken probe, not a result, so its movement is reported beside its
+        # outcome rather than assumed.
         print(f"  baseline {arm:<12} median quiesce tick "
               f"{statistics.median([r['quiesce_tick'] for r in done]):.0f}, "
-              f"reached zero {_rate([r['reached_zero'] for r in done]):.2f}")
+              f"reached zero {_rate([r['reached_zero'] for r in done]):.2f}, "
+              f"median swaps {statistics.median([r['swaps'] for r in done]):.0f}, "
+              f"boundary range {statistics.median([r['boundary_min'] for r in done]):.0f}"
+              f"-{statistics.median([r['boundary_max'] for r in done]):.0f}")
 
     branches: list[dict] = []
     for arm in cfg["arms"]:

@@ -16,15 +16,23 @@ representations and interventions are all written by hand.
 
 | | | |
 |---|---|---|
-| 001 | cell-view sorting (Zhang/Goldstein/Levin replication) | day-one milestone met; discovery phase |
+| 001 | cell-view sorting (Zhang/Goldstein/Levin replication) | validated; **passive convergence only** |
 | 002 | ball-in-bowl passive convergence | not started |
 | 003 | thermostat-like negative feedback | not started |
 | 004 | redundant compensatory controller | not started |
 | 005 | deterministic adaptation across episodes | not started |
 
-Experiment 001 has no null models yet, so it can show that the system returns to
-sorted after a disturbance and **cannot yet show that this is anything more
-than passive convergence**. Separating those is the entire point of 002–005.
+Experiment 001 has been through validation on 40 held-out seeds against a
+rule-free null. The null separation is total — the real algotypes reach the goal
+after damage in 100% of runs and the null in 0% — but that is evidence about
+*converging*, which is the bottom rung. Nothing measured so far distinguishes
+recovery from convergence, and the measurement designed to try
+([R7](docs/hypotheses/001_sorting_validation_results.md)) found that for bubble
+a damaged state is interchangeable with an undamaged one scoring the same.
+
+**So Experiment 001 supports passive convergence and nothing above it.** Getting
+higher needs a perturbation that damages the mechanism rather than the state,
+which is held back for confirmation.
 
 ## The evidentiary ladder
 
@@ -80,9 +88,16 @@ other — `results/LATEST` names the most recent.
 
 ## Where to look
 
+- [`docs/hypotheses/001_sorting_validation_results.md`](docs/hypotheses/001_sorting_validation_results.md)
+  — **start here.** What validation found, including the two rules that failed
+  and the one prediction that was wrong.
 - [`docs/hypotheses/001_sorting.md`](docs/hypotheses/001_sorting.md) — the
   experiment: hypothesis, representations, interventions, phase split, nulls,
   limitations, reproduction command.
+- [`001_sorting_validation.md`](docs/hypotheses/001_sorting_validation.md) and
+  [`_v2`](docs/hypotheses/001_sorting_validation_v2.md) — the pre-registrations,
+  both committed before their seeds were run. v1 failed on its own pilot; v2
+  says why and what it cost.
 - [`docs/sources/README.md`](docs/sources/README.md) — which rule came from the
   paper, which from its reference code, and the two deliberate deviations.
 - `src/experiments/sorting/representations.py` — the frozen candidate set.
