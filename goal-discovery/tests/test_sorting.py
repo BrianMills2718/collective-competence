@@ -80,3 +80,39 @@ def test_unknown_activation_order_is_rejected_loudly():
     w.order = "whatever"  # type: ignore[assignment]
     with pytest.raises(ValueError, match="unknown activation order"):
         w.step_tick()
+
+
+def test_quiescence_implies_the_goal_for_an_undamaged_array():
+    """The regression this suite missed.
+
+    An earlier quiescence check asked whether a probe activation changed the
+    *values*, which reads a selection cell advancing its ideal position as
+    inaction and halted the run a few ticks short of sorted. Nothing here
+    noticed, and a validation run reported selection reaching the goal in 1 of
+    40 seeds as though it were a property of the published rule.
+
+    With no frozen cells and one algotype throughout, quiescence must mean
+    sorted, for every algotype and every start.
+    """
+    import random as _random
+
+    for algotype in ALGOTYPES:
+        for seed in range(6):
+            values = list(range(25))
+            _random.Random(seed).shuffle(values)
+            w = SortingWorld.from_values(values, algotype, seed=seed)
+            w.run(20_000)
+            assert w.quiescent(), f"{algotype} seed {seed} hit the tick cap"
+            assert w.values == sorted(w.values), (
+                f"{algotype} seed {seed} declared quiescence at {w.values}"
+            )
+
+
+def test_quiescence_notices_a_selection_cell_that_only_moves_its_ideal_position():
+    # Value 9 sits left of value 1 with its ideal position on itself, so it
+    # will not move; the cell holding 1 has an in-bounds ideal position it has
+    # not reached. That is a pending action even though the array is unchanged.
+    w = SortingWorld(cells=[Cell(9, "selection", cell_id=0), Cell(1, "selection", cell_id=1)])
+    w.cells[0].ideal_position = 0
+    w.cells[1].ideal_position = 0
+    assert not w.quiescent()

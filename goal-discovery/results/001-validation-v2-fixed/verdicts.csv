@@ -1,0 +1,45 @@
+rule,arm,value,threshold,n,passed,note,faster_than_matched,representation,baseline_consistency,damaged_consistency
+R1_approach,bubble,1.0,0.95,40,True,,,,,
+R2_maintenance,bubble,1.0,1.0,40,True,,,,,
+R3_recovery,bubble,1.0,0.9,269,True,,,,,
+R4_damage_rate,bubble,0.7472222222222222,,360,,"reported, not a pass/fail rule",,,,
+R1_approach,insertion,1.0,0.95,40,True,,,,,
+R2_maintenance,insertion,1.0,1.0,40,True,,,,,
+R3_recovery,insertion,1.0,0.9,261,True,,,,,
+R4_damage_rate,insertion,0.725,,360,,"reported, not a pass/fail rule",,,,
+R1_approach,selection,1.0,0.95,40,True,,,,,
+R2_maintenance,selection,1.0,1.0,40,True,,,,,
+R3_recovery,selection,0.5299145299145299,0.9,234,False,,,,,
+R4_damage_rate,selection,0.65,,360,,"reported, not a pass/fail rule",,,,
+R1_approach,random_swap,0.5,0.95,40,False,,,,,
+R2_maintenance,random_swap,nan,1.0,0,,not applicable: the null has no absorbing state,,,,
+R3_recovery,random_swap,0.0,0.9,100,False,,,,,
+R4_damage_rate,random_swap,0.2777777777777778,,360,,"reported, not a pass/fail rule",,,,
+R5_null_ceiling,random_swap,0.0,0.25,100,True,,,,,
+R5_margin_over_null,bubble,1.0,0.4,,True,,,,,
+R5_margin_over_null,insertion,1.0,0.4,,True,,,,,
+R5_margin_over_null,selection,0.5299145299145299,0.4,,True,,,,,
+R7_sufficiency,bubble,1.1,,269,,"measured, not judged; ratio of recovery ticks to matched baseline ticks",0.40148698884758366,,,
+R7_sufficiency,insertion,0.861244019138756,,261,,"measured, not judged; ratio of recovery ticks to matched baseline ticks",0.6551724137931034,,,
+R7_sufficiency,selection,0.8284313725490196,,124,,"measured, not judged; ratio of recovery ticks to matched baseline ticks",0.8951612903225806,,,
+R7_sufficiency,random_swap,nan,,0,,"measured, not judged; ratio of recovery ticks to matched baseline ticks",nan,,,
+R6_consistency,bubble,1.0,0.9,40,True,,,boundary_length,1.0,1.0
+R6_consistency,bubble,1.0,0.9,40,True,,,unlike_neighbor_fraction,1.0,1.0
+R6_consistency,bubble,1.0,0.9,40,True,,,largest_cluster_fraction,1.0,1.0
+R6_consistency,bubble,1.0,0.9,40,True,,,sortedness_value,1.0,1.0
+R6_consistency,bubble,1.0,0.9,40,True,,,inversions,1.0,1.0
+R6_consistency,insertion,1.0,0.9,40,True,,,boundary_length,1.0,1.0
+R6_consistency,insertion,1.0,0.9,40,True,,,unlike_neighbor_fraction,1.0,1.0
+R6_consistency,insertion,1.0,0.9,40,True,,,largest_cluster_fraction,1.0,1.0
+R6_consistency,insertion,1.0,0.9,40,True,,,sortedness_value,1.0,1.0
+R6_consistency,insertion,1.0,0.9,40,True,,,inversions,1.0,1.0
+R6_consistency,selection,1.0,0.9,40,True,,,boundary_length,1.0,1.0
+R6_consistency,selection,1.0,0.9,40,True,,,unlike_neighbor_fraction,1.0,1.0
+R6_consistency,selection,0.9743589743589743,0.9,40,True,,,largest_cluster_fraction,1.0,0.9743589743589743
+R6_consistency,selection,0.8290598290598291,0.9,40,False,,,sortedness_value,1.0,0.8290598290598291
+R6_consistency,selection,0.9743589743589743,0.9,40,True,,,inversions,1.0,0.9743589743589743
+R6_consistency,random_swap,0.5,0.9,40,False,,,boundary_length,0.5,0.56
+R6_consistency,random_swap,0.5,0.9,40,False,,,unlike_neighbor_fraction,0.5,0.56
+R6_consistency,random_swap,0.45,0.9,40,False,,,largest_cluster_fraction,0.45,0.49
+R6_consistency,random_swap,0.34,0.9,40,False,,,sortedness_value,0.45,0.34
+R6_consistency,random_swap,0.5,0.9,40,False,,,inversions,0.5,0.51

@@ -12,3 +12,4 @@ results/*
 !results/dayone-baseline/
 !results/dayone-branch/
 !results/001-validation-v2/
+!results/001-validation-v2-fixed/

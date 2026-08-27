@@ -291,38 +291,66 @@ class SortingWorld:
             self._RULES[cell.algotype](self, pos)
         self.tick += 1
 
+    def _would_change_state(self, pos: int) -> bool:
+        """Would this cell's next activation change anything?
+
+        "Anything" includes a cell's own internal state, not only the array. A
+        selection cell that loses its comparison advances its ideal position and
+        moves nothing, which is progress: it is searching for a position it
+        deserves. An earlier version of this method probed by copying the world,
+        activating, and asking whether the *values* changed, which classified
+        that as inaction and halted selection runs a few ticks before they
+        finished sorting. Deciding per rule is both exact and cheaper.
+        """
+        cell = self.cells[pos]
+        n = len(self.cells)
+
+        if cell.algotype == "random_swap":
+            return True  # a rule-free cell always wants to act
+
+        if cell.algotype == "bubble":
+            if pos > 0:
+                left = self.cells[pos - 1]
+                if left.swappable and cell.value < left.value:
+                    return True
+            if pos + 1 < n:
+                right = self.cells[pos + 1]
+                if right.swappable and cell.value > right.value:
+                    return True
+            return False
+
+        if cell.algotype == "insertion":
+            if pos == 0:
+                return False
+            prev = None
+            for k in range(pos):
+                other = self.cells[k]
+                if other.freeze is not Freeze.NONE:
+                    prev = None
+                    continue
+                if prev is not None and other.value < prev:
+                    return False  # prefix unsorted, so it does nothing
+                prev = other.value
+            left = self.cells[pos - 1]
+            return left.swappable and cell.value < left.value
+
+        if cell.algotype == "selection":
+            # In bounds and not already there means it will either swap or
+            # advance its ideal position. Either is a state change.
+            return 0 <= cell.ideal_position < n and cell.ideal_position != pos
+
+        raise ValueError(f"no quiescence rule for algotype {cell.algotype!r}")
+
     def quiescent(self) -> bool:
-        """No acting cell would move. For a homogeneous ascending array this is
-        exactly 'sorted'; with frozen or mixed cells it need not be."""
-        for pos, cell in enumerate(self.cells):
-            if not cell.acts:
-                continue
-            if cell.algotype == "random_swap":
-                return False  # a rule-free cell always wants to act
-            if cell.algotype == "bubble":
-                if pos > 0 and self.cells[pos - 1].swappable and cell.value < self.cells[pos - 1].value:
-                    return False
-                if (
-                    pos + 1 < len(self.cells)
-                    and self.cells[pos + 1].swappable
-                    and cell.value > self.cells[pos + 1].value
-                ):
-                    return False
-            else:
-                probe = SortingWorld(
-                    cells=[
-                        Cell(c.value, c.algotype, c.freeze, c.ideal_position, c.cell_id)
-                        for c in self.cells
-                    ],
-                    order=self.order,
-                    seed=self.seed,
-                )
-                probe.rng = random.Random(0)
-                before = [c.value for c in probe.cells]
-                self._RULES[cell.algotype](probe, pos)
-                if [c.value for c in probe.cells] != before:
-                    return False
-        return True
+        """No acting cell would change the world on its next activation.
+
+        For a homogeneous ascending array this coincides with 'sorted'; with
+        frozen or mixed cells it need not, which is why it is defined in terms
+        of state change rather than sortedness.
+        """
+        return not any(
+            cell.acts and self._would_change_state(pos) for pos, cell in enumerate(self.cells)
+        )
 
     def run(self, ticks: int, stop_when_quiescent: bool = True) -> None:
         for _ in range(ticks):
