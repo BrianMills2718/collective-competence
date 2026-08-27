@@ -1,0 +1,101 @@
+{
+  "config": {
+    "arms": [
+      "bubble",
+      "insertion",
+      "selection",
+      "random_swap"
+    ],
+    "branch": {
+      "horizon_minimum": 200,
+      "horizon_multiplier": 3,
+      "intervention_kind": "block_swap",
+      "magnitudes": [
+        0.05,
+        0.1,
+        0.2
+      ],
+      "timings": {
+        "early": 0.2,
+        "late": 0.9,
+        "mid": 0.6
+      }
+    },
+    "goal_region": {
+      "boundary_length_at_most": 0
+    },
+    "maintenance_probe_ticks": 200,
+    "null_arms": [
+      "random_swap"
+    ],
+    "null_schedule_matched_to": "bubble",
+    "phase": "validation",
+    "seeds": {
+      "count": 40,
+      "start": 2000
+    },
+    "suite": "validation_v2",
+    "system": {
+      "max_ticks": 3000,
+      "n": 40,
+      "order": "shuffled"
+    },
+    "thresholds": {
+      "R1_approach_rate": 0.95,
+      "R3_recovery_rate": 0.9,
+      "R5_margin_over_null": 0.4,
+      "R5_null_recovery_ceiling": 0.25,
+      "R6_sign_consistency_baseline": 0.95,
+      "R6_sign_consistency_damaged": 0.9
+    }
+  },
+  "git_commit": "c0af8920efc9079222dd0de4cea53438ddae99d0",
+  "phase": "validation",
+  "preregistration": "docs/hypotheses/001_sorting_validation.md",
+  "representation_set_version": "sorting-reps-v2",
+  "rule_version": "sorting-v1",
+  "run_id": "001-validation-v2-c34",
+  "seeds": [
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026,
+    2027,
+    2028,
+    2029,
+    2030,
+    2031,
+    2032,
+    2033,
+    2034,
+    2035,
+    2036,
+    2037,
+    2038,
+    2039
+  ],
+  "suite": "configs/suites/validation_v2.yaml"
+}

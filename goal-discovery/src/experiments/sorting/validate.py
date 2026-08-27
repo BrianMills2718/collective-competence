@@ -28,6 +28,7 @@ from src.experiments.sorting.representations import (
     REPRESENTATIONS,
     boundary_length,
     evaluate,
+    sorted_prefix_fraction,
 )
 from src.experiments.sorting.run import git_commit
 
@@ -51,6 +52,7 @@ def run_baseline(cfg: dict, arm: str, seed: int, tick_budget: int | None) -> dic
     first_zero: int | None = None
     quiesce_tick: int | None = None
     trace: list[float] = [boundary_length(observe(w))]
+    prefix_trace: list[float] = [sorted_prefix_fraction(observe(w))]
     for _ in range(cap):
         if w.quiescent():
             quiesce_tick = w.tick
@@ -58,6 +60,7 @@ def run_baseline(cfg: dict, arm: str, seed: int, tick_budget: int | None) -> dic
         w.step_tick()
         bl = boundary_length(observe(w))
         trace.append(bl)
+        prefix_trace.append(sorted_prefix_fraction(observe(w)))
         if first_zero is None and bl == 0:
             first_zero = w.tick
     if quiesce_tick is None:
@@ -90,9 +93,50 @@ def run_baseline(cfg: dict, arm: str, seed: int, tick_budget: int | None) -> dic
         "boundary_min": min(trace),
         "boundary_max": max(trace),
         "boundary_trace": trace,
+        "prefix_trace": prefix_trace,
         **{f"start_{k}": v for k, v in start.items()},
         **{f"end_{k}": v for k, v in end.items()},
     }
+
+
+def matched_last_crossing(trace: list[float], b: float, higher_is_better: bool) -> int | None:
+    """C4's tighter comparator, declared in 001_sorting_confirmation.md.
+
+    The *last* tick before the baseline first reached the goal at which it was
+    still scoring at least as badly as b. `matched_baseline_cost` takes the
+    first such tick instead, and because these measures oscillate that tick can
+    be one scoring far better than b, understating the matched cost and
+    inflating the ratio. Both are computed so the size of that bias is visible
+    rather than asserted.
+    """
+    try:
+        goal_tick = next(i for i, v in enumerate(trace) if v == 0)
+    except StopIteration:
+        return None
+    worse_or_equal = [
+        i for i, v in enumerate(trace[:goal_tick]) if (v <= b if higher_is_better else v >= b)
+    ]
+    if not worse_or_equal:
+        return None
+    return goal_tick - worse_or_equal[-1]
+
+
+def matched_prefix_crossing(prefix_trace: list[float], boundary_trace: list[float],
+                            p: float) -> int | None:
+    """C3: match on sorted-prefix length instead of boundary length.
+
+    Validation found boundary_length blind to the quantity that governs the
+    insertion algotype's rate. If the prefix is what matters, matching on it
+    should bring insertion's ratio toward 1.
+    """
+    try:
+        goal_tick = next(i for i, v in enumerate(boundary_trace) if v == 0)
+    except StopIteration:
+        return None
+    worse = [i for i, v in enumerate(prefix_trace[:goal_tick]) if v <= p]
+    if not worse:
+        return None
+    return goal_tick - worse[-1]
 
 
 def matched_baseline_cost(trace: list[float], b: float) -> int | None:
@@ -115,7 +159,7 @@ def matched_baseline_cost(trace: list[float], b: float) -> int | None:
 
 def run_branch(
     cfg: dict, arm: str, seed: int, branch_tick: int, magnitude: float, horizon: int,
-    goal_at_most: float, baseline_trace: list[float],
+    goal_at_most: float, baseline_trace: list[float], baseline_prefix: list[float],
 ) -> dict[str, Any]:
     w = make_world(cfg, arm, seed)
     for _ in range(branch_tick):
@@ -156,6 +200,10 @@ def run_branch(
         "recovered": recovered_at is not None,
         "ticks_to_recover": (recovered_at - branch_tick) if recovered_at is not None else None,
         "matched_baseline_ticks": matched_baseline_cost(baseline_trace, post["boundary_length"]),
+        "matched_last_crossing_ticks": matched_last_crossing(
+            baseline_trace, post["boundary_length"], higher_is_better=False),
+        "matched_prefix_ticks": matched_prefix_crossing(
+            baseline_prefix, baseline_trace, post["sorted_prefix_fraction"]),
         **{f"pre_{k}": v for k, v in pre.items()},
         **{f"post_{k}": v for k, v in post.items()},
         **{f"final_{k}": v for k, v in final.items()},
@@ -215,23 +263,28 @@ def judge(cfg: dict, base: list[dict], branches: list[dict]) -> list[dict]:
                         "threshold": t["R5_margin_over_null"], "n": None,
                         "passed": margin >= t["R5_margin_over_null"]})
 
+    comparators = {
+        "boundary_first_crossing": "matched_baseline_ticks",   # v2, biased upward
+        "boundary_last_crossing": "matched_last_crossing_ticks",  # C4, tighter
+        "prefix_last_crossing": "matched_prefix_ticks",        # C3
+    }
     for arm in cfg["arms"]:
-        pairs = [
-            (r["ticks_to_recover"], r["matched_baseline_ticks"])
-            for r in branches
-            if r["arm"] == arm and r["damaged"] and r["recovered"]
-            and r["matched_baseline_ticks"] not in (None, 0)
-        ]
-        ratios = [t / m for t, m in pairs]
-        out.append({
-            "rule": "R7_sufficiency", "arm": arm,
-            "value": statistics.median(ratios) if ratios else float("nan"),
-            "threshold": None, "n": len(ratios), "passed": None,
-            "faster_than_matched": (
-                sum(1 for x in ratios if x < 1) / len(ratios) if ratios else float("nan")
-            ),
-            "note": "measured, not judged; ratio of recovery ticks to matched baseline ticks",
-        })
+        for label, field in comparators.items():
+            ratios = [
+                r["ticks_to_recover"] / r[field]
+                for r in branches
+                if r["arm"] == arm and r["damaged"] and r["recovered"]
+                and r[field] not in (None, 0)
+            ]
+            out.append({
+                "rule": "R7_sufficiency", "arm": arm, "comparator": label,
+                "value": statistics.median(ratios) if ratios else float("nan"),
+                "threshold": None, "n": len(ratios), "passed": None,
+                "faster_than_matched": (
+                    sum(1 for x in ratios if x < 1) / len(ratios) if ratios else float("nan")
+                ),
+                "note": "measured, not judged",
+            })
 
     for arm in cfg["arms"]:
         b = [r for r in base if r["arm"] == arm]
@@ -304,11 +357,13 @@ def main() -> None:
         for seed in seeds:
             brow = next(r for r in base if r["arm"] == arm and r["seed"] == seed)
             q, trace = brow["quiesce_tick"], brow["boundary_trace"]
+            ptrace = brow["prefix_trace"]
             horizon = max(cfg["branch"]["horizon_minimum"], cfg["branch"]["horizon_multiplier"] * q)
             for label, frac in cfg["branch"]["timings"].items():
                 tick = max(1, round(frac * q))
                 for mag in cfg["branch"]["magnitudes"]:
-                    row = run_branch(cfg, arm, seed, tick, mag, horizon, goal_at_most, trace)
+                    row = run_branch(cfg, arm, seed, tick, mag, horizon, goal_at_most,
+                                     trace, ptrace)
                     row["timing"] = label
                     branches.append(row)
         sub = [r for r in branches if r["arm"] == arm]
@@ -317,8 +372,9 @@ def main() -> None:
               f", recovery among damaged {_rate([r['recovered'] for r in dmg]):.2f}")
 
     verdicts = judge(cfg, base, branches)
-    io.write_rows(d, "baselines.csv", [{k: v for k, v in r.items() if k != "boundary_trace"}
-                                        for r in base])
+    io.write_rows(d, "baselines.csv",
+                  [{k: v for k, v in r.items() if k not in ("boundary_trace", "prefix_trace")}
+                   for r in base])
     io.write_rows(d, "branches.csv", branches)
     io.write_rows(d, "verdicts.csv", verdicts)
     io.write_metadata(d, {
@@ -339,13 +395,14 @@ def main() -> None:
         mark = {True: "PASS", False: "FAIL", None: "----"}[v["passed"]]
         print(f"  {v['rule']:<21} {v['arm']:<14} {val:>6}  {thr:>9}  {mark}")
     print("\n  R7 sufficiency (median recovery ticks / matched baseline ticks):")
+    print(f"    {'arm':<12} {'comparator':<24} {'ratio':>6} {'faster':>7}    n")
     for v in verdicts:
         if v["rule"] != "R7_sufficiency":
             continue
         val = "n/a" if v["value"] != v["value"] else f"{v['value']:.2f}"
         faster = ("n/a" if v["faster_than_matched"] != v["faster_than_matched"]
                   else f"{v['faster_than_matched']:.2f}")
-        print(f"    {v['arm']:<14} ratio {val:>5}  faster-than-matched {faster:>5}  n={v['n']}")
+        print(f"    {v['arm']:<12} {v['comparator']:<24} {val:>6} {faster:>7}  {v['n']:>4}")
     print("\n  R6 consistency, passing representations per arm:")
     for arm in cfg["arms"]:
         ok = [v["representation"] for v in verdicts

@@ -69,7 +69,17 @@ R3 still fails for selection at 0.530 — but that is now a real result about
 recovery, not the artifact it was. Selection reaches the goal reliably when
 undisturbed and reaches it after damage only about half the time.
 
-## R7: the ratio tracks how much hidden state a rule carries
+## R7: an ordering claim that confirmation withdrew
+
+> **Superseded.** The interpretation below — that the ratio tracks how much
+> hidden state a rule carries — did not survive the confirmation phase. Under a
+> tighter and more defensible matched-point definition (C4) the ordering becomes
+> bubble 1.83, insertion 1.00, selection 0.91, and the story collapses. R7 is not
+> robust to an arbitrary choice of matched point. See
+> [the confirmation results](001_sorting_confirmation_results.md). The section is
+> left standing so the withdrawal is legible; the conclusion that
+> `boundary_length` is insufficient survives, but it now rests on C2, which
+> depends on no comparator at all.
 
 R7 compares a damaged branch's ticks-to-goal against the same seed's own
 **unperturbed** run, measured from the first moment that run scored the same

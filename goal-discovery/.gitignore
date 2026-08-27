@@ -13,3 +13,5 @@ results/*
 !results/dayone-branch/
 !results/001-validation-v2/
 !results/001-validation-v2-fixed/
+!results/001-validation-v2-c34/
+!results/001-confirmation/

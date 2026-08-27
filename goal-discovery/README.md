@@ -16,23 +16,32 @@ representations and interventions are all written by hand.
 
 | | | |
 |---|---|---|
-| 001 | cell-view sorting (Zhang/Goldstein/Levin replication) | validated; **passive convergence only** |
+| 001 | cell-view sorting (Zhang/Goldstein/Levin replication) | **complete** — discovery, validation, confirmation |
 | 002 | ball-in-bowl passive convergence | not started |
 | 003 | thermostat-like negative feedback | not started |
 | 004 | redundant compensatory controller | not started |
 | 005 | deterministic adaptation across episodes | not started |
 
-Experiment 001 has been through validation on 40 held-out seeds against a
-rule-free null. The null separation is total — the real algotypes reach the goal
-after damage in 100% of runs and the null in 0% — but that is evidence about
-*converging*, which is the bottom rung. Nothing measured so far distinguishes
-recovery from convergence, and the measurement designed to try
-([R7](docs/hypotheses/001_sorting_validation_results.md)) found that for bubble
-a damaged state is interchangeable with an undamaged one scoring the same.
+Experiment 001 is finished. Three things came out of it.
 
-**So Experiment 001 supports passive convergence and nothing above it.** Getting
-higher needs a perturbation that damages the mechanism rather than the state,
-which is held back for confirmation.
+The replication is faithful: the paper's reported inversion — cell-view bubble
+has the *lowest* final error under moveable frozen cells and the *highest* under
+immovable ones — reproduces at every frozen-cell count, matching the published
+means to within about 0.1 under immovable freezing.
+
+The observable state is not sufficient to predict whether the goal is reached.
+Freezing three cells mid-run changes no values at all, so every representation
+reads identically the instant it fires, yet it costs the insertion algotype 97
+percentage points of goal attainment. Scrambling a fifth of the array — maximally
+visible to those same measures — costs it nothing. An attractor account predicts
+the opposite.
+
+And two measures I invented to detect that failed and were withdrawn, which is
+in [the confirmation results](docs/hypotheses/001_sorting_confirmation_results.md)
+alongside the rest.
+
+What 001 does **not** show is regulation, compensation, or adaptation. Those need
+the contrastive systems 002–005.
 
 ## The evidentiary ladder
 
