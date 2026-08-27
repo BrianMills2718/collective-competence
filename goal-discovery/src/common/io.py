@@ -48,8 +48,17 @@ def write_rows(d: Path, name: str, rows: Iterable[dict[str, Any]]) -> Path:
     if not rows:
         p.write_text("")
         return p
+    # Rows may be heterogeneous (a verdict row carries a note, most do not), so
+    # the header is the union of every key in first-seen order rather than the
+    # first row's keys -- otherwise a later optional field raises mid-write and
+    # the evidence file is left truncated.
+    fields: list[str] = []
+    for r in rows:
+        for k in r:
+            if k not in fields:
+                fields.append(k)
     with p.open("w", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
+        w = csv.DictWriter(fh, fieldnames=fields, restval="")
         w.writeheader()
         w.writerows(rows)
     return p

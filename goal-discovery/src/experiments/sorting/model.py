@@ -32,8 +32,14 @@ from src.common.snapshots import SNAPSHOT_SCHEMA_VERSION, snapshot_id
 
 RULE_VERSION = "sorting-v1"
 
-Algotype = Literal["bubble", "insertion", "selection"]
+Algotype = Literal["bubble", "insertion", "selection", "random_swap"]
 ALGOTYPES: tuple[Algotype, ...] = ("bubble", "insertion", "selection")
+
+# Not one of the paper's algotypes. A null model: same locality, same activation
+# schedule, same step accounting, no local rule. See docs/hypotheses/
+# 001_sorting_validation.md -- it is what makes a recovery claim falsifiable.
+NULL_ALGOTYPES: tuple[str, ...] = ("random_swap",)
+ALL_ARMS: tuple[str, ...] = ALGOTYPES + NULL_ALGOTYPES
 
 
 class Freeze(str, Enum):
@@ -250,10 +256,27 @@ class SortingWorld:
             return
         self._swap(pos, target)
 
+    def _act_random_swap(self, pos: int) -> None:
+        """Null model. Picks a side exactly as the bubble cell does and pays the
+        same comparison step, then replaces the value comparison with a coin
+        flip. It therefore moves at least as much as the real system near a
+        sorted arrangement, where bubble has almost nothing left to swap. The
+        null is given the advantage on purpose: it must not be a strawman."""
+        look_right = self.rng.random() < 0.5
+        target = pos + 1 if look_right else pos - 1
+        if not 0 <= target < len(self.cells):
+            return
+        self.steps += 1  # the same look the bubble cell pays for
+        if not self.cells[target].swappable:
+            return
+        if self.rng.random() < 0.5:
+            self._swap(pos, target)
+
     _RULES: ClassVar[dict[str, Callable[[SortingWorld, int], None]]] = {
         "bubble": _act_bubble,
         "insertion": _act_insertion,
         "selection": _act_selection,
+        "random_swap": _act_random_swap,
     }
 
     # ---------------------------------------------------------------- driving
@@ -274,6 +297,8 @@ class SortingWorld:
         for pos, cell in enumerate(self.cells):
             if not cell.acts:
                 continue
+            if cell.algotype == "random_swap":
+                return False  # a rule-free cell always wants to act
             if cell.algotype == "bubble":
                 if pos > 0 and self.cells[pos - 1].swappable and cell.value < self.cells[pos - 1].value:
                     return False

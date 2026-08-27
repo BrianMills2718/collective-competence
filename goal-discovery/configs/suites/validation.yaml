@@ -1,0 +1,36 @@
+# Experiment 001, validation phase. Thresholds come from
+# docs/hypotheses/001_sorting_validation.md and are not to be edited here.
+suite: validation
+phase: validation
+
+system:
+  n: 40
+  order: "shuffled"
+  max_ticks: 3000
+
+seeds: {start: 1000, count: 40}     # never used in discovery
+
+arms: ["bubble", "insertion", "selection", "random_swap"]
+null_arms: ["random_swap"]
+# The null never becomes quiescent, so it has no time-to-quiescence of its own.
+# It is given the tick budget of the same seed's bubble run, which is the
+# discovery arm. Recorded here because the pre-registration did not anticipate
+# needing it.
+null_schedule_matched_to: "bubble"
+
+branch:
+  timings: {early: 0.2, mid: 0.6, late: 0.9}   # fraction of that run's own quiescence tick
+  magnitudes: [0.05, 0.10, 0.20]
+  intervention_kind: "block_swap"
+  horizon_multiplier: 3            # horizon = 3x the arm's baseline ticks
+  horizon_minimum: 200
+
+maintenance_probe_ticks: 200       # ticks to keep running after first reaching 0
+
+thresholds:
+  R1_approach_rate: 0.95
+  R3_recovery_rate: 0.90
+  R5_null_recovery_ceiling: 0.25
+  R5_margin_over_null: 0.40
+  R6_sign_consistency_baseline: 0.95
+  R6_sign_consistency_damaged: 0.90
