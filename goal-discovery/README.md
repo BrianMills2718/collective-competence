@@ -45,7 +45,8 @@ authoritative roadmap. Older plans are retained as decision history.
 | P4-002 | blind heterogeneous target inference | **complete / promoted** — 2.0° median target error |
 | P5-000 | existing-data representation-discovery benchmark | **complete / no-go** — thermostat signal found; sorting lost to endpoint null; generic pipeline not promoted |
 | P5-001 | standard Slime Mold Network threshold test | **complete / no-go** — extraction worked; mechanism direction reversed; network predictor failed |
-| P5-002 | stability–plasticity confirmation | **next** — fresh seeds and two relocation geometries; one bounded confirmation |
+| P5-002 | stability–plasticity confirmation | **complete / no-go** — directional trend too small and seed-sensitive; standard model line closed |
+| P6-000 | phenomenon-first benchmark qualification | **next** — at most three mature candidates; select one or specify the missing benchmark |
 
 Before Experiment 003, run the time-boxed
 [Mesa compatibility spike](docs/plans/x01_mesa_spike.md). It asks whether an
@@ -166,6 +167,14 @@ rose from 0.324 to 0.885 while relocated organization peaked at an intermediate
 boost. The [P5-001 results](docs/hypotheses/p5_001_slime_mold_network_threshold_results.md)
 therefore fund exactly one fresh-seed stability–plasticity confirmation, not a
 larger model or graph-analysis programme.
+
+P5-002 then rejected that candidate tradeoff on fresh seeds and a second
+relocation distance. The spatial visual instrument remained reliable, but the
+effect size and paired-seed consistency did not. The
+[P5-002 results](docs/hypotheses/p5_002_stability_plasticity_confirmation_results.md)
+close the standard Slime Mold Network line and keep causal/control machinery
+locked. The next move is a short phenomenon-first qualification of no more than
+three mature off-the-shelf benchmarks, not another open-ended generator screen.
 
 Research time is allocated by the
 [progress-allocation protocol](docs/plans/progress_allocation_protocol.md):

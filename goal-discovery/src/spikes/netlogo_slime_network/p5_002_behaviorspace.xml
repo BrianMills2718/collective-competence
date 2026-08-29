@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experiments>
+  <experiment name="p5-002-sham" repetitions="6" sequentialRunOrder="true" runMetricsEveryStep="false" timeLimit="600">
+    <setup>let requested-boost food-signal-boost
+random-seed (801 + ((behaviorspace-run-number - 1) mod 6))
+setup
+set food-signal-boost requested-boost
+reset-ticks</setup>
+    <go>go</go>
+    <metrics>
+      <metric>ticks</metric><metric>count cytoplasm</metric>
+      <metric>count cytoplasm with [carrying-signal &gt; 0]</metric>
+      <metric>sum [cp-fluid] of patches</metric>
+      <metric>[(list pxcor pycor cp-fluid wall? food)] of patches</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="setup-choice"><value value="&quot;shortest-path&quot;"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="visualize-velocity?"><value value="false"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="visualize-signaling-molecule?"><value value="false"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="food-signal-boost"><value value="0"></value><value value="40"></value><value value="80"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p5-002-near" repetitions="6" sequentialRunOrder="true" runMetricsEveryStep="false" timeLimit="600">
+    <setup>let requested-boost food-signal-boost
+random-seed (801 + ((behaviorspace-run-number - 1) mod 6))
+setup
+set food-signal-boost requested-boost
+reset-ticks</setup>
+    <go>if ticks = 300 [
+  ask patches with [pxcor &gt;= 38 and pxcor &lt;= 43 and pycor &gt;= -26 and pycor &lt;= -25] [set food 0]
+  ask patches with [pxcor &gt;= 38 and pxcor &lt;= 43 and pycor &gt;= 0 and pycor &lt;= 1] [set food 1]
+]
+go</go>
+    <metrics>
+      <metric>ticks</metric><metric>count cytoplasm</metric>
+      <metric>count cytoplasm with [carrying-signal &gt; 0]</metric>
+      <metric>sum [cp-fluid] of patches</metric>
+      <metric>[(list pxcor pycor cp-fluid wall? food)] of patches</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="setup-choice"><value value="&quot;shortest-path&quot;"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="visualize-velocity?"><value value="false"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="visualize-signaling-molecule?"><value value="false"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="food-signal-boost"><value value="0"></value><value value="40"></value><value value="80"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p5-002-far" repetitions="6" sequentialRunOrder="true" runMetricsEveryStep="false" timeLimit="600">
+    <setup>let requested-boost food-signal-boost
+random-seed (801 + ((behaviorspace-run-number - 1) mod 6))
+setup
+set food-signal-boost requested-boost
+reset-ticks</setup>
+    <go>if ticks = 300 [
+  ask patches with [pxcor &gt;= 38 and pxcor &lt;= 43 and pycor &gt;= -26 and pycor &lt;= -25] [set food 0]
+  ask patches with [pxcor &gt;= 38 and pxcor &lt;= 43 and pycor &gt;= 20 and pycor &lt;= 21] [set food 1]
+]
+go</go>
+    <metrics>
+      <metric>ticks</metric><metric>count cytoplasm</metric>
+      <metric>count cytoplasm with [carrying-signal &gt; 0]</metric>
+      <metric>sum [cp-fluid] of patches</metric>
+      <metric>[(list pxcor pycor cp-fluid wall? food)] of patches</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="setup-choice"><value value="&quot;shortest-path&quot;"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="visualize-velocity?"><value value="false"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="visualize-signaling-molecule?"><value value="false"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="food-signal-boost"><value value="0"></value><value value="40"></value><value value="80"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+</experiments>

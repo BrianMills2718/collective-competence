@@ -127,7 +127,7 @@ checkpoint network features made held-out prediction worse. See the
 [`P5-001 results`](../hypotheses/p5_001_slime_mold_network_threshold_results.md).
 Do not tune the failed predictor.
 
-### 2.5. Stability–plasticity confirmation — active, 60 minutes
+### 2.5. Stability–plasticity confirmation — complete / no-go
 
 P5-001 exposed one large, goal-relevant directional effect not covered by its
 claim: food signaling may trade reconfiguration capacity for consolidation of
@@ -150,12 +150,39 @@ Stop the standard Slime Mold Network line if the directional tradeoff fails in
 either relocation geometry. A pass licenses a separate path-dependence
 intervention, not a representation or agency claim.
 
+Outcome: extraction again worked on every field, but the large P5-001 effect did
+not reproduce on fresh seeds. Sham gain was 0.090 rather than the required 0.30,
+and near/far difference-in-differences were −0.190/−0.132 rather than at most
+−0.30. See the
+[`P5-002 results`](../hypotheses/p5_002_stability_plasticity_confirmation_results.md).
+The standard Slime Mold Network line is closed.
+
 ### 3. Multiscale causal/control analysis — conditional
 
 Unlock only when a compact macro representation predicts held-out intervention
 responses and has a manageable transition representation. Then run a bounded
 reuse spike for PyMergence/einet or a Koopman-style control comparison. Do not
 implement causal-emergence mathematics locally.
+
+This remains locked: neither P5-000 nor P5-001 produced a promoted held-out
+macro predictor.
+
+### 4. Phenomenon-first benchmark qualification — active, 45 minutes
+
+The next bottleneck is a robust phenomenon, not more analysis machinery. Survey
+at most three mature off-the-shelf model/reproduction packages against one
+fixed scorecard:
+
+- published perturbation and recovery or reconfiguration behavior;
+- independent seeds, layouts, or tasks rather than repeated time rows;
+- an observable macro field or structure not identical to the intervention;
+- a mechanism-disabled or matched passive counterfactual;
+- standard visualization plus headless, scriptable batch execution;
+- provenance, license, and a first discriminating run achievable in 90 minutes.
+
+Select one only if it clears every hard requirement and materially differs from
+the already closed attractor/controller examples. Otherwise stop and write the
+missing benchmark specification instead of adopting another generator.
 
 ## Explicit stop and defer list
 
@@ -168,7 +195,7 @@ implement causal-emergence mathematics locally.
 
 ## Portfolio view
 
-Steps 0–2 are complete. Step 2.5 is the sole active sprint because P5-001
-produced a large unexpected stability–plasticity direction worth one fresh
-confirmation. Step 3 remains locked. This keeps the next spend on a
-discriminating phenomenon rather than on failed predictor machinery.
+Steps 0–2.5 are complete; the standard-model line is closed. Step 3 remains
+locked. Step 4 is the sole active sprint and is a bounded qualification decision,
+not implementation. This keeps the next spend on finding a phenomenon that can
+support the end goal rather than on tuning failed representations.

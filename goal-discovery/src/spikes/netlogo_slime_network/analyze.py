@@ -59,7 +59,14 @@ class NetworkSurface:
     skeleton: np.ndarray
 
 
-def read_behaviorspace(path: Path, arm: str) -> pd.DataFrame:
+def read_behaviorspace(
+    path: Path,
+    arm: str,
+    *,
+    boosts: tuple[int, ...] = BOOSTS,
+    seeds: tuple[int, ...] = SEEDS,
+    expected_tick: int | None = None,
+) -> pd.DataFrame:
     csv.field_size_limit(sys.maxsize)
     with path.open(newline="", encoding="utf-8-sig") as handle:
         rows = list(csv.reader(handle))
@@ -69,8 +76,9 @@ def read_behaviorspace(path: Path, arm: str) -> pd.DataFrame:
         raise ValueError(f"{path} has no BehaviorSpace header") from error
     headers = rows[header_index]
     data = [row for row in rows[header_index + 1 :] if row and any(value.strip() for value in row)]
-    if len(data) != 30 or any(len(row) != len(headers) for row in data):
-        raise ValueError(f"{path} does not contain 30 rectangular final rows")
+    expected_rows = len(boosts) * len(seeds)
+    if len(data) != expected_rows or any(len(row) != len(headers) for row in data):
+        raise ValueError(f"{path} does not contain {expected_rows} rectangular final rows")
     frame = pd.DataFrame(data, columns=headers)
     required = {"[run number]", "food-signal-boost", "ticks", FIELD_METRIC, *SCALAR_COLUMNS}
     if missing := required - set(frame):
@@ -78,12 +86,12 @@ def read_behaviorspace(path: Path, arm: str) -> pd.DataFrame:
     frame["run_number"] = frame["[run number]"].astype(int)
     frame["boost"] = frame["food-signal-boost"].astype(float).round().astype(int)
     frame["tick"] = frame["ticks"].astype(float).round().astype(int)
-    frame["seed"] = 701 + ((frame["run_number"] - 1) % 6)
+    frame["seed"] = min(seeds) + ((frame["run_number"] - 1) % len(seeds))
     frame["arm"] = arm
     for source, target in SCALAR_COLUMNS.items():
         frame[target] = frame[source].astype(float)
-    expected_tick = 300 if arm == "checkpoint" else 600
-    if set(frame["boost"]) != set(BOOSTS) or set(frame["seed"]) != set(SEEDS):
+    expected_tick = expected_tick or (300 if arm == "checkpoint" else 600)
+    if set(frame["boost"]) != set(boosts) or set(frame["seed"]) != set(seeds):
         raise ValueError(f"{path} does not match frozen boosts/seeds")
     if not frame["tick"].eq(expected_tick).all():
         raise ValueError(f"{path} stopped at an unexpected tick")
