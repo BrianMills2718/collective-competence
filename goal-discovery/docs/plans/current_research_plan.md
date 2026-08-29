@@ -100,6 +100,13 @@ This condition is now met: Step 1 identified a specific spatial/network
 observation that the repeated scalar histories cannot test. Start with a model-
 surface audit and a frozen protocol; do not generate evidence first.
 
+The [reuse survey](p5_001_reuse_survey.md) selects the installed unmodified
+NetLogo model, scikit-image field thresholding/skeletonization, and NetworkX
+graph metrics. The frozen
+[`P5-001 protocol`](../hypotheses/p5_001_slime_mold_network_threshold.md) uses a
+five-level food-signal sweep, a held-out food relocation, and leave-one-seed-out
+prediction from checkpoint network structure.
+
 The experiment must buy more than adoption. Use the installed, unmodified model
 to test:
 
