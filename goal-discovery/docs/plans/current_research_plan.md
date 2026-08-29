@@ -47,14 +47,14 @@ Goal movement: determine whether one thin, off-the-shelf black-box pipeline can
 surface useful temporal representations across contrasting systems rather than
 adding another hand-selected generator.
 
-Use three existing calibration tasks with different outcomes, such as:
-
-- thermostat trajectories: predict preservation under held-out loads;
-- Slime trajectories: predict late reconstruction from early post-branch data;
-- Flocking trajectories: distinguish local recovery from failed global recovery.
-
-The exact systems and outcome columns are frozen in the sprint card before
-feature extraction. Hidden mechanism fields remain excluded.
+The frozen
+[`P5-000 benchmark`](../hypotheses/p5_000_representation_discovery_benchmark.md)
+uses the one existing task with enough independent groups for a meaningful
+screen—sorting recovery across six held-out seeds—and a deliberately limited
+thermostat mechanism-portability check across held-out load magnitudes. Flocking,
+Slime, and Heatbugs have too few independent trajectories for this benchmark;
+reusing their many time rows as independent examples would manufacture sample
+size. Hidden mechanism fields and post-boundary observations remain excluded.
 
 Rapid sequence:
 
@@ -74,8 +74,9 @@ identification comparison; it does not replace representation discovery.
 Promotion gate:
 
 - the same pipeline runs on at least two contrasting systems;
-- it beats the frozen simple endpoint/intervention null on held-out seeds in at
-  least two tasks;
+- it beats the frozen intervention-only and endpoint-plus-intervention nulls on
+  held-out groups in both tasks, including a 10% margin on the primary sorting
+  task;
 - its useful features survive the shuffle/leakage boundary and one ablation;
 - the result is interpretable enough to propose a separately frozen
   perturbation prediction;
