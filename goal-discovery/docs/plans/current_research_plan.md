@@ -134,6 +134,12 @@ claim: food signaling may trade reconfiguration capacity for consolidation of
 an established route. Test it once on fresh seeds and two relocation geometries
 using the unchanged generator and field-to-network map.
 
+The frozen
+[`P5-002 protocol`](../hypotheses/p5_002_stability_plasticity_confirmation.md)
+uses seeds 801–806, boosts 0/40/80, and fixed 26-patch and 46-patch relocations.
+Its primary test is a paired high-signal difference-in-differences; it contains
+no learned predictor.
+
 - reduce the sweep to boosts 0, 40, and 80;
 - use new seeds 801–806;
 - compare sham, the original far relocation, and a second nearer relocation;
