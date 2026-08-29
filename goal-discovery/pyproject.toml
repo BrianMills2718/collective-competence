@@ -24,6 +24,9 @@ visual-workbench = [
 representation-discovery = [
     "tsfresh>=0.21,<1",
 ]
+network-analysis = [
+    "scikit-image>=0.26,<1",
+]
 
 [dependency-groups]
 dev = ["pytest>=8.0", "ruff>=0.6"]

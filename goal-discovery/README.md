@@ -44,7 +44,8 @@ authoritative roadmap. Older plans are retained as decision history.
 | P4-001 | standard NetLogo Heatbugs spike | **complete / adopted** — deep-freeze recovery |
 | P4-002 | blind heterogeneous target inference | **complete / promoted** — 2.0° median target error |
 | P5-000 | existing-data representation-discovery benchmark | **complete / no-go** — thermostat signal found; sorting lost to endpoint null; generic pipeline not promoted |
-| P5-001 | standard Slime Mold Network threshold test | **active** — spatial/network gap, mechanism, regime boundary, and held-out prediction |
+| P5-001 | standard Slime Mold Network threshold test | **complete / no-go** — extraction worked; mechanism direction reversed; network predictor failed |
+| P5-002 | stability–plasticity confirmation | **next** — fresh seeds and two relocation geometries; one bounded confirmation |
 
 Before Experiment 003, run the time-boxed
 [Mesa compatibility spike](docs/plans/x01_mesa_spike.md). It asks whether an
@@ -155,6 +156,16 @@ missing information is relational and post-intervention rather than another
 scalar transform. The [P5-000 results](docs/hypotheses/p5_000_representation_discovery_benchmark_results.md)
 activate one tightly bounded Slime Mold Network experiment aimed at spatial and
 network structure; they do not license a larger learned model.
+
+P5-001 converted every continuous fluid field into a usable off-the-shelf
+skeleton graph, producing the first genuinely spatial systems-analysis view in
+the programme. Its promotion claim still failed: early topology worsened
+held-out prediction, and stronger signaling reduced rather than improved
+relative relocation retention. At the same time, unchanged-route organization
+rose from 0.324 to 0.885 while relocated organization peaked at an intermediate
+boost. The [P5-001 results](docs/hypotheses/p5_001_slime_mold_network_threshold_results.md)
+therefore fund exactly one fresh-seed stability–plasticity confirmation, not a
+larger model or graph-analysis programme.
 
 Research time is allocated by the
 [progress-allocation protocol](docs/plans/progress_allocation_protocol.md):

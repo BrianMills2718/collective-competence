@@ -94,7 +94,7 @@ not another transform of the same five scalar points. See the
 [`P5-000 results`](../hypotheses/p5_000_representation_discovery_benchmark_results.md).
 Do not tune or enlarge this pipeline.
 
-### 2. Slime Mold Network threshold experiment — active, 90 minutes
+### 2. Slime Mold Network threshold experiment — complete / no-go
 
 This condition is now met: Step 1 identified a specific spatial/network
 observation that the repeated scalar histories cannot test. Start with a model-
@@ -120,6 +120,30 @@ The standard NetLogo interface is the visualization. Produce only one static
 decision figure. Stop if no stable metric or discriminating null appears by
 minute 55.
 
+Outcome: the field-to-network instrument worked on every field, but the frozen
+mechanism and prediction claims failed. Stronger food signaling improved the
+unchanged route while progressively reducing relative relocation retention, and
+checkpoint network features made held-out prediction worse. See the
+[`P5-001 results`](../hypotheses/p5_001_slime_mold_network_threshold_results.md).
+Do not tune the failed predictor.
+
+### 2.5. Stability–plasticity confirmation — active, 60 minutes
+
+P5-001 exposed one large, goal-relevant directional effect not covered by its
+claim: food signaling may trade reconfiguration capacity for consolidation of
+an established route. Test it once on fresh seeds and two relocation geometries
+using the unchanged generator and field-to-network map.
+
+- reduce the sweep to boosts 0, 40, and 80;
+- use new seeds 801–806;
+- compare sham, the original far relocation, and a second nearer relocation;
+- preregister paired difference-in-differences and monotonic-direction gates;
+- omit checkpoint prediction, generic feature extraction, and new visualization.
+
+Stop the standard Slime Mold Network line if the directional tradeoff fails in
+either relocation geometry. A pass licenses a separate path-dependence
+intervention, not a representation or agency claim.
+
 ### 3. Multiscale causal/control analysis — conditional
 
 Unlock only when a compact macro representation predicts held-out intervention
@@ -138,6 +162,7 @@ implement causal-emergence mathematics locally.
 
 ## Portfolio view
 
-Steps 0 and 1 are complete. Step 2 is active because P5-000 located a concrete
-spatial/network observation gap; Step 3 remains conditional. This keeps the next
-sprint tied to a falsified bottleneck rather than to generator novelty.
+Steps 0–2 are complete. Step 2.5 is the sole active sprint because P5-001
+produced a large unexpected stability–plasticity direction worth one fresh
+confirmation. Step 3 remains locked. This keeps the next spend on a
+discriminating phenomenon rather than on failed predictor machinery.
