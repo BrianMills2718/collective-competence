@@ -121,8 +121,9 @@ def matched_last_crossing(trace: list[float], b: float, higher_is_better: bool) 
     return goal_tick - worse_or_equal[-1]
 
 
-def matched_prefix_crossing(prefix_trace: list[float], boundary_trace: list[float],
-                            p: float) -> int | None:
+def matched_prefix_crossing(
+    prefix_trace: list[float], boundary_trace: list[float], p: float
+) -> int | None:
     """C3: match on sorted-prefix length instead of boundary length.
 
     Validation found boundary_length blind to the quantity that governs the
@@ -158,8 +159,15 @@ def matched_baseline_cost(trace: list[float], b: float) -> int | None:
 
 
 def run_branch(
-    cfg: dict, arm: str, seed: int, branch_tick: int, magnitude: float, horizon: int,
-    goal_at_most: float, baseline_trace: list[float], baseline_prefix: list[float],
+    cfg: dict,
+    arm: str,
+    seed: int,
+    branch_tick: int,
+    magnitude: float,
+    horizon: int,
+    goal_at_most: float,
+    baseline_trace: list[float],
+    baseline_prefix: list[float],
 ) -> dict[str, Any]:
     w = make_world(cfg, arm, seed)
     for _ in range(branch_tick):
@@ -201,9 +209,11 @@ def run_branch(
         "ticks_to_recover": (recovered_at - branch_tick) if recovered_at is not None else None,
         "matched_baseline_ticks": matched_baseline_cost(baseline_trace, post["boundary_length"]),
         "matched_last_crossing_ticks": matched_last_crossing(
-            baseline_trace, post["boundary_length"], higher_is_better=False),
+            baseline_trace, post["boundary_length"], higher_is_better=False
+        ),
         "matched_prefix_ticks": matched_prefix_crossing(
-            baseline_prefix, baseline_trace, post["sorted_prefix_fraction"]),
+            baseline_prefix, baseline_trace, post["sorted_prefix_fraction"]
+        ),
         **{f"pre_{k}": v for k, v in pre.items()},
         **{f"post_{k}": v for k, v in post.items()},
         **{f"final_{k}": v for k, v in final.items()},
@@ -226,65 +236,122 @@ def judge(cfg: dict, base: list[dict], branches: list[dict]) -> list[dict]:
         damaged = [r for r in br if r["damaged"]]
 
         approach = _rate([r["end_boundary_length"] < r["start_boundary_length"] for r in b])
-        out.append({"rule": "R1_approach", "arm": arm, "value": approach,
-                        "threshold": t["R1_approach_rate"], "n": len(b),
-                        "passed": approach >= t["R1_approach_rate"]})
+        out.append(
+            {
+                "rule": "R1_approach",
+                "arm": arm,
+                "value": approach,
+                "threshold": t["R1_approach_rate"],
+                "n": len(b),
+                "passed": approach >= t["R1_approach_rate"],
+            }
+        )
 
         reached = [r for r in b if r["reached_zero"]]
         if arm in nulls:
-            out.append({"rule": "R2_maintenance", "arm": arm, "value": float("nan"), "threshold": 1.0,
-                            "n": len(reached), "passed": None,
-                            "note": "not applicable: the null has no absorbing state"})
+            out.append(
+                {
+                    "rule": "R2_maintenance",
+                    "arm": arm,
+                    "value": float("nan"),
+                    "threshold": 1.0,
+                    "n": len(reached),
+                    "passed": None,
+                    "note": "not applicable: the null has no absorbing state",
+                }
+            )
         else:
             held = _rate([not r["escaped_zero"] for r in reached])
-            out.append({"rule": "R2_maintenance", "arm": arm, "value": held, "threshold": 1.0,
-                            "n": len(reached), "passed": (len(reached) > 0 and held == 1.0)})
+            out.append(
+                {
+                    "rule": "R2_maintenance",
+                    "arm": arm,
+                    "value": held,
+                    "threshold": 1.0,
+                    "n": len(reached),
+                    "passed": (len(reached) > 0 and held == 1.0),
+                }
+            )
 
         rec = _rate([r["recovered"] for r in damaged])
-        out.append({"rule": "R3_recovery", "arm": arm, "value": rec, "threshold": t["R3_recovery_rate"],
-                        "n": len(damaged), "passed": rec >= t["R3_recovery_rate"]})
+        out.append(
+            {
+                "rule": "R3_recovery",
+                "arm": arm,
+                "value": rec,
+                "threshold": t["R3_recovery_rate"],
+                "n": len(damaged),
+                "passed": rec >= t["R3_recovery_rate"],
+            }
+        )
 
-        out.append({"rule": "R4_damage_rate", "arm": arm, "value": _rate([r["damaged"] for r in br]),
-                        "threshold": None, "n": len(br), "passed": None,
-                        "note": "reported, not a pass/fail rule"})
+        out.append(
+            {
+                "rule": "R4_damage_rate",
+                "arm": arm,
+                "value": _rate([r["damaged"] for r in br]),
+                "threshold": None,
+                "n": len(br),
+                "passed": None,
+                "note": "reported, not a pass/fail rule",
+            }
+        )
 
     null_arm = cfg["null_arms"][0]
     null_rec = next(r["value"] for r in out if r["rule"] == "R3_recovery" and r["arm"] == null_arm)
-    out.append({"rule": "R5_null_ceiling", "arm": null_arm, "value": null_rec,
-                    "threshold": t["R5_null_recovery_ceiling"],
-                    "n": len([r for r in branches if r["arm"] == null_arm and r["damaged"]]),
-                    "passed": null_rec < t["R5_null_recovery_ceiling"]})
+    out.append(
+        {
+            "rule": "R5_null_ceiling",
+            "arm": null_arm,
+            "value": null_rec,
+            "threshold": t["R5_null_recovery_ceiling"],
+            "n": len([r for r in branches if r["arm"] == null_arm and r["damaged"]]),
+            "passed": null_rec < t["R5_null_recovery_ceiling"],
+        }
+    )
     for arm in cfg["arms"]:
         if arm in nulls:
             continue
         arm_rec = next(r["value"] for r in out if r["rule"] == "R3_recovery" and r["arm"] == arm)
         margin = arm_rec - null_rec
-        out.append({"rule": "R5_margin_over_null", "arm": arm, "value": margin,
-                        "threshold": t["R5_margin_over_null"], "n": None,
-                        "passed": margin >= t["R5_margin_over_null"]})
+        out.append(
+            {
+                "rule": "R5_margin_over_null",
+                "arm": arm,
+                "value": margin,
+                "threshold": t["R5_margin_over_null"],
+                "n": None,
+                "passed": margin >= t["R5_margin_over_null"],
+            }
+        )
 
     comparators = {
-        "boundary_first_crossing": "matched_baseline_ticks",   # v2, biased upward
+        "boundary_first_crossing": "matched_baseline_ticks",  # v2, biased upward
         "boundary_last_crossing": "matched_last_crossing_ticks",  # C4, tighter
-        "prefix_last_crossing": "matched_prefix_ticks",        # C3
+        "prefix_last_crossing": "matched_prefix_ticks",  # C3
     }
     for arm in cfg["arms"]:
         for label, field in comparators.items():
             ratios = [
                 r["ticks_to_recover"] / r[field]
                 for r in branches
-                if r["arm"] == arm and r["damaged"] and r["recovered"]
-                and r[field] not in (None, 0)
+                if r["arm"] == arm and r["damaged"] and r["recovered"] and r[field] not in (None, 0)
             ]
-            out.append({
-                "rule": "R7_sufficiency", "arm": arm, "comparator": label,
-                "value": statistics.median(ratios) if ratios else float("nan"),
-                "threshold": None, "n": len(ratios), "passed": None,
-                "faster_than_matched": (
-                    sum(1 for x in ratios if x < 1) / len(ratios) if ratios else float("nan")
-                ),
-                "note": "measured, not judged",
-            })
+            out.append(
+                {
+                    "rule": "R7_sufficiency",
+                    "arm": arm,
+                    "comparator": label,
+                    "value": statistics.median(ratios) if ratios else float("nan"),
+                    "threshold": None,
+                    "n": len(ratios),
+                    "passed": None,
+                    "faster_than_matched": (
+                        sum(1 for x in ratios if x < 1) / len(ratios) if ratios else float("nan")
+                    ),
+                    "note": "measured, not judged",
+                }
+            )
 
     for arm in cfg["arms"]:
         b = [r for r in base if r["arm"] == arm]
@@ -294,12 +361,22 @@ def judge(cfg: dict, base: list[dict], branches: list[dict]) -> list[dict]:
             cons_b = _dominant(signs)
             signs_d = [_sign(r[f"final_{rep}"] - r[f"post_{rep}"]) for r in damaged]
             cons_d = _dominant(signs_d)
-            out.append({
-                "rule": "R6_consistency", "arm": arm, "representation": rep,
-                "value": min(cons_b, cons_d), "threshold": t["R6_sign_consistency_damaged"],
-                "baseline_consistency": cons_b, "damaged_consistency": cons_d, "n": len(b),
-                "passed": (cons_b >= t["R6_sign_consistency_baseline"]
-                        and cons_d >= t["R6_sign_consistency_damaged"])})
+            out.append(
+                {
+                    "rule": "R6_consistency",
+                    "arm": arm,
+                    "representation": rep,
+                    "value": min(cons_b, cons_d),
+                    "threshold": t["R6_sign_consistency_damaged"],
+                    "baseline_consistency": cons_b,
+                    "damaged_consistency": cons_d,
+                    "n": len(b),
+                    "passed": (
+                        cons_b >= t["R6_sign_consistency_baseline"]
+                        and cons_d >= t["R6_sign_consistency_damaged"]
+                    ),
+                }
+            )
     return out
 
 
@@ -314,8 +391,9 @@ def _dominant(signs: list[int]) -> float:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     ap.add_argument("--suite", type=Path, default=SUITE)
     ap.add_argument("--run-id", default="001-validation")
     ap.add_argument("--seeds", type=int, default=None, help="override seed count (pilot only)")
@@ -326,9 +404,11 @@ def main() -> None:
     seeds = [cfg["seeds"]["start"] + i for i in range(count)]
     d = io.run_dir(args.run_id, exact=False)
 
-    print(f"[{d.name}] {len(seeds)} held-out seeds x {len(cfg['arms'])} arms "
-          f"x {len(cfg['branch']['timings'])} timings x {len(cfg['branch']['magnitudes'])} "
-          "magnitudes")
+    print(
+        f"[{d.name}] {len(seeds)} held-out seeds x {len(cfg['arms'])} arms "
+        f"x {len(cfg['branch']['timings'])} timings x {len(cfg['branch']['magnitudes'])} "
+        "magnitudes"
+    )
 
     goal_at_most = cfg["goal_region"]["boundary_length_at_most"]
     base: list[dict] = []
@@ -345,12 +425,14 @@ def main() -> None:
         # Liveness. A null that fails to recover because it is inert would be a
         # broken probe, not a result, so its movement is reported beside its
         # outcome rather than assumed.
-        print(f"  baseline {arm:<12} median quiesce tick "
-              f"{statistics.median([r['quiesce_tick'] for r in done]):.0f}, "
-              f"reached zero {_rate([r['reached_zero'] for r in done]):.2f}, "
-              f"median swaps {statistics.median([r['swaps'] for r in done]):.0f}, "
-              f"boundary range {statistics.median([r['boundary_min'] for r in done]):.0f}"
-              f"-{statistics.median([r['boundary_max'] for r in done]):.0f}")
+        print(
+            f"  baseline {arm:<12} median quiesce tick "
+            f"{statistics.median([r['quiesce_tick'] for r in done]):.0f}, "
+            f"reached zero {_rate([r['reached_zero'] for r in done]):.2f}, "
+            f"median swaps {statistics.median([r['swaps'] for r in done]):.0f}, "
+            f"boundary range {statistics.median([r['boundary_min'] for r in done]):.0f}"
+            f"-{statistics.median([r['boundary_max'] for r in done]):.0f}"
+        )
 
     branches: list[dict] = []
     for arm in cfg["arms"]:
@@ -362,28 +444,40 @@ def main() -> None:
             for label, frac in cfg["branch"]["timings"].items():
                 tick = max(1, round(frac * q))
                 for mag in cfg["branch"]["magnitudes"]:
-                    row = run_branch(cfg, arm, seed, tick, mag, horizon, goal_at_most,
-                                     trace, ptrace)
+                    row = run_branch(
+                        cfg, arm, seed, tick, mag, horizon, goal_at_most, trace, ptrace
+                    )
                     row["timing"] = label
                     branches.append(row)
         sub = [r for r in branches if r["arm"] == arm]
         dmg = [r for r in sub if r["damaged"]]
-        print(f"  branches {arm:<12} {len(sub)} runs, damaged {_rate([r['damaged'] for r in sub]):.2f}"
-              f", recovery among damaged {_rate([r['recovered'] for r in dmg]):.2f}")
+        print(
+            f"  branches {arm:<12} {len(sub)} runs, damaged {_rate([r['damaged'] for r in sub]):.2f}"
+            f", recovery among damaged {_rate([r['recovered'] for r in dmg]):.2f}"
+        )
 
     verdicts = judge(cfg, base, branches)
-    io.write_rows(d, "baselines.csv",
-                  [{k: v for k, v in r.items() if k not in ("boundary_trace", "prefix_trace")}
-                   for r in base])
+    io.write_rows(
+        d,
+        "baselines.csv",
+        [{k: v for k, v in r.items() if k not in ("boundary_trace", "prefix_trace")} for r in base],
+    )
     io.write_rows(d, "branches.csv", branches)
     io.write_rows(d, "verdicts.csv", verdicts)
-    io.write_metadata(d, {
-        "run_id": d.name, "phase": "validation", "git_commit": git_commit(),
-        "rule_version": RULE_VERSION,
-        "representation_set_version": REPRESENTATION_SET_VERSION,
-        "suite": str(args.suite), "seeds": seeds, "config": cfg,
-        "preregistration": "docs/hypotheses/001_sorting_validation.md",
-    })
+    io.write_metadata(
+        d,
+        {
+            "run_id": d.name,
+            "phase": "validation",
+            "git_commit": git_commit(),
+            "rule_version": RULE_VERSION,
+            "representation_set_version": REPRESENTATION_SET_VERSION,
+            "suite": str(args.suite),
+            "seeds": seeds,
+            "config": cfg,
+            "preregistration": "docs/hypotheses/001_sorting_validation.md",
+        },
+    )
     io.point_at_latest(d.name)
 
     print("\n  RULE                  ARM            VALUE   THRESHOLD  VERDICT")
@@ -400,13 +494,19 @@ def main() -> None:
         if v["rule"] != "R7_sufficiency":
             continue
         val = "n/a" if v["value"] != v["value"] else f"{v['value']:.2f}"
-        faster = ("n/a" if v["faster_than_matched"] != v["faster_than_matched"]
-                  else f"{v['faster_than_matched']:.2f}")
+        faster = (
+            "n/a"
+            if v["faster_than_matched"] != v["faster_than_matched"]
+            else f"{v['faster_than_matched']:.2f}"
+        )
         print(f"    {v['arm']:<12} {v['comparator']:<24} {val:>6} {faster:>7}  {v['n']:>4}")
     print("\n  R6 consistency, passing representations per arm:")
     for arm in cfg["arms"]:
-        ok = [v["representation"] for v in verdicts
-              if v["rule"] == "R6_consistency" and v["arm"] == arm and v["passed"]]
+        ok = [
+            v["representation"]
+            for v in verdicts
+            if v["rule"] == "R6_consistency" and v["arm"] == arm and v["passed"]
+        ]
         print(f"    {arm:<14} {', '.join(ok) if ok else '(none)'}")
     print(f"\n  {d}")
 

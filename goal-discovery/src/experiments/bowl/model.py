@@ -54,9 +54,7 @@ class BowlWorld:
     @classmethod
     def from_seed(cls, n: int, seed: int, spread: float = 10.0, **kw: Any) -> BowlWorld:
         r = random.Random(seed)
-        coords = [
-            Coordinate(x=r.uniform(-spread, spread), v=0.0, coord_id=i) for i in range(n)
-        ]
+        coords = [Coordinate(x=r.uniform(-spread, spread), v=0.0, coord_id=i) for i in range(n)]
         w = cls(coords=coords, seed=seed, **kw)
         w.rng = random.Random(seed)
         return w
@@ -108,8 +106,7 @@ class BowlWorld:
         state = snap["rng_state"]
         self.rng.setstate((state[0], tuple(state[1]), state[2]))
         self.coords = [
-            Coordinate(x=float(c["x"]), v=float(c["v"]), frozen=c["frozen"],
-                       coord_id=c["coord_id"])
+            Coordinate(x=float(c["x"]), v=float(c["v"]), frozen=c["frozen"], coord_id=c["coord_id"])
             for c in snap["coords"]
         ]
 
@@ -139,9 +136,7 @@ class BowlWorld:
         every unfrozen coordinate has settled -- which is not the same as being
         at the goal, because a frozen coordinate can be parked far from zero.
         """
-        return all(
-            c.frozen or (abs(c.x) <= self.eps and abs(c.v) <= self.eps) for c in self.coords
-        )
+        return all(c.frozen or (abs(c.x) <= self.eps and abs(c.v) <= self.eps) for c in self.coords)
 
     def energy(self) -> float:
         return sum(0.5 * c.v * c.v + 0.5 * self.stiffness * c.x * c.x for c in self.coords)

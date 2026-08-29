@@ -47,8 +47,9 @@ def apply(world: BowlWorld, iv: BowlIntervention, seed: int) -> None:
         # Freeze coordinates that are not already at the goal, so the
         # intervention is a real loss of mechanism rather than a no-op on a
         # coordinate that had nothing left to do.
-        away = [i for i, c in enumerate(world.coords)
-                if abs(c.x) > world.eps or abs(c.v) > world.eps]
+        away = [
+            i for i, c in enumerate(world.coords) if abs(c.x) > world.eps or abs(c.v) > world.eps
+        ]
         pool = away or list(range(n))
         for i in rng.sample(pool, min(k, len(pool))):
             world.coords[i].frozen = True

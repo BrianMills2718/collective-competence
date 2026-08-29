@@ -108,16 +108,29 @@ def cmd_baseline(cfg: dict, run_id: str, exact: bool) -> Path:
 
     after = observe(world)
     render_array(
-        after["values"], f"after  (tick {world.tick}, {world.steps} steps)", d / "after.png",
+        after["values"],
+        f"after  (tick {world.tick}, {world.steps} steps)",
+        d / "after.png",
         after["frozen"],
     )
     io.write_rows(d, "trajectory.csv", rows)
-    io.write_metadata(d, _metadata(cfg, run_id, seed=seed, command="baseline",
-                                   final_tick=world.tick, final_steps=world.steps,
-                                   quiescent=world.quiescent()))
+    io.write_metadata(
+        d,
+        _metadata(
+            cfg,
+            run_id,
+            seed=seed,
+            command="baseline",
+            final_tick=world.tick,
+            final_steps=world.steps,
+            quiescent=world.quiescent(),
+        ),
+    )
     io.point_at_latest(run_id)
-    print(f"  ticks={world.tick} steps={world.steps} swaps={world.swaps} "
-          f"sorted={after['values'] == sorted(after['values'])}")
+    print(
+        f"  ticks={world.tick} steps={world.steps} swaps={world.swaps} "
+        f"sorted={after['values'] == sorted(after['values'])}"
+    )
     print(f"  {d}")
     return d
 
@@ -138,15 +151,23 @@ def cmd_branch(cfg: dict, run_id: str, exact: bool) -> Path:
     snap = world.snapshot()
     branch_steps = world.steps
     at_branch = observe(world)
-    render_array(at_branch["values"], f"at branch  (tick {world.tick})", d / "at_branch.png",
-                 at_branch["frozen"])
+    render_array(
+        at_branch["values"],
+        f"at branch  (tick {world.tick})",
+        d / "at_branch.png",
+        at_branch["frozen"],
+    )
 
     iv = Intervention(b["intervention"]["kind"], b["intervention"]["params"])
     world.restore(snap)
     apply(world, iv, seed=seed)
     after_iv = observe(world)
-    render_array(after_iv["values"], f"after {iv.intervention_id}", d / "after_intervention.png",
-                 after_iv["frozen"])
+    render_array(
+        after_iv["values"],
+        f"after {iv.intervention_id}",
+        d / "after_intervention.png",
+        after_iv["frozen"],
+    )
     record(world, rows, phase="post_intervention")
 
     for _ in range(b["horizon_ticks"]):
@@ -156,8 +177,9 @@ def cmd_branch(cfg: dict, run_id: str, exact: bool) -> Path:
         record(world, rows, phase="post_intervention")
 
     final = observe(world)
-    render_array(final["values"], f"recovered  (tick {world.tick})", d / "recovered.png",
-                 final["frozen"])
+    render_array(
+        final["values"], f"recovered  (tick {world.tick})", d / "recovered.png", final["frozen"]
+    )
     render_recovery(
         {m: [r[f"rep_{m}"] for r in rows] for m in DAY_ONE_MEASURES},
         [r["steps"] for r in rows],
@@ -167,24 +189,35 @@ def cmd_branch(cfg: dict, run_id: str, exact: bool) -> Path:
     )
     io.write_rows(d, "trajectory.csv", rows)
     (d / "branch_snapshot.json").write_text(json.dumps(snap, indent=2, default=str))
-    io.write_metadata(d, _metadata(cfg, run_id, seed=seed, command="branch",
-                                   branch_tick=b["branch_tick"],
-                                   snapshot_id=snap["snapshot_id"],
-                                   intervention=iv.intervention_id,
-                                   final_tick=world.tick,
-                                   recovered=final["values"] == sorted(final["values"])))
+    io.write_metadata(
+        d,
+        _metadata(
+            cfg,
+            run_id,
+            seed=seed,
+            command="branch",
+            branch_tick=b["branch_tick"],
+            snapshot_id=snap["snapshot_id"],
+            intervention=iv.intervention_id,
+            final_tick=world.tick,
+            recovered=final["values"] == sorted(final["values"]),
+        ),
+    )
     io.point_at_latest(run_id)
     print(f"  branch at tick {b['branch_tick']} ({branch_steps} steps), {iv.intervention_id}")
-    print(f"  damage: boundary_length {rows[b['branch_tick']]['rep_boundary_length']:.0f}"
-          f" -> {rows[b['branch_tick'] + 1]['rep_boundary_length']:.0f}")
+    print(
+        f"  damage: boundary_length {rows[b['branch_tick']]['rep_boundary_length']:.0f}"
+        f" -> {rows[b['branch_tick'] + 1]['rep_boundary_length']:.0f}"
+    )
     print(f"  recovered={final['values'] == sorted(final['values'])} at tick {world.tick}")
     print(f"  {d}")
     return d
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     ap.add_argument("command", choices=["baseline", "branch"])
     ap.add_argument("--run-id", default=None)
     ap.add_argument("--config", type=Path, default=None)
@@ -196,8 +229,10 @@ def main() -> None:
         cfg["system"]["algotype"] = args.algotype
     exact = args.run_id is not None
     run_id = args.run_id or f"001-{args.command}-{cfg['system']['algotype']}"
-    print(f"[{run_id}] {cfg['system']['algotype']} algotype, n={cfg['system']['n']}, "
-          f"order={cfg['system']['order']}")
+    print(
+        f"[{run_id}] {cfg['system']['algotype']} algotype, n={cfg['system']['n']}, "
+        f"order={cfg['system']['order']}"
+    )
     {"baseline": cmd_baseline, "branch": cmd_branch}[args.command](cfg, run_id, exact)
 
 

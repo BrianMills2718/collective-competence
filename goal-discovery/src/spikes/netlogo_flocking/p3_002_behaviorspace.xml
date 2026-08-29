@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experiments>
+  <experiment name="p3-002-baseline" repetitions="8" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="450">
+    <setup>random-seed behaviorspace-run-number
+setup</setup>
+    <go>go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>mean [dx] of turtles</metric>
+      <metric>mean [dy] of turtles</metric>
+      <metric>sqrt ((mean [dx] of turtles) ^ 2 + (mean [dy] of turtles) ^ 2)</metric>
+      <metric>mean [count flockmates] of turtles</metric>
+      <metric>ifelse-value any? turtles with [any? flockmates] [mean [abs (subtract-headings heading average-flockmate-heading)] of turtles with [any? flockmates]] [0]</metric>
+      <metric>count turtles</metric>
+      <metric>vision</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="population"><value value="100"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="vision"><value value="5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="minimum-separation"><value value="1"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-align-turn"><value value="5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-cohere-turn"><value value="3"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-separate-turn"><value value="1.5"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p3-002-quarter-rotate" repetitions="8" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="450">
+    <setup>random-seed behaviorspace-run-number
+setup</setup>
+    <go>if ticks = 150 [ foreach (sort turtles with [who mod 4 = 0]) [t -&gt; ask t [set heading ((heading + 180) mod 360)]]]
+go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>mean [dx] of turtles</metric>
+      <metric>mean [dy] of turtles</metric>
+      <metric>sqrt ((mean [dx] of turtles) ^ 2 + (mean [dy] of turtles) ^ 2)</metric>
+      <metric>mean [count flockmates] of turtles</metric>
+      <metric>ifelse-value any? turtles with [any? flockmates] [mean [abs (subtract-headings heading average-flockmate-heading)] of turtles with [any? flockmates]] [0]</metric>
+      <metric>count turtles</metric>
+      <metric>vision</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="population"><value value="100"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="vision"><value value="5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="minimum-separation"><value value="1"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-align-turn"><value value="5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-cohere-turn"><value value="3"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-separate-turn"><value value="1.5"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p3-002-quarter-rotate-vision-off" repetitions="8" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="450">
+    <setup>random-seed behaviorspace-run-number
+setup</setup>
+    <go>if ticks = 150 [ foreach (sort turtles with [who mod 4 = 0]) [t -&gt; ask t [set heading ((heading + 180) mod 360)]] set vision 0]
+go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>mean [dx] of turtles</metric>
+      <metric>mean [dy] of turtles</metric>
+      <metric>sqrt ((mean [dx] of turtles) ^ 2 + (mean [dy] of turtles) ^ 2)</metric>
+      <metric>mean [count flockmates] of turtles</metric>
+      <metric>ifelse-value any? turtles with [any? flockmates] [mean [abs (subtract-headings heading average-flockmate-heading)] of turtles with [any? flockmates]] [0]</metric>
+      <metric>count turtles</metric>
+      <metric>vision</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="population"><value value="100"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="vision"><value value="5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="minimum-separation"><value value="1"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-align-turn"><value value="5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-cohere-turn"><value value="3"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-separate-turn"><value value="1.5"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p3-002-whole-rotate-90" repetitions="8" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="450">
+    <setup>random-seed behaviorspace-run-number
+setup</setup>
+    <go>if ticks = 150 [ foreach (sort turtles) [t -&gt; ask t [set heading ((heading + 90) mod 360)]]]
+go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>mean [dx] of turtles</metric>
+      <metric>mean [dy] of turtles</metric>
+      <metric>sqrt ((mean [dx] of turtles) ^ 2 + (mean [dy] of turtles) ^ 2)</metric>
+      <metric>mean [count flockmates] of turtles</metric>
+      <metric>ifelse-value any? turtles with [any? flockmates] [mean [abs (subtract-headings heading average-flockmate-heading)] of turtles with [any? flockmates]] [0]</metric>
+      <metric>count turtles</metric>
+      <metric>vision</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="population"><value value="100"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="vision"><value value="5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="minimum-separation"><value value="1"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-align-turn"><value value="5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-cohere-turn"><value value="3"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-separate-turn"><value value="1.5"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+</experiments>

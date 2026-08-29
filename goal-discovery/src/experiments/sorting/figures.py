@@ -37,15 +37,21 @@ def build(run: Path) -> Path:
     for j, t in enumerate(timings):
         rates = []
         for arm in arms:
-            dmg = [r for r in branches
-                   if r["arm"] == arm and r["timing"] == t and r["damaged"] == "True"]
+            dmg = [
+                r
+                for r in branches
+                if r["arm"] == arm and r["timing"] == t and r["damaged"] == "True"
+            ]
             rates.append(sum(1 for r in dmg if r["recovered"] == "True") / len(dmg) if dmg else 0.0)
         axes[0].bar([i + j * width for i in range(len(arms))], rates, width, label=t)
     axes[0].axhline(0.90, color="k", ls="--", lw=1, label="R3 threshold")
     axes[0].set_xticks([i + 0.4 - width / 2 for i in range(len(arms))])
     axes[0].set_xticklabels(arms, rotation=15, fontsize=8)
-    axes[0].set(ylabel="P(reaches boundary_length 0)", ylim=(0, 1.05),
-                title="R3 recovery to the declared goal")
+    axes[0].set(
+        ylabel="P(reaches boundary_length 0)",
+        ylim=(0, 1.05),
+        title="R3 recovery to the declared goal",
+    )
     axes[0].legend(fontsize=7)
     axes[0].grid(alpha=0.3, axis="y")
 
@@ -58,8 +64,11 @@ def build(run: Path) -> Path:
         axes[1].bar([i + j * width for i in range(len(arms))], rates, width, label=t)
     axes[1].set_xticks([i + 0.4 - width / 2 for i in range(len(arms))])
     axes[1].set_xticklabels(arms, rotation=15, fontsize=8)
-    axes[1].set(ylabel="P(intervention raised boundary_length)", ylim=(0, 1.05),
-                title="R4 when a perturbation is damage at all")
+    axes[1].set(
+        ylabel="P(intervention raised boundary_length)",
+        ylim=(0, 1.05),
+        title="R4 when a perturbation is damage at all",
+    )
     axes[1].legend(fontsize=7)
     axes[1].grid(alpha=0.3, axis="y")
 
@@ -69,8 +78,11 @@ def build(run: Path) -> Path:
         ratios = [
             int(r["ticks_to_recover"]) / int(r["matched_baseline_ticks"])
             for r in branches
-            if r["arm"] == arm and r["damaged"] == "True" and r["recovered"] == "True"
-            and r["matched_baseline_ticks"] not in ("", "0") and r["ticks_to_recover"] != ""
+            if r["arm"] == arm
+            and r["damaged"] == "True"
+            and r["recovered"] == "True"
+            and r["matched_baseline_ticks"] not in ("", "0")
+            and r["ticks_to_recover"] != ""
         ]
         if ratios:
             data.append(ratios)
@@ -78,8 +90,10 @@ def build(run: Path) -> Path:
     if data:
         axes[2].boxplot(data, tick_labels=labels, showfliers=False)
     axes[2].axhline(1.0, color="crimson", ls="--", lw=1.2)
-    axes[2].set(ylabel="recovery ticks / matched baseline ticks",
-                title="R7 is boundary_length a sufficient state?")
+    axes[2].set(
+        ylabel="recovery ticks / matched baseline ticks",
+        title="R7 is boundary_length a sufficient state?",
+    )
     axes[2].tick_params(axis="x", labelsize=7)
     axes[2].grid(alpha=0.3, axis="y")
 
@@ -92,8 +106,9 @@ def build(run: Path) -> Path:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     ap.add_argument("run", type=Path)
     args = ap.parse_args()
     print(f"  wrote {build(args.run)}")

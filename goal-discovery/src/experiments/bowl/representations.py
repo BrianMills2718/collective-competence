@@ -20,8 +20,7 @@ def max_abs_position(obs: BowlObservation) -> float:
 
 def mean_abs_position(obs: BowlObservation) -> float:
     return (
-        sum(abs(x) for x in obs["positions"]) / len(obs["positions"])
-        if obs["positions"] else 0.0
+        sum(abs(x) for x in obs["positions"]) / len(obs["positions"]) if obs["positions"] else 0.0
     )
 
 

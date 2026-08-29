@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experiments>
+  <experiment name="p4-001-baseline" repetitions="4" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="500">
+    <setup>random-seed behaviorspace-run-number
+setup</setup>
+    <go>go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>mean [unhappiness] of turtles</metric>
+      <metric>mean [[temp] of patch-here] of turtles</metric>
+      <metric>mean [temp] of patches</metric>
+      <metric>standard-deviation [temp] of patches</metric>
+      <metric>mean [ideal-temp] of turtles</metric>
+      <metric>count turtles</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="bug-count"><value value="100"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="min-ideal-temp"><value value="10"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-ideal-temp"><value value="40"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="min-output-heat"><value value="5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-output-heat"><value value="25"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="evaporation-rate"><value value="0.01"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="diffusion-rate"><value value="0.9"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="random-move-chance"><value value="0"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p4-001-deep-freeze" repetitions="4" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="500">
+    <setup>random-seed behaviorspace-run-number
+setup</setup>
+    <go>if ticks = 200 [ deep-freeze ]
+go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>mean [unhappiness] of turtles</metric>
+      <metric>mean [[temp] of patch-here] of turtles</metric>
+      <metric>mean [temp] of patches</metric>
+      <metric>standard-deviation [temp] of patches</metric>
+      <metric>mean [ideal-temp] of turtles</metric>
+      <metric>count turtles</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="bug-count"><value value="100"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="min-ideal-temp"><value value="10"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-ideal-temp"><value value="40"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="min-output-heat"><value value="5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-output-heat"><value value="25"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="evaporation-rate"><value value="0.01"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="diffusion-rate"><value value="0.9"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="random-move-chance"><value value="0"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+</experiments>

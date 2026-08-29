@@ -1,0 +1,303 @@
+extensions [csv]
+
+breed [markers marker]
+markers-own [marker-kind]
+
+globals [
+  temperature
+  sensed-temperature
+  control-error
+  passive-term
+  commanded-control
+  applied-control
+  external-load
+  load-active?
+  sensor-blocked?
+  actuator-disabled?
+  trajectory-log
+  last-event
+]
+
+; Interface variables supplied by thermostat.nlogox:
+; arm, initial-temperature, ambient-temperature, setpoint,
+; relaxation-rate, controller-gain, max-control, displacement-amount,
+; load-magnitude, and max-ticks.
+
+to setup
+  clear-all
+  set temperature initial-temperature
+  set sensed-temperature temperature
+  set load-active? false
+  set sensor-blocked? false
+  set actuator-disabled? false
+  set trajectory-log (list trajectory-header)
+  set last-event "setup"
+  make-display-markers
+  refresh-derived
+  reset-ticks
+  update-display
+  record-trajectory last-event
+end
+
+to setup-aligned-ambient
+  ; Phase 2 v2 isolates the defended-target model by making the plant's passive
+  ; equilibrium equal the configured setpoint before ordinary setup.
+  set ambient-temperature setpoint
+  setup
+end
+
+to go
+  if ticks >= max-ticks [ stop ]
+  step-once
+end
+
+to step-once
+  if ticks >= max-ticks [ stop ]
+  refresh-derived
+  set temperature temperature + passive-term + applied-control + external-load
+  tick
+  update-display
+  record-trajectory "step"
+end
+
+to refresh-derived
+  if not sensor-blocked? [ set sensed-temperature temperature ]
+  set control-error sensed-temperature - setpoint
+  set passive-term relaxation-rate * (ambient-temperature - temperature)
+
+  ifelse arm = "feedback" [
+    set commanded-control bounded-control (-1 * controller-gain * control-error)
+  ] [
+    set commanded-control 0
+  ]
+
+  ifelse actuator-disabled?
+    [ set applied-control 0 ]
+    [ set applied-control commanded-control ]
+
+  ifelse load-active?
+    [ set external-load load-magnitude ]
+    [ set external-load 0 ]
+end
+
+to-report bounded-control [requested]
+  report max (list (- max-control) (min (list max-control requested)))
+end
+
+to displace-state
+  set temperature temperature + displacement-amount
+  set last-event "state-displacement"
+  refresh-derived
+  update-display
+  record-trajectory last-event
+end
+
+to apply-load
+  set load-active? true
+  set last-event "persistent-load-on"
+  refresh-derived
+  record-trajectory last-event
+end
+
+to remove-load
+  set load-active? false
+  set last-event "persistent-load-off"
+  refresh-derived
+  record-trajectory last-event
+end
+
+to block-sensor
+  ; Frozen-sensor preregistration: the reported value is pinned to the target.
+  ; Subsequent physical changes are hidden from the controller.
+  set sensed-temperature setpoint
+  set sensor-blocked? true
+  set last-event "sensor-blocked"
+  refresh-derived
+  record-trajectory last-event
+end
+
+to restore-sensor
+  set sensor-blocked? false
+  set last-event "sensor-restored"
+  refresh-derived
+  record-trajectory last-event
+end
+
+to disable-actuator
+  set actuator-disabled? true
+  set last-event "actuator-disabled"
+  refresh-derived
+  record-trajectory last-event
+end
+
+to restore-actuator
+  set actuator-disabled? false
+  set last-event "actuator-restored"
+  refresh-derived
+  record-trajectory last-event
+end
+
+to clear-interventions
+  set load-active? false
+  set sensor-blocked? false
+  set actuator-disabled? false
+  set last-event "interventions-cleared"
+  refresh-derived
+  record-trajectory last-event
+end
+
+to setup-displacement
+  setup
+  displace-state
+end
+
+to setup-none
+  setup
+  set last-event "none"
+  record-trajectory last-event
+end
+
+to setup-load
+  setup
+  apply-load
+end
+
+to setup-load-sensor-blocked
+  setup
+  apply-load
+  block-sensor
+end
+
+to setup-displacement-sensor-blocked
+  setup
+  block-sensor
+  displace-state
+end
+
+to setup-load-actuator-disabled
+  setup
+  apply-load
+  disable-actuator
+end
+
+to setup-displacement-actuator-disabled
+  setup
+  disable-actuator
+  displace-state
+end
+
+; BehaviorSpace uses these procedures so every held-out intervention begins
+; at tick 20, after the matched undisturbed prefix has been observed.
+to go-displacement
+  if ticks = 20 [ displace-state ]
+  go
+end
+
+to go-load
+  if ticks = 20 [ apply-load ]
+  go
+end
+
+to go-displacement-sensor-blocked
+  if ticks = 20 [
+    block-sensor
+    displace-state
+  ]
+  go
+end
+
+to go-load-sensor-blocked
+  if ticks = 20 [
+    apply-load
+    block-sensor
+  ]
+  go
+end
+
+to go-displacement-actuator-disabled
+  if ticks = 20 [
+    disable-actuator
+    displace-state
+  ]
+  go
+end
+
+to go-load-actuator-disabled
+  if ticks = 20 [
+    apply-load
+    disable-actuator
+  ]
+  go
+end
+
+to-report distance-to-setpoint
+  report abs (temperature - setpoint)
+end
+
+to-report control-opposes-error?
+  if control-error = 0 [ report commanded-control = 0 ]
+  report commanded-control * control-error < 0
+end
+
+to make-display-markers
+  create-markers 1 [
+    set marker-kind "temperature"
+    set shape "circle"
+    set color orange
+    set size 1.4
+  ]
+  create-markers 1 [
+    set marker-kind "setpoint"
+    set shape "triangle"
+    set color green
+    set size 1.4
+  ]
+end
+
+to update-display
+  ask patches [ set pcolor gray + 4 ]
+  ask patches with [pxcor = 2] [ set pcolor white ]
+  ask patches with [pxcor = 2 and pycor <= temperature] [ set pcolor orange + 2 ]
+  ask patches with [pycor = round ambient-temperature] [ set pcolor sky + 2 ]
+  ask patches with [pycor = round setpoint] [ set pcolor green + 2 ]
+
+  ask markers with [marker-kind = "temperature"] [
+    setxy 3 clamp-to-view temperature
+    set label (word "T " precision temperature 2)
+    set label-color black
+  ]
+  ask markers with [marker-kind = "setpoint"] [
+    setxy 1 clamp-to-view setpoint
+    set label (word "target " precision setpoint 2)
+    set label-color black
+  ]
+end
+
+to-report clamp-to-view [reading]
+  report max (list min-pycor (min (list max-pycor reading)))
+end
+
+to-report trajectory-header
+  report (list
+    "tick" "event" "arm" "temperature" "setpoint" "ambient_temperature"
+    "sensed_temperature" "error" "passive_term" "commanded_control"
+    "applied_control" "external_load" "load_active" "sensor_blocked"
+    "actuator_disabled" "distance_to_setpoint")
+end
+
+to-report trajectory-row [event-name]
+  report (list
+    ticks event-name arm temperature setpoint ambient-temperature
+    sensed-temperature control-error passive-term commanded-control
+    applied-control external-load load-active? sensor-blocked?
+    actuator-disabled? distance-to-setpoint)
+end
+
+to record-trajectory [event-name]
+  set trajectory-log lput (trajectory-row event-name) trajectory-log
+end
+
+to export-trajectory [path]
+  csv:to-file path trajectory-log
+  set last-event "export"
+end

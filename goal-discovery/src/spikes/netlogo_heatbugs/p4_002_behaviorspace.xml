@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experiments>
+  <experiment name="p4-002-probe-10" repetitions="8" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="1">
+    <setup>random-seed (behaviorspace-run-number + 4)
+setup
+foreach (sort turtles) [ t -&gt; ask t [ setxy 50 ((who * 4) mod 100) set heading 90 ] ]
+ask patches [ set temp (10 + (pxcor - 50) * 0.1) ]</setup>
+    <go>go</go>
+    <metrics><metric>ticks</metric><metric>map [t -&gt; [(list who xcor ycor)] of t] sort turtles</metric><metric>map [t -&gt; [list who ideal-temp] of t] sort turtles</metric><metric>count turtles</metric></metrics>
+    <constants>
+      <enumeratedValueSet variable="bug-count"><value value="25"></value></enumeratedValueSet><enumeratedValueSet variable="min-ideal-temp"><value value="10"></value></enumeratedValueSet><enumeratedValueSet variable="max-ideal-temp"><value value="40"></value></enumeratedValueSet><enumeratedValueSet variable="min-output-heat"><value value="5"></value></enumeratedValueSet><enumeratedValueSet variable="max-output-heat"><value value="25"></value></enumeratedValueSet><enumeratedValueSet variable="evaporation-rate"><value value="0"></value></enumeratedValueSet><enumeratedValueSet variable="diffusion-rate"><value value="0"></value></enumeratedValueSet><enumeratedValueSet variable="random-move-chance"><value value="0"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p4-002-probe-15" repetitions="8" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="1">
+    <setup>random-seed (behaviorspace-run-number + 4)
+setup
+foreach (sort turtles) [ t -&gt; ask t [ setxy 50 ((who * 4) mod 100) set heading 90 ] ]
+ask patches [ set temp (15 + (pxcor - 50) * 0.1) ]</setup>
+    <go>go</go>
+    <metrics><metric>ticks</metric><metric>map [t -&gt; [(list who xcor ycor)] of t] sort turtles</metric><metric>map [t -&gt; [list who ideal-temp] of t] sort turtles</metric><metric>count turtles</metric></metrics>
+    <constants>
+      <enumeratedValueSet variable="bug-count"><value value="25"></value></enumeratedValueSet><enumeratedValueSet variable="min-ideal-temp"><value value="10"></value></enumeratedValueSet><enumeratedValueSet variable="max-ideal-temp"><value value="40"></value></enumeratedValueSet><enumeratedValueSet variable="min-output-heat"><value value="5"></value></enumeratedValueSet><enumeratedValueSet variable="max-output-heat"><value value="25"></value></enumeratedValueSet><enumeratedValueSet variable="evaporation-rate"><value value="0"></value></enumeratedValueSet><enumeratedValueSet variable="diffusion-rate"><value value="0"></value></enumeratedValueSet><enumeratedValueSet variable="random-move-chance"><value value="0"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p4-002-probe-20" repetitions="8" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="1">
+    <setup>random-seed (behaviorspace-run-number + 4)
+setup
+foreach (sort turtles) [ t -&gt; ask t [ setxy 50 ((who * 4) mod 100) set heading 90 ] ]
+ask patches [ set temp (20 + (pxcor - 50) * 0.1) ]</setup>
+    <go>go</go>
+    <metrics><metric>ticks</metric><metric>map [t -&gt; [(list who xcor ycor)] of t] sort turtles</metric><metric>map [t -&gt; [list who ideal-temp] of t] sort turtles</metric><metric>count turtles</metric></metrics>
+    <constants>
+      <enumeratedValueSet variable="bug-count"><value value="25"></value></enumeratedValueSet><enumeratedValueSet variable="min-ideal-temp"><value value="10"></value></enumeratedValueSet><enumeratedValueSet variable="max-ideal-temp"><value value="40"></value></enumeratedValueSet><enumeratedValueSet variable="min-output-heat"><value value="5"></value></enumeratedValueSet><enumeratedValueSet variable="max-output-heat"><value value="25"></value></enumeratedValueSet><enumeratedValueSet variable="evaporation-rate"><value value="0"></value></enumeratedValueSet><enumeratedValueSet variable="diffusion-rate"><value value="0"></value></enumeratedValueSet><enumeratedValueSet variable="random-move-chance"><value value="0"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p4-002-probe-25" repetitions="8" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="1">
+    <setup>random-seed (behaviorspace-run-number + 4)
+setup
+foreach (sort turtles) [ t -&gt; ask t [ setxy 50 ((who * 4) mod 100) set heading 90 ] ]
+ask patches [ set temp (25 + (pxcor - 50) * 0.1) ]</setup>
+    <go>go</go>
+    <metrics><metric>ticks</metric><metric>map [t -&gt; [(list who xcor ycor)] of t] sort turtles</metric><metric>map [t -&gt; [list who ideal-temp] of t] sort turtles</metric><metric>count turtles</metric></metrics>
+    <constants>
+      <enumeratedValueSet variable="bug-count"><value value="25"></value></enumeratedValueSet><enumeratedValueSet variable="min-ideal-temp"><value value="10"></value></enumeratedValueSet><enumeratedValueSet variable="max-ideal-temp"><value value="40"></value></enumeratedValueSet><enumeratedValueSet variable="min-output-heat"><value value="5"></value></enumeratedValueSet><enumeratedValueSet variable="max-output-heat"><value value="25"></value></enumeratedValueSet><enumeratedValueSet variable="evaporation-rate"><value value="0"></value></enumeratedValueSet><enumeratedValueSet variable="diffusion-rate"><value value="0"></value></enumeratedValueSet><enumeratedValueSet variable="random-move-chance"><value value="0"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p4-002-probe-30" repetitions="8" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="1">
+    <setup>random-seed (behaviorspace-run-number + 4)
+setup
+foreach (sort turtles) [ t -&gt; ask t [ setxy 50 ((who * 4) mod 100) set heading 90 ] ]
+ask patches [ set temp (30 + (pxcor - 50) * 0.1) ]</setup>
+    <go>go</go>
+    <metrics><metric>ticks</metric><metric>map [t -&gt; [(list who xcor ycor)] of t] sort turtles</metric><metric>map [t -&gt; [list who ideal-temp] of t] sort turtles</metric><metric>count turtles</metric></metrics>
+    <constants>
+      <enumeratedValueSet variable="bug-count"><value value="25"></value></enumeratedValueSet><enumeratedValueSet variable="min-ideal-temp"><value value="10"></value></enumeratedValueSet><enumeratedValueSet variable="max-ideal-temp"><value value="40"></value></enumeratedValueSet><enumeratedValueSet variable="min-output-heat"><value value="5"></value></enumeratedValueSet><enumeratedValueSet variable="max-output-heat"><value value="25"></value></enumeratedValueSet><enumeratedValueSet variable="evaporation-rate"><value value="0"></value></enumeratedValueSet><enumeratedValueSet variable="diffusion-rate"><value value="0"></value></enumeratedValueSet><enumeratedValueSet variable="random-move-chance"><value value="0"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p4-002-probe-35" repetitions="8" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="1">
+    <setup>random-seed (behaviorspace-run-number + 4)
+setup
+foreach (sort turtles) [ t -&gt; ask t [ setxy 50 ((who * 4) mod 100) set heading 90 ] ]
+ask patches [ set temp (35 + (pxcor - 50) * 0.1) ]</setup>
+    <go>go</go>
+    <metrics><metric>ticks</metric><metric>map [t -&gt; [(list who xcor ycor)] of t] sort turtles</metric><metric>map [t -&gt; [list who ideal-temp] of t] sort turtles</metric><metric>count turtles</metric></metrics>
+    <constants>
+      <enumeratedValueSet variable="bug-count"><value value="25"></value></enumeratedValueSet><enumeratedValueSet variable="min-ideal-temp"><value value="10"></value></enumeratedValueSet><enumeratedValueSet variable="max-ideal-temp"><value value="40"></value></enumeratedValueSet><enumeratedValueSet variable="min-output-heat"><value value="5"></value></enumeratedValueSet><enumeratedValueSet variable="max-output-heat"><value value="25"></value></enumeratedValueSet><enumeratedValueSet variable="evaporation-rate"><value value="0"></value></enumeratedValueSet><enumeratedValueSet variable="diffusion-rate"><value value="0"></value></enumeratedValueSet><enumeratedValueSet variable="random-move-chance"><value value="0"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p4-002-probe-40" repetitions="8" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="1">
+    <setup>random-seed (behaviorspace-run-number + 4)
+setup
+foreach (sort turtles) [ t -&gt; ask t [ setxy 50 ((who * 4) mod 100) set heading 90 ] ]
+ask patches [ set temp (40 + (pxcor - 50) * 0.1) ]</setup>
+    <go>go</go>
+    <metrics><metric>ticks</metric><metric>map [t -&gt; [(list who xcor ycor)] of t] sort turtles</metric><metric>map [t -&gt; [list who ideal-temp] of t] sort turtles</metric><metric>count turtles</metric></metrics>
+    <constants>
+      <enumeratedValueSet variable="bug-count"><value value="25"></value></enumeratedValueSet><enumeratedValueSet variable="min-ideal-temp"><value value="10"></value></enumeratedValueSet><enumeratedValueSet variable="max-ideal-temp"><value value="40"></value></enumeratedValueSet><enumeratedValueSet variable="min-output-heat"><value value="5"></value></enumeratedValueSet><enumeratedValueSet variable="max-output-heat"><value value="25"></value></enumeratedValueSet><enumeratedValueSet variable="evaporation-rate"><value value="0"></value></enumeratedValueSet><enumeratedValueSet variable="diffusion-rate"><value value="0"></value></enumeratedValueSet><enumeratedValueSet variable="random-move-chance"><value value="0"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+</experiments>

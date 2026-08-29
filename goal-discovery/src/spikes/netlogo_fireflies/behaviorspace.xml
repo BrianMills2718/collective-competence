@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experiments>
+  <experiment name="p3-003-baseline" repetitions="4" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="600">
+    <setup>random-seed behaviorspace-run-number
+setup</setup>
+    <go>go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>sqrt ((mean [sin (360 * clock / cycle-length)] of turtles) ^ 2 + (mean [cos (360 * clock / cycle-length)] of turtles) ^ 2)</metric>
+      <metric>count turtles with [clock &lt; threshold] / count turtles</metric>
+      <metric>mean [clock] of turtles</metric>
+      <metric>count turtles</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="number"><value value="500"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="strategy"><value value="&quot;delay&quot;"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="flash-length"><value value="1"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="flashes-to-reset"><value value="1"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="cycle-length"><value value="10"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="show-dark-fireflies?"><value value="false"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p3-003-quarter-phase-shift" repetitions="4" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="600">
+    <setup>random-seed behaviorspace-run-number
+setup</setup>
+    <go>if ticks = 300 [ foreach (sort turtles with [who mod 4 = 0]) [t -&gt; ask t [set clock ((clock + (cycle-length / 2)) mod cycle-length) recolor]]]
+go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>sqrt ((mean [sin (360 * clock / cycle-length)] of turtles) ^ 2 + (mean [cos (360 * clock / cycle-length)] of turtles) ^ 2)</metric>
+      <metric>count turtles with [clock &lt; threshold] / count turtles</metric>
+      <metric>mean [clock] of turtles</metric>
+      <metric>count turtles</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="number"><value value="500"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="strategy"><value value="&quot;delay&quot;"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="flash-length"><value value="1"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="flashes-to-reset"><value value="1"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="cycle-length"><value value="10"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="show-dark-fireflies?"><value value="false"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+</experiments>

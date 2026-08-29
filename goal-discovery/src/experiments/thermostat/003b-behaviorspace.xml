@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experiments>
+  <experiment name="003b-discovery-passive" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="160">
+    <setup>setup</setup><go>go-displacement</go>
+    <metrics><metric>ticks</metric><metric>temperature</metric></metrics>
+    <constants>
+      <enumeratedValueSet variable="arm"><value value="&quot;passive&quot;"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="initial-temperature"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="ambient-temperature"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="setpoint"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="relaxation-rate"><value value="0.05"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="controller-gain"><value value="0.25"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-control"><value value="2"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="displacement-amount"><value value="-10"></value><value value="-6"></value><value value="-3"></value><value value="2"></value><value value="5"></value><value value="9"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="load-magnitude"><value value="0"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-ticks"><value value="160"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="003b-discovery-feedback" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="160">
+    <setup>setup</setup><go>go-displacement</go>
+    <metrics><metric>ticks</metric><metric>temperature</metric></metrics>
+    <constants>
+      <enumeratedValueSet variable="arm"><value value="&quot;feedback&quot;"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="initial-temperature"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="ambient-temperature"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="setpoint"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="relaxation-rate"><value value="0.05"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="controller-gain"><value value="0.25"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-control"><value value="2"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="displacement-amount"><value value="-10"></value><value value="-6"></value><value value="-3"></value><value value="2"></value><value value="5"></value><value value="9"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="load-magnitude"><value value="0"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-ticks"><value value="160"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="003b-validation-passive" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="160">
+    <setup>setup</setup><go>go-load</go>
+    <metrics><metric>ticks</metric><metric>temperature</metric></metrics>
+    <constants>
+      <enumeratedValueSet variable="arm"><value value="&quot;passive&quot;"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="initial-temperature"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="ambient-temperature"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="setpoint"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="relaxation-rate"><value value="0.05"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="controller-gain"><value value="0.25"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-control"><value value="2"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="displacement-amount"><value value="0"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="load-magnitude"><value value="-0.37"></value><value value="-0.13"></value><value value="0.19"></value><value value="0.31"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-ticks"><value value="160"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="003b-validation-feedback" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="160">
+    <setup>setup</setup><go>go-load</go>
+    <metrics><metric>ticks</metric><metric>temperature</metric></metrics>
+    <constants>
+      <enumeratedValueSet variable="arm"><value value="&quot;feedback&quot;"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="initial-temperature"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="ambient-temperature"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="setpoint"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="relaxation-rate"><value value="0.05"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="controller-gain"><value value="0.25"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-control"><value value="2"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="displacement-amount"><value value="0"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="load-magnitude"><value value="-0.37"></value><value value="-0.13"></value><value value="0.19"></value><value value="0.31"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-ticks"><value value="160"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="003b-validation-sensor-blocked" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="160">
+    <setup>setup</setup><go>go-load-sensor-blocked</go>
+    <metrics><metric>ticks</metric><metric>temperature</metric></metrics>
+    <constants>
+      <enumeratedValueSet variable="arm"><value value="&quot;feedback&quot;"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="initial-temperature"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="ambient-temperature"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="setpoint"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="relaxation-rate"><value value="0.05"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="controller-gain"><value value="0.25"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-control"><value value="2"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="displacement-amount"><value value="0"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="load-magnitude"><value value="-0.37"></value><value value="-0.13"></value><value value="0.19"></value><value value="0.31"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-ticks"><value value="160"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="003b-validation-actuator-disabled" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="160">
+    <setup>setup</setup><go>go-load-actuator-disabled</go>
+    <metrics><metric>ticks</metric><metric>temperature</metric></metrics>
+    <constants>
+      <enumeratedValueSet variable="arm"><value value="&quot;feedback&quot;"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="initial-temperature"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="ambient-temperature"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="setpoint"><value value="20"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="relaxation-rate"><value value="0.05"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="controller-gain"><value value="0.25"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-control"><value value="2"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="displacement-amount"><value value="0"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="load-magnitude"><value value="-0.37"></value><value value="-0.13"></value><value value="0.19"></value><value value="0.31"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="max-ticks"><value value="160"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+</experiments>

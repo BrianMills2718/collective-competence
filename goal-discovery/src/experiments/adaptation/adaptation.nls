@@ -1,0 +1,59 @@
+globals [
+  arm actuator-effectiveness load-magnitude initial-temperature setpoint
+  ambient-temperature relaxation-rate initial-gain learning-rate max-gain
+  max-control episode-length episode-count max-ticks
+  temperature control-error passive-term commanded-control applied-control
+  controller-gain episode episode-step episode-error-sum last-episode-error
+]
+
+to setup
+  ; Preserve BehaviorSpace configuration globals.
+  clear-turtles
+  clear-patches
+  clear-all-plots
+  set temperature initial-temperature
+  set controller-gain initial-gain
+  set episode 1
+  set episode-step 0
+  set episode-error-sum 0
+  set last-episode-error 0
+  refresh-derived
+  reset-ticks
+end
+
+to go
+  if ticks >= max-ticks [ stop ]
+  refresh-derived
+  set temperature temperature + passive-term + applied-control + load-magnitude
+  set episode-step episode-step + 1
+  set episode-error-sum episode-error-sum + abs (temperature - setpoint)
+  tick
+  if episode-step >= episode-length [ finish-episode ]
+end
+
+to refresh-derived
+  set control-error temperature - setpoint
+  set passive-term relaxation-rate * (ambient-temperature - temperature)
+  set commanded-control bounded-control (- controller-gain * control-error)
+  set applied-control actuator-effectiveness * commanded-control
+end
+
+to finish-episode
+  set last-episode-error episode-error-sum / episode-length
+  if member? arm ["adaptive" "reset-between"] [
+    set controller-gain min (list max-gain
+      (controller-gain + learning-rate * last-episode-error))
+  ]
+  if episode < episode-count [
+    set episode episode + 1
+    set episode-step 0
+    set episode-error-sum 0
+    set temperature initial-temperature
+    if arm = "reset-between" [ set controller-gain initial-gain ]
+    refresh-derived
+  ]
+end
+
+to-report bounded-control [requested]
+  report max (list (- max-control) (min (list max-control requested)))
+end
