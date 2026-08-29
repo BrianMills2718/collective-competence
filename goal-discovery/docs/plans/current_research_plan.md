@@ -41,7 +41,7 @@ preserves the post-002 programme state, records the ignored-artifact boundary,
 and verifies the clean source/test surface. This does not retroactively timestamp
 the earlier protocols; future held-out protocols must be committed before data.
 
-### 1. Existing-data representation-discovery benchmark — 90 minutes
+### 1. Existing-data representation-discovery benchmark — complete / no-go
 
 Goal movement: determine whether one thin, off-the-shelf black-box pipeline can
 surface useful temporal representations across contrasting systems rather than
@@ -86,10 +86,19 @@ Stop at minute 50 if there is no valid first held-out comparison. A no-go means
 retain hand-designed representations and diagnose the missing observation; it
 does not buy a larger learned model.
 
-### 2. Slime Mold Network threshold experiment — 90 minutes, conditional
+Outcome: the same generic pipeline detected the engineered thermostat response
+but was worse than the simple endpoint null on sorting and failed the frozen
+robustness gate. The 72 sorting branches contain only 12 distinct pre-damage
+histories; their missing information is post-intervention relational structure,
+not another transform of the same five scalar points. See the
+[`P5-000 results`](../hypotheses/p5_000_representation_discovery_benchmark_results.md).
+Do not tune or enlarge this pipeline.
 
-Run only if Step 1 yields a usable representation method or identifies a
-specific spatial/network observation it cannot test on existing data.
+### 2. Slime Mold Network threshold experiment — active, 90 minutes
+
+This condition is now met: Step 1 identified a specific spatial/network
+observation that the repeated scalar histories cannot test. Start with a model-
+surface audit and a frozen protocol; do not generate evidence first.
 
 The experiment must buy more than adoption. Use the installed, unmodified model
 to test:
@@ -122,6 +131,6 @@ implement causal-emergence mathematics locally.
 
 ## Portfolio view
 
-Step 0 is complete and Step 1 is now active. Steps 2 and 3 are conditional
-options, not scheduled work. This keeps validation and complexity from being
-prepaid.
+Steps 0 and 1 are complete. Step 2 is active because P5-000 located a concrete
+spatial/network observation gap; Step 3 remains conditional. This keeps the next
+sprint tied to a falsified bottleneck rather than to generator novelty.

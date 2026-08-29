@@ -43,8 +43,8 @@ authoritative roadmap. Older plans are retained as decision history.
 | P3-006 | bidirectional target discrimination | **complete / no-go** — attractor, not defended band |
 | P4-001 | standard NetLogo Heatbugs spike | **complete / adopted** — deep-freeze recovery |
 | P4-002 | blind heterogeneous target inference | **complete / promoted** — 2.0° median target error |
-| P5-000 | existing-data representation-discovery benchmark | **next** — evidence sealed; one black-box pipeline across contrasting systems |
-| P5-001 | standard Slime Mold Network threshold test | **conditional** — mechanism, regime boundary, and macro prediction; no adoption-only spend |
+| P5-000 | existing-data representation-discovery benchmark | **complete / no-go** — thermostat signal found; sorting lost to endpoint null; generic pipeline not promoted |
+| P5-001 | standard Slime Mold Network threshold test | **active** — spatial/network gap, mechanism, regime boundary, and held-out prediction |
 
 Before Experiment 003, run the time-boxed
 [Mesa compatibility spike](docs/plans/x01_mesa_spike.md). It asks whether an
@@ -142,10 +142,19 @@ per-agent inference test. Four observable movement probes recovered 200 hidden
 targets with 2.0° median error and predicted held-out directions at 71.5%, 16
 points above an identity-free null. Because those micro targets are explicitly
 authored in the standard generator, Heatbugs now stops. The next bounded move
-is an existing-data representation-discovery benchmark. The installed Slime
-Mold Network remains the conditional first new generator, but it must buy a
+was an existing-data representation-discovery benchmark. The installed Slime
+Mold Network was retained as the conditional first new generator, but it had to buy a
 mechanism, regime threshold, or cross-scale prediction rather than another
 adoption result.
+
+P5-000 then stopped the generic black-box route cleanly. Off-the-shelf temporal
+features detected the engineered thermostat's early feedback response but made
+sorting recovery prediction worse than the frozen endpoint null. The apparent
+72-case sorting set contained only 12 distinct pre-damage histories, so the
+missing information is relational and post-intervention rather than another
+scalar transform. The [P5-000 results](docs/hypotheses/p5_000_representation_discovery_benchmark_results.md)
+activate one tightly bounded Slime Mold Network experiment aimed at spatial and
+network structure; they do not license a larger learned model.
 
 Research time is allocated by the
 [progress-allocation protocol](docs/plans/progress_allocation_protocol.md):
