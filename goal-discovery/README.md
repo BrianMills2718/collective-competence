@@ -47,7 +47,7 @@ authoritative roadmap. Older plans are retained as decision history.
 | P5-001 | standard Slime Mold Network threshold test | **complete / no-go** — extraction worked; mechanism direction reversed; network predictor failed |
 | P5-002 | stability–plasticity confirmation | **complete / no-go** — directional trend too small and seed-sensitive; standard model line closed |
 | P6-000 | phenomenon-first benchmark qualification | **complete / selected** — Morpheus M4377 neuromast regeneration clears the fixed scorecard |
-| P6-001 | neuromast causal calibration | **next** — fresh active / feedback-disabled / proliferation-disabled comparison |
+| P6-001 | neuromast causal calibration | **active / protocol frozen** — fresh active / feedback-disabled / proliferation-disabled comparison |
 
 Before Experiment 003, run the time-boxed
 [Mesa compatibility spike](docs/plans/x01_mesa_spike.md). It asks whether an

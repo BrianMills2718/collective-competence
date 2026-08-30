@@ -199,6 +199,9 @@ Goal movement: determine whether the selected off-the-shelf benchmark supplies
 a reproducible causal separation between bounded organ-level recovery and two
 matched failure modes before building any prediction machinery.
 
+The [P6-001 protocol](../hypotheses/p6_001_neuromast_causal_calibration.md) is
+frozen before fresh trajectories are generated.
+
 - use the original M4377 dynamics and experimental E07 post-ablation layout;
 - add only observation logging and reproducible seed/control overrides;
 - run fresh seeds under active local feedback, feedback-stop disabled, and
