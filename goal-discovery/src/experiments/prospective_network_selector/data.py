@@ -109,28 +109,41 @@ class NetworkDataset:
         return int(self.trajectories["tick"].max())
 
     def snapshot(self, arm: str, run: int, tick: int) -> pd.DataFrame:
-        available = self.trajectories.loc[
-            (self.trajectories["arm"] == arm)
-            & (self.trajectories["seed_index"] == run)
-            & (self.trajectories["tick"] <= tick),
-            "tick",
+        available = [
+            at
+            for candidate_arm, candidate_run, at in self.snapshots
+            if candidate_arm == arm and candidate_run == run and at <= tick
         ]
-        if available.empty:
+        if not available:
             raise KeyError(f"No snapshot for {arm=} {run=} {tick=}")
-        return self.snapshots[(arm, run, int(available.max()))]
+        return self.snapshots[(arm, run, max(available))]
 
 
-def load_dataset(directory: Path, arm_files: dict[str, str]) -> NetworkDataset:
+def load_dataset(
+    directory: Path,
+    arm_files: dict[str, str],
+    *,
+    run_indices: list[int] | None = None,
+    snapshot_stride: int = 1,
+) -> NetworkDataset:
     frames: list[pd.DataFrame] = []
     snapshots: dict[tuple[str, int, int], pd.DataFrame] = {}
     edges: dict[tuple[str, int], list[tuple[int, int]]] = {}
     for arm, filename in arm_files.items():
         frame = read_behaviorspace(directory / filename, arm)
+        if run_indices is not None:
+            frame = frame[frame["seed_index"].isin(run_indices)]
         frames.append(frame.drop(columns=["node_state", "neighbors"]))
-        for row in frame.itertuples(index=False):
+        snapshot_frame = frame[
+            frame["tick"].mod(snapshot_stride).eq(0) | frame["tick"].isin([19, 20, 21])
+        ]
+        snapshot_frame = pd.concat(
+            [snapshot_frame, frame.groupby("seed_index", as_index=False).tail(1)]
+        ).drop_duplicates(["seed_index", "tick"])
+        for row in snapshot_frame.itertuples(index=False):
             snapshots[(arm, row.seed_index, row.tick)] = parse_nodes(row.node_state)
-            if (arm, row.seed_index) not in edges:
-                edges[(arm, row.seed_index)] = parse_edges(row.neighbors)
+        for seed_index, group in frame.groupby("seed_index"):
+            edges[(arm, int(seed_index))] = parse_edges(str(group.iloc[0]["neighbors"]))
     return NetworkDataset(
         trajectories=pd.concat(frames, ignore_index=True), snapshots=snapshots, edges=edges
     )

@@ -160,7 +160,9 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
     next_steps = "\n".join(
         f"- **If {item['condition']}:** {item['action']}" for item in state.data["next_decisions"]
     )
-    story_directory = state.root / "results" / "p7-002-network-feasibility"
+    level2_story = state.root / "results" / "p7-002-network-level2"
+    feasibility_story = state.root / "results" / "p7-002-network-feasibility"
+    story_directory = level2_story if level2_story.is_dir() else feasibility_story
     story = (
         build_experiment_story(story_directory)
         if story_directory.is_dir()

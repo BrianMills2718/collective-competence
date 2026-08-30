@@ -89,7 +89,7 @@ strongest simple null. See the
 This calibrates the decision surface but does not establish prospective family
 choice because the pairings were already known.
 
-### P7-002 — prospective network selector — next
+### P7-002 — prospective network selector — complete / fail
 
 The 4/4 P7-001 pass selects one Level 2 investment: compare all four candidate
 families on a previously unused task, select using discovery network seeds, and
@@ -107,6 +107,28 @@ requires a committed adapter, observation whitelist, null, discovery/confirmatio
 split, class-balance gate, ablation, and stop rules before Level 2 outcomes are
 generated. A pass unlocks a thin naturalistic transfer pilot. An abstention or
 failure returns investment to the selector/observation boundary, not model tuning.
+
+Outcome: all integrity gates passed and identity-conditioned history was selected
+on discovery networks with a 16.7% improvement over the intervention-only null.
+On untouched confirmation networks it improved log loss by 8.4%, below the
+frozen 10% gate. Its fixed ablation improved by 14.4%, diagnosing excess or
+unstable descriptive capacity but not licensing a post-hoc pass. See the
+[`P7-002 results`](../hypotheses/p7_002_prospective_network_selector_results.md).
+Close Virus on a Network as prospective evidence; do not add seeds or rerun the
+ablated model on the known confirmation set.
+
+### P7-003 — selector complexity audit — next
+
+The P7-002 failure selects one 60-minute Level 1 methodology audit, not another
+generator. Use all P7-002 outcomes openly as retrospective development evidence
+to compare the four families at equal four-summary capacity and measure
+leave-one-seed winner/coefficient stability. The
+[`P7-003 specification`](p7_003_selector_complexity_audit.md) freezes the
+summaries and gate.
+
+If the equal-capacity family is stable, freeze that contract for a different
+future task with new outcomes. If it is unstable, stop generic automated family
+selection and return to task-conditioned scientific representations.
 
 ```text
 known calibrations -> P7-001 selector tournament
@@ -127,10 +149,10 @@ known calibrations -> P7-001 selector tournament
   the time-allocation test and continuing audit rules.
 - The [dynamic experiment artifact standard](dynamic_experiment_artifact_standard.md)
   requires every active experiment to connect real system behavior, intervention,
-  representation, evidence, and decision. P7-002 is the first reference build.
-- Active science lane: P7-002 prospective selector test.
-- Active enabler: add the P7-002 dynamic story to the cockpit, capped at the same
-  three-hour experiment sprint and developed only against real trajectory data.
+  representation, evidence, and decision. P7-002 is the first completed reference.
+- Active science lane: P7-003 capacity-matched selector audit.
+- Maintenance enabler: the P7-002 dynamic story is complete; generalize it only
+  when a second real experiment needs the same data contract.
 - Passive opportunity: the external benchmark evidence request remains open,
   but archive searching does not block internal calibration.
 - Historical evidence is indexed in `docs/research_state.yaml` and the hypothesis

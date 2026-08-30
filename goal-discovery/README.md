@@ -54,7 +54,8 @@ backs the live cockpit; older plans are retained as decision history.
 | P6-004 | external benchmark evidence request | **ready / passive** — a qualifying compact run table is welcome but no longer blocks calibration |
 | P7-000 | repository-backed research cockpit | **complete** — real objective, evidence frontier, sprint, and decisions; no mock results |
 | P7-001 | cross-system representation tournament | **complete / pass** — 4/4 frozen calibration decisions correct; no prospective claim |
-| P7-002 | prospective network selector | **next / frozen high-level gate** — choose on discovery networks, test on untouched confirmation networks |
+| P7-002 | prospective network selector | **complete / fail** — identity history transferred +8.4%, below frozen 10%; simpler ablation exposed capacity instability |
+| P7-003 | selector complexity audit | **next** — equal four-summary family comparison; freeze a new rule or stop generic selection |
 
 Before Experiment 003, run the time-boxed
 [Mesa compatibility spike](docs/plans/x01_mesa_spike.md). It asks whether an

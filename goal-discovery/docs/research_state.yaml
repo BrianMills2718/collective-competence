@@ -5,9 +5,9 @@ north_star: >-
   intervention response, control, and collective competence most legible, and
   promote a macro description only when it beats simpler alternatives.
 frontier:
-  current_unknown: Can a family selected on discovery network seeds preserve its advantage on untouched confirmation networks?
-  bottleneck: Prospective representation selection
-  last_learning: The common select-or-abstain surface reproduced 4/4 known decisions, but the family pairings were retrospective and must now survive a genuinely prospective test.
+  current_unknown: Can representation families be compared at equal descriptive capacity with stable selection across independent groups?
+  bottleneck: Selector complexity and stability
+  last_learning: Identity-conditioned history transferred directionally but missed the frozen confirmation margin; its simpler ablation performed better, diagnosing capacity instability rather than licensing a pass.
   external_dependency: A compact multiscale recovery bundle remains welcome but is no longer on the critical path.
 milestones:
   - id: apparatus
@@ -25,7 +25,7 @@ milestones:
   - id: prospective
     title: Prospective cross-system selection
     status: active
-    evidence: docs/hypotheses/p7_002_prospective_network_selector.md
+    evidence: docs/hypotheses/p7_002_prospective_network_selector_results.md
   - id: naturalistic
     title: Naturalistic off-the-shelf transfer
     status: locked
@@ -33,20 +33,20 @@ milestones:
     title: Macro causal or control value
     status: locked
 active_sprint:
-  id: P7-002
-  title: Prospective selector on Virus on a Network
-  evidence_level: 2
-  question: Can a family selected on discovery network seeds beat its frozen null on untouched confirmation networks?
-  time_cap_minutes: 180
-  first_artifact_minutes: 30
-  stop_rule: Stop on invalid class balance, invalid grouped scores, or the three-hour cap; do not tune after confirmation.
-  protocol: docs/hypotheses/p7_002_prospective_network_selector.md
+  id: P7-003
+  title: Selector complexity audit
+  evidence_level: 1
+  question: Does an equal-capacity comparison produce a stable family choice, or should generic family selection stop?
+  time_cap_minutes: 60
+  first_artifact_minutes: 15
+  stop_rule: Freeze a future contract only on the predeclared stability gate; do not retune or rerun Virus confirmation.
+  protocol: docs/plans/p7_003_selector_complexity_audit.md
   artifact_standard: docs/plans/dynamic_experiment_artifact_standard.md
 next_decisions:
-  - condition: P7-002 selected family beats the confirmation null by 10% and survives ablation
-    action: Run one thin naturalistic off-the-shelf transfer pilot.
-  - condition: P7-002 abstains or fails confirmation
-    action: Repair or stop the selector/observation boundary without tuning the generator.
+  - condition: One capacity-matched family wins at least six of eight deletion analyses with stable coefficient signs
+    action: Freeze that rule for a different prospective task with new outcomes.
+  - condition: The equal-capacity winner remains unstable
+    action: Stop generic family selection and use task-conditioned scientific representations.
 stops:
   - No fourth archive search without newly supplied evidence.
   - No tuning old generators to improve known scores.
@@ -160,8 +160,17 @@ experiments:
   - id: P7-002
     phase: representation
     title: Prospective selector on Virus on a Network
-    status: active
+    status: complete-negative
     confidence: frozen-prospective
-    decision: Pending implementation and untouched confirmation.
-    implication: Pass licenses a naturalistic transfer pilot; failure returns to the selector boundary.
+    decision: Identity-conditioned history improved confirmation log loss by 8.4%, below the frozen 10% gate.
+    implication: Do not promote or retune Virus; audit unequal descriptive capacity once.
     protocol: docs/hypotheses/p7_002_prospective_network_selector.md
+    result: docs/hypotheses/p7_002_prospective_network_selector_results.md
+  - id: P7-003
+    phase: methodology
+    title: Selector complexity audit
+    status: active
+    confidence: retrospective-calibration
+    decision: Pending equal-capacity stability audit.
+    implication: Stable rule earns a different prospective task; instability stops generic selection.
+    protocol: docs/plans/p7_003_selector_complexity_audit.md
