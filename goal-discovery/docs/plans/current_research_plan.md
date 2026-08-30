@@ -10,16 +10,17 @@ scales make dynamical structure, prediction, control, and collective competence
 most legible, then test whether any higher-level description earns distinct
 predictive, causal, or control value.
 
-The laboratory now has enough generators, perturbations, nulls, and
-visualization. Its bottleneck is a reusable black-box method for proposing and
-testing representations across systems. Post-002 evidence also needs to be
-sealed in version control before more evidence accumulates.
+The laboratory now has enough analysis machinery and visualization. P5 showed
+that its limiting input was a robust multiscale phenomenon with genuinely
+independent damaged systems and a causal control, not another generic feature
+transform. P6-000 found one such published benchmark; the current bottleneck is
+whether it can produce a clean causal signal through the laboratory's
+observation boundary before any larger analysis is funded.
 
 ## Allocation decision
 
-Stop generator screening and dashboard development. The next complete learning
-cycle uses existing data. Slime Mold Network is conditional follow-on work, not
-the default next experiment.
+Stop generator screening and dashboard development. Use the selected published
+neuromast benchmark as an external generator and keep the integration thin.
 
 ### 0. Seal the current evidence state — complete
 
@@ -167,7 +168,7 @@ implement causal-emergence mathematics locally.
 This remains locked: neither P5-000 nor P5-001 produced a promoted held-out
 macro predictor.
 
-### 4. Phenomenon-first benchmark qualification — active, 45 minutes
+### 4. Phenomenon-first benchmark qualification — complete / select M4377
 
 The next bottleneck is a robust phenomenon, not more analysis machinery. Survey
 at most three mature off-the-shelf model/reproduction packages against one
@@ -184,6 +185,33 @@ Select one only if it clears every hard requirement and materially differs from
 the already closed attractor/controller examples. Otherwise stop and write the
 missing benchmark specification instead of adopting another generator.
 
+Outcome: the [P6-000 survey](p6_000_phenomenon_qualification.md) selects the
+published Morpheus M4377 zebrafish neuromast model. It starts from experimental
+post-ablation images, has stochastic local neighbor feedback, reconstructs
+organ-level size/composition/architecture, exposes explicit mechanism and
+passive controls, and runs via both the standard GUI and a standalone CLI. A
+1,000-step feasibility run completed in 3.49 seconds on WSL. V-Cornea remains a
+richer reserve; Artistoo would require authoring the missing phenomenon.
+
+### 5. P6-001 neuromast causal calibration — active, 90 minutes
+
+Goal movement: determine whether the selected off-the-shelf benchmark supplies
+a reproducible causal separation between bounded organ-level recovery and two
+matched failure modes before building any prediction machinery.
+
+- use the original M4377 dynamics and experimental E07 post-ablation layout;
+- add only observation logging and reproducible seed/control overrides;
+- run fresh seeds under active local feedback, feedback-stop disabled, and
+  proliferation disabled;
+- compare total recovery, bounded late growth, cell-type proportionality, and a
+  spatial radial-order measure;
+- save one standard-model visual strip and one static decision figure;
+- stop if the full model cannot finish one three-condition seed inside 25
+  minutes or if active feedback does not separate from both controls.
+
+This is Level 1 causal calibration. A pass funds one separately frozen
+held-out-layout prediction. A failure closes M4377 without tuning it.
+
 ## Explicit stop and defer list
 
 - more Heatbugs probes or Slime aggregation-band repairs;
@@ -195,7 +223,6 @@ missing benchmark specification instead of adopting another generator.
 
 ## Portfolio view
 
-Steps 0–2.5 are complete; the standard-model line is closed. Step 3 remains
-locked. Step 4 is the sole active sprint and is a bounded qualification decision,
-not implementation. This keeps the next spend on finding a phenomenon that can
-support the end goal rather than on tuning failed representations.
+Steps 0–2.5 and P6-000 are complete; the standard NetLogo line is closed. Step
+3 remains locked. P6-001 is the sole active sprint. Its output is a causal
+calibration decision, not a Morpheus migration or another analysis framework.

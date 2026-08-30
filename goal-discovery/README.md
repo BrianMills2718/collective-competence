@@ -46,7 +46,8 @@ authoritative roadmap. Older plans are retained as decision history.
 | P5-000 | existing-data representation-discovery benchmark | **complete / no-go** — thermostat signal found; sorting lost to endpoint null; generic pipeline not promoted |
 | P5-001 | standard Slime Mold Network threshold test | **complete / no-go** — extraction worked; mechanism direction reversed; network predictor failed |
 | P5-002 | stability–plasticity confirmation | **complete / no-go** — directional trend too small and seed-sensitive; standard model line closed |
-| P6-000 | phenomenon-first benchmark qualification | **next** — at most three mature candidates; select one or specify the missing benchmark |
+| P6-000 | phenomenon-first benchmark qualification | **complete / selected** — Morpheus M4377 neuromast regeneration clears the fixed scorecard |
+| P6-001 | neuromast causal calibration | **next** — fresh active / feedback-disabled / proliferation-disabled comparison |
 
 Before Experiment 003, run the time-boxed
 [Mesa compatibility spike](docs/plans/x01_mesa_spike.md). It asks whether an
@@ -175,6 +176,15 @@ effect size and paired-seed consistency did not. The
 close the standard Slime Mold Network line and keep causal/control machinery
 locked. The next move is a short phenomenon-first qualification of no more than
 three mature off-the-shelf benchmarks, not another open-ended generator screen.
+
+P6-000 found the first benchmark that clears that harder bar: the published
+Morpheus [zebrafish neuromast model](docs/plans/p6_000_phenomenon_qualification.md)
+starts from experimental severe-ablation images and uses stochastic local
+neighbor feedback to recover organ size, cell-type proportions, and radial
+architecture. Its mechanism can be disabled in place, its CLI ran a real
+1,000-step diagnostic in 3.49 seconds on WSL, and Morpheus already supplies the
+GUI and spatial plotting surface. P6-001 therefore buys one causal calibration,
+not a custom generator, viewer, or broad platform migration.
 
 Research time is allocated by the
 [progress-allocation protocol](docs/plans/progress_allocation_protocol.md):
