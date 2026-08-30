@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experiments>
+  <experiment name="p3-006-baseline" repetitions="4" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="1200">
+    <setup>random-seed (behaviorspace-run-number + 4)
+setup</setup>
+    <go>go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>mean [count other turtles in-radius 3] of turtles</metric>
+      <metric>mean [chemical] of patches</metric>
+      <metric>max [chemical] of patches</metric>
+      <metric>count turtles</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="population"><value value="400"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="sniff-threshold"><value value="1"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="sniff-angle"><value value="45"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="wiggle-angle"><value value="40"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="wiggle-bias"><value value="0"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p3-006-dispersed" repetitions="4" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="1200">
+    <setup>random-seed (behaviorspace-run-number + 4)
+setup</setup>
+    <go>if ticks = 900 [ foreach (sort turtles) [ t -&gt; ask t [ setxy (-40 + (who mod 81)) (-40 + (((floor (who / 81)) * 17 + who * 7) mod 81)) set heading ((who * 137.5) mod 360) ]] ask patches [ set chemical 0 ] ]
+go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>mean [count other turtles in-radius 3] of turtles</metric>
+      <metric>mean [chemical] of patches</metric>
+      <metric>max [chemical] of patches</metric>
+      <metric>count turtles</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="population"><value value="400"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="sniff-threshold"><value value="1"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="sniff-angle"><value value="45"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="wiggle-angle"><value value="40"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="wiggle-bias"><value value="0"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p3-006-compressed" repetitions="4" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="1200">
+    <setup>random-seed (behaviorspace-run-number + 4)
+setup</setup>
+    <go>if ticks = 900 [ foreach (sort turtles) [ t -&gt; ask t [ setxy (-2 + (who mod 5)) (-2 + ((floor (who / 5)) mod 5)) set heading ((who * 137.5) mod 360) ]] ask patches [ set chemical 0 ] ]
+go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>mean [count other turtles in-radius 3] of turtles</metric>
+      <metric>mean [chemical] of patches</metric>
+      <metric>max [chemical] of patches</metric>
+      <metric>count turtles</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="population"><value value="400"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="sniff-threshold"><value value="1"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="sniff-angle"><value value="45"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="wiggle-angle"><value value="40"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="wiggle-bias"><value value="0"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+</experiments>

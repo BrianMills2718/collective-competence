@@ -7,3 +7,6 @@ __pycache__/
 .vscode/
 .idea/
 .DS_Store
+
+# Linked agent worktrees are coordination state, not project content.
+worktrees/

@@ -1,0 +1,275 @@
+extensions [csv]
+
+breed [cells cell]
+
+cells-own [
+  cell-id
+  value
+  position-index
+  freeze-mode
+]
+
+globals [
+  cells-by-position
+  cells-by-id
+  comparison-count
+  swap-count
+  trajectory-log
+  last-event
+]
+
+; Interface variables supplied by netlogo-bubble.nlogox:
+; seed-number, activation-order, max-ticks, perturb-fraction,
+; intervention-seed, freeze-count, and freeze-mode-choice.
+
+to setup
+  clear-all
+  random-seed seed-number
+  set comparison-count 0
+  set swap-count 0
+  set trajectory-log (list trajectory-header)
+  set last-event "setup"
+
+  let initial-values shuffle (range 12)
+  create-cells 12 [
+    set cell-id who
+    set value item cell-id initial-values
+    set position-index cell-id
+    set freeze-mode "none"
+    set shape "square"
+    set size 0.78
+    set heading 0
+  ]
+  set cells-by-id sort cells
+  sync-line
+  reset-ticks
+  record-trajectory "setup"
+end
+
+to go
+  if ticks >= max-ticks [ stop ]
+  if quiescent? [ stop ]
+  step-once
+end
+
+to step-once
+  if not any? cells [ stop ]
+  if ticks >= max-ticks [ stop ]
+
+  let schedule cell-ids-by-position
+  if activation-order = "shuffled" [
+    set schedule shuffle (range length cells-by-id)
+  ]
+
+  foreach schedule [cid ->
+    let active item cid cells-by-id
+    if [freeze-mode] of active = "none" [
+      activate-cell active
+    ]
+  ]
+
+  tick
+  sync-line
+  record-trajectory "step"
+end
+
+to activate-cell [active]
+  let pos-index [position-index] of active
+  let look-right? random-float 1 < 0.5
+  let target ifelse-value look-right? [pos-index + 1] [pos-index - 1]
+  if target < 0 or target >= length cells-by-position [ stop ]
+
+  let neighbor-cell item target cells-by-position
+  set comparison-count comparison-count + 1
+  if [freeze-mode] of neighbor-cell = "immovable" [ stop ]
+
+  let should-swap? ifelse-value look-right?
+    [[value] of active > [value] of neighbor-cell]
+    [[value] of active < [value] of neighbor-cell]
+  if should-swap? [ swap-positions pos-index target ]
+end
+
+to swap-positions [left-index right-index]
+  exchange-positions left-index right-index
+  set swap-count swap-count + 1
+end
+
+to exchange-positions [left-index right-index]
+  let left-cell item left-index cells-by-position
+  let right-cell item right-index cells-by-position
+  set cells-by-position replace-item left-index cells-by-position right-cell
+  set cells-by-position replace-item right-index cells-by-position left-cell
+  ask left-cell [ set position-index right-index ]
+  ask right-cell [ set position-index left-index ]
+end
+
+to perturb
+  apply-block-swap perturb-fraction intervention-seed
+end
+
+to apply-block-swap [fraction intervention-rng-seed]
+  let n length cells-by-position
+  let block-size max (list 1 round (fraction * n))
+  if 2 * block-size > n [
+    error (word "Two blocks of size " block-size " do not fit in " n " cells")
+  ]
+
+  let first-start 0
+  let second-start 0
+  with-local-randomness [
+    random-seed intervention-rng-seed
+    set first-start random (n - (2 * block-size) + 1)
+    set second-start first-start + block-size +
+      random (n - block-size - (first-start + block-size) + 1)
+  ]
+
+  foreach (range block-size) [offset ->
+    ; Experimenter damage changes state but does not count as a model swap.
+    exchange-positions (first-start + offset) (second-start + offset)
+  ]
+  sync-line
+  set last-event "block-swap"
+  record-trajectory last-event
+end
+
+to freeze-selected
+  freeze-random-cells freeze-count freeze-mode-choice intervention-seed
+end
+
+to freeze-random-cells [number-to-freeze mode intervention-rng-seed]
+  if not member? mode ["moveable" "immovable"] [
+    error (word "Unknown freeze mode: " mode)
+  ]
+  if number-to-freeze < 0 or number-to-freeze > count cells [
+    error (word "freeze count must be between 0 and " count cells)
+  ]
+
+  let chosen []
+  with-local-randomness [
+    random-seed intervention-rng-seed
+    set chosen sublist (shuffle (range count cells)) 0 number-to-freeze
+  ]
+  foreach chosen [pos-index ->
+    ask item pos-index cells-by-position [ set freeze-mode mode ]
+  ]
+  sync-line
+  set last-event (word "freeze-" mode)
+  record-trajectory last-event
+end
+
+to clear-freezes
+  ask cells [ set freeze-mode "none" ]
+  sync-line
+  set last-event "clear-freezes"
+  record-trajectory last-event
+end
+
+to setup-block-swap
+  setup
+  while [not quiescent? and ticks < max-ticks] [ step-once ]
+  apply-block-swap perturb-fraction intervention-seed
+end
+
+to setup-freeze-moveable
+  setup
+  freeze-random-cells freeze-count "moveable" intervention-seed
+end
+
+to setup-freeze-immovable
+  setup
+  freeze-random-cells freeze-count "immovable" intervention-seed
+end
+
+to sync-line
+  set cells-by-position sort-on [position-index] cells
+  ask patches [ set pcolor gray - 4 ]
+  foreach (range length cells-by-position) [pos-index ->
+    let current item pos-index cells-by-position
+    ask current [
+      set position-index pos-index
+      setxy pos-index 0
+      set color scale-color blue value -1 12
+      set label (word value "\n#" cell-id)
+      set label-color white
+    ]
+    ask patch pos-index 0 [
+      let mode [freeze-mode] of current
+      if mode = "none" [ set pcolor black ]
+      if mode = "moveable" [ set pcolor yellow - 1 ]
+      if mode = "immovable" [ set pcolor red - 1 ]
+    ]
+  ]
+end
+
+to-report boundary-length
+  let result 0
+  let current-values values
+  foreach (range (length current-values - 1)) [pos-index ->
+    if item pos-index current-values > item (pos-index + 1) current-values [
+      set result result + 1
+    ]
+  ]
+  report result
+end
+
+to-report sorted?
+  report boundary-length = 0
+end
+
+to-report quiescent?
+  report not any? cells with [freeze-mode = "none" and active-cell-would-swap? self]
+end
+
+to-report active-cell-would-swap? [active]
+  let pos-index [position-index] of active
+  if pos-index > 0 [
+    let left-cell item (pos-index - 1) cells-by-position
+    if [freeze-mode] of left-cell != "immovable" and
+       [value] of active < [value] of left-cell [ report true ]
+  ]
+  if pos-index + 1 < length cells-by-position [
+    let right-cell item (pos-index + 1) cells-by-position
+    if [freeze-mode] of right-cell != "immovable" and
+       [value] of active > [value] of right-cell [ report true ]
+  ]
+  report false
+end
+
+to-report values
+  report map [current -> [value] of current] cells-by-position
+end
+
+to-report cell-ids-by-position
+  report map [current -> [cell-id] of current] cells-by-position
+end
+
+to-report freeze-modes-by-position
+  report map [current -> [freeze-mode] of current] cells-by-position
+end
+
+to-report trajectory-header
+  report sentence
+    (list "tick" "event" "seed" "activation_order" "boundary_length"
+          "sorted" "quiescent" "comparisons" "swaps")
+    (sentence
+      (map [pos-index -> word "value_" pos-index] range 12)
+      (sentence
+        (map [pos-index -> word "cell_id_" pos-index] range 12)
+        (map [pos-index -> word "freeze_" pos-index] range 12)))
+end
+
+to-report trajectory-row [event-name]
+  report sentence
+    (list ticks event-name seed-number activation-order boundary-length
+          sorted? quiescent? comparison-count swap-count)
+    (sentence values (sentence cell-ids-by-position freeze-modes-by-position))
+end
+
+to record-trajectory [event-name]
+  set trajectory-log lput (trajectory-row event-name) trajectory-log
+end
+
+to export-trajectory [path]
+  csv:to-file path trajectory-log
+  set last-event "export"
+end

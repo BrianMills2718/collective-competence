@@ -67,8 +67,13 @@ def test_a_sorted_array_is_the_zero_of_every_distance_measure():
 
 def test_empty_and_singleton_do_not_raise():
     for values in ([], [4]):
-        for fn in (boundary_length, unlike_neighbor_fraction, largest_cluster_fraction,
-                   sortedness_value, inversions):
+        for fn in (
+            boundary_length,
+            unlike_neighbor_fraction,
+            largest_cluster_fraction,
+            sortedness_value,
+            inversions,
+        ):
             fn(obs(values))
 
 

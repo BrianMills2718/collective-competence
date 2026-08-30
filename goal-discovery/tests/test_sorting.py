@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import pytest
 
+from src.experiments.sorting.interventions import Intervention, apply
 from src.experiments.sorting.model import ALGOTYPES, Cell, Freeze, SortingWorld
 
 
@@ -23,6 +24,22 @@ def test_a_frozen_cell_never_initiates():
     before = list(w.values)
     w.run(50, stop_when_quiescent=False)
     assert w.values == before
+
+
+def test_freeze_intervention_accepts_exact_positions():
+    w = SortingWorld.from_values([4, 3, 2, 1, 0], "bubble", seed=1)
+    apply(
+        w,
+        Intervention("freeze_cells", {"positions": [1, 3], "mode": "immovable"}),
+        seed=99,
+    )
+    assert [cell.freeze for cell in w.cells] == [
+        Freeze.NONE,
+        Freeze.IMMOVABLE,
+        Freeze.NONE,
+        Freeze.IMMOVABLE,
+        Freeze.NONE,
+    ]
 
 
 def test_moveable_frozen_cell_can_still_be_swapped_by_a_neighbour():

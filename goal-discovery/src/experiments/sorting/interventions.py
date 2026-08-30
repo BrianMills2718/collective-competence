@@ -48,12 +48,24 @@ def apply(world: SortingWorld, iv: Intervention, seed: int) -> None:
             world.cells[a + k], world.cells[b + k] = world.cells[b + k], world.cells[a + k]
         return
     if iv.kind == "freeze_cells":
-        # The paper specifies frozen cells as a count (1, 2, 3), not a fraction.
-        k = int(iv.params["count"]) if "count" in iv.params else max(
-            1, round(iv.params["fraction"] * n)
-        )
+        if "positions" in iv.params:
+            idx = [int(position) for position in iv.params["positions"]]
+            if len(idx) != len(set(idx)):
+                raise ValueError("freeze_cells positions must be unique")
+            if any(position < 0 or position >= n for position in idx):
+                raise ValueError(f"freeze_cells positions must be inside a world of size {n}")
+            if "count" in iv.params and int(iv.params["count"]) != len(idx):
+                raise ValueError("freeze_cells count must match explicit positions")
+        else:
+            # The paper specifies frozen cells as a count (1, 2, 3), not a fraction.
+            k = (
+                int(iv.params["count"])
+                if "count" in iv.params
+                else max(1, round(iv.params["fraction"] * n))
+            )
+            idx = rng.sample(range(n), k)
         mode = Freeze(iv.params.get("mode", "moveable"))
-        for i in rng.sample(range(n), k):
+        for i in idx:
             world.cells[i].freeze = mode
         return
     raise ValueError(f"unknown intervention kind {iv.kind!r}")

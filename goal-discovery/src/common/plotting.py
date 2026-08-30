@@ -22,8 +22,16 @@ def render_array(values: list[int], title: str, path: Path, frozen: list[str] | 
     if frozen:
         for i, f in enumerate(frozen):
             if f != "none":
-                ax.text(i, 0, "x" if f == "moveable" else "X", ha="center", va="center",
-                        color="red", fontsize=8, fontweight="bold")
+                ax.text(
+                    i,
+                    0,
+                    "x" if f == "moveable" else "X",
+                    ha="center",
+                    va="center",
+                    color="red",
+                    fontsize=8,
+                    fontweight="bold",
+                )
     ax.set_yticks([])
     ax.set_xlabel("position")
     ax.set_title(title, fontsize=10)
@@ -33,8 +41,9 @@ def render_array(values: list[int], title: str, path: Path, frozen: list[str] | 
     return path
 
 
-def render_recovery(series: dict[str, list[float]], x: list[int], branch_x: int,
-                    title: str, path: Path):
+def render_recovery(
+    series: dict[str, list[float]], x: list[int], branch_x: int, title: str, path: Path
+):
     """Representation values against sorting steps, with the branch marked."""
     plt = _plt()
     fig, axes = plt.subplots(len(series), 1, figsize=(8.0, 2.0 * len(series)), sharex=True)

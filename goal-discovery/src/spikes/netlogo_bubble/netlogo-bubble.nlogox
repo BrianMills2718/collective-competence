@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<model version="NetLogo 7.0.4" snapToGrid="true">
+  <code><![CDATA[__includes ["netlogo-bubble.nls"]]]></code>
+  <widgets>
+    <view x="305" wrappingAllowedX="false" y="10" frameRate="30.0" minPycor="-1" height="235" showTickCounter="true" patchSize="44.0" fontSize="12" wrappingAllowedY="false" width="560" tickCounterLabel="ticks" maxPycor="1" updateMode="1" maxPxcor="11" minPxcor="0"></view>
+    <button x="10" y="10" height="40" disableUntilTicks="false" forever="false" kind="Observer" width="85" display="Setup">setup</button>
+    <button x="100" y="10" height="40" disableUntilTicks="true" forever="false" kind="Observer" width="85" display="Step">step-once</button>
+    <button x="190" y="10" height="40" disableUntilTicks="true" forever="true" kind="Observer" width="85" display="Go">go</button>
+    <slider x="10" step="1" y="58" max="9999" width="265" display="seed-number" height="42" min="0" direction="Horizontal" default="42" variable="seed-number"></slider>
+    <chooser x="10" y="105" height="55" variable="activation-order" current="1" width="265" display="activation-order">
+      <choice type="string" value="index"></choice>
+      <choice type="string" value="shuffled"></choice>
+    </chooser>
+    <slider x="10" step="10" y="165" max="1000" width="265" display="max-ticks" height="42" min="10" direction="Horizontal" default="300" variable="max-ticks"></slider>
+
+    <button x="10" y="225" height="40" disableUntilTicks="true" forever="false" kind="Observer" width="85" display="Perturb">perturb</button>
+    <slider x="100" step="0.05" y="220" max="0.5" width="175" display="perturb-fraction" height="45" min="0.05" direction="Horizontal" default="0.25" variable="perturb-fraction"></slider>
+    <slider x="10" step="1" y="270" max="9999" width="265" display="intervention-seed" height="42" min="0" direction="Horizontal" default="91" variable="intervention-seed"></slider>
+
+    <button x="10" y="325" height="40" disableUntilTicks="true" forever="false" kind="Observer" width="85" display="Freeze">freeze-selected</button>
+    <button x="100" y="325" height="40" disableUntilTicks="true" forever="false" kind="Observer" width="85" display="Unfreeze">clear-freezes</button>
+    <slider x="10" step="1" y="370" max="6" width="265" display="freeze-count" height="42" min="0" direction="Horizontal" default="2" variable="freeze-count"></slider>
+    <chooser x="10" y="417" height="55" variable="freeze-mode-choice" current="0" width="265" display="freeze-mode-choice">
+      <choice type="string" value="moveable"></choice>
+      <choice type="string" value="immovable"></choice>
+    </chooser>
+    <button x="10" y="482" height="40" disableUntilTicks="true" forever="false" kind="Observer" width="265" display="Export trajectory CSV">export-trajectory "netlogo-bubble-trajectory.csv"</button>
+
+    <monitor x="305" precision="0" y="255" height="50" fontSize="12" width="135" display="boundary length">boundary-length</monitor>
+    <monitor x="445" precision="0" y="255" height="50" fontSize="12" width="100" display="sorted?">sorted?</monitor>
+    <monitor x="550" precision="0" y="255" height="50" fontSize="12" width="120" display="quiescent?">quiescent?</monitor>
+    <monitor x="675" precision="0" y="255" height="50" fontSize="12" width="90" display="swaps">swap-count</monitor>
+    <monitor x="770" precision="0" y="255" height="50" fontSize="12" width="95" display="event">last-event</monitor>
+
+    <plot x="305" autoPlotX="true" yMax="11.0" autoPlotY="false" yAxis="descending pairs" y="315" xMin="0.0" height="207" legend="false" xMax="100.0" yMin="0.0" width="560" xAxis="tick" display="Boundary length">
+      <setup>clear-plot</setup>
+      <update></update>
+      <pen interval="1.0" mode="0" display="boundary length" color="-13345367" legend="false">
+        <setup></setup>
+        <update>plot boundary-length</update>
+      </pen>
+    </plot>
+    <note x="305" y="530" backgroundDark="0" fontSize="11" width="560" markdown="true" height="66" textColorDark="-1" textColorLight="-16777216" backgroundLight="0">**Reading the line:** color encodes value; the top number is the value and `#` is persistent cell identity. Yellow backing = moveable freeze. Red backing = immovable freeze.</note>
+  </widgets>
+  <info><![CDATA[## WHAT IS IT?
+
+A deliberately small visual calibration of the validated Python bubble-sorting experiment. Twelve persistent cells apply a local bubble rule: each active cell looks left or right with equal probability, then swaps left when smaller or right when larger.
+
+This is an exploratory NetLogo spike, not a replacement for Experiment 001.
+
+## HOW TO USE IT
+
+1. Select a seed and activation order.
+2. Press **Setup**, then **Step** or **Go**.
+3. Press **Perturb** to exchange two contiguous blocks.
+4. Select a freeze mode and press **Freeze**. A moveable frozen cell cannot act but a neighbor can carry it. An immovable frozen cell also blocks neighbor swaps.
+5. Use **Export trajectory CSV** to save every recorded setup, intervention, and tick as a flat table.
+
+Blue color encodes value. Labels show `value` and persistent `#cell-id`. Yellow patch backing marks moveable freezing; red marks immovable freezing. Boundary length counts adjacent descending pairs, exactly as in the Python calibration.
+
+## REPRODUCIBILITY
+
+`seed-number` owns transition randomness. `intervention-seed` is applied inside `with-local-randomness`, so choosing a block or frozen cells does not consume the transition random stream. Same NetLogo version, parameters, and seeds reproduce a run.
+
+The `index` schedule activates identities in current positional order. The `shuffled` schedule shuffles persistent identities once per tick. Every identity is offered exactly one activation per tick.
+
+## BEHAVIORSPACE
+
+Four embedded experiments cover baseline sorting, recovery from a block swap after sorting, and matched moveable/immovable freeze cases. Metrics are recorded every step and can be exported from BehaviorSpace as CSV.
+
+## LIMITS
+
+NetLogo and Python use different random-number generators, so the calibration targets rule and outcome parity rather than byte-identical cross-engine paths. The Python implementation remains authoritative for completed experiments.]]></info>
+  <turtleShapes>
+    <shape name="default" rotatable="true" editableColorIndex="0">
+      <polygon color="-1920102913" filled="true" marked="true">
+        <point x="150" y="5"></point><point x="40" y="250"></point><point x="150" y="205"></point><point x="260" y="250"></point>
+      </polygon>
+    </shape>
+    <shape name="square" rotatable="false" editableColorIndex="0">
+      <rectangle startX="30" startY="30" marked="true" color="-1920102913" endX="270" endY="270" filled="true"></rectangle>
+    </shape>
+  </turtleShapes>
+  <linkShapes>
+    <shape name="default" curviness="0.0">
+      <lines><line x="0.0" visible="true"><dash value="1.0"></dash><dash value="0.0"></dash></line></lines>
+      <indicator><shape name="link direction" rotatable="true" editableColorIndex="0"><line endX="90" startY="150" marked="true" color="-1920102913" endY="180" startX="150"></line><line endX="210" startY="150" marked="true" color="-1920102913" endY="180" startX="150"></line></shape></indicator>
+    </shape>
+  </linkShapes>
+  <previewCommands>set seed-number 42
+set activation-order "shuffled"
+set max-ticks 300
+set perturb-fraction 0.25
+set intervention-seed 91
+set freeze-count 2
+set freeze-mode-choice "moveable"
+setup
+repeat 20 [ if not quiescent? [ step-once ] ]</previewCommands>
+  <experiments>
+    <experiment name="calibration-baseline" repetitions="3" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="150">
+      <setup>setup</setup><go>go</go>
+      <metrics><metric>ticks</metric><metric>boundary-length</metric><metric>sorted?</metric><metric>quiescent?</metric><metric>values</metric><metric>cell-ids-by-position</metric><metric>freeze-modes-by-position</metric><metric>swap-count</metric><metric>comparison-count</metric><metric>last-event</metric></metrics>
+      <constants>
+        <enumeratedValueSet variable="seed-number"><value value="101"></value><value value="202"></value><value value="303"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="activation-order"><value value="&quot;index&quot;"></value><value value="&quot;shuffled&quot;"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="max-ticks"><value value="500"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="perturb-fraction"><value value="0.25"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="intervention-seed"><value value="91"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="freeze-count"><value value="2"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="freeze-mode-choice"><value value="&quot;moveable&quot;"></value></enumeratedValueSet>
+      </constants>
+    </experiment>
+    <experiment name="calibration-block-swap" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="150">
+      <setup>setup-block-swap</setup><go>go</go>
+      <metrics><metric>ticks</metric><metric>boundary-length</metric><metric>sorted?</metric><metric>quiescent?</metric><metric>values</metric><metric>cell-ids-by-position</metric><metric>freeze-modes-by-position</metric><metric>swap-count</metric><metric>comparison-count</metric><metric>last-event</metric></metrics>
+      <constants>
+        <enumeratedValueSet variable="seed-number"><value value="101"></value><value value="202"></value><value value="303"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="activation-order"><value value="&quot;index&quot;"></value><value value="&quot;shuffled&quot;"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="max-ticks"><value value="500"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="perturb-fraction"><value value="0.25"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="intervention-seed"><value value="91"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="freeze-count"><value value="2"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="freeze-mode-choice"><value value="&quot;moveable&quot;"></value></enumeratedValueSet>
+      </constants>
+    </experiment>
+    <experiment name="calibration-freeze-moveable" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="150">
+      <setup>setup-freeze-moveable</setup><go>go</go>
+      <metrics><metric>ticks</metric><metric>boundary-length</metric><metric>sorted?</metric><metric>quiescent?</metric><metric>values</metric><metric>cell-ids-by-position</metric><metric>freeze-modes-by-position</metric><metric>swap-count</metric><metric>comparison-count</metric><metric>last-event</metric></metrics>
+      <constants>
+        <enumeratedValueSet variable="seed-number"><value value="101"></value><value value="202"></value><value value="303"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="activation-order"><value value="&quot;index&quot;"></value><value value="&quot;shuffled&quot;"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="max-ticks"><value value="500"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="perturb-fraction"><value value="0.25"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="intervention-seed"><value value="91"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="freeze-count"><value value="2"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="freeze-mode-choice"><value value="&quot;moveable&quot;"></value></enumeratedValueSet>
+      </constants>
+    </experiment>
+    <experiment name="calibration-freeze-immovable" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="150">
+      <setup>setup-freeze-immovable</setup><go>go</go>
+      <metrics><metric>ticks</metric><metric>boundary-length</metric><metric>sorted?</metric><metric>quiescent?</metric><metric>values</metric><metric>cell-ids-by-position</metric><metric>freeze-modes-by-position</metric><metric>swap-count</metric><metric>comparison-count</metric><metric>last-event</metric></metrics>
+      <constants>
+        <enumeratedValueSet variable="seed-number"><value value="101"></value><value value="202"></value><value value="303"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="activation-order"><value value="&quot;index&quot;"></value><value value="&quot;shuffled&quot;"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="max-ticks"><value value="500"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="perturb-fraction"><value value="0.25"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="intervention-seed"><value value="91"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="freeze-count"><value value="2"></value></enumeratedValueSet>
+        <enumeratedValueSet variable="freeze-mode-choice"><value value="&quot;immovable&quot;"></value></enumeratedValueSet>
+      </constants>
+    </experiment>
+  </experiments>
+</model>
