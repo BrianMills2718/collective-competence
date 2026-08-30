@@ -42,8 +42,15 @@ These settings are now frozen; Level 0 outputs cannot enter Level 2 scoring.
 | intervention checkpoint | tick 20, after the tick-20 observation is recorded |
 | endpoint | extinction by tick 100 |
 | arms | baseline; random 10%; high-degree 10%; random 20%; high-degree 20% |
-| discovery network seeds | 10001–10008 |
-| confirmation network seeds | 10009–10016 |
+| discovery seed pool | 10001–10012; first eight active at tick 20 |
+| confirmation seed pool | 10013–10024; first eight active at tick 20 |
+
+Eligibility is determined mechanically from the observation boundary, before
+any post-intervention outcome is inspected: a network must have at least one
+infected node at tick 20. The lowest eight eligible seeds in each pool are used;
+remaining seeds are ignored reserves. Stop if either pool has fewer than eight
+eligible networks. This prevents already-extinct networks from making endpoint
+prediction trivial while preserving untouched confirmation.
 
 The five arms for a seed must be identical through tick 20. Random immunization
 uses NetLogo's seeded `n-of`; high-degree immunization uses `max-n-of` with the
@@ -88,12 +95,13 @@ search or post-outcome feature selection in this sprint.
 - Model: standardized L2 logistic regression with fixed `C=1.0`; if a training
   fold contains one class, use its clipped training prevalence.
 - Null: intervention type/fraction only.
-- Discovery: leave-one-seed-out predictions on seeds 10001–10008 for the null
-  and all four families.
+- Discovery: leave-one-seed-out predictions on the eight mechanically eligible
+  seeds from pool 10001–10012 for the null and all four families.
 - Selection: choose the family with lowest discovery log loss only if it improves
   on the null by at least 10%. Ties within 0.005 log loss abstain.
 - Confirmation: fit the selected family and null on all discovery seeds; evaluate
-  once on seeds 10009–10016. Do not inspect unselected-family confirmation scores.
+  once on the eight mechanically eligible seeds from pool 10013–10024. Do not
+  inspect unselected-family confirmation scores.
 - Confirmation gate: selected-family log loss improves on the null by at least
   10% and its family-specific ablation retains at least half of that advantage.
 
@@ -105,6 +113,8 @@ unchanged across all arms and seeds.
 ## Integrity gates and decisions
 
 - every seed-arm has ticks 0–100 or terminates with zero infected nodes;
+- exactly eight tick-20-active networks are selected mechanically from each
+  predeclared seed pool without consulting future outcomes;
 - the five arms are identical through the tick-20 observation;
 - discovery and confirmation each contain both outcome classes;
 - no node/link state after tick 20 enters a feature;
