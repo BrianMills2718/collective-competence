@@ -335,6 +335,12 @@ registry, and conditional next investment directly from
 `docs/research_state.yaml`. Filters and experiment selection are interactive,
 but the scientific content is repository-backed rather than simulated.
 
+Active experiments also follow the
+[dynamic artifact standard](docs/plans/dynamic_experiment_artifact_standard.md):
+system playback, intervention, representation lenses, held-out evidence, and the
+resulting decision must remain visibly connected. P7-002 is the first reference
+implementation inside the cockpit.
+
 Choose or filter a run in the outcome table. The cell raster, macro signals,
 phase path, capability view, and matched baseline all follow that selection.
 The **Future mockup** tab previews the intended end-state research workflow;

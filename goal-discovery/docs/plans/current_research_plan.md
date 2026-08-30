@@ -125,8 +125,12 @@ known calibrations -> P7-001 selector tournament
 
 - The [P7 strategic review](../audits/2026-08-29_p7_strategy_review.md) defines
   the time-allocation test and continuing audit rules.
+- The [dynamic experiment artifact standard](dynamic_experiment_artifact_standard.md)
+  requires every active experiment to connect real system behavior, intervention,
+  representation, evidence, and decision. P7-002 is the first reference build.
 - Active science lane: P7-002 prospective selector test.
-- Maintenance enabler: P7-000 cockpit; change it only when the state schema changes.
+- Active enabler: add the P7-002 dynamic story to the cockpit, capped at the same
+  three-hour experiment sprint and developed only against real trajectory data.
 - Passive opportunity: the external benchmark evidence request remains open,
   but archive searching does not block internal calibration.
 - Historical evidence is indexed in `docs/research_state.yaml` and the hypothesis
@@ -137,7 +141,8 @@ known calibrations -> P7-001 selector tournament
 - no fourth archive search without a newly supplied evidence bundle;
 - no more M4377, Slime, Heatbugs, or sorting model tuning to improve known scores;
 - no custom simulator or broad trajectory-framework refactor;
-- no decorative dashboard or mock data after P7-000;
+- no decorative dashboard, invented outcomes, or animation detached from a
+  scientific comparison;
 - no causal-emergence implementation before a prospective macro predictor;
 - no claim that calibration reuse establishes cross-system generalization.
 

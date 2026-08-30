@@ -41,6 +41,7 @@ active_sprint:
   first_artifact_minutes: 30
   stop_rule: Stop on invalid class balance, invalid grouped scores, or the three-hour cap; do not tune after confirmation.
   protocol: docs/hypotheses/p7_002_prospective_network_selector.md
+  artifact_standard: docs/plans/dynamic_experiment_artifact_standard.md
 next_decisions:
   - condition: P7-002 selected family beats the confirmation null by 10% and survives ablation
     action: Run one thin naturalistic off-the-shelf transfer pilot.

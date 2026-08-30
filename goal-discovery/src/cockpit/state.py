@@ -49,7 +49,7 @@ def _require(mapping: dict[str, Any], keys: set[str], context: str) -> None:
 def _validate_document_paths(state: ResearchState) -> None:
     records = [*state.data["milestones"], *state.experiments, state.data["active_sprint"]]
     for record in records:
-        for field in ("evidence", "protocol", "result"):
+        for field in ("evidence", "protocol", "result", "artifact_standard"):
             relative = record.get(field)
             if relative and not state.resolve(relative).is_file():
                 raise ValueError(f"Missing {field} document for {record.get('id')}: {relative}")

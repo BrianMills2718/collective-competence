@@ -17,6 +17,7 @@ if str(REPOSITORY_ROOT) not in sys.path:
 
 import panel as pn
 
+from src.cockpit.experiment_story import build_experiment_story, unavailable_story
 from src.cockpit.state import DEFAULT_STATE_PATH, ResearchState, load_research_state
 
 pn.extension("tabulator", sizing_mode="stretch_width")
@@ -159,6 +160,21 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
     next_steps = "\n".join(
         f"- **If {item['condition']}:** {item['action']}" for item in state.data["next_decisions"]
     )
+    story_directory = state.root / "results" / "p7-002-network-feasibility"
+    story = (
+        build_experiment_story(story_directory)
+        if story_directory.is_dir()
+        else unavailable_story("uv run python -m src.experiments.prospective_network_selector.run")
+    )
+    programme = pn.Column(
+        header,
+        pn.Row(active, learn),
+        pn.pane.HTML(_milestone_html(state)),
+        "## Evidence registry",
+        table,
+        detail,
+        pn.pane.Markdown(f"## Next decision branches\n\n{next_steps}"),
+    )
     template = pn.template.FastListTemplate(
         title="Goal Discovery Cockpit",
         accent_base_color="#d35400",
@@ -172,15 +188,7 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
             pn.layout.Divider(),
             "The cockpit reads versioned repository state. It does not synthesize results.",
         ],
-        main=[
-            header,
-            pn.Row(active, learn),
-            pn.pane.HTML(_milestone_html(state)),
-            "## Evidence registry",
-            table,
-            detail,
-            pn.pane.Markdown(f"## Next decision branches\n\n{next_steps}"),
-        ],
+        main=[pn.Tabs(("Experiment story", story), ("Research programme", programme))],
     )
     return template
 

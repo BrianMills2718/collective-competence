@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experiments>
+  <experiment name="p7-002-feasibility-baseline" repetitions="2" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="100">
+    <setup>random-seed (9000 + behaviorspace-run-number)
+setup</setup>
+    <go>go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>count turtles with [infected?]</metric>
+      <metric>count turtles with [resistant?]</metric>
+      <metric>map [t -&gt; (list ([who] of t) (precision ([xcor] of t) 3) (precision ([ycor] of t) 3) ([infected?] of t) ([resistant?] of t) ([count link-neighbors] of t))] sort turtles</metric>
+      <metric>map [t -&gt; [sort [who] of link-neighbors] of t] sort turtles</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="number-of-nodes"><value value="150"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="average-node-degree"><value value="6"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="initial-outbreak-size"><value value="3"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="virus-spread-chance"><value value="2.5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="virus-check-frequency"><value value="1"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="recovery-chance"><value value="5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="gain-resistance-chance"><value value="5"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p7-002-feasibility-random" repetitions="2" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="100">
+    <setup>random-seed (9000 + behaviorspace-run-number)
+setup</setup>
+    <go>if ticks = 20 [ ask n-of 15 turtles [ become-resistant ] ]
+go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>count turtles with [infected?]</metric>
+      <metric>count turtles with [resistant?]</metric>
+      <metric>map [t -&gt; (list ([who] of t) (precision ([xcor] of t) 3) (precision ([ycor] of t) 3) ([infected?] of t) ([resistant?] of t) ([count link-neighbors] of t))] sort turtles</metric>
+      <metric>map [t -&gt; [sort [who] of link-neighbors] of t] sort turtles</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="number-of-nodes"><value value="150"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="average-node-degree"><value value="6"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="initial-outbreak-size"><value value="3"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="virus-spread-chance"><value value="2.5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="virus-check-frequency"><value value="1"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="recovery-chance"><value value="5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="gain-resistance-chance"><value value="5"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p7-002-feasibility-degree" repetitions="2" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="100">
+    <setup>random-seed (9000 + behaviorspace-run-number)
+setup</setup>
+    <go>if ticks = 20 [ ask (max-n-of 15 turtles [count link-neighbors]) [ become-resistant ] ]
+go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>count turtles with [infected?]</metric>
+      <metric>count turtles with [resistant?]</metric>
+      <metric>map [t -&gt; (list ([who] of t) (precision ([xcor] of t) 3) (precision ([ycor] of t) 3) ([infected?] of t) ([resistant?] of t) ([count link-neighbors] of t))] sort turtles</metric>
+      <metric>map [t -&gt; [sort [who] of link-neighbors] of t] sort turtles</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="number-of-nodes"><value value="150"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="average-node-degree"><value value="6"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="initial-outbreak-size"><value value="3"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="virus-spread-chance"><value value="2.5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="virus-check-frequency"><value value="1"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="recovery-chance"><value value="5"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="gain-resistance-chance"><value value="5"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+</experiments>
