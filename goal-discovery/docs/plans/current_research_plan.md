@@ -266,7 +266,7 @@ released reproduction fixes one seed and one lesion geometry and omits the
 original paper's reduced mechanism models. Do not install or run either for
 this programme.
 
-### 7. P6-003 compact evidence-package acquisition — active, 60 minutes
+### 7. P6-003 compact evidence-package acquisition — complete / no selection
 
 Goal movement: find evidence that can support the representation-discovery
 question before paying for another simulator implementation.
@@ -294,6 +294,35 @@ analysis sprint. If all three fail, stop new simulator work and use the contract
 as an external benchmark/data request; do not start a fourth search or build a
 synthetic replacement.
 
+Outcome: all three candidates failed on metadata before installation or
+download. The [P6-003 decision](p6_003_compact_evidence_package_acquisition.md)
+records the exact boundary. The muscle-regeneration ABM has excellent spatial
+content and 100 replicates per biological perturbation, but only one injury
+design and no archived run-level recovery table. The zebrafish axon archive is
+44.2 GB and treats many axons inside shared environments, not independent
+recovery units. The PhysiCell ECM deposit contains stochastic replicates across
+several different example phenomena, not one three-damage recovery/control
+study, and its replicate bundle is 971.8 MB.
+
+### 8. External benchmark evidence request — ready / dependency boundary
+
+The [one-page request](../requests/multiscale_recovery_benchmark_request.md) is
+the active interface for collaborators, model authors, or future searches. It
+states the minimum evidence bundle and what a qualifying package would unlock.
+
+There is no active internal simulation or implementation sprint after this
+point. Resume only when one of these changes occurs:
+
+- a source supplies a qualifying run-level evidence bundle;
+- an existing candidate publishes the missing run table/control;
+- the programme explicitly chooses to fund a custom benchmark study despite
+  the off-the-shelf preference.
+
+Until then, do not spend time on a fourth archive search, simulator setup,
+dashboard work, or synthetic replacement. This pause protects the long-run
+objective from implementation activity that cannot change the evidentiary
+state.
+
 ## Explicit stop and defer list
 
 - more Heatbugs probes or Slime aggregation-band repairs;
@@ -306,8 +335,9 @@ synthetic replacement.
 
 ## Portfolio view
 
-Steps 0–2.5 and P6-000 through P6-002 are complete; the standard NetLogo,
-M4377, V-Cornea, and M9147 lines are closed. Step 3 remains locked. Step 7 is
-the sole active sprint. No platform installation or new trajectories are
-licensed until a compact run-level ensemble and causal control pass the
-corrected qualification gate.
+Steps 0–2.5 and P6-000 through P6-003 are complete; the standard NetLogo and all
+surveyed biological-model lines are closed. Step 3 remains locked. Step 8 is a
+documented external dependency, not an internal work queue. No platform
+installation or new trajectories are licensed until a compact run-level
+ensemble and causal control pass the corrected qualification gate, or the
+programme explicitly changes the off-the-shelf strategy.

@@ -49,7 +49,8 @@ authoritative roadmap. Older plans are retained as decision history.
 | P6-000 | phenomenon-first benchmark qualification | **complete / selected** — Morpheus M4377 neuromast regeneration clears the fixed scorecard |
 | P6-001 | neuromast causal calibration | **complete / no-go** — strong local-feedback effect; one active seed failed and runaway control breached runtime design |
 | P6-002 | archive-first benchmark contract | **complete / no selection** — V-Cornea and M9147 lack compact run-level ensemble/control evidence |
-| P6-003 | compact evidence-package acquisition | **next** — metadata-first search for one qualifying archived run table |
+| P6-003 | compact evidence-package acquisition | **complete / no selection** — three data-first packages fail the frozen contract before download |
+| P6-004 | external benchmark evidence request | **ready / dependency** — resume only when a qualifying compact run table arrives |
 
 Before Experiment 003, run the time-boxed
 [Mesa compatibility spike](docs/plans/x01_mesa_spike.md). It asks whether an
@@ -206,8 +207,15 @@ recovery denominator or a matched mechanism-off recovery comparison. Morpheus
 M9147 is compact and spatial, but its released reproduction fixes one seed and
 one lesion geometry and omits the reduced mechanism models. The
 [archive-first decision](docs/plans/p6_002_archive_first_benchmark_contract.md)
-therefore selects neither. P6-003 searches for a compact run-level evidence
-package, not another simulator.
+therefore selects neither. P6-003 then inspected three data-first packages.
+Even the strongest—an extensive muscle-regeneration ABM with 100 replicates per
+biological perturbation—does not publish three damage conditions and a compact
+per-run recovery table. The
+[P6-003 decision](docs/plans/p6_003_compact_evidence_package_acquisition.md)
+stops internal simulator search. The programme now has a concise
+[external benchmark request](docs/requests/multiscale_recovery_benchmark_request.md)
+and resumes this line only when its evidence contract is met or the
+off-the-shelf strategy is explicitly changed.
 
 Research time is allocated by the
 [progress-allocation protocol](docs/plans/progress_allocation_protocol.md):
