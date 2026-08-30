@@ -13,9 +13,11 @@ predictive, causal, or control value.
 The laboratory now has enough analysis machinery and visualization. P5 showed
 that its limiting input was a robust multiscale phenomenon with genuinely
 independent damaged systems and a causal control, not another generic feature
-transform. P6-000 found one such published benchmark; the current bottleneck is
-whether it can produce a clean causal signal through the laboratory's
-observation boundary before any larger analysis is funded.
+transform. P6-001 then showed that package-level evidence of seeds and recovery
+is insufficient: the selected published example had a fresh-seed absorbing
+failure and an unbounded mechanism-off control. The current bottleneck is
+qualifying ensemble robustness and a computationally meaningful control before
+installing the next generator.
 
 ## Allocation decision
 
@@ -193,7 +195,7 @@ passive controls, and runs via both the standard GUI and a standalone CLI. A
 1,000-step feasibility run completed in 3.49 seconds on WSL. V-Cornea remains a
 richer reserve; Artistoo would require authoring the missing phenomenon.
 
-### 5. P6-001 neuromast causal calibration — active, 90 minutes
+### 5. P6-001 neuromast causal calibration — complete / no-go
 
 Goal movement: determine whether the selected off-the-shelf benchmark supplies
 a reproducible causal separation between bounded organ-level recovery and two
@@ -215,9 +217,47 @@ frozen before fresh trajectories are generated.
 This is Level 1 causal calibration. A pass funds one separately frozen
 held-out-layout prediction. A failure closes M4377 without tuning it.
 
+Outcome: three of four fresh active seeds reconstructed 58–65-cell radially
+ordered organs, but seed 804 lost its sustentacular population and stalled at
+eight cells. Proliferation-off controls remained at five cells. Removing the
+local stopping rule caused all four controls to exceed five times the 52-cell
+target by model day 2.67; the first could not reach the frozen endpoint inside
+the runtime cap, so the allocation rule stopped the batch with eight of 12 runs
+complete. See the [P6-001 results](../hypotheses/p6_001_neuromast_causal_calibration_results.md).
+The model-internal causal signal is strong, but M4377 is not promoted as a
+robust programme benchmark.
+
+### 6. P6-002 archive-first benchmark contract — active, 45 minutes
+
+Goal movement: prevent another visually attractive published model from
+consuming an implementation sprint before its ensemble and counterfactual are
+known to support the research question.
+
+Inspect at most two **specific published model archives**, beginning with but
+not committing to the V-Cornea reserve. Do not install either platform or
+download multi-gigabyte raw archives during this step. A candidate qualifies
+only if its manifest, compact results, or paper establishes all of:
+
+- at least eight genuinely independent stochastic/layout units across at least
+  three damage conditions;
+- at least 80% active recovery under one outcome that can be reproduced from
+  observable logs rather than hidden mechanism state;
+- a mechanism-disabled control that is bounded at the common endpoint, or a
+  published event/time-to-failure endpoint suitable for an unbounded control;
+- cell positions, fields, or images sufficient for a macro structure distinct
+  from total count;
+- an exact source revision/license, standard live visualization, headless
+  execution, and a compact first analysis artifact without downloading the
+  full archive.
+
+If no candidate clears every item, stop and write the missing benchmark
+specification. Do not relax the 80% or independent-unit requirements after
+looking at a favorite model.
+
 ## Explicit stop and defer list
 
 - more Heatbugs probes or Slime aggregation-band repairs;
+- more M4377 seeds, threshold tuning, or a shorter post-hoc runaway endpoint;
 - another adoption-only NetLogo generator;
 - more dashboard, mockup, or frontend work without a changed result;
 - broad simulator or trajectory-framework refactors;
@@ -226,6 +266,7 @@ held-out-layout prediction. A failure closes M4377 without tuning it.
 
 ## Portfolio view
 
-Steps 0–2.5 and P6-000 are complete; the standard NetLogo line is closed. Step
-3 remains locked. P6-001 is the sole active sprint. Its output is a causal
-calibration decision, not a Morpheus migration or another analysis framework.
+Steps 0–2.5, P6-000, and P6-001 are complete; the standard NetLogo and M4377
+lines are closed. Step 3 remains locked. Step 6 is the sole active sprint and
+is archive-first: no platform installation or new trajectories until a
+specific ensemble and causal control pass the corrected qualification gate.

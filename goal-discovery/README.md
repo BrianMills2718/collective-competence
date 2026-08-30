@@ -47,7 +47,8 @@ authoritative roadmap. Older plans are retained as decision history.
 | P5-001 | standard Slime Mold Network threshold test | **complete / no-go** — extraction worked; mechanism direction reversed; network predictor failed |
 | P5-002 | stability–plasticity confirmation | **complete / no-go** — directional trend too small and seed-sensitive; standard model line closed |
 | P6-000 | phenomenon-first benchmark qualification | **complete / selected** — Morpheus M4377 neuromast regeneration clears the fixed scorecard |
-| P6-001 | neuromast causal calibration | **active / protocol frozen** — fresh active / feedback-disabled / proliferation-disabled comparison |
+| P6-001 | neuromast causal calibration | **complete / no-go** — strong local-feedback effect; one active seed failed and runaway control breached runtime design |
+| P6-002 | archive-first benchmark contract | **next** — prove ensemble robustness and bounded/event-based control before installation |
 
 Before Experiment 003, run the time-boxed
 [Mesa compatibility spike](docs/plans/x01_mesa_spike.md). It asks whether an
@@ -185,6 +186,17 @@ architecture. Its mechanism can be disabled in place, its CLI ran a real
 1,000-step diagnostic in 3.49 seconds on WSL, and Morpheus already supplies the
 GUI and spatial plotting surface. P6-001 therefore buys one causal calibration,
 not a custom generator, viewer, or broad platform migration.
+
+P6-001 then found a large model-internal causal effect but rejected M4377 as the
+programme benchmark. Three fresh seeds rebuilt 58–65-cell radially ordered
+organs; one lost the sustentacular population and stalled at eight cells.
+Proliferation-off controls remained at five, while removing the local stopping
+rule drove every seed to at least five times the target before model day 2.67
+and made the fixed endpoint computationally pathological. The
+[P6-001 results](docs/hypotheses/p6_001_neuromast_causal_calibration_results.md)
+close that line. The next selection must prove ensemble recovery rate and a
+bounded or event-based causal control from compact published artifacts before
+we install another simulator or generate trajectories.
 
 Research time is allocated by the
 [progress-allocation protocol](docs/plans/progress_allocation_protocol.md):
