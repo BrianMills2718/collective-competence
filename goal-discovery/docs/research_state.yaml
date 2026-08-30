@@ -5,10 +5,164 @@ north_star: >-
   intervention response, control, and collective competence most legible, and
   promote a macro description only when it beats simpler alternatives.
 frontier:
-  current_unknown: Can representation families be compared at equal descriptive capacity with stable selection across independent groups?
-  bottleneck: Selector complexity and stability
-  last_learning: Identity-conditioned history transferred directionally but missed the frozen confirmation margin; its simpler ablation performed better, diagnosing capacity instability rather than licensing a pass.
+  current_unknown: Which fresh bounded experiment can test higher-level scale value after P7-004 failed its intervention-integrity gate?
+  bottleneck: Designing an intervention whose preregistered effect remains measurable at the frozen observation boundary.
+  last_learning: P7-004 stopped because minimum tick-301 annulus removal was 24.6%, below the frozen 80% gate; its null and scale scores remain diagnostic only.
   external_dependency: A compact multiscale recovery bundle remains welcome but is no longer on the critical path.
+planning_pilot:
+  id: OB-001
+  status: active
+  objective: Test whether a mature proof-of-success artifact and backward evidence versions improve task-to-goal traceability without suppressing exploration.
+  protocol: docs/plans/outcome_backcasting_protocol.md
+  first_science_sprint: P7-003
+  review_after_sprints: 3
+  completed_science_sprints: 2
+  sprint_2_review: docs/audits/2026-08-29_ob_001_sprint_2_p7_004.md
+  remaining_before_review: 1
+  company_generalization: locked pending retain or revise review
+maturity_versions:
+  - id: V0
+    title: Mature outcome hypothesis
+    status: implemented
+    becomes_real: The complete decision workflow and its evidence requirements are inspectable; unearned capabilities remain visibly hypothetical.
+    exit_decision: Does the proposed interface cover the decisions and evidence needed by the programme without pretending the science exists?
+  - id: V1
+    title: One real evidence chain
+    status: implemented
+    becomes_real: P7-002 connects observed behavior, intervention, candidate representations, held-out evidence, a failed gate, and the next decision.
+    exit_decision: Can a reader trace a repository-backed result to its claim boundary and next experiment?
+  - id: V2
+    title: Blind calibration
+    status: implemented
+    becomes_real: Black-box inference is compared interactively with known white-box ground truth.
+    exit_decision: Did the discovery method recover a useful hidden description without reading authored targets?
+  - id: V3
+    title: Prospective transfer
+    status: closed-no-go
+    becomes_real: A frozen method is evaluated on untouched outcomes from a different system, or generic selection is closed by a no-go.
+    exit_decision: Does the method generalize prospectively or abstain correctly?
+  - id: V4
+    title: Perturbation and scale
+    status: planned
+    becomes_real: Representations are compared for robustness, intervention value, and organizational scale.
+    exit_decision: Does a higher-level description add predictive, causal, or control value?
+  - id: V5
+    title: Competence testing
+    status: planned
+    becomes_real: Blocked routes, alternative means, recovery boundaries, and failure cases are directly compared.
+    exit_decision: Is competence-like language empirically warranted?
+  - id: V6
+    title: Reusable laboratory
+    status: planned
+    becomes_real: Repeated evidence contracts, provenance, comparison, and next-test workflows operate across systems.
+    exit_decision: Which concrete boundaries are genuinely reusable?
+outcome_map:
+  - id: agenda
+    section: North star and frontier
+    question: What is the programme trying to discover, and what bottleneck currently prevents progress?
+    evidence_requirement: An authoritative objective, evidence frontier, active bottleneck, and current sprint that agree.
+    capability: Repository-backed research state and roadmap.
+    provenance_state: connected
+    source: docs/plans/current_research_plan.md
+    target_version: V0
+    next_test: Reconcile this view after every sprint decision and fail validation on disagreement.
+  - id: claim
+    section: Claim under consideration
+    question: What precise scientific or methodological claim is currently being tested?
+    evidence_requirement: A bounded claim, frozen gate, competing explanations, and explicit claim limit.
+    capability: Preregistered sprint contract plus decision artifact.
+    provenance_state: contradicted
+    source: docs/hypotheses/p7_004_ants_trail_scale_results.md
+    target_version: V4
+    next_test: Predictive trail-scale value was contradicted; formulate one bounded causal intervention-value claim.
+  - id: behavior
+    section: System behavior and observation boundary
+    question: What did the system do, what was observable, and where did intervention begin?
+    evidence_requirement: Replayable real trajectories, matched arms, independent seeds, observation cutoff, and intervention marker.
+    capability: Validated adapter over NetLogo trajectory and network exports.
+    provenance_state: measured
+    source: docs/hypotheses/p7_002_prospective_network_selector_results.md
+    target_version: V1
+    next_test: Retain the P7-002 viewer as the reference evidence chain; do not generate more Virus outcomes.
+  - id: representations
+    section: Representations and candidate scales
+    question: Which observable descriptions compete, and at what organizational scale do they operate?
+    evidence_requirement: Candidate definitions linked to the same run and time, capacity disclosure, and a simple matched null.
+    capability: Synchronized representation lenses and capacity-matched scoring.
+    provenance_state: measured
+    source: docs/hypotheses/p7_003_selector_complexity_audit_results.md
+    target_version: V3
+    next_test: P7-004 failed intervention integrity; do not treat its diagnostic scale scores as a completed predictive screen.
+  - id: perturbation
+    section: Perturbation, intervention, prediction, and robustness
+    question: Does the proposed description predict untouched intervention outcomes and remain useful under meaningful perturbations?
+    evidence_requirement: Matched intervention arms, untouched outcomes, per-unit failures, robustness boundaries, and a frozen promotion threshold.
+    capability: Split-aware experiment comparison and perturbation ledger.
+    provenance_state: contradicted
+    source: docs/hypotheses/p7_002_prospective_network_selector_results.md
+    target_version: V1
+    next_test: Define one causal intervention-value comparison in which a higher-level description could change the chosen action.
+  - id: black_white
+    section: Black-box discovery versus white-box truth
+    question: Does inference from allowed observations recover structure known only from the generator's authored ground truth?
+    evidence_requirement: Blinded observation contract, authored target withheld from inference, held-out predictions, and direct error comparison.
+    capability: Black-box adapter plus a separately exposed white-box scoring boundary.
+    provenance_state: measured
+    source: docs/hypotheses/p4_002_heatbugs_blind_target_inference_results.md
+    target_version: V2
+    next_test: Heatbugs is retired after passing calibration; preserve the linked V2 view as the black-box/white-box reference and do not tune it.
+  - id: support_counterevidence
+    section: Support, contradiction, and individual failures
+    question: What supports the claim, what contradicts it, and which independent cases fail?
+    evidence_requirement: Discovery and confirmation separated, null visible, failed seeds inspectable, and post-hoc diagnostics labeled.
+    capability: Split-aware score surface with seed drill-down and immutable decision gate.
+    provenance_state: contradicted
+    source: docs/hypotheses/p7_004_ants_trail_scale_results.md
+    target_version: V3
+    next_test: Preserve P7-004's 24.6% removal failure and diagnostic null win without reinterpreting the frozen gate.
+  - id: provenance
+    section: Provenance and evidence maturity
+    question: Where did each value come from, how mature is it, and what decisions may it support?
+    evidence_requirement: Source path, evidence level, split, status, claim boundary, and hypothetical labeling for every section.
+    capability: Validated outcome-map and research-state contracts.
+    provenance_state: connected
+    source: docs/research_state.yaml
+    target_version: V0
+    next_test: Reject non-hypothetical outcome sections without a repository source.
+  - id: scale_control
+    section: Scale and control value
+    question: Does any higher-level description improve prediction, intervention choice, or control beyond simpler alternatives?
+    evidence_requirement: Competing scales, matched controls, prospective macro prediction, and intervention-value comparison.
+    capability: HYPOTHETICAL — no promoted prospective macro predictor exists yet.
+    provenance_state: hypothetical
+    target_version: V4
+    next_test: P7-004 contradicted the Ants predictive route; choose one bounded causal intervention-choice test while keeping this state hypothetical.
+  - id: competence
+    section: Competence and alternative routes
+    question: Does the system reach a stable outcome through alternative means when familiar routes are blocked, and where does recovery fail?
+    evidence_requirement: Blocked-route interventions, alternative means, matched passive controls, recovery boundary, and falsification cases.
+    capability: HYPOTHETICAL — competence evidence contract is not yet implemented.
+    provenance_state: hypothetical
+    target_version: V5
+    next_test: Define only after V4 establishes a representation with predictive or control value.
+  - id: uncertainty
+    section: Uncertainty and claim limits
+    question: What remains unknown, which explanation is still live, and what is explicitly not licensed?
+    evidence_requirement: Failed gates, nulls, sensitivity limits, counterevidence, and locked downstream claims.
+    capability: Decision artifacts and machine-readable stop/lock state.
+    provenance_state: contradicted
+    source: docs/hypotheses/p7_004_ants_trail_scale_results.md
+    target_version: V3
+    next_test: Test whether a higher-level description changes intervention value, not merely prediction error.
+  - id: next_test
+    section: Next uncertainty-reducing experiment
+    question: Which bounded experiment is most likely to change the roadmap now?
+    evidence_requirement: Current bottleneck, conditional branches, time cap, stop rule, and expected decision.
+    capability: Progress-allocation protocol tied to the active sprint.
+    provenance_state: connected
+    source: docs/hypotheses/p7_004_ants_trail_scale_results.md
+    target_version: V0
+    next_test: Select and preregister one cheap causal intervention-value comparison for the third OB-001 science sprint.
 milestones:
   - id: apparatus
     title: Reproducible intervention and analysis apparatus
@@ -24,8 +178,8 @@ milestones:
     evidence: docs/hypotheses/p7_001_representation_tournament_results.md
   - id: prospective
     title: Prospective cross-system selection
-    status: active
-    evidence: docs/hypotheses/p7_002_prospective_network_selector_results.md
+    status: stopped
+    evidence: docs/hypotheses/p7_003_selector_complexity_audit_results.md
   - id: naturalistic
     title: Naturalistic off-the-shelf transfer
     status: locked
@@ -33,20 +187,22 @@ milestones:
     title: Macro causal or control value
     status: locked
 active_sprint:
-  id: P7-003
-  title: Selector complexity audit
+  id: P7-004
+  title: Ants trail-scale perturbation screen — stopped on integrity
   evidence_level: 1
-  question: Does an equal-capacity comparison produce a stable family choice, or should generic family selection stop?
-  time_cap_minutes: 60
-  first_artifact_minutes: 15
-  stop_rule: Freeze a future contract only on the predeclared stability gate; do not retune or rerun Virus confirmation.
-  protocol: docs/plans/p7_003_selector_complexity_audit.md
+  question: After a pheromone-trail cut, does mesoscopic trail organization predict later food collection better than equally small local and colony descriptions?
+  time_cap_minutes: 90
+  first_artifact_minutes: 25
+  stop_rule: The annulus-removal gate failed; retire this run and do not reinterpret, tune, or rerun it.
+  protocol: docs/plans/p7_004_ants_trail_scale_preregistration.md
+  result: docs/hypotheses/p7_004_ants_trail_scale_results.md
   artifact_standard: docs/plans/dynamic_experiment_artifact_standard.md
+  mature_outcome_supported: Task-conditioned comparison of organizational scales for perturbation prediction and intervention value.
+  target_evidence_maturity_version: V4 — perturbation and scale
+  placeholder_replaced: No; P7-004 attempted the comparison but failed intervention integrity before a scale decision.
 next_decisions:
-  - condition: One capacity-matched family wins at least six of eight deletion analyses with stable coefficient signs
-    action: Freeze that rule for a different prospective task with new outcomes.
-  - condition: The equal-capacity winner remains unstable
-    action: Stop generic family selection and use task-conditioned scientific representations.
+  - condition: P7-004 failed the frozen intervention-integrity gate
+    action: Retire this run and select one fresh bounded experiment for the third OB-001 science sprint without reinterpreting P7-004.
 stops:
   - No fourth archive search without newly supplied evidence.
   - No tuning old generators to improve known scores.
@@ -169,8 +325,18 @@ experiments:
   - id: P7-003
     phase: methodology
     title: Selector complexity audit
-    status: active
+    status: complete-negative
     confidence: retrospective-calibration
-    decision: Pending equal-capacity stability audit.
-    implication: Stable rule earns a different prospective task; instability stops generic selection.
+    decision: No family exceeded three of eight held-seed wins against the frozen six-of-eight gate.
+    implication: Stop generic automated family selection and return to task-conditioned scientific representations.
     protocol: docs/plans/p7_003_selector_complexity_audit.md
+    result: docs/hypotheses/p7_003_selector_complexity_audit_results.md
+  - id: P7-004
+    phase: scale-perturbation
+    title: Ants trail-scale perturbation screen
+    status: stopped-integrity
+    confidence: frozen-calibration
+    decision: The original executable integrity gate failed because minimum tick-301 annulus removal was 24.6%, below the frozen 80% threshold; score comparisons are diagnostic only.
+    implication: Retire this P7-004 run and require a fresh preregistration for any future Ants question.
+    protocol: docs/plans/p7_004_ants_trail_scale_preregistration.md
+    result: docs/hypotheses/p7_004_ants_trail_scale_results.md

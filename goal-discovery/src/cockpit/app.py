@@ -17,7 +17,13 @@ if str(REPOSITORY_ROOT) not in sys.path:
 
 import panel as pn
 
+from src.cockpit.blind_calibration import (
+    build_blind_calibration,
+    load_blind_calibration,
+    unavailable_blind_calibration,
+)
 from src.cockpit.experiment_story import build_experiment_story, unavailable_story
+from src.cockpit.outcome_map import build_outcome_map
 from src.cockpit.state import DEFAULT_STATE_PATH, ResearchState, load_research_state
 
 pn.extension("tabulator", sizing_mode="stretch_width")
@@ -127,7 +133,11 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
     .milestones {display:grid;grid-template-columns:repeat(3,minmax(180px,1fr));gap:10px}
     .milestone {background:#fff;padding:12px;border-left:6px solid;border-radius:4px;box-shadow:0 1px 3px #0002}
     .decision {background:#fff8e8;border:1px solid #f1c40f;border-radius:6px;padding:14px}
-    @media(max-width:800px){.milestones{grid-template-columns:1fr}}
+    @media(max-width:800px){
+      .milestones{grid-template-columns:1fr}
+      .pn-toggle-theme{display:none!important}
+      .pn-busy-container{position:absolute!important;right:0!important;left:auto!important}
+    }
     """
     header = pn.pane.Markdown(
         f"""# Goal Discovery research cockpit
@@ -168,6 +178,15 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
         if story_directory.is_dir()
         else unavailable_story("uv run python -m src.experiments.prospective_network_selector.run")
     )
+    blind_directory = state.root / "results" / "p4-002-heatbugs-blind-target-inference-001"
+    blind_calibration = (
+        build_blind_calibration(load_blind_calibration(blind_directory))
+        if blind_directory.is_dir()
+        else unavailable_blind_calibration(
+            "uv run python -m src.spikes.netlogo_heatbugs.run_p4_002"
+        )
+    )
+    outcome_map = build_outcome_map(state)
     programme = pn.Column(
         header,
         pn.Row(active, learn),
@@ -190,7 +209,16 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
             pn.layout.Divider(),
             "The cockpit reads versioned repository state. It does not synthesize results.",
         ],
-        main=[pn.Tabs(("Experiment story", story), ("Research programme", programme))],
+        main=[
+            pn.Tabs(
+                ("Outcome", outcome_map),
+                ("Evidence · P7-002", story),
+                ("Blind · V2", blind_calibration),
+                ("Programme", programme),
+                dynamic=True,
+            )
+        ],
+        collapsed_sidebar=True,
     )
     return template
 

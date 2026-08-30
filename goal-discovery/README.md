@@ -56,6 +56,7 @@ backs the live cockpit; older plans are retained as decision history.
 | P7-001 | cross-system representation tournament | **complete / pass** — 4/4 frozen calibration decisions correct; no prospective claim |
 | P7-002 | prospective network selector | **complete / fail** — identity history transferred +8.4%, below frozen 10%; simpler ablation exposed capacity instability |
 | P7-003 | selector complexity audit | **next** — equal four-summary family comparison; freeze a new rule or stop generic selection |
+| OB-001 | outcome-backcasting planning pilot | **active enabler** — mature evidence artifact, backward versions, and three-sprint learning gate before company generalization |
 
 Before Experiment 003, run the time-boxed
 [Mesa compatibility spike](docs/plans/x01_mesa_spike.md). It asks whether an
@@ -335,6 +336,16 @@ shows the north star, evidence frontier, active decision sprint, experiment
 registry, and conditional next investment directly from
 `docs/research_state.yaml`. Filters and experiment selection are interactive,
 but the scientific content is repository-backed rather than simulated.
+
+The default **Outcome** tab shows the mature question-to-evidence ledger and
+V0–V6 evidence-maturity ladder. **Evidence · P7-002** traces one real
+trajectory-to-decision chain, including individual failures and the failed
+prospective gate. **Blind · V2** compares Heatbugs targets inferred from allowed
+observations with white-box authored truth joined only after inference. Heavy
+views load on demand; the required interface target is desktop.
+
+The outcome-backcasting implementation and audits through V2 are recorded in
+`docs/audits/2026-08-29_ob_001_v0_v2_delivery_review.md`.
 
 Active experiments also follow the
 [dynamic artifact standard](docs/plans/dynamic_experiment_artifact_standard.md):

@@ -24,12 +24,14 @@ observations do not support a claim.
 | Task-specific useful representations | demonstrated | temporal features solve the thermostat calibration; relational features improve sorting recovery prediction; identity-conditioned history predicts Heatbugs targets |
 | Universal black-box feature transform | rejected | P5-000 succeeds on thermostat but fails sorting and robustness |
 | Representation-specific abstention | demonstrated once | network features make the Slime recovery forecast worse than simpler nulls |
-| Reusable representation selector | unresolved | the positive and negative results have never been evaluated together under one frozen selection rule |
-| Prospective cross-system generalization | unresolved | all representation decisions so far were made inside individual experiments |
+| Reusable representation selector | rejected | P7-002 missed its prospective gate and P7-003 equal-capacity winners split 3/3/2/0 against the frozen 6/8 requirement |
+| Prospective cross-system generalization | stopped on generic route | the generic family-selection route failed; any new transfer claim must be task-conditioned |
+| Task-conditioned perturbation and scale | active | P7-004 freezes one Ants trail-cut comparison across local, colony, and mesoscopic descriptions |
 | Macro causal/control value | locked | no promoted prospective macro transition model yet |
 
-The current bottleneck is therefore **representation selection**, not finding a
-perfect external archive and not adding another generator.
+The current bottleneck is therefore **whether a task-conditioned organizational
+scale adds held-out value after a meaningful perturbation**, not generic family
+selection, archive search, or another generator.
 
 ## Evidence levels and spending rule
 
@@ -49,6 +51,29 @@ cadence remains a 60–90 minute decision sprint with a first real artifact by
 minute 25 and an explicit stop, change, or promote decision at the end.
 
 ## Active decision sequence
+
+### OB-001 — outcome-backcasting planning pilot — active enabler
+
+Before extending the cockpit or starting another implementation lane, mock the
+mature evidence-and-decision workflow and map each section to the question,
+evidence, provenance state, and first maturity version it requires. This is a
+planning artifact: hypothetical content must remain explicit and cannot satisfy
+a research gate.
+
+Use the resulting map to express P7-003 and the next two conditional sprints as
+backward steps from the mature outcome. The pilot runs for three learning
+sprints, after which it receives a retain/revise/stop review before any method is
+generalized into company planning. See the
+[outcome-backcasting protocol](outcome_backcasting_protocol.md).
+
+The pilot is allowed to revise the mature artifact when experiments reveal that
+a proposed view, capability, or question is unhelpful. It is not permission to
+delay P7-003 for a polished interface.
+
+V0, V1, and V2 are now implemented; V3 is closed by the P7-002/P7-003 no-go.
+The [V0–V2 delivery review](../audits/2026-08-29_ob_001_v0_v2_delivery_review.md)
+records the provenance, comprehension, reuse, correctness, and goal-alignment
+audits. No additional interface lane is active while P7-004 runs.
 
 ### P7-000 — repository-backed research cockpit — complete
 
@@ -117,7 +142,7 @@ unstable descriptive capacity but not licensing a post-hoc pass. See the
 Close Virus on a Network as prospective evidence; do not add seeds or rerun the
 ablated model on the known confirmation set.
 
-### P7-003 — selector complexity audit — next
+### P7-003 — selector complexity audit — complete-negative
 
 The P7-002 failure selects one 60-minute Level 1 methodology audit, not another
 generator. Use all P7-002 outcomes openly as retrospective development evidence
@@ -126,22 +151,64 @@ leave-one-seed winner/coefficient stability. The
 [`P7-003 specification`](p7_003_selector_complexity_audit.md) freezes the
 summaries and gate.
 
-If the equal-capacity family is stable, freeze that contract for a different
-future task with new outcomes. If it is unstable, stop generic automated family
-selection and return to task-conditioned scientific representations.
+The equal-capacity audit produced no stable family: held-seed wins split 3
+identity-conditioned, 3 network, 2 temporal, and 0 relational against the frozen
+six-of-eight requirement. Generic automated family selection therefore stops.
+The opened confirmation diagnostics do not rescue a winner. See the
+[`P7-003 results`](../hypotheses/p7_003_selector_complexity_audit_results.md).
+
+The next science sprint must begin with a concrete prediction or intervention
+question and a task-conditioned representation justified for that question. Do
+not run another generic family tournament or add Virus outcomes. The immediate
+planning decision is which existing system can expose representation scale and
+perturbation robustness cheaply enough to advance V4 without reopening a closed
+claim.
 
 ```text
 known calibrations -> P7-001 selector tournament
                          | 4/4
                          v
-                 prospective held-out test
-                         | pass
+                P7-002 prospective test
+                         | fail
                          v
-             naturalistic off-the-shelf pilot
-                         | pass
+              P7-003 capacity audit
+                         | unstable / no-go
                          v
-                 macro causal/control test
+       task-conditioned V4 perturbation/scale contract
 ```
+
+### P7-004 — Ants trail-scale perturbation screen — stopped-integrity
+
+The cheapest justified V4 probe is a fresh, task-conditioned comparison on the
+installed, unmodified NetLogo **Ants** model. At tick 300, deterministically
+erase pheromone in one annulus around the nest, then predict later food collection
+from equally small individual/local, whole-colony aggregate, and mesoscopic
+source-to-nest trail descriptions. This is one foraging-recovery question, not
+a revived generic family selector.
+
+The [`P7-004 preregistration`](p7_004_ants_trail_scale_preregistration.md)
+freezes the two arms, observation/outcome split, four summaries per scale,
+nulls, held-seed scoring, promotion gate, 90-minute cap, and no-go branches.
+It reuses NetLogo plus the repository's scikit-image/NetworkX field-to-graph
+boundary; it licenses no simulator, visualization, or framework work.
+
+Flocking and Virus were cheaper in raw data terms but could not change the next
+decision: their relevant outcomes are already open and both scientific lines
+are closed. Ants was therefore the smallest fresh perturbation that could test
+whether a mesoscopic organization adds predictive value beyond simpler scales.
+
+Outcome: the original executable integrity gate failed because the minimum
+matched annulus removal at tick 301 was 24.6%, below the frozen 80% threshold.
+The primary arm-plus-food null had the lowest diagnostic held-seed MAE (17.569);
+local, colony, and trail scored 21.291, 19.226, and 27.032, and trail beat either
+alternative in only 3/8 seeds. These scores do not rescue the failed screen.
+Retire this P7-004 run and do not reinterpret, tune, or rerun it. See the
+[`P7-004 results`](../hypotheses/p7_004_ants_trail_scale_results.md).
+
+V4 remains planned and `scale_control` remains hypothetical. The next planning
+decision is whether the third OB-001 science sprint should narrow V4 to a causal
+intervention-value comparison rather than attempt another predictive scale
+screen.
 
 ## Allocation and dependencies
 
@@ -150,7 +217,15 @@ known calibrations -> P7-001 selector tournament
 - The [dynamic experiment artifact standard](dynamic_experiment_artifact_standard.md)
   requires every active experiment to connect real system behavior, intervention,
   representation, evidence, and decision. P7-002 is the first completed reference.
-- Active science lane: P7-003 capacity-matched selector audit.
+- The [outcome-backcasting pilot](outcome_backcasting_protocol.md) uses a mature
+  artifact and backward evidence versions to keep tasks connected to the north
+  star. P7-003 is its first science sprint; company-level generalization is
+  gated on a three-sprint retrospective.
+- Science lane decision: P7-003 closed generic family selection and P7-004
+  stopped on intervention-integrity failure. Choose a fresh bounded question
+  for the third OB-001 sprint; do not reinterpret or rerun P7-004.
+- Planning pilot: V0–V2 are implemented and V3 is evidence-closed; the cockpit
+  is maintenance-only until P7-004 changes evidence needed by V4.
 - Maintenance enabler: the P7-002 dynamic story is complete; generalize it only
   when a second real experiment needs the same data contract.
 - Passive opportunity: the external benchmark evidence request remains open,
@@ -165,6 +240,9 @@ known calibrations -> P7-001 selector tournament
 - no custom simulator or broad trajectory-framework refactor;
 - no decorative dashboard, invented outcomes, or animation detached from a
   scientific comparison;
+- no treating completion of the mature mock, a placeholder, or a UI section as
+  scientific progress;
+- no company-planning rollout before the outcome-backcasting pilot review;
 - no causal-emergence implementation before a prospective macro predictor;
 - no claim that calibration reuse establishes cross-system generalization.
 
