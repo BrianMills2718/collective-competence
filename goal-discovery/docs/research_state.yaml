@@ -1,0 +1,158 @@
+version: 1
+updated: 2026-08-29
+north_star: >-
+  Discover which observable representations and scales make prediction,
+  intervention response, control, and collective competence most legible, and
+  promote a macro description only when it beats simpler alternatives.
+frontier:
+  current_unknown: Can a frozen rule select the useful representation family, or abstain, across contrasting systems?
+  bottleneck: Reusable representation selection
+  last_learning: Archive-quality evidence is necessary for confirmation, but it should not block cheap calibration on existing systems.
+  external_dependency: A compact multiscale recovery bundle remains welcome but is no longer on the critical path.
+milestones:
+  - id: apparatus
+    title: Reproducible intervention and analysis apparatus
+    status: demonstrated
+    evidence: docs/audits/2026-08-29_post_002_evidence_checkpoint.md
+  - id: task_representations
+    title: Useful task-specific representations
+    status: demonstrated
+    evidence: docs/hypotheses/p5_000_representation_discovery_benchmark_results.md
+  - id: selector
+    title: Reusable representation selector
+    status: active
+    evidence: docs/hypotheses/p7_001_representation_tournament.md
+  - id: prospective
+    title: Prospective cross-system selection
+    status: locked
+  - id: naturalistic
+    title: Naturalistic off-the-shelf transfer
+    status: locked
+  - id: macro_control
+    title: Macro causal or control value
+    status: locked
+active_sprint:
+  id: P7-001
+  title: Cross-system representation tournament
+  evidence_level: 1
+  question: Can one frozen rule make the correct select-or-abstain decision on four known calibration tasks?
+  time_cap_minutes: 90
+  first_artifact_minutes: 25
+  stop_rule: Stop without tuning after the four predeclared decisions are scored.
+  protocol: docs/hypotheses/p7_001_representation_tournament.md
+next_decisions:
+  - condition: 4/4 calibration decisions correct
+    action: Freeze one prospective Level 2 selector test on an unseen task or intervention.
+  - condition: 2–3/4 correct
+    action: Repair only the failed rule or observation family in one Level 1 sprint.
+  - condition: 0–1/4 correct
+    action: Stop the generic selector line and reassess task-specific priors.
+stops:
+  - No fourth archive search without newly supplied evidence.
+  - No tuning old generators to improve known scores.
+  - No decorative or mock dashboard content.
+  - No macro causal tooling before a prospective macro predictor.
+experiments:
+  - id: X03
+    phase: infrastructure
+    title: Linked trajectory workbench
+    status: complete
+    confidence: engineering
+    decision: Panel and HoloViews are adequate for linked trajectory analysis.
+    implication: Reuse the stack; do not build a visualization framework.
+    result: docs/plans/x03_visual_analytics_decision.md
+  - id: P2-002C
+    phase: representation
+    title: Relational capability screen
+    status: complete-positive
+    confidence: calibration
+    decision: Relational state improves sorting recovery prediction over the intervention null.
+    implication: Retain relational candidates in the selection portfolio.
+    protocol: docs/hypotheses/p2_002c_relational_capability_screen.md
+    result: docs/hypotheses/p2_002c_relational_capability_screen_results.md
+  - id: P3-002
+    phase: representation
+    title: Flocking representation discrimination
+    status: complete-negative
+    confidence: calibration
+    decision: Available flocking observations did not justify promotion.
+    implication: Do not treat repeated time rows as independent evidence.
+    protocol: docs/hypotheses/p3_002_flocking_representation_discrimination.md
+    result: docs/hypotheses/p3_002_flocking_representation_discrimination_results.md
+  - id: P4-002
+    phase: representation
+    title: Heatbugs blind target inference
+    status: complete-positive
+    confidence: held-out-seed
+    decision: Identity-conditioned histories predict hidden preferred-temperature targets above the null.
+    implication: Retain identity-conditioned candidates in the selection portfolio.
+    protocol: docs/hypotheses/p4_002_heatbugs_blind_target_inference.md
+    result: docs/hypotheses/p4_002_heatbugs_blind_target_inference_results.md
+  - id: P5-000
+    phase: representation
+    title: Automated temporal representation benchmark
+    status: complete-mixed
+    confidence: calibration
+    decision: Temporal features solve thermostat preservation but fail sorting and the robustness gate.
+    implication: Reject a universal transform; select families by task and observation structure.
+    protocol: docs/hypotheses/p5_000_representation_discovery_benchmark.md
+    result: docs/hypotheses/p5_000_representation_discovery_benchmark_results.md
+  - id: P5-001
+    phase: representation
+    title: Slime network threshold
+    status: complete-negative
+    confidence: held-out-seed
+    decision: Network features predict recovery worse than intervention and density nulls.
+    implication: A selector must be able to abstain.
+    protocol: docs/hypotheses/p5_001_slime_mold_network_threshold.md
+    result: docs/hypotheses/p5_001_slime_mold_network_threshold_results.md
+  - id: P5-002
+    phase: confirmation
+    title: Stability-plasticity confirmation
+    status: complete-negative
+    confidence: fresh-seed
+    decision: The large exploratory effect did not reproduce.
+    implication: Keep discovery and confirmation thresholds distinct.
+    protocol: docs/hypotheses/p5_002_stability_plasticity_confirmation.md
+    result: docs/hypotheses/p5_002_stability_plasticity_confirmation_results.md
+  - id: P6-001
+    phase: external-calibration
+    title: Neuromast causal calibration
+    status: complete-negative
+    confidence: calibration
+    decision: Strong mechanism separation coexists with an absorbing seed failure and an unbounded control.
+    implication: Do not promote M4377 as the programme benchmark.
+    protocol: docs/hypotheses/p6_001_neuromast_causal_calibration.md
+    result: docs/hypotheses/p6_001_neuromast_causal_calibration_results.md
+  - id: P6-002
+    phase: qualification
+    title: Archive-first benchmark contract
+    status: complete-negative
+    confidence: metadata
+    decision: Two published candidates lack the compact ensemble and control evidence required before installation.
+    implication: Preserve the contract for external-validity work.
+    result: docs/plans/p6_002_archive_first_benchmark_contract.md
+  - id: P6-003
+    phase: qualification
+    title: Compact evidence acquisition
+    status: complete-negative
+    confidence: metadata
+    decision: Three data-first packages fail the frozen contract before download.
+    implication: Make external acquisition passive rather than blocking internal calibration.
+    result: docs/plans/p6_003_compact_evidence_package_acquisition.md
+  - id: P7-000
+    phase: infrastructure
+    title: Repository-backed research cockpit
+    status: active
+    confidence: engineering
+    decision: Pending verification.
+    implication: Must expose real state without becoming a second analysis system.
+    protocol: docs/plans/current_research_plan.md
+  - id: P7-001
+    phase: representation
+    title: Cross-system representation tournament
+    status: active
+    confidence: frozen-calibration
+    decision: Pending execution.
+    implication: Its score selects the next scientific investment.
+    protocol: docs/hypotheses/p7_001_representation_tournament.md

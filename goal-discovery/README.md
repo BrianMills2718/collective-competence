@@ -9,12 +9,13 @@ tell? The programme answers one narrow question at a time:
 > them by hand?
 
 Not a simulation platform, not an agent framework, and not a universal
-goal-directedness score. Results through P4 use hand-specified representations;
-the next phase tests a bounded off-the-shelf representation-discovery pipeline
-before adding another generator.
+goal-directedness score. The current phase tests whether one frozen decision
+process can select the appropriate temporal, relational, identity-conditioned,
+or network representation—or abstain—before any new generator is added.
 
 The [current research plan](docs/plans/current_research_plan.md) is the one
-authoritative roadmap. Older plans are retained as decision history.
+authoritative roadmap. The versioned [research state](docs/research_state.yaml)
+backs the live cockpit; older plans are retained as decision history.
 
 ## State
 
@@ -50,7 +51,9 @@ authoritative roadmap. Older plans are retained as decision history.
 | P6-001 | neuromast causal calibration | **complete / no-go** — strong local-feedback effect; one active seed failed and runaway control breached runtime design |
 | P6-002 | archive-first benchmark contract | **complete / no selection** — V-Cornea and M9147 lack compact run-level ensemble/control evidence |
 | P6-003 | compact evidence-package acquisition | **complete / no selection** — three data-first packages fail the frozen contract before download |
-| P6-004 | external benchmark evidence request | **ready / dependency** — resume only when a qualifying compact run table arrives |
+| P6-004 | external benchmark evidence request | **ready / passive** — a qualifying compact run table is welcome but no longer blocks calibration |
+| P7-000 | repository-backed research cockpit | **active** — real objective, evidence frontier, sprint, and decisions; no mock results |
+| P7-001 | cross-system representation tournament | **active / frozen** — four select-or-abstain calibration decisions |
 
 Before Experiment 003, run the time-boxed
 [Mesa compatibility spike](docs/plans/x01_mesa_spike.md). It asks whether an
@@ -317,6 +320,19 @@ To open the linked trajectory workbench on the existing X02 runs:
 uv sync --extra visual-workbench
 uv run --extra visual-workbench panel serve src/workbench/app.py --show --port 5010
 ```
+
+To open the programme-level research cockpit instead:
+
+```bash
+uv sync --extra visual-workbench
+uv run --extra visual-workbench panel serve src/cockpit/app.py --show --port 5011
+```
+
+The cockpit answers a different question from the trajectory workbench: it
+shows the north star, evidence frontier, active decision sprint, experiment
+registry, and conditional next investment directly from
+`docs/research_state.yaml`. Filters and experiment selection are interactive,
+but the scientific content is repository-backed rather than simulated.
 
 Choose or filter a run in the outcome table. The cell raster, macro signals,
 phase path, capability view, and matched baseline all follow that selection.
