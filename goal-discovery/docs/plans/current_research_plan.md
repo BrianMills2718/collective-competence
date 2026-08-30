@@ -50,7 +50,7 @@ minute 25 and an explicit stop, change, or promote decision at the end.
 
 ## Active decision sequence
 
-### P7-000 — repository-backed research cockpit
+### P7-000 — repository-backed research cockpit — complete
 
 **Question:** can the user determine the objective, frontier, current sprint,
 evidence, and next decision in under 30 seconds?
@@ -60,7 +60,11 @@ It may filter experiments and show their evidence paths; it must not contain
 mock results, animated decoration, or become a second analysis framework. Stop
 when it accurately renders `docs/research_state.yaml` and its referenced files.
 
-### P7-001 — cross-system representation tournament
+Outcome: the state registry, validation layer, interactive evidence filters, and
+Panel cockpit pass unit and live HTTP checks. The cockpit has no mock scientific
+panels. It is now maintenance infrastructure, not an active development lane.
+
+### P7-001 — cross-system representation tournament — complete / pass
 
 **Question:** can one frozen rule select the useful representation family, or
 abstain, across known contrasting calibration tasks?
@@ -76,20 +80,33 @@ This is a Level 1 calibration of the *selection process*, not a new biological o
 generalization claim. The frozen protocol defines primary nulls and thresholds.
 Do not tune individual models or generate new trajectories.
 
-### P7-002 — conditional next investment
+Outcome: all four frozen calibration decisions were correct. Temporal improved
+thermostat log loss by 78.2%, relational improved sorting log loss by 12.4%,
+identity-conditioned history improved Heatbugs accuracy by 0.160, and the rule
+correctly abstained from Slime network features, which were 39.2% worse than the
+strongest simple null. See the
+[`P7-001 results`](../hypotheses/p7_001_representation_tournament_results.md).
+This calibrates the decision surface but does not establish prospective family
+choice because the pairings were already known.
 
-The P7-001 result chooses exactly one next scientific investment:
+### P7-002 — prospective network selector — next
 
-- **4/4 correct:** freeze a prospective Level 2 selector test before opening one
-  unseen task/intervention. The selector, candidate families, observation
-  boundary, nulls, and failure action must all be fixed first.
-- **2–3/4 correct:** repair only the failed selection rule or observation family
-  in one Level 1 sprint; do not add a generator.
-- **0–1/4 correct:** stop the generic selector line and revisit whether the
-  programme needs task-specific scientific priors rather than automated search.
+The 4/4 P7-001 pass selects one Level 2 investment: compare all four candidate
+families on a previously unused task, select using discovery network seeds, and
+score only the selected family on untouched confirmation seeds.
 
-Only a prospective Level 2 pass unlocks a thin naturalistic/off-the-shelf pilot.
-Only that pilot can unlock macro causal/control analysis.
+Reuse NetLogo's installed, unmodified **Virus on a Network** model. At a fixed
+checkpoint, immunize either random nodes or the same-size highest-degree set and
+predict endpoint extinction from observable pre-intervention histories. This
+task is cheap, visually inspectable in standard software, structurally distinct
+from the four calibrations, and exposes temporal, relational, identity, and
+network candidates without building a simulator.
+
+The [P7-002 sprint specification](../hypotheses/p7_002_prospective_network_selector.md)
+requires a committed adapter, observation whitelist, null, discovery/confirmation
+split, class-balance gate, ablation, and stop rules before Level 2 outcomes are
+generated. A pass unlocks a thin naturalistic transfer pilot. An abstention or
+failure returns investment to the selector/observation boundary, not model tuning.
 
 ```text
 known calibrations -> P7-001 selector tournament
@@ -106,8 +123,10 @@ known calibrations -> P7-001 selector tournament
 
 ## Allocation and dependencies
 
-- Active science lane: P7-001, followed by its conditional P7-002 decision.
-- Active enabler lane: P7-000 only until the repository-backed cockpit works.
+- The [P7 strategic review](../audits/2026-08-29_p7_strategy_review.md) defines
+  the time-allocation test and continuing audit rules.
+- Active science lane: P7-002 prospective selector test.
+- Maintenance enabler: P7-000 cockpit; change it only when the state schema changes.
 - Passive opportunity: the external benchmark evidence request remains open,
   but archive searching does not block internal calibration.
 - Historical evidence is indexed in `docs/research_state.yaml` and the hypothesis

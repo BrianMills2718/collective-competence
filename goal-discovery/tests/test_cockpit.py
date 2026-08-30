@@ -9,7 +9,7 @@ from src.cockpit.state import DEFAULT_STATE_PATH, load_research_state
 def test_repository_research_state_is_valid_and_backed_by_documents() -> None:
     state = load_research_state()
 
-    assert state.data["active_sprint"]["id"] == "P7-001"
+    assert state.data["active_sprint"]["id"] == "P7-002"
     assert len(state.experiments) >= 10
     assert set(state.milestone_frame()["status"]) <= {
         "demonstrated", "active", "locked", "stopped"

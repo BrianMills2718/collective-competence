@@ -5,9 +5,9 @@ north_star: >-
   intervention response, control, and collective competence most legible, and
   promote a macro description only when it beats simpler alternatives.
 frontier:
-  current_unknown: Can a frozen rule select the useful representation family, or abstain, across contrasting systems?
-  bottleneck: Reusable representation selection
-  last_learning: Archive-quality evidence is necessary for confirmation, but it should not block cheap calibration on existing systems.
+  current_unknown: Can a family selected on discovery network seeds preserve its advantage on untouched confirmation networks?
+  bottleneck: Prospective representation selection
+  last_learning: The common select-or-abstain surface reproduced 4/4 known decisions, but the family pairings were retrospective and must now survive a genuinely prospective test.
   external_dependency: A compact multiscale recovery bundle remains welcome but is no longer on the critical path.
 milestones:
   - id: apparatus
@@ -18,13 +18,14 @@ milestones:
     title: Useful task-specific representations
     status: demonstrated
     evidence: docs/hypotheses/p5_000_representation_discovery_benchmark_results.md
-  - id: selector
-    title: Reusable representation selector
-    status: active
-    evidence: docs/hypotheses/p7_001_representation_tournament.md
+  - id: selector_calibration
+    title: Select-or-abstain rule on known calibrations
+    status: demonstrated
+    evidence: docs/hypotheses/p7_001_representation_tournament_results.md
   - id: prospective
     title: Prospective cross-system selection
-    status: locked
+    status: active
+    evidence: docs/hypotheses/p7_002_prospective_network_selector.md
   - id: naturalistic
     title: Naturalistic off-the-shelf transfer
     status: locked
@@ -32,21 +33,19 @@ milestones:
     title: Macro causal or control value
     status: locked
 active_sprint:
-  id: P7-001
-  title: Cross-system representation tournament
-  evidence_level: 1
-  question: Can one frozen rule make the correct select-or-abstain decision on four known calibration tasks?
-  time_cap_minutes: 90
-  first_artifact_minutes: 25
-  stop_rule: Stop without tuning after the four predeclared decisions are scored.
-  protocol: docs/hypotheses/p7_001_representation_tournament.md
+  id: P7-002
+  title: Prospective selector on Virus on a Network
+  evidence_level: 2
+  question: Can a family selected on discovery network seeds beat its frozen null on untouched confirmation networks?
+  time_cap_minutes: 180
+  first_artifact_minutes: 30
+  stop_rule: Stop on invalid class balance, invalid grouped scores, or the three-hour cap; do not tune after confirmation.
+  protocol: docs/hypotheses/p7_002_prospective_network_selector.md
 next_decisions:
-  - condition: 4/4 calibration decisions correct
-    action: Freeze one prospective Level 2 selector test on an unseen task or intervention.
-  - condition: 2–3/4 correct
-    action: Repair only the failed rule or observation family in one Level 1 sprint.
-  - condition: 0–1/4 correct
-    action: Stop the generic selector line and reassess task-specific priors.
+  - condition: P7-002 selected family beats the confirmation null by 10% and survives ablation
+    action: Run one thin naturalistic off-the-shelf transfer pilot.
+  - condition: P7-002 abstains or fails confirmation
+    action: Repair or stop the selector/observation boundary without tuning the generator.
 stops:
   - No fourth archive search without newly supplied evidence.
   - No tuning old generators to improve known scores.
@@ -143,16 +142,25 @@ experiments:
   - id: P7-000
     phase: infrastructure
     title: Repository-backed research cockpit
-    status: active
+    status: complete
     confidence: engineering
-    decision: Pending verification.
-    implication: Must expose real state without becoming a second analysis system.
+    decision: State validation, interactive construction, and live HTTP launch passed.
+    implication: Maintain as a repository view; do not develop mock scientific panels.
     protocol: docs/plans/current_research_plan.md
   - id: P7-001
     phase: representation
     title: Cross-system representation tournament
-    status: active
+    status: complete-positive
     confidence: frozen-calibration
-    decision: Pending execution.
-    implication: Its score selects the next scientific investment.
+    decision: All four frozen select-or-abstain calibration decisions were correct.
+    implication: Fund one prospective family-selection test; do not claim generalization yet.
     protocol: docs/hypotheses/p7_001_representation_tournament.md
+    result: docs/hypotheses/p7_001_representation_tournament_results.md
+  - id: P7-002
+    phase: representation
+    title: Prospective selector on Virus on a Network
+    status: active
+    confidence: frozen-prospective
+    decision: Pending implementation and untouched confirmation.
+    implication: Pass licenses a naturalistic transfer pilot; failure returns to the selector boundary.
+    protocol: docs/hypotheses/p7_002_prospective_network_selector.md

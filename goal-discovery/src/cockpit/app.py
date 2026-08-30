@@ -81,10 +81,10 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
 
     phase_options = ["all", *sorted({item["phase"] for item in state.experiments})]
     status_options = ["all", *sorted({item["status"] for item in state.experiments})]
-    phase = pn.widgets.Select(name="Phase", options=phase_options)
-    status = pn.widgets.Select(name="Status", options=status_options)
+    phase = pn.widgets.Select(label="Phase", options=phase_options)
+    status = pn.widgets.Select(label="Status", options=status_options)
     experiment = pn.widgets.Select(
-        name="Inspect experiment",
+        label="Inspect experiment",
         options=[item["id"] for item in state.experiments],
         value=sprint["id"],
     )
