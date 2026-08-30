@@ -48,7 +48,8 @@ authoritative roadmap. Older plans are retained as decision history.
 | P5-002 | stability–plasticity confirmation | **complete / no-go** — directional trend too small and seed-sensitive; standard model line closed |
 | P6-000 | phenomenon-first benchmark qualification | **complete / selected** — Morpheus M4377 neuromast regeneration clears the fixed scorecard |
 | P6-001 | neuromast causal calibration | **complete / no-go** — strong local-feedback effect; one active seed failed and runaway control breached runtime design |
-| P6-002 | archive-first benchmark contract | **next** — prove ensemble robustness and bounded/event-based control before installation |
+| P6-002 | archive-first benchmark contract | **complete / no selection** — V-Cornea and M9147 lack compact run-level ensemble/control evidence |
+| P6-003 | compact evidence-package acquisition | **next** — metadata-first search for one qualifying archived run table |
 
 Before Experiment 003, run the time-boxed
 [Mesa compatibility spike](docs/plans/x01_mesa_spike.md). It asks whether an
@@ -197,6 +198,16 @@ and made the fixed endpoint computationally pathological. The
 close that line. The next selection must prove ensemble recovery rate and a
 bounded or event-based causal control from compact published artifacts before
 we install another simulator or generate trajectories.
+
+P6-002 applied that corrected gate before installation. V-Cornea has three
+injury severities, rich spatial recovery measures, live visualization, and
+headless scripts, but its compact public surface does not expose the per-run
+recovery denominator or a matched mechanism-off recovery comparison. Morpheus
+M9147 is compact and spatial, but its released reproduction fixes one seed and
+one lesion geometry and omits the reduced mechanism models. The
+[archive-first decision](docs/plans/p6_002_archive_first_benchmark_contract.md)
+therefore selects neither. P6-003 searches for a compact run-level evidence
+package, not another simulator.
 
 Research time is allocated by the
 [progress-allocation protocol](docs/plans/progress_allocation_protocol.md):

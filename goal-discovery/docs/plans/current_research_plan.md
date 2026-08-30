@@ -15,14 +15,17 @@ that its limiting input was a robust multiscale phenomenon with genuinely
 independent damaged systems and a causal control, not another generic feature
 transform. P6-001 then showed that package-level evidence of seeds and recovery
 is insufficient: the selected published example had a fresh-seed absorbing
-failure and an unbounded mechanism-off control. The current bottleneck is
-qualifying ensemble robustness and a computationally meaningful control before
-installing the next generator.
+failure and an unbounded mechanism-off control. P6-002 found that two otherwise
+strong published recovery models also lack a compact run-level package that
+establishes the denominator and matched control before installation. The
+current bottleneck is benchmark evidence acquisition, not simulator choice or
+implementation throughput.
 
 ## Allocation decision
 
-Stop generator screening and dashboard development. Use the selected published
-neuromast benchmark as an external generator and keep the integration thin.
+Stop generator screening, M4377 expansion, and dashboard development. Qualify a
+compact published run-level evidence package before integrating another
+external generator.
 
 ### 0. Seal the current evidence state — complete
 
@@ -227,7 +230,7 @@ complete. See the [P6-001 results](../hypotheses/p6_001_neuromast_causal_calibra
 The model-internal causal signal is strong, but M4377 is not promoted as a
 robust programme benchmark.
 
-### 6. P6-002 archive-first benchmark contract — active, 45 minutes
+### 6. P6-002 archive-first benchmark contract — complete / no selection
 
 Goal movement: prevent another visually attractive published model from
 consuming an implementation sprint before its ensemble and counterfactual are
@@ -254,6 +257,43 @@ If no candidate clears every item, stop and write the missing benchmark
 specification. Do not relax the 80% or independent-unit requirements after
 looking at a favorite model.
 
+Outcome: neither [V-Cornea](p6_002_archive_first_benchmark_contract.md) nor
+Morpheus M9147 clears the contract. V-Cornea publishes three injury conditions,
+mean recovery curves, rich spatial structure, and batch scripts, but its compact
+artifacts do not expose the run-level recovery denominator or a matched
+mechanism-off recovery comparison. M9147 is compact and spatial, but the
+released reproduction fixes one seed and one lesion geometry and omits the
+original paper's reduced mechanism models. Do not install or run either for
+this programme.
+
+### 7. P6-003 compact evidence-package acquisition — active, 60 minutes
+
+Goal movement: find evidence that can support the representation-discovery
+question before paying for another simulator implementation.
+
+Search at most three named published model packages using metadata, papers, and
+file manifests first. A candidate must satisfy the
+[P6-002 missing benchmark specification](p6_002_archive_first_benchmark_contract.md),
+including a run-level denominator, at least three damage conditions, and a
+matched bounded or event-based mechanism control. Do not install a simulator or
+download more than 250 MB during qualification.
+
+Rapid sequence:
+
+| Time | Work | Required output |
+|---:|---|---|
+| 0–10 min | freeze three candidate records and metadata queries | named shortlist, not platform list |
+| 10–35 min | inspect manifests/file listings and run-level denominators | six-item scorecard |
+| 35–45 min | inspect the focal mechanism/control and observable boundary | causal eligibility decision |
+| 45–55 min | download at most one compact qualifying bundle and reproduce one row | first real artifact or explicit no-selection |
+| 55–60 min | decide | select one bounded experiment or publish the unmet request |
+
+Select only if one candidate clears every contract item and one archived row is
+reproducible without hidden state. A selection funds a separately frozen thin
+analysis sprint. If all three fail, stop new simulator work and use the contract
+as an external benchmark/data request; do not start a fourth search or build a
+synthetic replacement.
+
 ## Explicit stop and defer list
 
 - more Heatbugs probes or Slime aggregation-band repairs;
@@ -266,7 +306,8 @@ looking at a favorite model.
 
 ## Portfolio view
 
-Steps 0–2.5, P6-000, and P6-001 are complete; the standard NetLogo and M4377
-lines are closed. Step 3 remains locked. Step 6 is the sole active sprint and
-is archive-first: no platform installation or new trajectories until a
-specific ensemble and causal control pass the corrected qualification gate.
+Steps 0–2.5 and P6-000 through P6-002 are complete; the standard NetLogo,
+M4377, V-Cornea, and M9147 lines are closed. Step 3 remains locked. Step 7 is
+the sole active sprint. No platform installation or new trajectories are
+licensed until a compact run-level ensemble and causal control pass the
+corrected qualification gate.
