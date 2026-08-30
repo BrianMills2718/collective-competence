@@ -1,0 +1,85 @@
+{
+  "active_slice": {
+    "description": "Integrate the preserved P7-003/P7-004 science state with the frozen P7-004 integrity failure kept controlling",
+    "next_action": null,
+    "requires_external_action": false,
+    "requires_spend": false,
+    "slice_id": "preserve-and-resume-p7-003",
+    "status": "accepted",
+    "target_revision": "1fafa8054c5495f3b0af13d0ef0e8c6eafdbc799"
+  },
+  "authority": {
+    "external_action_authorized": true,
+    "human_decision": null,
+    "human_decision_required": false,
+    "implementation_authorized": true,
+    "spend_cap_usd": 0,
+    "spend_used_usd": 0
+  },
+  "circuit_breakers": {
+    "context_integrity_valid": true,
+    "max_same_boundary_failures": 3,
+    "runtime_integrity_valid": true
+  },
+  "completion": {
+    "evidence_revision": "1fafa8054c5495f3b0af13d0ef0e8c6eafdbc799",
+    "receipt_ref": "collective-competence PR #1 merged; authentic P7-004 reanalysis stop-integrity-failure; pytest 126 passed, 23 skipped; ruff passed",
+    "remaining_ready_work": 0,
+    "requested": true,
+    "verifier_outcome": "pass"
+  },
+  "cursor_id": "goal-discovery-resume-20260830",
+  "cursor_revision": 4,
+  "failure_state": {
+    "boundary": null,
+    "last_failure_ref": null,
+    "same_boundary_failures": 0
+  },
+  "goal_ref": "Preserve the active Goal Discovery draft, validate workspace-root cross-repository claims, and resume P7-003",
+  "lease": {
+    "heartbeat_at": "2026-08-30T06:42:29Z",
+    "lease_revision": 4,
+    "owner_session_id": "codex:01a04c1a-13f2-7062-a96f-91d5476f11cf",
+    "status": "active"
+  },
+  "lifecycle_state": "complete",
+  "observations": [
+    {
+      "boundary": "canonical Goal Discovery checkout ownership",
+      "evidence_ref": "canonical diff expanded after recovery snapshot; file mtimes changed while this session was creating its isolated worktree",
+      "kind": "blocker",
+      "observation_id": "moving-canonical-draft-1",
+      "outcome": "inconclusive"
+    },
+    {
+      "boundary": "frozen selector-complexity gate",
+      "evidence_ref": "P7-003 result: held-seed family wins split 3 identity, 3 network, 2 temporal; no family met six-of-eight and generic selection stopped",
+      "kind": "authentic_result",
+      "observation_id": "p7-003-result-1",
+      "outcome": "pass"
+    },
+    {
+      "boundary": "frozen trail-cut integrity gate",
+      "evidence_ref": "P7-004 authentic reanalysis reproduced stop-integrity-failure: 8/9 gates passed, minimum tick-301 annulus removal 0.246 versus frozen 0.80; diagnostic trail MAE 27.032 versus primary 17.569",
+      "kind": "verification_failure",
+      "observation_id": "p7-004-integrity-2",
+      "outcome": "fail"
+    },
+    {
+      "boundary": "Goal Discovery integration",
+      "evidence_ref": "collective-competence PR #1 merged at 1fafa8054c5495f3b0af13d0ef0e8c6eafdbc799; 126 tests passed, 23 skipped, ruff passed",
+      "kind": "supporting_work",
+      "observation_id": "goal-discovery-integration-1",
+      "outcome": "pass"
+    }
+  ],
+  "plan_revision": "user-approved-2026-08-29",
+  "ready_alternatives": [],
+  "record_type": "plan_execution_cursor",
+  "schema_version": "1.0",
+  "target": {
+    "branch": "codex/goal-discovery-resume",
+    "repository": "/home/brian/code/collective-competence",
+    "worktree": "/home/brian/code/collective-competence/worktrees/codex/goal-discovery-resume"
+  }
+}
