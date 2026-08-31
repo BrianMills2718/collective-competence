@@ -8,6 +8,7 @@ This makes the prospective chronology executable rather than conventional prose.
 from __future__ import annotations
 
 import argparse
+import gzip
 import hashlib
 import json
 import random
@@ -241,7 +242,7 @@ def plan_stage(directory: Path = RESULT_DIRECTORY) -> dict[str, Any]:
         "probes": probes,
         "outcomes_present": False,
     }
-    _write_new(directory / "probes.json", _json_bytes(plan))
+    _write_new(directory / "probes.json.gz", gzip.compress(_json_bytes(plan), mtime=0))
     return plan
 
 
@@ -301,11 +302,12 @@ def _assess(
 
 
 def evaluate_stage(directory: Path = RESULT_DIRECTORY) -> dict[str, Any]:
-    candidate_path, probes_path = directory / "candidate.json", directory / "probes.json"
+    candidate_path = directory / "candidate.json"
+    probes_path = directory / "probes.json.gz"
     candidate_sha = _require_committed(candidate_path)
     probes_sha = _require_committed(probes_path)
     candidate = json.loads(candidate_path.read_bytes())
-    plan = json.loads(probes_path.read_bytes())
+    plan = json.loads(gzip.decompress(probes_path.read_bytes()))
     if plan["candidate_sha256"] != candidate_sha or plan["outcomes_present"] is not False:
         raise RuntimeError("Frozen probe/candidate lineage is invalid")
     selected = candidate["proposal"]["selected"]
