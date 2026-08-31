@@ -27,6 +27,7 @@ from src.cockpit.candidate_relations import build_candidate_relations
 from src.cockpit.experiment_story import build_experiment_story, unavailable_story
 from src.cockpit.laboratory import build_laboratory
 from src.cockpit.outcome_map import build_outcome_map
+from src.cockpit.probe_selection import build_probe_selection
 from src.cockpit.scale_evidence import (
     build_scale_evidence,
     load_scale_evidence,
@@ -263,6 +264,9 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
         main=[
             current_summary,
             pn.Tabs(
+                ("Which probe? · P11", build_probe_selection(
+                    state.root / "results/p11-probe-selection"
+                )),
                 ("Prediction vs restoration · P10", build_candidate_relations(
                     state.root / "results/p10-candidate-relations"
                 )),

@@ -747,6 +747,23 @@
         "status": "unknown",
         "effort_minutes": null
       }
+    },
+    {
+      "id": "P11",
+      "family": "calibration",
+      "question": "Does this candidate/menu family offer a meaningful test of automated experiment selection?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p11_probe_selection.md",
+        "goal-discovery/docs/hypotheses/p11_probe_selection_results.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "instrument-check-pass-adaptive-benchmark-rejected-analytically",
+      "outcome_source": "goal-discovery/docs/hypotheses/p11_probe_selection_results.md",
+      "disposition": "Retain small selector; do not run redundant efficacy batch. Two deterministic fixtures, not held-out adaptive advantage.",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     }
   ]
 }

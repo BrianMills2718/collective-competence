@@ -52,20 +52,22 @@ per-seed outcomes, the learned tree, and explicit claim limits.
 P10 is integrated on main via PR #5 (`9a66758`); its linked result owns protocol,
 timing and evidence details. Reused the simulator, scikit-learn and Panel.
 
-## Active checkpoint: automated experiment choice, not another demonstration
+## Completed checkpoint: experiment-choice instrument and analytic stop
 
-User-approved [P11 protocol](../hypotheses/p11_probe_selection.md) implements
+The user-approved [P11 protocol](../hypotheses/p11_probe_selection.md) implemented
 selection from predicted rival responses in the existing thermostat. Preflight
-shows the proposed family has a mathematically best fixed probe: it cannot
-test adaptive advantage. Cancel the proposed12/24-case batch before execution.
-Instead verify the observation/prediction/selection/response contract on two
-real-engine fixtures, freezing choices before outcomes, and expose why the
-fixed policy ties in the existing UI. Family/menu and 50:50 mechanism split
-are supplied; target/rate are fitted from observed prefixes.
+showed a mathematically best fixed probe throughout the proposed family, so
+the 12/24-case batch was canceled before execution. Two real-engine fixtures
+checked the observation/prediction/selection/response contract with choices
+frozen before outcomes. Family/menu and the 50:50 mechanism split are supplied;
+target/rate are fitted from observed prefixes.
 
-Completion is a small verified instrument and a rejected benchmark design,
-not an empirical verdict on adaptive selection. Do not manufacture context
-variation after this diagnosis merely to obtain a selector win.
+The [P11 result](../hypotheses/p11_probe_selection_results.md) now records a
+working instrument: both real-engine fixtures support the correct supplied
+explanation using the selected probe; the fixed policy ties. Other probes
+correctly abstain. All recorded integrity checks pass. This is not an empirical
+verdict on adaptive selection or a held-out discovery claim. The visual view
+separates frozen forecasts from cutoff-limited observations and conclusions.
 This supersedes merely repeating active-versus-passive restoration on another
 substrate: the new question is whether automated experiment choice adds value.
 
@@ -73,6 +75,7 @@ substrate: the new question is whether automated experiment choice adds value.
 
 | Need | Native record and why it matters |
 |---|---|
+| Why another selection batch needs justification | [P11 result](../hypotheses/p11_probe_selection_results.md): predicted disagreement selects a useful probe, but a fixed policy ties by construction |
 | What the proposal loop now demonstrates | [P10 result](../hypotheses/p10_candidate_relations_results.md): learned endpoint prediction contains both restored order and non-restored identity history; supplied family only |
 | Counterexample to recovery implying agency | [Passive bowl result](../hypotheses/002_bowl_results.md): passive dynamics reproduced the earlier mechanism-damage signature |
 | Existing distinguishing intervention to build on | [Blind target inference result](../hypotheses/003b_blind_target_inference_results.md): active and passive systems shared an inferred target; sustained loads and sensing/actuation ablations separated them |
@@ -82,10 +85,14 @@ contract. For wider context, use the [calibration synthesis](../../../roadmap/re
 not the complete archive. These records guide a new test; repeating a known
 contrast alone is not unexpected-goal discovery.
 
-Use a bounded sprint: freeze protocol -> implement/test boundaries -> run two
-prefixes -> freeze choices -> check real-engine responses -> visualize/audit.
-Reuse provenance and comparisons only where they fit. Do not claim agency
-merely because an outcome returns. No broad campaign is licensed by a pass.
+## Next decision: justify a nonredundant inquiry before another batch
+
+Identify a live research ambiguity for which different contexts really require
+different informative probes. Ground it in the existing mechanism/observation
+questions, not fabricated selector-friendly cases. Check candidate predictions
+analytically first; if one fixed probe suffices, use it and move to the next gap.
+Only then freeze a new comparison, including a strong fixed baseline and budget.
+No automatic broad campaign, new simulator, or generic agent framework follows.
 
 The longer-term gap remains proposing useful patterns outside narrow
 researcher-supplied families and selecting informative interventions across
