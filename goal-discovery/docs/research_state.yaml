@@ -1,3 +1,8 @@
+# Historical cockpit snapshot retained from the published base.
+# Current priorities live in docs/plans/current_research_plan.md.
+# Do not infer current authority from legacy active_sprint/next_test fields.
+documentation_authority: historical
+current_plan: docs/plans/current_research_plan.md
 version: 1
 updated: 2026-08-29
 north_star: >-

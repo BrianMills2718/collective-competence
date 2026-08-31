@@ -1,3 +1,13 @@
+---
+doc-role: historical-plan-or-decision
+authority: historical
+lifecycle: retained
+---
+> Historical record. Its next-step language describes the decision at the time,
+> not an active assignment. See the [current plan](current_research_plan.md)
+> and [evidence index](plan_completion_ledger.md).
+
+
 # Phase 2 research pivot — from controller calibration to distributed discovery
 
 > **Status: decision history.** Sections labelled “current next move” record

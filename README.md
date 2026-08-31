@@ -1,66 +1,42 @@
-# collective-competence
+---
+doc-role: project-entrypoint
+authority: derived
+lifecycle: active
+---
+# Collective Competence / Dynamical Laboratory
 
-How does coupling among bounded local systems produce higher-level competence?
+An open-ended laboratory for discovering unexpected goals and competencies
+across diverse systems. The binding objective and its limits are in the
+[project charter](goal-discovery/docs/PROJECT.md).
 
-The point is to find out whether *goal*, *perturbation*, *recovery*, *coupling*
-and *collective competence* are actually measurable in systems small enough to
-be understood completely, before introducing anything as confounding as a
-language model.
+**Start with the [development wiki](roadmap/README.md).** It links the purpose,
+concepts, current checkpoint, visual-analysis requirements, operating guide,
+and evidence without duplicating their authority.
 
-## Where the work is
+- [Use the laboratory](goal-discovery/README.md)
+- [Current research plan](goal-discovery/docs/plans/current_research_plan.md)
+- [Original specifications and provenance](goal-discovery/docs/sources/README.md)
+- [Earlier sorting pilot](experiments/01-self-sorting/README.md) — exploratory
+  history, not confirmed general competence.
 
-**[`goal-discovery/`](goal-discovery/)** is the current programme. It replaces
-the experiment ladder this README used to list, with a stricter one: a
-replication of a published system, pre-specified representations, a
-discovery/validation/confirmation split, snapshot-exact branching, and null
-models that have to be beaten before anything stronger than "it converges" may
-be claimed. Start at its
-[README](goal-discovery/README.md) and
-[experiment 001](goal-discovery/docs/hypotheses/001_sorting.md).
+## Documentation concerns
 
-**[`experiments/01-self-sorting/`](experiments/01-self-sorting/)** is the pilot
-that came first and motivated it. Kept because its results still stand and
-because the way it went wrong is the reason the new programme is built the way
-it is: three of its first findings turned out to be implementation asymmetries
-rather than properties of the system, and one measure ("holds the goal") was a
-single sample of a fluctuating process. Those are exactly the failures the
-freeze-before-confirming and snapshot-exact-branching rules exist to prevent.
+This small manual map records ownership before adding the new documentation
+surfaces. It is a reading and maintenance aid, not a new governance engine.
 
-## What the pilot found
+| Concern | Owning artifact | Role and reason for a separate surface |
+|---|---|---|
+| Reader navigation | `roadmap/README.md` | Derived index; links native authorities instead of copying them |
+| Scientific destination and vocabulary | `goal-discovery/docs/PROJECT.md` | Canonical charter; durable concepts must not live only in a completed sprint |
+| Current next action | `goal-discovery/docs/plans/current_research_plan.md` | Existing canonical plan, updated in place |
+| Shared visual-analysis requirements | `goal-discovery/docs/plans/dynamic_experiment_artifact_standard.md` | Existing requirements owner, updated in place |
+| Setup and first use | `goal-discovery/README.md` | Existing operator entrypoint, shortened |
+| Source lineage | `goal-discovery/docs/sources/README.md` | Existing evidence index; sources below it are historical inputs |
+| Original supplied briefs | `goal-discovery/docs/sources/briefs/*.md` | Preserved source text; not active task lists |
+| Superseded narrative | `goal-discovery/docs/archive/*.md` | Historical snapshots retain unique content removed from current pages |
+| Evidence and document lifecycle | `goal-discovery/docs/plans/plan_completion_ledger.md` | Existing local ledger, repurposed as a truthful history/authority index |
+| Agent entry context | `CLAUDE.md`, mirrored by `AGENTS.md` | Compact routing instructions, not duplicated project plans |
 
-Local action noise barely affects whether a goal is reached — feedback, not
-decentralization, is the dividing line, and a controller that halts on "nothing
-left to fix" stays goal-directed for a window only 5–20 operations wide.
-Heterogeneous local rules break the collective by **headcount, not proportion**:
-two opposing agents are as fatal at 4% of the population as at 20%. One
-opposing agent is tolerated for reachability but drops goal occupancy to about
-1/N.
-
-Details, including the three implementation artifacts that had to be fixed
-before any of it was believable, are in
-[experiments/01-self-sorting/README.md](experiments/01-self-sorting/README.md).
-None of it has been through validation or confirmation in the sense
-`goal-discovery/` now defines, so read it as exploratory.
-
-## Setup
-
-The current programme:
-
-```bash
-cd goal-discovery && make dayone
-```
-
-The pilot:
-
-```bash
-python3 -m venv .venv && .venv/bin/pip install numpy matplotlib
-.venv/bin/python experiments/01-self-sorting/selfsort.py test
-.venv/bin/python experiments/01-self-sorting/selfsort.py all
-```
-
-## History
-
-Experiment 01 was first written in `BrianMills2718/agent_ecology` (commits
-`ec00406` and `66b007c`) and moved here so this research line has its own home;
-that repository is about tool-calling agent ecologies and is a different
-subject. The original commits remain in its history.
+The repository owns these concerns. Current pages retire when explicitly
+superseded; evidence snapshots remain historical. New automation, mandatory
+registration tooling, and fleet-wide rollout are outside this cleanup.

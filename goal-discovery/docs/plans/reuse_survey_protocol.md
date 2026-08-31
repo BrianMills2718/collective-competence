@@ -1,3 +1,10 @@
+---
+doc-role: tool-selection-protocol
+authority: canonical
+lifecycle: active
+---
+[Development wiki](../../../roadmap/README.md) · [Current plan](current_research_plan.md)
+
 # Reuse survey protocol
 
 Every new scientific capability begins with this protocol. Its purpose is to
