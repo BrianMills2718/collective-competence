@@ -9,7 +9,10 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
+import shutil
 import subprocess
+import tempfile
 import xml.etree.ElementTree as ET
 from datetime import UTC, datetime
 from pathlib import Path
@@ -134,19 +137,72 @@ def run_engine(directory: Path, fixture_id: str, probe: str | None) -> list[dict
     setup, table = directory / f"{name}.xml", directory / f"{name}.csv"
     if table.exists() or setup.exists():
         raise FileExistsError(f"Preserve existing fixture output: {name}")
-    write_new(setup, experiment_xml(FIXTURES[fixture_id], probe))
-    completed = subprocess.run(
-        _command(_netlogo_root(), "p11-fixture", table, setup_file=setup, model=MODEL),
-        capture_output=True,
-        text=True,
-        timeout=180,
-        check=False,
-    )
-    write_new(directory / f"{name}.log", completed.stdout + completed.stderr)
-    if completed.returncode:
+    configured = os.environ.get("P11_NETLOGO_STAGING")
+    if not configured:
         raise RuntimeError(
-            f"NetLogo fixture {name} failed; preserved log: {directory / f'{name}.log'}"
+            "Set P11_NETLOGO_STAGING to an existing Windows-local temporary directory"
         )
+    staging_root = Path(configured).resolve()
+    windows_local = staging_root.drive and not str(staging_root).startswith("\\\\")
+    wsl_local = staging_root.parts[:3] == ("/", "mnt", "c")
+    if not staging_root.is_dir() or not (windows_local or wsl_local):
+        raise RuntimeError(
+            "P11_NETLOGO_STAGING must be an existing Windows-local directory, not WSL/UNC"
+        )
+    write_new(setup, experiment_xml(FIXTURES[fixture_id], probe))
+    with tempfile.TemporaryDirectory(prefix="p11-netlogo-", dir=staging_root) as temporary:
+        stage = Path(temporary).resolve()
+        if not stage.is_relative_to(staging_root) or stage == staging_root:
+            raise RuntimeError("Temporary staging directory escaped its configured parent")
+        sources = (MODEL, MODEL.with_suffix(".nls"), setup)
+        staged_hashes = {}
+        for source in sources:
+            destination = stage / source.name
+            shutil.copyfile(source, destination)
+            staged_hashes[source.name] = sha256(source)
+            if sha256(destination) != staged_hashes[source.name]:
+                raise RuntimeError("Staging changed source model or experiment bytes")
+        staged_table = stage / table.name
+        try:
+            completed = subprocess.run(
+                _command(
+                    _netlogo_root(),
+                    "p11-fixture",
+                    staged_table,
+                    setup_file=stage / setup.name,
+                    model=stage / MODEL.name,
+                ),
+                capture_output=True,
+                text=True,
+                timeout=180,
+                check=False,
+            )
+            write_new(directory / f"{name}.log", completed.stdout + completed.stderr)
+        except subprocess.TimeoutExpired as error:
+            write_new(
+                directory / f"{name}.log",
+                f"NetLogo timed out: {error}\nstdout={error.stdout!r}\nstderr={error.stderr!r}\n",
+            )
+            raise
+        finally:
+            if staged_table.is_file():
+                with staged_table.open("rb") as source, table.open("xb") as destination:
+                    shutil.copyfileobj(source, destination)
+        unchanged = all(
+            sha256(stage / filename) == digest for filename, digest in staged_hashes.items()
+        )
+        write_new(
+            directory / f"{name}-staging.json",
+            {
+                "windows_local_staging": True,
+                "input_sha256": staged_hashes,
+                "staged_inputs_unchanged": unchanged,
+            },
+        )
+        if not unchanged or completed.returncode:
+            raise RuntimeError(
+                f"NetLogo fixture {name} failed or changed inputs; preserved log: {directory / f'{name}.log'}"
+            )
     rows = _behavior_space_records(table)
     if any(not float(r["ticks"]).is_integer() for r in rows):
         raise ValueError(f"Noninteger observed tick in {table}")
@@ -190,13 +246,17 @@ def plan(output: Path = DEFAULT_OUTPUT) -> dict[str, Any]:
                 "checks": checks,
             }
         )
+    source_unchanged = all(
+        sha256(REPO / path) == digest for path, digest in origin["files_sha256"].items()
+    )
     payload = {
         "schema_version": 1,
         "protocol": str(PROTOCOL.relative_to(REPO)),
         "provenance": origin,
         "preflight": preflight(),
         "fixtures": fixtures,
-        "integrity": all(all(f["checks"].values()) for f in fixtures),
+        "source_unchanged": source_unchanged,
+        "integrity": source_unchanged and all(all(f["checks"].values()) for f in fixtures),
     }
     write_new(output / "selection.json", payload)
     return payload
@@ -207,7 +267,11 @@ def evaluate(directory: Path = DEFAULT_OUTPUT) -> dict[str, Any]:
         raise FileExistsError("Evaluation already exists; preserve first outcomes")
     selection_path = directory / "selection.json"
     origin = provenance(selection_path)
-    selection = json.loads(selection_path.read_text())
+    selection_bytes = selection_path.read_bytes()
+    selection_digest = hashlib.sha256(selection_bytes).hexdigest()
+    if selection_digest != origin["files_sha256"][str(selection_path.resolve().relative_to(REPO))]:
+        raise RuntimeError("Selection changed during provenance capture")
+    selection = json.loads(selection_bytes)
     for path, digest in selection["provenance"]["files_sha256"].items():
         if sha256(REPO / path) != digest:
             raise RuntimeError(f"Scientific input changed after selection: {path}")
@@ -269,8 +333,10 @@ def evaluate(directory: Path = DEFAULT_OUTPUT) -> dict[str, Any]:
     intact = selection["integrity"] and all(
         p["integrity"] for f in fixtures for p in f["probes"].values()
     )
+    selection_unchanged = sha256(selection_path) == selection_digest
     checks = {
-        "integrity": intact,
+        "integrity": intact and selection_unchanged,
+        "selection_unchanged": selection_unchanged,
         "selected_correct": all(f["probes"][f["selected_probe"]]["correct"] for f in fixtures),
         "other_probes_abstain": all(
             f["probes"][p]["classification"]["decision"] == "abstain"
@@ -283,7 +349,7 @@ def evaluate(directory: Path = DEFAULT_OUTPUT) -> dict[str, Any]:
         "schema_version": 1,
         "protocol": str(PROTOCOL.relative_to(REPO)),
         "provenance": origin,
-        "selection_sha256": sha256(selection_path),
+        "selection_sha256": selection_digest,
         "preflight": preflight(),
         "fixtures": fixtures,
         "summary": {
@@ -322,6 +388,8 @@ def main() -> None:
             indent=2,
         )
     )
+    if not (result["integrity"] if args.phase == "plan" else result["summary"]["passed"]):
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":
