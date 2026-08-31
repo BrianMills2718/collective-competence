@@ -14,7 +14,7 @@ Historical evidence remains available without becoming current instructions.
 - [CLAUDE.md](../CLAUDE.md)
 - [README.md](../README.md)
 
-## experiments/01-self-sorting
+## experiments\01-self-sorting
 
 - [README.md](../experiments/01-self-sorting/README.md)
 
@@ -23,19 +23,19 @@ Historical evidence remains available without becoming current instructions.
 - [CLAUDE.md](../goal-discovery/CLAUDE.md)
 - [README.md](../goal-discovery/README.md)
 
-## goal-discovery/docs
+## goal-discovery\docs
 
 - [CLAUDE.md](../goal-discovery/docs/CLAUDE.md)
 - [PROJECT.md](../goal-discovery/docs/PROJECT.md)
 - [outcome_backcasting_final_report.md](../goal-discovery/docs/outcome_backcasting_final_report.md)
 
-## goal-discovery/docs/archive
+## goal-discovery\docs\archive
 
 - [pre-consolidation-allocation-protocol.md](../goal-discovery/docs/archive/pre-consolidation-allocation-protocol.md)
 - [pre-consolidation-readme.md](../goal-discovery/docs/archive/pre-consolidation-readme.md)
 - [pre-consolidation-research-plan.md](../goal-discovery/docs/archive/pre-consolidation-research-plan.md)
 
-## goal-discovery/docs/audits
+## goal-discovery\docs\audits
 
 - [2026-08-29_company_planning_reflection.md](../goal-discovery/docs/audits/2026-08-29_company_planning_reflection.md)
 - [2026-08-29_ob_001_sprint_2_p7_004.md](../goal-discovery/docs/audits/2026-08-29_ob_001_sprint_2_p7_004.md)
@@ -56,7 +56,7 @@ Historical evidence remains available without becoming current instructions.
 - [2026-08-30_p9_c1_blind_sorting_ui.md](../goal-discovery/docs/audits/2026-08-30_p9_c1_blind_sorting_ui.md)
 - [v1.md](../goal-discovery/docs/audits/v1.md)
 
-## goal-discovery/docs/hypotheses
+## goal-discovery\docs\hypotheses
 
 - [001_sorting.md](../goal-discovery/docs/hypotheses/001_sorting.md)
 - [001_sorting_confirmation.md](../goal-discovery/docs/hypotheses/001_sorting_confirmation.md)
@@ -83,6 +83,8 @@ Historical evidence remains available without becoming current instructions.
 - [p12_reference_inference_results.md](../goal-discovery/docs/hypotheses/p12_reference_inference_results.md)
 - [p13_vector_dynamics.md](../goal-discovery/docs/hypotheses/p13_vector_dynamics.md)
 - [p13_vector_dynamics_results.md](../goal-discovery/docs/hypotheses/p13_vector_dynamics_results.md)
+- [p14_relational_flocking.md](../goal-discovery/docs/hypotheses/p14_relational_flocking.md)
+- [p14_relational_flocking_results.md](../goal-discovery/docs/hypotheses/p14_relational_flocking_results.md)
 - [p2_001_predictive_goal_model.md](../goal-discovery/docs/hypotheses/p2_001_predictive_goal_model.md)
 - [p2_001_predictive_goal_model_results.md](../goal-discovery/docs/hypotheses/p2_001_predictive_goal_model_results.md)
 - [p2_001_predictive_goal_model_v2.md](../goal-discovery/docs/hypotheses/p2_001_predictive_goal_model_v2.md)
@@ -131,7 +133,7 @@ Historical evidence remains available without becoming current instructions.
 - [p7_004_ants_trail_scale_results.md](../goal-discovery/docs/hypotheses/p7_004_ants_trail_scale_results.md)
 - [p7_005_network_intervention_value_results.md](../goal-discovery/docs/hypotheses/p7_005_network_intervention_value_results.md)
 
-## goal-discovery/docs/plans
+## goal-discovery\docs\plans
 
 - [current_research_plan.md](../goal-discovery/docs/plans/current_research_plan.md)
 - [dynamic_experiment_artifact_standard.md](../goal-discovery/docs/plans/dynamic_experiment_artifact_standard.md)
@@ -156,46 +158,50 @@ Historical evidence remains available without becoming current instructions.
 - [x02_netlogo_decision.md](../goal-discovery/docs/plans/x02_netlogo_decision.md)
 - [x03_visual_analytics_decision.md](../goal-discovery/docs/plans/x03_visual_analytics_decision.md)
 
-## goal-discovery/docs/requests
+## goal-discovery\docs\requests
 
 - [multiscale_recovery_benchmark_request.md](../goal-discovery/docs/requests/multiscale_recovery_benchmark_request.md)
 
-## goal-discovery/docs/roadmaps
+## goal-discovery\docs\roadmaps
 
 - [p8_sorting_laboratory_phase.md](../goal-discovery/docs/roadmaps/p8_sorting_laboratory_phase.md)
 - [p9_sorting_blind_discovery_ui.md](../goal-discovery/docs/roadmaps/p9_sorting_blind_discovery_ui.md)
 
-## goal-discovery/docs/sources
+## goal-discovery\docs\sources
 
 - [README.md](../goal-discovery/docs/sources/README.md)
 
-## goal-discovery/docs/sources/briefs
+## goal-discovery\docs\sources\briefs
 
 - [Addendum_3_Robinson_Crusoe_Dynamical_Laboratory.md](../goal-discovery/docs/sources/briefs/Addendum_3_Robinson_Crusoe_Dynamical_Laboratory.md)
 - [Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md](../goal-discovery/docs/sources/briefs/Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md)
 - [Dynamical_Laboratory_Coding_Agent_Spec.md](../goal-discovery/docs/sources/briefs/Dynamical_Laboratory_Coding_Agent_Spec.md)
 
-## goal-discovery/src
+## goal-discovery\results\p14-relational-flocking
+
+- [result.md](../goal-discovery/results/p14-relational-flocking/result.md)
+
+## goal-discovery\src
 
 - [CLAUDE.md](../goal-discovery/src/CLAUDE.md)
 
-## goal-discovery/src/experiments/sorting
+## goal-discovery\src\experiments\sorting
 
 - [README.md](../goal-discovery/src/experiments/sorting/README.md)
 
-## goal-discovery/src/experiments/thermostat
+## goal-discovery\src\experiments\thermostat
 
 - [README.md](../goal-discovery/src/experiments/thermostat/README.md)
 
-## goal-discovery/src/spikes/netlogo_bubble
+## goal-discovery\src\spikes\netlogo_bubble
 
 - [README.md](../goal-discovery/src/spikes/netlogo_bubble/README.md)
 
-## goal-discovery/src/spikes/netlogo_flocking
+## goal-discovery\src\spikes\netlogo_flocking
 
 - [README.md](../goal-discovery/src/spikes/netlogo_flocking/README.md)
 
-## goal-discovery/tests
+## goal-discovery\tests
 
 - [CLAUDE.md](../goal-discovery/tests/CLAUDE.md)
 

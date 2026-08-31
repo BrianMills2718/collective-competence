@@ -792,6 +792,20 @@
       "outcome_source": "goal-discovery/docs/hypotheses/p13_vector_dynamics_results.md",
       "disposition": "Retain observation-only proposal/freeze/challenge seam; stop passive bowl line; no unexpected-goal, competency, agency, or universal-substrate claim.",
       "cost": {"status": "unknown", "effort_minutes": null}
+    },
+    {
+      "id": "P14",
+      "family": "calibration",
+      "question": "Can a learned cross-cohort relation in an interacting flock earn a prospective rival-explanation test?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p14_relational_flocking.md",
+        "goal-discovery/docs/hypotheses/p14_relational_flocking_results.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "proposal-failed",
+      "outcome_source": "goal-discovery/docs/hypotheses/p14_relational_flocking_results.md",
+      "disposition": "Relational family won 2/6 untouched runs with -2.1% median improvement; stop before interventions; global identity cohorts are not a reliable local-interaction representation.",
+      "cost": {"status": "unknown", "effort_minutes": null}
     }
   ]
 }
