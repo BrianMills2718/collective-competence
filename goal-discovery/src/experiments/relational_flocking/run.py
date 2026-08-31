@@ -130,12 +130,26 @@ def run_evaluation(run_id: str = DEFAULT_RUN_ID) -> Path:
     return output
 
 
+def present_discovery(run_id: str = DEFAULT_RUN_ID) -> Path:
+    """Regenerate the proposal-only report without rerunning NetLogo."""
+    output = io.run_dir(run_id, exact=True)
+    candidate = json.loads((output / "candidate.json").read_text(encoding="utf-8"))
+    render_discovery(output, candidate)
+    write_discovery_result(output, candidate)
+    return output
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("phase", choices=["discover", "evaluate"])
+    parser.add_argument("phase", choices=["discover", "evaluate", "present"])
     parser.add_argument("--run-id", default=DEFAULT_RUN_ID)
     args = parser.parse_args()
-    output = run_discovery(args.run_id) if args.phase == "discover" else run_evaluation(args.run_id)
+    if args.phase == "discover":
+        output = run_discovery(args.run_id)
+    elif args.phase == "evaluate":
+        output = run_evaluation(args.run_id)
+    else:
+        output = present_discovery(args.run_id)
     print(output)
 
 
