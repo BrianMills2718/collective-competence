@@ -44,8 +44,11 @@ food-source number, source code, intervention arm, random state, collection,
 and future observations never cross the learner boundary.
 
 For each transition, predict the next displacement unit vector. Derive current
-heading vector, normalized vector toward coordinate origin, and a normalized
-local chemical vector from the three oriented samples. World-boundary or absent
+heading vector and normalized vector toward coordinate origin. Derive the local
+chemical vector by subtracting the minimum of the three oriented chemical
+samples, weighting unit vectors at heading offsets0,+45,-45 degrees by those
+nonnegative differences, summing, and normalizing; an equal three-sample field
+maps to zero rather than masquerading as persistence. World-boundary or absent
 next observations are excluded by a frozen integrity rule, not imputed.
 
 ## Frozen proposal grammar
@@ -139,4 +142,3 @@ After evidence only, produce the smallest useful readout: candidate-family
 held-seed losses, learned per-mode field effects and selected band, paired
 heading-divergence trajectories by role, integrity gates, and a terse claim
 boundary. Reuse existing plotting components; no new cockpit tab is required.
-
