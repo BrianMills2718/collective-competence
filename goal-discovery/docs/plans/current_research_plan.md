@@ -54,6 +54,13 @@ Acceptance:
 by fast-forwarding the canonical checkout after preserving its local changes.
 The runtime banner identifies the actual running checkout; this document is
 not an assertion that an already-running server has refreshed.
+
+Main installation: PR #3 merged at `f0c15f3`; the canonical checkout was
+fast-forwarded and its instruction/wiki projections checked. The original local
+changes remain recoverable both in the remote snapshot below and a local stash.
+Post-installation raw-artifact checks caught a test assertion that confused
+the diagnostic score disposition with the run's integrity-stop disposition;
+the assertion now checks both separately. The rendered decision was correct.
 The original checkout is preserved in remotely published
 `recovery/pre-integration-20260831` at `e5283da`, based on `5810969`.
 Ignored raw outputs and environments remain local and untouched.

@@ -200,7 +200,8 @@ def test_real_scale_integrity_stop_if_artifacts_are_present() -> None:
 
     data = load_scale_evidence(directory)
     assert not data.summary["integrity"]["passed"]
-    assert data.summary["scoring"]["decision"] == "stop-integrity-failure"
+    assert data.summary["decision"] == "stop-integrity-failure"
+    assert data.summary["scoring"]["decision"] == "abstain-no-go"
     assert len(data.held_seed_errors) == 8
     assert (
         data.summary["scoring"]["mae"]["primary"]
