@@ -108,6 +108,10 @@ def test_replay_reset_pause_end_and_inference(tmp_path, monkeypatch):
     play.value = False
     assert not timer.running
     chart = view[5][0].object
+    reference_line = next(r for r in chart.renderers
+                          if hasattr(r, "glyph") and r.glyph.line_color == "#d97706")
+    assert list(reference_line.data_source.data["y"]) == [23., 23.]
+    assert list(reference_line.data_source.data["x"]) == [24, 120]
     actual = next(
         r.data_source
         for r in chart.renderers
