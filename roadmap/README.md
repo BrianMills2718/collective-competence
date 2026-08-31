@@ -27,6 +27,10 @@ Follow each link to the document that owns the answer.
 
 ## The investigation loop
 
+Current bounded work: [executable composition exploration](../goal-discovery/docs/plans/current_research_plan.md#active-bounded-exploration-executable-composition).
+This tests whether categorical tooling earns its cost; it is not a new claim of
+goal discovery or an adopted replacement substrate.
+
 Configure/import → run and observe → propose patterns/hypotheses →
 choose a distinguishing intervention → compare matched futures →
 retain, reject, or abstain → choose the next experiment.

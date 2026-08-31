@@ -35,6 +35,91 @@ local-work receipt. It reports checks performed during that implementation
 session; this documentation cleanup does not independently revalidate those
 scientific or UI claims.
 
+## Active bounded exploration: executable composition
+
+Authorized in the project conversation on 2026-08-30; execution authority is
+`goal:01a04c08-4944-7b61-976c-4993f557c22c`. This temporary substrate experiment
+supports the north star; it does not replace candidate discovery with game theory.
+
+**Question:** does an off-the-shelf categorical composition library make a real
+environment/intervention experiment easier, safer, or more reusable than ordinary
+typed Python composition, without changing the simulator's semantics?
+
+Execution lane: `categorical-exploration`, based on documentation commit `9b8666a`
+and published simulation base `6cf34d8`. The dirty canonical P9 checkout is not
+the implementation base and will not be modified or merged during this sprint.
+The existing sorting kernel is reused unchanged. Its fixed-line cell interaction
+rules are NOT re-expressed as independent composable cell games in this pilot.
+
+### Outcome-first view (design, not measured results)
+
+Use a candidate tab in the existing Panel cockpit, not a new production UI:
+
+```text
+Question / evidence grade / selected system and environment
+Seed + initial conditions + intervention time + Run comparison
+Executable wiring: context -> existing transition -> permitted readout
+Matched playback: original environment | changed environment | null
+Linked disorder/progress traces + explicit intervention marker
+Checks: direct vs composed / regrouping / wiring rejection / overhead
+Decision and counterevidence / provenance / known missing capabilities
+```
+
+Show cell VALUES as well as identity in sorting playback. A playhead controls
+the display only; batch summaries are explicitly full-run, not online inference.
+Explain scheduler context, freezing, supplied metrics and null models beside
+the views. Tooltips supplement rather than hide the main scientific limits.
+
+### Bounded sequence and predeclared decision criteria
+
+1. Survey at most three serious packages against the ordinary-code baseline.
+   Distinguish full open games (strategies, play, coplay, best responses) from
+   typed diagrams and dynamical interfaces. Review primary sources and licenses.
+2. Smoke-test pinned DisCoPy 1.2.2 (BSD-3-Clause), then evaluate diagrams into
+   real Python transition functions. Fall back or defer if setup becomes the work.
+3. Compare identical immutable state/RNG snapshots in direct Python and diagram
+   execution. Include an ordinary validated pipeline baseline, so basic type
+   checking is not misleadingly counted as a uniquely categorical benefit.
+4. Run baseline, scheduler-context replacement, state perturbation, and freeze
+   controls. Include random-swap or inactive nulls. Use fixed seeds and settings
+   and exact per-step state equality for semantic fidelity, not similar plots.
+5. Check identity/regrouping and independent parallel composition on disjoint
+   state; reject invalid wiring before execution. No instantaneous feedback or
+   hidden shared random generator. These are finite checks, not a general proof.
+6. Test a second existing simple substrate only if the same interface genuinely
+   transfers cheaply. Record what is reused versus newly written.
+7. Measure run/build overhead, adapter size and practical expressibility.
+   Implementation size is a cost signal, never the progress target.
+8. Inspect the actual desktop entrypoint and its first comparison; audit the
+   evidence and retain a recoverable local commit with viewing instructions.
+
+Correctness gate: no unexplained trajectory mismatch on the declared suite;
+no mutation of the shared input snapshot; incompatible wiring fails visibly;
+controls and limitations remain visible. Any mismatch blocks an adoption claim.
+
+Value gate: adopt the optional library only if it demonstrably enables a needed
+experiment or reduces construction/maintenance work beyond the validated Python
+baseline, with acceptable measured overhead. Keep explicit interfaces but defer
+the library if it only redescribes a short pipeline. Reject a fit requiring
+supplied goals to be mislabeled as discovered. Negative findings complete the sprint.
+
+Budget: research/setup is bounded to one focused spike; prioritize the first real
+comparison and reassess at 45-minute boundaries. Work autonomously to the decision
+checkpoint, not to exhaust the night. No paid runs, external publication, app
+migration, general framework rewrite, company-policy rollout, or dirty-main merge.
+
+Outputs live in the existing experiment/test directories, one separately
+inspectable evidence note, and generated run data. The current plan owns priority;
+the wiki only links it. Discovery claims remain deferred: metric families and
+calibration objectives in this comparison are hand-supplied.
+
+Status: primary-source survey complete; DisCoPy 1.2.2 installed in the isolated
+lane, not adopted. A real functor smoke test passed sequential composition
+(3 -> 5), parallel composition ((3, 7) -> (4, 8)), and identity (3 -> 3).
+The released Python target uses tuples of types; do not assume constructor
+examples from a different API version. Sorting implementation and empirical
+decision are the next work unit, with no human input needed.
+
 ## Completed increment: documentation consolidation
 
 Deliver a short reading path, recover the foundational specification lineage,
@@ -72,7 +157,7 @@ Its embedded active-sprint and next-test fields do not govern new work.
 The UI's status projection should be reconciled with the accepted implementation
 at that integration boundary, without changing historical experiment outcomes.
 
-## Next learning checkpoint: candidate proposal, then a discriminating test
+## Next after this exploration: candidate proposal, then a discriminating test
 
 Once the implementation base is explicit, run one bounded calibration:
 
