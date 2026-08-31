@@ -132,10 +132,6 @@ def build_vector_dynamics(directory: Path) -> pn.Column:
         show_index=False,
         disabled=True,
         height=190,
-        formatters={
-            "held-out RMS · mean": {"type": "scientific", "precision": 3},
-            "held-out RMS · worst run": {"type": "scientific", "precision": 3},
-        },
     )
 
     def current() -> tuple[dict[str, Any], list[dict[str, Any]], dict[str, Any]]:
