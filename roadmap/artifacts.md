@@ -75,6 +75,8 @@ Historical evidence remains available without becoming current instructions.
 - [005_adaptation.md](../goal-discovery/docs/hypotheses/005_adaptation.md)
 - [005_adaptation_results.md](../goal-discovery/docs/hypotheses/005_adaptation_results.md)
 - [composition_exploration_results.md](../goal-discovery/docs/hypotheses/composition_exploration_results.md)
+- [p10_candidate_relations.md](../goal-discovery/docs/hypotheses/p10_candidate_relations.md)
+- [p10_candidate_relations_results.md](../goal-discovery/docs/hypotheses/p10_candidate_relations_results.md)
 - [p2_001_predictive_goal_model.md](../goal-discovery/docs/hypotheses/p2_001_predictive_goal_model.md)
 - [p2_001_predictive_goal_model_results.md](../goal-discovery/docs/hypotheses/p2_001_predictive_goal_model_results.md)
 - [p2_001_predictive_goal_model_v2.md](../goal-discovery/docs/hypotheses/p2_001_predictive_goal_model_v2.md)
