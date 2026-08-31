@@ -54,7 +54,7 @@ def test_privileged_or_extra_coordinate_field_is_rejected(field):
 def test_nonfinite_or_non_numeric_state_is_rejected(value):
     data = episodes(range(2), 2)[0]
     data[0]["coordinates"][0]["x"] = value
-    with pytest.raises(ValueError, match="finite number"):
+    with pytest.raises((TypeError, ValueError), match="finite number"):
         validate_episode(data)
 
 
@@ -135,7 +135,7 @@ def test_deterministic_challenges_and_freeze_eligibility():
 def test_assessment_separates_state_recovery_and_mechanism_failure():
     candidate = discover(episodes())["selected"]
     for condition, seed in (("displace", 62002), ("kick", 62003), ("freeze", 62004)):
-        world, prefix = _episode(seed, PREFIX_TICK, f"run-{condition}")
+        world, _prefix = _episode(seed, PREFIX_TICK, f"run-{condition}")
         targets = _apply_challenge(world, condition, seed * 10 + 2, [0, 0])
         post = observe(world, f"run-{condition}")
         forecast = _forecast_frames(candidate, post, f"run-{condition}")

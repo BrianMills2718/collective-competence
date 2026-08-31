@@ -23,7 +23,7 @@ TIE_TOLERANCE = 1e-10
 
 def _number(value: object, label: str) -> float:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
-        raise ValueError(f"{label} must be a finite number")
+        raise TypeError(f"{label} must be a finite number")
     result = float(value)
     if not math.isfinite(result):
         raise ValueError(f"{label} must be a finite number")
@@ -47,7 +47,7 @@ def validate_episode(frames: Sequence[dict[str, Any]]) -> tuple[str, ...]:
         if set(frame) != FRAME_KEYS:
             raise ValueError(f"Observation fields must be exactly {sorted(FRAME_KEYS)}")
         if not isinstance(frame["tick"], int) or isinstance(frame["tick"], bool):
-            raise ValueError("tick must be an integer")
+            raise TypeError("tick must be an integer")
         if previous_tick is not None and frame["tick"] != previous_tick + 1:
             raise ValueError("Observations must have consecutive ticks")
         previous_tick = frame["tick"]
