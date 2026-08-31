@@ -96,7 +96,20 @@ turn a skipped confirmation into a pass.
 This checkpoint improves reliable context and inspectability. Passing software
 checks does not independently confirm archived research or establish discovery.
 
-## Next scientific checkpoint: candidate proposal and a distinguishing test
+## Active scientific checkpoint: candidate proposal and a distinguishing test
+
+User authorized continuation after integration. The next bounded sprint is
+[P10: learned endpoint relations versus restoration](../hypotheses/p10_candidate_relations.md).
+It uses the existing sorting substrate with duplicate values, learns a compact
+pairwise endpoint rule from allowed observations, then challenges value order
+and identity history separately. This is method calibration, not a novel
+sorting finding or open-ended discovery. The candidate family and interventions
+are explicit researcher priors.
+
+First artifact: one learned rule and a matched replay. Time cap: 60–90 minutes.
+Freeze the protocol before discovery and the learned candidate before held-out
+evaluation; retain failures without retuning. Completion requires the evidence,
+interactive inspection, a qualified decision, and updated wiki routes.
 
 **Question:** can an inspectable proposal procedure suggest a testable pattern
 not supplied as an explicit goal, and can an intervention distinguish it from
