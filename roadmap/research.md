@@ -153,6 +153,27 @@ family and challenge cases were supplied. The strategic priority is reducing
 prescribed interpretation and testing transfer, not polishing the passing
 thermostat calibration or making adaptive selection win by construction.
 
+### Blind vector dynamics: a learned passive law is not a discovered goal
+
+[P13](../goal-discovery/docs/hypotheses/p13_vector_dynamics_results.md)
+withheld the existing bowl's target, equations, energy, tolerance, intervention
+label and frozen state. From x/v observations, a fixed four-family grammar chose
+the shared local2x2 law as the only model adequate on every held-out run; the
+full16x16 model failed held-run generalization. Candidate and32 forecasts were
+committed before untouched outcomes.
+
+Across8 seeds each, displacement and velocity kicks remained predicted and
+returned near the learned origin. Freezing one away coordinate made whole-state
+forecast RMS0.213–0.426 while unaffected coordinates remained predicted to
+1.82e-15 or better. This localizes mechanism loss and rejects whole-system
+restoration without mislabeling passive attraction a competency.
+
+**Implication:** retain the cross-system proposal/falsification seam and stop the
+bowl line. The observation grammar, linear families and challenges were supplied;
+the result is method calibration, not unexpected-goal discovery. The next useful
+decision concerns relational candidates in an interacting existing system, with
+competing explanations and a discriminating intervention fixed before outcomes.
+
 ## 3. Representation: useful descriptions must beat simple explanations
 
 **Question:** Which representations add reliable predictive information?

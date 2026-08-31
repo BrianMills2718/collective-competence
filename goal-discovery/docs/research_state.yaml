@@ -6,11 +6,11 @@ current_context:
   objective: Open-ended laboratory that discovers unexpected goals and competencies across diverse systems.
   current_plan: docs/plans/current_research_plan.md
   wiki: ../roadmap/README.md
-  integration_status: P12 playback verified; running checkout and revision shown below
-  knowledge_status: P12 distinguishes an inferred feedback reference from the observed attractor and rejects affine predictions under saturating challenges. This is a supplied-family calibration, not unexpected-goal discovery.
-  next_scientific_question: Can we propose and falsify a less-prescribed relation on an existing second substrate, rather than supply the interpretation?
+  integration_status: P13 evidence and cutoff-safe playback verified on its branch; running checkout and revision shown below
+  knowledge_status: P13 learned the passive bowl's local vector law from restricted observations, predicted state damage, and failed under persistent mechanism loss. This calibrates proposal/falsification, not an unexpected goal or competency.
+  next_scientific_question: Can a less-local grammar propose a relational candidate in an interacting existing system and distinguish it from passive, invariant, and artifact explanations?
 version: 1
-updated: 2026-08-30
+updated: 2026-08-31
 programme_status: p9-blind-calibration-complete-next-held-out-protocol
 delivery:
   status: complete
