@@ -8,6 +8,7 @@ sources:
   - ../hypotheses/p10_candidate_relations_results.md
   - ../hypotheses/p11_probe_selection_results.md
   - ../hypotheses/p12_reference_inference.md
+  - ../hypotheses/p13_vector_dynamics_results.md
 ---
 # Current research plan
 
@@ -112,37 +113,43 @@ Audit repairs include retained missing-output failure records and
 suppression of supported verdicts when fixture integrity fails. Preserve P11
 historical bytes and reproduce that study at its recorded revision.
 
-## Active slice: blind vector dynamics on a second substrate
+## Completed slice: blind vector dynamics on a second substrate
 
-The user approved P13 after the P12 review. The frozen
-[P13 protocol](../hypotheses/p13_vector_dynamics.md) reuses the passive bowl but
-withholds its target, rules, energy, goal tolerance and mechanism state. A fixed
-four-family linear grammar must select the simplest held-out predictor, derive a
-stable fixed relation, freeze it, and face matched state and mechanism challenges.
+[P13 result](../hypotheses/p13_vector_dynamics_results.md) records the authentic
+outcome. From target/rule-blind x/v observations, the fixed four-family grammar
+selected the shared local2x2 law as the only held-run-adequate candidate; the
+full16x16 family failed held-run generalization. On32 untouched matched branches,
+no damage, displacement and kick followed frozen forecasts and settled near the
+learned origin. Freeze stranded one coordinate, broke whole-system forecasts,
+and left every unaffected coordinate exactly predicted. All preregistered and
+integrity checks passed.
 
-Acceptance requires committed candidates before untouched outcomes, raw
-observation retention, independent-unit scoring across eight seeds, passive and
-mechanism-failure interpretations, and a dynamic cutoff-safe view. The intended
-advance is a reusable proposal/falsification seam across P10/P12/P13—not a new
-bowl finding, universal substrate, or open-ended-discovery claim. Stop or revise
-on valid negative evidence; do not add post-outcome model families.
+What transferred across P10/P12/P13 is the proposal/falsification seam, not a
+universal substrate. P13 is a passive-law calibration: observations, coordinate
+identity, candidate grammar and interventions were supplied; no unexpected goal,
+agency, or active compensation was found. The cutoff-safe first cockpit tab is
+the canonical inspectable artifact. Stop the bowl line rather than fit opened
+outcomes or polish a known demonstration.
 
-## Subsequent decision: reduce prescribed interpretation, not just supplied parameters
+## Next decision: can a relational candidate survive competing explanations?
 
-Do not repeat thermostat parameter calibration or automatically fit saturation
-after these exposed outcomes. The next slice should propose a falsifiable
-relation on an existing second substrate (for example, the passive bowl), with
-the narrow grammar/features explicitly declared rather than its target supplied.
-First check what P10/P12 components actually transfer; no universal interface is
-earned by matching file shapes. Compare passive/invariant explanations and
-freeze a prediction before a distinct intervention. If the candidate only
-restates an authored observable, record that limitation and revise the proposal
-step instead of enlarging the batch. This is a future research decision, not
-an unbounded campaign authorized by completion of P12.
+The next candidate checkpoint, if authorized, should use an existing interacting
+system and a grammar that can express a relation among parts without supplying
+its target. Declare passive/invariant, measurement-artifact, and competency
+alternatives first, then freeze one prediction and a discriminating intervention.
+The purpose is to test whether proposal moves beyond independent local dynamics,
+not to make another calibration pass.
+
+Stop before execution if the candidate restates a supplied observable, the
+grammar is bowl-specific, the intervention cannot distinguish live alternatives,
+or new simulator/framework/UI machinery dominates the slice. Generic UI work,
+production categorical runtime, completion enforcement and browser-button
+debugging remain outside the scientific critical path. Use the smallest visual
+readout after evidence. Completion of P13 does not authorize the next experiment.
 
 The longer-term gap remains proposing useful patterns outside narrow
 researcher-supplied families and selecting informative interventions across
-diverse systems. P10 supplies a small end-to-end calibration, not that solution.
+diverse systems.
 
 ## Integration and evidence boundary
 
