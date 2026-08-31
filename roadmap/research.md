@@ -119,6 +119,23 @@ inferred the relation. Predictive regularities must be challenged before being
 called restored targets. Inert controls do not distinguish active defense from
 passive attraction; transfer beyond this narrow family remains open.
 
+### Experiment choice: first check that there is a choice to learn
+
+[P11 preflight](../goal-discovery/docs/hypotheses/p11_probe_selection.md)
+identified a redundant proposed benchmark before executing its batch. The two
+supplied thermostat explanations have identical unsaturated dynamics for wait,
+displacement and ordinary load. Only actuator-disable plus load separates them,
+so predicted-disagreement selection and the strongest fixed probe must agree.
+
+This is an analytic limit of the candidate/menu design, not measured evidence
+against adaptive selection. More seeds would not establish adaptive advantage.
+The [bounded implementation](../goal-discovery/docs/hypotheses/p11_probe_selection_results.md)
+checked predictions and choice against two real-engine fixtures: selected and
+fixed policies both supported the correct supplied explanation, while other
+probes abstained. This is instrument calibration, not held-out science.
+A useful next selection benchmark needs genuinely different live ambiguities,
+with different informative probes, justified before looking at evaluation.
+
 ## 3. Representation: useful descriptions must beat simple explanations
 
 **Question:** Which representations add reliable predictive information?

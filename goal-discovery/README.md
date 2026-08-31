@@ -10,8 +10,8 @@ lifecycle: active
 [Current work and integration checks](docs/plans/current_research_plan.md)
 
 The goal is an open-ended laboratory that discovers unexpected goals and
-competencies across diverse systems. Sorting is the current interactive
-calibration specimen. Its candidate ledger is hand-authored, not automated discovery.
+competencies across diverse systems. Sorting and the passive/controller comparison
+are calibration specimens. Their supplied candidate families are not open-ended discovery.
 
 ## Open on this computer
 
@@ -26,13 +26,33 @@ Then open [the laboratory](http://localhost:5011/app). Leave the terminal runnin
 No phone support, public deployment, or overnight scheduler is implied.
 The composition extra is optional; omit it from both commands if not needed.
 
-This revision combines P8/P9 and the optional composition preview. The
+This revision combines the sorting and experiment-selection views with the optional composition preview. The
 [current plan](docs/plans/current_research_plan.md) records verification and
 installation status. A localhost URL alone does not identify the running revision.
 
-## Start with the new prediction-versus-restoration result
+## Start with experiment choice
 
-The first tab, **Prediction vs restoration · P10**, shows a learned rule and
+The first tab, **Which probe? · P11**, shows why the laboratory selected an
+intervention—and why a fixed policy makes the same choice here.
+
+1. Leave **case-a** and **Disable actuation + persistent load** selected.
+2. Set **Playback** to **Playing**, or move **Post-probe observations revealed**
+   from 0 to 64. **Paused** stops playback. The conclusion starts
+   UNKNOWN, then supports the passive explanation. Dashed lines are forecasts;
+   the actual trace uses only revealed observations.
+3. Select **case-b**; the timeline resets. The same probe now supports feedback.
+4. Select **Load** without disabling actuation and scrub again: both explanations
+   fit, so the conclusion is ABSTAIN. The score chart shows why this probe was
+   not chosen.
+5. Expand the fitting, final-verdict, all-fixture and provenance cards as needed.
+
+These are two real-engine fixtures, not a held-out study or adaptive advantage.
+Controls inspect saved evidence; they do not rerun the simulator.
+[Result, canceled benchmark and limitations](docs/hypotheses/p11_probe_selection_results.md).
+
+## Prediction versus restoration
+
+Select **Prediction vs restoration · P10** for a learned rule and
 its frozen held-out test—not a hand-authored candidate ledger.
 
 1. Leave **Different values** selected and move **Ticks after the swap** from
