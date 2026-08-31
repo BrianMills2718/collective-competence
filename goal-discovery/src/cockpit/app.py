@@ -24,8 +24,15 @@ from src.cockpit.blind_calibration import (
     unavailable_blind_calibration,
 )
 from src.cockpit.experiment_story import build_experiment_story, unavailable_story
+from src.cockpit.laboratory import build_laboratory
 from src.cockpit.outcome_map import build_outcome_map
+from src.cockpit.scale_evidence import (
+    build_scale_evidence,
+    load_scale_evidence,
+    unavailable_scale_evidence,
+)
 from src.cockpit.state import DEFAULT_STATE_PATH, ResearchState, load_research_state
+from src.experiments.sorting.laboratory import LAB_CSS, build_sorting_laboratory
 
 pn.extension("tabulator", sizing_mode="stretch_width")
 
@@ -84,7 +91,13 @@ def _milestone_html(state: ResearchState) -> str:
 
 def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastListTemplate:
     state = load_research_state(state_path)
+    context = state.data.get("current_context")
     sprint = state.data["active_sprint"]
+    sprint_label = (
+        "Historical closed decision"
+        if str(sprint.get("status", "")).startswith("complete")
+        else "Historical checkpoint decision"
+    )
     revision, working_tree = _git_snapshot(state.root)
 
     phase_options = ["all", *sorted({item["phase"] for item in state.experiments})]
@@ -141,16 +154,18 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
     }
     """
     header = pn.pane.Markdown(
-        f"""# Goal Discovery research cockpit
+        f"""# Historical programme checkpoint
 
-**North star:** {state.data['north_star']}
+**Then-stated north star:** {state.data['north_star']}
 
-**Current bottleneck:** {state.data['frontier']['bottleneck']}  
-**Scientific unknown:** {state.data['frontier']['current_unknown']}
+**Checkpoint bottleneck:** {state.data['frontier']['bottleneck']}<br>
+**Checkpoint scientific unknown:** {state.data['frontier']['current_unknown']}
+
+**Historical plan ledger:** {len(state.data['plan_completion']['items'])} terminal records · {state.data['plan_completion']['active_required_plans']} active required at that checkpoint. This is not completion of the laboratory's research goal.
 """
     )
     active = pn.pane.Markdown(
-        f"""### Active decision — {sprint['id']}: {sprint['title']}
+        f"""### {sprint_label} — {sprint['id']}: {sprint['title']}
 
 **Question:** {sprint['question']}
 
@@ -161,7 +176,7 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
         css_classes=["decision"],
     )
     learn = pn.pane.Markdown(
-        f"""### Latest strategic learning
+        f"""### Checkpoint strategic learning
 
 {state.data['frontier']['last_learning']}
 
@@ -187,7 +202,16 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
             "uv run python -m src.spikes.netlogo_heatbugs.run_p4_002"
         )
     )
+    scale_directory = state.root / "results" / "p7-004-ants-trail-scale-001"
+    scale_evidence = (
+        build_scale_evidence(load_scale_evidence(scale_directory))
+        if scale_directory.is_dir()
+        else unavailable_scale_evidence(
+            "uv run python -m src.experiments.ants_trail_scale.run"
+        )
+    )
     outcome_map = build_outcome_map(state)
+    laboratory = build_laboratory(state)
     if importlib.util.find_spec("discopy") is not None:
         from src.experiments.composition.view import build_composition_view
         composition_view = build_composition_view()
@@ -204,13 +228,29 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
         "## Evidence registry",
         table,
         detail,
-        pn.pane.Markdown(f"## Next decision branches\n\n{next_steps}"),
+        pn.pane.Markdown(f"## Historical decision branches\n\n{next_steps}"),
+    )
+    current_summary = pn.pane.Markdown(
+        (
+            f"**Laboratory goal:** {html.escape(context['objective'])}\n\n"
+            f"**Knowledge boundary:** {html.escape(context['knowledge_status'])}\n\n"
+            f"**Next scientific question:** {html.escape(context['next_scientific_question'])}\n\n"
+            f"**Current plan:** `{html.escape(context['current_plan'])}` · "
+            f"**Unified wiki:** `{html.escape(context['wiki'])}` · "
+            f"**Integration:** {html.escape(context['integration_status'])}\n\n"
+            f"**Running checkout:** `{html.escape(str(state.root))}` · "
+            f"`{revision}` · {working_tree}"
+        ) if context else (
+            "**Historical evidence snapshot.** Current priorities are owned by "
+            "`docs/plans/current_research_plan.md`; enter project knowledge through "
+            "`../roadmap/README.md`. This snapshot does not establish current completion."
+        )
     )
     template = pn.template.FastListTemplate(
         title="Goal Discovery Cockpit",
         accent_base_color="#d35400",
         header_background="#263238",
-        raw_css=[css],
+        raw_css=[css, LAB_CSS],
         sidebar=[
             "## Evidence filters",
             phase,
@@ -220,12 +260,16 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
             "The cockpit reads versioned repository state. It does not synthesize results.",
         ],
         main=[
+            current_summary,
             pn.Tabs(
-                ("Composition · exploratory", composition_view),
-                ("Outcome", outcome_map),
+                ("Blind sorting calibration · P9", build_sorting_laboratory()),
+                ("Outcome · historical", outcome_map),
                 ("Evidence · P7-002", story),
                 ("Blind · V2", blind_calibration),
-                ("Programme", programme),
+                ("Scale no-go · V4", scale_evidence),
+                ("Laboratory · V6", laboratory),
+                ("Composition · exploratory", composition_view),
+                ("Programme · historical", programme),
                 dynamic=True,
             )
         ],

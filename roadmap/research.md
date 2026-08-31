@@ -34,9 +34,10 @@ than making each Markdown file appear to be a separate experiment.
 
 This synthesis reviews selected result/decision prose, not every protocol, raw
 run, or executable. Register entries marked `not_reviewed` have no inferred
-verdict. `result_reviewed` is not an independent reproduction. The current
-checkout's evidence must not be conflated with the separate dirty P8/P9 runtime;
-the current plan owns that implementation boundary.
+verdict. `result_reviewed` is not an independent reproduction. P8/P9 and the
+optional composition preview are integrated in this revision; their software
+verification does not revalidate archived science. The current plan owns
+integration checks and installation status.
 
 Provenance also has limits: the [post-002 checkpoint](../goal-discovery/docs/audits/2026-08-29_post_002_evidence_checkpoint.md)
 records that raw generated data were ignored rather than versioned, and that
@@ -151,6 +152,14 @@ our own simulator—and what do their pictures actually establish?
 - [Ants P7-004](../goal-discovery/docs/hypotheses/p7_004_ants_trail_scale_results.md)
   failed intervention integrity. Its prediction scores are diagnostic only,
   not a valid verdict against trail-scale predictive or causal value.
+- [Network action P7-005](../goal-discovery/docs/hypotheses/p7_005_network_intervention_value_results.md)
+  reused already-opened trajectories to compare degree-informed with random
+  immunization at matched budgets. The reported 15.7% pooled burden reduction
+  cleared its average-effect gate, but wins were only 10/16 and 9/16 seeds, and
+  effects were positive in only 2/4 split-budget cells. Its retrospective
+  robustness no-go does not establish prospective transfer or refute all
+  network-scale actions. This integration reviewed the protocol and result;
+  it did not independently rerun the original causal audit.
 
 **Implication:** retain useful export, field/network, and visual adapters without
 promoting the claims they helped reject. Reopen a generator for a distinct

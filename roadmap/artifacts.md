@@ -27,6 +27,7 @@ Historical evidence remains available without becoming current instructions.
 
 - [CLAUDE.md](../goal-discovery/docs/CLAUDE.md)
 - [PROJECT.md](../goal-discovery/docs/PROJECT.md)
+- [outcome_backcasting_final_report.md](../goal-discovery/docs/outcome_backcasting_final_report.md)
 
 ## goal-discovery/docs/archive
 
@@ -38,7 +39,10 @@ Historical evidence remains available without becoming current instructions.
 
 - [2026-08-29_company_planning_reflection.md](../goal-discovery/docs/audits/2026-08-29_company_planning_reflection.md)
 - [2026-08-29_ob_001_sprint_2_p7_004.md](../goal-discovery/docs/audits/2026-08-29_ob_001_sprint_2_p7_004.md)
+- [2026-08-29_ob_001_sprint_3_p7_005.md](../goal-discovery/docs/audits/2026-08-29_ob_001_sprint_3_p7_005.md)
+- [2026-08-29_ob_001_three_sprint_retrospective.md](../goal-discovery/docs/audits/2026-08-29_ob_001_three_sprint_retrospective.md)
 - [2026-08-29_ob_001_v0_v2_delivery_review.md](../goal-discovery/docs/audits/2026-08-29_ob_001_v0_v2_delivery_review.md)
+- [2026-08-29_outcome_backcasting_final_audit.md](../goal-discovery/docs/audits/2026-08-29_outcome_backcasting_final_audit.md)
 - [2026-08-29_p2_002_reflection.md](../goal-discovery/docs/audits/2026-08-29_p2_002_reflection.md)
 - [2026-08-29_p2_005_preflight.md](../goal-discovery/docs/audits/2026-08-29_p2_005_preflight.md)
 - [2026-08-29_p3_001_reflection.md](../goal-discovery/docs/audits/2026-08-29_p3_001_reflection.md)
@@ -117,6 +121,7 @@ Historical evidence remains available without becoming current instructions.
 - [p7_002_prospective_network_selector_results.md](../goal-discovery/docs/hypotheses/p7_002_prospective_network_selector_results.md)
 - [p7_003_selector_complexity_audit_results.md](../goal-discovery/docs/hypotheses/p7_003_selector_complexity_audit_results.md)
 - [p7_004_ants_trail_scale_results.md](../goal-discovery/docs/hypotheses/p7_004_ants_trail_scale_results.md)
+- [p7_005_network_intervention_value_results.md](../goal-discovery/docs/hypotheses/p7_005_network_intervention_value_results.md)
 
 ## goal-discovery/docs/plans
 
@@ -132,6 +137,7 @@ Historical evidence remains available without becoming current instructions.
 - [p6_003_compact_evidence_package_acquisition.md](../goal-discovery/docs/plans/p6_003_compact_evidence_package_acquisition.md)
 - [p7_003_selector_complexity_audit.md](../goal-discovery/docs/plans/p7_003_selector_complexity_audit.md)
 - [p7_004_ants_trail_scale_preregistration.md](../goal-discovery/docs/plans/p7_004_ants_trail_scale_preregistration.md)
+- [p7_005_network_intervention_value_preregistration.md](../goal-discovery/docs/plans/p7_005_network_intervention_value_preregistration.md)
 - [plan_completion_ledger.md](../goal-discovery/docs/plans/plan_completion_ledger.md)
 - [progress_allocation_protocol.md](../goal-discovery/docs/plans/progress_allocation_protocol.md)
 - [reuse_survey_protocol.md](../goal-discovery/docs/plans/reuse_survey_protocol.md)

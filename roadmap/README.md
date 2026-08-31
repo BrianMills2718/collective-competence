@@ -44,9 +44,8 @@ in that loop and the decision it can change.
 
 ## Version and evidence boundary
 
-This documentation lane is based on the committed categorical-exploration
-checkout (`f83529b`), which includes the earlier wiki work. The original main
-checkout contains separate uncommitted P8/P9 implementation and later records.
+This revision reconciles P8/P9 runtime work, the optional categorical comparison,
+and reviewed documentation. Original work is preserved in a recovery branch.
 Neither branch metadata nor a localhost URL proves which version is running.
 The [current plan](../goal-discovery/docs/plans/current_research_plan.md) owns
 integration status. Raw results have not been rerun by this documentation pass.

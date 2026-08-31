@@ -272,6 +272,9 @@ def integrity(trajectories: pd.DataFrame, features: pd.DataFrame) -> dict[str, A
     tick_300_food = paired.loc[paired["tick"] == 300, "food_sham"].equals(
         paired.loc[paired["tick"] == 300, "food_cut"]
     )
+    # Keep the original recorded-state gate. The intervening standard step
+    # includes diffusion, but substituting the literal zero assignment after
+    # observing this failure would change the frozen decision boundary.
     at_301 = paired.loc[paired["tick"] == 301].copy()
     removal_fraction = 1 - at_301["annulus_chemical_cut"] / at_301[
         "annulus_chemical_sham"

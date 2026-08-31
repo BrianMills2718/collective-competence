@@ -312,7 +312,7 @@ def build_composition_view() -> pn.Column:
             "# Does executable composition help discovery?\n"
             "**Exploratory substrate test · not a discovered-goal result.** Settings run automatically. "
             "Check Play replay or drag the timeline; compare the three branches. "
-            "Other tabs retain the older published research snapshot, not the unmerged P9 workspace."
+            "The first tab provides P9 sorting calibration; historical evidence tabs do not set current priorities."
         ),
         pn.Row(system, seed, intervention, execute),
         pn.Row(size, ticks, when),

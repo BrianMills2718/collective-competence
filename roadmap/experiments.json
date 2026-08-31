@@ -617,6 +617,23 @@
       }
     },
     {
+      "id": "P7-005",
+      "family": "representation",
+      "question": "Does degree-informed immunization improve burden robustly versus matched random targeting across network seeds and budgets?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p7_005_network_intervention_value_results.md",
+        "goal-discovery/docs/plans/p7_005_network_intervention_value_preregistration.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "no_go",
+      "outcome_source": "goal-discovery/docs/hypotheses/p7_005_network_intervention_value_results.md",
+      "disposition": "retire_stored_network_contrast; retrospective_only; pooled_benefit_failed_seed_and_split_budget_robustness",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
       "id": "composition-exploration",
       "family": "composition",
       "question": "Does categorical execution add practical value beyond validated Python without changing behavior?",

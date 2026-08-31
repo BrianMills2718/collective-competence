@@ -11,5 +11,5 @@ the open-ended discovery laboratory; they do not define another objective.
 - For a visual artifact, connect configuration, trajectory, contrast, inference,
   and limitations. Read `docs/plans/dynamic_experiment_artifact_standard.md`.
 - Before runtime claims, identify the exact checkout and code revision. The
-  original dirty P8/P9 checkout and committed composition preview are distinct.
+  current plan records integration checks; a localhost URL is not a revision.
 - Read `docs/CLAUDE.md`, `src/CLAUDE.md`, or `tests/CLAUDE.md` when touching that scope.

@@ -134,15 +134,17 @@ def build_outcome_map(state: ResearchState) -> pn.Column:
 
     return pn.Column(
         pn.pane.Alert(
-            "V0 is a planning hypothesis, not a scientific result. Every unearned capability "
-            "is marked HYPOTHETICAL. V1 is the real P7-002 evidence chain in the adjacent tab.",
+            "Historical planning map, not the current agenda or proof of project completion. "
+            "V0 is a planning hypothesis, not a scientific result; unearned capabilities "
+            "are marked HYPOTHETICAL. See Evidence · P7-002 for its retained evidence "
+            "chain or an explicit missing-data notice.",
             alert_type="warning",
         ),
         pn.pane.Markdown(
-            f"""## Mature proof-of-success workflow
+            f"""## Historical proof-of-success hypothesis
 
-This map works backward from the decisions the finished laboratory must support.
-It currently contains **{len(sections)} sections**: **{measured} measured**,
+This map records one earlier backcasting proposal, not the full open-ended goal.
+Its snapshot contains **{len(sections)} sections**: **{measured} measured**,
 **{contradicted} contradicted**, and **{hypothetical} hypothetical**. Connected
 sections expose planning or provenance state but do not count as measured science.
 """

@@ -78,11 +78,11 @@ framework, simulator, database, or generalized evidence platform was created.
 
 ### UI comprehension and responsive behavior
 
-Live checks exercised the outcome map and evidence-split interaction. At 1280px
-and 390px viewport widths, the page had zero document-level horizontal overflow.
-Heavy tabs load on demand. The question, provenance warning, filters, ledger,
-and evidence controls remain available on phone; wide tables retain bounded
-internal scrolling.
+Live checks exercised the outcome map and evidence-split interaction. The 1280px
+desktop target had zero document-level horizontal overflow and heavy tabs load
+on demand. A 390px compatibility check also passed during this earlier review,
+but mobile is no longer an acceptance target by explicit user decision; no
+further phone-specific work is planned.
 
 The question, evidence, uncertainty, conclusion, and next decision are available
 as visible text without relying on plot hover or color.
@@ -114,10 +114,25 @@ and remain unmeasured. P7-004 must record start, first-artifact, and decision
 timestamps. This is sprint observation one of three; company-planning
 generalization remains locked.
 
-## Next conditional decision
+## Next conditional decision at the original review
 
 P7-004 asks whether a mesoscopic pheromone-trail representation predicts
 post-cut food delivery better than equally small local and colony descriptions
 in the unmodified NetLogo Ants model. V4 remains hypothetical until that frozen
 experiment passes, selects a simpler scale, abstains, or closes by integrity
 no-go.
+
+## Subsequent closure and correction
+
+P7-004 stopped on its original annulus-removal integrity gate. The task-matched
+null beat the Ants scale descriptions diagnostically, but those scores cannot
+support the preregistered scale decision. The later instantaneous-assignment
+reinterpretation was rejected; see the [P7-004 result and correction history](../hypotheses/p7_004_ants_trail_scale_results.md).
+
+P7-005 subsequently found a pooled network-intervention benefit that failed
+seed, budget, and split robustness. That historical internal V4 route closed,
+V5 was retired as unlicensed, and V6 retained only the repeated evidence-contract
+boundary. See the [three-sprint retrospective](2026-08-29_ob_001_three_sprint_retrospective.md)
+for the pilot decision, subject to the P7-004 integrity correction above.
+These route closures do not close the open-ended laboratory; the
+[current plan](../plans/current_research_plan.md) owns present priorities.

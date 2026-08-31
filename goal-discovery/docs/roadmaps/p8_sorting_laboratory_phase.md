@@ -3,9 +3,9 @@ doc-role: completed-implementation-plan
 authority: historical
 lifecycle: completed
 ---
-> Supplied receipt from the original local working checkout. The documentation
-> branch preserves this account; it does not import or independently reverify
-> the P8/P9 implementation. Current priorities: [current plan](../plans/current_research_plan.md).
+> Historical implementation receipt; its original checks and next-step advice
+> are preserved as recorded. Runtime integration has its own verification in the
+> [current plan](../plans/current_research_plan.md); this receipt does not set priorities.
 
 # P8 sorting laboratory — UI-first implementation phase
 

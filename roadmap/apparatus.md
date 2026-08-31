@@ -36,8 +36,9 @@ be demonstrated rather than inferred from a shared vocabulary.
   dimensions—not all implemented primitives or a proven exhaustive taxonomy.
 - Shared analytics mean shared questions/contracts where meaningful. Not every
   substrate supports the same renderer, metric, or interpretation.
-- The recorded P8/P9 live UI is in a distinct dirty checkout. A successful launch
-  of this lineage's cockpit does not prove those controls or results are present.
+- P8/P9 and optional composition share the cockpit entrypoint in this revision.
+  The current plan owns integration verification; historical receipts are not
+  proof that every archived raw artifact is available or independently rechecked.
 
 Read [source instructions](../goal-discovery/src/CLAUDE.md) before changing
 implementation and [test instructions](../goal-discovery/tests/CLAUDE.md) before

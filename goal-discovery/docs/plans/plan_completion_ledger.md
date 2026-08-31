@@ -46,16 +46,18 @@ negative findings, thresholds, and provenance are not rewritten by this cleanup.
 | Passive convergence control | [Bowl results](../hypotheses/002_bowl_results.md) |
 | Known-target inference | [Thermostat](../hypotheses/003b_blind_target_inference_results.md), [Heatbugs](../hypotheses/p4_002_heatbugs_blind_target_inference_results.md) |
 | Representation selection | [P7-002](../hypotheses/p7_002_prospective_network_selector_results.md), [P7-003](../hypotheses/p7_003_selector_complexity_audit_results.md) |
-| Historical scale route | [P7-004 record](../hypotheses/p7_004_ants_trail_scale_results.md); reconcile later local revisions before reusing an exact verdict |
+| Historical scale route | [P7-004 integrity failure](../hypotheses/p7_004_ants_trail_scale_results.md); scale scores diagnostic only; [P7-005 scoped no-go](../hypotheses/p7_005_network_intervention_value_results.md) |
 | Local interactive specimen | [P8 receipt](../audits/2026-08-30_p8_c1_vertical_slice.md), [P9 receipt](../audits/2026-08-30_p9_c1_blind_sorting_ui.md) |
 | UI-first planning pilot | [Original protocol](outcome_backcasting_protocol.md), [recorded review](../audits/2026-08-29_ob_001_v0_v2_delivery_review.md) |
 | Composition feasibility/value | [Executed comparison and defer decision](../hypotheses/composition_exploration_results.md) |
 | Removed long narratives | [README snapshot](../archive/pre-consolidation-readme.md), [plan snapshot](../archive/pre-consolidation-research-plan.md) |
 
-The supplied local P8/P9 receipts are preserved, not reverified in this
-documentation increment. The published base contains an older P7 snapshot;
-later local scientific revisions must not be silently merged by a documentation
-cleanup. The [current plan](current_research_plan.md) records the integration gap.
+The supplied P8/P9 receipts preserve the original implementation checks.
+User-authorized integration has separate verification recorded in the
+[current plan](current_research_plan.md). It does not retroactively verify every
+historical claim or rerun the archived science. The three-sprint pilot's
+[retrospective](../audits/2026-08-29_ob_001_three_sprint_retrospective.md)
+retains its scoped decision and the P7-004 correction.
 
 ## Legacy plan inventory
 

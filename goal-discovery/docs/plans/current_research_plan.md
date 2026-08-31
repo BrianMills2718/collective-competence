@@ -29,29 +29,65 @@ The [research landscape](../../../roadmap/research.md) owns cross-experiment
 synthesis. Native results own measurements. The
 [evidence index](plan_completion_ledger.md) owns document lifecycle/navigation.
 
-## Current enabling checkpoint: instruction-first knowledge integration
+## Completed enabling checkpoint: integrate the laboratory and its context
 
-1. First-pass root instructions state the full goal, mandatory wiki entry, and
-   explicit subtree reads; canonical CLAUDE generates the Codex-facing AGENTS file.
-2. Integrate question-led synthesis, structured experiment records, and a complete
-   document catalog into the same wiki. Mark unreviewed records instead of inferring findings.
-3. Independently test retrieval of goal, evidence limits, invalidated claims,
-   current priorities, and local rules. Revise the instructions from that review.
-4. Deliver a verified documentation revision with an explicit checkout boundary.
-   Do not silently overwrite or merge the original uncommitted runtime.
+The instruction-first documentation loop is complete: authored root/subtree
+instructions, unified synthesis and experiment register, independent retrieval
+review, then revised bootstrap. The reader recovered all seven tested answers;
+navigation and provenance findings were repaired. Documentation commits
+`abee04e`, `9a2b0e8`, and `40548f5` preserve that checkpoint.
 
-Completion means a fresh agent can find and correctly explain these answers
-from one entrypoint. File counts, valid links, or generated pages alone do not pass.
-This is an enabler for the next scientific question, not discovery progress itself.
+The user authorized reconciling the older dirty main checkout with those docs.
+Integration includes the existing P8/P9 runtime, later P7-005 records, optional
+composition preview, and the reviewed wiki. It is not a new scientific experiment.
 
-**Documentation checkpoint:** first-pass instructions, wiki integration, and
-post-review instruction revision are complete in `docs-goal-context` (implementation
-commits `abee04e` and `9a2b0e8`). The independent reader recovered all seven tested
-answers; four navigation/provenance findings were corrected and rereviewed.
-Seven projection controls and scoped link/sync checks passed. No research was
-rerun and no simulator code changed. This branch is pushed for recovery.
-Default-checkout installation is pending explicit reconciliation of overlapping
-uncommitted runtime work; do not report the main checkout's bootstrap as repaired.
+Acceptance:
+
+- Preserve tracked and untracked runtime work before changing main.
+- Reconcile protocols/results without moving frozen gates or losing corrections.
+- Make current goal/plan distinct from historical dashboard checkpoint fields.
+- Verify clean-checkout launch without ignored raw results; mark data unavailable.
+- Run affected tests, inspect the live desktop workflow, check instruction/wiki
+  projections and links, then publish and install the same revision on main.
+
+**Integration status: verified on this revision.** Install the reviewed revision
+by fast-forwarding the canonical checkout after preserving its local changes.
+The runtime banner identifies the actual running checkout; this document is
+not an assertion that an already-running server has refreshed.
+The original checkout is preserved in remotely published
+`recovery/pre-integration-20260831` at `e5283da`, based on `5810969`.
+Ignored raw outputs and environments remain local and untouched.
+The integration lane is `integrate-laboratory-context`, based on `40548f5`.
+
+Findings resolved during integration: recovery code had reintroduced P7-004's
+post-outcome integrity reinterpretation; the original 24.6% versus 80% failure
+remains authoritative and scale scores are diagnostic only. Historical terminal
+plan checks must not mark the current active plan complete. Missing optional raw
+outputs must not prevent the application from opening.
+
+Verification (2026-08-31):
+
+- Clean-worktree core suite: 159 passed, 27 optional dependency/data skips.
+- UI/composition/sorting/scale suite with visualization extras: 85 passed,
+  2 missing-raw-artifact skips; 42 upstream Panel deprecation warnings.
+- Seven documentation projection controls, bootstrap synchronization, generated
+  register/catalog validation, scoped local-link checks, and source/test lint pass.
+- Live desktop check: reverse-order configuration rebuilds values 11 through 0;
+  tick-12 immovable intervention displays two BLOCKED identities; composition
+  switches to the passive bowl and reports zero execution mismatches.
+- Independent goal/claim review found one stale split-checkout description,
+  now corrected. Browser inspection also caught and corrected the same obsolete
+  distinction in the composition introduction.
+- Preserved local Ants artifacts load with an explicit read-only integrity
+  correction. Stored artifacts are unchanged. Full scientific batches were not rerun.
+
+Two existing adapter tests depended unconditionally on ignored datasets. Their
+boundary assertions now run on explicitly synthetic temporary unit fixtures;
+optional real-data variants remain separate. Missing artifacts cannot silently
+turn a skipped confirmation into a pass.
+
+This checkpoint improves reliable context and inspectability. Passing software
+checks does not independently confirm archived research or establish discovery.
 
 ## Next scientific checkpoint: candidate proposal and a distinguishing test
 
@@ -73,17 +109,19 @@ inability to discriminate is a useful result. Start with one 60–90 minute lear
 sprint after the implementation base is explicit; narrow the experiment if setup
 dominates. Do not prepay a universal simulator, feature engine, or dashboard.
 
-## Version/integration boundary
+## Version and evidence boundary
 
-The documentation baseline is `f83529b` on categorical-exploration, including
-documentation consolidation `9b8666a` and published simulation base `6cf34d8`.
-The original main checkout remains at `5810969` with uncommitted P8/P9 and later
-research work. These are recorded inspection facts, not permanent runtime IDs.
+The integrated lineage preserves the published base `6cf34d8`, categorical
+comparison `f83529b`, reviewed documentation `40548f5`, and local recovery
+snapshot `e5283da`. Original claims remain traceable through native records and
+Git parents. A server must identify its actual checkout/revision; a URL is not
+a release identifier.
 
-Before integrating runtime work, preserve those changes, compare exact revisions,
-and validate the selected implementation. Documentation organization does not
-authorize silently publishing unrelated code. `research_state.yaml` in this
-documentation lineage is historical; its old active-sprint fields are not priorities.
+`research_state.yaml` retains historical milestones and results; its
+`current_context` routes to this plan and the wiki. Old `active_sprint`,
+`north_star`, and terminal-plan fields do not set current priorities.
+Ignored raw results are not a portable evidence bundle, and this integration
+does not rerun or independently confirm those scientific findings.
 
 ## Completed decisions: reopen only with new justification
 
