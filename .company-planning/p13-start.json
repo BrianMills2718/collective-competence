@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "record_type": "plan_execution_cursor",
+  "cursor_id": "p13-vector-dynamics-20260831",
+  "cursor_revision": 1,
+  "goal_ref": "conversation-approved:P13-vector-dynamics",
+  "plan_revision": "90bffa8f787e0b5e1890f892d832c39b6bd6e67c",
+  "target": {
+    "repository": "/home/brian/code/collective-competence",
+    "branch": "p13-vector-dynamics",
+    "worktree": "/home/brian/code/collective-competence/worktrees/p13-vector-dynamics"
+  },
+  "lease": {
+    "status": "active",
+    "owner_session_id": "codex:01a04c08-4944-7b61-976c-4993f557c22c",
+    "lease_revision": 1,
+    "heartbeat_at": "2026-08-31T22:05:31.776866Z"
+  },
+  "lifecycle_state": "active",
+  "active_slice": {
+    "slice_id": "P13",
+    "description": "Blind vector-dynamics proposal and prospective causal challenges on the existing passive bowl",
+    "status": "executing",
+    "target_revision": "90bffa8f787e0b5e1890f892d832c39b6bd6e67c",
+    "next_action": "Freeze the observation, proposal, baseline, intervention, and evidence contract before outcomes",
+    "requires_spend": false,
+    "requires_external_action": false
+  },
+  "observations": [
+    {
+      "observation_id": "approved-frontier",
+      "kind": "supporting_work",
+      "boundary": "initiative selection",
+      "outcome": "pass",
+      "evidence_ref": "User approval following P13 roadmap recommendation; current plan at 90bffa8"
+    }
+  ],
+  "failure_state": {
+    "boundary": null,
+    "same_boundary_failures": 0,
+    "last_failure_ref": null
+  },
+  "ready_alternatives": [],
+  "authority": {
+    "implementation_authorized": true,
+    "external_action_authorized": false,
+    "human_decision_required": false,
+    "human_decision": null,
+    "spend_cap_usd": 0,
+    "spend_used_usd": 0
+  },
+  "circuit_breakers": {
+    "max_same_boundary_failures": 3,
+    "runtime_integrity_valid": true,
+    "context_integrity_valid": true
+  },
+  "completion": {
+    "requested": false,
+    "verifier_outcome": null,
+    "receipt_ref": null,
+    "evidence_revision": null,
+    "remaining_ready_work": 1
+  }
+}
