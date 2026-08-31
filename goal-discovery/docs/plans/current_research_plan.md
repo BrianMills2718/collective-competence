@@ -52,7 +52,22 @@ per-seed outcomes, the learned tree, and explicit claim limits.
 P10 is integrated on main via PR #5 (`9a66758`); its linked result owns protocol,
 timing and evidence details. Reused the simulator, scikit-learn and Panel.
 
-## Next scientific checkpoint: transfer the question, not the sorting vocabulary
+## Active checkpoint: automated experiment choice, not another demonstration
+
+User-approved [P11 protocol](../hypotheses/p11_probe_selection.md) implements
+selection from predicted rival responses in the existing thermostat. Preflight
+shows the proposed family has a mathematically best fixed probe: it cannot
+test adaptive advantage. Cancel the proposed12/24-case batch before execution.
+Instead verify the observation/prediction/selection/response contract on two
+real-engine fixtures, freezing choices before outcomes, and expose why the
+fixed policy ties in the existing UI. Family/menu and 50:50 mechanism split
+are supplied; target/rate are fitted from observed prefixes.
+
+Completion is a small verified instrument and a rejected benchmark design,
+not an empirical verdict on adaptive selection. Do not manufacture context
+variation after this diagnosis merely to obtain a selector win.
+This supersedes merely repeating active-versus-passive restoration on another
+substrate: the new question is whether automated experiment choice adds value.
 
 ### Read this evidence before designing the next test
 
@@ -67,19 +82,10 @@ contract. For wider context, use the [calibration synthesis](../../../roadmap/re
 not the complete archive. These records guide a new test; repeating a known
 contrast alone is not unexpected-goal discovery.
 
-Question: can proposal plus a distinguishing intervention separate prediction
-from restoration in a second existing substrate, including a **passive restoring
-alternative** rather than only an inert disabled control?
-
-- Begin from the existing bowl/controller calibration and its recorded limits;
-  specify what observation history and candidate family are supplied.
-- Test one concrete pair of competing explanations with the cheapest available
-  perturbation. Do not claim agency merely because an outcome returns.
-- Use a new frozen protocol/candidate before untouched evaluation.
-- Reuse the evidence questions and provenance structure only where they actually
-  fit; do not force pairwise cell features into non-cell systems.
-- One 60–90 minute sprint; stop on an interpretable result or explicit inability
-  to discriminate. No broad cross-system campaign is licensed by P10's pass.
+Use a bounded sprint: freeze protocol -> implement/test boundaries -> run two
+prefixes -> freeze choices -> check real-engine responses -> visualize/audit.
+Reuse provenance and comparisons only where they fit. Do not claim agency
+merely because an outcome returns. No broad campaign is licensed by a pass.
 
 The longer-term gap remains proposing useful patterns outside narrow
 researcher-supplied families and selecting informative interventions across
