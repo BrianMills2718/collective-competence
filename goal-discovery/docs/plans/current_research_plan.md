@@ -44,6 +44,15 @@ Completion means a fresh agent can find and correctly explain these answers
 from one entrypoint. File counts, valid links, or generated pages alone do not pass.
 This is an enabler for the next scientific question, not discovery progress itself.
 
+**Documentation checkpoint:** first-pass instructions, wiki integration, and
+post-review instruction revision are complete in `docs-goal-context` (implementation
+commits `abee04e` and `9a2b0e8`). The independent reader recovered all seven tested
+answers; four navigation/provenance findings were corrected and rereviewed.
+Seven projection controls and scoped link/sync checks passed. No research was
+rerun and no simulator code changed. This branch is pushed for recovery.
+Default-checkout installation is pending explicit reconciliation of overlapping
+uncommitted runtime work; do not report the main checkout's bootstrap as repaired.
+
 ## Next scientific checkpoint: candidate proposal and a distinguishing test
 
 **Question:** can an inspectable proposal procedure suggest a testable pattern
