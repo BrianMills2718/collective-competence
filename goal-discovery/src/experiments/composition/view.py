@@ -335,13 +335,16 @@ def build_composition_view() -> pn.Column:
                 "Inspect executable diagram and structural checks",
                 pn.Column(diagrams_note, diagram_pane, comparison_check),
             ),
-            active=[],
+            active=[0],
         ),
         pn.pane.Markdown(
             "### Does it earn its cost?\n" + batch + "\n\n" + costs + "\n\n"
             "Both implementations perform connection checks and use identical kernel functions. "
             "Type-correct but scientifically wrong functions can pass both: native behavior and controls remain necessary. "
-            "A useful diagram alone is not evidence for adopting a new runtime."
+            "A useful diagram alone is not evidence for adopting a new runtime.\n\n"
+            "**Sprint recommendation: defer production adoption.** Keep this optional prototype and explicit interfaces. "
+            "This small comparison has not shown a needed experiment that the Python baseline cannot express. "
+            "Next research priority: propose a candidate pattern and choose a test that could refute it."
         ),
         sizing_mode="stretch_width",
     )
