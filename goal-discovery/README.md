@@ -15,7 +15,56 @@ behavior and distinguishing interventions. The present interactive specimen is
 sorting. Its observations are real, but its candidate ledger is hand-authored
 calibration—not automated discovery.
 
-## Open and run
+## Optional composition exploration
+
+The isolated `categorical-exploration` branch contains a working desktop preview
+at [Composition · exploratory](http://localhost:5013/app). It compares ordinary
+Python and executable DisCoPy diagrams on the **same unchanged sorting/bowl
+kernels**. It is a substrate experiment, not automated goal discovery or a P9
+release. [Result and decision](docs/hypotheses/composition_exploration_results.md):
+keep explicit interfaces, defer production adoption of the categorical runtime.
+
+To view it:
+
+1. Open the link on this computer and keep **Composition · exploratory** selected.
+2. Leave **Auto-run changed settings** checked. Select **Sorting cells** and
+   **State displacement**; changing settings computes a real comparison.
+3. Drag **Replay time** across tick 20. Compare the original, displaced and
+   random-swap branches. Bars show values; hover shows stable identities.
+4. Scroll down for full-run traces, the expanded executable diagram, and checks.
+5. Try **Passive bowl → Environment replacement**. Inspect both position and
+   stored velocity: passive convergence is not evidence of agency.
+
+Play/pause controls and a manual Run button are also provided, but pointer-driven
+activation was not verified through this session's browser automation. Auto-runs
+and scrubbing were verified; use those for the audited walkthrough. Invalid
+settings display an error and preserve the last successful plots.
+
+If the preview server has stopped, paste this into a WSL terminal:
+
+```bash
+cd /home/brian/code/collective-competence/worktrees/categorical-exploration/goal-discovery
+/home/brian/.local/bin/uv sync --extra visual-workbench --extra composition-exploration
+.venv/bin/panel serve src/cockpit/app.py --address 127.0.0.1 --port 5013 --allow-websocket-origin=localhost:5013
+```
+
+Leave that terminal running. Localhost requires this computer/WSL to remain
+available; there is no remote host, overnight scheduler, or phone deployment.
+Do not stop an unknown process if the port is occupied. Changes to imported
+Python modules require restarting this preview server, then refreshing the page.
+
+Reproduce the batch and focused checks from the same directory:
+
+```bash
+.venv/bin/python -m src.experiments.composition.run
+.venv/bin/pytest tests/test_composition.py tests/test_cockpit.py tests/test_sorting.py tests/test_bowl.py -q
+```
+
+The runner writes `results/composition/summary.json` and regenerable `demo.json`.
+It records exact settings, source hashes and revision, and rejects source changes
+during a run. This lane is retained locally and has not been merged into dirty main.
+
+## Original P9 workspace: open and run
 
 The existing local session is at [the laboratory](http://localhost:5011/app).
 A localhost link works only on the computer running the server.

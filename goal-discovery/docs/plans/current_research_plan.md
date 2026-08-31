@@ -35,7 +35,7 @@ local-work receipt. It reports checks performed during that implementation
 session; this documentation cleanup does not independently revalidate those
 scientific or UI claims.
 
-## Active bounded exploration: executable composition
+## Completed bounded exploration: executable composition
 
 Authorized in the project conversation on 2026-08-30; execution authority is
 `goal:01a04c08-4944-7b61-976c-4993f557c22c`. This temporary substrate experiment
@@ -51,7 +51,7 @@ the implementation base and will not be modified or merged during this sprint.
 The existing sorting kernel is reused unchanged. Its fixed-line cell interaction
 rules are NOT re-expressed as independent composable cell games in this pilot.
 
-### Outcome-first view (design, not measured results)
+### Outcome-first view (pre-implementation design)
 
 Use a candidate tab in the existing Panel cockpit, not a new production UI:
 
@@ -113,12 +113,28 @@ inspectable evidence note, and generated run data. The current plan owns priorit
 the wiki only links it. Discovery claims remain deferred: metric families and
 calibration objectives in this comparison are hand-supplied.
 
-Status: primary-source survey complete; DisCoPy 1.2.2 installed in the isolated
-lane, not adopted. A real functor smoke test passed sequential composition
-(3 -> 5), parallel composition ((3, 7) -> (4, 8)), and identity (3 -> 3).
-The released Python target uses tuples of types; do not assume constructor
-examples from a different API version. Sorting implementation and empirical
-decision are the next work unit, with no human input needed.
+Status: the bounded research and implementation checkpoint is complete.
+[Evidence, limitations and decision](../hypotheses/composition_exploration_results.md):
+144 configurations / 34,992 state triplets agree exactly across native, validated
+Python and DisCoPy paths. Sorting and passive bowl reuse the same composition
+machinery. Focused checks: 67 passed, 1 unrelated historical-data skip.
+
+**Decision: defer production adoption; retain the optional prototype and explicit
+interfaces.** Both approaches express all tested experiments and reject bad
+connections; neither discovers goals or validates scientific meaning. No concrete
+needed experiment or maintenance saving justified the new runtime. The next
+priority remains candidate proposal and a discriminating test, not more theory.
+
+The [desktop preview instructions](../../README.md#optional-composition-exploration)
+describe verified auto-runs and timeline scrubbing. Mouse-driven Play/pause could
+not be verified through browser automation; that acceptance limit is explicit in
+the evidence note. A rendered-system-switch compatibility defect was fixed.
+
+Revisit categorical tooling only against a concrete unmet composition requirement
+such as reciprocal environment interfaces or coupled subsystem/coarse-graining
+experiments. Keep it optional and isolated until then. Reconcile the existing
+dirty P8/P9 implementation under separate integration authority before carrying
+any prototype changes into main; no merge was performed by this sprint.
 
 ## Completed increment: documentation consolidation
 

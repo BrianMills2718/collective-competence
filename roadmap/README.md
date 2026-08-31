@@ -27,9 +27,11 @@ Follow each link to the document that owns the answer.
 
 ## The investigation loop
 
-Current bounded work: [executable composition exploration](../goal-discovery/docs/plans/current_research_plan.md#active-bounded-exploration-executable-composition).
-This tests whether categorical tooling earns its cost; it is not a new claim of
-goal discovery or an adopted replacement substrate.
+Completed bounded work: [executable composition evidence and decision](../goal-discovery/docs/hypotheses/composition_exploration_results.md).
+Defer a categorical production runtime; retain explicit interfaces and the
+optional visual prototype. This is not a goal-discovery finding. The
+[current plan](../goal-discovery/docs/plans/current_research_plan.md)
+owns the next candidate-proposal/discriminating-test checkpoint.
 
 Configure/import → run and observe → propose patterns/hypotheses →
 choose a distinguishing intervention → compare matched futures →

@@ -190,6 +190,7 @@ def test_frozen_bowl_retains_stored_velocity_without_motion():
 def test_view_configuration_replay_and_rejected_input():
     pn = pytest.importorskip("panel")
     from bokeh.document import Document
+
     from src.experiments.composition.view import build_composition_view
 
     view = build_composition_view()
