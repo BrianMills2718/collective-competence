@@ -2,6 +2,7 @@
 
 import copy
 import math
+import xml.etree.ElementTree as ET
 
 import pytest
 
@@ -97,9 +98,14 @@ def test_persistence_only_observations_abstain_before_intervention():
 
 
 def test_behaviorspace_keeps_discovery_clean_and_erases_after_each_standard_step():
-    discovery = discovery_xml().decode()
+    discovery_bytes = discovery_xml()
+    discovery = discovery_bytes.decode()
     assert "p14-discovery" in discovery
     assert "set chemical 0" not in discovery
+    experiment = ET.fromstring(discovery_bytes).find("experiment")
+    assert experiment is not None
+    assert len(experiment.findall("./metrics/metric")) == 3
+    assert len(experiment.findall("./constants/enumeratedValueSet")) == 3
     evaluation = evaluation_xml((10.0, 15.0)).decode()
     assert "p14-evaluation-sham" in evaluation
     assert "p14-evaluation-erase" in evaluation

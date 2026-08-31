@@ -130,14 +130,16 @@ def _experiment(
             "sum [chemical] of patches with "
             f"[distancexy 0 0 >= {low:g} and distancexy 0 0 < {high:g}]"
         )
+    metrics_element = ET.SubElement(experiment, "metrics")
     for metric in metrics:
-        ET.SubElement(experiment, "metric").text = metric
+        ET.SubElement(metrics_element, "metric").text = metric
+    constants_element = ET.SubElement(experiment, "constants")
     for variable, value in (
         ("population", str(POPULATION)),
         ("diffusion-rate", "50"),
         ("evaporation-rate", "10"),
     ):
-        _add_constant(experiment, variable, value)
+        _add_constant(constants_element, variable, value)
 
 
 def discovery_xml() -> bytes:
