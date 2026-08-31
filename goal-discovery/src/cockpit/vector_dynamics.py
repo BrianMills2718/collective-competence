@@ -190,7 +190,7 @@ def build_vector_dynamics(directory: Path) -> pn.Column:
             tooltips=[("tick", "$x"), ("x", "$y{0.0000}")],
         )
         trajectory.line(
-            range(41, 401),
+            list(range(41, 401)),
             [item["x"] for item in forecast_coordinates],
             color="#7c3aed",
             line_dash="dashed",
