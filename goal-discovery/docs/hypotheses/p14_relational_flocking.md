@@ -110,11 +110,10 @@ If integrity fails, the experiment is invalid, not negative. With integrity:
   at least 8/10 seeds;
 - `absolute_heading_not_defended` if the whole-rotation late heading remains at
   least 60 degrees from the prebranch heading in at least 8/10 seeds;
-- `passive_forecast_adequate` if the frozen model's recursive cohort-gap mean
-  absolute error through ticks 151..200 is no more than twice its median
-  holdout one-step vector RMSE in at least 8/10 active seeds. This dimensional
-  comparison is diagnostic and may be too strict; its failure alone is never
-  competency evidence.
+- `passive_forecast_adequate` if the frozen model's recursive four-vector RMSE
+  through ticks 151..200 is no more than twice its median holdout one-step
+  four-vector RMSE in at least 8/10 active seeds. This extrapolation may be too
+  strict; its failure alone is never competency evidence.
 
 `competency_survives` requires proposal adequacy, all integrity gates,
 `interaction_required`, `relation_restored`, `absolute_heading_not_defended`,
@@ -124,4 +123,3 @@ passive-mechanism class.
 
 Stop after the committed result and one smallest visual readout. Do not tune
 Flocking, add seeds, repair the candidate, or build generic UI/framework code.
-
