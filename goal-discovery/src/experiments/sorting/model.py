@@ -87,6 +87,7 @@ class SortingWorld:
     swaps: int = 0
     rng: random.Random = field(default_factory=random.Random, repr=False)
     config_version: str = RULE_VERSION
+    last_events: list[dict[str, Any]] = field(default_factory=list)
 
     # ---------------------------------------------------------------- construction
 
@@ -143,6 +144,7 @@ class SortingWorld:
                 }
                 for c in self.cells
             ],
+            "last_events": self.last_events,
         }
         payload["snapshot_id"] = snapshot_id(payload)
         return payload
@@ -172,6 +174,7 @@ class SortingWorld:
             )
             for c in snap["cells"]
         ]
+        self.last_events = [dict(event) for event in snap.get("last_events", [])]
 
     # ---------------------------------------------------------------- mechanics
 
@@ -283,12 +286,47 @@ class SortingWorld:
 
     def step_tick(self) -> None:
         """One activation sweep: every cell acts once, in the declared order."""
+        self.last_events = []
         for cell_id in self._schedule():
             pos = next(i for i, c in enumerate(self.cells) if c.cell_id == cell_id)
             cell = self.cells[pos]
             if not cell.acts:
+                self.last_events.append(
+                    {
+                        "cell_id": cell_id,
+                        "kind": "inactive",
+                        "from_position": pos,
+                        "to_position": pos,
+                        "detail": f"frozen · {cell.freeze.value}",
+                    }
+                )
                 continue
+            before_steps = self.steps
+            before_swaps = self.swaps
+            before_ideal = cell.ideal_position
             self._RULES[cell.algotype](self, pos)
+            after_pos = next(i for i, current in enumerate(self.cells) if current.cell_id == cell_id)
+            if self.swaps > before_swaps:
+                kind = "swap"
+                detail = f"moved {pos} → {after_pos}"
+            elif cell.ideal_position != before_ideal:
+                kind = "internal"
+                detail = f"ideal position {before_ideal} → {cell.ideal_position}"
+            elif self.steps > before_steps:
+                kind = "compare"
+                detail = "compared; no movement"
+            else:
+                kind = "idle"
+                detail = "no eligible local action"
+            self.last_events.append(
+                {
+                    "cell_id": cell_id,
+                    "kind": kind,
+                    "from_position": pos,
+                    "to_position": after_pos,
+                    "detail": detail,
+                }
+            )
         self.tick += 1
 
     def _would_change_state(self, pos: int) -> bool:

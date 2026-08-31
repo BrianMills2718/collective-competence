@@ -109,14 +109,17 @@ class NetworkDataset:
         return int(self.trajectories["tick"].max())
 
     def snapshot(self, arm: str, run: int, tick: int) -> pd.DataFrame:
-        available = [
-            at
-            for candidate_arm, candidate_run, at in self.snapshots
-            if candidate_arm == arm and candidate_run == run and at <= tick
-        ]
-        if not available:
-            raise KeyError(f"No snapshot for {arm=} {run=} {tick=}")
-        return self.snapshots[(arm, run, max(available))]
+        key = (arm, run, tick)
+        if key not in self.snapshots:
+            raise KeyError(f"No exact snapshot for {arm=} {run=} {tick=}")
+        return self.snapshots[key]
+
+    def available_ticks(self, arm: str, run: int) -> list[int]:
+        return sorted(
+            tick
+            for candidate_arm, candidate_run, tick in self.snapshots
+            if candidate_arm == arm and candidate_run == run
+        )
 
 
 def load_dataset(
@@ -167,3 +170,17 @@ def validate_matched_preintervention(dataset: NetworkDataset, checkpoint: int = 
             ].reset_index(drop=True)
             if not candidate.equals(base):
                 raise ValueError(f"{arm} run {run} is not matched to baseline through tick 20")
+            if dataset.edges[(arm, run)] != dataset.edges[(baseline, run)]:
+                raise ValueError(f"{arm} run {run} changes network topology before intervention")
+            common_ticks = set(dataset.available_ticks(baseline, run)).intersection(
+                dataset.available_ticks(arm, run)
+            )
+            for tick in sorted(value for value in common_ticks if value <= checkpoint):
+                base_nodes = dataset.snapshot(baseline, run, tick).sort_values("who").reset_index(drop=True)
+                candidate_nodes = (
+                    dataset.snapshot(arm, run, tick).sort_values("who").reset_index(drop=True)
+                )
+                if not candidate_nodes.equals(base_nodes):
+                    raise ValueError(
+                        f"{arm} run {run} changes node state before intervention at tick {tick}"
+                    )

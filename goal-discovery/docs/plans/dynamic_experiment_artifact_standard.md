@@ -1,6 +1,7 @@
 # Dynamic experiment artifact standard
 
-**Status:** authoritative presentation contract for active experiments.
+**Status:** retained operating protocol. P8 is ready for authorization as the
+next concrete application of this standard.
 
 ## Purpose
 
@@ -41,6 +42,9 @@ The artifact should answer, using real repository-backed evidence:
   distinct, with independent-unit results and failures available for inspection.
 - **Decision boundary:** show the frozen threshold, observed result, claim limit,
   and resulting next branch.
+- **Explanatory interaction:** use terse question/answer text and tooltips for
+  unfamiliar controls, states, metrics, and claim boundaries. Hover adds detail;
+  it may not hide the main evidence.
 
 The first render must already communicate the scientific question. Interaction
 supports inspection; it must not hide essential evidence behind hover or create
@@ -75,10 +79,17 @@ Stop at the first level that fails to clarify the experiment. Do not generalize
 the component until one complete reference artifact changes or validates a real
 scientific decision.
 
-## Reference implementation
+## Reference implementations
 
 P7-002 is the first reference. NetLogo's unmodified Virus on a Network model
 supplies the live generator and standard viewer. The repository artifact will
 link network playback, immunization intervention, temporal/relational/identity/
 network lenses, discovery versus confirmation scores, and the select/abstain
 decision. The resulting component becomes reusable only after P7-002 completes.
+
+P8 is the first UI-first substrate reference. It begins from the validated
+cell-view sorting model and must connect configuration, local action,
+deterministic replay, perturbation branching, synchronized representations, and
+bounded interpretation in one desktop surface. It may extract a reusable
+substrate only after the complete sorting vertical slice passes its checkpoint
+and the passive bowl supplies a second concrete use.

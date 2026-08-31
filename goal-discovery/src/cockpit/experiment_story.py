@@ -10,7 +10,12 @@ import panel as pn
 from bokeh.models import ColumnDataSource, Span
 from bokeh.plotting import figure
 
-from src.experiments.prospective_network_selector.data import NetworkDataset, load_dataset
+from src.experiments.prospective_network_selector.analyze import PROMOTION_THRESHOLD
+from src.experiments.prospective_network_selector.data import (
+    NetworkDataset,
+    load_dataset,
+    validate_matched_preintervention,
+)
 
 FEASIBILITY_FILES = {
     "baseline": "baseline.csv",
@@ -27,9 +32,9 @@ LEVEL2_FILES = {
 STATE_COLORS = {"susceptible": "#3498db", "infected": "#e74c3c", "resistant": "#7f8c8d"}
 LENS_TEXT = {
     "System state": "Node color shows the directly observed susceptible, infected, or resistant state.",
-    "Temporal history": "Node size shows cumulative infection through the selected tick; the response plot shows the same run over time.",
+    "Temporal history": "Node size shows infection counts across stored snapshots through the selected tick; the response plot shows the full aggregate trajectory.",
     "Relational exposure": "Large susceptible nodes touch at least one currently infected neighbor—the active infection boundary.",
-    "Identity history": "Node size shows how many observed ticks that identity has spent infected.",
+    "Identity history": "Node size shows how many stored observation snapshots that identity has spent infected.",
     "Network structure": "Node size shows observable degree while state color remains fixed.",
 }
 
@@ -174,6 +179,47 @@ def _score_plot(scores: pd.DataFrame):
     return plot
 
 
+def _prediction_surface(directory: Path) -> pn.Column:
+    predictions = pd.read_csv(directory / "predictions.csv")
+    split = pn.widgets.Select(label="Evidence split", options=sorted(predictions["split"].unique()))
+    model = pn.widgets.Select(label="Prediction model", options=sorted(predictions["model"].unique()))
+    if "confirmation" in split.options:
+        split.value = "confirmation"
+    if "identity-conditioned" in model.options:
+        model.value = "identity-conditioned"
+    table = pn.widgets.Tabulator(
+        pd.DataFrame(),
+        show_index=False,
+        disabled=True,
+        pagination="local",
+        page_size=8,
+        height=300,
+    )
+
+    def update(*_: object) -> None:
+        frame = predictions.loc[
+            (predictions["split"] == split.value) & (predictions["model"] == model.value)
+        ].copy()
+        frame["predicted extinct"] = frame["probability"] >= 0.5
+        frame["correct"] = frame["predicted extinct"].astype(int) == frame["extinct"]
+        frame["probability"] = frame["probability"].round(3)
+        table.value = frame[
+            ["seed", "arm", "extinct", "probability", "predicted extinct", "correct"]
+        ]
+
+    split.param.watch(update, "value")
+    model.param.watch(update, "value")
+    update()
+    return pn.Column(
+        pn.pane.Markdown(
+            "### Independent prediction cases\n\nEvery discovery and confirmation "
+            "network-arm case remains inspectable; failures are not hidden by the aggregate."
+        ),
+        pn.FlexBox(split, model, flex_wrap="wrap"),
+        table,
+    )
+
+
 def build_experiment_story(directory: Path) -> pn.Column:
     summary_path = directory / "summary.json"
     level2 = summary_path.is_file()
@@ -193,11 +239,23 @@ def build_experiment_story(directory: Path) -> pn.Column:
         run_indices=selected_runs,
         snapshot_stride=5 if level2 else 1,
     )
-    run_options = (
-        {f"seed {10000 + value}": value for value in dataset.runs}
-        if level2
-        else dataset.runs
-    )
+    validate_matched_preintervention(dataset)
+    if level2:
+        discovery = set(summary["integrity"]["discovery_seeds"])
+        confirmation = set(summary["integrity"]["confirmation_seeds"])
+        run_options = {}
+        for value in dataset.runs:
+            seed = 10000 + value
+            split_label = (
+                "discovery"
+                if seed in discovery
+                else "confirmation"
+                if seed in confirmation
+                else "other"
+            )
+            run_options[f"{split_label} seed {seed}"] = value
+    else:
+        run_options = dataset.runs
     run = pn.widgets.Select(
         label="Seeded network", options=run_options, value=dataset.runs[0]
     )
@@ -205,14 +263,24 @@ def build_experiment_story(directory: Path) -> pn.Column:
         label="Intervention comparison",
         options=[value for value in dataset.arms if value != "baseline"],
     )
-    tick = pn.widgets.IntSlider(label="Tick", start=0, end=dataset.max_tick, value=20)
+    common_ticks = set(dataset.available_ticks(dataset.arms[0], dataset.runs[0]))
+    for candidate_arm in dataset.arms:
+        for candidate_run in dataset.runs:
+            common_ticks.intersection_update(dataset.available_ticks(candidate_arm, candidate_run))
+    tick_options = sorted(common_ticks)
+    tick = pn.widgets.DiscreteSlider(
+        label="Observed snapshot tick",
+        options=tick_options,
+        value=20 if 20 in tick_options else tick_options[0],
+    )
     lens = pn.widgets.RadioButtonGroup(label="Representation lens", options=list(LENS_TEXT))
     lens.value = "System state"
 
     def networks(run: int, arm: str, tick: int, lens: str):
-        return pn.Row(
+        return pn.FlexBox(
             _network_plot(dataset, "baseline", run, tick, lens, f"Baseline · tick {tick}"),
             _network_plot(dataset, arm, run, tick, lens, f"{arm} · tick {tick}"),
+            flex_wrap="wrap",
         )
 
     def evidence(run: int) -> pn.pane.Markdown:
@@ -234,20 +302,39 @@ remain unopened until the frozen adapter is committed.
 """
             )
         selected = summary["selected_family"]
-        confirmation = 100 * summary["confirmation_improvement"]
+        scores = pd.read_csv(directory / "scores.csv")
+        discovery_row = scores.loc[
+            (scores["split"] == "discovery") & (scores["model"] == selected)
+        ].iloc[0]
+        confirmation_row = scores.loc[
+            (scores["split"] == "confirmation") & (scores["model"] == selected)
+        ].iloc[0]
+        ablation_row = scores.loc[
+            (scores["split"] == "confirmation")
+            & (scores["model"] == f"{selected} ablated")
+        ].iloc[0]
+        discovery_improvement = 100 * float(discovery_row["improvement"])
+        confirmation_improvement = 100 * float(confirmation_row["improvement"])
+        ablation_improvement = 100 * float(ablation_row["improvement"])
+        threshold = 100 * PROMOTION_THRESHOLD
         return pn.pane.Markdown(
             f"""### Frozen Level 2 decision — **{summary['decision'].upper()}**
 
 {values}
 
-Discovery selected **{selected}** at a 16.7% improvement over the intervention-
+Discovery selected **{selected}** at a **{discovery_improvement:.1f}%** improvement over the intervention-
 only null. On untouched confirmation networks it improved log loss by
-**{confirmation:.1f}%**, below the frozen **10%** gate. The ablated identity model
-reached 14.4%, which diagnoses over-complexity but cannot retroactively promote
+**{confirmation_improvement:.1f}%**, below the frozen **{threshold:.0f}%** gate.
+The ablated identity model reached **{ablation_improvement:.1f}%**, which diagnoses
+over-complexity but cannot retroactively promote
 the selected model.
 
 **Claim boundary:** this selector version failed prospective promotion. No
 naturalistic transfer or macro-causal claim is unlocked.
+
+**Selection boundary:** seeds 10001–10008 were discovery; 10014–10021 were
+confirmation. Seed 10013 was excluded mechanically because it was already
+extinct at tick 20, before its future outcome was consulted.
 """
         )
 
@@ -260,12 +347,17 @@ extinction on untouched confirmation networks? The dashed line marks the tick-20
 observation/intervention boundary.
 """
         ),
-        pn.Row(run, arm, tick),
+        pn.FlexBox(run, arm, tick, flex_wrap="wrap"),
         lens,
         pn.bind(lambda lens: pn.pane.Markdown(f"**Lens:** {LENS_TEXT[lens]}"), lens),
+        pn.pane.Markdown(
+            "**State legend:** susceptible · infected · resistant. Node size is the selected "
+            "lens; state labels are also available in hover details."
+        ),
         pn.bind(networks, run, arm, tick, lens),
         pn.bind(_response_plot, dataset=dataset, run=run, tick=tick),
         _score_plot(pd.read_csv(directory / "scores.csv")) if level2 else pn.Spacer(height=0),
+        _prediction_surface(directory) if level2 else pn.Spacer(height=0),
         pn.bind(evidence, run),
     )
     return story

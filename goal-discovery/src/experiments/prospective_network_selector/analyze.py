@@ -17,6 +17,7 @@ from sklearn.preprocessing import StandardScaler
 from .data import parse_edges, parse_nodes, read_behaviorspace
 
 CHECKPOINT = 20
+PROMOTION_THRESHOLD = 0.10
 DISCOVERY_POOL = range(1, 13)
 CONFIRMATION_POOL = range(13, 25)
 N_ELIGIBLE = 8
@@ -324,7 +325,7 @@ def evaluate(table: pd.DataFrame, integrity: dict[str, Any]) -> tuple[pd.DataFra
     tied = len(scores) > 1 and float(scores.iloc[1]["log_loss"] - best["log_loss"]) <= 0.005
     selected = (
         str(best["model"])
-        if float(best["improvement"]) >= 0.10 and not tied
+        if float(best["improvement"]) >= PROMOTION_THRESHOLD and not tied
         else None
     )
     summary: dict[str, Any] = {
@@ -346,7 +347,7 @@ def evaluate(table: pd.DataFrame, integrity: dict[str, Any]) -> tuple[pd.DataFra
         improvement = (null_loss - selected_loss) / null_loss
         full_advantage = null_loss - selected_loss
         ablated_advantage = null_loss - ablated_loss
-        confirmation_gate = improvement >= 0.10
+        confirmation_gate = improvement >= PROMOTION_THRESHOLD
         ablation_gate = ablated_advantage >= 0.5 * full_advantage
         summary.update(
             {

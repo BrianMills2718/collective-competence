@@ -1,14 +1,351 @@
 version: 1
-updated: 2026-08-29
+updated: 2026-08-30
+programme_status: p9-blind-calibration-complete-next-held-out-protocol
+delivery:
+  status: complete
+  interface_target: desktop
+  launch: uv run --extra visual-workbench panel serve src/cockpit/app.py --show --port 5011
+  final_audit: docs/audits/2026-08-29_outcome_backcasting_final_audit.md
+  final_report: docs/outcome_backcasting_final_report.md
+  known_high_priority_defects: 0
+plan_completion:
+  status: complete
+  active_required_plans: 0
+  ledger: docs/plans/plan_completion_ledger.md
+  items:
+    - path: docs/plans/current_research_plan.md
+      disposition: terminal-roadmap
+      evidence: docs/audits/2026-08-29_outcome_backcasting_final_audit.md
+    - path: docs/plans/dynamic_experiment_artifact_standard.md
+      disposition: retained-protocol
+      evidence: docs/audits/2026-08-29_outcome_backcasting_final_audit.md
+    - path: docs/plans/outcome_backcasting_protocol.md
+      disposition: complete-revised
+      evidence: docs/audits/2026-08-29_ob_001_three_sprint_retrospective.md
+    - path: docs/plans/p2_research_pivot.md
+      disposition: superseded
+      evidence: docs/audits/2026-08-29_outcome_backcasting_final_audit.md
+    - path: docs/plans/p3_generator_reuse_survey.md
+      disposition: complete
+      evidence: docs/audits/2026-08-29_p3_generator_reflection.md
+    - path: docs/plans/p4_generator_selection.md
+      disposition: complete
+      evidence: docs/audits/2026-08-29_p4_target_inference_reflection.md
+    - path: docs/plans/p5_001_reuse_survey.md
+      disposition: complete-negative
+      evidence: docs/hypotheses/p5_001_slime_mold_network_threshold_results.md
+    - path: docs/plans/p6_000_phenomenon_qualification.md
+      disposition: complete
+      evidence: docs/hypotheses/p6_001_neuromast_causal_calibration_results.md
+    - path: docs/plans/p6_002_archive_first_benchmark_contract.md
+      disposition: complete-negative
+      evidence: docs/research_state.yaml
+    - path: docs/plans/p6_003_compact_evidence_package_acquisition.md
+      disposition: complete-negative
+      evidence: docs/research_state.yaml
+    - path: docs/plans/p7_003_selector_complexity_audit.md
+      disposition: complete-negative
+      evidence: docs/hypotheses/p7_003_selector_complexity_audit_results.md
+    - path: docs/plans/p7_004_ants_trail_scale_preregistration.md
+      disposition: complete-negative
+      evidence: docs/hypotheses/p7_004_ants_trail_scale_results.md
+    - path: docs/plans/p7_005_network_intervention_value_preregistration.md
+      disposition: complete-negative
+      evidence: docs/hypotheses/p7_005_network_intervention_value_results.md
+    - path: docs/plans/plan_completion_ledger.md
+      disposition: complete
+      evidence: docs/audits/2026-08-29_outcome_backcasting_final_audit.md
+    - path: docs/plans/progress_allocation_protocol.md
+      disposition: retained-protocol
+      evidence: docs/audits/2026-08-29_ob_001_three_sprint_retrospective.md
+    - path: docs/plans/reuse_survey_protocol.md
+      disposition: retained-protocol
+      evidence: docs/audits/2026-08-29_outcome_backcasting_final_audit.md
+    - path: docs/plans/v1_phase2.md
+      disposition: complete
+      evidence: docs/audits/v1.md
+    - path: docs/plans/x01_mesa_decision.md
+      disposition: complete
+      evidence: docs/plans/x01_mesa_decision.md
+    - path: docs/plans/x01_mesa_spike.md
+      disposition: complete
+      evidence: docs/plans/x01_mesa_decision.md
+    - path: docs/plans/x02_netlogo_calibration.md
+      disposition: complete
+      evidence: docs/plans/x02_netlogo_decision.md
+    - path: docs/plans/x02_netlogo_decision.md
+      disposition: complete
+      evidence: docs/plans/x02_netlogo_decision.md
+    - path: docs/plans/x03_visual_analytics_decision.md
+      disposition: complete
+      evidence: docs/plans/x03_visual_analytics_decision.md
+implementation_phase:
+  id: P8
+  status: checkpoint-pass
+  authorized: 2026-08-30
+  roadmap: docs/roadmaps/p8_sorting_laboratory_phase.md
+  target_checkpoint: P8-C1
+  current_version: P8-C1
+  interface_target: desktop
+  scientific_claims: locked-no-new-claims
+  versions:
+    P8-V0: complete
+    P8-V1: complete
+    P8-V2: complete
+    P8-V3: complete
+  approximate_minutes:
+    P8-V0: 2
+    P8-V1: 4
+    P8-V2: 3
+    P8-V3: 4
+    P8-C1: 10
+  checkpoint_audit: docs/audits/2026-08-30_p8_c1_vertical_slice.md
+  url: http://localhost:5011/app
+  tests: 147 passed, 16 optional NetLogo checks skipped
+  known_high_priority_defects: 0
+  comprehension_evidence: Live interaction and evidence linkage passed; moderated novice comprehension remains unmeasured.
+  substrate_boundary: configuration, snapshot/restore, step, observation, intervention, representation, provenance
+  selected_branch: extract only the demonstrated boundary and test it on the passive bowl as a second use
+active_implementation_phase:
+  id: P9
+  status: checkpoint-pass
+  authorized: 2026-08-30
+  roadmap: docs/roadmaps/p9_sorting_blind_discovery_ui.md
+  target_checkpoint: P9-C1
+  current_version: P9-C1
+  interface_target: desktop
+  scientific_claims: locked-calibration-only
+  versions:
+    P9-V0: complete
+    P9-V1: complete
+    P9-V2: complete
+    P9-C1: complete
+  checkpoint_audit: docs/audits/2026-08-30_p9_c1_blind_sorting_ui.md
+  tests: 153 passed, 16 optional NetLogo checks skipped
+  known_high_priority_defects: 0
+  selected_branch: formalize one held-out blinded sorting-discovery protocol before any transfer claim
 north_star: >-
   Discover which observable representations and scales make prediction,
   intervention response, control, and collective competence most legible, and
   promote a macro description only when it beats simpler alternatives.
 frontier:
-  current_unknown: Can representation families be compared at equal descriptive capacity with stable selection across independent groups?
-  bottleneck: Selector complexity and stability
-  last_learning: Identity-conditioned history transferred directionally but missed the frozen confirmation margin; its simpler ablation performed better, diagnosing capacity instability rather than licensing a pass.
-  external_dependency: A compact multiscale recovery bundle remains welcome but is no longer on the critical path.
+  current_unknown: Can a frozen blind-discovery method recover and correctly classify sorting hypotheses on held-out cases without authored rule or target fields?
+  bottleneck: P9 demonstrates an intelligible calibration workflow, but its candidate set is hand-authored and no held-out discovery performance has been measured.
+  last_learning: Explicit system/environment boundaries and typed matched interventions prevent state recovery, mechanism, invariant, and goal interpretations from being collapsed into one claim.
+  external_dependency: None for a separately authorized held-out sorting protocol; P7 science remains evidence-closed.
+planning_pilot:
+  id: OB-001
+  status: complete-retain-with-revision
+  objective: Test whether a mature proof-of-success artifact and backward evidence versions improve task-to-goal traceability without suppressing exploration.
+  protocol: docs/plans/outcome_backcasting_protocol.md
+  first_science_sprint: P7-003
+  review_after_sprints: 3
+  completed_science_sprints: 3
+  sprint_2_review: docs/audits/2026-08-29_ob_001_sprint_2_p7_004.md
+  sprint_3_review: docs/audits/2026-08-29_ob_001_sprint_3_p7_005.md
+  formal_review: docs/audits/2026-08-29_ob_001_three_sprint_retrospective.md
+  company_transfer_review: docs/audits/2026-08-29_company_planning_reflection.md
+  remaining_before_review: 0
+  project_disposition: retain with revision
+  company_generalization: stopped pending evidence from a non-research transfer pilot
+laboratory_cases:
+  - id: heatbugs-blind-calibration
+    experiment_id: P4-002
+    system: Heatbugs
+    generator: NetLogo Heatbugs
+    question: Can black-box observations recover authored temperature targets without reading them?
+    provenance_state: measured
+    evidence_level: held-out calibration
+    decision: Promote the blind target estimate on this calibration task; retire further Heatbugs tuning.
+    claim_boundary: Calibration demonstrates blinded recovery on one known system, not cross-system representation discovery.
+    protocol: docs/hypotheses/p4_002_heatbugs_blind_target_inference.md
+    result: docs/hypotheses/p4_002_heatbugs_blind_target_inference_results.md
+    data_source: results/p4-002-heatbugs-blind-target-inference-001
+    next_decision: Preserve as the black-box/white-box reference; do not optimize it further.
+  - id: virus-prospective-selection
+    experiment_id: P7-002
+    system: Virus on a Network
+    generator: NetLogo Virus on a Network
+    question: Does a frozen representation-family selector improve untouched intervention prediction?
+    provenance_state: contradicted
+    evidence_level: frozen prospective
+    decision: No-go; identity-conditioned history improved log loss by 8.4%, below the frozen 10% gate.
+    claim_boundary: The failed gate rejects promotion and retuning on Virus; it does not show every task-conditioned representation is useless.
+    protocol: docs/hypotheses/p7_002_prospective_network_selector.md
+    result: docs/hypotheses/p7_002_prospective_network_selector_results.md
+    data_source: results/p7-002-network-level2
+    next_decision: Preserve as the real evidence-chain reference and generate no more Virus selector outcomes.
+  - id: ants-scale-perturbation
+    experiment_id: P7-004
+    system: Ants
+    generator: NetLogo Ants
+    question: Does a mesoscopic trail description predict recovery after a frozen trail cut better than simpler alternatives?
+    provenance_state: contradicted
+    evidence_level: frozen held-seed calibration
+    decision: No-go; the task-matched null had lower error than local, colony, and trail descriptions.
+    claim_boundary: This retires Ants predictive scale selection under the frozen task, not all possible causal scale value.
+    protocol: docs/plans/p7_004_ants_trail_scale_preregistration.md
+    result: docs/hypotheses/p7_004_ants_trail_scale_results.md
+    data_source: results/p7-004-ants-trail-scale-001
+    next_decision: Do not tune or rerun Ants for this question.
+  - id: virus-intervention-value
+    experiment_id: P7-005
+    system: Virus on a Network
+    generator: NetLogo Virus on a Network
+    question: Does degree-informed immunization robustly beat random immunization at the same budget?
+    provenance_state: contradicted
+    evidence_level: frozen retrospective causal audit
+    decision: Evidence-closed no-go; pooled benefit passed, but seed, budget, and split robustness failed.
+    claim_boundary: This closes the current internal V4 route; it is not a universal refutation of network-informed control.
+    protocol: docs/plans/p7_005_network_intervention_value_preregistration.md
+    result: docs/hypotheses/p7_005_network_intervention_value_results.md
+    data_source: results/p7-005-network-intervention-value
+    next_decision: Reopen only for a genuinely new causal task or qualified external evidence.
+maturity_versions:
+  - id: V0
+    title: Mature outcome hypothesis
+    status: implemented
+    becomes_real: The complete decision workflow and its evidence requirements are inspectable; unearned capabilities remain visibly hypothetical.
+    exit_decision: Does the proposed interface cover the decisions and evidence needed by the programme without pretending the science exists?
+  - id: V1
+    title: One real evidence chain
+    status: implemented
+    becomes_real: P7-002 connects observed behavior, intervention, candidate representations, held-out evidence, a failed gate, and the next decision.
+    exit_decision: Can a reader trace a repository-backed result to its claim boundary and next experiment?
+  - id: V2
+    title: Blind calibration
+    status: implemented
+    becomes_real: Black-box inference is compared interactively with known white-box ground truth.
+    exit_decision: Did the discovery method recover a useful hidden description without reading authored targets?
+  - id: V3
+    title: Prospective transfer
+    status: closed-no-go
+    becomes_real: A frozen method is evaluated on untouched outcomes from a different system, or generic selection is closed by a no-go.
+    exit_decision: Does the method generalize prospectively or abstain correctly?
+  - id: V4
+    title: Perturbation and scale
+    status: closed-no-go
+    becomes_real: Representations are compared for robustness, intervention value, and organizational scale.
+    exit_decision: Does a higher-level description add predictive, causal, or control value?
+  - id: V5
+    title: Competence testing
+    status: retired
+    becomes_real: The route is explicitly closed when no representation earns the V4 predictive or causal value required to ground a competence test.
+    exit_decision: Competence-like language is not licensed on the current evidence; do not build a test merely to fill the version ladder.
+  - id: V6
+    title: Reusable laboratory
+    status: implemented
+    becomes_real: Four validated evidence contracts expose question, generator, maturity, decision, claim boundary, sources, and next decision across three systems.
+    exit_decision: Reuse the evidence/provenance comparison boundary; keep simulator-specific adapters local.
+outcome_map:
+  - id: agenda
+    section: North star and frontier
+    question: What is the programme trying to discover, and what bottleneck currently prevents progress?
+    evidence_requirement: An authoritative objective, evidence frontier, active bottleneck, and current sprint that agree.
+    capability: Repository-backed research state and roadmap.
+    provenance_state: connected
+    source: docs/plans/current_research_plan.md
+    target_version: V0
+    next_test: Reconcile this view after every sprint decision and fail validation on disagreement.
+  - id: claim
+    section: Claim under consideration
+    question: What precise scientific or methodological claim is currently being tested?
+    evidence_requirement: A bounded claim, frozen gate, competing explanations, and explicit claim limit.
+    capability: Preregistered sprint contract plus decision artifact.
+    provenance_state: contradicted
+    source: docs/hypotheses/p7_005_network_intervention_value_results.md
+    target_version: V4
+    next_test: The current internal V4 claim is evidence-closed; reopen only for a genuinely new causal task or qualified external evidence.
+  - id: behavior
+    section: System behavior and observation boundary
+    question: What did the system do, what was observable, and where did intervention begin?
+    evidence_requirement: Replayable real trajectories, matched arms, independent seeds, observation cutoff, and intervention marker.
+    capability: Validated adapter over NetLogo trajectory and network exports.
+    provenance_state: measured
+    source: docs/hypotheses/p7_002_prospective_network_selector_results.md
+    target_version: V1
+    next_test: Retain the P7-002 viewer as the reference evidence chain; do not generate more Virus outcomes.
+  - id: representations
+    section: Representations and candidate scales
+    question: Which observable descriptions compete, and at what organizational scale do they operate?
+    evidence_requirement: Candidate definitions linked to the same run and time, capacity disclosure, and a simple matched null.
+    capability: Synchronized representation lenses and capacity-matched scoring.
+    provenance_state: measured
+    source: docs/hypotheses/p7_003_selector_complexity_audit_results.md
+    target_version: V3
+    next_test: P7-004 found no predictive scale winner; do not run another generic or Ants representation screen.
+  - id: perturbation
+    section: Perturbation, intervention, prediction, and robustness
+    question: Does the proposed description predict untouched intervention outcomes and remain useful under meaningful perturbations?
+    evidence_requirement: Matched intervention arms, untouched outcomes, per-unit failures, robustness boundaries, and a frozen promotion threshold.
+    capability: Split-aware experiment comparison and perturbation ledger.
+    provenance_state: contradicted
+    source: docs/hypotheses/p7_005_network_intervention_value_results.md
+    target_version: V4
+    next_test: Preserve the budget/split sign reversals; do not add Virus outcomes or tune immunization.
+  - id: black_white
+    section: Black-box discovery versus white-box truth
+    question: Does inference from allowed observations recover structure known only from the generator's authored ground truth?
+    evidence_requirement: Blinded observation contract, authored target withheld from inference, held-out predictions, and direct error comparison.
+    capability: Black-box adapter plus a separately exposed white-box scoring boundary.
+    provenance_state: measured
+    source: docs/hypotheses/p4_002_heatbugs_blind_target_inference_results.md
+    target_version: V2
+    next_test: Heatbugs is retired after passing calibration; preserve the linked V2 view as the black-box/white-box reference and do not tune it.
+  - id: support_counterevidence
+    section: Support, contradiction, and individual failures
+    question: What supports the claim, what contradicts it, and which independent cases fail?
+    evidence_requirement: Discovery and confirmation separated, null visible, failed seeds inspectable, and post-hoc diagnostics labeled.
+    capability: Split-aware score surface with seed drill-down and immutable decision gate.
+    provenance_state: contradicted
+    source: docs/hypotheses/p7_005_network_intervention_value_results.md
+    target_version: V4
+    next_test: Preserve the 15.7% pooled effect, failed seed-win gates, and 2/4 sign consistency as the current V4 no-go trail.
+  - id: provenance
+    section: Provenance and evidence maturity
+    question: Where did each value come from, how mature is it, and what decisions may it support?
+    evidence_requirement: Source path, evidence level, split, status, claim boundary, and hypothetical labeling for every section.
+    capability: Validated outcome-map and research-state contracts.
+    provenance_state: connected
+    source: docs/research_state.yaml
+    target_version: V0
+    next_test: Reject non-hypothetical outcome sections without a repository source.
+  - id: scale_control
+    section: Scale and control value
+    question: Does any higher-level description improve prediction, intervention choice, or control beyond simpler alternatives?
+    evidence_requirement: Competing scales, matched controls, prospective macro prediction, and intervention-value comparison.
+    capability: Retrospective matched intervention audit; no promoted prospective macro predictor exists.
+    provenance_state: contradicted
+    source: docs/hypotheses/p7_005_network_intervention_value_results.md
+    target_version: V4
+    next_test: Current internal route is closed; require a genuinely new causal task or qualified external bundle before reopening.
+  - id: competence
+    section: Competence and alternative routes
+    question: Does the system reach a stable outcome through alternative means when familiar routes are blocked, and where does recovery fail?
+    evidence_requirement: Blocked-route interventions, alternative means, matched passive controls, recovery boundary, and falsification cases.
+    capability: Retired by the licensing rule because V4 promoted no robust predictive or control scale.
+    provenance_state: retired
+    source: docs/hypotheses/p7_005_network_intervention_value_results.md
+    target_version: V5
+    next_test: Retirement reason — reopen only after a new V4 route promotes a representation with robust predictive or control value.
+  - id: uncertainty
+    section: Uncertainty and claim limits
+    question: What remains unknown, which explanation is still live, and what is explicitly not licensed?
+    evidence_requirement: Failed gates, nulls, sensitivity limits, counterevidence, and locked downstream claims.
+    capability: Decision artifacts and machine-readable stop/lock state.
+    provenance_state: contradicted
+    source: docs/hypotheses/p7_005_network_intervention_value_results.md
+    target_version: V4
+    next_test: Decide from first principles whether to await external evidence, introduce a genuinely new causal task, or revise the agenda.
+  - id: next_test
+    section: Next uncertainty-reducing experiment
+    question: Which bounded experiment is most likely to change the roadmap now?
+    evidence_requirement: Current bottleneck, conditional branches, time cap, stop rule, and expected decision.
+    capability: Progress-allocation protocol tied to the active sprint.
+    provenance_state: connected
+    source: docs/hypotheses/p7_005_network_intervention_value_results.md
+    target_version: V0
+    next_test: Do not launch another internal V4 experiment until a new causal task or external bundle changes the evidence frontier.
 milestones:
   - id: apparatus
     title: Reproducible intervention and analysis apparatus
@@ -24,34 +361,50 @@ milestones:
     evidence: docs/hypotheses/p7_001_representation_tournament_results.md
   - id: prospective
     title: Prospective cross-system selection
-    status: active
-    evidence: docs/hypotheses/p7_002_prospective_network_selector_results.md
+    status: stopped
+    evidence: docs/hypotheses/p7_003_selector_complexity_audit_results.md
   - id: naturalistic
     title: Naturalistic off-the-shelf transfer
     status: locked
   - id: macro_control
     title: Macro causal or control value
     status: locked
+  - id: p8_vertical_slice
+    title: Usable sorting-laboratory vertical slice
+    status: demonstrated
+    evidence: docs/audits/2026-08-30_p8_c1_vertical_slice.md
+  - id: p9_blind_calibration
+    title: Blind sorting goal-discovery calibration
+    status: demonstrated
+    evidence: docs/audits/2026-08-30_p9_c1_blind_sorting_ui.md
 active_sprint:
-  id: P7-003
-  title: Selector complexity audit
-  evidence_level: 1
-  question: Does an equal-capacity comparison produce a stable family choice, or should generic family selection stop?
-  time_cap_minutes: 60
-  first_artifact_minutes: 15
-  stop_rule: Freeze a future contract only on the predeclared stability gate; do not retune or rerun Virus confirmation.
-  protocol: docs/plans/p7_003_selector_complexity_audit.md
+  id: P9
+  status: complete-positive
+  title: Blind sorting goal-discovery calibration UI
+  evidence_level: engineering-calibration
+  question: Can the known sorting system calibrate a blind goal-discovery workflow while making system, environment, boundary, competency, and intervention targets explicit?
+  time_cap_minutes: 180
+  first_artifact_minutes: 30
+  stop_rule: Stop at P9-C1; do not claim automated goal discovery or a general dynamic-environment substrate.
+  protocol: docs/roadmaps/p9_sorting_blind_discovery_ui.md
   artifact_standard: docs/plans/dynamic_experiment_artifact_standard.md
+  mature_outcome_supported: A sealed calibration workflow that separates candidate goals, representations, mechanisms, invariants, and competencies.
+  target_evidence_maturity_version: P9-C1 — blind calibration UI
+  placeholder_replaced: Sorting is no longer narrated as a known goal inside the discovery workspace; authored truth is revealed only at calibration.
+  result: docs/audits/2026-08-30_p9_c1_blind_sorting_ui.md
 next_decisions:
-  - condition: One capacity-matched family wins at least six of eight deletion analyses with stable coefficient signs
-    action: Freeze that rule for a different prospective task with new outcomes.
-  - condition: The equal-capacity winner remains unstable
-    action: Stop generic family selection and use task-conditioned scientific representations.
+  - condition: P9-C1 demonstrates a coherent sealed candidate-and-intervention workflow
+    action: Formalize one held-out blind sorting discovery experiment before transferring claims to another system.
+  - condition: The candidate ledger merely relabels known sorting metrics
+    action: Retain it as calibration UI only and do not claim goal discovery.
 stops:
   - No fourth archive search without newly supplied evidence.
   - No tuning old generators to improve known scores.
   - No decorative or mock dashboard content.
   - No macro causal tooling before a prospective macro predictor.
+  - No more Virus or Ants work for the closed V4 internal route.
+  - No V5 competence test while V4 remains closed without a promoted scale.
+  - No generalized substrate extraction before the complete P8 sorting slice and a passive-bowl second use.
 experiments:
   - id: X03
     phase: infrastructure
@@ -169,8 +522,45 @@ experiments:
   - id: P7-003
     phase: methodology
     title: Selector complexity audit
-    status: active
+    status: complete-negative
     confidence: retrospective-calibration
-    decision: Pending equal-capacity stability audit.
-    implication: Stable rule earns a different prospective task; instability stops generic selection.
+    decision: No family exceeded three of eight held-seed wins against the frozen six-of-eight gate.
+    implication: Stop generic automated family selection and return to task-conditioned scientific representations.
     protocol: docs/plans/p7_003_selector_complexity_audit.md
+    result: docs/hypotheses/p7_003_selector_complexity_audit_results.md
+  - id: P7-004
+    phase: scale-perturbation
+    title: Ants trail-scale perturbation screen
+    status: complete-negative
+    confidence: frozen-calibration
+    decision: All integrity gates passed, but the primary null beat all three scales and trail won only three of eight held seeds against either alternative.
+    implication: Retire Ants for this predictive V4 question and shift the next planning decision toward causal intervention value.
+    protocol: docs/plans/p7_004_ants_trail_scale_preregistration.md
+    result: docs/hypotheses/p7_004_ants_trail_scale_results.md
+  - id: P7-005
+    phase: scale-control
+    title: Network-informed intervention-value audit
+    status: complete-negative
+    confidence: frozen-retrospective-calibration
+    decision: Pooled burden improved 15.7%, but degree targeting won only 10/16 and 9/16 seeds by budget and effects were positive in only two of four split-budget cells.
+    implication: Evidence-close the current internal V4 route; require a genuinely new causal task or qualified external evidence before reopening.
+    protocol: docs/plans/p7_005_network_intervention_value_preregistration.md
+    result: docs/hypotheses/p7_005_network_intervention_value_results.md
+  - id: P8
+    phase: infrastructure
+    title: UI-first sorting laboratory vertical slice
+    status: complete-positive
+    confidence: engineering-calibration
+    decision: P8-C1 passed; the usable sorting vertical slice exposed a seven-point runtime boundary worth testing once on the passive bowl.
+    implication: Preserve model-local cell semantics and extract nothing broader unless the bowl independently requires the same boundary.
+    protocol: docs/roadmaps/p8_sorting_laboratory_phase.md
+    result: docs/audits/2026-08-30_p8_c1_vertical_slice.md
+  - id: P9
+    phase: goal-discovery-calibration
+    title: Blind sorting goal-discovery calibration UI
+    status: complete-positive
+    confidence: engineering-calibration
+    decision: P9-C1 passed as a sealed calibration workflow; no automated goal-discovery claim is supported.
+    implication: Freeze and test a held-out blind sorting protocol before transfer; retain the current ledger as calibration only.
+    protocol: docs/roadmaps/p9_sorting_blind_discovery_ui.md
+    result: docs/audits/2026-08-30_p9_c1_blind_sorting_ui.md
