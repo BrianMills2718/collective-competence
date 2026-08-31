@@ -1,0 +1,956 @@
+{
+  "candidate_sha256": "e60172472ab2c789f4c02e2759f137d447647c0e9293d5bf37420bf797a21b4f",
+  "evaluation_observations": {
+    "frames": 11520,
+    "path": "evaluation.jsonl",
+    "sha256": "41d80c5d01de420483c0a3015a19395c68cbcf8d559537384db260cf782fe000"
+  },
+  "experiment": "P13",
+  "hidden_evaluator_diagnostic": {
+    "coefficient_check": true,
+    "coefficient_max_error": 8.881784197001252e-16,
+    "fixed_point_check": true,
+    "fixed_point_max_error": 1.5285679324549191e-16,
+    "unlocked_after_forecast_freeze": true
+  },
+  "outcomes": [
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 9.36596372977922e-07,
+          "c001": 1.2881546912385699e-06,
+          "c002": 1.7601484236051007e-06,
+          "c003": 1.1660968803970571e-06,
+          "c004": 1.8826558985074535e-07,
+          "c005": 2.3928869867751895e-07,
+          "c006": 1.4622187788854282e-06,
+          "c007": 1.40537550413621e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.832700744304106e-15,
+        "whole_forecast_rms": 1.832700744304106e-15
+      },
+      "condition": "none",
+      "run_id": "evaluation-6200-none",
+      "seed": 6200,
+      "target_ids": []
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 9.36596372977922e-07,
+          "c001": 1.2881546912385699e-06,
+          "c002": 1.7601484236051007e-06,
+          "c003": 1.1660968803970571e-06,
+          "c004": 1.8826558985074535e-07,
+          "c005": 6.332636733469665e-06,
+          "c006": 7.435074116904219e-06,
+          "c007": 1.40537550413621e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.8936127732454186e-15,
+        "whole_forecast_rms": 5.306141439582638e-15
+      },
+      "condition": "displace",
+      "run_id": "evaluation-6200-displace",
+      "seed": 6200,
+      "target_ids": [
+        "c005",
+        "c006"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 4.740850933347901e-06,
+          "c001": 4.8083333321566795e-06,
+          "c002": 1.7601484236051007e-06,
+          "c003": 1.1660968803970571e-06,
+          "c004": 1.8826558985074535e-07,
+          "c005": 2.3928869867751895e-07,
+          "c006": 1.4622187788854282e-06,
+          "c007": 1.40537550413621e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.855074921915733e-15,
+        "whole_forecast_rms": 3.905441477948952e-15
+      },
+      "condition": "kick",
+      "run_id": "evaluation-6200-kick",
+      "seed": 6200,
+      "target_ids": [
+        "c000",
+        "c001"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "frozen_coordinate_remains_away": true,
+          "unaffected_coordinates_settle": true,
+          "unaffected_forecast_rms_le_1e_8": true,
+          "whole_forecast_rms_gt_0_1": true
+        },
+        "final_window_max_distance": {
+          "c000": 9.36596372977922e-07,
+          "c001": 1.2881546912385699e-06,
+          "c002": 1.684392167319565,
+          "c003": 1.1660968803970571e-06,
+          "c004": 1.8826558985074535e-07,
+          "c005": 2.3928869867751895e-07,
+          "c006": 1.4622187788854282e-06,
+          "c007": 1.40537550413621e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.6726678234292947e-15,
+        "whole_forecast_rms": 0.4249438676091008
+      },
+      "condition": "freeze",
+      "run_id": "evaluation-6200-freeze",
+      "seed": 6200,
+      "target_ids": [
+        "c002"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 7.539773317451098e-07,
+          "c001": 3.401411202373266e-07,
+          "c002": 3.9637615693860323e-07,
+          "c003": 1.5185431508510983e-06,
+          "c004": 4.1169926917309074e-08,
+          "c005": 9.159060256238034e-08,
+          "c006": 4.870241283031521e-07,
+          "c007": 1.540779073219426e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.3181281013855818e-15,
+        "whole_forecast_rms": 1.3181281013855818e-15
+      },
+      "condition": "none",
+      "run_id": "evaluation-6201-none",
+      "seed": 6201,
+      "target_ids": []
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 7.539773317451098e-07,
+          "c001": 3.401411202373266e-07,
+          "c002": 3.9637615693860323e-07,
+          "c003": 1.5185431508510983e-06,
+          "c004": 6.154829742012286e-06,
+          "c005": 6.03583234268801e-06,
+          "c006": 4.870241283031521e-07,
+          "c007": 1.540779073219426e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.5185911460663501e-15,
+        "whole_forecast_rms": 4.61936558554388e-15
+      },
+      "condition": "displace",
+      "run_id": "evaluation-6201-displace",
+      "seed": 6201,
+      "target_ids": [
+        "c005",
+        "c004"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 7.539773317451098e-07,
+          "c001": 4.579656056298255e-06,
+          "c002": 3.9637615693860323e-07,
+          "c003": 1.5185431508510983e-06,
+          "c004": 4.1169926917309074e-08,
+          "c005": 9.159060256238034e-08,
+          "c006": 4.663366714240551e-06,
+          "c007": 1.540779073219426e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.4764921983158408e-15,
+        "whole_forecast_rms": 4.071737999823593e-15
+      },
+      "condition": "kick",
+      "run_id": "evaluation-6201-kick",
+      "seed": 6201,
+      "target_ids": [
+        "c006",
+        "c001"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "frozen_coordinate_remains_away": true,
+          "unaffected_coordinates_settle": true,
+          "unaffected_forecast_rms_le_1e_8": true,
+          "whole_forecast_rms_gt_0_1": true
+        },
+        "final_window_max_distance": {
+          "c000": 7.539773317451098e-07,
+          "c001": 3.401411202373266e-07,
+          "c002": 3.9637615693860323e-07,
+          "c003": 1.5185431508510983e-06,
+          "c004": 4.1169926917309074e-08,
+          "c005": 9.159060256238034e-08,
+          "c006": 4.870241283031521e-07,
+          "c007": 1.4744644077762692
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.0880283800944507e-15,
+        "whole_forecast_rms": 0.37198261797279997
+      },
+      "condition": "freeze",
+      "run_id": "evaluation-6201-freeze",
+      "seed": 6201,
+      "target_ids": [
+        "c007"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 1.4969416566351402e-06,
+          "c001": 1.1630465913514452e-06,
+          "c002": 1.493196439702776e-06,
+          "c003": 2.2193180913827133e-07,
+          "c004": 3.502376424405749e-07,
+          "c005": 8.583228379389559e-07,
+          "c006": 4.906856985623319e-08,
+          "c007": 1.3913927324655274e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.6274615076553099e-15,
+        "whole_forecast_rms": 1.6274615076553099e-15
+      },
+      "condition": "none",
+      "run_id": "evaluation-6202-none",
+      "seed": 6202,
+      "target_ids": []
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 1.4969416566351402e-06,
+          "c001": 1.1630465913514452e-06,
+          "c002": 4.915719372208357e-06,
+          "c003": 2.2193180913827133e-07,
+          "c004": 3.502376424405749e-07,
+          "c005": 8.583228379389559e-07,
+          "c006": 6.0739323148644264e-06,
+          "c007": 1.3913927324655274e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.6321696218761178e-15,
+        "whole_forecast_rms": 4.2750736886909575e-15
+      },
+      "condition": "displace",
+      "run_id": "evaluation-6202-displace",
+      "seed": 6202,
+      "target_ids": [
+        "c002",
+        "c006"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 1.4969416566351402e-06,
+          "c001": 1.1630465913514452e-06,
+          "c002": 1.493196439702776e-06,
+          "c003": 4.562390726744229e-06,
+          "c004": 3.502376424405749e-07,
+          "c005": 8.583228379389559e-07,
+          "c006": 4.59783393532226e-06,
+          "c007": 1.3913927324655274e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.8716080319586726e-15,
+        "whole_forecast_rms": 4.230389301002928e-15
+      },
+      "condition": "kick",
+      "run_id": "evaluation-6202-kick",
+      "seed": 6202,
+      "target_ids": [
+        "c006",
+        "c003"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "frozen_coordinate_remains_away": true,
+          "unaffected_coordinates_settle": true,
+          "unaffected_forecast_rms_le_1e_8": true,
+          "whole_forecast_rms_gt_0_1": true
+        },
+        "final_window_max_distance": {
+          "c000": 1.4969416566351402e-06,
+          "c001": 1.112989417446778,
+          "c002": 1.493196439702776e-06,
+          "c003": 2.2193180913827133e-07,
+          "c004": 3.502376424405749e-07,
+          "c005": 8.583228379389559e-07,
+          "c006": 4.906856985623319e-08,
+          "c007": 1.3913927324655274e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.596265950573221e-15,
+        "whole_forecast_rms": 0.2807885460607843
+      },
+      "condition": "freeze",
+      "run_id": "evaluation-6202-freeze",
+      "seed": 6202,
+      "target_ids": [
+        "c001"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 9.101994991336225e-07,
+          "c001": 1.4142654505344123e-06,
+          "c002": 1.3763746276353762e-06,
+          "c003": 1.2194394606453622e-07,
+          "c004": 3.616876996788323e-07,
+          "c005": 1.5198893067362432e-06,
+          "c006": 1.4765638197251632e-06,
+          "c007": 1.5685832088117106e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.880689293680629e-15,
+        "whole_forecast_rms": 1.880689293680629e-15
+      },
+      "condition": "none",
+      "run_id": "evaluation-6203-none",
+      "seed": 6203,
+      "target_ids": []
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 6.936520305249455e-06,
+          "c001": 1.4142654505344123e-06,
+          "c002": 1.3763746276353762e-06,
+          "c003": 6.0086437609515135e-06,
+          "c004": 3.616876996788323e-07,
+          "c005": 1.5198893067362432e-06,
+          "c006": 1.4765638197251632e-06,
+          "c007": 1.5685832088117106e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 2.094336570974323e-15,
+        "whole_forecast_rms": 5.05015097137039e-15
+      },
+      "condition": "displace",
+      "run_id": "evaluation-6203-displace",
+      "seed": 6203,
+      "target_ids": [
+        "c003",
+        "c000"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 9.101994991336225e-07,
+          "c001": 1.4142654505344123e-06,
+          "c002": 5.114033147096692e-06,
+          "c003": 1.2194394606453622e-07,
+          "c004": 4.6435894713093825e-06,
+          "c005": 1.5198893067362432e-06,
+          "c006": 1.4765638197251632e-06,
+          "c007": 1.5685832088117106e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.968535171262077e-15,
+        "whole_forecast_rms": 4.372144100768058e-15
+      },
+      "condition": "kick",
+      "run_id": "evaluation-6203-kick",
+      "seed": 6203,
+      "target_ids": [
+        "c002",
+        "c004"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "frozen_coordinate_remains_away": true,
+          "unaffected_coordinates_settle": true,
+          "unaffected_forecast_rms_le_1e_8": true,
+          "whole_forecast_rms_gt_0_1": true
+        },
+        "final_window_max_distance": {
+          "c000": 9.101994991336225e-07,
+          "c001": 1.4142654505344123e-06,
+          "c002": 1.3763746276353762e-06,
+          "c003": 1.2194394606453622e-07,
+          "c004": 3.616876996788323e-07,
+          "c005": 1.5198893067362432e-06,
+          "c006": 1.4130129593827665,
+          "c007": 1.5685832088117106e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.8159876785172276e-15,
+        "whole_forecast_rms": 0.3564794491400505
+      },
+      "condition": "freeze",
+      "run_id": "evaluation-6203-freeze",
+      "seed": 6203,
+      "target_ids": [
+        "c006"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 1.5350264641800658e-06,
+          "c001": 5.436080980117218e-07,
+          "c002": 1.5854342747820208e-06,
+          "c003": 1.6288378688706716e-06,
+          "c004": 4.892346797867001e-07,
+          "c005": 9.32029964671958e-07,
+          "c006": 3.441750222837797e-08,
+          "c007": 1.2538698770470574e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.7955382836445653e-15,
+        "whole_forecast_rms": 1.7955382836445653e-15
+      },
+      "condition": "none",
+      "run_id": "evaluation-6204-none",
+      "seed": 6204,
+      "target_ids": []
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 1.5350264641800658e-06,
+          "c001": 5.436080980117218e-07,
+          "c002": 1.5854342747820208e-06,
+          "c003": 1.6288378688706716e-06,
+          "c004": 4.892346797867001e-07,
+          "c005": 5.298173778882344e-06,
+          "c006": 6.087062808278288e-06,
+          "c007": 1.2538698770470574e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.9834761343648233e-15,
+        "whole_forecast_rms": 4.4708777068302924e-15
+      },
+      "condition": "displace",
+      "run_id": "evaluation-6204-displace",
+      "seed": 6204,
+      "target_ids": [
+        "c005",
+        "c006"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 1.5350264641800658e-06,
+          "c001": 5.436080980117218e-07,
+          "c002": 5.2622514548712605e-06,
+          "c003": 4.879241003258456e-06,
+          "c004": 4.892346797867001e-07,
+          "c005": 9.32029964671958e-07,
+          "c006": 3.441750222837797e-08,
+          "c007": 1.2538698770470574e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.487748457144221e-15,
+        "whole_forecast_rms": 4.2155703399233826e-15
+      },
+      "condition": "kick",
+      "run_id": "evaluation-6204-kick",
+      "seed": 6204,
+      "target_ids": [
+        "c002",
+        "c003"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "frozen_coordinate_remains_away": true,
+          "unaffected_coordinates_settle": true,
+          "unaffected_forecast_rms_le_1e_8": true,
+          "whole_forecast_rms_gt_0_1": true
+        },
+        "final_window_max_distance": {
+          "c000": 1.4689593889830699,
+          "c001": 5.436080980117218e-07,
+          "c002": 1.5854342747820208e-06,
+          "c003": 1.6288378688706716e-06,
+          "c004": 4.892346797867001e-07,
+          "c005": 9.32029964671958e-07,
+          "c006": 3.441750222837797e-08,
+          "c007": 1.2538698770470574e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.6953928486803913e-15,
+        "whole_forecast_rms": 0.3705937941450535
+      },
+      "condition": "freeze",
+      "run_id": "evaluation-6204-freeze",
+      "seed": 6204,
+      "target_ids": [
+        "c000"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 4.909374001371943e-07,
+          "c001": 1.1651897823722626e-06,
+          "c002": 3.5203886115816796e-07,
+          "c003": 5.923151067694017e-07,
+          "c004": 8.828689267911618e-07,
+          "c005": 6.46317876544169e-07,
+          "c006": 1.529175490421812e-06,
+          "c007": 5.673523147993132e-07
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.3358316443896309e-15,
+        "whole_forecast_rms": 1.3358316443896309e-15
+      },
+      "condition": "none",
+      "run_id": "evaluation-6205-none",
+      "seed": 6205,
+      "target_ids": []
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 4.909374001371943e-07,
+          "c001": 7.166646760572628e-06,
+          "c002": 3.5203886115816796e-07,
+          "c003": 6.6500811725206135e-06,
+          "c004": 8.828689267911618e-07,
+          "c005": 6.46317876544169e-07,
+          "c006": 1.529175490421812e-06,
+          "c007": 5.673523147993132e-07
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.305031642040348e-15,
+        "whole_forecast_rms": 5.208014665241101e-15
+      },
+      "condition": "displace",
+      "run_id": "evaluation-6205-displace",
+      "seed": 6205,
+      "target_ids": [
+        "c003",
+        "c001"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 4.909374001371943e-07,
+          "c001": 5.003705714408497e-06,
+          "c002": 3.5203886115816796e-07,
+          "c003": 5.923151067694017e-07,
+          "c004": 8.828689267911618e-07,
+          "c005": 6.46317876544169e-07,
+          "c006": 4.857950294002682e-06,
+          "c007": 5.673523147993132e-07
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 9.469598471209197e-16,
+        "whole_forecast_rms": 4.03327632018955e-15
+      },
+      "condition": "kick",
+      "run_id": "evaluation-6205-kick",
+      "seed": 6205,
+      "target_ids": [
+        "c006",
+        "c001"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "frozen_coordinate_remains_away": true,
+          "unaffected_coordinates_settle": true,
+          "unaffected_forecast_rms_le_1e_8": true,
+          "whole_forecast_rms_gt_0_1": true
+        },
+        "final_window_max_distance": {
+          "c000": 4.909374001371943e-07,
+          "c001": 1.1651897823722626e-06,
+          "c002": 3.5203886115816796e-07,
+          "c003": 5.923151067694017e-07,
+          "c004": 0.8448705148829827,
+          "c005": 6.46317876544169e-07,
+          "c006": 1.529175490421812e-06,
+          "c007": 5.673523147993132e-07
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.3329200958598077e-15,
+        "whole_forecast_rms": 0.21314664790598786
+      },
+      "condition": "freeze",
+      "run_id": "evaluation-6205-freeze",
+      "seed": 6205,
+      "target_ids": [
+        "c004"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 1.165170213593852e-06,
+          "c001": 1.7639761315429785e-06,
+          "c002": 8.954570656214321e-07,
+          "c003": 3.3944788044342114e-07,
+          "c004": 2.81522644841654e-07,
+          "c005": 9.56024505674772e-07,
+          "c006": 4.146919676808479e-07,
+          "c007": 1.5461208980495073e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.6547553807705429e-15,
+        "whole_forecast_rms": 1.6547553807705429e-15
+      },
+      "condition": "none",
+      "run_id": "evaluation-6206-none",
+      "seed": 6206,
+      "target_ids": []
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 5.138730642726145e-06,
+          "c001": 1.7639761315429785e-06,
+          "c002": 8.954570656214321e-07,
+          "c003": 3.3944788044342114e-07,
+          "c004": 2.81522644841654e-07,
+          "c005": 9.56024505674772e-07,
+          "c006": 4.146919676808479e-07,
+          "c007": 4.879895660836938e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.437697739887917e-15,
+        "whole_forecast_rms": 3.7669511541252085e-15
+      },
+      "condition": "displace",
+      "run_id": "evaluation-6206-displace",
+      "seed": 6206,
+      "target_ids": [
+        "c000",
+        "c007"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 4.784056428763072e-06,
+          "c001": 1.7639761315429785e-06,
+          "c002": 8.954570656214321e-07,
+          "c003": 4.579304965492829e-06,
+          "c004": 2.81522644841654e-07,
+          "c005": 9.56024505674772e-07,
+          "c006": 4.146919676808479e-07,
+          "c007": 1.5461208980495073e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.7519858885541105e-15,
+        "whole_forecast_rms": 4.081087304968321e-15
+      },
+      "condition": "kick",
+      "run_id": "evaluation-6206-kick",
+      "seed": 6206,
+      "target_ids": [
+        "c003",
+        "c000"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "frozen_coordinate_remains_away": true,
+          "unaffected_coordinates_settle": true,
+          "unaffected_forecast_rms_le_1e_8": true,
+          "whole_forecast_rms_gt_0_1": true
+        },
+        "final_window_max_distance": {
+          "c000": 1.165170213593852e-06,
+          "c001": 1.688055131864754,
+          "c002": 8.954570656214321e-07,
+          "c003": 3.3944788044342114e-07,
+          "c004": 2.81522644841654e-07,
+          "c005": 9.56024505674772e-07,
+          "c006": 4.146919676808479e-07,
+          "c007": 1.5461208980495073e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.4382838498548398e-15,
+        "whole_forecast_rms": 0.4258679720729827
+      },
+      "condition": "freeze",
+      "run_id": "evaluation-6206-freeze",
+      "seed": 6206,
+      "target_ids": [
+        "c001"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 2.1234214385450346e-07,
+          "c001": 1.4835659387940743e-06,
+          "c002": 1.3377059363569198e-06,
+          "c003": 7.354687068655635e-07,
+          "c004": 1.3334608318827495e-06,
+          "c005": 1.121527969999816e-06,
+          "c006": 5.071827070770889e-07,
+          "c007": 1.556656886781859e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.735226643747888e-15,
+        "whole_forecast_rms": 1.735226643747888e-15
+      },
+      "condition": "none",
+      "run_id": "evaluation-6207-none",
+      "seed": 6207,
+      "target_ids": []
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 2.1234214385450346e-07,
+          "c001": 1.4835659387940743e-06,
+          "c002": 1.3377059363569198e-06,
+          "c003": 7.354687068655635e-07,
+          "c004": 5.024113067163445e-06,
+          "c005": 1.121527969999816e-06,
+          "c006": 6.573462268645906e-06,
+          "c007": 1.556656886781859e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.7967863285648404e-15,
+        "whole_forecast_rms": 4.538506545412343e-15
+      },
+      "condition": "displace",
+      "run_id": "evaluation-6207-displace",
+      "seed": 6207,
+      "target_ids": [
+        "c004",
+        "c006"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "all_coordinates_settle": true,
+          "whole_forecast_rms_le_1e_8": true
+        },
+        "final_window_max_distance": {
+          "c000": 2.1234214385450346e-07,
+          "c001": 1.4835659387940743e-06,
+          "c002": 4.8183150363810285e-06,
+          "c003": 7.354687068655635e-07,
+          "c004": 1.3334608318827495e-06,
+          "c005": 4.775613498126719e-06,
+          "c006": 5.071827070770889e-07,
+          "c007": 1.556656886781859e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.6796868445436515e-15,
+        "whole_forecast_rms": 3.855813661988999e-15
+      },
+      "condition": "kick",
+      "run_id": "evaluation-6207-kick",
+      "seed": 6207,
+      "target_ids": [
+        "c002",
+        "c005"
+      ]
+    },
+    {
+      "assessment": {
+        "checks": {
+          "frozen_coordinate_remains_away": true,
+          "unaffected_coordinates_settle": true,
+          "unaffected_forecast_rms_le_1e_8": true,
+          "whole_forecast_rms_gt_0_1": true
+        },
+        "final_window_max_distance": {
+          "c000": 2.1234214385450346e-07,
+          "c001": 1.4835659387940743e-06,
+          "c002": 1.3377059363569198e-06,
+          "c003": 7.354687068655635e-07,
+          "c004": 1.3334608318827495e-06,
+          "c005": 1.07325774500875,
+          "c006": 5.071827070770889e-07,
+          "c007": 1.556656886781859e-06
+        },
+        "integrity": true,
+        "supported": true,
+        "unaffected_forecast_rms": 1.734395061475176e-15,
+        "whole_forecast_rms": 0.27076491208766906
+      },
+      "condition": "freeze",
+      "run_id": "evaluation-6207-freeze",
+      "seed": 6207,
+      "target_ids": [
+        "c005"
+      ]
+    }
+  ],
+  "probes_sha256": "c2d2831ecbd625035b104d74e7d2399ff99935098e418722295d765456e0ceac",
+  "schema_version": 1,
+  "source_revision": "a0450ffdf2d640493fe7bc51e25bd56a3036184b",
+  "stage": "outcomes_revealed",
+  "summary": {
+    "all_preregistered_checks_pass": true,
+    "by_condition": {
+      "displace": {
+        "supported_runs": 8,
+        "total_runs": 8
+      },
+      "freeze": {
+        "supported_runs": 8,
+        "total_runs": 8
+      },
+      "kick": {
+        "supported_runs": 8,
+        "total_runs": 8
+      },
+      "none": {
+        "supported_runs": 8,
+        "total_runs": 8
+      }
+    },
+    "interpretation": "The observation-only learner recovered the passive local law and predicted state damage, while persistent mechanism loss falsified whole-system restoration. This calibrates a proposal/falsification seam; it does not discover agency or an unexpected bowl goal."
+  }
+}
