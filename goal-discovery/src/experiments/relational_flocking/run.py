@@ -132,7 +132,9 @@ def run_evaluation(run_id: str = DEFAULT_RUN_ID) -> Path:
 
 def present_discovery(run_id: str = DEFAULT_RUN_ID) -> Path:
     """Regenerate the proposal-only report without rerunning NetLogo."""
-    output = io.run_dir(run_id, exact=True)
+    output = ROOT / "results" / run_id
+    if not output.is_dir():
+        raise FileNotFoundError(f"discovery evidence does not exist: {output}")
     candidate = json.loads((output / "candidate.json").read_text(encoding="utf-8"))
     render_discovery(output, candidate)
     write_discovery_result(output, candidate)
