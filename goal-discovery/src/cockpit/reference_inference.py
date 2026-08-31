@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pandas as pd
 import panel as pn
-from bokeh.models import ColumnDataSource, Span
+from bokeh.models import ColumnDataSource
 from bokeh.plotting import figure
 
 from src.experiments.reference_inference.model import assess
@@ -143,13 +143,12 @@ def build_reference_inference(directory: Path) -> pn.Column:
             legend_label="Affine forecast · frozen before challenge",
         )
         if candidate.get("reference") is not None:
-            plot.add_layout(
-                Span(
-                    location=candidate["reference"],
-                    dimension="width",
-                    line_dash="dotted",
-                    line_color="#d97706",
-                )
+            # A data renderer participates in auto-ranging; an annotation Span
+            # does not, and previously hid the reference outside the viewport.
+            plot.line(
+                [24, 120], [candidate["reference"]] * 2,
+                line_dash="dotted", line_color="#d97706", line_width=2,
+                legend_label="Inferred reference · not an achieved state",
             )
         source = ColumnDataSource(data={"tick": [], "temperature": []})
         plot.line(
