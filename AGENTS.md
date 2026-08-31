@@ -20,6 +20,8 @@ not the destination. Do not describe this project as "sorting research."
 2. Read the [charter](goal-discovery/docs/PROJECT.md) before strategic claims;
    the [current plan](goal-discovery/docs/plans/current_research_plan.md) owns
    priorities, not historical plans or a dashboard's cached status.
+   For the next experiment, use that plan's selected evidence and counterexample
+   links before expanding into the full research history.
 3. Follow the task's topic to native evidence/code and the applicable subtree
    instructions below. Read mandatory context; do not load the entire archive.
 4. State the checkout/revision and any local changes before claiming what runs.

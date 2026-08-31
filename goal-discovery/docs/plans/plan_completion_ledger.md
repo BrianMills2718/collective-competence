@@ -72,20 +72,13 @@ The outcome-backcasting protocol is a historical pilot, not new company policy.
 The [company-planning reflection](../audits/2026-08-29_company_planning_reflection.md)
 is evidence/proposal context, not the canonical ecosystem documentation policy.
 
-## Keep the documentation small
+## Maintenance authority
 
-- Amend the existing owner for an existing concern.
-- Add a file only for a distinct role or separately inspectable evidence.
-- Put short exploratory updates in the current plan until they earn durable synthesis.
-- Give current pages authority/lifecycle metadata and a route back to the wiki.
-- Archive by explicit status and successor link first; do not move whole trees
-  merely to make directory counts smaller.
-- Preserve raw evidence and source briefs. Generated views do not own conclusions.
-- When machinery becomes available, adopt the owning ecosystem tooling; do not
-  build a project-local substitute now.
-
-Only the current reading path needs to be short. A large, well-indexed evidence
-history is not itself documentation failure.
+Use [documentation instructions](../CLAUDE.md) and the wiki's
+[maintenance loop](../../../roadmap/workflow.md#maintenance-loop).
+This ledger owns lifecycle dispositions, not a second documentation policy.
+Keep original evidence at its native path; change a disposition only after
+the shared lifecycle procedure. File count alone does not justify removal.
 
 ## Historical consolidation receipt — documentation commit 9b8666a
 

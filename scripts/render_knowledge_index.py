@@ -1,8 +1,9 @@
 """Render the wiki's document catalog and experiment table; never infer findings."""
-from pathlib import Path
 import argparse
 import json
+import re
 import subprocess
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ("roadmap/artifacts.md", "roadmap/experiments.md")
@@ -31,6 +32,15 @@ def render():
     """Validate declared records and return deterministic reading projections."""
     data = json.loads((ROOT / "roadmap/experiments.json").read_text(encoding="utf-8"))
     records = data["experiments"]
+    families = data["families"]
+    if not isinstance(families, list) or not families or any(
+        not isinstance(family, str) or not re.fullmatch(r"[a-z]+(?:-[a-z]+)*", family)
+        for family in families
+    ):
+        raise ValueError("Families must be a nonempty list of lowercase slug names")
+    if len(set(families)) != len(families):
+        raise ValueError("Duplicate declared experiment family")
+    by_family = {family: [] for family in families}
     ids, coverage = set(), {}
     for record in records:
         ident = record["id"]
@@ -41,6 +51,9 @@ def render():
             raise ValueError(f"Unknown review status: {ident}")
         if record["review_status"] == "not_reviewed" and record.get("outcome") is not None:
             raise ValueError(f"Unreviewed record must not assert an outcome: {ident}")
+        if record["family"] not in by_family:
+            raise ValueError(f"Undeclared experiment family: {ident}: {record['family']}")
+        by_family[record["family"]].append(record)
         for path in record["artifacts"]:
             target = (ROOT / path).resolve()
             if not target.is_relative_to(ROOT) or not target.exists():
@@ -85,17 +98,37 @@ def render():
         "review of cited results, not a new execution or confirmation. Unreviewed records",
         "carry no inferred scientific outcome. Costs remain unknown unless measured.",
         "",
-        "| Experiment / family | Question | Review | Outcome / disposition | Native evidence |",
-        "|---|---|---|---|---|",
+        (
+            f"**{len(records)} records: "
+            f"{sum(r['review_status'] == 'result_reviewed' for r in records)} reviewed; "
+            f"{sum(r['review_status'] == 'not_reviewed' for r in records)} unreviewed.**"
+        ),
+        "",
+        "Browse by declared family. Counts describe documentation review coverage,",
+        "not scientific success or progress; historical dispositions are not current assignments.",
+        "",
+        "| Family | Records | Reviewed | Unreviewed |",
+        "|---|---:|---:|---:|",
     ]
-    for r in records:
-        refs = "; ".join(f"[{Path(p).stem}](../{p})" for p in r["artifacts"])
-        result = r.get("outcome") or "Not assessed"
-        disposition = r.get("disposition") or "Review before use"
+    for family, items in by_family.items():
+        reviewed = sum(r["review_status"] == "result_reviewed" for r in items)
         table.append(
-            f"| {cell(r['id'])} / {cell(r['family'])} | {cell(r['question'])} | "
-            f"{cell(r['review_status'])} | {cell(result)}; {cell(disposition)} | {refs} |"
+            f"| [{family}](#{family}) | {len(items)} | {reviewed} | {len(items) - reviewed} |"
         )
+    for family, items in by_family.items():
+        table.extend([
+            "", f"## {family}", "",
+            "| Experiment | Question | Review | Outcome / disposition | Native evidence |",
+            "|---|---|---|---|---|",
+        ])
+        for r in items:
+            refs = "; ".join(f"[{Path(p).stem}](../{p})" for p in r["artifacts"])
+            result = r.get("outcome") or "Not assessed"
+            disposition = r.get("disposition") or "Review before use"
+            table.append(
+                f"| {cell(r['id'])} | {cell(r['question'])} | "
+                f"{cell(r['review_status'])} | {cell(result)}; {cell(disposition)} | {refs} |"
+            )
     table.extend(["", "Interpretation and counterevidence live in the linked research synthesis and native results.", ""])
     return {OUTPUTS[0]: "\n".join(catalog), OUTPUTS[1]: "\n".join(table)}
 
