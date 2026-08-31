@@ -12,6 +12,7 @@ from src.experiments.ants_relational_coupling.model import (
     validate_observations,
 )
 from src.experiments.ants_relational_coupling.run import (
+    AGENT_METRIC,
     BRANCH_TICK,
     ERASE_END,
     EVALUATION_SEEDS,
@@ -106,6 +107,7 @@ def test_behaviorspace_keeps_discovery_clean_and_erases_after_each_standard_step
     assert experiment is not None
     assert len(experiment.findall("./metrics/metric")) == 3
     assert len(experiment.findall("./constants/enumeratedValueSet")) == 3
+    assert AGENT_METRIC.endswith(")] of turtles")
     evaluation = evaluation_xml((10.0, 15.0)).decode()
     assert "p14-evaluation-sham" in evaluation
     assert "p14-evaluation-erase" in evaluation

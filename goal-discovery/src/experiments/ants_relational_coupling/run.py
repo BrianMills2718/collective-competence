@@ -36,7 +36,7 @@ PROTOCOL = Path("docs/hypotheses/p14_ants_relational_coupling.md")
 AGENT_METRIC = (
     "[(list who xcor ycor heading (ifelse-value (color = red) [0] [1]) "
     "[chemical] of patch-here chemical-scent-at-angle 0 "
-    "chemical-scent-at-angle 45 chemical-scent-at-angle -45) of turtles]"
+    "chemical-scent-at-angle 45 chemical-scent-at-angle -45)] of turtles"
 )
 POPULATION_METRIC = "count turtles"
 AGENT_PATTERN = re.compile(
