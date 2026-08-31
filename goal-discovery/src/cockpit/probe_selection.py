@@ -100,6 +100,8 @@ def build_probe_selection(directory: Path) -> pn.Column:
         outcome = outcomes[fixture.value]["probes"][probe.value]
         forecasts = proposed["selection"]["forecasts"][probe.value]
         visible = visible_evidence(outcome["actual"], forecasts, player.value)
+        if not outcome["integrity"]:
+            visible = {**visible, "decision": "unavailable", "rmse": {}}
         end_prefix = proposed["prefix"][-1]
         actual_source.data = {
             "tick": [end_prefix["tick"]] + list(range(25, 25 + player.value)),
@@ -161,7 +163,7 @@ def build_probe_selection(directory: Path) -> pn.Column:
         )
         final_verdict.object = (
             "**Retrospective: all 64 probe observations (ticks 25–88).**\n\n"
-            f"Fixed-horizon support: **{outcome['classification']['decision']}**. "
+            f"Fixed-horizon support: **{outcome['classification']['decision'] if outcome['integrity'] else 'unavailable'}**. "
             f"RMSE: `{json.dumps(outcome['classification']['rmse'], sort_keys=True)}`.\n\n"
             f"Recorded integrity: `{json.dumps(outcome['integrity'], sort_keys=True)}`. "
             "A failed integrity check prevents interpreting the fixture as a validated instrument."

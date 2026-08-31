@@ -6,6 +6,8 @@ sources:
   - ../PROJECT.md
   - ../hypotheses/composition_exploration_results.md
   - ../hypotheses/p10_candidate_relations_results.md
+  - ../hypotheses/p11_probe_selection_results.md
+  - ../hypotheses/p12_reference_inference.md
 ---
 # Current research plan
 
@@ -85,14 +87,28 @@ contract. For wider context, use the [calibration synthesis](../../../roadmap/re
 not the complete archive. These records guide a new test; repeating a known
 contrast alone is not unexpected-goal discovery.
 
-## Next decision: justify a nonredundant inquiry before another batch
+## Active slice: infer a reference, then try to falsify the model
 
-Identify a live research ambiguity for which different contexts really require
-different informative probes. Ground it in the existing mechanism/observation
-questions, not fabricated selector-friendly cases. Check candidate predictions
-analytically first; if one fixed probe suffices, use it and move to the next gap.
-Only then freeze a new comparison, including a strong fixed baseline and budget.
-No automatic broad campaign, new simulator, or generic agent framework follows.
+Strategic audit: requiring the next experiment to justify adaptive selection
+would optimize a benchmark instead of discovery. The immediate bottleneck is
+the amount of interpretation supplied by the researcher. Retain a fixed probe
+when it suffices; spend this slice reducing P11's aligned-target and 50:50-split
+assumptions. Do not construct contexts merely to make a selector win.
+
+[P12 protocol](../hypotheses/p12_reference_inference.md) asks whether the
+temperature-only learner can separate the observed attractor, passive equilibrium,
+and candidate feedback reference. Use intact and actuator-disabled trajectories
+from the unchanged thermostat to learn coefficients; freeze candidate equations
+before small-load and saturating-load challenges. Passive and inadequate fits
+must abstain. The supplied affine family remains an explicit limitation.
+
+Acceptance: authentic NetLogo observations through the existing adapter, frozen
+candidate/forecast bytes before six challenge runs, raw-CSV audit, and an
+interactive view separating cutoff-limited evidence from final conclusions.
+No positive finding is required; a failure must change the next action.
+Audit repairs in this slice include retained missing-output failure records and
+suppression of supported verdicts when fixture integrity fails. Preserve P11
+historical bytes and reproduce that study at its recorded revision.
 
 The longer-term gap remains proposing useful patterns outside narrow
 researcher-supplied families and selecting informative interventions across
