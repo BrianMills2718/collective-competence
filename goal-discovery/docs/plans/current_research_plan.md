@@ -4,223 +4,105 @@ authority: canonical
 lifecycle: active
 sources:
   - ../PROJECT.md
-  - ../audits/2026-08-30_p9_c1_blind_sorting_ui.md
+  - ../hypotheses/composition_exploration_results.md
 ---
 # Current research plan
 
-[Development wiki](../../../roadmap/README.md) ·
-[Binding objective](../PROJECT.md) · [Use the laboratory](../../README.md)
+[Unified wiki](../../../roadmap/README.md) · [Charter](../PROJECT.md) ·
+[Research synthesis](../../../roadmap/research.md) · [Experiments](../../../roadmap/experiments.md)
 
-This file owns **current priorities and the next checkpoint**, not the full
-history. The [charter](../PROJECT.md) owns the scientific destination and
-vocabulary. Historical phase IDs are provenance, not a second task queue.
+## Destination and current gap
 
-## Current position
+Build an open-ended laboratory that discovers unexpected goals and competencies
+across diverse systems. Substrates, interventions, representations, and dynamic
+visual analytics are enabling capabilities; no particular specimen defines the goal.
 
-The destination is open-ended discovery of unexpected goals and competencies
-across diverse systems. A reusable run/observe/intervene/compare apparatus and
-shared visual analytics enable that work.
-
-| Capability | Evidence boundary |
+| What exists | What this does not yet establish |
 |---|---|
-| Elementary sorting and passive/controller calibrations | Existing model-specific implementations and experiment records |
-| Local P9 sorting workspace | Observed configure/replay/matched-intervention UI; hand-authored candidate interpretations |
-| Automated candidate discovery | Not demonstrated by the P9 ledger |
-| General substrate reuse | Not yet established across the required diversity |
-| Reciprocal evolving environment | Not represented by the current sorting specimen |
-| Common visual analytics | Required reusable capability; several views exist, general coverage unverified |
+| Sorting replication and passive/controller calibrations | A general discovery method or universal substrate |
+| Model-specific intervention and analysis pipelines | Meaningful analytics for every possible substrate |
+| Local P8/P9 configure/replay/matched-comparison UI | Automated discovery; its candidate interpretations are authored |
+| Optional committed composition preview and two-model comparison | Production value from categorical execution or reciprocal environment modeling |
+| Research evidence and linked wiki | Complete semantic review of every record, or independently rerun results |
 
-The [P9 audit](../audits/2026-08-30_p9_c1_blind_sorting_ui.md) is a supplied
-local-work receipt. It reports checks performed during that implementation
-session; this documentation cleanup does not independently revalidate those
-scientific or UI claims.
+The [research landscape](../../../roadmap/research.md) owns cross-experiment
+synthesis. Native results own measurements. The
+[evidence index](plan_completion_ledger.md) owns document lifecycle/navigation.
 
-## Completed bounded exploration: executable composition
+## Current enabling checkpoint: instruction-first knowledge integration
 
-Authorized in the project conversation on 2026-08-30; execution authority is
-`goal:01a04c08-4944-7b61-976c-4993f557c22c`. This temporary substrate experiment
-supports the north star; it does not replace candidate discovery with game theory.
+1. First-pass root instructions state the full goal, mandatory wiki entry, and
+   explicit subtree reads; canonical CLAUDE generates the Codex-facing AGENTS file.
+2. Integrate question-led synthesis, structured experiment records, and a complete
+   document catalog into the same wiki. Mark unreviewed records instead of inferring findings.
+3. Independently test retrieval of goal, evidence limits, invalidated claims,
+   current priorities, and local rules. Revise the instructions from that review.
+4. Deliver a verified documentation revision with an explicit checkout boundary.
+   Do not silently overwrite or merge the original uncommitted runtime.
 
-**Question:** does an off-the-shelf categorical composition library make a real
-environment/intervention experiment easier, safer, or more reusable than ordinary
-typed Python composition, without changing the simulator's semantics?
+Completion means a fresh agent can find and correctly explain these answers
+from one entrypoint. File counts, valid links, or generated pages alone do not pass.
+This is an enabler for the next scientific question, not discovery progress itself.
 
-Execution lane: `categorical-exploration`, based on documentation commit `9b8666a`
-and published simulation base `6cf34d8`. The dirty canonical P9 checkout is not
-the implementation base and will not be modified or merged during this sprint.
-The existing sorting kernel is reused unchanged. Its fixed-line cell interaction
-rules are NOT re-expressed as independent composable cell games in this pilot.
+## Next scientific checkpoint: candidate proposal and a distinguishing test
 
-### Outcome-first view (pre-implementation design)
+**Question:** can an inspectable proposal procedure suggest a testable pattern
+not supplied as an explicit goal, and can an intervention distinguish it from
+an invariant, passive convergence, or incidental correlation?
 
-Use a candidate tab in the existing Panel cockpit, not a new production UI:
+- Declare the executable substrate, focal system/environment boundary, allowed
+  observations, and every supplied feature/prior. Use the cheapest appropriate
+  existing specimen; sorting is an option, not a required permanent focus.
+- Compare candidate interpretations with simple nulls and authored baselines.
+- Choose one intervention for discrimination, not animation or metric improvement.
+- Freeze evaluation and leakage checks before using untouched cases.
+- Show provenance, trajectory/contrast, counterexample, uncertainty, and decision
+  through the existing visual apparatus.
 
-```text
-Question / evidence grade / selected system and environment
-Seed + initial conditions + intervention time + Run comparison
-Executable wiring: context -> existing transition -> permitted readout
-Matched playback: original environment | changed environment | null
-Linked disorder/progress traces + explicit intervention marker
-Checks: direct vs composed / regrouping / wiring rejection / overhead
-Decision and counterevidence / provenance / known missing capabilities
-```
+A pass requires evidence beyond restating a supplied objective. Failure or
+inability to discriminate is a useful result. Start with one 60–90 minute learning
+sprint after the implementation base is explicit; narrow the experiment if setup
+dominates. Do not prepay a universal simulator, feature engine, or dashboard.
 
-Show cell VALUES as well as identity in sorting playback. A playhead controls
-the display only; batch summaries are explicitly full-run, not online inference.
-Explain scheduler context, freezing, supplied metrics and null models beside
-the views. Tooltips supplement rather than hide the main scientific limits.
+## Version/integration boundary
 
-### Bounded sequence and predeclared decision criteria
+The documentation baseline is `f83529b` on categorical-exploration, including
+documentation consolidation `9b8666a` and published simulation base `6cf34d8`.
+The original main checkout remains at `5810969` with uncommitted P8/P9 and later
+research work. These are recorded inspection facts, not permanent runtime IDs.
 
-1. Survey at most three serious packages against the ordinary-code baseline.
-   Distinguish full open games (strategies, play, coplay, best responses) from
-   typed diagrams and dynamical interfaces. Review primary sources and licenses.
-2. Smoke-test pinned DisCoPy 1.2.2 (BSD-3-Clause), then evaluate diagrams into
-   real Python transition functions. Fall back or defer if setup becomes the work.
-3. Compare identical immutable state/RNG snapshots in direct Python and diagram
-   execution. Include an ordinary validated pipeline baseline, so basic type
-   checking is not misleadingly counted as a uniquely categorical benefit.
-4. Run baseline, scheduler-context replacement, state perturbation, and freeze
-   controls. Include random-swap or inactive nulls. Use fixed seeds and settings
-   and exact per-step state equality for semantic fidelity, not similar plots.
-5. Check identity/regrouping and independent parallel composition on disjoint
-   state; reject invalid wiring before execution. No instantaneous feedback or
-   hidden shared random generator. These are finite checks, not a general proof.
-6. Test a second existing simple substrate only if the same interface genuinely
-   transfers cheaply. Record what is reused versus newly written.
-7. Measure run/build overhead, adapter size and practical expressibility.
-   Implementation size is a cost signal, never the progress target.
-8. Inspect the actual desktop entrypoint and its first comparison; audit the
-   evidence and retain a recoverable local commit with viewing instructions.
+Before integrating runtime work, preserve those changes, compare exact revisions,
+and validate the selected implementation. Documentation organization does not
+authorize silently publishing unrelated code. `research_state.yaml` in this
+documentation lineage is historical; its old active-sprint fields are not priorities.
 
-Correctness gate: no unexplained trajectory mismatch on the declared suite;
-no mutation of the shared input snapshot; incompatible wiring fails visibly;
-controls and limitations remain visible. Any mismatch blocks an adoption claim.
+## Completed decisions: reopen only with new justification
 
-Value gate: adopt the optional library only if it demonstrably enables a needed
-experiment or reduces construction/maintenance work beyond the validated Python
-baseline, with acceptable measured overhead. Keep explicit interfaces but defer
-the library if it only redescribes a short pipeline. Reject a fit requiring
-supplied goals to be mislabeled as discovered. Negative findings complete the sprint.
+- [Composition exploration](../hypotheses/composition_exploration_results.md):
+  execution fidelity passed on its declared suite; defer production adoption
+  because a needed experiment or maintenance saving was not demonstrated.
+- [Earlier consolidation and experiment history](plan_completion_ledger.md):
+  preserve source lineage and original evidence. Earlier completed plans do not
+  create current assignments.
+- [Research landscape](../../../roadmap/research.md): distinguish failed scientific
+  predictions from invalid experiments and measurement artifacts; neither implies
+  the laboratory's open-ended goal should be abandoned.
 
-Budget: research/setup is bounded to one focused spike; prioritize the first real
-comparison and reassess at 45-minute boundaries. Work autonomously to the decision
-checkpoint, not to exhaust the night. No paid runs, external publication, app
-migration, general framework rewrite, company-policy rollout, or dirty-main merge.
+## Continue, revise, or stop
 
-Outputs live in the existing experiment/test directories, one separately
-inspectable evidence note, and generated run data. The current plan owns priority;
-the wiki only links it. Discovery claims remain deferred: metric families and
-calibration objectives in this comparison are hand-supplied.
+- Discriminating candidate signal -> test fresh cases and reliability.
+- Restatement of supplied metrics -> withdraw the discovery claim and revise.
+- A concrete unexpressible experiment -> add the smallest substrate capability,
+  then return to the same question.
+- Repeated contract used by a second system -> evaluate shared abstraction.
+- No decision-changing value -> stop that path, retain the evidence and reopening condition.
 
-Status: the bounded research and implementation checkpoint is complete.
-[Evidence, limitations and decision](../hypotheses/composition_exploration_results.md):
-144 configurations / 34,992 state triplets agree exactly across native, validated
-Python and DisCoPy paths. Sorting and passive bowl reuse the same composition
-machinery. Focused checks: 67 passed, 1 unrelated historical-data skip.
+No UI maturity ladder, generic representation tournament, or categorical theory
+programme becomes the research agenda by default. Historical macro-scale
+qualification rules are scoped experiments, not prerequisites for every competency.
 
-**Decision: defer production adoption; retain the optional prototype and explicit
-interfaces.** Both approaches express all tested experiments and reject bad
-connections; neither discovers goals or validates scientific meaning. No concrete
-needed experiment or maintenance saving justified the new runtime. The next
-priority remains candidate proposal and a discriminating test, not more theory.
+## Maintenance
 
-The [desktop preview instructions](../../README.md#optional-composition-exploration)
-describe verified auto-runs and timeline scrubbing. Mouse-driven Play/pause could
-not be verified through browser automation; that acceptance limit is explicit in
-the evidence note. A rendered-system-switch compatibility defect was fixed.
-
-Revisit categorical tooling only against a concrete unmet composition requirement
-such as reciprocal environment interfaces or coupled subsystem/coarse-graining
-experiments. Keep it optional and isolated until then. Reconcile the existing
-dirty P8/P9 implementation under separate integration authority before carrying
-any prototype changes into main; no merge was performed by this sprint.
-
-## Completed increment: documentation consolidation
-
-Deliver a short reading path, recover the foundational specification lineage,
-state one owner per current concern, and separate history from present decisions.
-No new documentation engine, universal simulator, or dashboard is required.
-
-Acceptance:
-
-- A reader can find objective, current gap, next action, and evidence from one index.
-- Original specifications and unique removed prose remain accessible.
-- Current pages do not direct the reader to already-completed P8 work.
-- Shared analytics are defined by questions, required inputs, and claim limits.
-- Local-only implementation and published-code status are not conflated.
-
-Result: the compact wiki and concern-owned pages are implemented. All 91 local
-links across 12 current entry/authority pages resolved; three supplied source
-bodies matched their originals after line-ending normalization. Existing cockpit
-checks passed (5 passed, 1 skipped because optional result data is absent).
-No simulation or scientific-result code changed.
-
-Learning: recover and reconcile the foundational source documents before turning
-a calibration milestone into the programme's objective. Additional document
-machinery is not a prerequisite for correct ownership and a useful reading path.
-
-## Immediate integration gap
-
-The original working checkout contains uncommitted P8/P9 code and later
-research records beyond this documentation branch's published base.
-Reconcile that work in a separately scoped integration step before advertising
-a reproducible P9 release. Do not overwrite or silently publish those changes
-as a side effect of organizing documentation.
-
-This branch retains the older cockpit state as a **historical snapshot**.
-Its embedded active-sprint and next-test fields do not govern new work.
-The UI's status projection should be reconciled with the accepted implementation
-at that integration boundary, without changing historical experiment outcomes.
-
-## Next after this exploration: candidate proposal, then a discriminating test
-
-Once the implementation base is explicit, run one bounded calibration:
-
-**Question:** can a declared proposal procedure suggest a testable pattern not
-supplied as an explicit goal, and can a chosen intervention distinguish it from
-an invariant, passive convergence, or an incidental correlation?
-
-1. Freeze allowed observations and record every hand-supplied feature or prior.
-2. Use a modest, inspectable proposal mechanism; no universal search engine.
-3. Compare with hand-authored and simple null explanations.
-4. Choose one intervention for its ability to separate live hypotheses.
-5. Test on untouched initial conditions or challenge cases.
-6. Show the proposal, evidence, counterexample, and decision through the existing
-   linked visual surface.
-
-A pass requires traceable candidate provenance and evidence beyond restating
-the supplied objective. Failure or inability to distinguish is an acceptable
-result. Freeze exact metrics and acceptance thresholds before evaluating
-held-out cases; this page does not predeclare success.
-
-Initial budget: one 60–90 minute learning sprint with a real artifact early.
-If data preparation dominates, narrow the experiment; do not prepay a general
-framework. Checking should target leakage, matched comparisons, and the actual
-decision—not every possible future failure.
-
-## Conditional branches
-
-- A proposal produces a discriminating signal: test reliability on fresh cases.
-- It merely restates manual metrics: stop the discovery claim and revise the method.
-- A needed experiment cannot be expressed: add the smallest missing substrate
-  capability, then return to the same scientific question.
-- A repeated analysis contract is needed by a second system: test reuse there
-  before extracting a general abstraction.
-
-## Stop and defer
-
-- No more UI expansion merely to fill a maturity ladder.
-- No automatic goal/competence promotion from low entropy or convergence.
-- No retuning old results to pass a failed gate.
-- No broad simulator rewrite or speculative reciprocal world.
-- No assumption that the failed historical macro-scale route forbids every
-  elementary competency experiment.
-- No company-wide policy rollout or new documentation machinery in this increment.
-
-## Evidence and history
-
-Use the [evidence/lifecycle index](plan_completion_ledger.md) for source records.
-The [previous long plan](../archive/pre-consolidation-research-plan.md) remains
-historical. Reopen the relevant experimental protocol and result before an
-exact scientific claim; this current plan does not supersede their measurements.
+Update this page for priorities and integration state, not long completed-run
+narratives. Historical detail remains in linked records and prior Git revisions;
+the pre-consolidation long plan remains [recoverable history](../archive/pre-consolidation-research-plan.md).

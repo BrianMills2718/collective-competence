@@ -1,0 +1,718 @@
+{
+  "schema_version": 1,
+  "role": "experiment-navigation-register",
+  "authority": "canonical_for_inventory_metadata_only",
+  "path_base": "repository_root",
+  "reviewed_on": "2026-08-31",
+  "scope": "All docs/hypotheses Markdown artifacts and directly associated plan-based protocols, qualification and tooling studies. Not a registry of every plan or audit.",
+  "interpretation_owner": "roadmap/research.md",
+  "rules": {
+    "unit": "One experimental question/protocol sequence per record; protocol and results are artifacts of that record. Separate confirmation/revised tests keep distinct IDs.",
+    "questions": "Short routing labels; native protocols own hypotheses, thresholds and exact questions.",
+    "review_status": "result_reviewed means selected result/decision prose was read; not independent execution, raw-data verification or full protocol review. not_reviewed forbids an inferred verdict.",
+    "outcomes": "Native result or decision records own verdicts. outcome_source identifies the classification source; synthesis and corrections belong to the linked wiki.",
+    "cost": "No comparable effort measures extracted. Unknown is not zero. Protocol time caps are not actual elapsed effort.",
+    "dispositions": "Historical experiment-scoped dispositions, not current assignments. Current plan alone owns priorities."
+  },
+  "families": [
+    "sorting",
+    "calibration",
+    "representation",
+    "substrate-reuse",
+    "biological-evidence",
+    "composition"
+  ],
+  "experiments": [
+    {
+      "id": "001",
+      "family": "sorting",
+      "question": "What is the initial sorting calibration protocol?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/001_sorting.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "001-validation",
+      "family": "sorting",
+      "question": "How does the sorting measurement instrument behave under its validation revisions?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/001_sorting_validation_results.md",
+        "goal-discovery/docs/hypotheses/001_sorting_validation.md",
+        "goal-discovery/docs/hypotheses/001_sorting_validation_v2.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "001-confirmation",
+      "family": "sorting",
+      "question": "Does the published freezing ranking reproduce and do our proposed measurements survive confirmation?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/001_sorting_confirmation_results.md",
+        "goal-discovery/docs/hypotheses/001_sorting_confirmation.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "mixed",
+      "outcome_source": "goal-discovery/docs/hypotheses/001_sorting_confirmation_results.md",
+      "disposition": "retain_directional_replication_and_partial_quantitative_match; read_002_correction; withdraw_R7_ordering",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "002",
+      "family": "calibration",
+      "question": "Does the same instrument mistake passive convergence for a stronger competency?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/002_bowl_results.md",
+        "goal-discovery/docs/hypotheses/002_bowl.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "mixed",
+      "outcome_source": "goal-discovery/docs/hypotheses/002_bowl_results.md",
+      "disposition": "narrow_001_C2; retain_passive_control; persistence_measure_failed",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "003",
+      "family": "calibration",
+      "question": "Can the instrument distinguish a supplied feedback controller from passive relaxation?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/003_thermostat.md",
+        "goal-discovery/docs/hypotheses/003_thermostat_results.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "003B",
+      "family": "calibration",
+      "question": "Can a hidden scalar target be inferred and its active defense distinguished from passive return?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/003b_blind_target_inference.md",
+        "goal-discovery/docs/hypotheses/003b_blind_target_inference_results.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "pass_declared_gates",
+      "outcome_source": "goal-discovery/docs/hypotheses/003b_blind_target_inference_results.md",
+      "disposition": "retain_constrained_authored_target_calibration",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "004",
+      "family": "calibration",
+      "question": "Does recovery depend on redundant routes and active reallocation?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/004_compensation.md",
+        "goal-discovery/docs/hypotheses/004_compensation_results.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "pass_declared_gates",
+      "outcome_source": "goal-discovery/docs/hypotheses/004_compensation_results.md",
+      "disposition": "retain_engineered_compensation_calibration",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "005",
+      "family": "calibration",
+      "question": "Does retained history cause improvement across repeated plant challenges?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/005_adaptation_results.md",
+        "goal-discovery/docs/hypotheses/005_adaptation.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "pass_declared_gates",
+      "outcome_source": "goal-discovery/docs/hypotheses/005_adaptation_results.md",
+      "disposition": "retain_deterministic_parameter_adaptation_calibration",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P2-001",
+      "family": "representation",
+      "question": "Does a predictive goal model improve the declared prediction task?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p2_001_predictive_goal_model.md",
+        "goal-discovery/docs/hypotheses/p2_001_predictive_goal_model_results.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P2-001-v2",
+      "family": "representation",
+      "question": "Does the revised predictive goal model pass its declared comparison?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p2_001_predictive_goal_model_v2_results.md",
+        "goal-discovery/docs/hypotheses/p2_001_predictive_goal_model_v2.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P2-002",
+      "family": "representation",
+      "question": "Do capability-aware macros predict attainment beyond intervention labels?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p2_002_distributed_macro_prediction_results.md",
+        "goal-discovery/docs/hypotheses/p2_002_distributed_macro_prediction.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "no_go",
+      "outcome_source": "goal-discovery/docs/hypotheses/p2_002_distributed_macro_prediction_results.md",
+      "disposition": "do_not_promote_or_generate_size24_confirmation",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P2-002B",
+      "family": "representation",
+      "question": "Do representations predict outcome within intervention strata?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p2_002b_within_intervention_prediction_results.md",
+        "goal-discovery/docs/hypotheses/p2_002b_within_intervention_prediction.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P2-002C",
+      "family": "representation",
+      "question": "Does relational capability resolve the prediction screen?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p2_002c_relational_capability_screen.md",
+        "goal-discovery/docs/hypotheses/p2_002c_relational_capability_screen_results.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P2-003",
+      "family": "sorting",
+      "question": "Which immovable barriers determine recovery reachability?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p2_003_barrier_reachability_results.md",
+        "goal-discovery/docs/hypotheses/p2_003_barrier_reachability.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P2-004",
+      "family": "sorting",
+      "question": "Does passive-cell relative order determine moveable-damage reachability?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p2_004_moveable_order_reachability_results.md",
+        "goal-discovery/docs/hypotheses/p2_004_moveable_order_reachability.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "pass_declared_gates",
+      "outcome_source": "goal-discovery/docs/hypotheses/p2_004_moveable_order_reachability_results.md",
+      "disposition": "retain_size6_bubble_rule_mechanical_constraint",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P2-005",
+      "family": "sorting",
+      "question": "Do algotypes differ substantially in realizing available routes?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p2_005_opportunity_adjusted_performance_results.md",
+        "goal-discovery/docs/hypotheses/p2_005_opportunity_adjusted_performance.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "no_go",
+      "outcome_source": "goal-discovery/docs/hypotheses/p2_005_opportunity_adjusted_performance_results.md",
+      "disposition": "close_historical_opportunity_adjusted_sorting_line; no_size5_confirmation",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P3-001",
+      "family": "substrate-reuse",
+      "question": "Does standard Flocking provide interpretable perturbation trajectories?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p3_001_flocking_spike_results.md",
+        "goal-discovery/docs/hypotheses/p3_001_flocking_spike.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "adoption_pass",
+      "outcome_source": "goal-discovery/docs/hypotheses/p3_001_flocking_spike_results.md",
+      "disposition": "retain_generator_instrument_only; interpret_with_P3-002",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P3-002",
+      "family": "substrate-reuse",
+      "question": "Which local or global flock representation recovers after perturbation?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p3_002_flocking_representation_discrimination_results.md",
+        "goal-discovery/docs/hypotheses/p3_002_flocking_representation_discrimination.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "no_go",
+      "outcome_source": "goal-discovery/docs/hypotheses/p3_002_flocking_representation_discrimination_results.md",
+      "disposition": "close_tested_global_representation_claim",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P3-003",
+      "family": "substrate-reuse",
+      "question": "Does default Fireflies provide a synchronized loss-and-recovery testbed?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p3_003_fireflies_spike.md",
+        "goal-discovery/docs/hypotheses/p3_003_fireflies_spike_results.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "no_go",
+      "outcome_source": "goal-discovery/docs/hypotheses/p3_003_fireflies_spike_results.md",
+      "disposition": "close_default_configuration_spike",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P3-004",
+      "family": "substrate-reuse",
+      "question": "Does standard Slime provide an aggregation perturbation testbed?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p3_004_slime_spike.md",
+        "goal-discovery/docs/hypotheses/p3_004_slime_spike_results.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P3-005",
+      "family": "substrate-reuse",
+      "question": "Is Slime aggregation reconstruction interaction-dependent?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p3_005_slime_interaction_discrimination_results.md",
+        "goal-discovery/docs/hypotheses/p3_005_slime_interaction_discrimination.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P3-006",
+      "family": "substrate-reuse",
+      "question": "Does Slime return to a candidate band after both compression and dispersal?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p3_006_slime_bidirectional_target_results.md",
+        "goal-discovery/docs/hypotheses/p3_006_slime_bidirectional_target.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "no_go",
+      "outcome_source": "goal-discovery/docs/hypotheses/p3_006_slime_bidirectional_target_results.md",
+      "disposition": "stop_bidirectional_target_claim; preserve_earlier_reconstruction_evidence",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P4-001",
+      "family": "substrate-reuse",
+      "question": "Does standard Heatbugs provide interpretable recovery probes?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p4_001_heatbugs_spike.md",
+        "goal-discovery/docs/hypotheses/p4_001_heatbugs_spike_results.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P4-002",
+      "family": "calibration",
+      "question": "Can authored per-agent Heatbugs targets be inferred from identity and movement probes?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p4_002_heatbugs_blind_target_inference.md",
+        "goal-discovery/docs/hypotheses/p4_002_heatbugs_blind_target_inference_results.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "pass_declared_gates",
+      "outcome_source": "goal-discovery/docs/hypotheses/p4_002_heatbugs_blind_target_inference_results.md",
+      "disposition": "retain_micro_target_calibration; not_collective_goal_discovery",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P5-000",
+      "family": "representation",
+      "question": "Does a shared generic time-series pipeline transfer across sorting and thermostat tasks?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p5_000_representation_discovery_benchmark.md",
+        "goal-discovery/docs/hypotheses/p5_000_representation_discovery_benchmark_results.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "no_go",
+      "outcome_source": "goal-discovery/docs/hypotheses/p5_000_representation_discovery_benchmark_results.md",
+      "disposition": "do_not_promote_generic_tsfresh_pipeline",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P5-001",
+      "family": "substrate-reuse",
+      "question": "Does a field-derived network predict relocation performance beyond simple nulls?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p5_001_slime_mold_network_threshold_results.md",
+        "goal-discovery/docs/hypotheses/p5_001_slime_mold_network_threshold.md",
+        "goal-discovery/docs/plans/p5_001_reuse_survey.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "no_go",
+      "outcome_source": "goal-discovery/docs/hypotheses/p5_001_slime_mold_network_threshold_results.md",
+      "disposition": "retain_measurement_adapter_not_predictor; interpret_tradeoff_with_P5-002",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P5-002",
+      "family": "substrate-reuse",
+      "question": "Does the observed stability-plasticity direction reproduce across fresh seeds and relocation geometries?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p5_002_stability_plasticity_confirmation_results.md",
+        "goal-discovery/docs/hypotheses/p5_002_stability_plasticity_confirmation.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "no_go",
+      "outcome_source": "goal-discovery/docs/hypotheses/p5_002_stability_plasticity_confirmation_results.md",
+      "disposition": "withdraw_tradeoff_claim_and_close_standard_model_line",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P6-000",
+      "family": "biological-evidence",
+      "question": "Which mature phenomenon qualifies for the declared recovery benchmark?",
+      "artifacts": [
+        "goal-discovery/docs/plans/p6_000_phenomenon_qualification.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P6-001",
+      "family": "biological-evidence",
+      "question": "Does published neuromast local feedback support robust matched recovery calibration?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p6_001_neuromast_causal_calibration.md",
+        "goal-discovery/docs/hypotheses/p6_001_neuromast_causal_calibration_results.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "no_go_partial_endpoints",
+      "outcome_source": "goal-discovery/docs/hypotheses/p6_001_neuromast_causal_calibration_results.md",
+      "disposition": "close_M4377_without_tuning; preserve_partial_controls",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P6-002",
+      "family": "biological-evidence",
+      "question": "Can existing archives qualify before simulator installation?",
+      "artifacts": [
+        "goal-discovery/docs/plans/p6_002_archive_first_benchmark_contract.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "no_qualified_candidate",
+      "outcome_source": "goal-discovery/docs/plans/p6_002_archive_first_benchmark_contract.md",
+      "disposition": "close_this_archive_preflight; retain_missing_evidence_contract",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P6-003",
+      "family": "biological-evidence",
+      "question": "Does a published compact package supply independent recovery and control evidence?",
+      "artifacts": [
+        "goal-discovery/docs/plans/p6_003_compact_evidence_package_acquisition.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "no_selection",
+      "outcome_source": "goal-discovery/docs/plans/p6_003_compact_evidence_package_acquisition.md",
+      "disposition": "stop_this_benchmark_acquisition_route; not_project_wide_blocker",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P7-001",
+      "family": "representation",
+      "question": "Can a representation-family tournament identify a useful description?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p7_001_representation_tournament.md",
+        "goal-discovery/docs/hypotheses/p7_001_representation_tournament_results.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P7-002",
+      "family": "representation",
+      "question": "Does a prospectively selected representation improve untouched network prediction?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p7_002_prospective_network_selector_results.md",
+        "goal-discovery/docs/hypotheses/p7_002_prospective_network_selector.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "no_go",
+      "outcome_source": "goal-discovery/docs/hypotheses/p7_002_prospective_network_selector_results.md",
+      "disposition": "do_not_promote_selector_or_tune_opened_confirmation",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P7-003",
+      "family": "representation",
+      "question": "Does matching descriptive capacity make generic family selection stable?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p7_003_selector_complexity_audit_results.md",
+        "goal-discovery/docs/plans/p7_003_selector_complexity_audit.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "no_go",
+      "outcome_source": "goal-discovery/docs/hypotheses/p7_003_selector_complexity_audit_results.md",
+      "disposition": "retire_generic_family_selector; retrospective_only",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P7-004",
+      "family": "substrate-reuse",
+      "question": "Does trail-scale representation improve held-seed food-collection prediction after a cut?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p7_004_ants_trail_scale_results.md",
+        "goal-discovery/docs/plans/p7_004_ants_trail_scale_preregistration.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "integrity_failed",
+      "outcome_source": "goal-discovery/docs/hypotheses/p7_004_ants_trail_scale_results.md",
+      "disposition": "retire_run; score_table_diagnostic_only",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "composition-exploration",
+      "family": "composition",
+      "question": "Does categorical execution add practical value beyond validated Python without changing behavior?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/composition_exploration_results.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "fidelity_pass_value_gate_failed",
+      "outcome_source": "goal-discovery/docs/hypotheses/composition_exploration_results.md",
+      "disposition": "defer_production_runtime; retain_optional_prototype",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "X01",
+      "family": "substrate-reuse",
+      "question": "Does Mesa provide the required off-the-shelf exploratory interface?",
+      "artifacts": [
+        "goal-discovery/docs/plans/x01_mesa_spike.md",
+        "goal-discovery/docs/plans/x01_mesa_decision.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "X02",
+      "family": "substrate-reuse",
+      "question": "Does NetLogo support the proposed calibration and visualization workflow?",
+      "artifacts": [
+        "goal-discovery/docs/plans/x02_netlogo_calibration.md",
+        "goal-discovery/docs/plans/x02_netlogo_decision.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "X03",
+      "family": "substrate-reuse",
+      "question": "Which reusable visual-analysis approach fits the laboratory?",
+      "artifacts": [
+        "goal-discovery/docs/plans/x03_visual_analytics_decision.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P3-generator-survey",
+      "family": "substrate-reuse",
+      "question": "Which mature generator fits the declared next experiment?",
+      "artifacts": [
+        "goal-discovery/docs/plans/p3_generator_reuse_survey.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "P4-generator-selection",
+      "family": "substrate-reuse",
+      "question": "Which generator fits the next target-inference calibration?",
+      "artifacts": [
+        "goal-discovery/docs/plans/p4_generator_selection.md"
+      ],
+      "review_status": "not_reviewed",
+      "outcome": null,
+      "outcome_source": null,
+      "disposition": null,
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    }
+  ]
+}

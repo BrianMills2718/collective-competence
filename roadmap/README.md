@@ -6,69 +6,51 @@ sources:
   - ../goal-discovery/docs/PROJECT.md
   - ../goal-discovery/docs/plans/current_research_plan.md
 ---
-# Dynamical Laboratory — start here
+# Dynamical Laboratory — unified project wiki
 
-**The destination is open-ended discovery of unexpected goals and competencies.**
-Sorting is a calibration specimen, not the scope of the laboratory.
+**Goal: an open-ended laboratory that discovers unexpected goals and competencies
+across diverse systems.** Sorting is a calibration specimen, not the agenda.
 
-## Five-minute reading path
+Agent bootstrap: [root instructions](../CLAUDE.md). The wiki is the single
+project-knowledge entrypoint after those instructions. It integrates native
+sources instead of replacing their authority or requiring every file to be read.
 
-| Read | Question it answers | Authority |
-|---|---|---|
-| [1. Purpose and concepts](../goal-discovery/docs/PROJECT.md) | What are we trying to discover, and what do our terms mean? | Scientific charter |
-| [2. Current plan](../goal-discovery/docs/plans/current_research_plan.md) | What exists, what is missing, and what is the next learning checkpoint? | Current priorities |
-| [3. Use the laboratory](../goal-discovery/README.md) | How do I launch, watch, intervene, and interpret the current specimen? | Operator guide |
-| [4. Shared visual analytics](../goal-discovery/docs/plans/dynamic_experiment_artifact_standard.md) | Which views recur across runs, and when are they meaningful? | Artifact requirements |
-| [5. Evidence and history](../goal-discovery/docs/plans/plan_completion_ledger.md) | Which conclusions are supported and which documents are historical? | Lifecycle/navigation index |
-| [Original writeups](../goal-discovery/docs/sources/README.md) | Where did this agenda come from? | Source provenance |
+## Choose your question
 
-This is a linked development wiki, not another statement of project policy.
-Follow each link to the document that owns the answer.
+| Question | Read next |
+|---|---|
+| What are we trying to achieve; what do our terms mean? | [Charter: goal, substrate, boundaries, competencies](../goal-discovery/docs/PROJECT.md) |
+| What have we learned across systems, and what failed? | [Research landscape and counterevidence](research.md) |
+| Which experiment supports this, and what remains unreviewed? | [Experiment register](experiments.md), backed by [structured records](experiments.json) |
+| What exists, what is missing, and what comes next? | [Current plan](../goal-discovery/docs/plans/current_research_plan.md) |
+| How do the substrate, analysis, and UI fit together? | [Apparatus and implementation map](apparatus.md) |
+| How do I run and interpret a visual experiment? | [Operator guide](../goal-discovery/README.md) and [shared analytic contract](../goal-discovery/docs/plans/dynamic_experiment_artifact_standard.md) |
+| How should agents work and update knowledge? | [Instructions and maintenance routes](workflow.md) |
+| Where is a particular document, original brief, audit, or historical plan? | [Complete document catalog](artifacts.md), [source provenance](../goal-discovery/docs/sources/README.md), [evidence/lifecycle owner](../goal-discovery/docs/plans/plan_completion_ledger.md) |
 
-## The investigation loop
+## The big picture
 
-Completed bounded work: [executable composition evidence and decision](../goal-discovery/docs/hypotheses/composition_exploration_results.md).
-Defer a categorical production runtime; retain explicit interfaces and the
-optional visual prototype. This is not a goal-discovery finding. The
-[current plan](../goal-discovery/docs/plans/current_research_plan.md)
-owns the next candidate-proposal/discriminating-test checkpoint.
+We have tested pieces of a research apparatus: published-phenomenon replication,
+known-target inference, interventions, representation comparisons, and reusable
+model/visual adapters. We have **not demonstrated open-ended unexpected-goal
+discovery across diverse systems**. See the [research synthesis](research.md)
+for qualified findings and corrections; implementation counts are not evidence
+of that scientific outcome.
 
-Configure/import → run and observe → propose patterns/hypotheses →
-choose a distinguishing intervention → compare matched futures →
-retain, reject, or abstain → choose the next experiment.
+The loop is: represent/import -> observe -> propose competing explanations ->
+choose a distinguishing intervention -> compare futures -> retain/reject/abstain ->
+choose the next experiment. Every proposed increment should identify its place
+in that loop and the decision it can change.
 
-A chart makes the reasoning inspectable; it does not establish a scientific
-claim by itself. A useful negative result can close a path.
+## Version and evidence boundary
 
-## Find the implementation
+This documentation lane is based on the committed categorical-exploration
+checkout (`f83529b`), which includes the earlier wiki work. The original main
+checkout contains separate uncommitted P8/P9 implementation and later records.
+Neither branch metadata nor a localhost URL proves which version is running.
+The [current plan](../goal-discovery/docs/plans/current_research_plan.md) owns
+integration status. Raw results have not been rerun by this documentation pass.
 
-- [Sorting model](../goal-discovery/src/experiments/sorting/model.py):
-  local transition rules and complete simulator state.
-- [Observations](../goal-discovery/src/experiments/sorting/observe.py):
-  the allowed observation boundary.
-- [Representations](../goal-discovery/src/experiments/sorting/representations.py):
-  transforms/measurements, not automatic goal inference.
-- [Interventions](../goal-discovery/src/experiments/sorting/interventions.py):
-  changes to the modeled system.
-- [Cockpit entrypoint](../goal-discovery/src/cockpit/app.py):
-  repository-backed visualization.
-- [Tests](../goal-discovery/tests/): executable checks at native paths.
-
-## Current documentation boundary
-
-This documentation increment is isolated from the original working checkout.
-The supplied P8/P9 receipts describe the local implementation observed in that
-checkout, not a claim that its uncommitted code has been integrated here.
-The [current plan](../goal-discovery/docs/plans/current_research_plan.md)
-records that integration gap explicitly.
-
-The legacy [research-state file](../goal-discovery/docs/research_state.yaml)
-is retained as a historical cockpit snapshot in this documentation branch.
-Do not use its old `active_sprint` fields as current priorities.
-
-## Maintenance rule
-
-Update the owning page, then repair its navigation links. Do not append another
-strategy document for a refinement of the same concern. Preserve evidence at
-its original location; archive authority by explicit status and a successor
-link before considering physical moves.
+A historical stop closes its tested route—not the whole laboratory. A passing
+calibration is not a universal capability. Read corrections and limits before
+reusing a claim.

@@ -23,6 +23,11 @@ not the destination. Do not describe this project as "sorting research."
 4. State the checkout/revision and any local changes before claiming what runs.
    Separate an implemented feature, an observed run, and a scientific finding.
 
+For "what have we learned?", read [research synthesis](roadmap/research.md),
+then its [experiment register](roadmap/experiments.md) and exact result/protocol.
+Unreviewed metadata is not a finding. Corrections and failed confirmation constrain
+earlier headlines; a stop applies to its tested route, not the project's goal.
+
 | Work scope | Additional instructions to read explicitly |
 |---|---|
 | Laboratory work under `goal-discovery/` | [Laboratory rules](goal-discovery/CLAUDE.md) |
@@ -48,7 +53,8 @@ after orientation; that source must remain discoverable through the wiki.
 - Update the owning wiki topic and native authority after material work. Avoid
   separate current narratives, repeated strategy docs, and unindexed evidence.
 - Shared policy lives in Project Meta's Documentation and Context guide and its
-  linked authorities; do not fork it into project-local policy machinery.
+  linked authorities, reachable from [workflow](roadmap/workflow.md#shared-policy-and-evidence-ownership);
+  do not fork it into project-local policy machinery.
 
 ## Maintain this bootstrap
 

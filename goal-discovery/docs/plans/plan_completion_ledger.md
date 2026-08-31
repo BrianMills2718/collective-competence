@@ -11,6 +11,13 @@ This index owns documentation lifecycle/navigation, not scientific results.
 It replaces the old "every plan must be terminal" convention: current plans
 may be active, and a historical snapshot must not manufacture a current task.
 
+For usable cross-experiment knowledge, start with the unified wiki's
+[research synthesis](../../../roadmap/research.md) and
+[structured experiment register](../../../roadmap/experiments.md).
+The [document catalog](../../../roadmap/artifacts.md) includes all retained
+Markdown records, including historical audits not listed below. Inventory is
+not semantic review; unreviewed records do not acquire a verdict by being indexed.
+
 ## Current concern owners
 
 | Concern | Owner |
@@ -22,6 +29,8 @@ may be active, and a historical snapshot must not manufacture a current task.
 | Tool/engine selection | [Reuse survey protocol](reuse_survey_protocol.md) |
 | Usage | [Laboratory guide](../../README.md) |
 | Source lineage | [Source index](../sources/README.md) |
+| Cross-experiment interpretation | [Research synthesis](../../../roadmap/research.md) |
+| Experiment identity, classification, and artifact links | [Structured register](../../../roadmap/experiments.json) |
 
 ## History, retained at native paths
 
@@ -40,6 +49,7 @@ negative findings, thresholds, and provenance are not rewritten by this cleanup.
 | Historical scale route | [P7-004 record](../hypotheses/p7_004_ants_trail_scale_results.md); reconcile later local revisions before reusing an exact verdict |
 | Local interactive specimen | [P8 receipt](../audits/2026-08-30_p8_c1_vertical_slice.md), [P9 receipt](../audits/2026-08-30_p9_c1_blind_sorting_ui.md) |
 | UI-first planning pilot | [Original protocol](outcome_backcasting_protocol.md), [recorded review](../audits/2026-08-29_ob_001_v0_v2_delivery_review.md) |
+| Composition feasibility/value | [Executed comparison and defer decision](../hypotheses/composition_exploration_results.md) |
 | Removed long narratives | [README snapshot](../archive/pre-consolidation-readme.md), [plan snapshot](../archive/pre-consolidation-research-plan.md) |
 
 The supplied local P8/P9 receipts are preserved, not reverified in this
@@ -75,10 +85,13 @@ is evidence/proposal context, not the canonical ecosystem documentation policy.
 Only the current reading path needs to be short. A large, well-indexed evidence
 history is not itself documentation failure.
 
-## Consolidation receipt
+## Historical consolidation receipt — documentation commit 9b8666a
 
-The current entry/authority set passed a manual local-link check (91 links,
+That earlier entry/authority set passed a manual local-link check (91 links,
 12 pages, no broken targets). All three preserved brief bodies match their
 supplied originals after newline normalization. The two instruction mirrors
 match. Existing cockpit checks passed 5 tests with one optional-data skip.
 The original working checkout and its uncommitted implementation were untouched.
+This is not verification of the later expanded wiki or generated instruction
+contract. The later documentation revision carries its own focused checks and
+fresh-reader review; no scientific reruns are implied.
