@@ -215,17 +215,23 @@ def _execute(experiment: str, setup: Path, output: Path) -> None:
     with tempfile.TemporaryDirectory(prefix="p14-netlogo-", dir=_windows_staging_root()) as temp:
         staging = Path(temp).resolve()
         staged_setup = staging / setup.name
+        source_model = _model_path()
+        staged_model = staging / source_model.name
         staged_output = staging / output.name
         shutil.copyfile(setup, staged_setup)
-        if _sha(staged_setup.read_bytes()) != _sha(setup.read_bytes()):
-            raise RuntimeError("Windows staging changed the frozen BehaviorSpace bytes")
+        shutil.copyfile(source_model, staged_model)
+        if (
+            _sha(staged_setup.read_bytes()) != _sha(setup.read_bytes())
+            or _sha(staged_model.read_bytes()) != _sha(source_model.read_bytes())
+        ):
+            raise RuntimeError("Windows staging changed frozen model or BehaviorSpace bytes")
         completed = subprocess.run(
             _command(
                 _netlogo_root(),
                 experiment,
                 staged_output,
                 setup_file=staged_setup,
-                model=_model_path(),
+                model=staged_model,
             ),
             capture_output=True,
             text=True,
