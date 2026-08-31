@@ -1,0 +1,106 @@
+{
+  "active_slice": {
+    "description": "Blind vector-dynamics proposal and prospective causal challenges on the existing passive bowl",
+    "next_action": null,
+    "requires_external_action": false,
+    "requires_spend": false,
+    "slice_id": "P13",
+    "status": "accepted",
+    "target_revision": "067150778518e4ff1057bf3ccc75a927b0be2b87"
+  },
+  "authority": {
+    "external_action_authorized": false,
+    "human_decision": null,
+    "human_decision_required": false,
+    "implementation_authorized": true,
+    "spend_cap_usd": 0,
+    "spend_used_usd": 0
+  },
+  "circuit_breakers": {
+    "context_integrity_valid": true,
+    "max_same_boundary_failures": 3,
+    "runtime_integrity_valid": true
+  },
+  "completion": {
+    "evidence_revision": "067150778518e4ff1057bf3ccc75a927b0be2b87",
+    "receipt_ref": "PR #10 merged P13 at 266049c; PR #11 merged browser-warning repair at 0671507; 280 full-suite tests passed with 29 skips; 40/40 final-main focused tests passed; HTTP 200 canonical runtime; canonical freeze journey failed forecast at tick 51 as designed",
+    "remaining_ready_work": 0,
+    "requested": true,
+    "verifier_outcome": "pass"
+  },
+  "cursor_id": "p13-vector-dynamics-20260831",
+  "cursor_revision": 4,
+  "failure_state": {
+    "boundary": null,
+    "last_failure_ref": null,
+    "same_boundary_failures": 0
+  },
+  "goal_ref": "conversation-approved:P13-vector-dynamics",
+  "lease": {
+    "heartbeat_at": "2026-08-31T23:01:16.769875Z",
+    "lease_revision": 4,
+    "owner_session_id": "codex:01a04c08-4944-7b61-976c-4993f557c22c",
+    "status": "active"
+  },
+  "lifecycle_state": "complete",
+  "observations": [
+    {
+      "boundary": "initiative selection",
+      "evidence_ref": "User approval following P13 roadmap recommendation; current plan at 90bffa8",
+      "kind": "supporting_work",
+      "observation_id": "approved-frontier",
+      "outcome": "pass"
+    },
+    {
+      "boundary": "protocol freeze",
+      "evidence_ref": "11a479c and pre-outcome operational clarification 8878d72 pushed to origin/p13-vector-dynamics",
+      "kind": "authentic_result",
+      "observation_id": "p13-protocol-frozen",
+      "outcome": "pass"
+    },
+    {
+      "boundary": "software contract",
+      "evidence_ref": "38 selected tests passed with visualization extra; focused Ruff checks passed",
+      "kind": "supporting_work",
+      "observation_id": "p13-focused-verification",
+      "outcome": "pass"
+    },
+    {
+      "boundary": "prospective experiment",
+      "evidence_ref": "candidate ac78433, forecasts a0450ff, outcomes 17259bb; 32/32 condition-specific checks passed",
+      "kind": "authentic_result",
+      "observation_id": "p13-authentic-outcomes",
+      "outcome": "pass"
+    },
+    {
+      "boundary": "claim interpretation",
+      "evidence_ref": "P13 result/plan/wiki: retain method seam; passive attraction sufficient; no goal, competency, agency, or universal substrate claim",
+      "kind": "authentic_result",
+      "observation_id": "p13-bounded-interpretation",
+      "outcome": "pass"
+    },
+    {
+      "boundary": "inspectable artifact",
+      "evidence_ref": "Canonical main 266049c journey: freeze auto-selected c002, tick40 unknown, playback reported whole-system forecast failed at tick51; range serialization defect repaired before PR10 and unsupported formatter warning repaired in PR11",
+      "kind": "supporting_work",
+      "observation_id": "p13-canonical-runtime",
+      "outcome": "pass"
+    },
+    {
+      "boundary": "integration",
+      "evidence_ref": "main 067150778518e4ff1057bf3ccc75a927b0be2b87 clean; full suite 280 passed/29 skipped; final-main focused 40 passed; HTTP 200 at localhost:5011; raw refit and lineage audit passed",
+      "kind": "supporting_work",
+      "observation_id": "p13-integrated-verification",
+      "outcome": "pass"
+    }
+  ],
+  "plan_revision": "90bffa8f787e0b5e1890f892d832c39b6bd6e67c",
+  "ready_alternatives": [],
+  "record_type": "plan_execution_cursor",
+  "schema_version": "1.0",
+  "target": {
+    "branch": "p13-vector-dynamics",
+    "repository": "/home/brian/code/collective-competence",
+    "worktree": "/home/brian/code/collective-competence/worktrees/p13-vector-dynamics"
+  }
+}
