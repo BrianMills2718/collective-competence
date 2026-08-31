@@ -1,0 +1,119 @@
+{
+  "discovery_observations": {
+    "allowed_fields": [
+      "agent_id",
+      "chemical_ahead",
+      "chemical_here",
+      "chemical_left",
+      "chemical_right",
+      "heading",
+      "mode",
+      "run_id",
+      "seed",
+      "tick",
+      "x",
+      "y"
+    ],
+    "path": "discovery.jsonl.gz",
+    "rows": 50000,
+    "seeds": [
+      7101,
+      7102,
+      7103,
+      7104,
+      7105,
+      7106,
+      7107,
+      7108
+    ],
+    "sha256": "d5f59a0e547b912b35bd2fe2751d1bb6a93164b4947f669feeee15249d8c024c",
+    "source_path": "discovery-source.csv.gz",
+    "source_sha256": "f1243905ab5a4eb316e6122d0f20f6bcb7d6041940fcf24accc11dc24408c5b7"
+  },
+  "experiment": "P14",
+  "limitations": [
+    "observations, opaque mode, grammar, thresholds, band menu, and intervention family were supplied",
+    "food, nest, source, collection, and task outcomes were withheld",
+    "no competency, goal, agency, or cross-system reliability claim is licensed"
+  ],
+  "proposal": {
+    "families": [
+      {
+        "family": "persistence",
+        "fold_losses": [
+          0.08238518036382221,
+          0.1430836023773583,
+          0.08670514942470317,
+          0.10725032379913166,
+          0.11733966408686175,
+          0.09365152309799431,
+          0.12518101167321571,
+          0.14341025833233034
+        ],
+        "mean_loss": 0.11237583914442717
+      },
+      {
+        "family": "radial_geometry",
+        "fold_losses": [
+          0.08216971424125699,
+          0.1422696612870576,
+          0.08668347240785675,
+          0.10697681835359432,
+          0.11657606002880366,
+          0.09338276344063903,
+          0.1245565658523116,
+          0.14252009711388958
+        ],
+        "mean_loss": 0.1118918940906762
+      },
+      {
+        "family": "shared_field",
+        "fold_losses": [
+          0.08772630625068316,
+          0.1151669364062513,
+          0.08824275986027982,
+          0.09631473187084069,
+          0.10983965337260787,
+          0.08953296684977362,
+          0.10333377154075295,
+          0.1174169726811451
+        ],
+        "mean_loss": 0.10094676235404182
+      },
+      {
+        "family": "role_relational",
+        "fold_losses": [
+          0.08609587311782722,
+          0.11235366687598931,
+          0.08683103010151183,
+          0.09451327865624572,
+          0.10676611912250245,
+          0.08744880400108385,
+          0.10149099614012981,
+          0.11529546581796804
+        ],
+        "mean_loss": 0.09884940422915728
+      }
+    ],
+    "reason": "role_relational failed the frozen held-seed improvement gate",
+    "selection_rule": {
+      "held_out_unit": "seed",
+      "persistence_improvement_required": 0.15,
+      "seed_wins_required": 6,
+      "single_relation_improvement_required": 0.05,
+      "wins": {
+        "persistence": 6,
+        "radial_geometry": 6,
+        "shared_field": 8
+      }
+    },
+    "status": "abstain"
+  },
+  "protocol": "docs/hypotheses/p14_ants_relational_coupling.md",
+  "protocol_sha256": "d77f861321935553c46585b8d3794df7f476b1a1448fa467dc69fe0187519107",
+  "schema_version": 1,
+  "source_model_modified": false,
+  "source_model_sha256": "a7c54ba49c1a492efff67522e894cce469284783a3f3d87e91acc8692cc78ce6",
+  "source_revision": "1425a1e2f9f9ef6a8abac8f275a37704185d730a",
+  "stage": "candidate_frozen_before_evaluation"
+}
