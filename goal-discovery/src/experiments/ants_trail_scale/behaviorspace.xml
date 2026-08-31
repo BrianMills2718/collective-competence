@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experiments>
+  <experiment name="p7-004-sham" repetitions="8" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="600">
+    <setup>random-seed (1101 + ((behaviorspace-run-number - 1) mod 8))
+setup</setup>
+    <go>go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>count turtles</metric>
+      <metric>count turtles with [color = orange + 1]</metric>
+      <metric>count turtles with [distancexy 0 0 &lt; 5]</metric>
+      <metric>count turtles with [distancexy 0 0 &gt;= 8 and distancexy 0 0 &lt; 13]</metric>
+      <metric>ifelse-value any? turtles with [color != orange + 1] [mean [[chemical] of patch-here] of turtles with [color != orange + 1]] [0]</metric>
+      <metric>sum [food] of patches</metric>
+      <metric>sum [chemical] of patches</metric>
+      <metric>sum [chemical] of patches with [distancexy 0 0 &gt;= 8 and distancexy 0 0 &lt; 13]</metric>
+      <metric>ifelse-value (ticks = 330) [[(list pxcor pycor chemical food nest? food-source-number)] of patches] [[]]</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="population"><value value="125"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="diffusion-rate"><value value="50"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="evaporation-rate"><value value="10"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="p7-004-trail-cut" repetitions="8" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="600">
+    <setup>random-seed (1101 + ((behaviorspace-run-number - 1) mod 8))
+setup</setup>
+    <go>if ticks = 300 [
+  ask patches with [distancexy 0 0 &gt;= 8 and distancexy 0 0 &lt; 13] [set chemical 0]
+]
+go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>count turtles</metric>
+      <metric>count turtles with [color = orange + 1]</metric>
+      <metric>count turtles with [distancexy 0 0 &lt; 5]</metric>
+      <metric>count turtles with [distancexy 0 0 &gt;= 8 and distancexy 0 0 &lt; 13]</metric>
+      <metric>ifelse-value any? turtles with [color != orange + 1] [mean [[chemical] of patch-here] of turtles with [color != orange + 1]] [0]</metric>
+      <metric>sum [food] of patches</metric>
+      <metric>sum [chemical] of patches</metric>
+      <metric>sum [chemical] of patches with [distancexy 0 0 &gt;= 8 and distancexy 0 0 &lt; 13]</metric>
+      <metric>ifelse-value (ticks = 330) [[(list pxcor pycor chemical food nest? food-source-number)] of patches] [[]]</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="population"><value value="125"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="diffusion-rate"><value value="50"></value></enumeratedValueSet>
+      <enumeratedValueSet variable="evaporation-rate"><value value="10"></value></enumeratedValueSet>
+    </constants>
+  </experiment>
+</experiments>
