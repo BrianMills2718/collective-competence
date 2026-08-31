@@ -67,7 +67,16 @@ all from the exact tick40 snapshot and continuing through tick400:
 | none | no change | observed state |
 | displace | add ±6 to two seeded coordinates | resulting observed state only |
 | kick | add ±2 to two seeded velocities | resulting observed state only |
-| freeze | freeze one seeded coordinate away from the candidate | unchanged observed state only |
+| freeze | freeze one deterministically seeded coordinate away from the candidate | unchanged observed state only |
+
+For exact replay, the intervention seed is `evaluation_seed * 10 + condition_index`
+for the ordered conditions `none`, `displace`, `kick`, `freeze`. State challenges
+sample without replacement from all eight coordinate IDs and then sample each
+sign. The freeze challenge samples from coordinates whose post-prefix Euclidean
+distance from the learned local fixed point is greater than 0.5; missing eligible
+coordinates are an integrity failure. This minimum makes "away" operational
+before outcomes and ensures the mechanism challenge is not a near-equilibrium
+no-op. Selection remains evaluator-only metadata.
 
 Each forecast begins from the post-operation observed state. The learner does
 not receive condition or frozen status. Preserve exact snapshot lineage,
