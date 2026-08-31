@@ -96,8 +96,8 @@ def _require_committed(path: Path) -> str:
     return _sha(committed.stdout)
 
 
-def _add_constant(experiment: ET.Element, variable: str, value: str) -> None:
-    values = ET.SubElement(experiment, "enumeratedValueSet", variable=variable)
+def _add_constant(constants: ET.Element, variable: str, value: str) -> None:
+    values = ET.SubElement(constants, "enumeratedValueSet", variable=variable)
     ET.SubElement(values, "value", value=value)
 
 
@@ -130,14 +130,16 @@ def _experiment(
             "sum [chemical] of patches with "
             f"[distancexy 0 0 >= {low:g} and distancexy 0 0 < {high:g}]"
         )
+    metric_elements = ET.SubElement(experiment, "metrics")
     for metric in metrics:
-        ET.SubElement(experiment, "metric").text = metric
+        ET.SubElement(metric_elements, "metric").text = metric
+    constants = ET.SubElement(experiment, "constants")
     for variable, value in (
         ("population", str(POPULATION)),
         ("diffusion-rate", "50"),
         ("evaporation-rate", "10"),
     ):
-        _add_constant(experiment, variable, value)
+        _add_constant(constants, variable, value)
 
 
 def discovery_xml() -> bytes:

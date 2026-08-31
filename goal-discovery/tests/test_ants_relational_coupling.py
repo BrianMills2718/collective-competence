@@ -99,6 +99,8 @@ def test_persistence_only_observations_abstain_before_intervention():
 def test_behaviorspace_keeps_discovery_clean_and_erases_after_each_standard_step():
     discovery = discovery_xml().decode()
     assert "p14-discovery" in discovery
+    assert "<metrics>" in discovery
+    assert "<constants>" in discovery
     assert "set chemical 0" not in discovery
     evaluation = evaluation_xml((10.0, 15.0)).decode()
     assert "p14-evaluation-sham" in evaluation
