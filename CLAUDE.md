@@ -1,26 +1,60 @@
-# Collective Competence — project context
+# Dynamical Laboratory — agent bootstrap
 
-Read [roadmap/README.md](roadmap/README.md) first for unknown project questions,
-then open the linked native authority relevant to the task.
+## Goal: do not substitute the current experiment
 
-- The scientific destination is the open-ended laboratory defined in
-  [the charter](goal-discovery/docs/PROJECT.md), not a fixed representation benchmark.
-- [The current plan](goal-discovery/docs/plans/current_research_plan.md) alone
-  owns present priorities. Completed plans, source briefs, and audits are history.
-- [The laboratory README](goal-discovery/README.md) owns usage instructions;
-  [the artifact standard](goal-discovery/docs/plans/dynamic_experiment_artifact_standard.md)
-  owns shared visual-analysis requirements.
-- Before adding prose, identify the existing concern owner and update it.
-  Add a new document only for a distinct role or separately valuable evidence.
-- Preserve raw sources, preregistrations, negative results, and unique local work.
-  Never replace an observed result merely to reconcile a summary.
-- Source evidence, canonical decisions, derived navigation, and generated output
-  have different roles. Label authority/lifecycle; link rather than duplicate.
-- The ecosystem policy remains Project Meta's `docs/ops/WIKI_AND_DOCS_POLICY.md`.
-  This file specializes project routing; it does not create competing policy.
-- Do not invent documentation machinery. Plain Markdown, source metadata,
-  and a short verified reading path are sufficient for this increment.
-- The documentation branch and original uncommitted P9 runtime are different
-  states. Do not claim release reproducibility without resolving that boundary.
+Build an **open-ended laboratory that discovers unexpected goals and competencies
+across diverse systems**. It must represent/import and run systems, expose their
+dynamics, propose candidate interpretations, choose distinguishing interventions,
+and accumulate evidence that supports, rejects, or qualifies those interpretations.
 
-AGENTS.md is the Codex-facing mirror of this file; keep their content identical.
+Sorting is one calibration specimen. Thermostats, flocking, networks, and
+categorical composition are other tests or enablers—not alternative project
+goals. The UI is scientific apparatus and an inspectable account of progress,
+not the destination. Do not describe this project as "sorting research."
+
+## Read before interpreting or changing the project
+
+1. Enter through [the unified project wiki](roadmap/README.md).
+2. Read the [charter](goal-discovery/docs/PROJECT.md) before strategic claims;
+   the [current plan](goal-discovery/docs/plans/current_research_plan.md) owns
+   priorities, not historical plans or a dashboard's cached status.
+3. Follow the task's topic to native evidence/code and the applicable subtree
+   instructions below. Read mandatory context; do not load the entire archive.
+4. State the checkout/revision and any local changes before claiming what runs.
+   Separate an implemented feature, an observed run, and a scientific finding.
+
+| Work scope | Additional instructions to read explicitly |
+|---|---|
+| Laboratory work under `goal-discovery/` | [Laboratory rules](goal-discovery/CLAUDE.md) |
+| Documentation or research records | [Documentation rules](goal-discovery/docs/CLAUDE.md) |
+| Simulation, analysis, or UI source | [Source rules](goal-discovery/src/CLAUDE.md) |
+| Tests and validation | [Test rules](goal-discovery/tests/CLAUDE.md) |
+
+Nested instructions add local rules, not another project narrative. This table
+requires explicit reading; it does not claim any client automatically loads
+nested `CLAUDE.md` files. A task naming an exact source can go directly there
+after orientation; that source must remain discoverable through the wiki.
+
+## Scientific and execution constraints
+
+- Distinguish supplied objectives/features from proposed or discovered patterns.
+  Convergence, low disorder, or an attractive animation does not establish a goal.
+- State the substrate, focal boundary, allowed observations, intervention,
+  comparisons, and evidence limits. Current models do not imply a universal substrate.
+- Prioritize the next decision-changing experiment per unit effort. Enabling
+  work must name the research question it unlocks; useful negative results count.
+- Preserve protocols, original observations, counterevidence, and dirty work.
+  Never revise historical outcomes to make a current interpretation look stronger.
+- Update the owning wiki topic and native authority after material work. Avoid
+  separate current narratives, repeated strategy docs, and unindexed evidence.
+- Shared policy lives in Project Meta's Documentation and Context guide and its
+  linked authorities; do not fork it into project-local policy machinery.
+
+## Maintain this bootstrap
+
+Follow **instructions first -> improve wiki/docs -> fresh-reader review -> revise
+instructions**. Test whether a reader can recover the goal, current state,
+evidence limits, and next action without reconstructing history.
+Keep volatile status in the current plan. `CLAUDE.md` is authored;
+`AGENTS.md` is generated by `python3 scripts/sync_agent_context.py --write`.
+Check with `python3 scripts/sync_agent_context.py --check`.
