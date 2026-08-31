@@ -1,0 +1,9 @@
+{
+  "input_sha256": {
+    "case-b-load.xml": "ed4283eb1dce1c39defe59c1f9947e8c709bffd524075c6a0491a47aac7023d0",
+    "thermostat.nlogox": "64d8e1bcefe6e4dd1036f7f0b81d7811868537645c1dddc22c283f353e7ca9dd",
+    "thermostat.nls": "c77daa66e0dcd222d5d31da35cc5a62f1704d1cf21386793692416b42f4aa0f6"
+  },
+  "staged_inputs_unchanged": true,
+  "windows_local_staging": true
+}
