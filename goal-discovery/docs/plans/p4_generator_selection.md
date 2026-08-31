@@ -1,3 +1,13 @@
+---
+doc-role: historical-plan-or-decision
+authority: historical
+lifecycle: retained
+---
+> Historical record. Its next-step language describes the decision at the time,
+> not an active assignment. See the [current plan](current_research_plan.md)
+> and [evidence index](plan_completion_ledger.md).
+
+
 # Phase 4 installed-generator selection
 
 ## Decision

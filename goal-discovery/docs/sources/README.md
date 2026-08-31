@@ -1,4 +1,54 @@
-# Provenance of the Experiment 001 rules
+---
+doc-role: source-provenance-index
+authority: canonical
+lifecycle: active
+---
+# Sources and original specifications
+
+[Development wiki](../../../roadmap/README.md) · [Current charter](../PROJECT.md)
+
+## Supplied research briefs
+
+These are retained source inputs, not live execution plans. The current user
+clarification and [charter](../PROJECT.md) govern the destination; the
+[current plan](../plans/current_research_plan.md) governs next actions.
+An original source calling itself "current" does not override either.
+
+| Preserved source | What it contributes |
+|---|---|
+| [Consolidated laboratory specification](briefs/Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md) | Full agenda, shared apparatus, observation/white-box separation, staged discovery |
+| [Coding-agent specification](briefs/Dynamical_Laboratory_Coding_Agent_Spec.md) | Experimental candidate-goal discovery, minimal engine, classical analysis baseline |
+| [Robinson-Crusoe addendum](briefs/Addendum_3_Robinson_Crusoe_Dynamical_Laboratory.md) | Progressive construction, candidate boundaries, entropy/information distinctions |
+
+Originals were supplied in the user's Windows Downloads directory and retained
+there unchanged. The repository snapshots add source-role headers and normalize
+line endings; they are not claimed to be byte-identical copies.
+
+Original SHA-256 fingerprints:
+
+- `Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md`:
+  `bc06cefa faf3975c 697f3117 e27c45b9 34250529 88475d6f 80ceb35c ec8c64ff`
+- `Dynamical_Laboratory_Coding_Agent_Spec.md`:
+  `54806f72 1efc2ed3 dba5574f 6dda1eb8 9ef6b1d9 2acf60cc b2167811 b909a0b7`
+- `Addendum_3_Robinson_Crusoe_Dynamical_Laboratory.md`:
+  `43bdfbb6 4050b986 7d093117 1236fd98 b4edba14 b1e66738 53c54e80 2545a04a`
+
+Spaces above group hash digits for reading. These fingerprints identify original
+files, not the wrapped repository snapshots.
+
+## Authority reconciliation
+
+The original briefs deliberately start with manual observables and simple
+systems. That is a sequencing decision, not a restriction of the destination
+to predefined tasks. Their immediate-task lists are historical.
+
+The user's clarified goal is open-ended discovery of unexpected goals and
+competencies across diverse systems. Common visual analytics are a core
+enabler, conditional on each run's supported observations and interventions.
+No claim is made that all of that machinery has already been implemented.
+
+## Experiment 001 rule provenance
+
 
 The replication target is:
 

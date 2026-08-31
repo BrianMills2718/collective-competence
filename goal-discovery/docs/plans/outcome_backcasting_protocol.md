@@ -1,7 +1,18 @@
+---
+doc-role: historical-planning-pilot
+authority: historical
+lifecycle: retained
+---
+[Development wiki](../../../roadmap/README.md) · [Current plan](current_research_plan.md)
+
+> Historical pilot record. Its experiment queue and company-generalization conditions
+> are not current instructions. Use the current plan and rapid-learning protocol.
+
 # Outcome-backcasting pilot
 
-**Status:** active project-planning pilot. This protocol is being tested inside
-goal-discovery before any attempt to generalize it into company planning.
+**Status:** three-sprint pilot complete; retain with revision inside
+goal-discovery. Company-planning generalization is stopped pending evidence
+from a measured non-research transfer pilot.
 
 ## Purpose
 
@@ -122,6 +133,24 @@ After three sprints, write one retrospective decision: retain, revise, or stop
 the method. Generalize it into company planning only if it demonstrably improves
 goal traceability or decision speed without suppressing useful exploration or
 encouraging fictional completion.
+
+### Pilot result
+
+P7-003 through P7-005 completed the three-sprint pilot. The disposition is
+**retain with revision** for this project: the method kept tasks attached to
+decision-relevant evidence and helped stop unproductive routes rather than fill interface placeholders.
+P7-004 specifically stopped on intervention integrity, not a valid negative
+scale result; its scores remain diagnostic only. Before any broader proposal, instrument planning
+and decision time, allow maturity versions to close negatively, distinguish
+task-specific from prospective evidence in status, and preserve recovery notes
+for implementation faults after frozen tables exist. See the
+[sprint-3 review](../audits/2026-08-29_ob_001_sprint_3_p7_005.md).
+
+The formal
+[three-sprint retrospective](../audits/2026-08-29_ob_001_three_sprint_retrospective.md)
+retains the project-local method and stops company rollout. The
+[company-planning review](../audits/2026-08-29_company_planning_reflection.md)
+requires one bounded non-research transfer pilot before reconsideration.
 
 ## Company-planning gate
 

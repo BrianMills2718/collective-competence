@@ -1,7 +1,22 @@
+---
+doc-role: historical-plan-or-decision
+authority: historical
+lifecycle: retained
+---
+> Historical record. Its next-step language describes the decision at the time,
+> not an active assignment. See the [current plan](current_research_plan.md)
+> and [evidence index](plan_completion_ledger.md).
+
+
 # P7-004 — Ants trail-scale perturbation screen
 
 **Status:** frozen Level 1 preregistration. No P7-004 outcomes have been
 generated or opened. This is the second science sprint in the OB-001 pilot.
+
+**Subsequent disposition (not a protocol amendment):** executed once; stopped
+on the original annulus-removal integrity gate. Scores are diagnostic only.
+See the [result and correction history](../hypotheses/p7_004_ants_trail_scale_results.md).
+The original pre-execution status and frozen contract above/below are retained.
 
 ## Decision and question
 
