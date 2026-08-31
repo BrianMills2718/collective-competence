@@ -1,0 +1,13 @@
+{
+  "behaviorspace_setup": "src/experiments/relational_flocking/behaviorspace.xml",
+  "behaviorspace_setup_sha256": "4309b1e3f8be5187aea24302deb6822d3dfd923d74e9cb0c431d1fa52e7955af",
+  "experiment_id": "p14-relational-flocking",
+  "netlogo_version": "7.0.4",
+  "phase": "discovery",
+  "protocol": "docs/hypotheses/p14_relational_flocking.md",
+  "protocol_sha256": "119e004738e3fc906acdc10ecd24b232cc899398e05788cc56b03f2e1bce69ed",
+  "scientific_source_revision": "6a98f076fd8743ec04cba90e568d7c0a39100f26",
+  "source_model": "/mnt/c/Program Files/NetLogo 7.0.4/models/Sample Models/Biology/Flocking.nlogox",
+  "source_model_modified": false,
+  "source_model_sha256": "0ce9a6b0ee385898dfcacc7ed06699286cd51e5302a80c90b32687e13cefa143"
+}
