@@ -151,7 +151,9 @@ def build_composition_view() -> pn.Column:
     trace.add_layout(cursor)
     trace.add_layout(event_line)
     trace.legend.click_policy = "hide"
-    speed_pane = pn.pane.Bokeh(speed_plot, visible=False)
+    # Toggle the layout, not the Bokeh pane: Panel 1.9/Bokeh 3.9 may reverse-sync
+    # imported theme stylesheets into the pane's string-only parameter otherwise.
+    speed_pane = pn.Column(pn.pane.Bokeh(speed_plot), visible=False)
     current = {"result": None}
 
     def show_frame(*_):
