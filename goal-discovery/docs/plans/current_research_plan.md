@@ -131,21 +131,28 @@ agency, or active compensation was found. The cutoff-safe first cockpit tab is
 the canonical inspectable artifact. Stop the bowl line rather than fit opened
 outcomes or polish a known demonstration.
 
-## Next decision: can a relational candidate survive competing explanations?
+## Active slice: can a blind ant–field relation survive causal challenge?
 
-The next candidate checkpoint, if authorized, should use an existing interacting
-system and a grammar that can express a relation among parts without supplying
-its target. Declare passive/invariant, measurement-artifact, and competency
-alternatives first, then freeze one prediction and a discriminating intervention.
-The purpose is to test whether proposal moves beyond independent local dynamics,
-not to make another calibration pass.
+The user authorized the next checkpoint. The frozen
+[P14 protocol](../hypotheses/p14_ants_relational_coupling.md) selects the
+installed, unmodified NetLogo Ants system because it contains genuine
+agent–environment interaction and retains an unresolved causal seam after the
+P7-004 intervention-integrity failure. Flocking would repeat a closed alignment
+observable, Slime would reopen rejected aggregation/setpoint language, and
+Heatbugs would expose authored micro-targets.
 
-Stop before execution if the candidate restates a supplied observable, the
-grammar is bowl-specific, the intervention cannot distinguish live alternatives,
-or new simulator/framework/UI machinery dominates the slice. Generic UI work,
-production categorical runtime, completion enforcement and browser-button
-debugging remain outside the scientific critical path. Use the smallest visual
-readout after evidence. Completion of P13 does not authorize the next experiment.
+P14 withholds food, nest, source, collection, task labels and model rules. A
+four-family grammar must propose a role-conditioned relation among motion,
+radial geometry and local pheromone observations, select one predeclared radial
+band, and freeze a matched persistent-erasure prediction before untouched
+outcomes. Abstain before intervention if the relation fails held-seed gates,
+merely restates the supplied mode, or lacks a qualifying band.
+
+This slice may retain a proposal/falsification instrument or a bounded
+interaction-mechanism result. It cannot establish competency or an unexpected
+goal because no task outcome or compensation criterion is observed. Stop on
+integrity failure, model edits, or generic simulator/framework/UI expansion.
+Use the smallest visual readout only after evidence.
 
 The longer-term gap remains proposing useful patterns outside narrow
 researcher-supplied families and selecting informative interventions across
