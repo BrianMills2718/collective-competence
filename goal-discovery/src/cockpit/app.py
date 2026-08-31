@@ -7,6 +7,7 @@ Run with:
 from __future__ import annotations
 
 import html
+import importlib.util
 import subprocess
 import sys
 from pathlib import Path
@@ -187,6 +188,15 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
         )
     )
     outcome_map = build_outcome_map(state)
+    if importlib.util.find_spec("discopy") is not None:
+        from src.experiments.composition.view import build_composition_view
+        composition_view = build_composition_view()
+    else:
+        composition_view = pn.pane.Markdown(
+            "## Optional composition experiment\n"
+            "Install the `composition-exploration` extra to run this candidate view. "
+            "This is a calibration experiment, not automated goal discovery."
+        )
     programme = pn.Column(
         header,
         pn.Row(active, learn),
@@ -211,6 +221,7 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
         ],
         main=[
             pn.Tabs(
+                ("Composition · exploratory", composition_view),
                 ("Outcome", outcome_map),
                 ("Evidence · P7-002", story),
                 ("Blind · V2", blind_calibration),
