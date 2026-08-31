@@ -28,6 +28,7 @@ from src.cockpit.experiment_story import build_experiment_story, unavailable_sto
 from src.cockpit.laboratory import build_laboratory
 from src.cockpit.outcome_map import build_outcome_map
 from src.cockpit.probe_selection import build_probe_selection
+from src.cockpit.reference_inference import build_reference_inference
 from src.cockpit.scale_evidence import (
     build_scale_evidence,
     load_scale_evidence,
@@ -234,12 +235,12 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
     )
     current_summary = pn.pane.Markdown(
         (
-            f"**Laboratory goal:** {html.escape(context['objective'])}\n\n"
-            f"**Knowledge boundary:** {html.escape(context['knowledge_status'])}\n\n"
-            f"**Next scientific question:** {html.escape(context['next_scientific_question'])}\n\n"
+            f"**Laboratory goal:** {html.escape(context['objective'])}  \n"
+            f"**Knowledge boundary:** {html.escape(context['knowledge_status'])}  \n"
+            f"**Next scientific question:** {html.escape(context['next_scientific_question'])}  \n"
             f"**Current plan:** `{html.escape(context['current_plan'])}` · "
             f"**Unified wiki:** `{html.escape(context['wiki'])}` · "
-            f"**Integration:** {html.escape(context['integration_status'])}\n\n"
+            f"**Integration:** {html.escape(context['integration_status'])}  \n"
             f"**Running checkout:** `{html.escape(str(state.root))}` · "
             f"`{revision}` · {working_tree}"
         ) if context else (
@@ -264,6 +265,9 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
         main=[
             current_summary,
             pn.Tabs(
+                ("Settling vs reference · P12", build_reference_inference(
+                    state.root / "results/p12-reference-inference"
+                )),
                 ("Which probe? · P11", build_probe_selection(
                     state.root / "results/p11-probe-selection"
                 )),

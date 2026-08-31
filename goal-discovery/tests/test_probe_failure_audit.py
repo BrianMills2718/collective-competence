@@ -18,12 +18,17 @@ def test_zero_exit_without_csv_is_explicit_failure(tmp_path, monkeypatch):
         pytest.skip("Windows-local staging unavailable")
     monkeypatch.setattr(run, "_command", lambda *a, **kw: ["stub"])
     monkeypatch.setattr(run, "_netlogo_root", lambda: tmp_path)
-    monkeypatch.setattr(run.subprocess, "run", lambda *a, **kw: SimpleNamespace(
-        returncode=0, stdout="no data", stderr=""))
+    monkeypatch.setattr(
+        run.subprocess,
+        "run",
+        lambda *a, **kw: SimpleNamespace(returncode=0, stdout="no data", stderr=""),
+    )
     with pytest.raises(RuntimeError, match="no observation CSV"):
         run.run_engine(tmp_path, "case-a", None)
     assert (tmp_path / "case-a-prefix.log").read_text() == "no data"
-    assert json.loads((tmp_path / "case-a-prefix-staging.json").read_text())["staged_inputs_unchanged"]
+    assert json.loads((tmp_path / "case-a-prefix-staging.json").read_text())[
+        "staged_inputs_unchanged"
+    ]
 
 
 def test_failed_nonempty_probe_does_not_display_support(tmp_path):

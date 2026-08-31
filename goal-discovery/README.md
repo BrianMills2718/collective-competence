@@ -30,9 +30,29 @@ This revision combines the sorting and experiment-selection views with the optio
 [current plan](docs/plans/current_research_plan.md) records verification and
 installation status. A localhost URL alone does not identify the running revision.
 
-## Start with experiment choice
+## Start with settling versus reference
 
-The first tab, **Which probe? · P11**, shows why the laboratory selected an
+The first tab, **Settling vs reference · P12**, separates where a system settles
+from the reference inferred for its feedback mechanism.
+
+1. Leave system **a** and **Small load** selected. Read the three inferred values:
+   observed settling21.25, passive equilibrium16, feedback reference23.
+2. Choose **Playback → Playing**. Blue observations unfold against the purple
+   frozen forecast; error uses only revealed observations. **Paused** stops it.
+3. Change **Challenge → Large load**, then play again. The forecast fails as the
+   controller saturates: an inferred reference is not a promise of robust control.
+4. Choose system **c**, the passive control. It has no identifiable feedback
+   reference; its settling point must not be called a discovered goal.
+5. Inspect **Where did the candidate come from?** for identification trajectories
+   and fitted coefficients; final results are separately labeled retrospective.
+
+These controls replay saved real-NetLogo data. They do not run new experiments.
+The model family was supplied; this is not open-ended unexpected-goal discovery.
+[P12 evidence and limits](docs/hypotheses/p12_reference_inference_results.md).
+
+## Experiment choice
+
+The **Which probe? · P11** tab shows why the laboratory selected an
 intervention—and why a fixed policy makes the same choice here.
 
 1. Leave **case-a** and **Disable actuation + persistent load** selected.

@@ -6,9 +6,9 @@ current_context:
   objective: Open-ended laboratory that discovers unexpected goals and competencies across diverse systems.
   current_plan: docs/plans/current_research_plan.md
   wiki: ../roadmap/README.md
-  integration_status: verified
-  knowledge_status: P10 calibrated learned relations; P11 verified a real-engine probe selector but rejected its redundant adaptive benchmark analytically. Open-ended unexpected-goal discovery remains unproven.
-  next_scientific_question: Which research-motivated ambiguity actually needs different probes in different contexts, beyond a strong fixed policy?
+  integration_status: P12 candidate browser-verified; canonical revision shown below
+  knowledge_status: P12 distinguishes an inferred feedback reference from the observed attractor and rejects affine predictions under saturating challenges. This is a supplied-family calibration, not unexpected-goal discovery.
+  next_scientific_question: Can we propose and falsify a less-prescribed relation on an existing second substrate, rather than supply the interpretation?
 version: 1
 updated: 2026-08-30
 programme_status: p9-blind-calibration-complete-next-held-out-protocol

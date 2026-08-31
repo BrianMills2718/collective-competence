@@ -70,13 +70,15 @@ explanation using the selected probe; the fixed policy ties. Other probes
 correctly abstain. All recorded integrity checks pass. This is not an empirical
 verdict on adaptive selection or a held-out discovery claim. The visual view
 separates frozen forecasts from cutoff-limited observations and conclusions.
-This supersedes merely repeating active-versus-passive restoration on another
-substrate: the new question is whether automated experiment choice adds value.
+At that checkpoint the proposed question was whether automated experiment choice
+adds value. P12's strategic review below supersedes that priority; it does not
+require constructing a selector-friendly benchmark.
 
 ### Read this evidence before designing the next test
 
 | Need | Native record and why it matters |
 |---|---|
+| Latest advance and next limitation | [P12 result](../hypotheses/p12_reference_inference_results.md): learned reference differs from settling point; strong challenges reject the supplied affine model |
 | Why another selection batch needs justification | [P11 result](../hypotheses/p11_probe_selection_results.md): predicted disagreement selects a useful probe, but a fixed policy ties by construction |
 | What the proposal loop now demonstrates | [P10 result](../hypotheses/p10_candidate_relations_results.md): learned endpoint prediction contains both restored order and non-restored identity history; supplied family only |
 | Counterexample to recovery implying agency | [Passive bowl result](../hypotheses/002_bowl_results.md): passive dynamics reproduced the earlier mechanism-damage signature |
@@ -87,7 +89,7 @@ contract. For wider context, use the [calibration synthesis](../../../roadmap/re
 not the complete archive. These records guide a new test; repeating a known
 contrast alone is not unexpected-goal discovery.
 
-## Active slice: infer a reference, then try to falsify the model
+## Completed slice: infer a reference, then try to falsify the model
 
 Strategic audit: requiring the next experiment to justify adaptive selection
 would optimize a benchmark instead of discovery. The immediate bottleneck is
@@ -95,20 +97,33 @@ the amount of interpretation supplied by the researcher. Retain a fixed probe
 when it suffices; spend this slice reducing P11's aligned-target and 50:50-split
 assumptions. Do not construct contexts merely to make a selector win.
 
-[P12 protocol](../hypotheses/p12_reference_inference.md) asks whether the
-temperature-only learner can separate the observed attractor, passive equilibrium,
-and candidate feedback reference. Use intact and actuator-disabled trajectories
-from the unchanged thermostat to learn coefficients; freeze candidate equations
-before small-load and saturating-load challenges. Passive and inadequate fits
-must abstain. The supplied affine family remains an explicit limitation.
+[P12 result](../hypotheses/p12_reference_inference_results.md) separates observed
+attractors21.25/24 from inferred references23/18. Passive control abstains on
+reference. All three small-load predictions are adequate; both feedback
+large-load predictions fail under saturation. The six challenges followed
+committed candidates, using the unchanged thermostat and reused P11 adapter.
+The supplied affine family remains an explicit limitation.
 
-Acceptance: authentic NetLogo observations through the existing adapter, frozen
-candidate/forecast bytes before six challenge runs, raw-CSV audit, and an
-interactive view separating cutoff-limited evidence from final conclusions.
-No positive finding is required; a failure must change the next action.
-Audit repairs in this slice include retained missing-output failure records and
+Independent audit recomputed references and all six forecast errors from raw
+CSVs and verified source/candidate/staging hashes. The interactive view separates
+cutoff-limited evidence from final conclusions. The result owns provenance;
+the integration review owns final runtime/test receipts.
+Audit repairs include retained missing-output failure records and
 suppression of supported verdicts when fixture integrity fails. Preserve P11
 historical bytes and reproduce that study at its recorded revision.
+
+## Next decision: reduce prescribed interpretation, not just supplied parameters
+
+Do not repeat thermostat parameter calibration or automatically fit saturation
+after these exposed outcomes. The next slice should propose a falsifiable
+relation on an existing second substrate (for example, the passive bowl), with
+the narrow grammar/features explicitly declared rather than its target supplied.
+First check what P10/P12 components actually transfer; no universal interface is
+earned by matching file shapes. Compare passive/invariant explanations and
+freeze a prediction before a distinct intervention. If the candidate only
+restates an authored observable, record that limitation and revise the proposal
+step instead of enlarging the batch. This is a future research decision, not
+an unbounded campaign authorized by completion of P12.
 
 The longer-term gap remains proposing useful patterns outside narrow
 researcher-supplied families and selecting informative interventions across

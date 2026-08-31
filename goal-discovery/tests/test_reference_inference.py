@@ -18,9 +18,9 @@ def series(start, intercept, rate, count, first=0, load=0):
     return result
 
 
-def identification(alpha=.08, gain=.24, ambient=16, reference=23):
-    prefix = series(22., alpha * ambient + gain * reference, alpha + gain, 25)
-    off = prefix[:-1] + series(prefix[-1]["temperature"], alpha * ambient, alpha, 25, 24, .4)
+def identification(alpha=0.08, gain=0.24, ambient=16, reference=23):
+    prefix = series(22.0, alpha * ambient + gain * reference, alpha + gain, 25)
+    off = prefix[:-1] + series(prefix[-1]["temperature"], alpha * ambient, alpha, 25, 24, 0.4)
     return prefix, off
 
 
@@ -29,14 +29,14 @@ def test_reference_is_not_attractor_and_split_is_learned():
     assert candidate["reference"] == pytest.approx(23)
     assert candidate["observed_attractor"] == pytest.approx(21.25)
     assert candidate["passive_equilibrium"] == pytest.approx(16)
-    assert candidate["gain"] == pytest.approx(.24)
+    assert candidate["gain"] == pytest.approx(0.24)
 
 
 def test_passive_reference_unidentifiable_not_equilibrium():
-    candidate = infer(*identification(.32, 0, 21.25, 23))
+    candidate = infer(*identification(0.32, 0, 21.25, 23))
     assert candidate["status"] == "reference_unidentifiable"
     assert candidate["reference"] is None
-    assert len(predict(candidate, 22., .4)) == 96
+    assert len(predict(candidate, 22.0, 0.4)) == 96
 
 
 @pytest.mark.parametrize("field", ["target", "arm", "gain"])
@@ -57,40 +57,45 @@ def test_nonfinite_or_invalid_observation_rejected(bad):
 
 def test_unmatched_prefix_rejected():
     prefix, off = identification()
-    off[0] = {"tick": 0, "temperature": 99.}
+    off[0] = {"tick": 0, "temperature": 99.0}
     with pytest.raises(ValueError, match="exact observed prefix"):
         infer(prefix, off)
 
 
 def test_flat_data_abstains():
-    prefix = [{"tick": i, "temperature": 20.} for i in range(25)]
-    off = [{"tick": i, "temperature": 20.} for i in range(49)]
+    prefix = [{"tick": i, "temperature": 20.0} for i in range(25)]
+    off = [{"tick": i, "temperature": 20.0} for i in range(49)]
     assert infer(prefix, off)["status"] == "model_inadequate"
 
 
 def test_inadequate_fitting_data_not_silently_refitted():
     prefix, off = identification()
-    off[-1]["temperature"] += .3
+    off[-1]["temperature"] += 0.3
     assert infer(prefix, off)["status"] == "model_inadequate"
 
 
 def test_forecast_first_step_and_heldout_rejection():
     candidate = infer(*identification())
     frozen = copy.deepcopy(candidate)
-    prediction = predict(candidate, 21.25, .4)
+    prediction = predict(candidate, 21.25, 0.4)
     assert prediction[0] == pytest.approx(21.65)
     assert assess(prediction, prediction)["decision"] == "adequate"
-    assert assess([x+1 for x in prediction], prediction)["decision"] == "model_inadequate"
+    assert assess([x + 1 for x in prediction], prediction)["decision"] == "model_inadequate"
     assert candidate == frozen
     assert assess(prediction, prediction, False)["decision"] == "unavailable"
     assert assess([], prediction)["decision"] == "unknown"
 
 
-@pytest.mark.parametrize("phase,last,disabled,load", [
-    ("prefix",24,False,0), ("disabled",48,True,.4),
-    ("small_load",120,False,.4), ("large_load",120,False,4),
-])
-def test_xml_real_adapter_contract(phase,last,disabled,load):
+@pytest.mark.parametrize(
+    "phase,last,disabled,load",
+    [
+        ("prefix", 24, False, 0),
+        ("disabled", 48, True, 0.4),
+        ("small_load", 120, False, 0.4),
+        ("large_load", 120, False, 4),
+    ],
+)
+def test_xml_real_adapter_contract(phase, last, disabled, load):
     source, horizon = xml(FIXTURES["a"], phase)
     experiment = ET.fromstring(source)[0]
     assert horizon == last == int(experiment.attrib["timeLimit"])
