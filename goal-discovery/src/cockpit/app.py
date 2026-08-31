@@ -35,6 +35,7 @@ from src.cockpit.scale_evidence import (
     unavailable_scale_evidence,
 )
 from src.cockpit.state import DEFAULT_STATE_PATH, ResearchState, load_research_state
+from src.cockpit.vector_dynamics import build_vector_dynamics
 from src.experiments.sorting.laboratory import LAB_CSS, build_sorting_laboratory
 
 pn.extension("tabulator", sizing_mode="stretch_width")
@@ -265,6 +266,9 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
         main=[
             current_summary,
             pn.Tabs(
+                ("Blind vector dynamics · P13", build_vector_dynamics(
+                    state.root / "results/p13-vector-dynamics"
+                )),
                 ("Settling vs reference · P12", build_reference_inference(
                     state.root / "results/p12-reference-inference"
                 )),
