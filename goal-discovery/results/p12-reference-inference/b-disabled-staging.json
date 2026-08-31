@@ -1,0 +1,9 @@
+{
+  "input_sha256": {
+    "b-disabled.xml": "18ff948a4533325dbffb70fd8a18c436e2072f50c12f3136678c56713aed9383",
+    "thermostat.nlogox": "64d8e1bcefe6e4dd1036f7f0b81d7811868537645c1dddc22c283f353e7ca9dd",
+    "thermostat.nls": "c77daa66e0dcd222d5d31da35cc5a62f1704d1cf21386793692416b42f4aa0f6"
+  },
+  "staged_inputs_unchanged": true,
+  "windows_local_staging": true
+}

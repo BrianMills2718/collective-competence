@@ -79,6 +79,8 @@ Historical evidence remains available without becoming current instructions.
 - [p10_candidate_relations_results.md](../goal-discovery/docs/hypotheses/p10_candidate_relations_results.md)
 - [p11_probe_selection.md](../goal-discovery/docs/hypotheses/p11_probe_selection.md)
 - [p11_probe_selection_results.md](../goal-discovery/docs/hypotheses/p11_probe_selection_results.md)
+- [p12_reference_inference.md](../goal-discovery/docs/hypotheses/p12_reference_inference.md)
+- [p12_reference_inference_results.md](../goal-discovery/docs/hypotheses/p12_reference_inference_results.md)
 - [p2_001_predictive_goal_model.md](../goal-discovery/docs/hypotheses/p2_001_predictive_goal_model.md)
 - [p2_001_predictive_goal_model_results.md](../goal-discovery/docs/hypotheses/p2_001_predictive_goal_model_results.md)
 - [p2_001_predictive_goal_model_v2.md](../goal-discovery/docs/hypotheses/p2_001_predictive_goal_model_v2.md)

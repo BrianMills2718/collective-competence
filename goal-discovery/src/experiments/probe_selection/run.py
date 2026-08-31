@@ -134,6 +134,22 @@ def experiment_xml(truth: str, probe: str | None) -> str:
 
 def run_engine(directory: Path, fixture_id: str, probe: str | None) -> list[dict[str, Any]]:
     name = f"{fixture_id}-{probe or 'prefix'}"
+    return run_experiment(
+        directory, name, experiment_xml(FIXTURES[fixture_id], probe),
+        "p11-fixture", 24 if probe is None else 88,
+    )
+
+
+def run_experiment(
+    directory: Path, name: str, xml: str, experiment_name: str, last_tick: int,
+) -> list[dict[str, Any]]:
+    """Run a declared thermostat experiment through the same byte-checked adapter.
+
+    Experiment configuration stays in callers; only tick/temperature cross this
+    observation boundary. The model/include are never rewritten.
+    """
+    if not name or Path(name).name != name or last_tick < 1:
+        raise ValueError("A local artifact name and positive horizon are required")
     setup, table = directory / f"{name}.xml", directory / f"{name}.csv"
     if table.exists() or setup.exists():
         raise FileExistsError(f"Preserve existing fixture output: {name}")
@@ -149,7 +165,7 @@ def run_engine(directory: Path, fixture_id: str, probe: str | None) -> list[dict
         raise RuntimeError(
             "P11_NETLOGO_STAGING must be an existing Windows-local directory, not WSL/UNC"
         )
-    write_new(setup, experiment_xml(FIXTURES[fixture_id], probe))
+    write_new(setup, xml)
     with tempfile.TemporaryDirectory(prefix="p11-netlogo-", dir=staging_root) as temporary:
         stage = Path(temporary).resolve()
         if not stage.is_relative_to(staging_root) or stage == staging_root:
@@ -167,7 +183,7 @@ def run_engine(directory: Path, fixture_id: str, probe: str | None) -> list[dict
             completed = subprocess.run(
                 _command(
                     _netlogo_root(),
-                    "p11-fixture",
+                    experiment_name,
                     staged_table,
                     setup_file=stage / setup.name,
                     model=stage / MODEL.name,
@@ -203,13 +219,15 @@ def run_engine(directory: Path, fixture_id: str, probe: str | None) -> list[dict
             raise RuntimeError(
                 f"NetLogo fixture {name} failed or changed inputs; preserved log: {directory / f'{name}.log'}"
             )
+    if not table.is_file():
+        raise RuntimeError(f"NetLogo produced no observation CSV for {name}; preserved log and staging receipt")
     rows = _behavior_space_records(table)
     if any(not float(r["ticks"]).is_integer() for r in rows):
         raise ValueError(f"Noninteger observed tick in {table}")
     observations = [
         {"tick": int(float(r["ticks"])), "temperature": float(r["temperature"])} for r in rows
     ]
-    expected = list(range(25 if probe is None else 89))
+    expected = list(range(last_tick + 1))
     if [r["tick"] for r in observations] != expected or not all(
         np.isfinite(r["temperature"]) for r in observations
     ):

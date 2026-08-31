@@ -8,7 +8,7 @@ One record may link several protocols/results. Reviewed means a documentation
 review of cited results, not a new execution or confirmation. Unreviewed records
 carry no inferred scientific outcome. Costs remain unknown unless measured.
 
-**44 records: 26 reviewed; 18 unreviewed.**
+**45 records: 27 reviewed; 18 unreviewed.**
 
 Browse by declared family. Counts describe documentation review coverage,
 not scientific success or progress; historical dispositions are not current assignments.
@@ -16,7 +16,7 @@ not scientific success or progress; historical dispositions are not current assi
 | Family | Records | Reviewed | Unreviewed |
 |---|---:|---:|---:|
 | [sorting](#sorting) | 6 | 3 | 3 |
-| [calibration](#calibration) | 8 | 7 | 1 |
+| [calibration](#calibration) | 9 | 8 | 1 |
 | [representation](#representation) | 10 | 5 | 5 |
 | [substrate-reuse](#substrate-reuse) | 15 | 7 | 8 |
 | [biological-evidence](#biological-evidence) | 4 | 3 | 1 |
@@ -45,6 +45,7 @@ not scientific success or progress; historical dispositions are not current assi
 | P4-002 | Can authored per-agent Heatbugs targets be inferred from identity and movement probes? | result_reviewed | pass_declared_gates; retain_micro_target_calibration; not_collective_goal_discovery | [p4_002_heatbugs_blind_target_inference](../goal-discovery/docs/hypotheses/p4_002_heatbugs_blind_target_inference.md); [p4_002_heatbugs_blind_target_inference_results](../goal-discovery/docs/hypotheses/p4_002_heatbugs_blind_target_inference_results.md) |
 | P10 | Can a learned endpoint relation be separated from restoration of that relation? | result_reviewed | bounded-calibration-pass; Retain proposal/intervention method; reject whole endpoint law as restored target; no unexpected-discovery or agency claim. | [p10_candidate_relations](../goal-discovery/docs/hypotheses/p10_candidate_relations.md); [p10_candidate_relations_results](../goal-discovery/docs/hypotheses/p10_candidate_relations_results.md) |
 | P11 | Does this candidate/menu family offer a meaningful test of automated experiment selection? | result_reviewed | instrument-check-pass-adaptive-benchmark-rejected-analytically; Retain small selector; do not run redundant efficacy batch. Two deterministic fixtures, not held-out adaptive advantage. | [p11_probe_selection](../goal-discovery/docs/hypotheses/p11_probe_selection.md); [p11_probe_selection_results](../goal-discovery/docs/hypotheses/p11_probe_selection_results.md) |
+| P12 | Can observed attractor and inferred feedback reference be separated, with model failure detected under new challenges? | result_reviewed | bounded-reference-inference-and-falsification-pass; Retain causal reference inference; passive reference unidentified; reject affine predictions under feedback saturation. No unexpected-goal claim. | [p12_reference_inference](../goal-discovery/docs/hypotheses/p12_reference_inference.md); [p12_reference_inference_results](../goal-discovery/docs/hypotheses/p12_reference_inference_results.md) |
 
 ## representation
 

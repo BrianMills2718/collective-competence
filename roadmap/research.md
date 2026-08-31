@@ -133,8 +133,25 @@ The [bounded implementation](../goal-discovery/docs/hypotheses/p11_probe_selecti
 checked predictions and choice against two real-engine fixtures: selected and
 fixed policies both supported the correct supplied explanation, while other
 probes abstained. This is instrument calibration, not held-out science.
-A useful next selection benchmark needs genuinely different live ambiguities,
+A future selection benchmark would need genuinely different live ambiguities,
 with different informative probes, justified before looking at evaluation.
+That is not a reason to manufacture such a benchmark as the next priority.
+
+### Reference inference: convergence does not reveal the mechanism's reference
+
+[P12](../goal-discovery/docs/hypotheses/p12_reference_inference_results.md)
+removed P11's aligned ambient/reference and fixed split. From temperature-only
+intact and actuator-disabled trajectories, it inferred reference23 versus
+observed attractor21.25, and reference18 versus attractor24. The passive fixture
+had no identifiable reference. Three small-load forecasts passed; both feedback
+large-load forecasts failed under saturation, while passive prediction remained
+adequate. Candidates were frozen before the six challenges; no refitting followed.
+
+This distinguishes an inferred reference, an observed attractor, and predictive
+adequacy. None alone establishes a reliably defended goal. The additive model
+family and challenge cases were supplied. The strategic priority is reducing
+prescribed interpretation and testing transfer, not polishing the passing
+thermostat calibration or making adaptive selection win by construction.
 
 ## 3. Representation: useful descriptions must beat simple explanations
 
