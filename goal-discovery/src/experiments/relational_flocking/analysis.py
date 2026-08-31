@@ -219,14 +219,18 @@ def write_discovery_result(output: Path, candidate: dict[str, Any]) -> Path:
         "",
         f"**{verdict}.**",
         "",
-        f"The relational family won {candidate['relational_holdout_wins']}/6 untouched runs. "
-        f"Median improvement over the better simple rival was "
-        f"{candidate['median_holdout_improvement']:.1%}; the frozen gate required at least 5/6 "
-        "wins and +5%.",
+        (
+            f"The relational family won {candidate['relational_holdout_wins']}/6 untouched runs. "
+            f"Median improvement over the better simple rival was "
+            f"{candidate['median_holdout_improvement']:.1%}; the frozen gate required at least "
+            "5/6 wins and +5%."
+        ),
         "",
-        "The arbitrary global identity-cohort relation did not earn an intervention test. "
-        "This supports an artifact/over-capacity explanation at the proposal stage; it does not "
-        "show that the locally interacting flock lacks useful relations or competencies.",
+        (
+            "The arbitrary global identity-cohort relation did not earn an intervention test. "
+            "This supports an artifact/over-capacity explanation at the proposal stage; it does "
+            "not show that the locally interacting flock lacks useful relations or competencies."
+        ),
         "",
         "No perturbation outcome was generated.",
         "",
