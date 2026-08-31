@@ -778,6 +778,20 @@
       "outcome_source": "goal-discovery/docs/hypotheses/p12_reference_inference_results.md",
       "disposition": "Retain causal reference inference; passive reference unidentified; reject affine predictions under feedback saturation. No unexpected-goal claim.",
       "cost": {"status": "unknown", "effort_minutes": null}
+    },
+    {
+      "id": "P13",
+      "family": "calibration",
+      "question": "Can a target-blind vector law be proposed from observations and prospectively falsified under mechanism loss?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p13_vector_dynamics.md",
+        "goal-discovery/docs/hypotheses/p13_vector_dynamics_results.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "bounded-vector-proposal-and-falsification-pass",
+      "outcome_source": "goal-discovery/docs/hypotheses/p13_vector_dynamics_results.md",
+      "disposition": "Retain observation-only proposal/freeze/challenge seam; stop passive bowl line; no unexpected-goal, competency, agency, or universal-substrate claim.",
+      "cost": {"status": "unknown", "effort_minutes": null}
     }
   ]
 }
