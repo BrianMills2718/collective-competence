@@ -9,6 +9,7 @@ sources:
   - ../hypotheses/p11_probe_selection_results.md
   - ../hypotheses/p12_reference_inference.md
   - ../hypotheses/p13_vector_dynamics_results.md
+  - ../hypotheses/p14_relational_flocking_results.md
 ---
 # Current research plan
 
@@ -131,20 +132,27 @@ agency, or active compensation was found. The cutoff-safe first cockpit tab is
 the canonical inspectable artifact. Stop the bowl line rather than fit opened
 outcomes or polish a known demonstration.
 
-## Active authorized checkpoint: relational candidate versus rival explanations
+## Completed checkpoint: relational candidate stopped at proposal
 
-The user authorized one bounded experiment. [P14](../hypotheses/p14_relational_flocking.md)
-reuses the unmodified off-the-shelf Flocking model and asks whether a learned
-cross-cohort heading-vector relation improves untouched prediction, then makes
-it compete prospectively with passive affine dynamics, rotational invariance,
-a changing-neighborhood measurement artifact, and a competency interpretation.
-The fixed-cohort readout and interaction-off branch are the key discriminators.
-The purpose is to test whether proposal moves beyond independent local dynamics,
-not to claim a flock goal from attractive recovery.
+The user authorized one bounded experiment. [P14](../hypotheses/p14_relational_flocking_results.md)
+reused the unmodified off-the-shelf Flocking model. A cross-cohort affine family
+improved training fit slightly but beat the better invariant/independent rival
+on only 2/6 untouched runs; median improvement was -2.1% against the frozen +5%
+gate. The intervention phase was correctly canceled, so no recovery outcome was
+available to turn into a post-hoc competency story.
 
-Stop before evaluation if the relational family fails its untouched proposal
-gate. Stop after the result and smallest visual readout regardless of verdict;
-do not tune or repeat this known model. Generic UI work,
+What changed: candidate relations must encode the locality or permutation
+symmetry actually available in observations. Arbitrary global identity cohorts
+are now a tested counterexample, not a default bridge from P13 to interacting
+systems. What did not change: P14 does not show that the flock lacks relational
+organization or competencies, and it did not empirically adjudicate passive,
+invariant, artifact and competency predictions after damage. The artifact /
+over-capacity explanation won at the earlier proposal boundary.
+
+Do not repair P14 by changing cohorts, thresholds or seeds. A future relational
+checkpoint needs a new authorized question and a locality-respecting or
+permutation-equivariant observation grammar, with held-out prediction retained
+before interventions. Generic UI work,
 production categorical runtime, completion enforcement and browser-button
 debugging remain outside the scientific critical path. Use the smallest visual
 readout after evidence. Completion of P13 does not authorize the next experiment.

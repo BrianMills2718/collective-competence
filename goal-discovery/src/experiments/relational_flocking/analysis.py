@@ -186,6 +186,56 @@ def discover(frame: pd.DataFrame) -> dict[str, Any]:
     }
 
 
+def render_discovery(output: Path, candidate: dict[str, Any]) -> Path:
+    """Show every untouched run rather than hiding the proposal gate in an average."""
+    runs = [str(run) for run in range(7, 13)]
+    families = ["invariant", "independent_affine", "relational_affine"]
+    labels = ["Invariant", "Independent", "Relational"]
+    colors = ["#64748b", "#38bdf8", "#f97316"]
+    x = np.arange(len(runs))
+    width = 0.24
+    figure, axis = plt.subplots(figsize=(10, 5), constrained_layout=True)
+    for index, (family, label, color) in enumerate(zip(families, labels, colors, strict=True)):
+        values = [candidate["holdout_scores"][family][run] for run in runs]
+        axis.bar(x + (index - 1) * width, values, width, label=label, color=color)
+    axis.set_xticks(x, [f"Seed {31000 + int(run)}" for run in runs])
+    axis.set_ylabel("Untouched next-step vector RMSE (lower is better)")
+    axis.set_title(
+        "P14 proposal gate failed: relational model won "
+        f"{candidate['relational_holdout_wins']}/6 held-out runs"
+    )
+    axis.grid(axis="y", alpha=0.2)
+    axis.legend(frameon=False, ncol=3)
+    path = output / "proposal-evidence.png"
+    figure.savefig(path, dpi=160)
+    plt.close(figure)
+    return path
+
+
+def write_discovery_result(output: Path, candidate: dict[str, Any]) -> Path:
+    verdict = "PROCEED" if candidate["proposal_adequate"] else "STOP BEFORE INTERVENTIONS"
+    lines = [
+        "# P14 relational Flocking proposal result",
+        "",
+        f"**{verdict}.**",
+        "",
+        f"The relational family won {candidate['relational_holdout_wins']}/6 untouched runs. "
+        f"Median improvement over the better simple rival was "
+        f"{candidate['median_holdout_improvement']:.1%}; the frozen gate required at least 5/6 "
+        "wins and +5%.",
+        "",
+        "The arbitrary global identity-cohort relation did not earn an intervention test. "
+        "This supports an artifact/over-capacity explanation at the proposal stage; it does not "
+        "show that the locally interacting flock lacks useful relations or competencies.",
+        "",
+        "No perturbation outcome was generated.",
+        "",
+    ]
+    path = output / "result.md"
+    path.write_text("\n".join(lines), encoding="utf-8")
+    return path
+
+
 def _direction(dx: float, dy: float) -> float:
     return math.degrees(math.atan2(dx, dy)) % 360
 

@@ -21,6 +21,8 @@ from .analysis import (
     evaluate,
     read_behaviorspace,
     render,
+    render_discovery,
+    write_discovery_result,
     write_result,
 )
 
@@ -76,6 +78,8 @@ def run_discovery(run_id: str = DEFAULT_RUN_ID) -> Path:
     frame.to_csv(output / "discovery-trajectory.csv", index=False)
     candidate = discover(frame)
     dump_json(output / "candidate.json", candidate)
+    render_discovery(output, candidate)
+    write_discovery_result(output, candidate)
     io.write_metadata(output, _metadata("discovery"))
     return output
 

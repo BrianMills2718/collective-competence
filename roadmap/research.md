@@ -170,9 +170,23 @@ restoration without mislabeling passive attraction a competency.
 
 **Implication:** retain the cross-system proposal/falsification seam and stop the
 bowl line. The observation grammar, linear families and challenges were supplied;
-the result is method calibration, not unexpected-goal discovery. The next useful
-decision concerns relational candidates in an interacting existing system, with
-competing explanations and a discriminating intervention fixed before outcomes.
+the result is method calibration, not unexpected-goal discovery.
+
+### Relational proposal: global identity cohorts are the wrong locality
+
+[P14](../goal-discovery/docs/hypotheses/p14_relational_flocking_results.md)
+made a relational affine family compete with invariant and independent families
+on ordinary trajectories from the unmodified NetLogo Flocking model. The
+relational model improved fit slightly on six discovery runs, but beat the
+better simple rival on only2/6 untouched runs and had -2.1% median improvement
+against the frozen +5% gate. The preregistered intervention phase did not run.
+
+**Implication:** proposal gates prevent visually persuasive recovery from
+rescuing a representation that has no held-out standing. Arbitrary global
+identity aggregates do not reflect this model's local interaction structure.
+This does not reject relational organization in flocks; a new question would
+need locality-respecting or permutation-equivariant observations and must keep
+the held-out gate before intervention outcomes.
 
 ## 3. Representation: useful descriptions must beat simple explanations
 
