@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "scope": "Composition preview handoff, not completion of the open-ended research laboratory",
+  "outcome": "A fresh desktop user can configure, run, replay and interpret the sorting and passive-bowl composition comparison on the identified checkout.",
+  "plan_owner": "goal-discovery/docs/plans/current_research_plan.md",
+  "implementation_steps": [
+    "Implement a local fail-closed artifact and runtime checker with positive/negative tests.",
+    "Run the agreed browser journeys and inspect complete useful traces and final visual output.",
+    "Recheck from a fresh process; reconcile instruction/wiki integration with the active laboratory task before generalizing."
+  ],
+  "non_goals": ["New scientific findings", "Company-wide rollout", "Claiming native /goal interception without a tested host integration", "Phone support"],
+  "runtime": {"relative_cwd": "goal-discovery", "route": "/app"},
+  "required_surfaces": ["browser", "server", "final_output"],
+  "journeys": {
+    "configure-run": "Turn auto-run off; change seed; Run comparison must visibly apply the new configuration.",
+    "replay": "Play advances visible tick and state; Pause stops it; scrub revisits an earlier frame.",
+    "sorting-interventions": "Exercise state, environment and freeze changes; inspect contrasting trajectories, cell values/identities and supplied metric labels.",
+    "bowl-interventions": "Switch to bowl; exercise all three interventions; inspect velocity, passive-control caveat and frozen-state meaning.",
+    "invalid-input-recovery": "Reject intervention time outside run; restore valid input and successfully rerun without a broken or misleading UI.",
+    "interpretation": "Inspect tooltips, diagram and full-run versus current-frame limits; explain the result without claiming goal discovery.",
+    "fresh-session-handoff": "Reopen in a new browser session after launcher exits; identify checkout/revision and run a comparison."
+  },
+  "quality_questions": [
+    "Are values, controls, labels and diagrams legible on desktop?",
+    "Can a new user distinguish configuration, live run, replay and recorded batch?",
+    "Do observed plots and text agree with the executed configuration and traces?",
+    "Are supplied objectives, passive alternatives and scientific limitations explicit?"
+  ],
+  "mandatory_tests": [
+    {"id": "gate-tests", "cwd": ".", "argv": ["{python}", "-m", "unittest", "discover", "-s", "scripts", "-p", "test_completion_gate.py", "-v"]},
+    {"id": "affected-tests", "cwd": "goal-discovery", "argv": ["{python}", "-m", "pytest", "tests/test_composition.py", "tests/test_cockpit.py", "tests/test_sorting.py", "tests/test_bowl.py", "-k", "not test_real_blind_calibration_contract_if_artifacts_are_present and not test_real_scale_integrity_stop_if_artifacts_are_present", "-q", "--disable-warnings"]}
+  ],
+  "suite_boundary": "This composition handoff explicitly excludes two legacy cockpit dataset tests: test_real_blind_calibration_contract_if_artifacts_are_present (Heatbugs tables absent) and test_real_scale_integrity_stop_if_artifacts_are_present (Ants tables absent). A diagnostic run had 74 passes and those two skips. They are not composition journeys or passed evidence. All selected checks must execute and pass; no other skip is waived. The full historical suite previously also had five missing optional-dependency/data failures; this gate does not certify that suite.",
+  "max_evidence_age_hours": 24,
+  "limits": "This local command verifies files, revision, tests and live process identity, not the honesty of authored observations or aesthetic judgment. It does not intercept native goal completion. Missing browser evidence, failed quality review or blocked scope remains incomplete."
+}
