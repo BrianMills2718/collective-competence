@@ -1,0 +1,99 @@
+{
+  "active_slice": {
+    "description": "Select one existing interacting substrate, freeze a modest relational proposal grammar, and prospectively challenge its candidate before any intervention outcomes",
+    "next_action": null,
+    "requires_external_action": false,
+    "requires_spend": false,
+    "slice_id": "P14",
+    "status": "accepted",
+    "target_revision": "0403c43cc548ef5d91ac288e81d1bd08433861c2"
+  },
+  "authority": {
+    "external_action_authorized": false,
+    "human_decision": null,
+    "human_decision_required": false,
+    "implementation_authorized": true,
+    "spend_cap_usd": 0,
+    "spend_used_usd": 0
+  },
+  "circuit_breakers": {
+    "context_integrity_valid": true,
+    "max_same_boundary_failures": 3,
+    "runtime_integrity_valid": true
+  },
+  "completion": {
+    "evidence_revision": "0403c43cc548ef5d91ac288e81d1bd08433861c2",
+    "receipt_ref": "goal-discovery/docs/hypotheses/p14_ants_relational_coupling_results.md",
+    "remaining_ready_work": 0,
+    "requested": true,
+    "verifier_outcome": "pass"
+  },
+  "cursor_id": "p14-ants-relational-coupling-20260831",
+  "cursor_revision": 3,
+  "failure_state": {
+    "boundary": null,
+    "last_failure_ref": null,
+    "same_boundary_failures": 0
+  },
+  "goal_ref": "/goal:select-existing-interacting-substrate-and-freeze-relational-proposal",
+  "lease": {
+    "heartbeat_at": "2026-08-31T23:55:00Z",
+    "lease_revision": 3,
+    "owner_session_id": "codex:01a04c08-4944-7b61-976c-4993f557c22c",
+    "status": "active"
+  },
+  "lifecycle_state": "complete",
+  "observations": [
+    {
+      "boundary": "initiative selection",
+      "evidence_ref": "User-authorized active goal plus current research plan at 051b446 selected one existing interacting system and required a frozen relational proposal with immediate stop rules",
+      "kind": "supporting_work",
+      "observation_id": "p14-authorized-frontier",
+      "outcome": "pass"
+    },
+    {
+      "boundary": "substrate selection",
+      "evidence_ref": "Current synthesis and native results selected Ants over closed or authored alternatives; decision frozen in protocol commit 2c127cd",
+      "kind": "supporting_work",
+      "observation_id": "p14-ants-selected",
+      "outcome": "pass"
+    },
+    {
+      "boundary": "protocol freeze",
+      "evidence_ref": "P14 protocol frozen and pushed at 2c127cd before any new trajectory generation",
+      "kind": "authentic_result",
+      "observation_id": "p14-protocol-frozen",
+      "outcome": "pass"
+    },
+    {
+      "boundary": "software contract",
+      "evidence_ref": "Learner, runner and NetLogo 7 adapter are committed through 1425a1e; 15 focused P14/P7 tests and focused Ruff pass",
+      "kind": "supporting_work",
+      "observation_id": "p14-software-frozen",
+      "outcome": "pass"
+    },
+    {
+      "boundary": "candidate provenance",
+      "evidence_ref": "An initial working-tree run was explicitly archived as invalid because its candidate named 39a40bb while requiring the later reporter correction",
+      "kind": "authentic_result",
+      "observation_id": "p14-invalid-run-quarantined",
+      "outcome": "fail"
+    },
+    {
+      "boundary": "frozen candidate gate",
+      "evidence_ref": "Clean revision-bound run at 1425a1e produced 50000 rows over eight seeds and abstained before intervention; result and hashes recorded at 0403c43",
+      "kind": "authentic_result",
+      "observation_id": "p14-clean-abstention",
+      "outcome": "pass"
+    }
+  ],
+  "plan_revision": "051b446a313bee82e7c370165098c6286242a9d4",
+  "ready_alternatives": [],
+  "record_type": "plan_execution_cursor",
+  "schema_version": "1.0",
+  "target": {
+    "branch": "p14-ants-relational-coupling",
+    "repository": "/home/brian/code/collective-competence",
+    "worktree": "/home/brian/code/collective-competence/worktrees/p14-ants-relational-coupling"
+  }
+}
