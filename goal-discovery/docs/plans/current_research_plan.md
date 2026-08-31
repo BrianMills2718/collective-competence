@@ -131,7 +131,7 @@ agency, or active compensation was found. The cutoff-safe first cockpit tab is
 the canonical inspectable artifact. Stop the bowl line rather than fit opened
 outcomes or polish a known demonstration.
 
-## Active slice: can a blind ant–field relation survive causal challenge?
+## Completed slice: relational Ants proposal abstains before intervention
 
 The user authorized the next checkpoint. The frozen
 [P14 protocol](../hypotheses/p14_ants_relational_coupling.md) selects the
@@ -141,19 +141,31 @@ P7-004 intervention-integrity failure. Flocking would repeat a closed alignment
 observable, Slime would reopen rejected aggregation/setpoint language, and
 Heatbugs would expose authored micro-targets.
 
-P14 withholds food, nest, source, collection, task labels and model rules. A
-four-family grammar must propose a role-conditioned relation among motion,
-radial geometry and local pheromone observations, select one predeclared radial
-band, and freeze a matched persistent-erasure prediction before untouched
-outcomes. Abstain before intervention if the relation fails held-seed gates,
-merely restates the supplied mode, or lacks a qualifying band.
+P14 withheld food, nest, source, collection, task labels and model rules. The
+[authentic result](../hypotheses/p14_ants_relational_coupling_results.md)
+abstained at the frozen pre-intervention gate. Role relational beat persistence,
+radial geometry and shared field on 6/8, 6/8 and 8/8 held seeds, but its mean
+loss improvement was only 12.0% over persistence and 2.08% over shared field,
+below the required 15% and 5%. No band, forecast, or intervention was generated.
 
-This slice may retain a proposal/falsification instrument or a bounded
-interaction-mechanism result. It cannot establish competency or an unexpected
-goal because no task outcome or compensation criterion is observed. Stop on
-integrity failure, model edits, or generic simulator/framework/UI expansion.
-Use the smallest visual readout only after evidence.
+Stop the Ants lane rather than lower gates or fit opened data. P14 retains an
+important apparatus behavior: an interacting off-the-shelf model can flow
+through observation, proposal comparison and honest abstention without a UI or
+new simulator. It does not retain a causal agent–field mechanism, competency,
+unexpected goal, agency claim, or cross-system relation learner.
 
+## Next decision: reduce prescribed interpretation before another substrate
+
+The critical path is now proposal generation and observable selection, not a
+richer simulator, another dashboard, or a larger hand-written family menu. The
+next bounded design should use archived systems with known successes and
+failures to test whether a modest proposal layer can select useful relational
+observables and candidate forms without task labels, while abstaining on
+unsupported cases. Require held-system evidence and a decision-changing
+comparison to the current fixed-family baseline before authorizing another
+prospective substrate.
+
+This is a planning frontier, not authorization to start a new implementation.
 The longer-term gap remains proposing useful patterns outside narrow
 researcher-supplied families and selecting informative interventions across
 diverse systems.

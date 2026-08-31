@@ -575,3 +575,12 @@ experiments:
     implication: Freeze and test a held-out blind sorting protocol before transfer; retain the current ledger as calibration only.
     protocol: docs/roadmaps/p9_sorting_blind_discovery_ui.md
     result: docs/audits/2026-08-30_p9_c1_blind_sorting_ui.md
+  - id: P14
+    phase: relational-proposal
+    title: Blind Ants relational proposal
+    status: complete-abstain
+    confidence: frozen-prospective
+    decision: Role relational improved mean held-seed loss by 12.0% over persistence and 2.08% over shared field, below the frozen 15% and 5% gates; no intervention was generated.
+    implication: Stop Ants and improve proposal generation and observable selection on archived systems before authorizing another prospective substrate.
+    protocol: docs/hypotheses/p14_ants_relational_coupling.md
+    result: docs/hypotheses/p14_ants_relational_coupling_results.md
