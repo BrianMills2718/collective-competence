@@ -123,6 +123,10 @@ def _assessment_fixture():
         for tick in range(ERASE_END + 1):
             left_agents = copy.deepcopy(agents)
             right_agents = copy.deepcopy(agents)
+            for agent in left_agents.values():
+                agent["run_id"] = f"evaluation-sham-{seed}"
+            for agent in right_agents.values():
+                agent["run_id"] = f"evaluation-erase-{seed}"
             if tick > BRANCH_TICK:
                 for index in range(3):
                     right_agents[f"a{index:03d}"]["heading"] = 30.0
@@ -147,3 +151,14 @@ def test_assessment_requires_integrity_and_selective_matched_divergence():
     assert result["predictions"]["passed"], result
     assert result["predictions"]["selected_divergence_passing_seeds"] == 8
     assert result["predictions"]["role_advantage_passing_seeds"] == 8
+
+
+def test_assessment_detects_real_pre_branch_state_mismatch():
+    sham, erase = _assessment_fixture()
+    erase["frames"][(EVALUATION_SEEDS[0], 42)]["agents"]["a000"]["x"] = 11.5
+    plan = {"selected_band": {"low": 10.0, "high": 15.0}, "field_coupled_role": 0}
+    result = _paired_assessment(sham, erase, plan)
+    assert not result["integrity"]["checks"][
+        "paired_all_observations_through_tick_299"
+    ]
+    assert not result["integrity"]["passed"]

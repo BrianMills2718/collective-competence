@@ -9,8 +9,11 @@ import hashlib
 import html
 import json
 import math
+import os
 import re
+import shutil
 import subprocess
+import tempfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any
@@ -181,20 +184,63 @@ def _model_path() -> Path:
     return _netlogo_root() / "models" / "Sample Models" / "Biology" / "Ants.nlogox"
 
 
+def _windows_staging_root() -> Path:
+    configured = os.environ.get("P14_NETLOGO_STAGING")
+    if configured:
+        root = Path(configured).expanduser().resolve()
+    elif os.name == "nt":
+        root = Path(tempfile.gettempdir()).resolve()
+    else:
+        completed = subprocess.run(
+            ["cmd.exe", "/c", "echo", "%TEMP%"],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        windows = completed.stdout.strip()
+        translated = subprocess.run(
+            ["wslpath", "-u", windows], check=True, capture_output=True, text=True
+        )
+        root = Path(translated.stdout.strip()).resolve()
+    windows_local = bool(root.drive) and not str(root).startswith("\\\\")
+    wsl_local = root.parts[:3] == ("/", "mnt", "c")
+    if not root.is_dir() or not (windows_local or wsl_local):
+        raise RuntimeError("P14 NetLogo staging must be an existing Windows-local directory")
+    return root
+
+
 def _execute(experiment: str, setup: Path, output: Path) -> None:
     if output.exists():
         raise FileExistsError(output)
-    completed = subprocess.run(
-        _command(_netlogo_root(), experiment, output, setup_file=setup, model=_model_path()),
-        capture_output=True,
-        text=True,
-        timeout=900,
-        check=False,
-    )
+    with tempfile.TemporaryDirectory(prefix="p14-netlogo-", dir=_windows_staging_root()) as temp:
+        staging = Path(temp).resolve()
+        staged_setup = staging / setup.name
+        staged_output = staging / output.name
+        shutil.copyfile(setup, staged_setup)
+        if _sha(staged_setup.read_bytes()) != _sha(setup.read_bytes()):
+            raise RuntimeError("Windows staging changed the frozen BehaviorSpace bytes")
+        completed = subprocess.run(
+            _command(
+                _netlogo_root(),
+                experiment,
+                staged_output,
+                setup_file=staged_setup,
+                model=_model_path(),
+            ),
+            capture_output=True,
+            text=True,
+            timeout=900,
+            check=False,
+        )
+        if staged_output.is_file():
+            with staged_output.open("rb") as source, output.open("xb") as destination:
+                shutil.copyfileobj(source, destination)
     if completed.returncode:
         raise RuntimeError(
             f"NetLogo experiment {experiment!r} failed:\n{completed.stdout}\n{completed.stderr}"
         )
+    if not output.is_file():
+        raise RuntimeError(f"NetLogo experiment {experiment!r} produced no observation table")
 
 
 def _header_and_rows(path: Path) -> tuple[list[str], list[list[str]]]:
@@ -365,7 +411,17 @@ def _paired_assessment(
     for seed in EVALUATION_SEEDS:
         for tick in range(BRANCH_TICK):
             left, right = sham["frames"][(seed, tick)], erase["frames"][(seed, tick)]
-            pre_pairing &= left["agents"] == right["agents"]
+            # Arm-specific run identifiers are lineage, not simulation state.  Compare
+            # every observed agent-state field while deliberately excluding run_id.
+            left_state = {
+                agent_id: {key: value for key, value in agent.items() if key != "run_id"}
+                for agent_id, agent in left["agents"].items()
+            }
+            right_state = {
+                agent_id: {key: value for key, value in agent.items() if key != "run_id"}
+                for agent_id, agent in right["agents"].items()
+            }
+            pre_pairing &= left_state == right_state
         left_branch = sham["frames"][(seed, BRANCH_TICK)]
         right_branch = erase["frames"][(seed, BRANCH_TICK)]
         state_pairing &= all(
