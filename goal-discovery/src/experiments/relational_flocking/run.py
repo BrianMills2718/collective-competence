@@ -141,17 +141,39 @@ def present_discovery(run_id: str = DEFAULT_RUN_ID) -> Path:
     return output
 
 
+def verify_discovery(run_id: str = DEFAULT_RUN_ID) -> Path:
+    """Recompute the frozen decision and verify provenance without new simulation."""
+    output = ROOT / "results" / run_id
+    candidate_path = output / "candidate.json"
+    trajectory_path = output / "discovery-trajectory.csv"
+    metadata_path = output / "metadata.json"
+    recorded = json.loads(candidate_path.read_text(encoding="utf-8"))
+    recomputed = discover(pd.read_csv(trajectory_path))
+    if recomputed != recorded:
+        raise RuntimeError("candidate does not exactly match the committed trajectory")
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    if metadata["protocol_sha256"] != _sha(PROTOCOL):
+        raise RuntimeError("protocol hash does not match the recorded run")
+    if metadata["behaviorspace_setup_sha256"] != _sha(SETUP):
+        raise RuntimeError("BehaviorSpace setup hash does not match the recorded run")
+    if any((output / name).exists() for name in ("evaluation.json", "evaluation-summary.csv")):
+        raise RuntimeError("evaluation evidence exists despite the failed proposal gate")
+    return output
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("phase", choices=["discover", "evaluate", "present"])
+    parser.add_argument("phase", choices=["discover", "evaluate", "present", "verify"])
     parser.add_argument("--run-id", default=DEFAULT_RUN_ID)
     args = parser.parse_args()
     if args.phase == "discover":
         output = run_discovery(args.run_id)
     elif args.phase == "evaluate":
         output = run_evaluation(args.run_id)
-    else:
+    elif args.phase == "present":
         output = present_discovery(args.run_id)
+    else:
+        output = verify_discovery(args.run_id)
     print(output)
 
 
