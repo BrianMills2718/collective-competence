@@ -1,0 +1,9 @@
+{
+  "input_sha256": {
+    "b-small_load.xml": "01401c039f9242b4736634d2934cc5eee644dab5434f10aad02701958be20682",
+    "thermostat.nlogox": "64d8e1bcefe6e4dd1036f7f0b81d7811868537645c1dddc22c283f353e7ca9dd",
+    "thermostat.nls": "c77daa66e0dcd222d5d31da35cc5a62f1704d1cf21386793692416b42f4aa0f6"
+  },
+  "staged_inputs_unchanged": true,
+  "windows_local_staging": true
+}
