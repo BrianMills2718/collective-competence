@@ -5,6 +5,7 @@ lifecycle: active
 sources:
   - ../PROJECT.md
   - ../hypotheses/composition_exploration_results.md
+  - ../hypotheses/p10_candidate_relations_results.md
 ---
 # Current research plan
 
@@ -29,15 +30,6 @@ The [research landscape](../../../roadmap/research.md) owns cross-experiment
 synthesis. Native results own measurements. The
 [evidence index](plan_completion_ledger.md) owns document lifecycle/navigation.
 
-## Completed enabling checkpoint: context and runtime integration
-
-The instruction-first loop and main installation are complete (PRs #3/#4,
-main `240ddc3`). Root/subtree instructions route through the unified wiki.
-P8/P9, optional composition and research records share the same runtime;
-historical dashboard milestones do not define the current goal.
-The recovery branch and local stash preserve the former dirty checkout.
-Detailed installation checks remain in those commits and PR receipts.
-
 ## Completed scientific checkpoint: proposal and distinguishing intervention
 
 [P10 result](../hypotheses/p10_candidate_relations_results.md) completed the
@@ -57,14 +49,23 @@ What did not change: open-ended unexpected-goal discovery is not demonstrated.
 The interactive P10 tab uses committed measurements, a fixed first-seed replay,
 per-seed outcomes, the learned tree, and explicit claim limits.
 
-Timing: protocol commit 18:13:16Z to held-out evaluation start 18:18:56Z was
-5 minutes 40 seconds; the batch completed in about two seconds. This excludes
-earlier orientation and later UI/review/integration, so it is not total effort.
-Reused the existing simulator/snapshots, scikit-learn and Panel.
-No extra sorting seeds, threshold tuning, categorical migration or generic
-feature framework was needed.
+P10 is integrated on main via PR #5 (`9a66758`); its linked result owns protocol,
+timing and evidence details. Reused the simulator, scikit-learn and Panel.
 
 ## Next scientific checkpoint: transfer the question, not the sorting vocabulary
+
+### Read this evidence before designing the next test
+
+| Need | Native record and why it matters |
+|---|---|
+| What the proposal loop now demonstrates | [P10 result](../hypotheses/p10_candidate_relations_results.md): learned endpoint prediction contains both restored order and non-restored identity history; supplied family only |
+| Counterexample to recovery implying agency | [Passive bowl result](../hypotheses/002_bowl_results.md): passive dynamics reproduced the earlier mechanism-damage signature |
+| Existing distinguishing intervention to build on | [Blind target inference result](../hypotheses/003b_blind_target_inference_results.md): active and passive systems shared an inferred target; sustained loads and sensing/actuation ablations separated them |
+
+Read each result's protocol when specifying its observation/intervention
+contract. For wider context, use the [calibration synthesis](../../../roadmap/research.md#2-calibration-convergence-defense-compensation-adaptation),
+not the complete archive. These records guide a new test; repeating a known
+contrast alone is not unexpected-goal discovery.
 
 Question: can proposal plus a distinguishing intervention separate prediction
 from restoration in a second existing substrate, including a **passive restoring
@@ -84,19 +85,14 @@ The longer-term gap remains proposing useful patterns outside narrow
 researcher-supplied families and selecting informative interventions across
 diverse systems. P10 supplies a small end-to-end calibration, not that solution.
 
-## Version and evidence boundary
+## Integration and evidence boundary
 
-The integrated lineage preserves the published base `6cf34d8`, categorical
-comparison `f83529b`, reviewed documentation `40548f5`, and local recovery
-snapshot `e5283da`. Original claims remain traceable through native records and
-Git parents. A server must identify its actual checkout/revision; a URL is not
-a release identifier.
-
-`research_state.yaml` retains historical milestones and results; its
-`current_context` routes to this plan and the wiki. Old `active_sprint`,
-`north_star`, and terminal-plan fields do not set current priorities.
-Ignored raw results are not a portable evidence bundle, and this integration
-does not rerun or independently confirm those scientific findings.
+Earlier context/runtime integration is recorded in PRs #3/#4 (`240ddc3`);
+the recovery branch and local stash preserve the former dirty checkout.
+A server must identify its actual checkout/revision; a URL is not a release.
+Historical `research_state.yaml` milestones do not set current priorities.
+Ignored legacy raw data are not a portable evidence bundle; integration checks
+do not independently confirm archived scientific findings.
 
 ## Completed decisions: reopen only with new justification
 

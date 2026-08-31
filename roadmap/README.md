@@ -17,6 +17,11 @@ sources instead of replacing their authority or requiring every file to be read.
 
 ## Choose your question
 
+For a new strategy task: **root instructions -> charter -> current plan**.
+The plan links the small evidence set needed for the next checkpoint. Open other
+topics only for the question at hand; the catalog is a recovery tool, not a
+reading assignment. This route does not waive applicable subtree instructions.
+
 | Question | Read next |
 |---|---|
 | What are we trying to achieve; what do our terms mean? | [Charter: goal, substrate, boundaries, competencies](../goal-discovery/docs/PROJECT.md) |
@@ -37,24 +42,16 @@ discovery across diverse systems**. See the [research synthesis](research.md)
 for qualified findings and corrections; implementation counts are not evidence
 of that scientific outcome.
 
-Latest bounded result: [P10 prediction versus restoration](../goal-discovery/docs/hypotheses/p10_candidate_relations_results.md).
-A learned endpoint rule predicted correctly but contained a tie-history pattern
-the system did not restore. Inspect it in the first laboratory tab; this is
-proposal-method calibration, not a new unexpected competency.
+For the latest result, remaining gap, and next experiment, read the
+[current checkpoint](../goal-discovery/docs/plans/current_research_plan.md).
+That page alone selects priorities; this index is navigation, not a second
+status report.
 
 The loop is: represent/import -> observe -> propose competing explanations ->
 choose a distinguishing intervention -> compare futures -> retain/reject/abstain ->
 choose the next experiment. Every proposed increment should identify its place
 in that loop and the decision it can change.
 
-## Version and evidence boundary
-
-This revision reconciles P8/P9 runtime work, the optional categorical comparison,
-and reviewed documentation. Original work is preserved in a recovery branch.
-Neither branch metadata nor a localhost URL proves which version is running.
-The [current plan](../goal-discovery/docs/plans/current_research_plan.md) owns
-integration status. Raw results have not been rerun by this documentation pass.
-
-A historical stop closes its tested route—not the whole laboratory. A passing
-calibration is not a universal capability. Read corrections and limits before
-reusing a claim.
+The [research synthesis](research.md) qualifies findings and corrections;
+native records preserve the evidence. A historical stop closes its tested
+route—not the laboratory. A passing calibration is not a universal capability.

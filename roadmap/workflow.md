@@ -28,7 +28,7 @@ There are no claims of automatically loaded nested instructions.
 
 | Task | Required route, then exact evidence as needed |
 |---|---|
-| Strategy or next experiment | Charter -> current plan -> research topic -> relevant reviewed experiment/counterevidence |
+| Strategy or next experiment | Charter -> current plan's selected evidence -> native result/protocol; research topic only when wider context is needed |
 | Interpret an experimental result | Research topic -> experiment record -> native result and protocol; examine corrections before quoting a verdict |
 | Modify a simulation/analysis | Apparatus -> source instructions -> model/protocol/observation contract -> relevant tests |
 | Change a visual | Usage + shared analytic contract -> source/test instructions -> exact checkout and first-user journey |
@@ -63,6 +63,17 @@ These tiny adapters generate navigation from authored sources. They do not
 infer scientific outcomes, replace shared governance tooling, install hooks,
 or prove client context loading. Shared Markdown link validation may be run
 with Project Meta's existing `scripts/check_markdown_links.py --repo-root <repo>`.
+A successful index build is not a usability test; verify reported broken links
+relative to the containing file before changing them.
+
+### Check retrieval after structural changes
+
+Ask an independent reader to recover the project goal, latest finding and its
+limits, next scientific question, relevant counterevidence, and priority owner
+starting from the root instructions. Record sources opened and ambiguities;
+repair failed routes, not the answers. Disclose prior context if the reviewer
+is reused. A single successful read does not establish optimal retrieval.
+Keep execution receipts in the change review, not another recurring audit file.
 
 ## Shared policy and evidence ownership
 
