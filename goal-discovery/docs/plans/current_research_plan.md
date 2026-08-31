@@ -112,7 +112,22 @@ Audit repairs include retained missing-output failure records and
 suppression of supported verdicts when fixture integrity fails. Preserve P11
 historical bytes and reproduce that study at its recorded revision.
 
-## Next decision: reduce prescribed interpretation, not just supplied parameters
+## Active slice: blind vector dynamics on a second substrate
+
+The user approved P13 after the P12 review. The frozen
+[P13 protocol](../hypotheses/p13_vector_dynamics.md) reuses the passive bowl but
+withholds its target, rules, energy, goal tolerance and mechanism state. A fixed
+four-family linear grammar must select the simplest held-out predictor, derive a
+stable fixed relation, freeze it, and face matched state and mechanism challenges.
+
+Acceptance requires committed candidates before untouched outcomes, raw
+observation retention, independent-unit scoring across eight seeds, passive and
+mechanism-failure interpretations, and a dynamic cutoff-safe view. The intended
+advance is a reusable proposal/falsification seam across P10/P12/P13—not a new
+bowl finding, universal substrate, or open-ended-discovery claim. Stop or revise
+on valid negative evidence; do not add post-outcome model families.
+
+## Subsequent decision: reduce prescribed interpretation, not just supplied parameters
 
 Do not repeat thermostat parameter calibration or automatically fit saturation
 after these exposed outcomes. The next slice should propose a falsifiable
