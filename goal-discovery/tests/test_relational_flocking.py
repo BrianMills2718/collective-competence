@@ -4,7 +4,12 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from src.experiments.relational_flocking.analysis import VECTOR_COLUMNS, add_readouts, discover, evaluate
+from src.experiments.relational_flocking.analysis import (
+    VECTOR_COLUMNS,
+    add_readouts,
+    discover,
+    evaluate,
+)
 
 
 def _discovery_fixture(relational: bool = True) -> pd.DataFrame:

@@ -13,7 +13,16 @@ import pandas as pd
 from src.common import io
 from src.spikes.netlogo_flocking.run import NETLOGO_VERSION, _command, _netlogo_root
 
-from .analysis import ARMS, add_readouts, discover, dump_json, evaluate, read_behaviorspace, render, write_result
+from .analysis import (
+    ARMS,
+    add_readouts,
+    discover,
+    dump_json,
+    evaluate,
+    read_behaviorspace,
+    render,
+    write_result,
+)
 
 ROOT = Path(__file__).resolve().parents[3]
 PROTOCOL = ROOT / "docs" / "hypotheses" / "p14_relational_flocking.md"
