@@ -30,9 +30,28 @@ This revision combines P8/P9 and the optional composition preview. The
 [current plan](docs/plans/current_research_plan.md) records verification and
 installation status. A localhost URL alone does not identify the running revision.
 
-## Five-minute sorting walkthrough
+## Start with the new prediction-versus-restoration result
 
-1. Start with the first tab, **Blind sorting calibration · P9**. Leave defaults in place;
+The first tab, **Prediction vs restoration · P10**, shows a learned rule and
+its frozen held-out test—not a hand-authored candidate ledger.
+
+1. Leave **Different values** selected and move **Ticks after the swap** from
+   0 to 64. The highlighted pair returns to the predicted order under original
+   activity, but not with all activity disabled.
+2. Select **Equal values**. The values look unchanged; the highlighted identities
+   have swapped. Scrub again: their original relative order is not restored.
+3. Expand **What exactly was learned** for the fitted decision tree; open
+   **Every seed** for all 24 results and the provenance card for frozen sources.
+
+The plot is a full recorded future, not an online prediction. Only seed 1000
+is replayed; aggregate results include all held-out seeds. Controls do not rerun
+or alter the frozen experiment. Features and probes were researcher-supplied:
+this is a bounded method calibration, not unexpected open-ended discovery.
+[Result and limitations](docs/hypotheses/p10_candidate_relations_results.md).
+
+## Configure a sorting run in the P9 tab
+
+1. Select **Blind sorting calibration · P9**. Leave defaults in place;
    changing a configuration control rebuilds the deterministic run.
 2. Use **Shared timeline** to play, pause, step, or scrub.
 3. Read each cell as **VALUE** (carried number), **ID** (persistent identity),

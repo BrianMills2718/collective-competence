@@ -23,6 +23,7 @@ from src.cockpit.blind_calibration import (
     load_blind_calibration,
     unavailable_blind_calibration,
 )
+from src.cockpit.candidate_relations import build_candidate_relations
 from src.cockpit.experiment_story import build_experiment_story, unavailable_story
 from src.cockpit.laboratory import build_laboratory
 from src.cockpit.outcome_map import build_outcome_map
@@ -262,6 +263,9 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
         main=[
             current_summary,
             pn.Tabs(
+                ("Prediction vs restoration · P10", build_candidate_relations(
+                    state.root / "results/p10-candidate-relations"
+                )),
                 ("Blind sorting calibration · P9", build_sorting_laboratory()),
                 ("Outcome · historical", outcome_map),
                 ("Evidence · P7-002", story),

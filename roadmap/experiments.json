@@ -730,6 +730,23 @@
         "status": "unknown",
         "effort_minutes": null
       }
+    },
+    {
+      "id": "P10",
+      "family": "calibration",
+      "question": "Can a learned endpoint relation be separated from restoration of that relation?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p10_candidate_relations.md",
+        "goal-discovery/docs/hypotheses/p10_candidate_relations_results.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "bounded-calibration-pass",
+      "outcome_source": "goal-discovery/docs/hypotheses/p10_candidate_relations_results.md",
+      "disposition": "Retain proposal/intervention method; reject whole endpoint law as restored target; no unexpected-discovery or agency claim.",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     }
   ]
 }

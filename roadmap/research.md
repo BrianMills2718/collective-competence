@@ -21,8 +21,9 @@ We have reproduced a specific sorting phenomenon, inferred hidden authored targe
 under constrained observation contracts, and tested several representations,
 controls, engines, and visual instruments. **We have not demonstrated an
 open-ended procedure discovering unexpected goals across diverse systems.**
-The immediate research gap is candidate proposal followed by a distinguishing
-intervention—not another generic simulator or representation leaderboard.
+P10 now demonstrates one narrow learned-candidate/intervention calibration.
+The gap is transfer beyond that supplied family and stronger alternative
+explanations—not another generic simulator or representation leaderboard.
 
 ## How to read this page
 
@@ -102,6 +103,21 @@ history-dependent parameter improvement that disappeared when memory was reset.
 were supplied. These are useful calibrated controls, not open-ended discovery.
 Carry the separation between *inferring a candidate* and *attributing its defense*
 into the next proposal test; do not optimize already-passing demonstrations.
+
+### Candidate proposal: a prediction is not a restored target
+
+[P10](../goal-discovery/docs/hypotheses/p10_candidate_relations_results.md)
+learned a small endpoint decision tree from allowed value and initial-position
+differences, then froze it before 24 new-seed, larger-size runs. Prediction was
+exact, but the selected unequal-value relation restored in 24/24 active branches
+while equal-value identity history restored in 0/24. Disabled controls restored
+neither. All probes passed the declared integrity checks.
+
+This is a working proposal-and-intervention calibration, not an unexpected
+sorting finding. Features, endpoint task and probes were supplied; the tree
+inferred the relation. Predictive regularities must be challenged before being
+called restored targets. Inert controls do not distinguish active defense from
+passive attraction; transfer beyond this narrow family remains open.
 
 ## 3. Representation: useful descriptions must beat simple explanations
 

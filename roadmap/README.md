@@ -37,6 +37,11 @@ discovery across diverse systems**. See the [research synthesis](research.md)
 for qualified findings and corrections; implementation counts are not evidence
 of that scientific outcome.
 
+Latest bounded result: [P10 prediction versus restoration](../goal-discovery/docs/hypotheses/p10_candidate_relations_results.md).
+A learned endpoint rule predicted correctly but contained a tie-history pattern
+the system did not restore. Inspect it in the first laboratory tab; this is
+proposal-method calibration, not a new unexpected competency.
+
 The loop is: represent/import -> observe -> propose competing explanations ->
 choose a distinguishing intervention -> compare futures -> retain/reject/abstain ->
 choose the next experiment. Every proposed increment should identify its place

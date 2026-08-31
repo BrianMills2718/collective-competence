@@ -29,92 +29,60 @@ The [research landscape](../../../roadmap/research.md) owns cross-experiment
 synthesis. Native results own measurements. The
 [evidence index](plan_completion_ledger.md) owns document lifecycle/navigation.
 
-## Completed enabling checkpoint: integrate the laboratory and its context
+## Completed enabling checkpoint: context and runtime integration
 
-The instruction-first documentation loop is complete: authored root/subtree
-instructions, unified synthesis and experiment register, independent retrieval
-review, then revised bootstrap. The reader recovered all seven tested answers;
-navigation and provenance findings were repaired. Documentation commits
-`abee04e`, `9a2b0e8`, and `40548f5` preserve that checkpoint.
+The instruction-first loop and main installation are complete (PRs #3/#4,
+main `240ddc3`). Root/subtree instructions route through the unified wiki.
+P8/P9, optional composition and research records share the same runtime;
+historical dashboard milestones do not define the current goal.
+The recovery branch and local stash preserve the former dirty checkout.
+Detailed installation checks remain in those commits and PR receipts.
 
-The user authorized reconciling the older dirty main checkout with those docs.
-Integration includes the existing P8/P9 runtime, later P7-005 records, optional
-composition preview, and the reviewed wiki. It is not a new scientific experiment.
+## Completed scientific checkpoint: proposal and distinguishing intervention
 
-Acceptance:
+[P10 result](../hypotheses/p10_candidate_relations_results.md) completed the
+authorized bounded sprint. A decision tree learned pairwise endpoint order
+from value differences and initial-position history, without authored rules or
+sorting scores. The feature family and probes were researcher-supplied.
 
-- Preserve tracked and untracked runtime work before changing main.
-- Reconcile protocols/results without moving frozen gates or losing corrections.
-- Make current goal/plan distinct from historical dashboard checkpoint fields.
-- Verify clean-checkout launch without ignored raw results; mark data unavailable.
-- Run affected tests, inspect the live desktop workflow, check instruction/wiki
-  projections and links, then publish and install the same revision on main.
+On 24 frozen held-out runs, endpoint prediction was exact. After perturbation,
+the selected unequal-value relation recovered in 24/24 active runs and 0/24
+disabled controls; equal-value identity history recovered in 0/24 active runs.
+All 48 probes were eligible and passed integrity checks. This rejects the
+interpretation that the entire predictive endpoint law is a restored goal.
 
-**Integration status: verified on this revision.** Install the reviewed revision
-by fast-forwarding the canonical checkout after preserving its local changes.
-The runtime banner identifies the actual running checkout; this document is
-not an assertion that an already-running server has refreshed.
+What changed: candidate proposal is now executable rather than only a
+hand-authored ledger; matched interventions qualify the generated interpretation.
+What did not change: open-ended unexpected-goal discovery is not demonstrated.
+The interactive P10 tab uses committed measurements, a fixed first-seed replay,
+per-seed outcomes, the learned tree, and explicit claim limits.
 
-Main installation: PR #3 merged at `f0c15f3`; the canonical checkout was
-fast-forwarded and its instruction/wiki projections checked. The original local
-changes remain recoverable both in the remote snapshot below and a local stash.
-Post-installation raw-artifact checks caught a test assertion that confused
-the diagnostic score disposition with the run's integrity-stop disposition;
-the assertion now checks both separately. The rendered decision was correct.
-The original checkout is preserved in remotely published
-`recovery/pre-integration-20260831` at `e5283da`, based on `5810969`.
-Ignored raw outputs and environments remain local and untouched.
-The integration lane is `integrate-laboratory-context`, based on `40548f5`.
+Timing: protocol commit 18:13:16Z to held-out evaluation start 18:18:56Z was
+5 minutes 40 seconds; the batch completed in about two seconds. This excludes
+earlier orientation and later UI/review/integration, so it is not total effort.
+Reused the existing simulator/snapshots, scikit-learn and Panel.
+No extra sorting seeds, threshold tuning, categorical migration or generic
+feature framework was needed.
 
-Findings resolved during integration: recovery code had reintroduced P7-004's
-post-outcome integrity reinterpretation; the original 24.6% versus 80% failure
-remains authoritative and scale scores are diagnostic only. Historical terminal
-plan checks must not mark the current active plan complete. Missing optional raw
-outputs must not prevent the application from opening.
+## Next scientific checkpoint: transfer the question, not the sorting vocabulary
 
-Verification (2026-08-31):
+Question: can proposal plus a distinguishing intervention separate prediction
+from restoration in a second existing substrate, including a **passive restoring
+alternative** rather than only an inert disabled control?
 
-- Clean-worktree core suite: 159 passed, 27 optional dependency/data skips.
-- UI/composition/sorting/scale suite with visualization extras: 85 passed,
-  2 missing-raw-artifact skips; 42 upstream Panel deprecation warnings.
-- Seven documentation projection controls, bootstrap synchronization, generated
-  register/catalog validation, scoped local-link checks, and source/test lint pass.
-- Live desktop check: reverse-order configuration rebuilds values 11 through 0;
-  tick-12 immovable intervention displays two BLOCKED identities; composition
-  switches to the passive bowl and reports zero execution mismatches.
-- Independent goal/claim review found one stale split-checkout description,
-  now corrected. Browser inspection also caught and corrected the same obsolete
-  distinction in the composition introduction.
-- Preserved local Ants artifacts load with an explicit read-only integrity
-  correction. Stored artifacts are unchanged. Full scientific batches were not rerun.
+- Begin from the existing bowl/controller calibration and its recorded limits;
+  specify what observation history and candidate family are supplied.
+- Test one concrete pair of competing explanations with the cheapest available
+  perturbation. Do not claim agency merely because an outcome returns.
+- Use a new frozen protocol/candidate before untouched evaluation.
+- Reuse the evidence questions and provenance structure only where they actually
+  fit; do not force pairwise cell features into non-cell systems.
+- One 60–90 minute sprint; stop on an interpretable result or explicit inability
+  to discriminate. No broad cross-system campaign is licensed by P10's pass.
 
-Two existing adapter tests depended unconditionally on ignored datasets. Their
-boundary assertions now run on explicitly synthetic temporary unit fixtures;
-optional real-data variants remain separate. Missing artifacts cannot silently
-turn a skipped confirmation into a pass.
-
-This checkpoint improves reliable context and inspectability. Passing software
-checks does not independently confirm archived research or establish discovery.
-
-## Next scientific checkpoint: candidate proposal and a distinguishing test
-
-**Question:** can an inspectable proposal procedure suggest a testable pattern
-not supplied as an explicit goal, and can an intervention distinguish it from
-an invariant, passive convergence, or incidental correlation?
-
-- Declare the executable substrate, focal system/environment boundary, allowed
-  observations, and every supplied feature/prior. Use the cheapest appropriate
-  existing specimen; sorting is an option, not a required permanent focus.
-- Compare candidate interpretations with simple nulls and authored baselines.
-- Choose one intervention for discrimination, not animation or metric improvement.
-- Freeze evaluation and leakage checks before using untouched cases.
-- Show provenance, trajectory/contrast, counterexample, uncertainty, and decision
-  through the existing visual apparatus.
-
-A pass requires evidence beyond restating a supplied objective. Failure or
-inability to discriminate is a useful result. Start with one 60–90 minute learning
-sprint after the implementation base is explicit; narrow the experiment if setup
-dominates. Do not prepay a universal simulator, feature engine, or dashboard.
+The longer-term gap remains proposing useful patterns outside narrow
+researcher-supplied families and selecting informative interventions across
+diverse systems. P10 supplies a small end-to-end calibration, not that solution.
 
 ## Version and evidence boundary
 

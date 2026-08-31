@@ -52,5 +52,6 @@ carry no inferred scientific outcome. Costs remain unknown unless measured.
 | X03 / substrate-reuse | Which reusable visual-analysis approach fits the laboratory? | not_reviewed | Not assessed; Review before use | [x03_visual_analytics_decision](../goal-discovery/docs/plans/x03_visual_analytics_decision.md) |
 | P3-generator-survey / substrate-reuse | Which mature generator fits the declared next experiment? | not_reviewed | Not assessed; Review before use | [p3_generator_reuse_survey](../goal-discovery/docs/plans/p3_generator_reuse_survey.md) |
 | P4-generator-selection / substrate-reuse | Which generator fits the next target-inference calibration? | not_reviewed | Not assessed; Review before use | [p4_generator_selection](../goal-discovery/docs/plans/p4_generator_selection.md) |
+| P10 / calibration | Can a learned endpoint relation be separated from restoration of that relation? | result_reviewed | bounded-calibration-pass; Retain proposal/intervention method; reject whole endpoint law as restored target; no unexpected-discovery or agency claim. | [p10_candidate_relations](../goal-discovery/docs/hypotheses/p10_candidate_relations.md); [p10_candidate_relations_results](../goal-discovery/docs/hypotheses/p10_candidate_relations_results.md) |
 
 Interpretation and counterevidence live in the linked research synthesis and native results.
