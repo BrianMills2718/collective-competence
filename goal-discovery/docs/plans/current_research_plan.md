@@ -131,18 +131,20 @@ agency, or active compensation was found. The cutoff-safe first cockpit tab is
 the canonical inspectable artifact. Stop the bowl line rather than fit opened
 outcomes or polish a known demonstration.
 
-## Next decision: can a relational candidate survive competing explanations?
+## Active authorized checkpoint: relational candidate versus rival explanations
 
-The next candidate checkpoint, if authorized, should use an existing interacting
-system and a grammar that can express a relation among parts without supplying
-its target. Declare passive/invariant, measurement-artifact, and competency
-alternatives first, then freeze one prediction and a discriminating intervention.
+The user authorized one bounded experiment. [P14](../hypotheses/p14_relational_flocking.md)
+reuses the unmodified off-the-shelf Flocking model and asks whether a learned
+cross-cohort heading-vector relation improves untouched prediction, then makes
+it compete prospectively with passive affine dynamics, rotational invariance,
+a changing-neighborhood measurement artifact, and a competency interpretation.
+The fixed-cohort readout and interaction-off branch are the key discriminators.
 The purpose is to test whether proposal moves beyond independent local dynamics,
-not to make another calibration pass.
+not to claim a flock goal from attractive recovery.
 
-Stop before execution if the candidate restates a supplied observable, the
-grammar is bowl-specific, the intervention cannot distinguish live alternatives,
-or new simulator/framework/UI machinery dominates the slice. Generic UI work,
+Stop before evaluation if the relational family fails its untouched proposal
+gate. Stop after the result and smallest visual readout regardless of verdict;
+do not tune or repeat this known model. Generic UI work,
 production categorical runtime, completion enforcement and browser-button
 debugging remain outside the scientific critical path. Use the smallest visual
 readout after evidence. Completion of P13 does not authorize the next experiment.
