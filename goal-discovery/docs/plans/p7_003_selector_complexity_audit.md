@@ -1,8 +1,35 @@
 # P7-003 selector complexity audit
 
-**Status:** next Level 1 methodology sprint  
+**Status:** complete-negative Level 1 methodology sprint
 **Time cap:** 60 minutes  
 **Evidence boundary:** retrospective development only; no new scientific claim
+
+**Result:** no family won more than three of eight held-seed analyses, so the
+six-of-eight stability gate failed and generic family selection stops. See the
+[`P7-003 results`](../hypotheses/p7_003_selector_complexity_audit_results.md).
+
+## Outcome-backcasting trace
+
+```text
+Mature outcome supported: reliable selection or justified abstention among
+  observable representations
+Target version: V3 — prospective transfer contract
+Question made answerable: is an equal-capacity generic selector coherent enough
+  to freeze for a different system?
+Placeholder or uncertainty replaced: selector stability under matched
+  descriptive capacity
+Evidence and provenance produced: retrospective fold/winner and coefficient
+  stability tables sourced from P7-002
+Acceptance test: the frozen six-of-eight winner and sign-stability gate below
+Stop/removal rule: if unstable, remove generic automated family selection from
+  the proposed mature workflow and return to task-conditioned representations
+Possible artifact or plan revision: replace a selector leaderboard with a
+  task-conditioned comparison and explicit abstention path
+```
+
+This sprint is also the first observation in the three-sprint OB-001 planning
+pilot. Its retrospective must record whether the mature-outcome trace prevented
+scope drift, added useful clarity, or merely added planning overhead.
 
 ## Decision being purchased
 

@@ -8,14 +8,19 @@ tell? The programme answers one narrow question at a time:
 > black-box method propose useful representations rather than receiving all of
 > them by hand?
 
-Not a simulation platform, not an agent framework, and not a universal
-goal-directedness score. The current phase tests whether one frozen decision
-process can select the appropriate temporal, relational, identity-conditioned,
-or network representation—or abstain—before any new generator is added.
+Not a general simulation platform, not an agent framework, and not a universal
+goal-directedness score. A thin reusable experimental substrate is nevertheless
+necessary: configure or adapt a system, run it reproducibly, branch and perturb
+it, record trajectories, and compare representations. The next authorization
+checkpoint applies a UI-first approach to the already validated Levin sorting
+experiment before extracting any general substrate.
 
 The [current research plan](docs/plans/current_research_plan.md) is the one
 authoritative roadmap. The versioned [research state](docs/research_state.yaml)
 backs the live cockpit; older plans are retained as decision history.
+The ready-for-authorization
+[P8 sorting-laboratory roadmap](docs/roadmaps/p8_sorting_laboratory_phase.md)
+defines the next bounded implementation checkpoint.
 
 ## State
 
@@ -51,11 +56,14 @@ backs the live cockpit; older plans are retained as decision history.
 | P6-001 | neuromast causal calibration | **complete / no-go** — strong local-feedback effect; one active seed failed and runaway control breached runtime design |
 | P6-002 | archive-first benchmark contract | **complete / no selection** — V-Cornea and M9147 lack compact run-level ensemble/control evidence |
 | P6-003 | compact evidence-package acquisition | **complete / no selection** — three data-first packages fail the frozen contract before download |
-| P6-004 | external benchmark evidence request | **ready / passive** — a qualifying compact run table is welcome but no longer blocks calibration |
+| P6-004 | external benchmark evidence request | **deferred / externally gated** — not an active plan; reconsider only if a qualifying compact run table is supplied |
 | P7-000 | repository-backed research cockpit | **complete** — real objective, evidence frontier, sprint, and decisions; no mock results |
 | P7-001 | cross-system representation tournament | **complete / pass** — 4/4 frozen calibration decisions correct; no prospective claim |
 | P7-002 | prospective network selector | **complete / fail** — identity history transferred +8.4%, below frozen 10%; simpler ablation exposed capacity instability |
-| P7-003 | selector complexity audit | **next** — equal four-summary family comparison; freeze a new rule or stop generic selection |
+| P7-003 | selector complexity audit | **complete / no-go** — equal-capacity winners split 3/3/2/0; generic family selection stopped |
+| P7-004 | Ants trail-scale perturbation | **complete / no-go** — task-matched null beat local, colony, and trail descriptions |
+| P7-005 | network intervention value | **complete / no-go** — 15.7% pooled benefit failed seed, budget, and split robustness |
+| OB-001 | outcome-backcasting planning pilot | **complete / retain with revision** — company rollout stopped pending a measured non-research transfer pilot |
 
 Before Experiment 003, run the time-boxed
 [Mesa compatibility spike](docs/plans/x01_mesa_spike.md). It asks whether an
@@ -323,18 +331,41 @@ uv sync --extra visual-workbench
 uv run --extra visual-workbench panel serve src/workbench/app.py --show --port 5010
 ```
 
-To open the programme-level research cockpit instead:
+To open the P9 blind sorting calibration and the programme-level research cockpit:
 
 ```bash
 uv sync --extra visual-workbench
 uv run --extra visual-workbench panel serve src/cockpit/app.py --show --port 5011
 ```
 
-The cockpit answers a different question from the trajectory workbench: it
-shows the north star, evidence frontier, active decision sprint, experiment
-registry, and conditional next investment directly from
-`docs/research_state.yaml`. Filters and experiment selection are interactive,
-but the scientific content is repository-backed rather than simulated.
+Open `http://localhost:5011/app`. The first tab is the experiment surface:
+declare the focal system and environment, configure a deterministic cell world,
+play or scrub it, intervene on internal state, capability, or the environment
+scheduler, compare matched futures, and inspect candidate interpretations. It
+starts with authored rule and target fields sealed. Use **Evidence access** to
+reveal ground truth only when calibrating your interpretation. Controls rebuild
+automatically; the Build button provides an explicit rerun.
+
+The remaining cockpit tabs answer a different question from the trajectory
+workbench: they show the north star, evidence frontier, experiment registry,
+and conditional next investment directly from `docs/research_state.yaml`.
+Filters and experiment selection are interactive, but scientific content is
+repository-backed rather than synthesized.
+
+The **Outcome** tab shows the mature question-to-evidence ledger and
+V0–V6 evidence-maturity ladder. **Evidence · P7-002** traces one real
+trajectory-to-decision chain, including individual failures and the failed
+prospective gate. **Blind · V2** compares Heatbugs targets inferred from allowed
+observations with white-box authored truth joined only after inference. **Scale
+no-go · V4** exposes the failed Ants scale screen and its integrity ledger.
+**Laboratory · V6** compares four validated evidence contracts across Heatbugs,
+Virus, and Ants, including their claim boundaries and next decisions. Heavy
+views load on demand; the required interface target is desktop only.
+
+The outcome-backcasting implementation is summarized in
+`docs/audits/2026-08-29_ob_001_v0_v2_delivery_review.md`; the retain/revise/stop
+decision is in
+`docs/audits/2026-08-29_ob_001_three_sprint_retrospective.md`.
 
 Active experiments also follow the
 [dynamic artifact standard](docs/plans/dynamic_experiment_artifact_standard.md):

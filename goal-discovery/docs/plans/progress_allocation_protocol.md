@@ -1,5 +1,8 @@
 # Progress-allocation protocol
 
+**Status:** retained operating protocol; the current roadmap has no active
+required sprint.
+
 This protocol governs how the laboratory allocates time. It exists to maximize
 movement toward the research goal, not code volume, task completion, or apparent
 confidence.
@@ -116,6 +119,42 @@ End decision: continue / change / promote / stop
 The observable artifact must appear within the first 25% of the sprint. If it
 does not, stop and reduce scope or change the tool.
 
+For any future outcome-backcasting pilot, also record:
+
+```text
+Mature outcome supported:
+Target evidence-maturity version:
+Question made answerable:
+Placeholder or uncertainty replaced:
+Possible artifact or plan revision:
+```
+
+These fields test goal traceability; they do not override an experiment's
+unknown, null, time cap, or stop rule. A task that cannot name a mature outcome
+may still run as explicitly time-boxed exploration when it identifies the
+decision that could revise the outcome artifact.
+
+### UI-first executable-outcome rule
+
+When the interface is itself required to understand or operate the system,
+begin with the mature desktop surface and backcast runnable versions from it.
+The mock is a question-and-interaction contract, not permission to display fake
+results. Replace the shell with real system behavior in the next increment.
+
+Each UI version must name:
+
+- the system action the user can perform;
+- the research question made answerable;
+- the real state, trajectory, or result source displayed;
+- the comparison or counterfactual made easier;
+- the comprehension/correctness gate; and
+- the feature or abstraction deliberately deferred.
+
+Audit before advancing. A UI increment counts as progress only when it shortens
+time to observe, understand, compare, falsify, or decide. Once one complete
+vertical slice exists, extract a reusable substrate boundary only after a second
+concrete system needs it.
+
 A discriminating comparison or explicit failure must appear by 60% of the time
 cap. If the remaining work can only improve presentation or confidence without
 changing the decision, close the sprint.
@@ -217,10 +256,19 @@ After every three learning sprints, compare estimated and actual times and
 promotion rates. Recalibrate the time caps and expected follow-up cost rather
 than adding more fields to the sprint card.
 
+During the first three-sprint outcome-backcasting pilot, the same review also
+measures planning overhead, avoided scope, placeholder-to-evidence conversions,
+and whether the mature artifact was revised by learning. Only a favorable
+retain/revise decision licenses extraction of a general company-planning method.
+
 ## Relationship to other protocols
 
 `current_research_plan.md` is the authoritative portfolio decision and stop
 list. Historical experiment plans do not override it.
+
+`outcome_backcasting_protocol.md` defines the temporary goal-traceability pilot.
+It does not make UI work a scientific objective and does not authorize filling
+hypothetical sections without real provenance.
 
 `reuse_survey_protocol.md` chooses the smallest mature tool capable of the
 active job. This protocol decides how much time the job deserves and what

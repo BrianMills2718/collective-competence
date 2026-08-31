@@ -53,3 +53,25 @@ The current bottleneck is representation discovery and cross-system comparison,
 not simulation or visualization. The next spend is therefore an existing-data
 benchmark after provenance is sealed. The installed Slime Mold Network remains
 a conditional threshold/cross-scale experiment rather than an adoption target.
+
+## OB-001 transfer decision
+
+**Do not generalize outcome backcasting into company planning yet.** The
+three-sprint pilot showed net project-local value: all three tasks were tied to
+an explicit mature-outcome question, all three negative results stopped work,
+and no interface box was allowed to substitute for evidence. It also exposed a
+material measurement gap: planning time was never independently logged, and the
+sample contains only adjacent research sprints in one programme.
+
+The substrate-neutral proposal therefore remains a hypothesis, not company
+policy. Before reconsideration, run one bounded non-research transfer pilot on
+an inspectable outcome such as a decision memo, customer journey, API example,
+benchmark, or operational runbook. Log planning start/end, first evidence, and
+decision time; compare avoided work and decision quality with the ordinary
+workflow; preserve an exploration lane; and allow versions to close negatively.
+
+Until that evidence exists, retain the revised method only inside
+goal-discovery. Do not copy scientific maturity labels, the cockpit layout, or
+the laboratory's version ladder into company planning. This is an evidence-
+backed stop decision, not an indefinite rollout task. See the
+[three-sprint retrospective](2026-08-29_ob_001_three_sprint_retrospective.md).

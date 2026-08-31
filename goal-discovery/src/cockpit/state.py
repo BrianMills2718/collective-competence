@@ -12,6 +12,18 @@ import yaml
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_STATE_PATH = REPOSITORY_ROOT / "docs" / "research_state.yaml"
 VALID_MILESTONE_STATES = {"demonstrated", "active", "locked", "stopped"}
+VALID_PROVENANCE_STATES = {
+    "hypothetical", "connected", "measured", "replicated", "contradicted", "retired"
+}
+VALID_VERSION_STATES = {"planned", "implemented", "revised", "retired", "closed-no-go"}
+TERMINAL_PLAN_DISPOSITIONS = {
+    "complete",
+    "complete-negative",
+    "complete-revised",
+    "retained-protocol",
+    "superseded",
+    "terminal-roadmap",
+}
 
 
 @dataclass(frozen=True)
@@ -36,6 +48,34 @@ class ResearchState:
         columns = ["id", "phase", "title", "status", "confidence", "decision"]
         return pd.DataFrame(self.experiments).reindex(columns=columns)
 
+    def outcome_frame(self) -> pd.DataFrame:
+        columns = [
+            "id",
+            "section",
+            "question",
+            "provenance_state",
+            "target_version",
+            "source",
+            "next_test",
+        ]
+        return pd.DataFrame(self.data["outcome_map"]).reindex(columns=columns)
+
+    def version_frame(self) -> pd.DataFrame:
+        columns = ["id", "title", "status", "becomes_real", "exit_decision"]
+        return pd.DataFrame(self.data["maturity_versions"]).reindex(columns=columns)
+
+    def laboratory_case_frame(self) -> pd.DataFrame:
+        columns = [
+            "id",
+            "system",
+            "generator",
+            "question",
+            "provenance_state",
+            "evidence_level",
+            "decision",
+        ]
+        return pd.DataFrame(self.data["laboratory_cases"]).reindex(columns=columns)
+
     def resolve(self, relative_path: str) -> Path:
         return self.root / relative_path
 
@@ -53,6 +93,55 @@ def _validate_document_paths(state: ResearchState) -> None:
             relative = record.get(field)
             if relative and not state.resolve(relative).is_file():
                 raise ValueError(f"Missing {field} document for {record.get('id')}: {relative}")
+    for section in state.data["outcome_map"]:
+        relative = section.get("source")
+        if relative and not state.resolve(relative).is_file():
+            raise ValueError(
+                f"Missing source document for outcome-map section {section['id']}: {relative}"
+            )
+    for case in state.data["laboratory_cases"]:
+        for field in ("protocol", "result", "data_source"):
+            relative = case[field]
+            if not state.resolve(relative).exists():
+                raise ValueError(
+                    f"Missing {field} source for laboratory case {case['id']}: {relative}"
+                )
+    pilot = state.data["planning_pilot"]
+    for field in ("protocol", "formal_review", "company_transfer_review"):
+        relative = pilot[field]
+        if not state.resolve(relative).is_file():
+            raise ValueError(f"Missing planning-pilot {field}: {relative}")
+    delivery = state.data["delivery"]
+    for field in ("final_audit", "final_report"):
+        relative = delivery[field]
+        if not state.resolve(relative).is_file():
+            raise ValueError(f"Missing delivery {field}: {relative}")
+    completion = state.data["plan_completion"]
+    if not state.resolve(completion["ledger"]).is_file():
+        raise ValueError(f"Missing plan-completion ledger: {completion['ledger']}")
+    registered: set[str] = set()
+    for item in completion["items"]:
+        plan_path = item["path"]
+        evidence_path = item["evidence"]
+        if plan_path in registered:
+            raise ValueError(f"Duplicate plan-completion path: {plan_path}")
+        if item["disposition"] not in TERMINAL_PLAN_DISPOSITIONS:
+            raise ValueError(f"Nonterminal plan disposition: {item['disposition']}")
+        if not state.resolve(plan_path).is_file():
+            raise ValueError(f"Missing registered plan: {plan_path}")
+        if not state.resolve(evidence_path).is_file():
+            raise ValueError(f"Missing plan completion evidence: {evidence_path}")
+        registered.add(plan_path)
+    actual = {
+        str(path.relative_to(state.root)).replace("\\", "/")
+        for path in (state.root / "docs" / "plans").glob("*.md")
+    }
+    if registered != actual:
+        missing = sorted(actual - registered)
+        stale = sorted(registered - actual)
+        raise ValueError(
+            f"Plan-completion registry mismatch; unregistered={missing}, stale={stale}"
+        )
 
 
 def load_research_state(path: Path | str = DEFAULT_STATE_PATH) -> ResearchState:
@@ -64,11 +153,36 @@ def load_research_state(path: Path | str = DEFAULT_STATE_PATH) -> ResearchState:
         raise TypeError("Research state must be a mapping")
     _require(
         raw,
-        {"version", "updated", "north_star", "frontier", "milestones", "active_sprint",
-         "next_decisions", "stops", "experiments"},
+        {"version", "updated", "programme_status", "delivery", "plan_completion",
+         "north_star", "frontier",
+         "planning_pilot", "milestones", "active_sprint",
+         "next_decisions", "stops", "experiments", "outcome_map", "maturity_versions",
+         "laboratory_cases"},
         "research state",
     )
     _require(raw["frontier"], {"current_unknown", "bottleneck", "last_learning"}, "frontier")
+    _require(
+        raw["planning_pilot"],
+        {"id", "status", "protocol", "formal_review", "company_transfer_review"},
+        "planning pilot",
+    )
+    _require(
+        raw["delivery"],
+        {"status", "interface_target", "launch", "final_audit", "final_report",
+         "known_high_priority_defects"},
+        "delivery",
+    )
+    _require(
+        raw["plan_completion"],
+        {"status", "active_required_plans", "ledger", "items"},
+        "plan completion",
+    )
+    if raw["plan_completion"]["status"] != "complete":
+        raise ValueError("Plan completion must be terminal")
+    if raw["plan_completion"]["active_required_plans"] != 0:
+        raise ValueError("Plan completion still has active required plans")
+    for item in raw["plan_completion"]["items"]:
+        _require(item, {"path", "disposition", "evidence"}, "plan completion item")
     _require(
         raw["active_sprint"],
         {"id", "title", "question", "evidence_level", "time_cap_minutes", "stop_rule"},
@@ -96,6 +210,77 @@ def load_research_state(path: Path | str = DEFAULT_STATE_PATH) -> ResearchState:
         experiment_ids.add(experiment["id"])
     if raw["active_sprint"]["id"] not in experiment_ids:
         raise ValueError("Active sprint must reference an experiment in the registry")
+
+    case_ids: set[str] = set()
+    for case in raw["laboratory_cases"]:
+        _require(
+            case,
+            {
+                "id",
+                "experiment_id",
+                "system",
+                "generator",
+                "question",
+                "provenance_state",
+                "evidence_level",
+                "decision",
+                "claim_boundary",
+                "protocol",
+                "result",
+                "data_source",
+                "next_decision",
+            },
+            "laboratory case",
+        )
+        if case["id"] in case_ids:
+            raise ValueError(f"Duplicate laboratory case id: {case['id']}")
+        if case["experiment_id"] not in experiment_ids:
+            raise ValueError(
+                f"Laboratory case references unknown experiment: {case['experiment_id']}"
+            )
+        if case["provenance_state"] not in VALID_PROVENANCE_STATES - {"hypothetical"}:
+            raise ValueError(f"Laboratory case must be sourced evidence: {case['id']}")
+        case_ids.add(case["id"])
+
+    outcome_ids: set[str] = set()
+    for section in raw["outcome_map"]:
+        _require(
+            section,
+            {
+                "id",
+                "section",
+                "question",
+                "evidence_requirement",
+                "capability",
+                "provenance_state",
+                "target_version",
+                "next_test",
+            },
+            "outcome-map section",
+        )
+        if section["id"] in outcome_ids:
+            raise ValueError(f"Duplicate outcome-map id: {section['id']}")
+        if section["provenance_state"] not in VALID_PROVENANCE_STATES:
+            raise ValueError(
+                f"Invalid provenance state for {section['id']}: "
+                f"{section['provenance_state']}"
+            )
+        if section["provenance_state"] != "hypothetical" and not section.get("source"):
+            raise ValueError(f"Non-hypothetical outcome-map section lacks source: {section['id']}")
+        outcome_ids.add(section["id"])
+
+    version_ids: set[str] = set()
+    for version in raw["maturity_versions"]:
+        _require(
+            version,
+            {"id", "title", "status", "becomes_real", "exit_decision"},
+            "maturity version",
+        )
+        if version["id"] in version_ids:
+            raise ValueError(f"Duplicate maturity version id: {version['id']}")
+        if version["status"] not in VALID_VERSION_STATES:
+            raise ValueError(f"Invalid maturity version status: {version['status']}")
+        version_ids.add(version["id"])
 
     state = ResearchState(path=state_path, data=raw)
     _validate_document_paths(state)

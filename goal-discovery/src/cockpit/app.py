@@ -17,8 +17,21 @@ if str(REPOSITORY_ROOT) not in sys.path:
 
 import panel as pn
 
+from src.cockpit.blind_calibration import (
+    build_blind_calibration,
+    load_blind_calibration,
+    unavailable_blind_calibration,
+)
 from src.cockpit.experiment_story import build_experiment_story, unavailable_story
+from src.cockpit.laboratory import build_laboratory
+from src.cockpit.outcome_map import build_outcome_map
+from src.cockpit.scale_evidence import (
+    build_scale_evidence,
+    load_scale_evidence,
+    unavailable_scale_evidence,
+)
 from src.cockpit.state import DEFAULT_STATE_PATH, ResearchState, load_research_state
+from src.experiments.sorting.laboratory import LAB_CSS, build_sorting_laboratory
 
 pn.extension("tabulator", sizing_mode="stretch_width")
 
@@ -78,6 +91,11 @@ def _milestone_html(state: ResearchState) -> str:
 def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastListTemplate:
     state = load_research_state(state_path)
     sprint = state.data["active_sprint"]
+    sprint_label = (
+        "Latest closed decision"
+        if str(sprint.get("status", "")).startswith("complete")
+        else "Active decision"
+    )
     revision, working_tree = _git_snapshot(state.root)
 
     phase_options = ["all", *sorted({item["phase"] for item in state.experiments})]
@@ -127,7 +145,11 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
     .milestones {display:grid;grid-template-columns:repeat(3,minmax(180px,1fr));gap:10px}
     .milestone {background:#fff;padding:12px;border-left:6px solid;border-radius:4px;box-shadow:0 1px 3px #0002}
     .decision {background:#fff8e8;border:1px solid #f1c40f;border-radius:6px;padding:14px}
-    @media(max-width:800px){.milestones{grid-template-columns:1fr}}
+    @media(max-width:800px){
+      .milestones{grid-template-columns:1fr}
+      .pn-toggle-theme{display:none!important}
+      .pn-busy-container{position:absolute!important;right:0!important;left:auto!important}
+    }
     """
     header = pn.pane.Markdown(
         f"""# Goal Discovery research cockpit
@@ -136,10 +158,12 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
 
 **Current bottleneck:** {state.data['frontier']['bottleneck']}  
 **Scientific unknown:** {state.data['frontier']['current_unknown']}
+
+**Plan completion:** {len(state.data['plan_completion']['items'])}/{len(state.data['plan_completion']['items'])} terminal · {state.data['plan_completion']['active_required_plans']} active required
 """
     )
     active = pn.pane.Markdown(
-        f"""### Active decision — {sprint['id']}: {sprint['title']}
+        f"""### {sprint_label} — {sprint['id']}: {sprint['title']}
 
 **Question:** {sprint['question']}
 
@@ -168,6 +192,24 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
         if story_directory.is_dir()
         else unavailable_story("uv run python -m src.experiments.prospective_network_selector.run")
     )
+    blind_directory = state.root / "results" / "p4-002-heatbugs-blind-target-inference-001"
+    blind_calibration = (
+        build_blind_calibration(load_blind_calibration(blind_directory))
+        if blind_directory.is_dir()
+        else unavailable_blind_calibration(
+            "uv run python -m src.spikes.netlogo_heatbugs.run_p4_002"
+        )
+    )
+    scale_directory = state.root / "results" / "p7-004-ants-trail-scale-001"
+    scale_evidence = (
+        build_scale_evidence(load_scale_evidence(scale_directory))
+        if scale_directory.is_dir()
+        else unavailable_scale_evidence(
+            "uv run python -m src.experiments.ants_trail_scale.run"
+        )
+    )
+    outcome_map = build_outcome_map(state)
+    laboratory = build_laboratory(state)
     programme = pn.Column(
         header,
         pn.Row(active, learn),
@@ -181,7 +223,7 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
         title="Goal Discovery Cockpit",
         accent_base_color="#d35400",
         header_background="#263238",
-        raw_css=[css],
+        raw_css=[css, LAB_CSS],
         sidebar=[
             "## Evidence filters",
             phase,
@@ -190,7 +232,19 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
             pn.layout.Divider(),
             "The cockpit reads versioned repository state. It does not synthesize results.",
         ],
-        main=[pn.Tabs(("Experiment story", story), ("Research programme", programme))],
+        main=[
+            pn.Tabs(
+                ("Blind sorting calibration · P9", build_sorting_laboratory()),
+                ("Outcome", outcome_map),
+                ("Evidence · P7-002", story),
+                ("Blind · V2", blind_calibration),
+                ("Scale no-go · V4", scale_evidence),
+                ("Laboratory · V6", laboratory),
+                ("Programme", programme),
+                dynamic=True,
+            )
+        ],
+        collapsed_sidebar=True,
     )
     return template
 
