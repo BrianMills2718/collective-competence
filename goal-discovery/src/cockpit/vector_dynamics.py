@@ -268,6 +268,8 @@ def build_vector_dynamics(directory: Path) -> pn.Column:
         timer.stop()
         tick.value = 40
         probe, _actual, outcome = current()
+        if probe["target_ids"] and coordinate.value not in probe["target_ids"]:
+            coordinate.value = probe["target_ids"][0]
         challenged = ", ".join(probe["target_ids"]) or "none"
         context.object = (
             f"**Selected branch:** seed `{seed.value}` · `{condition.value}` · challenged opaque IDs: "
