@@ -145,10 +145,10 @@ def verify_discovery(run_id: str = DEFAULT_RUN_ID) -> Path:
     """Recompute the frozen decision and verify provenance without new simulation."""
     output = ROOT / "results" / run_id
     candidate_path = output / "candidate.json"
-    trajectory_path = output / "discovery-trajectory.csv"
+    raw_path = output / "discovery.csv"
     metadata_path = output / "metadata.json"
     recorded = json.loads(candidate_path.read_text(encoding="utf-8"))
-    recomputed = discover(pd.read_csv(trajectory_path))
+    recomputed = discover(read_behaviorspace(raw_path, "discovery"))
     if recomputed != recorded:
         raise RuntimeError("candidate does not exactly match the committed trajectory")
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
