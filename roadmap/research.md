@@ -21,9 +21,9 @@ We have reproduced a specific sorting phenomenon, inferred hidden authored targe
 under constrained observation contracts, and tested several representations,
 controls, engines, and visual instruments. **We have not demonstrated an
 open-ended procedure discovering unexpected goals across diverse systems.**
-P10 now demonstrates one narrow learned-candidate/intervention calibration.
-The gap is transfer beyond that supplied family and stronger alternative
-explanations—not another generic simulator or representation leaderboard.
+P10–P14 establish a narrow proposal/freeze/challenge-or-abstain seam. The gap is
+generating useful observables and candidate forms beyond researcher-supplied
+grammars—not another generic simulator, dashboard, or representation leaderboard.
 
 ## How to read this page
 
@@ -170,9 +170,29 @@ restoration without mislabeling passive attraction a competency.
 
 **Implication:** retain the cross-system proposal/falsification seam and stop the
 bowl line. The observation grammar, linear families and challenges were supplied;
-the result is method calibration, not unexpected-goal discovery. The next useful
-decision concerns relational candidates in an interacting existing system, with
-competing explanations and a discriminating intervention fixed before outcomes.
+the result is method calibration, not unexpected-goal discovery. P14 subsequently
+tested whether a relational candidate in an interacting existing system was
+strong enough to earn a discriminating intervention.
+
+### Relational proposal on Ants: abstention is part of discovery
+
+[P14](../goal-discovery/docs/hypotheses/p14_ants_relational_coupling_results.md)
+withheld food, nest, source, collection, task labels and model rules from its
+learner. Across eight held seeds, the role-relational family beat persistence on
+6/8 seeds and shared field on 8/8, but improved mean cosine loss by only 12.0%
+and 2.08%. Those effects missed the frozen 15% and 5% gates, so the experiment
+abstained before choosing a band, forecasting an intervention, or opening an
+outcome.
+
+This is neither a relational discovery nor a failed implementation. It shows
+that an interacting off-the-shelf model can pass through observation, competing
+proposal families, held-run comparison, and an honest stop. The small added value
+over shared field sharpens the bottleneck: the supplied observable vocabulary and
+candidate grammar still do most of the interpretation.
+
+**Implication:** stop the Ants lane. Test proposal generation and observable
+selection first on archived positive, negative, and ambiguous systems, with
+held-system evidence and an abstain path, before adding another substrate.
 
 ## 3. Representation: useful descriptions must beat simple explanations
 
