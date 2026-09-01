@@ -7,51 +7,87 @@ sources:
   - sources/briefs/Dynamical_Laboratory_Coding_Agent_Spec.md
   - sources/briefs/Addendum_3_Robinson_Crusoe_Dynamical_Laboratory.md
 ---
-# Purpose, concepts, and boundaries
+# Purpose and scientific boundaries
 
-[Development wiki](../../roadmap/README.md) ·
+[Development wiki](../../wiki/index.md) ·
+[Canonical ontology](../../wiki/ontology.md) ·
 [Current plan](plans/current_research_plan.md) ·
 [Source provenance](sources/README.md)
 
 ## North star
 
-Build an **open-ended laboratory that can discover unexpected goals and
-competencies across diverse systems**.
+Develop a reusable **Dynamical Laboratory** for one integrated research agenda,
+whose proper name remains unresolved, with two arms:
 
-This is the user's explicit clarification in the project conversation on
-2026-08-30. It controls the destination; the original specifications supply
-the conceptual and methodological context. A failed narrow experiment does
-not replace that destination with its own metric.
+1. **Collective Competence** constructs and explains how mechanisms and
+   component capabilities combine into system- or collective-level competence;
+   and
+2. **Goal and Competence Discovery** discovers candidate goal criteria and
+   characterizes competence from system behavior without smuggling intended
+   answers into the analysis.
 
-Success is an increasingly reusable process that proposes testable patterns
-we did not explicitly prescribe as outcomes, chooses informative interventions,
-and produces evidence that can support, qualify, or reject those hypotheses.
-It must also be able to conclude that no stronger goal interpretation is
-supported. Unexpected means relative to a declared analyst prior/candidate
+This reflects the user's project clarifications on 2026-08-30 and 2026-08-31
+and the two complementary directions already present in the original
+specifications. Those specifications supply conceptual and methodological
+context. A current lane or failed narrow experiment does not replace the
+integrated destination with its own metric.
+
+Success requires both explanatory construction and disciplined discovery.
+Constructive studies vary mechanisms and capabilities, challenge the resulting
+systems, and explain what produces competence at different scales. Discovery
+studies propose testable patterns not prescribed as outcomes, choose informative
+interventions, and support, qualify, reject, or abstain on candidate goals and
+competence. Unexpected means relative to a declared analyst prior/candidate
 family—not novelty established by surprise alone.
 
-## What the laboratory contains
+## Agenda, apparatus, and research purposes
 
-| Concept | Meaning here |
+| Name | Role |
 |---|---|
-| World | The entire modeled situation, including contextual dynamics |
-| Substrate | The executable representation and rules sufficient to produce those dynamics; engines may be adapted rather than rewritten |
-| Focal system | Components and state selected for a particular analysis |
-| Boundary | A declared inside/outside split; it may reflect real interaction constraints and can itself be compared experimentally |
-| Environment | What lies outside that focal boundary and affects or is affected by it |
-| Observation | What an analyst is allowed to inspect; not necessarily the full simulator state |
-| Representation | A transformation of observations, possibly including history, relations, or aggregation |
-| Metric | A measurement defined on a representation, with declared units and interpretation |
-| Candidate goal | A hypothesized outcome, region, relation, or maintained condition—not a label justified merely by convergence |
-| Competency | Reliable achievement, maintenance, or recovery under a stated family of challenges and resource limits |
-| Mechanism / constraint / invariant | An explanation, restriction, or preserved property; none is automatically a goal |
+| Broader research agenda (name unresolved) | Integrates the two research arms and their shared apparatus without making either arm the umbrella |
+| Collective Competence | Constructive and mechanistic arm: how mechanisms and capabilities compose into competence at system and collective scales |
+| Goal and Competence Discovery | Analytic and inferential arm: what candidate goals and competence profiles are supported by behavior under a declared access contract; Goal Discovery is shorthand |
+| Dynamical Laboratory | Shared apparatus for defining or importing systems, executing dynamics, controlling observations, intervening, measuring, and auditing explanations |
 
-Black-box analysis withholds privileged rules and targets. White-box inspection
-helps check mechanisms and detect leakage; it is not an exhaustive catalog of
-every possible emergent competency. Known authored goals are calibration labels,
-not the only outcomes the laboratory may discover.
+This is one agenda with two research arms and shared apparatus. Goal and
+Competence Discovery can analyze a system constructed inside the laboratory,
+including by withholding the design and revealing it only after inference.
+Collective Competence work can use black-box behavior as evidence and white-box
+access for causal explanation.
 
-## The discovery process
+## Ontology and study declarations
+
+The [canonical research ontology](../../wiki/ontology.md) owns the definitions
+and relationships among world, substrate, boundary, mechanism, capability,
+observation, representation, goal criterion, challenge family, competence,
+robustness, adaptation, viability, collective attribution, and evidence status.
+It also defines the prospective experiment-declaration vocabulary.
+
+Every study declares specimen origin, analyst-access phases, and research
+purpose independently. Black-box and white-box are access contracts, not
+research arms. Construction is an activity or origin, not proof of constructive
+evidence. Known authored goals are calibration labels or design inputs, not
+discoveries. A blind-first study freezes its interpretation before revealing
+mechanism or intent for audit.
+
+## Collective Competence process — constructive arm
+
+1. State the target phenomenon, system boundary, authored goals, mechanisms,
+   component capabilities, and proposed composition claim.
+2. Construct or modify the smallest system that can distinguish the claim from
+   simpler explanations.
+3. Challenge components, interactions, routes, and environments under matched
+   controls; measure goal-relative performance and failure.
+4. Compare component- and system-level capability, competence, robustness, and
+   adaptation without assuming that coupling creates a higher-level competency.
+5. Use ablation and white-box inspection to identify which mechanisms are causal.
+6. Retain, narrow, or reject the composition claim and state its transfer limits.
+
+Authored success criteria make a valid construction study but not a discovery
+claim. The evidence sought is how organization changes what the system can
+reliably achieve and through which mechanisms.
+
+## Goal and Competence Discovery process — analytic arm
 
 1. Generate or import trajectories under a declared observation contract.
 2. Propose representations and recurring patterns; record what was supplied
@@ -110,7 +146,8 @@ meaningful across all substrates.
 
 ## Scope guardrails
 
-- Discovery is the objective; substrate, representations, and UI are enablers.
+- Collective Competence and Goal and Competence Discovery are complementary
+  research arms; substrate, representations, and UI are shared apparatus.
 - Prefer mature engines and plotting components; keep research-specific seams thin.
 - Distinguish exploratory signals, calibration, prospective tests, and confirmation.
 - Keep original evidence, uncertainty, negative results, and claim boundaries.

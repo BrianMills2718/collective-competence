@@ -5,24 +5,26 @@ lifecycle: active
 ---
 # Evidence and document lifecycle
 
-[Development wiki](../../../roadmap/README.md) · [Current plan](current_research_plan.md)
+[Development wiki](../../../wiki/index.md) · [Current plan](current_research_plan.md)
 
 This index owns documentation lifecycle/navigation, not scientific results.
 It replaces the old "every plan must be terminal" convention: current plans
 may be active, and a historical snapshot must not manufacture a current task.
 
-For usable cross-experiment knowledge, start with the unified wiki's
+For usable cross-experiment knowledge, start with the project wiki's
 [research synthesis](../../../roadmap/research.md) and
 [structured experiment register](../../../roadmap/experiments.md).
-The [document catalog](../../../roadmap/artifacts.md) includes all retained
-Markdown records, including historical audits not listed below. Inventory is
-not semantic review; unreviewed records do not acquire a verdict by being indexed.
+The [active document catalog](../../../roadmap/artifacts.md) includes retained
+Markdown records except documents explicitly marked superseded while they await
+governed archival. Inventory is not semantic review; unreviewed records do not
+acquire a verdict by being indexed.
 
 ## Current concern owners
 
 | Concern | Owner |
 |---|---|
-| Goal and vocabulary | [Project charter](../PROJECT.md) |
+| Integrated purpose and scientific boundaries | [Project charter](../PROJECT.md) |
+| Terminology and conceptual relationships | [Research ontology](../../../wiki/ontology.md) |
 | Current priorities and checkpoint | [Current research plan](current_research_plan.md) |
 | Shared visual-analysis requirements | [Artifact standard](dynamic_experiment_artifact_standard.md) |
 | Time allocation and rapid learning | [Progress-allocation protocol](progress_allocation_protocol.md) |
@@ -51,7 +53,7 @@ negative findings, thresholds, and provenance are not rewritten by this cleanup.
 | UI-first planning pilot | [Original protocol](outcome_backcasting_protocol.md), [recorded review](../audits/2026-08-29_ob_001_v0_v2_delivery_review.md) |
 | Composition feasibility/value | [Executed comparison and defer decision](../hypotheses/composition_exploration_results.md) |
 | Proposal/falsification frontier | [P10 candidate relation](../hypotheses/p10_candidate_relations_results.md), [P11 probe-selection calibration](../hypotheses/p11_probe_selection_results.md), [P12 reference inference](../hypotheses/p12_reference_inference_results.md), [P13 vector law](../hypotheses/p13_vector_dynamics_results.md), [P14 relational abstention](../hypotheses/p14_ants_relational_coupling_results.md) |
-| Removed long narratives | [README snapshot](../archive/pre-consolidation-readme.md), [plan snapshot](../archive/pre-consolidation-research-plan.md) |
+| Consolidated long narratives | [Development log](../../../wiki/development-log.md), [current plan](current_research_plan.md), and [research synthesis](../../../roadmap/research.md) own the promoted content; superseded snapshots are external-archive candidates |
 
 The supplied P8/P9 receipts preserve the original implementation checks.
 User-authorized integration has separate verification recorded in the

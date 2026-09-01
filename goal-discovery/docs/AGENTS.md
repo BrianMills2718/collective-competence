@@ -1,3 +1,5 @@
+<!-- GENERATED from CLAUDE.md by scripts/sync_agent_context.py; do not edit. -->
+
 # Documentation and research knowledge
 
 - Start at `../../wiki/index.md`; all durable project knowledge must be

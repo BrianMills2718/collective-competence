@@ -1,3 +1,5 @@
+<!-- GENERATED from CLAUDE.md by scripts/sync_agent_context.py; do not edit. -->
+
 # Evidence and verification
 
 - Test the changed scientific or user-visible boundary with the smallest useful

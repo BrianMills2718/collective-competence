@@ -5,7 +5,7 @@ lifecycle: frozen
 ---
 # P13 — blind vector dynamics and causal challenge
 
-[Wiki](../../../roadmap/README.md) · [Current plan](../plans/current_research_plan.md)
+[Wiki](../../../wiki/index.md) · [Current plan](../plans/current_research_plan.md)
 
 ## Decision and claim boundary
 

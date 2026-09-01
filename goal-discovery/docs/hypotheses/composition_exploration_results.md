@@ -6,7 +6,7 @@ lifecycle: completed
 # Executable composition: bounded exploratory result
 
 2026-08-31 · [Current priorities](../plans/current_research_plan.md) ·
-[Viewing and reproduction](../../README.md#optional-composition-exploration)
+[Viewing and reproduction](../../README.md#other-tabs-what-they-mean)
 
 ## Decision
 
@@ -14,9 +14,10 @@ lifecycle: completed
 prototype and explicit interfaces.** This is a negative value-gate result for
 the tested small pipelines, not a rejection of category theory or open games.
 
-The laboratory's goal remains open-ended discovery of unexpected goals and
-competencies across diverse systems. This experiment tested representation and
-execution fidelity, **not discovery**. No unexpected goal was discovered.
+The laboratory serves the broader, currently unnamed research agenda. This
+experiment tested representation and execution fidelity, **not Collective
+Competence construction or Goal and Competence Discovery**. No competency or
+unexpected goal was established.
 
 Both implementations express every tested experiment and reject incompatible
 connections. DisCoPy additionally provides algebraic diagram objects, composition,

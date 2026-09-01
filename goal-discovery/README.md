@@ -5,13 +5,16 @@ lifecycle: active
 ---
 # Use the Dynamical Laboratory
 
-[Wiki: start here](../roadmap/README.md) ·
-[Purpose and vocabulary](docs/PROJECT.md) ·
+[Wiki: start here](../wiki/index.md) ·
+[Research ontology](../wiki/ontology.md) ·
+[Purpose and scope](docs/PROJECT.md) ·
 [Current work and integration checks](docs/plans/current_research_plan.md)
 
-The goal is an open-ended laboratory that discovers unexpected goals and
-competencies across diverse systems. Sorting and the passive/controller comparison
-are calibration specimens. Their supplied candidate families are not open-ended discovery.
+This historically named directory hosts the active Goal and Competence
+Discovery lane and much of the shared Dynamical Laboratory. Collective
+Competence is the parallel constructive arm, not the name of the broader
+agenda. Sorting and the passive/controller comparison are calibration specimens.
+Their supplied candidate families are not open-ended discovery.
 
 ## Open on this computer
 
@@ -27,8 +30,9 @@ No phone support, public deployment, or overnight scheduler is implied.
 The composition extra is optional; omit it from both commands if not needed.
 
 This revision combines the sorting and experiment-selection views with the optional composition preview. The
-[current plan](docs/plans/current_research_plan.md) records verification and
-installation status. A localhost URL alone does not identify the running revision.
+[current plan](docs/plans/current_research_plan.md) owns the active next decision
+and repository handoff boundary. This guide owns the local run commands. A
+localhost URL alone does not identify the running revision.
 
 ## Start with settling versus reference
 
@@ -116,8 +120,9 @@ intervention under the declared cell boundary, not a general dynamic environment
 ## Other tabs: what they mean
 
 Historical Outcome and Programme views summarize earlier checkpoints, not
-completion of the project's open-ended goal. The banner links the current
-goal and plan. Evidence tabs expose documented measurements and claim limits.
+completion of the analytic arm's open-ended Goal and Competence Discovery
+capability. The banner links the current goal and plan. Evidence tabs expose
+documented measurements and claim limits.
 Missing local raw outputs are reported as unavailable; they are not regenerated
 or replaced by mock evidence. The scale view retains P7-004's failed intervention
 integrity, so its scores cannot establish a scientific scale verdict.
@@ -147,9 +152,11 @@ limited to the declared comparison suite.
 ## What you may conclude
 
 A trajectory and its matched contrast can suggest an outcome, invariant,
-mechanism, or candidate goal. Reliable competency requires a stated challenge
+mechanism, or candidate goal. Reliable competence requires a stated challenge
 family, alternatives, failures, and appropriate held-out testing. The known
 sorting task is not exhaustive ground truth for every possible competency.
+Use the [canonical ontology](../wiki/ontology.md) for capability, competence,
+goal-criterion, robustness, adaptation, and evidence-status claims.
 
 ## If the page will not open
 
@@ -162,6 +169,7 @@ sorting task is not exhaustive ground truth for every possible competency.
 ## Other entrypoints and history
 
 The [source tree](src/) contains model-specific runners; use each experiment's
-protocol for its evidence boundary and reproduction commands. The
-[old README snapshot](docs/archive/pre-consolidation-readme.md) preserves
-historical setup and narrative, not current priorities.
+protocol for its evidence boundary and reproduction commands. The project-wide
+[development log](../wiki/development-log.md) records material changes with
+references. Superseded setup narratives are recovery material for the governed
+external archive, not current entrypoints.

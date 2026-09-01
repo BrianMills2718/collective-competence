@@ -5,7 +5,7 @@ lifecycle: completed
 ---
 # P12 — a settling point is not a feedback reference
 
-[Wiki](../../../roadmap/README.md) · [Frozen protocol](p12_reference_inference.md) ·
+[Wiki](../../../wiki/index.md) · [Frozen protocol](p12_reference_inference.md) ·
 [Frozen candidates](../../results/p12-reference-inference/candidates.json) ·
 [Measured challenges](../../results/p12-reference-inference/evaluation.json)
 

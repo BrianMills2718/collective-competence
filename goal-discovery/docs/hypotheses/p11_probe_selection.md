@@ -5,7 +5,7 @@ lifecycle: frozen-before-execution
 ---
 # P11 — reject a redundant selection benchmark before running it
 
-[Wiki](../../../roadmap/README.md) · [Current plan](../plans/current_research_plan.md)
+[Wiki](../../../wiki/index.md) · [Current plan](../plans/current_research_plan.md)
 
 ## Decision from analytic preflight
 

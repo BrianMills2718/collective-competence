@@ -1,3 +1,5 @@
+<!-- GENERATED from CLAUDE.md by scripts/sync_agent_context.py; do not edit. -->
+
 # Laboratory scope
 
 Read the repository bootstrap and project wiki first. This historically named

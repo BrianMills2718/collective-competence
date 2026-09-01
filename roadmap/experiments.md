@@ -2,21 +2,26 @@
 
 <!-- GENERATED from experiments.json by scripts/render_knowledge_index.py; do not edit. -->
 
-[Wiki](README.md) · [Research synthesis](research.md) · [Canonical records](experiments.json)
+[Project wiki](../wiki/index.md) · [Research ontology](../wiki/ontology.md) · [Research synthesis](research.md) · [Canonical records](experiments.json)
 
-One record may link several protocols/results. Reviewed means a documentation
-review of cited results, not a new execution or confirmation. Unreviewed records
-carry no inferred scientific outcome. Costs remain unknown unless measured.
+One record may link several protocols/results. `result_reviewed` means a
+documentation review of cited results; `independently_reproduced` requires
+separately evidenced reproduction. Unreviewed records carry no inferred
+scientific outcome. Costs remain unknown unless measured.
+Prospective experiment semantics follow the research ontology; historical records
+remain unclassified until their native protocol and result are reviewed. Every record
+outside the explicit legacy-ID inventory must declare an ontology contract version and
+is structurally validated from its native protocol.
 
-**47 records: 29 reviewed; 18 unreviewed.**
+**48 records: 29 reviewed or reproduced; 19 unreviewed.**
 
 Browse by declared family. Counts describe documentation review coverage,
 not scientific success or progress; historical dispositions are not current assignments.
 
-| Family | Records | Reviewed | Unreviewed |
+| Family | Records | Reviewed/reproduced | Unreviewed |
 |---|---:|---:|---:|
 | [sorting](#sorting) | 6 | 3 | 3 |
-| [calibration](#calibration) | 10 | 9 | 1 |
+| [calibration](#calibration) | 11 | 9 | 2 |
 | [representation](#representation) | 10 | 5 | 5 |
 | [substrate-reuse](#substrate-reuse) | 16 | 8 | 8 |
 | [biological-evidence](#biological-evidence) | 4 | 3 | 1 |
@@ -47,6 +52,7 @@ not scientific success or progress; historical dispositions are not current assi
 | P11 | Does this candidate/menu family offer a meaningful test of automated experiment selection? | result_reviewed | instrument-check-pass-adaptive-benchmark-rejected-analytically; Retain small selector; do not run redundant efficacy batch. Two deterministic fixtures, not held-out adaptive advantage. | [p11_probe_selection](../goal-discovery/docs/hypotheses/p11_probe_selection.md); [p11_probe_selection_results](../goal-discovery/docs/hypotheses/p11_probe_selection_results.md) |
 | P12 | Can observed attractor and inferred feedback reference be separated, with model failure detected under new challenges? | result_reviewed | bounded-reference-inference-and-falsification-pass; Retain causal reference inference; passive reference unidentified; reject affine predictions under feedback saturation. No unexpected-goal claim. | [p12_reference_inference](../goal-discovery/docs/hypotheses/p12_reference_inference.md); [p12_reference_inference_results](../goal-discovery/docs/hypotheses/p12_reference_inference_results.md) |
 | P13 | Can a target-blind vector law be proposed from observations and prospectively falsified under mechanism loss? | result_reviewed | bounded-vector-proposal-and-falsification-pass; Retain observation-only proposal/freeze/challenge seam; stop passive bowl line; no unexpected-goal, competency, agency, or universal-substrate claim. | [p13_vector_dynamics](../goal-discovery/docs/hypotheses/p13_vector_dynamics.md); [p13_vector_dynamics_results](../goal-discovery/docs/hypotheses/p13_vector_dynamics_results.md) |
+| P15 | Can a modest type-directed proposal layer produce decision-relevant relational candidates or honest abstention across opaque archived systems without task labels? | not_reviewed | Not assessed; Review before use | [p15_proposal_layer_benchmark](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md) |
 
 ## representation
 

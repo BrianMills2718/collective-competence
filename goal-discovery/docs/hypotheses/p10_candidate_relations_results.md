@@ -5,7 +5,7 @@ lifecycle: completed
 ---
 # P10 result: endpoint prediction is not restoration
 
-[Wiki](../../../roadmap/README.md) · [Frozen protocol](p10_candidate_relations.md) ·
+[Wiki](../../../wiki/index.md) · [Frozen protocol](p10_candidate_relations.md) ·
 [Measured evaluation](../../results/p10-candidate-relations/evaluation.json) ·
 [Frozen candidate](../../results/p10-candidate-relations/discovery.json)
 

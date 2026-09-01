@@ -3,7 +3,7 @@ doc-role: historical-planning-pilot
 authority: historical
 lifecycle: retained
 ---
-[Development wiki](../../../roadmap/README.md) · [Current plan](current_research_plan.md)
+[Development wiki](../../../wiki/index.md) · [Current plan](current_research_plan.md)
 
 > Historical pilot record. Its experiment queue and company-generalization conditions
 > are not current instructions. Use the current plan and rapid-learning protocol.

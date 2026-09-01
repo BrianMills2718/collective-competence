@@ -5,7 +5,7 @@ lifecycle: frozen
 ---
 # P12 — observed attractor versus inferred feedback reference
 
-[Wiki](../../../roadmap/README.md) · [Current plan](../plans/current_research_plan.md)
+[Wiki](../../../wiki/index.md) · [Current plan](../plans/current_research_plan.md)
 
 ## Question and decision
 

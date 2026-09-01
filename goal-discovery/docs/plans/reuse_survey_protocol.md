@@ -3,7 +3,7 @@ doc-role: tool-selection-protocol
 authority: canonical
 lifecycle: active
 ---
-[Development wiki](../../../roadmap/README.md) · [Current plan](current_research_plan.md)
+[Development wiki](../../../wiki/index.md) · [Current plan](current_research_plan.md)
 
 # Reuse survey protocol
 

@@ -1,0 +1,144 @@
+---
+doc-role: project-development-log
+authority: derived
+lifecycle: active
+sources:
+  - ontology.md
+  - ../goal-discovery/docs/plans/current_research_plan.md
+  - ../roadmap/research.md
+  - ../roadmap/experiments.json
+  - ../scripts/sync_agent_context.py
+  - ../scripts/artifact_intents.yaml
+---
+# Development log
+
+[Project wiki](index.md) · [Ontology](ontology.md) ·
+[Current plan](../goal-discovery/docs/plans/current_research_plan.md) ·
+[Research synthesis](../roadmap/research.md)
+
+This is the concise, referenced account of material changes to the research
+agenda, its apparatus, and its documentation structure. It does not own current
+scientific priorities or results. Git retains complete file-level history;
+native protocols and results retain evidence; the external archive log retains
+the recovery path for retired documents.
+
+Add an entry when purpose, terminology, scientific direction, a shared contract,
+accepted evidence, or the knowledge architecture materially changes. Each entry
+states what changed, why, its owning references, and what the change does not
+establish. Do not preserve a superseded current-state narrative merely to explain
+the transition: promote its durable content, record the change here, and archive
+the obsolete artifact through the shared lifecycle procedure.
+
+## 2026-09-01 — first ontology-consuming experiment contract
+
+**Changed:** [P15](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md)
+became the first protocol to declare the complete prospective ontology contract
+in machine-readable form. The existing experiment-register renderer now checks
+versioned protocol linkage, required fields, controlled vocabulary, and review-
+status agreement. A closed inventory names every legitimate legacy unversioned
+record, so later records cannot silently bypass the contract. The
+[current plan](../goal-discovery/docs/plans/current_research_plan.md) now
+authorizes P15's retrospective packaging, proposal, and evaluator audit.
+
+**Why:** P14 showed that the proposal/freeze/abstain seam works, but also that
+researcher-supplied observables and candidate families still carry most of the
+interpretation. P15 tests a bounded type-directed proposal layer first on opaque
+archived systems, as required by the current plan, before another prospective run.
+
+**References:** [ontology contract](ontology.md#prospective-experiment-declaration),
+[P10 result](../goal-discovery/docs/hypotheses/p10_candidate_relations_results.md),
+[P12 result](../goal-discovery/docs/hypotheses/p12_reference_inference_results.md),
+[P13 result](../goal-discovery/docs/hypotheses/p13_vector_dynamics_results.md),
+[P14 result](../goal-discovery/docs/hypotheses/p14_ants_relational_coupling_results.md),
+and [structured register](../roadmap/experiments.json).
+
+**Does not establish:** no P15 execution or result exists; structural validation
+does not certify scientific adequacy; no prospective intervention, discovered
+goal, proposal-layer capability, or competence claim is authorized by this change.
+
+## 2026-09-01 — instruction parity and archive qualification
+
+**Changed:** the instruction projection now discovers every first-party
+`CLAUDE.md` and keeps its adjacent `AGENTS.md` synchronized, while excluding
+dependency and runtime trees. The three existing pre-consolidation snapshots
+were reviewed in full, classified as superseded, removed from the active
+document catalog, and stripped of active semantic dependents. Local planning
+cursors and receipts were explicitly assigned to ignored runtime custody. Every
+new document in this consolidation has a reviewed exact intent in
+[`scripts/artifact_intents.yaml`](../scripts/artifact_intents.yaml), enforced by
+the shared Project Meta checker without claiming a retrospective legacy audit.
+The current plan now also owns the compact fresh-agent operational checkpoint:
+authoritative branch/worktree, remote-publication boundary, service status,
+generated projections, ignored evidence custody, and archive restriction.
+
+**Why:** a hard-coded projection list would become asymmetric when another
+instruction subtree was added. Runtime receipts made a healthy checkout appear
+operationally dirty, while a broad cleanup would risk deleting ignored scientific
+results. The old snapshots contain obsolete status and next-step language, so
+Git history plus this referenced log should explain the transition while the
+current concern owners direct work.
+
+**References:** [instruction projection](../scripts/sync_agent_context.py),
+[artifact-intent registry](../scripts/artifact_intents.yaml),
+[active document catalog](../roadmap/artifacts.md),
+[documentation rules](../goal-discovery/docs/CLAUDE.md),
+[current allocation protocol](../goal-discovery/docs/plans/progress_allocation_protocol.md),
+[current research plan](../goal-discovery/docs/plans/current_research_plan.md),
+and [project guide](../goal-discovery/README.md).
+
+**Does not establish:** the snapshots have not yet completed the physical archive
+transaction. They remain recovery-only candidates until the shared archive system
+can bind and log the move under stable Project Graph ID `collective-competence`.
+
+## 2026-08-31 — one agenda, two research arms, one shared laboratory
+
+**Changed:** the repository's purpose and vocabulary were reconciled around an
+unnamed broader agenda with the **Collective Competence** constructive-
+mechanistic arm, the **Goal and Competence Discovery** analytic-inferential arm,
+and the shared **Dynamical Laboratory**. Specimen origin, analyst access, and
+research purpose became independent dimensions. Capability, goal criterion,
+competence, robustness, recovery, adaptation, mechanism, boundary, scale, and
+evidence status received one canonical owner.
+
+**Why:** prior documents sometimes used the repository name as the umbrella,
+equated white-box construction with one arm and black-box analysis with the
+other, or blurred capability, goal, and competence. The integrated ontology
+preserves their relations without treating them as synonyms.
+
+**References:** [ontology](ontology.md),
+[charter](../goal-discovery/docs/PROJECT.md), [wiki front door](index.md),
+[research synthesis](../roadmap/research.md), and
+[documentation workflow](../roadmap/workflow.md).
+
+**Does not establish:** the broader agenda still has no proper name; the two
+arms are not directory boundaries; the Dynamical Laboratory is apparatus, not
+a third research objective or a universal substrate.
+
+## 2026-08-31 — P13/P14 evidence lineage made explicit
+
+**Changed:** accepted P13 and P14 records were tied to their exact scientific
+revisions and hashes; the mismatched P14 working-tree run was quarantined and
+excluded. Commit `4c8b631` preserves the merged lineage repair.
+
+**Why:** a runnable implementation, an observed run, and an accepted scientific
+finding require distinct provenance. Stale or mismatched checkout metadata
+cannot be silently interpreted as evidence.
+
+**References:** [P13 result](../goal-discovery/docs/hypotheses/p13_vector_dynamics_results.md),
+[P14 result](../goal-discovery/docs/hypotheses/p14_ants_relational_coupling_results.md),
+and [current provenance boundary](../goal-discovery/docs/plans/current_research_plan.md#integration-and-provenance-boundary).
+
+**Does not establish:** preserving lineage does not independently reproduce the
+experiments or upgrade their bounded conclusions.
+
+## Lifecycle note
+
+The three `goal-discovery/docs/archive/pre-consolidation-*` snapshots are
+superseded narratives, not current authorities. Their durable content has been
+promoted into the ontology, charter, current plan, synthesis, and this log. The
+semantic preflight resolved the stable Project Graph ID and current replacement
+owners. A physical move must still use the shared central archive manifest and
+recovery log. The available low-level helper explicitly lacks the required
+registered-repository integration, so manual deletion or movement is forbidden;
+this is a visible archive-system blocker, not a reason to treat the snapshots as
+current documentation.

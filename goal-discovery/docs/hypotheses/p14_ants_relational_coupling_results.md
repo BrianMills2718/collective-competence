@@ -5,7 +5,7 @@ lifecycle: completed
 ---
 # P14 — relational Ants proposal abstains before intervention
 
-[Wiki](../../../roadmap/README.md) · [Frozen protocol](p14_ants_relational_coupling.md) ·
+[Wiki](../../../wiki/index.md) · [Frozen protocol](p14_ants_relational_coupling.md) ·
 [Candidate and observations](../../results/p14-ants-relational-coupling/) ·
 [Current plan](../plans/current_research_plan.md)
 

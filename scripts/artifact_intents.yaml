@@ -1,0 +1,119 @@
+schema_version: artifact-intent/v1
+
+# This immutable pre-integration revision keeps the forward gate honest without
+# pretending that the legacy corpus has already received exact intent review.
+frozen_input:
+  revision: "4c8b6311d739cd89576bdd6e9f059a1f391db797"
+  command: "git ls-files -z"
+  owner: collective-competence
+
+intents:
+  - id: generalized-project-wiki-entrypoint
+    path: wiki/index.md
+    owner: collective-competence
+    lifecycle: active
+    review_state: reviewed
+    authority_type: derived
+    purpose_source: wiki/index.md#competence-research--project-wiki
+    separate_file_reason: Provides the generalized human and agent front door without making the research roadmap own every concern.
+    review_triggers: [agenda_boundary_change, navigation_change, authority_map_change]
+    discoverable_from: [README.md, CLAUDE.md]
+
+  - id: research-ontology
+    path: wiki/ontology.md
+    owner: collective-competence
+    lifecycle: active
+    review_state: reviewed
+    authority_type: canonical
+    concerns: [research-ontology]
+    purpose_source: wiki/ontology.md#research-ontology
+    separate_file_reason: Owns the integrated agenda's MECE vocabulary, relationships, claim boundaries, and prospective experiment declaration contract.
+    review_triggers: [term_definition_change, research_arm_boundary_change, experiment_contract_change]
+    discoverable_from: [wiki/index.md, CLAUDE.md]
+
+  - id: development-log
+    path: wiki/development-log.md
+    owner: collective-competence
+    lifecycle: active
+    review_state: reviewed
+    authority_type: derived
+    purpose_source: wiki/development-log.md#development-log
+    separate_file_reason: Preserves a referenced account of material evolution without retaining superseded current-state narratives as active guidance.
+    review_triggers: [material_documentation_change, authority_migration, archive_disposition]
+    discoverable_from: [wiki/index.md, CLAUDE.md]
+
+  - id: p15-proposal-layer-benchmark
+    path: goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md
+    owner: collective-competence
+    lifecycle: active
+    review_state: reviewed
+    authority_type: supporting
+    purpose_source: goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md#p15--blind-proposal-layer-benchmark-on-archived-systems
+    separate_file_reason: Freezes the first ontology-consuming experiment protocol separately from mutable priorities and later result evidence.
+    review_triggers: [p15_protocol_change, ontology_contract_change, experiment_execution]
+    discoverable_from: [goal-discovery/docs/plans/current_research_plan.md, wiki/index.md]
+
+  - id: laboratory-agent-instruction-projection
+    path: goal-discovery/AGENTS.md
+    owner: collective-competence
+    lifecycle: generated
+    review_state: reviewed
+    authority_type: derived
+    purpose_source: goal-discovery/CLAUDE.md#laboratory-scope
+    separate_file_reason: Gives AGENTS-aware clients exact parity with the authored laboratory instructions.
+    review_triggers: [laboratory_instruction_change, projection_generator_change]
+    generator: scripts/sync_agent_context.py
+    freshness_check: python3 scripts/sync_agent_context.py --check
+    canonical_inputs: [goal-discovery/CLAUDE.md]
+
+  - id: documentation-agent-instruction-projection
+    path: goal-discovery/docs/AGENTS.md
+    owner: collective-competence
+    lifecycle: generated
+    review_state: reviewed
+    authority_type: derived
+    purpose_source: goal-discovery/docs/CLAUDE.md#documentation-and-research-knowledge
+    separate_file_reason: Gives AGENTS-aware clients exact parity with the authored documentation instructions.
+    review_triggers: [documentation_instruction_change, projection_generator_change]
+    generator: scripts/sync_agent_context.py
+    freshness_check: python3 scripts/sync_agent_context.py --check
+    canonical_inputs: [goal-discovery/docs/CLAUDE.md]
+
+  - id: source-agent-instruction-projection
+    path: goal-discovery/src/AGENTS.md
+    owner: collective-competence
+    lifecycle: generated
+    review_state: reviewed
+    authority_type: derived
+    purpose_source: goal-discovery/src/CLAUDE.md#simulation-analysis-and-visualization
+    separate_file_reason: Gives AGENTS-aware clients exact parity with the authored source instructions.
+    review_triggers: [source_instruction_change, projection_generator_change]
+    generator: scripts/sync_agent_context.py
+    freshness_check: python3 scripts/sync_agent_context.py --check
+    canonical_inputs: [goal-discovery/src/CLAUDE.md]
+
+  - id: test-agent-instruction-projection
+    path: goal-discovery/tests/AGENTS.md
+    owner: collective-competence
+    lifecycle: generated
+    review_state: reviewed
+    authority_type: derived
+    purpose_source: goal-discovery/tests/CLAUDE.md#evidence-and-verification
+    separate_file_reason: Gives AGENTS-aware clients exact parity with the authored test instructions.
+    review_triggers: [test_instruction_change, projection_generator_change]
+    generator: scripts/sync_agent_context.py
+    freshness_check: python3 scripts/sync_agent_context.py --check
+    canonical_inputs: [goal-discovery/tests/CLAUDE.md]
+
+  - id: artifact-intent-registry
+    path: scripts/artifact_intents.yaml
+    owner: collective-competence
+    lifecycle: active
+    review_state: reviewed
+    authority_type: supporting
+    purpose_source: roadmap/workflow.md#shared-policy-and-evidence-ownership
+    separate_file_reason: Supplies repository-specific reviewed intent data to the shared Project Meta checker without copying shared policy or implementation.
+    review_triggers: [new_document_added, document_lifecycle_change, documentation_authority_change]
+    discoverable_from: [roadmap/workflow.md]
+
+families: []

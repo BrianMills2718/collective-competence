@@ -5,7 +5,7 @@ lifecycle: frozen
 ---
 # P14 — blind ant–field relational proposal and prospective challenge
 
-[Wiki](../../../roadmap/README.md) · [Current plan](../plans/current_research_plan.md)
+[Wiki](../../../wiki/index.md) · [Current plan](../plans/current_research_plan.md)
 
 ## Decision and claim boundary
 

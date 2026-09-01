@@ -5,7 +5,7 @@ lifecycle: active
 ---
 # Rapid learning and time allocation
 
-[Development wiki](../../../roadmap/README.md) · [Current plan](current_research_plan.md)
+[Development wiki](../../../wiki/index.md) · [Current plan](current_research_plan.md)
 
 Optimize expected useful implementation or decisive learning per wall-clock
 hour—not code volume, agent utilization, document count, or apparent certainty.
@@ -64,5 +64,7 @@ what changed, what failed, the evidence limit, elapsed effort, and next action.
 Append short routine learnings there; create a separate evidence record only
 when it needs independent inspection or durable provenance.
 
-[Previous detailed allocation protocol](../archive/pre-consolidation-allocation-protocol.md)
-is retained as history. Its percentages and pilot-era gates are not new obligations.
+Earlier pilot percentages and gates are superseded and create no current
+obligation. The transition is summarized in the project
+[development log](../../../wiki/development-log.md); the obsolete snapshot is an
+external-archive candidate, not an active allocation authority.

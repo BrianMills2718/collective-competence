@@ -8,11 +8,12 @@ sources:
 ---
 # Work from the goal, keep knowledge usable
 
-[Wiki](README.md) · [Current plan](../goal-discovery/docs/plans/current_research_plan.md)
+[Project wiki](../wiki/index.md) · [Research roadmap](README.md) ·
+[Current plan](../goal-discovery/docs/plans/current_research_plan.md)
 
 ## Two entry layers, different jobs
 
-The instruction hierarchy is the mandatory behavioral bootstrap. The unified
+The instruction hierarchy is the mandatory behavioral bootstrap. The project
 wiki is the single project-information entrypoint reached from it. Neither
 replaces the other: instructions say how to orient and work; wiki topics explain
 the project and connect current knowledge to evidence.
@@ -28,7 +29,8 @@ There are no claims of automatically loaded nested instructions.
 
 | Task | Required route, then exact evidence as needed |
 |---|---|
-| Strategy or next experiment | Charter -> current plan's selected evidence -> native result/protocol; research topic only when wider context is needed |
+| Strategy or next experiment | Ontology -> charter -> current plan's selected evidence -> native result/protocol; research topic only when wider context is needed |
+| Construct or compare a competent system | Ontology -> charter -> roadmap -> apparatus -> authored mechanism/capability contract -> challenge and ablation evidence |
 | Interpret an experimental result | Research topic -> experiment record -> native result and protocol; examine corrections before quoting a verdict |
 | Modify a simulation/analysis | Apparatus -> source instructions -> model/protocol/observation contract -> relevant tests |
 | Change a visual | Usage + shared analytic contract -> source/test instructions -> exact checkout and first-user journey |
@@ -50,13 +52,21 @@ records. A result being indexed does not certify its validity.
 5. Regenerate projections and verify routes. Archive only through shared
    lifecycle policy; never discard unique evidence to make counts smaller.
 
+Record material changes in the [development log](../wiki/development-log.md),
+referencing the current owner and evidence. The log replaces stale narrative
+snapshots, not native protocols or observations. Superseded authored material
+moves outside active search only through the shared manifest, semantic preflight,
+stable repository identity, and recovery-log procedure; never create another
+project-local archive directory.
+
 Run from this checkout:
 
 ```bash
 python3 scripts/sync_agent_context.py --write
-python3 scripts/render_knowledge_index.py --write
+uv run --project goal-discovery python scripts/render_knowledge_index.py --write
 python3 scripts/sync_agent_context.py --check
-python3 scripts/render_knowledge_index.py --check
+uv run --project goal-discovery python scripts/render_knowledge_index.py --check
+uv run --project goal-discovery python -m unittest scripts.test_documentation_tools
 ```
 
 These tiny adapters generate navigation from authored sources. They do not
@@ -65,6 +75,12 @@ or prove client context loading. Shared Markdown link validation may be run
 with Project Meta's existing `scripts/check_markdown_links.py --repo-root <repo>`.
 A successful index build is not a usability test; verify reported broken links
 relative to the containing file before changing them.
+
+Reviewed intent for documentation added after the current baseline is recorded
+in [`scripts/artifact_intents.yaml`](../scripts/artifact_intents.yaml) and checked
+with Project Meta's shared `scripts/check_artifact_intents.py`; this repository
+does not fork the shared checker or claim retrospective coverage of the legacy
+corpus.
 
 ### Check retrieval after structural changes
 
@@ -80,12 +96,14 @@ Keep execution receipts in the change review, not another recurring audit file.
 Do not create a separate handoff narrative. Update the existing concern owners,
 then verify that a reader starting at root instructions can recover, with links:
 
-- the invariant project goal and what is merely apparatus;
+- the broader agenda, its two named research arms, and what is shared apparatus;
+- why specimen origin, analyst access, and research purpose are independent;
 - the latest accepted result, its strongest alternatives, and its claim limits;
 - the current scientific bottleneck and the one next decision—not a backlog;
 - explicit unknowns, integrity concerns, quarantined evidence, and stop rules;
 - the exact native protocol/result and relevant source/test routes; and
-- which local branches, running services, or generated files are authoritative.
+- which local branches, running services, or generated files are authoritative;
+  and which ignored result/receipt paths must be preserved rather than broadly cleaned.
 
 If two current pages disagree, repair the concern owner and its projections.
 Do not paper over the conflict with another summary.
@@ -105,7 +123,9 @@ and [reuse selection](../goal-discovery/docs/plans/reuse_survey_protocol.md)
 specialize how to advance the laboratory. Evaluate decision-changing information
 and cost, not code volume, file count, or an unsupported "learning score."
 
-Research synthesis is interpretation; result files own measurements; the current
+The ontology owns terminology and conceptual relationships; the charter owns
+purpose and scientific boundaries; research synthesis owns cross-experiment
+interpretation; result files own measurements; the current
 plan owns priorities; JSON experiment records own classification and source
 links; generated catalog/register pages are projections. Correct each concern
 at its source.

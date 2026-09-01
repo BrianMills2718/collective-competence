@@ -1,7 +1,8 @@
 # Goal-discovery outcome-backcasting delivery — final report
 
 > Integration annotation (2026-08-31): this report describes a historical
-> delivery checkpoint, not completion of the open-ended laboratory. Its P7-004
+> delivery checkpoint, not completion of the laboratory's open-ended Goal and
+> Competence Discovery capability. Its P7-004
 > null-win interpretation and any instruction to rerun the closed screen are
 > superseded by the [integrity correction](hypotheses/p7_004_ants_trail_scale_results.md):
 > recorded removal was 24.6% versus the 80% gate; score comparisons are diagnostic

@@ -4,26 +4,34 @@ authority: canonical
 concern: cross-experiment-interpretation
 lifecycle: active
 sources:
+  - ../wiki/ontology.md
   - ../goal-discovery/docs/PROJECT.md
   - experiments.json
 ---
 # Research landscape: what our experiments have taught us
 
-[Project wiki](README.md) · [Experiment register](experiments.md) ·
+[Project wiki](../wiki/index.md) · [Research roadmap](README.md) · [Experiment register](experiments.md) ·
 [Current priorities](../goal-discovery/docs/plans/current_research_plan.md) ·
-[Scientific charter](../goal-discovery/docs/PROJECT.md)
+[Scientific charter](../goal-discovery/docs/PROJECT.md) ·
+[Research ontology](../wiki/ontology.md)
 
-The destination is an **open-ended laboratory that discovers unexpected goals
-and competencies across diverse systems**. The experiments below test pieces
-of that process; none substitutes its benchmark for the destination.
+The destination is one broader research programme whose proper name remains
+unresolved. Its Collective Competence arm constructs and explains competent
+systems; its Goal and Competence Discovery arm infers candidate goal criteria
+and competence profiles. The shared Dynamical Laboratory supports both. The
+experiments below test pieces of those questions; none substitutes its benchmark
+or current lane for the destination.
 
 We have reproduced a specific sorting phenomenon, inferred hidden authored targets
 under constrained observation contracts, and tested several representations,
 controls, engines, and visual instruments. **We have not demonstrated an
 open-ended procedure discovering unexpected goals across diverse systems.**
-P10–P14 establish a narrow proposal/freeze/challenge-or-abstain seam. The gap is
+P10–P14 establish a narrow proposal/freeze/challenge-or-abstain seam. For the
+active Goal and Competence Discovery lane, the gap is
 generating useful observables and candidate forms beyond researcher-supplied
 grammars—not another generic simulator, dashboard, or representation leaderboard.
+The frozen [P15 protocol](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md)
+now tests that gap retrospectively; no P15 result exists yet.
 
 ## How to read this page
 
@@ -38,7 +46,16 @@ run, or executable. Register entries marked `not_reviewed` have no inferred
 verdict. `result_reviewed` is not an independent reproduction. P8/P9 and the
 optional composition preview are integrated in this revision; their software
 verification does not revalidate archived science. The current plan owns
-integration checks and installation status.
+the active decision and repository handoff boundary; the operator guide owns
+local installation and run commands.
+
+Most records were named and grouped while the analytic arm was treated as the
+whole programme. Read the native question before assigning a research purpose:
+engineered controller, compensation, and adaptation studies can provide
+constructive or mechanistic evidence; P10–P14 primarily calibrate discovery;
+other work enables both. The current register does not yet encode specimen
+origin, analyst access, and research purpose, so this synthesis does not infer
+those fields for unreviewed records.
 
 Provenance also has limits: the [post-002 checkpoint](../goal-discovery/docs/audits/2026-08-29_post_002_evidence_checkpoint.md)
 records that raw generated data were ignored rather than versioned, and that
@@ -190,9 +207,10 @@ proposal families, held-run comparison, and an honest stop. The small added valu
 over shared field sharpens the bottleneck: the supplied observable vocabulary and
 candidate grammar still do most of the interpretation.
 
-**Implication:** stop the Ants lane. Test proposal generation and observable
-selection first on archived positive, negative, and ambiguous systems, with
-held-system evidence and an abstain path, before adding another substrate.
+**Implication:** stop the Ants lane. P15 now freezes the next test: proposal
+generation and observable selection on opaque archived positive and abstention
+cases, with held-system evidence and no new substrate outcome. Its protocol is
+authorization for retrospective calibration, not evidence that the method works.
 
 ## 3. Representation: useful descriptions must beat simple explanations
 

@@ -5,7 +5,7 @@ lifecycle: completed
 ---
 # P11 — a working selector, but not a useful adaptive benchmark
 
-[Wiki](../../../roadmap/README.md) · [Frozen protocol](p11_probe_selection.md) ·
+[Wiki](../../../wiki/index.md) · [Frozen protocol](p11_probe_selection.md) ·
 [Frozen choices](../../results/p11-probe-selection/selection.json) ·
 [Real-engine responses](../../results/p11-probe-selection/evaluation.json)
 

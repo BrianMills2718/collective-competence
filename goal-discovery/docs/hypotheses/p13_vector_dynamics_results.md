@@ -5,7 +5,7 @@ lifecycle: completed
 ---
 # P13 — blind vector dynamics calibrates proposal and falsification
 
-[Wiki](../../../roadmap/README.md) · [Frozen protocol](p13_vector_dynamics.md) ·
+[Wiki](../../../wiki/index.md) · [Frozen protocol](p13_vector_dynamics.md) ·
 [Candidate and observations](../../results/p13-vector-dynamics/) ·
 [Current plan](../plans/current_research_plan.md)
 

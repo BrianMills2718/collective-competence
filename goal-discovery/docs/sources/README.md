@@ -5,7 +5,8 @@ lifecycle: active
 ---
 # Sources and original specifications
 
-[Development wiki](../../../roadmap/README.md) · [Current charter](../PROJECT.md)
+[Development wiki](../../../wiki/index.md) ·
+[Research ontology](../../../wiki/ontology.md) · [Current charter](../PROJECT.md)
 
 ## Supplied research briefs
 
@@ -42,10 +43,13 @@ The original briefs deliberately start with manual observables and simple
 systems. That is a sequencing decision, not a restriction of the destination
 to predefined tasks. Their immediate-task lists are historical.
 
-The user's clarified goal is open-ended discovery of unexpected goals and
-competencies across diverse systems. Common visual analytics are a core
-enabler, conditional on each run's supported observations and interventions.
-No claim is made that all of that machinery has already been implemented.
+The user's clarified goal integrates two directions already present in these
+briefs: the Collective Competence constructive arm and the Goal and Competence
+Discovery analytic arm. Common visual analytics are part of the shared
+Dynamical Laboratory, conditional on each run's supported observations and
+interventions. The [ontology](../../../wiki/ontology.md) owns their current
+terminology. No claim is made that all of that machinery has already been
+implemented.
 
 ## Experiment 001 rule provenance
 

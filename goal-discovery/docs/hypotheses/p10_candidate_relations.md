@@ -5,7 +5,7 @@ lifecycle: frozen
 ---
 # P10: learned endpoint relations versus restoration
 
-[Wiki](../../../roadmap/README.md) · [Current plan](../plans/current_research_plan.md)
+[Wiki](../../../wiki/index.md) · [Current plan](../plans/current_research_plan.md)
 
 ## Question and scope
 

@@ -10,3 +10,6 @@ __pycache__/
 
 # Linked agent worktrees are coordination state, not project content.
 worktrees/
+
+# Local execution cursors and receipts are runtime state, not project content.
+.company-planning/

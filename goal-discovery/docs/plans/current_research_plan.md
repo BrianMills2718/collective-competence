@@ -3,23 +3,32 @@ doc-role: current-research-plan
 authority: canonical
 lifecycle: active
 sources:
+  - ../../../wiki/ontology.md
   - ../PROJECT.md
   - ../hypotheses/p10_candidate_relations_results.md
   - ../hypotheses/p11_probe_selection_results.md
   - ../hypotheses/p12_reference_inference_results.md
   - ../hypotheses/p13_vector_dynamics_results.md
   - ../hypotheses/p14_ants_relational_coupling_results.md
+  - ../hypotheses/p15_proposal_layer_benchmark.md
 ---
 # Current research plan
 
-[Unified wiki](../../../roadmap/README.md) · [Charter](../PROJECT.md) ·
+[Project wiki](../../../wiki/index.md) · [Ontology](../../../wiki/ontology.md) ·
+[Charter](../PROJECT.md) ·
 [Research synthesis](../../../roadmap/research.md) · [Experiment register](../../../roadmap/experiments.md)
 
 ## Fresh-agent checkpoint
 
-**Destination:** build an open-ended laboratory that discovers unexpected goals
-and competencies across diverse systems. The simulator, substrates, candidate
-models, interventions, and visual analytics are apparatus—not the goal.
+**Active research purpose:** Goal and Competence Discovery. This plan advances
+the analytic arm of the broader, currently unnamed research agenda; it does not
+define the full programme or authorize a separate Collective Competence backlog.
+
+**Destination:** use the shared Dynamical Laboratory both to explain how
+mechanisms and capabilities produce competence and to discover candidate goals
+and goal-relative competence across diverse systems. For this active lane, the
+simulator, substrates, candidate models, interventions, and visual analytics are
+apparatus—not the scientific result.
 
 **Present frontier:** the laboratory can observe existing systems, compare a
 small supplied candidate grammar on held-out runs, freeze a candidate before a
@@ -27,10 +36,11 @@ challenge, and reject or abstain. It cannot yet propose useful observables and
 candidate forms open-endedly. Researcher-supplied representation remains the
 largest source of interpretation.
 
-**Next decision:** determine whether a modest proposal layer can select useful
-relational observables and candidate forms across archived benchmark systems,
-without task labels, while abstaining on unsupported systems. Design that bounded
-test before implementing it. This page authorizes no new experiment by itself.
+**Next decision:** execute the frozen [P15 proposal-layer benchmark](../hypotheses/p15_proposal_layer_benchmark.md)
+on opaque, versioned P10, P12, P13, and P14 packages and determine whether it
+earns a separately frozen prospective-intervention protocol. P15 authorizes
+retrospective packaging, proposal, and evaluator audit only. It does not
+authorize a new substrate run or prospective intervention.
 
 **Do not do next:** add another substrate, broaden the fixed family menu, build a
 generic simulator, or polish the dashboard. Each would add apparatus without
@@ -38,11 +48,42 @@ testing the current bottleneck.
 
 | Question a successor must answer | Authority |
 |---|---|
-| What is the full goal and vocabulary? | [Project charter](../PROJECT.md) |
+| What is the full purpose and scientific scope? | [Project charter](../PROJECT.md) |
+| What is the vocabulary and how do the concepts relate? | [Research ontology](../../../wiki/ontology.md) |
 | What has accumulated across all experiments? | [Research synthesis](../../../roadmap/research.md) |
 | What exactly happened in the latest run? | [P14 result](../hypotheses/p14_ants_relational_coupling_results.md) and [protocol](../hypotheses/p14_ants_relational_coupling.md) |
 | Which records exist and how are they classified? | [Experiment register](../../../roadmap/experiments.md) |
 | How does the implemented apparatus fit together? | [Apparatus map](../../../roadmap/apparatus.md) |
+
+### Repository handoff state
+
+At this checkpoint, `main` is the only local branch and this repository root is
+the only registered worktree. The tracked working tree is clean after the
+handoff checks. Establish the live state yourself:
+
+- `git status --short --branch`
+- `git worktree list --porcelain`
+
+A directory name or localhost URL is not evidence of checkout identity.
+
+The integrated documentation revision is one local commit ahead of
+`origin/main`. Do not reset to the remote or substitute one of the remote
+experiment/recovery refs: they are historical or recovery surfaces, not current
+authority. Publishing the local commit is a separate external action.
+
+No running service is part of this handoff. If a laboratory server is started,
+record its checkout and revision before using it as implementation evidence.
+`AGENTS.md`, `roadmap/artifacts.md`, and `roadmap/experiments.md` are generated
+projections; their sources and freshness commands are owned by
+[workflow](../../../roadmap/workflow.md#maintenance-loop).
+
+Ignored virtual environments and caches are reproducible local support. Ignored
+result packages may contain scientific evidence, while `.company-planning/`
+receipts preserve local execution history. None is a tracked change; do not use
+a broad `git clean` operation. The three superseded pre-consolidation snapshots
+are excluded from active navigation but remain physically present until the
+shared archive system can perform the registered, logged move. Do not manually
+move or delete them.
 
 ## Evidence ladder that leads to this frontier
 
@@ -60,30 +101,30 @@ but improved mean loss by only 12.0% and 2.08%, below the frozen 15% and 5%
 gates. No intervention outcome was opened. Stop the Ants lane rather than lower
 thresholds or fit a more favorable family after seeing the result.
 
-## Bounded design for the next checkpoint
+## Authorized next checkpoint — P15
 
-Use archived systems before paying for a new prospective run. The benchmark set
-must include known positive, negative, and ambiguous cases—for example P10's
-restored/non-restored relations, P12's reference/attractor distinction, P13's
-passive law and mechanism loss, and P14's abstention. Freeze train/selection and
-held-system boundaries before evaluation.
+Use archived systems before paying for a new prospective run. P15 uses P10 and
+P12 as development cases, then freezes the proposal grammar before evaluator
+reveal on P13 and P14. It must preserve opaque case packaging, native independent
+units, passive/invariant/artifact baselines, abstention, and false-goal/competence
+failure gates.
 
-The design must specify:
+The [native protocol](../hypotheses/p15_proposal_layer_benchmark.md) owns the
+observation grammar, complexity and leakage constraints, fixed thresholds,
+held-system dispositions, ontology declaration, observability, and stop rules.
+Implementation must not duplicate those decisions in this plan. The result must
+answer:
 
-1. the observation vocabulary the proposal layer may construct, and which terms
-   remain researcher-supplied;
-2. candidate-form generation, complexity control, and an explicit abstain path;
-3. a fixed-family baseline and a simple passive/invariant or artifact baseline;
-4. held-system evidence that would change the decision, including failure gates;
-5. the smallest prospective intervention earned by a successful retrospective
-   test; and
-6. runtime/cost limits and a stop condition if the proposal layer merely
-   rediscovers labels or supplied metrics.
+1. whether held P13 receives a bounded passive-law disposition without a false
+   goal or competence promotion;
+2. whether held P14 produces the frozen pre-intervention abstention; and
+3. whether lineage, leakage, invalid-input, and per-case failure evidence remain
+   inspectable.
 
-Advance only if the layer improves decision-relevant proposals or abstention on
-held systems relative to the current fixed-family baseline. A more complicated
-description, attractive visualization, or in-sample fit is not progress by
-itself.
+Advance only if both held dispositions and every integrity gate pass. A pass
+earns design of one new prospective protocol; it is not prospective evidence.
+A more complicated description, attractive visualization, or in-sample fit is
+not progress by itself.
 
 ## Explicit uncertainties and concerns
 
@@ -112,13 +153,14 @@ its result. An earlier run with mismatched revision metadata is quarantined unde
 `results/p14-ants-relational-coupling-invalid-39a-working-tree/` and is not
 evidence. No accepted P14 evaluation or intervention package exists.
 
-A local branch named `experiment/p14-relational-candidate`, if still present, is
-a non-authoritative duplicate side probe whose execution cursor was circuit-broken;
-do not merge it as P14. Its small global-cohort result is not part of the canonical
-experiment sequence. Preserve or remove that local branch only through an explicit
-workspace-cleanup decision.
+The former `experiment/p14-relational-candidate` side probe is not present as a
+local branch in this handoff checkout. Its circuit-broken global-cohort result
+is not part of the canonical experiment sequence. Remote experiment or recovery
+refs do not change that status and must not be merged as P14 authority.
 
 Historical plans and `research_state.yaml` milestones do not authorize work.
+A frozen P15 protocol now authorizes only its bounded retrospective benchmark;
+no P15 result exists yet.
 A running URL must identify its checkout and revision before it can support a
 claim. The current plan owns priorities; native protocols/results own evidence;
 the research synthesis owns cross-experiment interpretation.
@@ -136,5 +178,6 @@ the research synthesis owns cross-experiment interpretation.
 
 No UI maturity ladder, generic representation tournament, categorical-theory
 programme, or historical macro-scale qualification route becomes the agenda by
-default. Details remain in linked native records and the
-[pre-consolidation plan snapshot](../archive/pre-consolidation-research-plan.md).
+default. Current meaning remains in this plan, the ontology, research synthesis,
+and linked native experiment evidence; superseded narratives belong in the
+governed archive rather than active documentation search.
