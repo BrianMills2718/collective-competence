@@ -12,6 +12,7 @@ import gzip
 import hashlib
 import json
 import random
+import re
 import subprocess
 from collections import defaultdict
 from pathlib import Path
@@ -32,6 +33,11 @@ FINAL_TICK = 400
 FINAL_WINDOW = 32
 RESULT_DIRECTORY = Path("results/p13-vector-dynamics")
 PROTOCOL = Path("docs/hypotheses/p13_vector_dynamics.md")
+SCIENTIFIC_INPUT_SCOPES = (
+    "goal-discovery/docs/hypotheses/p13_vector_dynamics.md",
+    "goal-discovery/src/experiments/vector_dynamics",
+    "goal-discovery/src/experiments/bowl",
+)
 
 
 def observe(world: BowlWorld, run_id: str) -> dict[str, Any]:
@@ -92,6 +98,81 @@ def _revision() -> str:
     return _git("rev-parse", "HEAD")
 
 
+def _require_revision_ancestor(revision: str) -> None:
+    if not isinstance(revision, str) or not re.fullmatch(r"[0-9a-f]{40}", revision):
+        raise RuntimeError("Scientific lineage has an invalid source revision")
+    completed = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", revision, "HEAD"],
+        cwd=_repository_root(),
+        check=False,
+        capture_output=True,
+    )
+    if completed.returncode:
+        raise RuntimeError(f"Scientific source revision {revision} is not an ancestor of HEAD")
+
+
+def _tracked_scientific_inputs() -> list[str]:
+    paths = _git("ls-files", "--", *SCIENTIFIC_INPUT_SCOPES).splitlines()
+    if not paths:
+        raise RuntimeError("P13 scientific input scopes contain no tracked files")
+    return sorted(paths)
+
+
+def _require_clean_scientific_inputs() -> None:
+    status = _git(
+        "status", "--porcelain=v1", "--untracked-files=all", "--", *SCIENTIFIC_INPUT_SCOPES
+    )
+    if status:
+        raise RuntimeError(f"P13 scientific inputs must be clean before execution:\n{status}")
+
+
+def _committed_bytes(revision: str, relative: str) -> bytes:
+    completed = subprocess.run(
+        ["git", "show", f"{revision}:{relative}"],
+        cwd=_repository_root(),
+        check=False,
+        capture_output=True,
+    )
+    if completed.returncode:
+        raise RuntimeError(f"Scientific input {relative} is absent at revision {revision}")
+    return completed.stdout
+
+
+def _capture_scientific_lineage() -> dict[str, Any]:
+    """Freeze every tracked simulator/learner/runner/protocol input before execution."""
+
+    _require_clean_scientific_inputs()
+    revision = _revision()
+    return {
+        "source_revision": revision,
+        "scopes": list(SCIENTIFIC_INPUT_SCOPES),
+        "files": {
+            relative: _sha(_committed_bytes(revision, relative))
+            for relative in _tracked_scientific_inputs()
+        },
+    }
+
+
+def _verify_scientific_lineage(lineage: object) -> None:
+    """Fail closed unless frozen P13 scientific inputs still match byte-for-byte."""
+
+    if not isinstance(lineage, dict):
+        raise TypeError("P13 scientific lineage must be an object")
+    if lineage.get("scopes") != list(SCIENTIFIC_INPUT_SCOPES):
+        raise RuntimeError("P13 scientific lineage scopes do not match the frozen contract")
+    revision = lineage.get("source_revision")
+    _require_revision_ancestor(revision)
+    _require_clean_scientific_inputs()
+    recorded = lineage.get("files")
+    if not isinstance(recorded, dict) or sorted(recorded) != _tracked_scientific_inputs():
+        raise RuntimeError("P13 scientific lineage file set changed across stages")
+    for relative, expected_sha in recorded.items():
+        committed = _committed_bytes(revision, relative)
+        working = (_repository_root() / relative).read_bytes()
+        if _sha(committed) != expected_sha or _sha(working) != expected_sha:
+            raise RuntimeError(f"P13 scientific input changed across stages: {relative}")
+
+
 def _require_committed(path: Path) -> str:
     absolute = path.resolve()
     relative = absolute.relative_to(_repository_root()).as_posix()
@@ -107,6 +188,7 @@ def _require_committed(path: Path) -> str:
 
 
 def discover_stage(directory: Path = RESULT_DIRECTORY) -> dict[str, Any]:
+    lineage = _capture_scientific_lineage()
     episodes: list[list[dict[str, Any]]] = []
     all_frames: list[dict[str, Any]] = []
     for seed in DISCOVERY_SEEDS:
@@ -123,7 +205,8 @@ def discover_stage(directory: Path = RESULT_DIRECTORY) -> dict[str, Any]:
         "schema_version": 1,
         "experiment": "P13",
         "stage": "candidate_frozen_before_evaluation",
-        "source_revision": _revision(),
+        "source_revision": lineage["source_revision"],
+        "scientific_inputs": lineage,
         "protocol": str(PROTOCOL),
         "discovery_observations": {
             "path": discovery_path.name,
@@ -198,6 +281,7 @@ def plan_stage(directory: Path = RESULT_DIRECTORY) -> dict[str, Any]:
     candidate_path = directory / "candidate.json"
     candidate_sha = _require_committed(candidate_path)
     candidate = json.loads(candidate_path.read_bytes())
+    _verify_scientific_lineage(candidate.get("scientific_inputs"))
     proposal = candidate["proposal"]
     if proposal["status"] != "stable_fixed_relation":
         raise RuntimeError("Cannot plan outcome probes for an abstained candidate")
@@ -237,6 +321,8 @@ def plan_stage(directory: Path = RESULT_DIRECTORY) -> dict[str, Any]:
         "experiment": "P13",
         "stage": "forecasts_frozen_before_outcomes",
         "source_revision": _revision(),
+        "candidate_source_revision": candidate["source_revision"],
+        "scientific_inputs": candidate["scientific_inputs"],
         "candidate_sha256": candidate_sha,
         "evaluation_prefix_sha256": _sha(prefix_path.read_bytes()),
         "probes": probes,
@@ -308,7 +394,14 @@ def evaluate_stage(directory: Path = RESULT_DIRECTORY) -> dict[str, Any]:
     probes_sha = _require_committed(probes_path)
     candidate = json.loads(candidate_path.read_bytes())
     plan = json.loads(gzip.decompress(probes_path.read_bytes()))
-    if plan["candidate_sha256"] != candidate_sha or plan["outcomes_present"] is not False:
+    _verify_scientific_lineage(candidate.get("scientific_inputs"))
+    _require_revision_ancestor(plan.get("source_revision"))
+    if (
+        plan["candidate_sha256"] != candidate_sha
+        or plan.get("candidate_source_revision") != candidate.get("source_revision")
+        or plan.get("scientific_inputs") != candidate.get("scientific_inputs")
+        or plan["outcomes_present"] is not False
+    ):
         raise RuntimeError("Frozen probe/candidate lineage is invalid")
     selected = candidate["proposal"]["selected"]
     fixed_point = selected["local_fixed_point"]

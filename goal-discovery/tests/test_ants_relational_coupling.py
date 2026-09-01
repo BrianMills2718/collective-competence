@@ -5,6 +5,7 @@ import math
 
 import pytest
 
+from src.experiments.ants_relational_coupling import run as ants_run
 from src.experiments.ants_relational_coupling.model import (
     OBSERVATION_KEYS,
     discover,
@@ -44,7 +45,6 @@ def synthetic_rows() -> list[dict]:
             agent_id = f"a{index:03d}"
             base = {
                 "run_id": f"discovery-{seed}",
-                "seed": seed,
                 "agent_id": agent_id,
                 "mode": mode,
                 "x": x,
@@ -62,6 +62,7 @@ def synthetic_rows() -> list[dict]:
 def test_observation_contract_rejects_privileged_or_extra_fields():
     rows = synthetic_rows()
     assert set(rows[0]) == OBSERVATION_KEYS
+    assert "seed" not in rows[0]
     validate_observations(rows)
     rows[0]["food"] = 1
     with pytest.raises(ValueError, match="exactly"):
@@ -94,7 +95,7 @@ def test_persistence_only_observations_abstain_before_intervention():
         rows[index + 1]["heading"] = rows[index]["heading"]
     result = discover(rows)
     assert result["status"] == "abstain"
-    assert "held-seed" in result["reason"]
+    assert "held-run" in result["reason"]
 
 
 def test_behaviorspace_keeps_discovery_clean_and_erases_after_each_standard_step():
@@ -166,3 +167,40 @@ def test_assessment_detects_real_pre_branch_state_mismatch():
         "paired_all_observations_through_tick_299"
     ]
     assert not result["integrity"]["passed"]
+
+
+def test_dirty_scientific_input_is_refused_before_p14_simulation(monkeypatch, tmp_path):
+    def refuse_dirty():
+        raise RuntimeError("untracked scientific input")
+
+    monkeypatch.setattr(ants_run, "_require_clean_scientific_inputs", refuse_dirty)
+    monkeypatch.setattr(
+        ants_run,
+        "_execute",
+        lambda *_args, **_kwargs: pytest.fail("NetLogo ran before the clean-input guard"),
+    )
+    with pytest.raises(RuntimeError, match="untracked scientific input"):
+        ants_run.discover_stage(tmp_path)
+
+
+def test_p14_lineage_rejects_changed_revision_bytes_across_stages(monkeypatch, tmp_path):
+    relative = "goal-discovery/src/experiments/ants_relational_coupling/model.py"
+    target = tmp_path / relative
+    target.parent.mkdir(parents=True)
+    target.write_bytes(b"changed")
+    external_model = tmp_path / "Ants.nlogox"
+    external_model.write_bytes(b"model")
+    lineage = {
+        "source_revision": "b" * 40,
+        "scopes": list(ants_run.SCIENTIFIC_INPUT_SCOPES),
+        "files": {relative: ants_run._sha(b"frozen")},
+        "external_inputs": {ants_run.EXTERNAL_MODEL_ID: ants_run._sha(b"model")},
+    }
+    monkeypatch.setattr(ants_run, "_repository_root", lambda: tmp_path)
+    monkeypatch.setattr(ants_run, "_require_revision_ancestor", lambda _revision: None)
+    monkeypatch.setattr(ants_run, "_require_clean_scientific_inputs", lambda: None)
+    monkeypatch.setattr(ants_run, "_tracked_scientific_inputs", lambda: [relative])
+    monkeypatch.setattr(ants_run, "_committed_bytes", lambda _revision, _path: b"frozen")
+    monkeypatch.setattr(ants_run, "_model_path", lambda: external_model)
+    with pytest.raises(RuntimeError, match="changed across stages"):
+        ants_run._verify_scientific_lineage(lineage)
