@@ -1,0 +1,78 @@
+{
+  "active_slice": {
+    "description": "Select and prospectively challenge one relational candidate in the existing NetLogo Flocking system against passive, invariant, measurement-artifact, and competency explanations",
+    "next_action": "Do not integrate or resume unless the canonical Ants P14 is explicitly superseded; preserve this isolated branch as a negative side probe",
+    "requires_external_action": false,
+    "requires_spend": false,
+    "slice_id": "P14",
+    "status": "blocked",
+    "target_revision": "c9a2ad35a52e60c160ce5d71a2f6acf3c41f96c3"
+  },
+  "authority": {
+    "external_action_authorized": false,
+    "human_decision": null,
+    "human_decision_required": false,
+    "implementation_authorized": true,
+    "spend_cap_usd": 0,
+    "spend_used_usd": 0
+  },
+  "circuit_breakers": {
+    "context_integrity_valid": true,
+    "max_same_boundary_failures": 3,
+    "runtime_integrity_valid": true
+  },
+  "completion": {
+    "evidence_revision": null,
+    "receipt_ref": null,
+    "remaining_ready_work": 0,
+    "requested": false,
+    "verifier_outcome": null
+  },
+  "cursor_id": "p14-relational-candidate-20260831",
+  "cursor_revision": 2,
+  "failure_state": {
+    "boundary": "canonical P14 experiment authority",
+    "last_failure_ref": "An already-frozen active P14 Ants lane was discovered after this duplicate flock probe started; merging would create conflicting experiment IDs and current-plan narratives",
+    "same_boundary_failures": 1
+  },
+  "goal_ref": "conversation-approved:P14-relational-candidate",
+  "lease": {
+    "heartbeat_at": "2026-09-01T00:02:00Z",
+    "lease_revision": 2,
+    "owner_session_id": "codex:01a04c08-4944-7b61-976c-4993f557c22c",
+    "status": "active"
+  },
+  "lifecycle_state": "circuit_broken",
+  "observations": [
+    {
+      "boundary": "initiative selection",
+      "evidence_ref": "User approved the current-plan next decision: one bounded existing-system experiment where a relational candidate competes with passive, invariant, artifact, and competency explanations",
+      "kind": "supporting_work",
+      "observation_id": "approved-frontier",
+      "outcome": "pass"
+    },
+    {
+      "boundary": "proposal holdout",
+      "evidence_ref": "Isolated flock branch c9a2ad3: relational global-cohort family won 2/6 untouched runs with -2.1% median improvement; intervention correctly stopped",
+      "kind": "authentic_result",
+      "observation_id": "duplicate-flock-proposal-stop",
+      "outcome": "fail"
+    },
+    {
+      "boundary": "canonical experiment authority",
+      "evidence_ref": "Existing p14-ants-relational-coupling protocol and execution cursor predated integration; duplicate flock result remains isolated and unmerged",
+      "kind": "blocker",
+      "observation_id": "canonical-p14-conflict",
+      "outcome": "inconclusive"
+    }
+  ],
+  "plan_revision": "051b446a313bee82e7c370165098c6286242a9d4",
+  "ready_alternatives": [],
+  "record_type": "plan_execution_cursor",
+  "schema_version": "1.0",
+  "target": {
+    "branch": "experiment/p14-relational-candidate",
+    "repository": "/home/brian/code/collective-competence",
+    "worktree": "/home/brian/code/worktrees/p14-relational"
+  }
+}
