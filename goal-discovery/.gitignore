@@ -16,3 +16,5 @@ results/*
 !results/001-validation-v2-c34/
 !results/001-confirmation/
 !results/002-bowl/
+!results/p15-proposal-layer/
+!results/p15-proposal-layer/**

@@ -29,6 +29,22 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-01 — P15 evidence custody and successor verification
+
+**Changed:** the frozen [P15 protocol](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md#required-outputs-and-observability)
+now names a version-controlled evidence root and keeps evaluator-only material
+sealed until proposal outputs freeze. The [operator guide](../goal-discovery/README.md#verify-a-checkout)
+now gives one clean-checkout command with all dependencies required by the
+unconditional test suite.
+
+**Why:** the generic results directory is ignored, and the smaller operator
+environment cannot collect every test. These narrow contracts prevent silent
+evidence loss and ambiguous successor verification without expanding P15 or the
+laboratory.
+
+**Does not establish:** P15 remains unexecuted, and passing software tests does
+not establish a scientific result.
+
 ## 2026-09-01 — first ontology-consuming experiment contract
 
 **Changed:** [P15](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md)

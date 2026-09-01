@@ -29,6 +29,19 @@ Then open [the laboratory](http://localhost:5011/app). Leave the terminal runnin
 No phone support, public deployment, or overnight scheduler is implied.
 The composition extra is optional; omit it from both commands if not needed.
 
+## Verify a checkout
+
+Run the complete project test suite, including the optional components exercised
+by unconditional tests, from the `goal-discovery` directory:
+
+```bash
+uv run --frozen --extra visual-workbench --extra composition-exploration --extra network-analysis pytest -q
+```
+
+Tests for other optional research spikes may still report explicit skips. The
+command above is the handoff verification contract; `uv run pytest` without
+these extras is not a complete environment for this repository's test suite.
+
 This revision combines the sorting and experiment-selection views with the optional composition preview. The
 [current plan](docs/plans/current_research_plan.md) owns the active next decision
 and repository handoff boundary. This guide owns the local run commands. A

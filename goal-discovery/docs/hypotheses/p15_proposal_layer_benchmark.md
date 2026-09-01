@@ -254,6 +254,14 @@ opened P13/P14 cases remain calibration history.
 
 ## Required outputs and observability
 
+The canonical retained output root is
+`goal-discovery/results/p15-proposal-layer/`; it is explicitly versioned despite
+the general rule that regenerable runs are ignored. Store proposal-visible
+artifacts under `frozen/`. Keep evaluator-only material unreadable by the
+proposal process until the frozen output hashes are recorded, then preserve the
+exact revealed manifest and audit under `evaluator/`. An execution is not a P15
+evidence record until these retained artifacts are added to version control.
+
 Retain:
 
 - exact native input paths, revisions, hashes, and opaque mapping in an
