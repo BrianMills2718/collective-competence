@@ -66,10 +66,10 @@ handoff checks. Establish the live state yourself:
 
 A directory name or localhost URL is not evidence of checkout identity.
 
-The integrated documentation revision is one local commit ahead of
-`origin/main`. Do not reset to the remote or substitute one of the remote
-experiment/recovery refs: they are historical or recovery surfaces, not current
-authority. Publishing the local commit is a separate external action.
+The integrated handoff revision is published on `origin/main`, and local `main`
+matches it at this checkpoint. If later status differs, inspect the commits
+before resetting either side. Do not substitute one of the remote experiment or
+recovery refs: they are historical or recovery surfaces, not current authority.
 
 No running service is part of this handoff. If a laboratory server is started,
 record its checkout and revision before using it as implementation evidence.
