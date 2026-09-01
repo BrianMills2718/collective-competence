@@ -35,6 +35,7 @@ RESULT_DIRECTORY = Path("results/p13-vector-dynamics")
 PROTOCOL = Path("docs/hypotheses/p13_vector_dynamics.md")
 SCIENTIFIC_INPUT_SCOPES = (
     "goal-discovery/docs/hypotheses/p13_vector_dynamics.md",
+    "goal-discovery/src/common/snapshots.py",
     "goal-discovery/src/experiments/vector_dynamics",
     "goal-discovery/src/experiments/bowl",
 )

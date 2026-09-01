@@ -45,6 +45,7 @@ AGENT_PATTERN = re.compile(
 )
 SCIENTIFIC_INPUT_SCOPES = (
     "goal-discovery/docs/hypotheses/p14_ants_relational_coupling.md",
+    "goal-discovery/src/common/io.py",
     "goal-discovery/src/experiments/ants_relational_coupling",
     "goal-discovery/src/spikes/netlogo_flocking",
 )

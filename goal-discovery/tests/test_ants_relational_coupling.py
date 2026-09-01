@@ -183,6 +183,10 @@ def test_dirty_scientific_input_is_refused_before_p14_simulation(monkeypatch, tm
         ants_run.discover_stage(tmp_path)
 
 
+def test_p14_lineage_includes_imported_adapter_dependency():
+    assert "goal-discovery/src/common/io.py" in ants_run.SCIENTIFIC_INPUT_SCOPES
+
+
 def test_p14_lineage_rejects_changed_revision_bytes_across_stages(monkeypatch, tmp_path):
     relative = "goal-discovery/src/experiments/ants_relational_coupling/model.py"
     target = tmp_path / relative

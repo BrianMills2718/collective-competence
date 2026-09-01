@@ -192,6 +192,10 @@ def test_dirty_scientific_input_is_refused_before_p13_simulation(monkeypatch, tm
         vector_run.discover_stage(tmp_path)
 
 
+def test_p13_lineage_includes_snapshot_identity_dependency():
+    assert "goal-discovery/src/common/snapshots.py" in vector_run.SCIENTIFIC_INPUT_SCOPES
+
+
 def test_p13_lineage_rejects_changed_bytes_across_stages(monkeypatch, tmp_path):
     relative = "goal-discovery/src/experiments/vector_dynamics/model.py"
     target = tmp_path / relative
