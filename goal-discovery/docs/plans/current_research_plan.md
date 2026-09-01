@@ -126,6 +126,24 @@ earns design of one new prospective protocol; it is not prospective evidence.
 A more complicated description, attractive visualization, or in-sample fit is
 not progress by itself.
 
+### One-week execution frame — 2026-09-01 through 2026-09-07
+
+The week is organized as five reversible evidence slices. The dates are a work
+window, not permission to weaken freeze/reveal order or to begin a new substrate
+run.
+
+| Day | Deliverable | Acceptance evidence |
+|---|---|---|
+| 1 — contract | Strict opaque package and output contracts; one development vertical | Invalid and privileged fields fail closed; P10 packages and proposes without native labels |
+| 2 — development freeze | P10/P12 adapters, bounded type-directed grammar, fixed configuration | Both development dispositions are inspectable; code, thresholds, manifest schema, and tests are committed |
+| 3 — held execution | P13/P14 packages and frozen proposal outputs | Input and output hashes are retained and committed before evaluator mapping is revealed |
+| 4 — evaluator audit | Revealed mapping, native lineage audit, four-case disposition table | Both held dispositions, leakage checks, independent units, abstentions, and false-promotion gates are explicit |
+| 5 — integration | Result record, authority updates, full verification, and next decision | Canonical docs point to retained evidence; the next action is a protocol-design decision, not an unauthorized run |
+
+Stop immediately on a package/hash mismatch, privileged-token leak, post-freeze
+grammar change, held-disposition mismatch, or false goal/competence promotion.
+Preserve the failed slice rather than repairing it after reveal.
+
 ## Explicit uncertainties and concerns
 
 - **Open-endedness is unproven.** We have not discovered an unexpected goal or
