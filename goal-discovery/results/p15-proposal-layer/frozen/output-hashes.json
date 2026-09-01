@@ -1,0 +1,10 @@
+{
+  "elapsed_seconds": 9.422363842000777,
+  "environment": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.11.16"
+  },
+  "input_manifest_sha256": "358ddd8b687cc549bbf659242ec36710bd4b594495e03cdb8f0ce910610159d1",
+  "proposals_sha256": "4ea89998fa0710dd04c84b44ffac8c9276bf513238ecf824eb0c652741af051e",
+  "schema_version": 1
+}

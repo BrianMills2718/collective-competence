@@ -1,0 +1,40 @@
+{
+  "cases": [
+    {
+      "case_id": "case-a615526f2365",
+      "independent_units": 8,
+      "package_path": "inputs/case-a615526f2365.json.gz",
+      "package_sha256": "74a3e7f8645a994d660a9b3314fe1de94b57209b3dd6c663f6852d7143f3c7b6",
+      "shape": "repeated_entity_dynamics",
+      "source_digest": "7818850497a87f35fe17cf6555bf3961294d9683ae83ad78807961bfa6c6c655"
+    },
+    {
+      "case_id": "case-bdb43354209b",
+      "independent_units": 8,
+      "package_path": "inputs/case-bdb43354209b.json.gz",
+      "package_sha256": "4ea1b11e28733867e9b4992c5a242ecc40639f20df6265b8897f097c365d9e39",
+      "shape": "directional_entity_dynamics",
+      "source_digest": "d5f59a0e547b912b35bd2fe2751d1bb6a93164b4947f669feeee15249d8c024c"
+    },
+    {
+      "case_id": "case-e1dcd84da6ec",
+      "independent_units": 12,
+      "package_path": "inputs/case-e1dcd84da6ec.json.gz",
+      "package_sha256": "558fecff45238396e4c6b19c9b0dd2113b80cd160b8ce30cdce0aed0664f5fe4",
+      "shape": "frame_pair_entities",
+      "source_digest": "025f12e7945414e243308ff578b46ff85494d9b77c8a7ad9eae0ce06a2b748b9"
+    },
+    {
+      "case_id": "case-fc69123035f5",
+      "independent_units": 3,
+      "package_path": "inputs/case-fc69123035f5.json.gz",
+      "package_sha256": "9beb68bbd9b3145d5a5f84178de47f91739ba7303843f982b7b2bbffe73e789f",
+      "shape": "branched_scalar_series",
+      "source_digest": "88910d1bb97d6b7013e204b1564f101e7f55044052e8636b2cac5d4ae6fbf155"
+    }
+  ],
+  "config_sha256": "db781a29e7f4b69f9f13c083ceabec3cc41c5db92230bdf8d268047cfc25f3aa",
+  "proposal_revision": "175b661e3aa6f85f2ecfac073a3163d1de7842ac",
+  "protocol": "docs/hypotheses/p15_proposal_layer_benchmark.md",
+  "schema_version": 1
+}

@@ -1,0 +1,467 @@
+{
+  "cases": [
+    {
+      "case_id": "case-a615526f2365",
+      "claim_type": "predictive_law",
+      "complexity": {
+        "primitive_transforms": 2,
+        "relations": 1
+      },
+      "distinguishing_operation": {
+        "operation": "freeze_entity_update",
+        "scope": "entity",
+        "timing": "challenge"
+      },
+      "expression": "next([f000,f001]) = A*current + b",
+      "family": "shared_local_affine",
+      "goal_or_competence_promoted": false,
+      "input_fields": [
+        "f000",
+        "f001"
+      ],
+      "parameters": {
+        "fixed_point": [
+          -1.5285679324549209e-16,
+          -8.326672684688686e-17
+        ],
+        "matrix": [
+          [
+            0.8619999999999992,
+            0.9199999999999993
+          ],
+          [
+            -0.13799999999999998,
+            0.9199999999999992
+          ]
+        ],
+        "offset": [
+          5.551115123125783e-17,
+          -2.7755575615628914e-17
+        ],
+        "spectral_radius": 0.959166304662543
+      },
+      "passive_sufficient": true,
+      "qualification": {
+        "baseline_mean_loss": 0.6105731578064892,
+        "candidate_mean_loss": 1.305012742944254e-15,
+        "eligible_units": 8,
+        "leave_one_unit_out_stable": true,
+        "passed": true,
+        "relative_improvement": 0.9999999999999978,
+        "unit_win_fraction": 1.0,
+        "unit_wins": 8
+      },
+      "rivals": [
+        "persistence",
+        "independent scalar drift",
+        "passive attraction"
+      ],
+      "status": "candidate",
+      "unit_scores": [
+        {
+          "baseline_loss": 0.4807133625919876,
+          "candidate_loss": 6.211842804664854e-16,
+          "unit_id": "u000"
+        },
+        {
+          "baseline_loss": 0.5765035640509998,
+          "candidate_loss": 2.2699240966808536e-15,
+          "unit_id": "u001"
+        },
+        {
+          "baseline_loss": 0.560563594102241,
+          "candidate_loss": 9.504829396189438e-16,
+          "unit_id": "u002"
+        },
+        {
+          "baseline_loss": 0.6187540573777618,
+          "candidate_loss": 8.188142107783495e-16,
+          "unit_id": "u003"
+        },
+        {
+          "baseline_loss": 0.6223312948218944,
+          "candidate_loss": 2.1287225885301434e-15,
+          "unit_id": "u004"
+        },
+        {
+          "baseline_loss": 0.6820354660700965,
+          "candidate_loss": 1.0977815800306261e-15,
+          "unit_id": "u005"
+        },
+        {
+          "baseline_loss": 0.7226132262387991,
+          "candidate_loss": 1.0809612191755253e-15,
+          "unit_id": "u006"
+        },
+        {
+          "baseline_loss": 0.6210706971981333,
+          "candidate_loss": 1.4722310282731058e-15,
+          "unit_id": "u007"
+        }
+      ]
+    },
+    {
+      "case_id": "case-bdb43354209b",
+      "claim_type": "underdetermined",
+      "family_scores": [
+        {
+          "family": "persistence",
+          "mean_loss": 0.11237583914442721,
+          "unit_losses": [
+            0.08238518036382224,
+            0.14308360237735834,
+            0.08670514942470321,
+            0.10725032379913166,
+            0.11733966408686175,
+            0.09365152309799434,
+            0.12518101167321574,
+            0.14341025833233037
+          ]
+        },
+        {
+          "family": "radial_relation",
+          "mean_loss": 0.11189189409067621,
+          "unit_losses": [
+            0.082169714241257,
+            0.1422696612870576,
+            0.08668347240785676,
+            0.10697681835359432,
+            0.11657606002880369,
+            0.09338276344063907,
+            0.12455656585231165,
+            0.1425200971138896
+          ]
+        },
+        {
+          "family": "shared_local_relation",
+          "mean_loss": 0.10094676235404185,
+          "unit_losses": [
+            0.08772630625068302,
+            0.11516693640625146,
+            0.08824275986027988,
+            0.09631473187084072,
+            0.10983965337260793,
+            0.08953296684977373,
+            0.10333377154075292,
+            0.11741697268114512
+          ]
+        },
+        {
+          "family": "binary_relational",
+          "mean_loss": 0.0988494042291573,
+          "unit_losses": [
+            0.08609587311782713,
+            0.11235366687598952,
+            0.0868310301015119,
+            0.0945132786562457,
+            0.1067661191225025,
+            0.08744880400108396,
+            0.10149099614012976,
+            0.11529546581796807
+          ]
+        }
+      ],
+      "field_roles": {
+        "angle_field": "f002",
+        "binary_field": "f003",
+        "position_fields": [
+          "f000",
+          "f001"
+        ],
+        "sample_fields": [
+          "f005",
+          "f007",
+          "f006"
+        ]
+      },
+      "goal_or_competence_promoted": false,
+      "qualification": {
+        "baseline_mean_loss": 0.10094676235404185,
+        "candidate_mean_loss": 0.0988494042291573,
+        "eligible_units": 8,
+        "leave_one_unit_out_stable": false,
+        "passed": false,
+        "relative_improvement": 0.020776873630960625,
+        "unit_win_fraction": 1.0,
+        "unit_wins": 8
+      },
+      "reason": "binary relational candidate did not beat the strongest structural baseline",
+      "status": "abstain",
+      "strongest_baseline": "shared_local_relation"
+    },
+    {
+      "case_id": "case-e1dcd84da6ec",
+      "claim_type": "predictive_law",
+      "complexity": {
+        "primitive_transforms": 2,
+        "relations": 1
+      },
+      "distinguishing_operation": {
+        "operation": "transpose_two_entities",
+        "scope": "pair",
+        "timing": "terminal"
+      },
+      "expression": "|--- f000 <= -0.50\n|   |--- class: True\n|--- f000 >  -0.50\n|   |--- f000 <= 0.50\n|   |   |--- f001 <= 0.00\n|   |   |   |--- class: True\n|   |   |--- f001 >  0.00\n|   |   |   |--- class: False\n|   |--- f000 >  0.50\n|   |   |--- class: False\n",
+      "family": "pairwise_endpoint_relation",
+      "goal_or_competence_promoted": false,
+      "input_fields": [
+        "f000",
+        "f001"
+      ],
+      "parameters": {
+        "children_left": [
+          1,
+          -1,
+          3,
+          4,
+          -1,
+          -1,
+          -1
+        ],
+        "children_right": [
+          2,
+          -1,
+          6,
+          5,
+          -1,
+          -1,
+          -1
+        ],
+        "feature": [
+          0,
+          -2,
+          0,
+          1,
+          -2,
+          -2,
+          -2
+        ],
+        "threshold": [
+          -0.5,
+          -2.0,
+          0.5,
+          0.0,
+          -2.0,
+          -2.0,
+          -2.0
+        ]
+      },
+      "passive_sufficient": false,
+      "qualification": {
+        "baseline_mean_loss": 0.4053030303030303,
+        "candidate_mean_loss": 0.0,
+        "eligible_units": 12,
+        "leave_one_unit_out_stable": true,
+        "passed": true,
+        "relative_improvement": 1.0,
+        "unit_win_fraction": 1.0,
+        "unit_wins": 12
+      },
+      "rivals": [
+        "initial-order persistence",
+        "endpoint regularity without restoration"
+      ],
+      "status": "candidate",
+      "unit_scores": [
+        {
+          "baseline_loss": 0.303030303030303,
+          "candidate_loss": 0.0,
+          "unit_id": "u000"
+        },
+        {
+          "baseline_loss": 0.4545454545454546,
+          "candidate_loss": 0.0,
+          "unit_id": "u001"
+        },
+        {
+          "baseline_loss": 0.28787878787878785,
+          "candidate_loss": 0.0,
+          "unit_id": "u002"
+        },
+        {
+          "baseline_loss": 0.3939393939393939,
+          "candidate_loss": 0.0,
+          "unit_id": "u003"
+        },
+        {
+          "baseline_loss": 0.48484848484848486,
+          "candidate_loss": 0.0,
+          "unit_id": "u004"
+        },
+        {
+          "baseline_loss": 0.4696969696969697,
+          "candidate_loss": 0.0,
+          "unit_id": "u005"
+        },
+        {
+          "baseline_loss": 0.303030303030303,
+          "candidate_loss": 0.0,
+          "unit_id": "u006"
+        },
+        {
+          "baseline_loss": 0.33333333333333337,
+          "candidate_loss": 0.0,
+          "unit_id": "u007"
+        },
+        {
+          "baseline_loss": 0.5303030303030303,
+          "candidate_loss": 0.0,
+          "unit_id": "u008"
+        },
+        {
+          "baseline_loss": 0.5,
+          "candidate_loss": 0.0,
+          "unit_id": "u009"
+        },
+        {
+          "baseline_loss": 0.3787878787878788,
+          "candidate_loss": 0.0,
+          "unit_id": "u010"
+        },
+        {
+          "baseline_loss": 0.4242424242424242,
+          "candidate_loss": 0.0,
+          "unit_id": "u011"
+        }
+      ]
+    },
+    {
+      "case_id": "case-fc69123035f5",
+      "claim_type": "predictive_law",
+      "complexity": {
+        "primitive_transforms": 2,
+        "relations": 1
+      },
+      "distinguishing_operation": {
+        "input": 0.4,
+        "operation": "disable_one_channel_with_constant_input",
+        "scope": "system",
+        "timing": 24
+      },
+      "expression": "delta(f000) = intercept - rate*f000 + known_input",
+      "family": "branched_affine_drift",
+      "goal_or_competence_promoted": false,
+      "input_fields": [
+        "f000"
+      ],
+      "parameters": [
+        {
+          "branches": [
+            {
+              "fit_rms": 3.227930883676755e-15,
+              "intercept": 6.799999999999946,
+              "persistence_rms": 0.06681531017312463,
+              "rate": 0.31999999999999734
+            },
+            {
+              "fit_rms": 1.0877919644084146e-15,
+              "intercept": 1.2799999999999743,
+              "persistence_rms": 0.010324013124798177,
+              "rate": 0.07999999999999884
+            }
+          ],
+          "candidate_reference": 23.000000000000025,
+          "reference_identifiable": true,
+          "relative_gain": 0.2399999999999985,
+          "unit_id": "u000"
+        },
+        {
+          "branches": [
+            {
+              "fit_rms": 1.6812946133982464e-15,
+              "intercept": 4.800000000000044,
+              "persistence_rms": 0.1360812461059776,
+              "rate": 0.20000000000000182
+            },
+            {
+              "fit_rms": 2.8072035464344344e-15,
+              "intercept": 3.9000000000000137,
+              "persistence_rms": 0.2717378175882654,
+              "rate": 0.15000000000000047
+            }
+          ],
+          "candidate_reference": 18.000000000000124,
+          "reference_identifiable": true,
+          "relative_gain": 0.05000000000000135,
+          "unit_id": "u001"
+        },
+        {
+          "branches": [
+            {
+              "fit_rms": 2.6335151651486765e-15,
+              "intercept": 6.799999999999784,
+              "persistence_rms": 0.06681531017312416,
+              "rate": 0.3199999999999898
+            },
+            {
+              "fit_rms": 2.42306863978908e-15,
+              "intercept": 6.800000000000143,
+              "persistence_rms": 0.11135246633241191,
+              "rate": 0.32000000000000645
+            }
+          ],
+          "candidate_reference": null,
+          "reference_identifiable": false,
+          "relative_gain": -1.6653345369377348e-14,
+          "unit_id": "u002"
+        }
+      ],
+      "passive_sufficient": false,
+      "qualification": {
+        "baseline_mean_loss": 0.11052102724961697,
+        "candidate_mean_loss": 2.3101341354759344e-15,
+        "eligible_units": 3,
+        "leave_one_unit_out_stable": true,
+        "passed": true,
+        "relative_improvement": 0.9999999999999791,
+        "unit_win_fraction": 1.0,
+        "unit_wins": 3
+      },
+      "rivals": [
+        "observed equilibrium",
+        "single drift field",
+        "unidentifiable reference"
+      ],
+      "status": "candidate",
+      "unit_scores": [
+        {
+          "baseline_loss": 0.038569661648961404,
+          "candidate_loss": 2.157861424042585e-15,
+          "unit_id": "u000"
+        },
+        {
+          "baseline_loss": 0.2039095318471215,
+          "candidate_loss": 2.2442490799163404e-15,
+          "unit_id": "u001"
+        },
+        {
+          "baseline_loss": 0.08908388825276803,
+          "candidate_loss": 2.5282919024688782e-15,
+          "unit_id": "u002"
+        }
+      ]
+    }
+  ],
+  "config_sha256": "db781a29e7f4b69f9f13c083ceabec3cc41c5db92230bdf8d268047cfc25f3aa",
+  "input_manifest_sha256": "358ddd8b687cc549bbf659242ec36710bd4b594495e03cdb8f0ce910610159d1",
+  "proposal_revision": "175b661e3aa6f85f2ecfac073a3163d1de7842ac",
+  "schema_version": 1,
+  "source_audit": [
+    {
+      "path": "contract.py",
+      "sha256": "8e550144e0f720680bf62c7eea8f0df641241b73415d435e12d7191f25b4d795"
+    },
+    {
+      "path": "model.py",
+      "sha256": "88df808d9f7cc83e2bdb7df213efacd5bf410e5c437e4151cd53138d40c06408"
+    },
+    {
+      "path": "propose.py",
+      "sha256": "fc46f63015fe954bde5d65c71fb7e49f906c4d6829443ee35d7b652723e03ca2"
+    },
+    {
+      "path": "config.json",
+      "sha256": "db781a29e7f4b69f9f13c083ceabec3cc41c5db92230bdf8d268047cfc25f3aa"
+    }
+  ]
+}
