@@ -1,0 +1,18 @@
+schema_version: 1.0.0
+project_id: project-collective-competence
+display_name: Collective Competence
+context_epoch: 1
+revision_policy:
+  development: moving_checkout
+  evidence: exact_revision
+repositories:
+  - repository_id: collective-competence
+    role: primary
+    workspace: default
+    authority_entrypoints:
+      - CLAUDE.md
+      - README.md
+      - wiki/index.md
+      - goal-discovery/docs/PROJECT.md
+      - goal-discovery/docs/plans/current_research_plan.md
+    contract_seams: []
