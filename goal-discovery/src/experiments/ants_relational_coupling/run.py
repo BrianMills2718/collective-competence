@@ -43,6 +43,13 @@ AGENT_PATTERN = re.compile(
     r"\[\s*(\d+)\s+([^\s\]]+)\s+([^\s\]]+)\s+([^\s\]]+)\s+([01])\s+"
     r"([^\s\]]+)\s+([^\s\]]+)\s+([^\s\]]+)\s+([^\s\]]+)\s*\]"
 )
+SCIENTIFIC_INPUT_SCOPES = (
+    "goal-discovery/docs/hypotheses/p14_ants_relational_coupling.md",
+    "goal-discovery/src/common/io.py",
+    "goal-discovery/src/experiments/ants_relational_coupling",
+    "goal-discovery/src/spikes/netlogo_flocking",
+)
+EXTERNAL_MODEL_ID = "netlogo-models-library/Ants.nlogox"
 
 
 def _json_bytes(value: Any) -> bytes:
@@ -80,6 +87,86 @@ def _git(*args: str) -> str:
 
 def _revision() -> str:
     return _git("rev-parse", "HEAD")
+
+
+def _require_revision_ancestor(revision: str) -> None:
+    if not isinstance(revision, str) or not re.fullmatch(r"[0-9a-f]{40}", revision):
+        raise RuntimeError("Scientific lineage has an invalid source revision")
+    completed = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", revision, "HEAD"],
+        cwd=_repository_root(),
+        check=False,
+        capture_output=True,
+    )
+    if completed.returncode:
+        raise RuntimeError(f"Scientific source revision {revision} is not an ancestor of HEAD")
+
+
+def _tracked_scientific_inputs() -> list[str]:
+    paths = _git("ls-files", "--", *SCIENTIFIC_INPUT_SCOPES).splitlines()
+    if not paths:
+        raise RuntimeError("P14 scientific input scopes contain no tracked files")
+    return sorted(paths)
+
+
+def _require_clean_scientific_inputs() -> None:
+    status = _git(
+        "status", "--porcelain=v1", "--untracked-files=all", "--", *SCIENTIFIC_INPUT_SCOPES
+    )
+    if status:
+        raise RuntimeError(f"P14 scientific inputs must be clean before execution:\n{status}")
+
+
+def _committed_bytes(revision: str, relative: str) -> bytes:
+    completed = subprocess.run(
+        ["git", "show", f"{revision}:{relative}"],
+        cwd=_repository_root(),
+        check=False,
+        capture_output=True,
+    )
+    if completed.returncode:
+        raise RuntimeError(f"Scientific input {relative} is absent at revision {revision}")
+    return completed.stdout
+
+
+def _capture_scientific_lineage() -> dict[str, Any]:
+    """Freeze every tracked learner/runner/adapter/protocol input before execution."""
+
+    _require_clean_scientific_inputs()
+    revision = _revision()
+    files = {
+        relative: _sha(_committed_bytes(revision, relative))
+        for relative in _tracked_scientific_inputs()
+    }
+    return {
+        "source_revision": revision,
+        "scopes": list(SCIENTIFIC_INPUT_SCOPES),
+        "files": files,
+        "external_inputs": {EXTERNAL_MODEL_ID: _sha(_model_path().read_bytes())},
+    }
+
+
+def _verify_scientific_lineage(lineage: object) -> None:
+    """Fail closed unless frozen P14 scientific inputs still match byte-for-byte."""
+
+    if not isinstance(lineage, dict):
+        raise TypeError("P14 scientific lineage must be an object")
+    if lineage.get("scopes") != list(SCIENTIFIC_INPUT_SCOPES):
+        raise RuntimeError("P14 scientific lineage scopes do not match the frozen contract")
+    revision = lineage.get("source_revision")
+    _require_revision_ancestor(revision)
+    _require_clean_scientific_inputs()
+    recorded = lineage.get("files")
+    if not isinstance(recorded, dict) or sorted(recorded) != _tracked_scientific_inputs():
+        raise RuntimeError("P14 scientific lineage file set changed across stages")
+    for relative, expected_sha in recorded.items():
+        committed = _committed_bytes(revision, relative)
+        working = (_repository_root() / relative).read_bytes()
+        if _sha(committed) != expected_sha or _sha(working) != expected_sha:
+            raise RuntimeError(f"P14 scientific input changed across stages: {relative}")
+    external = lineage.get("external_inputs")
+    if external != {EXTERNAL_MODEL_ID: _sha(_model_path().read_bytes())}:
+        raise RuntimeError("P14 NetLogo model changed across stages")
 
 
 def _require_committed(path: Path) -> str:
@@ -287,7 +374,6 @@ def read_behaviorspace(path: Path, run_prefix: str, first_seed: int) -> dict[str
             who, x, y, heading, mode, here, ahead, right, left = match
             agent = {
                 "run_id": f"{run_prefix}-{seed}",
-                "seed": seed,
                 "tick": tick,
                 "agent_id": f"a{int(who):03d}",
                 "mode": int(mode),
@@ -324,6 +410,7 @@ def _compress_source(path: Path) -> Path:
 
 
 def discover_stage(directory: Path = RESULT_DIRECTORY) -> dict[str, Any]:
+    lineage = _capture_scientific_lineage()
     directory.mkdir(parents=True, exist_ok=True)
     setup = directory / "discovery-behaviorspace.xml"
     _write_new(setup, discovery_xml())
@@ -343,8 +430,9 @@ def discover_stage(directory: Path = RESULT_DIRECTORY) -> dict[str, Any]:
         "schema_version": 1,
         "experiment": "P14",
         "stage": "candidate_frozen_before_evaluation",
-        "source_revision": _revision(),
-        "source_model_sha256": _sha(_model_path().read_bytes()),
+        "source_revision": lineage["source_revision"],
+        "scientific_inputs": lineage,
+        "source_model_sha256": lineage["external_inputs"][EXTERNAL_MODEL_ID],
         "source_model_modified": False,
         "protocol": str(PROTOCOL),
         "protocol_sha256": _sha(PROTOCOL.read_bytes()),
@@ -372,6 +460,7 @@ def plan_stage(directory: Path = RESULT_DIRECTORY) -> dict[str, Any]:
     candidate_path = directory / "candidate.json"
     candidate_sha = _require_committed(candidate_path)
     candidate = json.loads(candidate_path.read_bytes())
+    _verify_scientific_lineage(candidate.get("scientific_inputs"))
     proposal = candidate["proposal"]
     if proposal["status"] != "relational_candidate":
         raise RuntimeError(f"P14 stopped before intervention: {proposal['reason']}")
@@ -383,6 +472,8 @@ def plan_stage(directory: Path = RESULT_DIRECTORY) -> dict[str, Any]:
         "experiment": "P14",
         "stage": "predictions_frozen_before_outcomes",
         "source_revision": _revision(),
+        "candidate_source_revision": candidate["source_revision"],
+        "scientific_inputs": candidate["scientific_inputs"],
         "candidate_sha256": candidate_sha,
         "evaluation_behaviorspace_sha256": _sha(setup.read_bytes()),
         "evaluation_seeds": list(EVALUATION_SEEDS),
@@ -552,8 +643,12 @@ def evaluate_stage(directory: Path = RESULT_DIRECTORY) -> dict[str, Any]:
     setup_path = directory / "evaluation-behaviorspace.xml"
     setup_sha = _require_committed(setup_path)
     candidate, plan = json.loads(candidate_path.read_bytes()), json.loads(probes_path.read_bytes())
+    _verify_scientific_lineage(candidate.get("scientific_inputs"))
+    _require_revision_ancestor(plan.get("source_revision"))
     if (
         plan["candidate_sha256"] != candidate_sha
+        or plan.get("candidate_source_revision") != candidate.get("source_revision")
+        or plan.get("scientific_inputs") != candidate.get("scientific_inputs")
         or plan["evaluation_behaviorspace_sha256"] != setup_sha
         or plan["outcomes_present"] is not False
     ):

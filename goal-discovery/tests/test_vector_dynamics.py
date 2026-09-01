@@ -8,6 +8,7 @@ import numpy as np
 import pytest
 
 from src.experiments.bowl.model import BowlWorld
+from src.experiments.vector_dynamics import run as vector_run
 from src.experiments.vector_dynamics.model import FAMILIES, discover, predict, validate_episode
 from src.experiments.vector_dynamics.run import (
     PREFIX_TICK,
@@ -156,7 +157,18 @@ def test_assessment_separates_state_recovery_and_mechanism_failure():
             assert assessment["whole_forecast_rms"] <= 1e-8
 
 
-def test_discovery_stage_retains_raw_jsonl_and_refuses_overwrite(tmp_path):
+def test_discovery_stage_retains_raw_jsonl_and_refuses_overwrite(monkeypatch, tmp_path):
+    # This test exercises artifact behavior independently of the repository-state
+    # guard, which has dedicated negative controls below.
+    monkeypatch.setattr(
+        vector_run,
+        "_capture_scientific_lineage",
+        lambda: {
+            "source_revision": "0" * 40,
+            "scopes": list(vector_run.SCIENTIFIC_INPUT_SCOPES),
+            "files": {},
+        },
+    )
     result = discover_stage(tmp_path)
     assert result["proposal"]["selected"]["family"] == "shared_local_linear"
     lines = (tmp_path / "discovery.jsonl").read_text().splitlines()
@@ -164,3 +176,40 @@ def test_discovery_stage_retains_raw_jsonl_and_refuses_overwrite(tmp_path):
     assert set(json.loads(lines[0])) == {"tick", "run_id", "coordinates"}
     with pytest.raises(FileExistsError):
         discover_stage(tmp_path)
+
+
+def test_dirty_scientific_input_is_refused_before_p13_simulation(monkeypatch, tmp_path):
+    def refuse_dirty():
+        raise RuntimeError("dirty scientific input")
+
+    monkeypatch.setattr(vector_run, "_require_clean_scientific_inputs", refuse_dirty)
+    monkeypatch.setattr(
+        vector_run,
+        "_episode",
+        lambda *_args, **_kwargs: pytest.fail("simulation ran before the clean-input guard"),
+    )
+    with pytest.raises(RuntimeError, match="dirty scientific input"):
+        vector_run.discover_stage(tmp_path)
+
+
+def test_p13_lineage_includes_snapshot_identity_dependency():
+    assert "goal-discovery/src/common/snapshots.py" in vector_run.SCIENTIFIC_INPUT_SCOPES
+
+
+def test_p13_lineage_rejects_changed_bytes_across_stages(monkeypatch, tmp_path):
+    relative = "goal-discovery/src/experiments/vector_dynamics/model.py"
+    target = tmp_path / relative
+    target.parent.mkdir(parents=True)
+    target.write_bytes(b"changed")
+    lineage = {
+        "source_revision": "a" * 40,
+        "scopes": list(vector_run.SCIENTIFIC_INPUT_SCOPES),
+        "files": {relative: vector_run._sha(b"frozen")},
+    }
+    monkeypatch.setattr(vector_run, "_repository_root", lambda: tmp_path)
+    monkeypatch.setattr(vector_run, "_require_revision_ancestor", lambda _revision: None)
+    monkeypatch.setattr(vector_run, "_require_clean_scientific_inputs", lambda: None)
+    monkeypatch.setattr(vector_run, "_tracked_scientific_inputs", lambda: [relative])
+    monkeypatch.setattr(vector_run, "_committed_bytes", lambda _revision, _path: b"frozen")
+    with pytest.raises(RuntimeError, match="changed across stages"):
+        vector_run._verify_scientific_lineage(lineage)

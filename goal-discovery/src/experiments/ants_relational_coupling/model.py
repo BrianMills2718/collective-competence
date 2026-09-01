@@ -17,7 +17,6 @@ from sklearn.preprocessing import StandardScaler
 
 OBSERVATION_KEYS = {
     "run_id",
-    "seed",
     "tick",
     "agent_id",
     "mode",
@@ -73,11 +72,11 @@ def validate_observations(rows: Sequence[dict[str, Any]]) -> None:
             raise ValueError("run_id must be a non-empty opaque string")
         if not isinstance(row["agent_id"], str) or not row["agent_id"]:
             raise ValueError("agent_id must be a non-empty opaque string")
-        if type(row["seed"]) is not int or type(row["tick"]) is not int:
-            raise TypeError("seed and tick must be integers")
+        if type(row["tick"]) is not int:
+            raise TypeError("tick must be an integer")
         if row["mode"] not in (0, 1) or type(row["mode"]) is not int:
             raise ValueError("mode must be an opaque binary integer")
-        for field in OBSERVATION_KEYS - {"run_id", "agent_id", "seed", "tick", "mode"}:
+        for field in OBSERVATION_KEYS - {"run_id", "agent_id", "tick", "mode"}:
             _number(row[field], field)
         identity = (row["run_id"], row["tick"], row["agent_id"])
         if identity in seen:
@@ -135,7 +134,6 @@ def transitions(rows: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
             continue
         item: dict[str, Any] = {
             "run_id": row["run_id"],
-            "seed": row["seed"],
             "tick": row["tick"],
             "agent_id": row["agent_id"],
             "mode": row["mode"],
@@ -211,18 +209,18 @@ def _counterfactual_field_effect(candidate: dict[str, Any], items: Sequence[dict
 
 
 def discover(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
-    """Select the frozen family, role, and radial band from held-seed evidence."""
+    """Select the frozen family, role, and radial band from held-run evidence."""
 
     items = transitions(rows)
-    seeds = sorted({int(item["seed"]) for item in items})
-    if len(seeds) != 8:
-        raise ValueError("P14 discovery requires exactly eight independent seeds")
+    run_ids = sorted({str(item["run_id"]) for item in items})
+    if len(run_ids) != 8:
+        raise ValueError("P14 discovery requires exactly eight independent opaque runs")
     families: list[dict[str, Any]] = []
     for family in FAMILIES:
         fold_losses: list[float] = []
-        for seed in seeds:
-            fitted = fit_family(family, [item for item in items if item["seed"] != seed])
-            fold_losses.append(score(fitted, [item for item in items if item["seed"] == seed]))
+        for run_id in run_ids:
+            fitted = fit_family(family, [item for item in items if item["run_id"] != run_id])
+            fold_losses.append(score(fitted, [item for item in items if item["run_id"] == run_id]))
         families.append(
             {
                 "family": family,
@@ -248,16 +246,16 @@ def discover(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
         and min(wins.values()) >= 6
     )
     selection = {
-        "held_out_unit": "seed",
+        "held_out_unit": "run_id",
         "persistence_improvement_required": 0.15,
         "single_relation_improvement_required": 0.05,
-        "seed_wins_required": 6,
+        "run_wins_required": 6,
         "wins": wins,
     }
     if not adequate:
         return {
             "status": "abstain",
-            "reason": "role_relational failed the frozen held-seed improvement gate",
+            "reason": "role_relational failed the frozen held-run improvement gate",
             "families": families,
             "selection_rule": selection,
         }
@@ -289,15 +287,15 @@ def discover(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
             for index, item in enumerate(items)
             if item["mode"] == selected_role and low <= item["radius"] < high
         ]
-        seeds_in_band = sorted({int(items[index]["seed"]) for index in indexes})
+        runs_in_band = sorted({str(items[index]["run_id"]) for index in indexes})
         band_rows.append(
             {
                 "low": low,
                 "high": high,
                 "transitions": len(indexes),
-                "seeds": seeds_in_band,
+                "runs": runs_in_band,
                 "median_field_effect": float(np.median(effects[indexes])) if indexes else 0.0,
-                "eligible": len(indexes) >= 100 and len(seeds_in_band) >= 6,
+                "eligible": len(indexes) >= 100 and len(runs_in_band) >= 6,
             }
         )
     eligible = [item for item in band_rows if item["eligible"]]
