@@ -8,7 +8,7 @@ One record may link several protocols/results. Reviewed means a documentation
 review of cited results, not a new execution or confirmation. Unreviewed records
 carry no inferred scientific outcome. Costs remain unknown unless measured.
 
-**46 records: 28 reviewed; 18 unreviewed.**
+**47 records: 29 reviewed; 18 unreviewed.**
 
 Browse by declared family. Counts describe documentation review coverage,
 not scientific success or progress; historical dispositions are not current assignments.
@@ -18,7 +18,7 @@ not scientific success or progress; historical dispositions are not current assi
 | [sorting](#sorting) | 6 | 3 | 3 |
 | [calibration](#calibration) | 10 | 9 | 1 |
 | [representation](#representation) | 10 | 5 | 5 |
-| [substrate-reuse](#substrate-reuse) | 15 | 7 | 8 |
+| [substrate-reuse](#substrate-reuse) | 16 | 8 | 8 |
 | [biological-evidence](#biological-evidence) | 4 | 3 | 1 |
 | [composition](#composition) | 1 | 1 | 0 |
 
@@ -82,6 +82,7 @@ not scientific success or progress; historical dispositions are not current assi
 | X03 | Which reusable visual-analysis approach fits the laboratory? | not_reviewed | Not assessed; Review before use | [x03_visual_analytics_decision](../goal-discovery/docs/plans/x03_visual_analytics_decision.md) |
 | P3-generator-survey | Which mature generator fits the declared next experiment? | not_reviewed | Not assessed; Review before use | [p3_generator_reuse_survey](../goal-discovery/docs/plans/p3_generator_reuse_survey.md) |
 | P4-generator-selection | Which generator fits the next target-inference calibration? | not_reviewed | Not assessed; Review before use | [p4_generator_selection](../goal-discovery/docs/plans/p4_generator_selection.md) |
+| P14 | Can a task-label-blind relational proposal beat passive, geometric, shared-field, and persistence explanations strongly enough to earn an intervention in an existing interacting system? | result_reviewed | abstain_at_frozen_pre_intervention_gate; Retain proposal-comparison and honest-abstention seam; stop Ants lane; no causal relation, competency, unexpected-goal, or agency claim. | [p14_ants_relational_coupling](../goal-discovery/docs/hypotheses/p14_ants_relational_coupling.md); [p14_ants_relational_coupling_results](../goal-discovery/docs/hypotheses/p14_ants_relational_coupling_results.md) |
 
 ## biological-evidence
 

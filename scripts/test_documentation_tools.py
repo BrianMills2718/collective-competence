@@ -38,7 +38,8 @@ class DocumentationControls(unittest.TestCase):
 
     def render(self, records):
         (self.root / "roadmap/experiments.json").write_text(
-            json.dumps({"schema_version": 1, "experiments": records}), encoding="utf-8")
+            json.dumps({"schema_version": 1, "families": ["test"],
+                        "experiments": records}), encoding="utf-8")
         with patch.object(knowledge, "ROOT", self.root), patch.object(
             knowledge, "markdown_files", return_value=[self.artifact]
         ):

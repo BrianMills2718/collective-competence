@@ -792,6 +792,20 @@
       "outcome_source": "goal-discovery/docs/hypotheses/p13_vector_dynamics_results.md",
       "disposition": "Retain observation-only proposal/freeze/challenge seam; stop passive bowl line; no unexpected-goal, competency, agency, or universal-substrate claim.",
       "cost": {"status": "unknown", "effort_minutes": null}
+    },
+    {
+      "id": "P14",
+      "family": "substrate-reuse",
+      "question": "Can a task-label-blind relational proposal beat passive, geometric, shared-field, and persistence explanations strongly enough to earn an intervention in an existing interacting system?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/p14_ants_relational_coupling.md",
+        "goal-discovery/docs/hypotheses/p14_ants_relational_coupling_results.md"
+      ],
+      "review_status": "result_reviewed",
+      "outcome": "abstain_at_frozen_pre_intervention_gate",
+      "outcome_source": "goal-discovery/docs/hypotheses/p14_ants_relational_coupling_results.md",
+      "disposition": "Retain proposal-comparison and honest-abstention seam; stop Ants lane; no causal relation, competency, unexpected-goal, or agency claim.",
+      "cost": {"status": "unknown", "effort_minutes": null}
     }
   ]
 }

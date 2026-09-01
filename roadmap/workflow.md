@@ -75,6 +75,21 @@ repair failed routes, not the answers. Disclose prior context if the reviewer
 is reused. A single successful read does not establish optimal retrieval.
 Keep execution receipts in the change review, not another recurring audit file.
 
+### Fresh-agent handoff acceptance
+
+Do not create a separate handoff narrative. Update the existing concern owners,
+then verify that a reader starting at root instructions can recover, with links:
+
+- the invariant project goal and what is merely apparatus;
+- the latest accepted result, its strongest alternatives, and its claim limits;
+- the current scientific bottleneck and the one next decision—not a backlog;
+- explicit unknowns, integrity concerns, quarantined evidence, and stop rules;
+- the exact native protocol/result and relevant source/test routes; and
+- which local branches, running services, or generated files are authoritative.
+
+If two current pages disagree, repair the concern owner and its projections.
+Do not paper over the conflict with another summary.
+
 ## Shared policy and evidence ownership
 
 The shared [Documentation and Context guide](https://github.com/BrianMills2718/project-meta/blob/main/docs/ops/DOCUMENTATION_PLANNING_LINKAGE_SYSTEM.md)

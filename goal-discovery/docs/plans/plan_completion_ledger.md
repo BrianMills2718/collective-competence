@@ -50,6 +50,7 @@ negative findings, thresholds, and provenance are not rewritten by this cleanup.
 | Local interactive specimen | [P8 receipt](../audits/2026-08-30_p8_c1_vertical_slice.md), [P9 receipt](../audits/2026-08-30_p9_c1_blind_sorting_ui.md) |
 | UI-first planning pilot | [Original protocol](outcome_backcasting_protocol.md), [recorded review](../audits/2026-08-29_ob_001_v0_v2_delivery_review.md) |
 | Composition feasibility/value | [Executed comparison and defer decision](../hypotheses/composition_exploration_results.md) |
+| Proposal/falsification frontier | [P10 candidate relation](../hypotheses/p10_candidate_relations_results.md), [P11 probe-selection calibration](../hypotheses/p11_probe_selection_results.md), [P12 reference inference](../hypotheses/p12_reference_inference_results.md), [P13 vector law](../hypotheses/p13_vector_dynamics_results.md), [P14 relational abstention](../hypotheses/p14_ants_relational_coupling_results.md) |
 | Removed long narratives | [README snapshot](../archive/pre-consolidation-readme.md), [plan snapshot](../archive/pre-consolidation-research-plan.md) |
 
 The supplied P8/P9 receipts preserve the original implementation checks.

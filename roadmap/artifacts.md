@@ -83,6 +83,8 @@ Historical evidence remains available without becoming current instructions.
 - [p12_reference_inference_results.md](../goal-discovery/docs/hypotheses/p12_reference_inference_results.md)
 - [p13_vector_dynamics.md](../goal-discovery/docs/hypotheses/p13_vector_dynamics.md)
 - [p13_vector_dynamics_results.md](../goal-discovery/docs/hypotheses/p13_vector_dynamics_results.md)
+- [p14_ants_relational_coupling.md](../goal-discovery/docs/hypotheses/p14_ants_relational_coupling.md)
+- [p14_ants_relational_coupling_results.md](../goal-discovery/docs/hypotheses/p14_ants_relational_coupling_results.md)
 - [p2_001_predictive_goal_model.md](../goal-discovery/docs/hypotheses/p2_001_predictive_goal_model.md)
 - [p2_001_predictive_goal_model_results.md](../goal-discovery/docs/hypotheses/p2_001_predictive_goal_model_results.md)
 - [p2_001_predictive_goal_model_v2.md](../goal-discovery/docs/hypotheses/p2_001_predictive_goal_model_v2.md)
@@ -174,6 +176,10 @@ Historical evidence remains available without becoming current instructions.
 - [Addendum_3_Robinson_Crusoe_Dynamical_Laboratory.md](../goal-discovery/docs/sources/briefs/Addendum_3_Robinson_Crusoe_Dynamical_Laboratory.md)
 - [Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md](../goal-discovery/docs/sources/briefs/Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md)
 - [Dynamical_Laboratory_Coding_Agent_Spec.md](../goal-discovery/docs/sources/briefs/Dynamical_Laboratory_Coding_Agent_Spec.md)
+
+## goal-discovery/results/p14-ants-relational-coupling-invalid-39a-working-tree
+
+- [INVALID.md](../goal-discovery/results/p14-ants-relational-coupling-invalid-39a-working-tree/INVALID.md)
 
 ## goal-discovery/src
 
