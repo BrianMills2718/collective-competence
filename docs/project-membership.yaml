@@ -1,13 +1,14 @@
 schema_version: 1.0.0
 project_id: project-collective-competence
 display_name: Collective Competence
-context_epoch: 1
+context_epoch: 2
 revision_policy:
   development: moving_checkout
   evidence: exact_revision
 repositories:
   - repository_id: collective-competence
     role: primary
+    function: Integrated Research Agenda
     workspace: default
     authority_entrypoints:
       - CLAUDE.md
