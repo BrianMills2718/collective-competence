@@ -1,0 +1,76 @@
+{
+  "cases": [
+    {
+      "case_id": "case-e1dcd84da6ec",
+      "expected_disposition": "bounded relation; no defended-goal promotion",
+      "native_case": "P10",
+      "native_path": "goal-discovery/results/p10-candidate-relations/discovery.json",
+      "native_revision": "4fee71f24228b262338987bd4d3320b1d13ac1c6",
+      "native_sha256": "025f12e7945414e243308ff578b46ff85494d9b77c8a7ad9eae0ce06a2b748b9",
+      "role": "development",
+      "transform_audit": {
+        "derived_fields": [],
+        "dropped_fields": [
+          "seed"
+        ],
+        "renamed_identifiers": true
+      }
+    },
+    {
+      "case_id": "case-fc69123035f5",
+      "expected_disposition": "bounded reference inference; qualify scope",
+      "native_case": "P12",
+      "native_path": "goal-discovery/results/p12-reference-inference/candidates.json",
+      "native_revision": "fd1eff68c085fc937cd09c672f1374d0d8052a96",
+      "native_sha256": "88910d1bb97d6b7013e204b1564f101e7f55044052e8636b2cac5d4ae6fbf155",
+      "role": "development",
+      "transform_audit": {
+        "derived_fields": [],
+        "dropped_fields": [
+          "fixture",
+          "candidate",
+          "forecasts",
+          "integrity",
+          "provenance"
+        ],
+        "renamed_identifiers": true
+      }
+    },
+    {
+      "case_id": "case-a615526f2365",
+      "expected_disposition": "compact passive predictive law; no goal or competence promotion",
+      "native_case": "P13",
+      "native_path": "goal-discovery/results/p13-vector-dynamics/discovery.jsonl",
+      "native_revision": "b92c780bdce00e7954b4aa123674b07f55026391",
+      "native_sha256": "7818850497a87f35fe17cf6555bf3961294d9683ae83ad78807961bfa6c6c655",
+      "role": "held",
+      "transform_audit": {
+        "derived_fields": [],
+        "dropped_fields": [],
+        "renamed_identifiers": true
+      }
+    },
+    {
+      "case_id": "case-bdb43354209b",
+      "expected_disposition": "abstain before intervention; no causal, goal, or competence claim",
+      "native_case": "P14",
+      "native_path": "goal-discovery/results/p14-ants-relational-coupling/discovery.jsonl.gz",
+      "native_revision": "1425a1e2f9f9ef6a8abac8f275a37704185d730a",
+      "native_sha256": "d5f59a0e547b912b35bd2fe2751d1bb6a93164b4947f669feeee15249d8c024c",
+      "role": "held",
+      "transform_audit": {
+        "derived_fields": [],
+        "dropped_field_rows": 50000,
+        "dropped_fields": [
+          "seed"
+        ],
+        "legacy_contract_note": "The retained artifact predates the corrected observation contract; the redundant run-derived field is removed before packaging.",
+        "renamed_identifiers": true
+      }
+    }
+  ],
+  "input_manifest_sha256": "358ddd8b687cc549bbf659242ec36710bd4b594495e03cdb8f0ce910610159d1",
+  "proposal_revision": "175b661e3aa6f85f2ecfac073a3163d1de7842ac",
+  "salt": "ec1034bbf24e8a4175d4166e3a8d3b83",
+  "schema_version": 1
+}

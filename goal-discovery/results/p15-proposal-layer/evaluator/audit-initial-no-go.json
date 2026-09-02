@@ -1,0 +1,101 @@
+{
+  "all_dispositions_matched": false,
+  "claim_boundary": "Retrospective calibration only; no discovered system goal, competence, causal relation, prospective result, or cross-system generalization is licensed.",
+  "decision": "no-go",
+  "dispositions": [
+    {
+      "assessment": "bounded endpoint relation retained without defended-goal promotion",
+      "case_id": "case-e1dcd84da6ec",
+      "expected_disposition": "bounded relation; no defended-goal promotion",
+      "false_goal_or_competence_promotion": false,
+      "matched": true,
+      "native_case": "P10",
+      "proposal_family": "pairwise_endpoint_relation",
+      "proposal_status": "candidate",
+      "role": "development"
+    },
+    {
+      "assessment": "bounded reference inference retained with predictive-law scope",
+      "case_id": "case-fc69123035f5",
+      "expected_disposition": "bounded reference inference; qualify scope",
+      "false_goal_or_competence_promotion": false,
+      "matched": false,
+      "native_case": "P12",
+      "proposal_family": "branched_affine_drift",
+      "proposal_status": "candidate",
+      "role": "development"
+    },
+    {
+      "assessment": "compact passive law retained without goal or competence promotion",
+      "case_id": "case-a615526f2365",
+      "expected_disposition": "compact passive predictive law; no goal or competence promotion",
+      "false_goal_or_competence_promotion": false,
+      "matched": true,
+      "native_case": "P13",
+      "proposal_family": "shared_local_affine",
+      "proposal_status": "candidate",
+      "role": "held"
+    },
+    {
+      "assessment": "abstained before intervention without causal, goal, or competence claim",
+      "case_id": "case-bdb43354209b",
+      "expected_disposition": "abstain before intervention; no causal, goal, or competence claim",
+      "false_goal_or_competence_promotion": false,
+      "matched": true,
+      "native_case": "P14",
+      "proposal_family": null,
+      "proposal_status": "abstain",
+      "role": "held"
+    }
+  ],
+  "held_system_gate_passed": true,
+  "input_manifest_sha256": "358ddd8b687cc549bbf659242ec36710bd4b594495e03cdb8f0ce910610159d1",
+  "leakage_and_lineage_passed": true,
+  "leakage_checks": {
+    "legacy_redundant_field_audited": true,
+    "mapping_absent_from_frozen_root": true,
+    "package_contracts_passed": true,
+    "proposal_source_audit_present": true
+  },
+  "package_checks": [
+    {
+      "case_id": "case-a615526f2365",
+      "independent_units_match": true,
+      "native_hash_matches": true,
+      "package_hash_matches": true,
+      "package_valid": true,
+      "passed": true,
+      "source_digest_matches": true
+    },
+    {
+      "case_id": "case-bdb43354209b",
+      "independent_units_match": true,
+      "native_hash_matches": true,
+      "package_hash_matches": true,
+      "package_valid": true,
+      "passed": true,
+      "source_digest_matches": true
+    },
+    {
+      "case_id": "case-e1dcd84da6ec",
+      "independent_units_match": true,
+      "native_hash_matches": true,
+      "package_hash_matches": true,
+      "package_valid": true,
+      "passed": true,
+      "source_digest_matches": true
+    },
+    {
+      "case_id": "case-fc69123035f5",
+      "independent_units_match": true,
+      "native_hash_matches": true,
+      "package_hash_matches": true,
+      "package_valid": true,
+      "passed": true,
+      "source_digest_matches": true
+    }
+  ],
+  "proposal_output_sha256": "4ea89998fa0710dd04c84b44ffac8c9276bf513238ecf824eb0c652741af051e",
+  "schema_version": 1,
+  "sealed_mapping_sha256": "f4720536471112a00eb52e77a3a7df2b802d6dcdeb3f779e45464397fe5d64b1"
+}
