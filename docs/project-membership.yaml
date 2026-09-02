@@ -8,7 +8,7 @@ revision_policy:
 repositories:
   - repository_id: collective-competence
     role: primary
-    function: Integrated Research Agenda
+    function: integrated_research_agenda
     workspace: default
     authority_entrypoints:
       - CLAUDE.md
