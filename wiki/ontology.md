@@ -344,6 +344,15 @@ exploratory, internally reproduced only, or contradicted by a later test.
 | Constructed = authored answer | A constructed specimen can be analyzed blind-first with intent withheld. |
 | Collective = emergent or superior | Collective attribution requires boundary, component, coupling, and matched-control evidence. |
 | Prediction = competence | Predictability can arise from passive regularity and does not show achievement, maintenance, or recovery. |
+| Intelligence/viability/self-preservation = autopoiesis | Distinct empirical properties; a system can show strong directed behavior while destroying its own organization. Autopoiesis specifically requires that a system's constituting processes recursively participate in maintaining/reconstituting the organization that defines the system — do not infer it from the presence of an attractor or a merely persistent boundary. |
+
+See the founding briefs
+([Automated Dynamical Systems Discovery Laboratory Spec](../goal-discovery/docs/sources/briefs/Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md#55-viability-and-autopoiesis),
+[Dynamical Laboratory Coding Agent Spec](../goal-discovery/docs/sources/briefs/Dynamical_Laboratory_Coding_Agent_Spec.md#14-viability-and-autopoiesis))
+for the fuller early-stage treatment of viability and autopoiesis, including the
+separately-tracked measures (boundary persistence, survival, maintenance of
+organization, environmental control) — not yet folded into the active Goal and
+Competence Discovery scope.
 
 ## Prospective experiment declaration
 
