@@ -29,6 +29,27 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-02 — surfaced viability/autopoiesis in the ontology
+
+**Changed:** [Non-equivalences and common category errors](ontology.md#non-equivalences-and-common-category-errors)
+now names the intelligence/viability/self-preservation/autopoiesis distinction
+directly, with a pointer to the founding briefs' fuller treatment
+([Automated Dynamical Systems Discovery Laboratory Spec §55](../goal-discovery/docs/sources/briefs/Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md#55-viability-and-autopoiesis),
+[Dynamical Laboratory Coding Agent Spec §14](../goal-discovery/docs/sources/briefs/Dynamical_Laboratory_Coding_Agent_Spec.md#14-viability-and-autopoiesis)).
+
+**Why:** the briefs' careful autopoiesis warning ("do not infer autopoiesis
+simply from the presence of an attractor or tendency") was cited in
+`ontology.md`'s own frontmatter `sources:` list but never appeared in its body
+text or anywhere else in the sanctioned reading chain (wiki → ontology →
+charter → current plan). A deep-review pass following that chain faithfully
+missed it; Brian only surfaced it because he remembered writing it. Found and
+reported by a peer session, verified independently before this fix.
+
+**Does not establish:** autopoiesis as an active measurement in the current
+Goal and Competence Discovery lane — the briefs' treatment remains early-stage
+vision not yet folded into current scope, which is exactly what the new
+ontology pointer says.
+
 ## 2026-09-01 — P15 evidence custody and successor verification
 
 **Changed:** the frozen [P15 protocol](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md#required-outputs-and-observability)
