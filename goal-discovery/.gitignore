@@ -4,9 +4,9 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 
-# Runs are regenerable from their seed in seconds, so they are not committed --
-# except the two day-one runs, kept so a reader can inspect the evidence
-# without running anything.
+# Runs are regenerable from their seed in seconds, so most are not committed --
+# except the accepted-evidence and calibration runs below, kept so a reader
+# can inspect the evidence without running anything.
 results/*
 !results/.gitkeep
 !results/dayone-baseline/
@@ -16,5 +16,13 @@ results/*
 !results/001-validation-v2-c34/
 !results/001-confirmation/
 !results/002-bowl/
+!results/composition/
+!results/p10-candidate-relations/
+!results/p11-probe-selection/
+!results/p11-probe-selection-launch-failure/
+!results/p12-reference-inference/
+!results/p13-vector-dynamics/
+!results/p14-ants-relational-coupling/
+!results/p14-ants-relational-coupling-invalid-39a-working-tree/
 !results/p15-proposal-layer/
 !results/p15-proposal-layer/**
