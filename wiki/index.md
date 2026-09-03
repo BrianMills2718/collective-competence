@@ -9,6 +9,7 @@ sources:
   - ../roadmap/README.md
   - ../roadmap/research.md
   - development-log.md
+  - ../misc/README.md
 ---
 # Competence research — project wiki
 
@@ -73,6 +74,7 @@ than reconstructing definitions from historical experiment prose.
 | How should documentation and evidence be maintained? | [Workflow and policy routes](../roadmap/workflow.md) |
 | How did the project and its contracts change? | [Development log](development-log.md), with references to the current owners and evidence |
 | Where is an active or retained non-superseded source? | [Active document catalog](../roadmap/artifacts.md) and [source provenance](../goal-discovery/docs/sources/README.md); use governed archive recovery for superseded snapshots |
+| Where is quarantined or not-yet-classified material? | [`misc/README.md`](../misc/README.md) — expiring, non-authoritative holdings, each with its own `INTENT.md`; not part of this repository's evidence or priorities until explicitly classified |
 
 ## Shared experimental flow
 

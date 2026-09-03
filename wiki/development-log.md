@@ -29,6 +29,33 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-03 — fixed a real navigation gap: today's quarantined work was invisible from every entry point
+
+**Changed:** added a cross-reference from `wiki/ontology.md`'s existing
+`misc/` discussion to `misc/morphogenesis-scaling-law/` (previously
+mentioned nowhere outside that directory itself and this log), and added
+a "Where is quarantined or not-yet-classified material?" row to
+`wiki/index.md`'s navigation table pointing at `misc/README.md` — a gap
+that predates today's work and applied to the pre-existing
+`misc/platonic-ingress-toy-automata/` holding too.
+
+**Why:** requested directly — checking what a fresh agent, entering only
+through this repository's own stated path (`CLAUDE.md` → `wiki/index.md`
+→ `ontology.md`), would actually discover. Verified rather than assumed:
+`grep`ing `CLAUDE.md`, `wiki/index.md`, and `wiki/ontology.md` for
+`misc/morphogenesis-scaling-law` found zero hits before this fix — the
+scaling-law and boundary-comparison results existed only in this log and
+the `misc/` directory itself, unreachable via the wiki's own stated
+navigation philosophy (enter through the wiki, not by browsing
+directories). `misc/` as a whole was also absent from `wiki/index.md`'s
+"Choose your question" table entirely, independent of today's specific
+additions.
+
+**Does not establish:** that `misc/` holdings are now evidence or
+priorities — the added pointers explicitly say quarantined material
+stays outside this repository's evidence and priorities until classified,
+matching `misc/README.md`'s own convention.
+
 ## 2026-09-03 — boundary-comparison test for the morphogenesis case (quarantined, not a repo experiment)
 
 **Changed:** added `misc/morphogenesis-scaling-law/boundary_comparison.py`

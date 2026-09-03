@@ -420,6 +420,17 @@ project's own apparatus needs to specify explicitly what is continuously
 perturbing the system, on what timescale, and then measure where the system
 spends its time on average — not count starting configurations.
 
+**A separate, unrelated quarantined holding**, `misc/morphogenesis-scaling-law/`,
+also originated from the `levin-wiki` discussion but is not about autopoiesis
+or metastability — it's a resource-ledger/agent-boundary methodology test
+(does an "ingress" classification hold up under different ways of drawing the
+line between an agent and its environment) using a toy morphogen-gradient
+simulation, with two real computed results (`RESULTS.md`, `BOUNDARY_RESULTS.md`)
+and their own `INTENT.md`. Not evidence for or against anything in this
+section; flagged here only so it's discoverable rather than invisible from
+this entry point, per this repository's own preference for reaching material
+through the wiki rather than by browsing `misc/` directly.
+
 ## Prospective experiment declaration
 
 New experiment protocols should declare the following vocabulary. Native
