@@ -105,12 +105,37 @@ allowed files (`contract.py`, `model.py`, `propose.py`, `config.json`).
 
 Per the frozen protocol's "What a pass earns," this record authorizes **design**
 of one new prospective protocol for the smallest intervention suggested by a
-held-system proposal (P13's passive law or P14's abstention are the two
-candidates). It does not authorize running that intervention, choosing a
-substrate, or reopening the stopped P13/P14 lanes themselves. That protocol
-design — naming untouched outcomes, mechanism/artifact controls, opportunity,
-resources, and its own stop gate — is the next research decision and is not
-made by this record.
+held-system proposal. Checking both candidates against what each held case
+already tested:
+
+- **P13's passive law.** Its `distinguishing_operation` in the P15 proposal is
+  `freeze_entity_update` on one coordinate — but P13's own native protocol
+  already ran exactly that, plus `displace` and `kick`, each 8/8 passing
+  ([results](p13_vector_dynamics_results.md)). P13's eight independent
+  coordinates are modeled as uncoupled by the frozen `shared_local_linear`
+  family; the one genuinely untested question — whether an artificial coupling
+  between coordinates breaks that independence assumption — would need a new
+  candidate family or a `BowlWorld` change, which the current plan's "do not do
+  next" list already rules out (broadening the family menu, adding substrate
+  capability without a concrete need).
+- **P14's abstention.** No candidate was proposed; the Ants lane is already
+  stopped, and P15 passing does not reopen it (`current_research_plan.md`'s
+  "Continue when a held-system result changes a live scientific decision" does
+  not apply — nothing here changes P14's own frozen effect-gate result).
+
+**No new prospective protocol is designed from this pass.** Neither held-system
+proposal names a genuinely untested small intervention within the resources
+this pass authorizes touching. Manufacturing one (a new challenge condition,
+a coupled variant of `BowlWorld`) would be exactly the "more complicated
+description... not progress by itself" the frozen protocol warns against.
+
+This sharpens, rather than answers, the plan's own stated bottleneck: the
+laboratory can calibrate proposal/abstention on cases it can already fully
+explain, but proposing a **new observable or candidate form on a system not
+yet in this evidence base** is what "Present frontier" in
+`current_research_plan.md` names as unsolved — that is a next-*system* decision
+for a future plan revision, not a same-system protocol design this record can
+authorize on its own.
 
 ## Provenance
 

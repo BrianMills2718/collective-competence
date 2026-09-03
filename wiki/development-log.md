@@ -29,6 +29,35 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-03 — P15's earned protocol design: none, and why
+
+**Changed:** checked both held-case P15 proposals against what each system's
+native protocol already tested. P13's proposal's `distinguishing_operation`
+(`freeze_entity_update`) is the same freeze P13's own native protocol already
+ran, alongside `displace` and `kick`, all 8/8. P14 abstained and its lane
+remains stopped. Concluded no new prospective protocol is designed from the
+P15 pass, and recorded that in
+[the P15 result record](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md)
+and `current_research_plan.md`'s "Next decision." Updated the Human Decisions
+table: the protocol-design choice moved from `human_required` to
+`agent_decided_reversible` (Brian delegated it explicitly), and a new
+`human_required` row was added for the actual next scope question — whether to
+select a new system for the next research slice.
+
+**Why:** designing a new intervention without a genuinely untested question
+behind it would be exactly the "more complicated description... not progress
+by itself" the frozen P15 protocol warns against, and neither held case's
+challenge menu had an obvious gap.
+
+**References:** [P15 result](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md),
+[P13 result](../goal-discovery/docs/hypotheses/p13_vector_dynamics_results.md),
+[current plan](../goal-discovery/docs/plans/current_research_plan.md).
+
+**Does not establish:** that no untested intervention could ever exist on
+these substrates — only that none was found within the resources this pass
+authorizes touching (no new family, no substrate change). Does not select a
+new system; that decision is recorded as `human_required`.
+
 ## 2026-09-03 — P15 evaluator disposition-rule correction and result
 
 **Changed:** corrected `_disposition("P12", ...)` in

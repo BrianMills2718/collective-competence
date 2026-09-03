@@ -41,11 +41,14 @@ largest source of interpretation.
 executed and passed: both held cases (P13, P14) and, after correcting a P12
 evaluator disposition-rule error, both development cases (P10, P12) matched
 their native dispositions, with every leakage/lineage/package check passing.
-A pass earns **design** of one new prospective protocol for the smallest
-intervention a held-system proposal suggests — it does not itself authorize
-that intervention. Designing that protocol (naming untouched outcomes,
-mechanism/artifact controls, opportunity, resources, and its own stop gate) is
-the next decision, and it is not made by this plan.
+Checked against what a pass earns: **neither held-system proposal names a
+genuinely untested small intervention**, so no new prospective protocol is
+designed from this pass (see the result record's "What changes next"). P13's
+proposal re-identifies the freeze P13 already ran natively (8/8, alongside
+displace and kick); P14 abstained and its lane stays stopped. The sharpened
+bottleneck is proposing a new observable or candidate form on a **system not
+yet in this evidence base** — a next-system decision for a future plan
+revision, which this plan does not select on its own.
 
 **Do not do next:** add another substrate, broaden the fixed family menu, build a
 generic simulator, polish the dashboard, or treat the P15 pass itself as a
@@ -61,7 +64,8 @@ in a separate claims/cursor apparatus. Tags: `human_set`, `agent_decided_reversi
 
 | Choice | Disposition | Note |
 |---|---|---|
-| Which prospective protocol P15's pass earns the design of | `human_required` | Neither held case's frozen proposal cleanly names an untested intervention — P13's proposal re-identifies the freeze already run natively; P14 abstained and its lane is stopped. Candidate framings and the choice between them are pending Brian's input. |
+| Which prospective protocol P15's pass earns the design of | `agent_decided_reversible` | Brian delegated after the domain specifics didn't resolve for him ("proceed as you think is best"). Decided: no protocol is designed — P13's held case already ran the only intervention its proposal names, and P14's lane is stopped; see the result record. Reversible: a future session can still design one if a genuinely new intervention is later identified. |
+| Whether to select a new system for the next research slice | `human_required` | Follows from the row above. Naming a new system/substrate is a scope decision this plan does not make unilaterally. |
 
 An agent that reaches a new `human_required`-shaped choice adds a row here
 rather than deciding it or inventing a parallel tracker.
