@@ -41,8 +41,17 @@ instability bug in an earlier version of this script (an incomplete
 timestep-stability bound that ignored the reaction term), which produced
 alternating-sign floating-point garbage for small λ before being fixed.
 
-See `RESULTS.md` for the actual findings, `n_max_scaling.csv` for the raw
-swept data, and `n_max_scaling.png` for the three scaling curves.
+See `RESULTS.md` for the scaling-law findings, `n_max_scaling.csv` for the
+raw swept data, and `n_max_scaling.png` for the three scaling curves.
+
+A second script, `boundary_comparison.py` (reusing `integrate_field` and
+`hardest_cell_index` from `scaling_law.py` directly), tests whether the
+same case's ingress classification is robust to redrawing the
+agent/system boundary — see `BOUNDARY_RESULTS.md` and
+`boundary_c_sweep.csv`. One finding: expanding the boundary to include
+mere sensing apparatus leaves the classification unchanged; expanding it
+to include baseline access to the same information source shifts the
+classification smoothly and continuously, with no pathological jump.
 
 **Not a benchmark result to cite without reading `RESULTS.md` first**: the
 λ-scaling curve has only 3 usable data points (N_max is undefined, i.e.

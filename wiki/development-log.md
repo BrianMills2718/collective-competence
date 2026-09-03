@@ -29,6 +29,31 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-03 — boundary-comparison test for the morphogenesis case (quarantined, not a repo experiment)
+
+**Changed:** added `misc/morphogenesis-scaling-law/boundary_comparison.py`
+(reusing the existing PDE integrator directly) and `BOUNDARY_RESULTS.md`,
+testing whether the morphogenesis midpoint case's ingress-category
+classification (informational ingress) holds up under two different
+boundary redraws — the concrete comparison this repository's own ontology
+already calls for wherever a boundary is genuinely contestable ("relational
+... under different, explicitly compared boundaries," `wiki/ontology.md`).
+
+**Why:** planned via `company-planning:bounded-design`, implemented via
+`evidence-first-development`, same pattern as the scaling-law work. One
+regression check (the two-stage combined-accuracy formula must collapse
+exactly to the single-reading formula at zero baseline access) passed
+before trusting the sweep.
+
+**Does not establish:** that ingress classifications are boundary-robust
+in general — only that this one concrete test, for this one case, found a
+well-behaved result rather than arbitrariness: relabeling the sensing
+apparatus as "inside the agent" left the classification unchanged (a real
+prediction that held, not a dodge); relabeling baseline access to the same
+information source as "inside" shifted the classification smoothly and
+continuously toward zero marginal contribution, with no pathological jump.
+Not independently reproduced; not claimed as an active research priority.
+
 ## 2026-09-03 — computed the morphogenesis midpoint-task scaling law (quarantined, not a repo experiment)
 
 **Changed:** added `misc/morphogenesis-scaling-law/` (this repository's
