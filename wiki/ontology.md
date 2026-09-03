@@ -351,20 +351,74 @@ See the founding briefs
 [Dynamical Laboratory Coding Agent Spec](../goal-discovery/docs/sources/briefs/Dynamical_Laboratory_Coding_Agent_Spec.md#14-viability-and-autopoiesis))
 for the fuller early-stage treatment of viability and autopoiesis, including the
 separately-tracked measures (boundary persistence, survival, maintenance of
-organization, environmental control) — not yet folded into the active Goal and
-Competence Discovery scope.
+organization, environmental control).
 
-A separate, unrelated project (`levin-wiki`, not part of this repository) is
-running an independent discussion on whether Michael Levin's "Platonic
-ingression" framework could explain the emergence of increasingly competent
-prebiological matter, including a dynamical/metastability account structurally
-similar to this project's own driven-system apparatus — see its living
-document,
-[`platonic-space-and-ingression.md`](../../levin-wiki/wiki/concepts/platonic-space-and-ingression.md).
-Unvalidated raw output from a related external toy-automaton experiment sits
-in `misc/platonic-ingress-toy-automata/` (see that directory's `INTENT.md`) —
-not yet a registered experiment here, not evidence for anything in this
-repository's own ontology.
+### A candidate mechanism for autopoiesis-supporting organization: metastability under continuous perturbation
+
+Originated in a discussion on a separate, unrelated project (`levin-wiki`, not
+part of this repository — see its living document,
+[`platonic-space-and-ingression.md`](../../levin-wiki/wiki/concepts/platonic-space-and-ingression.md)),
+now folded in here as real, independently-checked science rather than left as
+an external pointer. Documented here as a well-specified candidate for this
+project's own Goal and Competence Discovery / Collective Competence arms — not
+yet an active priority, since [the current research plan](../goal-discovery/docs/plans/current_research_plan.md)
+alone owns that, and its own rules are explicit that no external programme
+becomes the agenda by default.
+
+**The mechanism, not merely persistence.** A driven system's long-run occupancy
+of a configuration follows a Boltzmann-like law using a sensitivity-to-
+disturbance measure ("rattling") in place of energy: fragile configurations
+get knocked out by ongoing disturbance almost as soon as they form, while
+locally stable ones survive the same disturbance and accumulate over time —
+not because more of them exist, but because they're the only ones still
+standing after repeated destruction of everything fragile. This is Jeremy
+England's "dissipative adaptation" thesis and Pavel Chvykov's "low rattling"
+work, confirmed experimentally on physical robot swarms ("smarticles"),
+including a tested prediction that two combined driving patterns select for
+configurations robust to both simultaneously. The driver is not incidental —
+it *is* the mechanism; without an explicit, ongoing source of perturbation,
+nothing accumulates preferentially, and a system just sits wherever it
+started. A candidate real driver for prebiotic chemistry specifically: Karo
+Michaelian's dissipative-structuring theory of abiogenesis (*Entropy* 2021,
+arXiv:2007.00618) frames continuous UVC photon flux as both the energy source
+and the selective pressure — the closest real match found to this mechanism
+applied to real chemistry, checked directly against the primary source rather
+than assumed. Secondary, lower-confidence candidates: Damer & Deamer's wet-dry
+cycling (*Astrobiology* 2020, periodic rather than continuous) and Prosser
+(arXiv:2504.17975, 2025, peer-review status unconfirmed).
+
+**Why this doesn't establish autopoiesis on its own, and what would.**
+Metastable persistence under forcing is not autopoiesis — the gap is real, not
+a labeling nuance, and matches this ontology's own distinction above.
+Autopoiesis requires self-production and organizational closure: the system
+actively regenerates the components and processes that constitute its own
+boundary, not merely occupies a stable region of state space that resists
+perturbation. A driven system can dominate occupancy under forcing without
+ever repairing, reconstituting, or regenerating anything — it just happens to
+sit in a configuration disturbance doesn't knock it out of. Distinguishing the
+two empirically needs sharper dependent variables than occupancy or
+persistence alone: does the system merely persist under disturbance, or does
+it actively repair damage after a component is removed; does it reconstitute
+its own constraint network; does it regenerate the boundary that makes it
+identifiable as a system in the first place, rather than the boundary being an
+accident of the driving conditions. No experiment run anywhere in either
+project measures any of these yet — a real scope limit on what's been shown,
+not what's been claimed.
+
+**Evidence status of the imported toy-automaton work specifically**, per this
+repository's own evidence discipline: unresolved. Raw output from the related
+external toy-automaton experiments (basin-size counts, a mutation-robustness
+filter) sits in `misc/platonic-ingress-toy-automata/` (see that directory's
+`INTENT.md` for its quarantine terms and expiry) — not a registered experiment
+here, and not itself evidence for the mechanism above, since neither of those
+experiments actually runs a continuous perturbation process with time-averaged
+occupancy measured; both are one-shot combinatorial counts. The mechanism
+description above rests on the published England/Chvykov/Michaelian science,
+verified independently against primary sources, not on that quarantined data.
+Any experiment meant to test the metastability-accumulation hypothesis in this
+project's own apparatus needs to specify explicitly what is continuously
+perturbing the system, on what timescale, and then measure where the system
+spends its time on average — not count starting configurations.
 
 ## Prospective experiment declaration
 

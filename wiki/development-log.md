@@ -29,6 +29,40 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-03 — folded the metastability-under-continuous-perturbation mechanism into the ontology
+
+**Changed:** replaced `wiki/ontology.md`'s external pointer to `levin-wiki`'s
+autopoiesis/metastability discussion with real, integrated content: the
+mechanism itself (differential survival under continuous perturbation,
+England/Chvykov "low rattling," confirmed experimentally on physical robot
+swarms), a real driver candidate for prebiotic chemistry checked against its
+primary source (Michaelian's UVC-photon dissipative-structuring theory, with
+Damer & Deamer and Prosser as lower-confidence secondary candidates), and this
+repository's own required distinction restated precisely against the
+mechanism: metastable persistence under forcing is not autopoiesis, and
+testing the difference needs specific dependent variables (self-repair,
+constraint-network reconstitution, boundary regeneration) that no experiment
+in either project currently measures.
+
+**Why:** Brian's explicit call — the metastability thread's connection to
+`levin-wiki`'s subject (Michael Levin's Platonic-space framework) is markedly
+weaker than its own scientific content, and that content doesn't need the
+Platonic framing to be worth documenting properly. Keeping it as an external
+pointer on a page about a different project's metaphysical question was
+mixing personal research with that project's actual subject; this repository
+already had the correct ontology (the autopoiesis-vs-persistence distinction)
+and the relevant quarantined data, making it the right home.
+
+**Does not establish:** that this is now an active priority — the current
+research plan alone owns that, and this repository's own rules are explicit
+that no external programme becomes the agenda by default. Does not change the
+evidence status of the quarantined toy-automaton data in
+`misc/platonic-ingress-toy-automata/`, which remains unresolved per its own
+`INTENT.md`; the mechanism description rests on the published
+England/Chvykov/Michaelian literature, independently checked, not on that
+data. Does not establish that any experiment testing this mechanism in this
+project's own apparatus has been run — none has.
+
 ## 2026-09-03 — imported unvalidated Platonic-ingress toy-automaton data into quarantine
 
 **Changed:** added `misc/` (project-meta's expiring non-authoritative
