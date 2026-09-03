@@ -102,9 +102,12 @@ failure conditions, and evidence limits.
 The active plan concentrates on Goal and Competence Discovery and the bottleneck
 of proposing useful observables and candidate forms without task labels. The
 [P15 protocol](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md)
-is the first complete ontology-contract consumer and authorizes only a bounded
-retrospective benchmark; no P15 result exists. That is the current research
-slice, not a redefinition of the overall agenda.
+is the first complete ontology-contract consumer and authorized only a bounded
+retrospective benchmark. [P15's result](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md)
+is now in: a pass, after correcting an evaluator disposition rule that had
+scored a correct passive-fixture abstention as a mismatch. A pass earns design
+of one new prospective protocol, not its execution. That is the current
+research slice, not a redefinition of the overall agenda.
 Existing constructed controls and mechanism experiments also provide bounded
 evidence about competence, robustness, and adaptation; the
 [research synthesis](../roadmap/research.md) states their limits. Historical

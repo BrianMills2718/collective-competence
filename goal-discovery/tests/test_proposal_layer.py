@@ -212,3 +212,30 @@ def test_held_disposition_contract(native_case: str, proposal: dict):
     assert _disposition(native_case, proposal)[0]
     promoted = dict(proposal, goal_or_competence_promoted=True)
     assert not _disposition(native_case, promoted)[0]
+
+
+def _p12_proposal(identifiable: list[bool]) -> dict:
+    return {
+        "status": "candidate",
+        "family": "branched_affine_drift",
+        "goal_or_competence_promoted": False,
+        "parameters": [{"reference_identifiable": value} for value in identifiable],
+    }
+
+
+def test_p12_disposition_expects_the_native_mixed_pattern():
+    # Native P12 fixtures a, b are feedback systems with an identifiable
+    # reference; c is the passive control and has none -- see
+    # docs/hypotheses/p12_reference_inference_results.md.
+    assert _disposition("P12", _p12_proposal([True, True, False]))[0]
+
+
+def test_p12_disposition_rejects_a_falsely_identified_passive_fixture():
+    # Claiming fixture c's reference is identifiable contradicts the native
+    # result; requiring every unit identifiable (the prior rule) scored this
+    # backwards, treating the correct passive abstention as a mismatch.
+    assert not _disposition("P12", _p12_proposal([True, True, True]))[0]
+
+
+def test_p12_disposition_rejects_a_missed_feedback_reference():
+    assert not _disposition("P12", _p12_proposal([True, False, False]))[0]

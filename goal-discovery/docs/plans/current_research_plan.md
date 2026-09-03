@@ -11,6 +11,7 @@ sources:
   - ../hypotheses/p13_vector_dynamics_results.md
   - ../hypotheses/p14_ants_relational_coupling_results.md
   - ../hypotheses/p15_proposal_layer_benchmark.md
+  - ../hypotheses/p15_proposal_layer_benchmark_results.md
 ---
 # Current research plan
 
@@ -36,15 +37,20 @@ challenge, and reject or abstain. It cannot yet propose useful observables and
 candidate forms open-endedly. Researcher-supplied representation remains the
 largest source of interpretation.
 
-**Next decision:** execute the frozen [P15 proposal-layer benchmark](../hypotheses/p15_proposal_layer_benchmark.md)
-on opaque, versioned P10, P12, P13, and P14 packages and determine whether it
-earns a separately frozen prospective-intervention protocol. P15 authorizes
-retrospective packaging, proposal, and evaluator audit only. It does not
-authorize a new substrate run or prospective intervention.
+**Next decision:** [P15](../hypotheses/p15_proposal_layer_benchmark_results.md) has
+executed and passed: both held cases (P13, P14) and, after correcting a P12
+evaluator disposition-rule error, both development cases (P10, P12) matched
+their native dispositions, with every leakage/lineage/package check passing.
+A pass earns **design** of one new prospective protocol for the smallest
+intervention a held-system proposal suggests — it does not itself authorize
+that intervention. Designing that protocol (naming untouched outcomes,
+mechanism/artifact controls, opportunity, resources, and its own stop gate) is
+the next decision, and it is not made by this plan.
 
 **Do not do next:** add another substrate, broaden the fixed family menu, build a
-generic simulator, or polish the dashboard. Each would add apparatus without
-testing the current bottleneck.
+generic simulator, polish the dashboard, or treat the P15 pass itself as a
+discovery, generalization, or competence claim. Each would spend the earned
+protocol design on apparatus instead.
 
 | Question a successor must answer | Authority |
 |---|---|
@@ -101,36 +107,45 @@ but improved mean loss by only 12.0% and 2.08%, below the frozen 15% and 5%
 gates. No intervention outcome was opened. Stop the Ants lane rather than lower
 thresholds or fit a more favorable family after seeing the result.
 
-## Authorized next checkpoint — P15
+## P15 checkpoint — resolved
 
-Use archived systems before paying for a new prospective run. P15 uses P10 and
-P12 as development cases, then freezes the proposal grammar before evaluator
-reveal on P13 and P14. It must preserve opaque case packaging, native independent
-units, passive/invariant/artifact baselines, abstention, and false-goal/competence
-failure gates.
+P15 used P10 and P12 as development cases, then froze the proposal grammar
+before evaluator reveal on P13 and P14, preserving opaque case packaging,
+native independent units, passive/invariant/artifact baselines, abstention, and
+false-goal/competence failure gates as its
+[native protocol](../hypotheses/p15_proposal_layer_benchmark.md) requires.
 
-The [native protocol](../hypotheses/p15_proposal_layer_benchmark.md) owns the
-observation grammar, complexity and leakage constraints, fixed thresholds,
-held-system dispositions, ontology declaration, observability, and stop rules.
-Implementation must not duplicate those decisions in this plan. The result must
-answer:
+The [result](../hypotheses/p15_proposal_layer_benchmark_results.md) answers the
+frozen questions:
 
-1. whether held P13 receives a bounded passive-law disposition without a false
-   goal or competence promotion;
-2. whether held P14 produces the frozen pre-intervention abstention; and
-3. whether lineage, leakage, invalid-input, and per-case failure evidence remain
-   inspectable.
+1. held P13 received a bounded passive-law disposition without a false goal or
+   competence promotion — matched;
+2. held P14 produced the frozen pre-intervention abstention — matched; and
+3. lineage, leakage, invalid-input, and per-case failure evidence remained
+   inspectable — all package and leakage checks passed.
 
-Advance only if both held dispositions and every integrity gate pass. A pass
-earns design of one new prospective protocol; it is not prospective evidence.
-A more complicated description, attractive visualization, or in-sample fit is
-not progress by itself.
+Both held dispositions and every integrity gate passed, earning design of one
+new prospective protocol. That design is not prospective evidence and is not
+made by this plan.
 
-### One-week execution frame — 2026-09-01 through 2026-09-07
+**One correction along the way:** the first evaluator pass (2026-09-01)
+returned `no-go` because its P12 disposition rule required every fixture's
+reference to be identifiable, when P12's own native result documents a fixed
+mixed pattern — fixtures a and b identifiable, fixture c (the passive control)
+correctly not. The rule was corrected on 2026-09-03; no frozen input, proposal,
+or hash changed, and both the original (retained, labeled) and corrected audits
+are preserved under `results/p15-proposal-layer/`. See the
+[result record](../hypotheses/p15_proposal_layer_benchmark_results.md) for the
+full account.
 
-The week is organized as five reversible evidence slices. The dates are a work
-window, not permission to weaken freeze/reveal order or to begin a new substrate
-run.
+### One-week execution frame — 2026-09-01 through 2026-09-07 (closed)
+
+The five reversible evidence slices below all completed within the window,
+including the evaluator-rule correction on day 3. Stop conditions (a
+package/hash mismatch, privileged-token leak, post-freeze grammar change, held-
+disposition mismatch, or false goal/competence promotion) did not fire on any
+frozen artifact; the one fired condition was the evaluator's own rule, and its
+fix touched no frozen input or output.
 
 | Day | Deliverable | Acceptance evidence |
 |---|---|---|
@@ -139,10 +154,6 @@ run.
 | 3 — held execution | P13/P14 packages and frozen proposal outputs | Input and output hashes are retained and committed before evaluator mapping is revealed |
 | 4 — evaluator audit | Revealed mapping, native lineage audit, four-case disposition table | Both held dispositions, leakage checks, independent units, abstentions, and false-promotion gates are explicit |
 | 5 — integration | Result record, authority updates, full verification, and next decision | Canonical docs point to retained evidence; the next action is a protocol-design decision, not an unauthorized run |
-
-Stop immediately on a package/hash mismatch, privileged-token leak, post-freeze
-grammar change, held-disposition mismatch, or false goal/competence promotion.
-Preserve the failed slice rather than repairing it after reveal.
 
 ## Explicit uncertainties and concerns
 
@@ -177,8 +188,9 @@ is not part of the canonical experiment sequence. Remote experiment or recovery
 refs do not change that status and must not be merged as P14 authority.
 
 Historical plans and `research_state.yaml` milestones do not authorize work.
-A frozen P15 protocol now authorizes only its bounded retrospective benchmark;
-no P15 result exists yet.
+The frozen P15 protocol authorized only its bounded retrospective benchmark;
+[its result](../hypotheses/p15_proposal_layer_benchmark_results.md) is a pass,
+earning design of one new prospective protocol, not its execution.
 A running URL must identify its checkout and revision before it can support a
 claim. The current plan owns priorities; native protocols/results own evidence;
 the research synthesis owns cross-experiment interpretation.

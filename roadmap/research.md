@@ -31,7 +31,8 @@ active Goal and Competence Discovery lane, the gap is
 generating useful observables and candidate forms beyond researcher-supplied
 grammars—not another generic simulator, dashboard, or representation leaderboard.
 The frozen [P15 protocol](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md)
-now tests that gap retrospectively; no P15 result exists yet.
+tested that gap retrospectively; [its result](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md)
+is a pass, earning design of one new prospective protocol, not its execution.
 
 ## How to read this page
 
@@ -207,10 +208,22 @@ proposal families, held-run comparison, and an honest stop. The small added valu
 over shared field sharpens the bottleneck: the supplied observable vocabulary and
 candidate grammar still do most of the interpretation.
 
-**Implication:** stop the Ants lane. P15 now freezes the next test: proposal
+**Implication:** stop the Ants lane. P15 froze the next test: proposal
 generation and observable selection on opaque archived positive and abstention
-cases, with held-system evidence and no new substrate outcome. Its protocol is
+cases, with held-system evidence and no new substrate outcome. Its protocol was
 authorization for retrospective calibration, not evidence that the method works.
+
+**P15 result:** both held cases (P13, P14) and, after a disposition-rule
+correction, both development cases (P10, P12) matched their native evaluator
+dispositions, with all leakage/lineage/package checks passing —
+[decision: pass](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md).
+The correction mattered: the evaluator's first pass required every P12 fixture
+to have an identifiable reference, which scored the passive fixture's correct
+"no identifiable reference" as a mismatch rather than the intended finding. A
+pass earns design of one new prospective protocol for the smallest intervention
+a held-system proposal suggests — it does not authorize running that
+intervention, and four cases (two used for development) remain retrospective
+calibration, not open-ended discovery.
 
 ## 3. Representation: useful descriptions must beat simple explanations
 

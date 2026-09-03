@@ -865,14 +865,15 @@
       "family": "calibration",
       "question": "Can a modest type-directed proposal layer produce decision-relevant relational candidates or honest abstention across opaque archived systems without task labels?",
       "artifacts": [
-        "goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md"
+        "goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md",
+        "goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md"
       ],
       "protocol_artifact": "goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md",
       "ontology_contract_version": 1,
-      "review_status": "not_reviewed",
-      "outcome": null,
-      "outcome_source": null,
-      "disposition": null,
+      "review_status": "result_reviewed",
+      "outcome": "pass_earns_new_protocol_design",
+      "outcome_source": "goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md",
+      "disposition": "Both held cases (P13, P14) and, after correcting a P12 evaluator disposition-rule error, both development cases (P10, P12) matched native dispositions with all leakage/lineage checks passing; earns design of one new prospective protocol, not its execution or a discovery/generalization claim.",
       "cost": {"status": "unknown", "effort_minutes": null}
     }
   ]

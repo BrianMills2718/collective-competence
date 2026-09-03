@@ -56,15 +56,28 @@ def _disposition(native_case: str, proposal: dict[str, Any]) -> tuple[bool, str]
         )
         return matched, "bounded endpoint relation retained without defended-goal promotion"
     if native_case == "P12":
+        # Native P12 fixtures are a, b (feedback, identifiable reference) and c
+        # (passive control, no identifiable reference) in that fixed order --
+        # see docs/hypotheses/p12_reference_inference_results.md's fixture table.
+        # A proposal claiming c's reference *is* identifiable would be wrong,
+        # not more complete: requiring every unit identifiable (the prior rule)
+        # scored the correct passive-fixture abstention as a mismatch.
+        expected_identifiable = [True, True, False]
         parameters = proposal.get("parameters", [])
+        identifiable = [bool(item.get("reference_identifiable")) for item in parameters]
         matched = (
             proposal.get("status") == "candidate"
             and proposal.get("family") == "branched_affine_drift"
-            and parameters
-            and all(item.get("reference_identifiable") for item in parameters)
+            and identifiable == expected_identifiable
             and no_promotion
         )
-        return matched, "bounded reference inference retained with predictive-law scope"
+        return (
+            matched,
+            (
+                "bounded reference inference retained with predictive-law scope, "
+                "correctly abstaining on the passive fixture's reference"
+            ),
+        )
     if native_case == "P13":
         matched = (
             proposal.get("status") == "candidate"

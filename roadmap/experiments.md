@@ -13,7 +13,7 @@ remain unclassified until their native protocol and result are reviewed. Every r
 outside the explicit legacy-ID inventory must declare an ontology contract version and
 is structurally validated from its native protocol.
 
-**48 records: 29 reviewed or reproduced; 19 unreviewed.**
+**48 records: 30 reviewed or reproduced; 18 unreviewed.**
 
 Browse by declared family. Counts describe documentation review coverage,
 not scientific success or progress; historical dispositions are not current assignments.
@@ -21,7 +21,7 @@ not scientific success or progress; historical dispositions are not current assi
 | Family | Records | Reviewed/reproduced | Unreviewed |
 |---|---:|---:|---:|
 | [sorting](#sorting) | 6 | 3 | 3 |
-| [calibration](#calibration) | 11 | 9 | 2 |
+| [calibration](#calibration) | 11 | 10 | 1 |
 | [representation](#representation) | 10 | 5 | 5 |
 | [substrate-reuse](#substrate-reuse) | 16 | 8 | 8 |
 | [biological-evidence](#biological-evidence) | 4 | 3 | 1 |
@@ -52,7 +52,7 @@ not scientific success or progress; historical dispositions are not current assi
 | P11 | Does this candidate/menu family offer a meaningful test of automated experiment selection? | result_reviewed | instrument-check-pass-adaptive-benchmark-rejected-analytically; Retain small selector; do not run redundant efficacy batch. Two deterministic fixtures, not held-out adaptive advantage. | [p11_probe_selection](../goal-discovery/docs/hypotheses/p11_probe_selection.md); [p11_probe_selection_results](../goal-discovery/docs/hypotheses/p11_probe_selection_results.md) |
 | P12 | Can observed attractor and inferred feedback reference be separated, with model failure detected under new challenges? | result_reviewed | bounded-reference-inference-and-falsification-pass; Retain causal reference inference; passive reference unidentified; reject affine predictions under feedback saturation. No unexpected-goal claim. | [p12_reference_inference](../goal-discovery/docs/hypotheses/p12_reference_inference.md); [p12_reference_inference_results](../goal-discovery/docs/hypotheses/p12_reference_inference_results.md) |
 | P13 | Can a target-blind vector law be proposed from observations and prospectively falsified under mechanism loss? | result_reviewed | bounded-vector-proposal-and-falsification-pass; Retain observation-only proposal/freeze/challenge seam; stop passive bowl line; no unexpected-goal, competency, agency, or universal-substrate claim. | [p13_vector_dynamics](../goal-discovery/docs/hypotheses/p13_vector_dynamics.md); [p13_vector_dynamics_results](../goal-discovery/docs/hypotheses/p13_vector_dynamics_results.md) |
-| P15 | Can a modest type-directed proposal layer produce decision-relevant relational candidates or honest abstention across opaque archived systems without task labels? | not_reviewed | Not assessed; Review before use | [p15_proposal_layer_benchmark](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md) |
+| P15 | Can a modest type-directed proposal layer produce decision-relevant relational candidates or honest abstention across opaque archived systems without task labels? | result_reviewed | pass_earns_new_protocol_design; Both held cases (P13, P14) and, after correcting a P12 evaluator disposition-rule error, both development cases (P10, P12) matched native dispositions with all leakage/lineage checks passing; earns design of one new prospective protocol, not its execution or a discovery/generalization claim. | [p15_proposal_layer_benchmark](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md); [p15_proposal_layer_benchmark_results](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md) |
 
 ## representation
 

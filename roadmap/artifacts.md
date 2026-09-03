@@ -85,6 +85,7 @@ becoming current instructions.
 - [p14_ants_relational_coupling.md](../goal-discovery/docs/hypotheses/p14_ants_relational_coupling.md)
 - [p14_ants_relational_coupling_results.md](../goal-discovery/docs/hypotheses/p14_ants_relational_coupling_results.md)
 - [p15_proposal_layer_benchmark.md](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md)
+- [p15_proposal_layer_benchmark_results.md](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md)
 - [p2_001_predictive_goal_model.md](../goal-discovery/docs/hypotheses/p2_001_predictive_goal_model.md)
 - [p2_001_predictive_goal_model_results.md](../goal-discovery/docs/hypotheses/p2_001_predictive_goal_model_results.md)
 - [p2_001_predictive_goal_model_v2.md](../goal-discovery/docs/hypotheses/p2_001_predictive_goal_model_v2.md)
@@ -206,6 +207,20 @@ becoming current instructions.
 
 - [AGENTS.md](../goal-discovery/tests/AGENTS.md)
 - [CLAUDE.md](../goal-discovery/tests/CLAUDE.md)
+
+## misc
+
+- [README.md](../misc/README.md)
+
+## misc/morphogenesis-scaling-law
+
+- [BOUNDARY_RESULTS.md](../misc/morphogenesis-scaling-law/BOUNDARY_RESULTS.md)
+- [INTENT.md](../misc/morphogenesis-scaling-law/INTENT.md)
+- [RESULTS.md](../misc/morphogenesis-scaling-law/RESULTS.md)
+
+## misc/platonic-ingress-toy-automata
+
+- [INTENT.md](../misc/platonic-ingress-toy-automata/INTENT.md)
 
 ## roadmap
 

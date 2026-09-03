@@ -29,6 +29,41 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-03 — P15 evaluator disposition-rule correction and result
+
+**Changed:** corrected `_disposition("P12", ...)` in
+`src/experiments/proposal_layer/evaluate.py`, which required every P12 unit's
+reference to be identifiable when the native result
+([p12_reference_inference_results.md](../goal-discovery/docs/hypotheses/p12_reference_inference_results.md))
+documents a fixed mixed pattern: fixtures a and b have an identifiable
+reference, fixture c (the passive control) correctly does not. The old rule
+scored that correct abstention as a mismatch, producing a false `no-go` on
+2026-09-01 (`results/p15-proposal-layer/evaluator/audit-initial-no-go.json`,
+commit `247d352`). Re-running the unchanged frozen proposals and sealed mapping
+against the corrected rule now returns `decision: pass`
+(`results/p15-proposal-layer/evaluator-corrected/audit-corrected-pass.json`);
+no frozen input, proposal, or hash changed. Added
+[the P15 result record](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md)
+and two regression tests, then updated `current_research_plan.md`,
+`wiki/index.md`, `roadmap/research.md`, and the `roadmap/experiments.json`
+register (regenerating `roadmap/experiments.md`/`artifacts.md`) to stop stating
+"no P15 result exists."
+
+**Why:** a prior session's own execution record
+(`.company-planning/candidate-r5.json`) had already diagnosed this false
+negative and scoped its repair before its lease went stale mid-fix, two days
+and eleven commits before this correction. The frozen decision the active
+research plan names as its "next decision" had already been resolved by
+committed, hash-verified evidence; nothing had read it back.
+
+**References:** [P15 result](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md),
+[frozen protocol](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md),
+[current plan](../goal-discovery/docs/plans/current_research_plan.md).
+
+**Does not establish:** any discovered goal, competence, causal relation, or
+cross-system generalization. A pass earns design of one new prospective
+protocol, not its execution; that design is not made by this entry.
+
 ## 2026-09-03 — fixed a real navigation gap: today's quarantined work was invisible from every entry point
 
 **Changed:** added a cross-reference from `wiki/ontology.md`'s existing

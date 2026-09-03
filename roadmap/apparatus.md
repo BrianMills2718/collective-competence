@@ -36,6 +36,7 @@ declarations rather than deriving one from a directory, engine, or visualization
 | Can composition preserve semantics across systems? | [Optional composition implementation](../goal-discovery/src/experiments/composition/); [bounded evidence](../goal-discovery/docs/hypotheses/composition_exploration_results.md) |
 | What can we inspect visually? | [Cockpit entrypoint](../goal-discovery/src/cockpit/app.py), [usage](../goal-discovery/README.md), [shared analytic requirements](../goal-discovery/docs/plans/dynamic_experiment_artifact_standard.md) |
 | What justifies a claim? | [Tests](../goal-discovery/tests/), native experiment protocols/results via [register](experiments.md), and [research counterevidence](research.md) |
+| What is `src/workbench/` and is it live? | Superseded by the cockpit entrypoint above; its interactive app (`app.py`, port 5010) is not part of the current laboratory. [`analysis.py`/`data.py`/`static.py`](../goal-discovery/src/workbench/) remain the regeneration path for the retained [X03 representation decision](../goal-discovery/docs/plans/x03_visual_analytics_decision.md) evidence under `results/x03-workbench/` and are not superseded by cockpit. Not yet dispositioned for retirement or an explicit keep-as-evidence-tool decision. |
 
 ## Crucial boundaries
 

@@ -119,9 +119,9 @@ experiment_declaration:
     counterfactual_comparator: Fixed-family baseline plus simple persistence, passive or invariant, and artifact baselines declared below.
   evidence:
     provenance: authored
-    claim_assessment: not_tested
-    review_status: not_reviewed
-    result_source: null
+    claim_assessment: qualified
+    review_status: result_reviewed
+    result_source: goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md
     counterevidence:
       - Human designers already know the archived cases, so success remains retrospective calibration.
       - A compact grammar may merely rename supplied coordinates or reproduce native candidate menus.
