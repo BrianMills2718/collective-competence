@@ -29,6 +29,38 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-03 — computed the morphogenesis midpoint-task scaling law (quarantined, not a repo experiment)
+
+**Changed:** added `misc/morphogenesis-scaling-law/` (this repository's
+`misc/` quarantine convention) with a script, results, and an `INTENT.md`
+computing N_max (largest tissue size solvable at ≥95% accuracy) for a
+bilateral-morphogen midpoint-classification task as a function of decay
+length, sensor SNR, and equilibration time — the one open, well-specified
+computation identified across several rounds of external review of
+`levin-wiki`'s living document on Michael Levin's "Platonic ingression"
+framework, replacing that document's idealized exact-arithmetic
+"N_max is unbounded" claim.
+
+**Why:** planned via `company-planning`'s `bounded-design` skill (a Small,
+solo, reversible prototype) and implemented via `evidence-first-development`
+per the contributor's explicit adoption. Two regression checks were run
+before trusting the sweep: the known exact closed-form sign identity, and
+the same identity through the actual numerical integrator — the second
+caught a real numerical-instability bug (an incomplete timestep-stability
+bound ignoring the reaction term) that would otherwise have silently
+produced garbage results for small decay lengths.
+
+**Does not establish:** that this is a collective-competence experiment or
+an active research priority — `current_research_plan.md` alone owns that,
+untouched here. Two genuine, non-obvious findings are reported in
+`RESULTS.md`, not smoothed over: N_max collapses to below the smallest
+testable tissue size once decay length exceeds a threshold (the sign
+identity stays exact but the absolute field separation becomes
+unresolvably small against a fixed noise floor), and N_max vs.
+equilibration time is non-monotonic with an interior maximum, not
+"more settling time is always better." Neither result is independently
+reproduced; one script, one run, two passing regression checks.
+
 ## 2026-09-03 — folded the metastability-under-continuous-perturbation mechanism into the ontology
 
 **Changed:** replaced `wiki/ontology.md`'s external pointer to `levin-wiki`'s
