@@ -52,6 +52,20 @@ generic simulator, polish the dashboard, or treat the P15 pass itself as a
 discovery, generalization, or competence claim. Each would spend the earned
 protocol design on apparatus instead.
 
+## Human Decisions
+
+This is a one-human project; per the installed `company-planning` skill's
+solo-autonomous guidance, material choices are tagged inline here rather than
+in a separate claims/cursor apparatus. Tags: `human_set`, `agent_decided_reversible`,
+`assumption`, `human_required`.
+
+| Choice | Disposition | Note |
+|---|---|---|
+| Which prospective protocol P15's pass earns the design of | `human_required` | Neither held case's frozen proposal cleanly names an untested intervention — P13's proposal re-identifies the freeze already run natively; P14 abstained and its lane is stopped. Candidate framings and the choice between them are pending Brian's input. |
+
+An agent that reaches a new `human_required`-shaped choice adds a row here
+rather than deciding it or inventing a parallel tracker.
+
 | Question a successor must answer | Authority |
 |---|---|
 | What is the full purpose and scientific scope? | [Project charter](../PROJECT.md) |
