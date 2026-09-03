@@ -354,6 +354,18 @@ separately-tracked measures (boundary persistence, survival, maintenance of
 organization, environmental control) — not yet folded into the active Goal and
 Competence Discovery scope.
 
+A separate, unrelated project (`levin-wiki`, not part of this repository) is
+running an independent discussion on whether Michael Levin's "Platonic
+ingression" framework could explain the emergence of increasingly competent
+prebiological matter, including a dynamical/metastability account structurally
+similar to this project's own driven-system apparatus — see its living
+document,
+[`platonic-space-and-ingression.md`](../../levin-wiki/wiki/concepts/platonic-space-and-ingression.md).
+Unvalidated raw output from a related external toy-automaton experiment sits
+in `misc/platonic-ingress-toy-automata/` (see that directory's `INTENT.md`) —
+not yet a registered experiment here, not evidence for anything in this
+repository's own ontology.
+
 ## Prospective experiment declaration
 
 New experiment protocols should declare the following vocabulary. Native

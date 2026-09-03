@@ -1,0 +1,3 @@
+boundary,target,training,lower_physical_fits,lower_abstract_completion,richer_physical_fits,richer_abstract_completion,first_lower_failure
+3-state DFA -> one counter,Dyck-1 balanced parentheses,all 15 strings of length <=3,2,()^*,3,Dyck-1,(()) at length 4
+pushdown -> two counters,a^n b^n c^n,"all 8 triples with 1<=i,j,k<=2","m=2,... in modular-PDA family",i=j and j≡k (mod m),6,i=j=k,a b c^3 for m=2

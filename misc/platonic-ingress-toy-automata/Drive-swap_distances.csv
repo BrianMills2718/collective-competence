@@ -1,0 +1,4 @@
+kappa,drive_A,drive_B,total_variation_distance
+1000.0,period-2 01,period-3 001,0.7530691378848976
+1000.0,period-3 001,period-3 011,0.35478978221687774
+1000.0,period-2 01,period-4 0011,0.7499624889147757

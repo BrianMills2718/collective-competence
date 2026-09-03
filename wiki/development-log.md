@@ -29,6 +29,34 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-03 — imported unvalidated Platonic-ingress toy-automaton data into quarantine
+
+**Changed:** added `misc/` (project-meta's expiring non-authoritative
+quarantine convention — see `misc/README.md`) and placed 39 raw result files
+from an external ChatGPT-based research thread in
+`misc/platonic-ingress-toy-automata/`, with an `INTENT.md` declaring
+`authority: none`, an unresolved destination, and a 2026-09-17 expiry.
+
+**Why:** this repo's own `scripts/artifact_intents.yaml` requires a durable
+intent record before a controlled artifact lands anywhere permanent, and the
+generating agent's own most recent document (part5 of the source
+conversation) explicitly says its central enrichment numbers should not yet
+be treated as benchmark results — a positive-control pass and a landscape
+survey were both still in progress at import time. Landing this as a
+registered `experiments/` entry now would have certified evidentiary status
+this material has not earned.
+
+**Does not establish:** that this data belongs permanently in this repo, that
+it constitutes a collective-competence experiment, or that any of its
+specific numeric results are correct — only one general mathematical claim
+underlying the metastability mechanism (a stationary-distribution identity on
+a regular escape-rate graph) was independently verified, separately from this
+import, in the `levin-wiki` living document on the same topic.
+
+Note: this repo does not yet have `scripts/artifact_directory_policy.yaml`,
+so the quarantine convention above is applied by hand, not mechanically
+enforced — see `misc/README.md`.
+
 ## 2026-09-02 — surfaced viability/autopoiesis in the ontology
 
 **Changed:** [Non-equivalences and common category errors](ontology.md#non-equivalences-and-common-category-errors)

@@ -1,0 +1,7 @@
+beta,drive_A,drive_B,total_variation_distance
+4.0,period-2: 01,period-3: 001,0.6428895138218398
+4.0,period-3: 001,period-3: 011,0.17601210607153484
+4.0,period-2: 01,period-4: 0011,0.7191275052663549
+8.0,period-2: 01,period-3: 001,0.9363367595933725
+8.0,period-3: 001,period-3: 011,0.6832807411610538
+8.0,period-2: 01,period-4: 0011,0.9868571112838715
