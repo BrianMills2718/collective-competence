@@ -490,6 +490,82 @@ and [current provenance boundary](../goal-discovery/docs/plans/current_research_
 **Does not establish:** preserving lineage does not independently reproduce the
 experiments or upgrade their bounded conclusions.
 
+## 2026-08-30 — the supplied briefs and the charter enter the repository
+
+*Backfilled 2026-09-04 from the Git record; this log previously began on
+2026-08-31.*
+
+**Changed:** commit `9b8666a` added the three supplied specification briefs to
+[`docs/sources/briefs/`](../goal-discovery/docs/sources/) and created
+[the charter](../goal-discovery/docs/PROJECT.md), alongside the first linked
+development wiki.
+
+**Why:** the project had been running experiments for four days without a
+document stating its purpose or scope. The briefs had been supplied on 08-27,
+three days before they were placed under version control.
+
+**Does not establish:** the briefs did not found the `goal-discovery/` lane —
+it arrived on 08-26 and was already running experiment 001 before they existed
+in the repository. They are later context, retained as `authority: historical`.
+
+## 2026-08-26 — the goal-discovery lane arrives and supersedes the experiment ladder
+
+*Backfilled 2026-09-04 from the Git record.*
+
+**Changed:** commit `95b5099` added `goal-discovery/` as a complete project —
+39 files, 3,497 lines, with its own Makefile, packaging, documentation, source,
+tests and results — 15 minutes after
+[its founding brief](../goal-discovery/docs/sources/briefs/First_Wave_Goal_Discovery_Implementation_Brief.md)
+was supplied. Its own provenance record already named the replication target,
+Zhang, Goldstein & Levin (2024), arXiv:2401.05375. The root README was rewritten
+the same day to state that this lane "replaces the experiment ladder this README
+used to list, with a stricter one."
+
+**Why:** three of the pilot's first findings had turned out to be implementation
+asymmetries rather than properties of the system, and one measure was a single
+sample of a fluctuating process. The freeze-before-confirming and
+snapshot-exact-branching rules exist because of those specific failures.
+
+**Does not establish:** the lane carried no prior Git history, so this commit is
+the whole of its recorded origin. Superseding the ladder closed a route, not the
+constructive research question the ladder was built to answer — which as of this
+backfill still has no experiment.
+
+## 2026-08-26 — repository founded on the collective-competence question
+
+*Backfilled 2026-09-04 from the Git record.*
+
+**Changed:** commit `0795072` created this repository and moved experiment 01
+in from `agent_ecology` (`ec00406`, `66b007c`, migrated out by `c904902`). Its
+question: "How does coupling among bounded local systems produce higher-level
+competence?" Its plan: a seven-experiment ladder — self-sorting, production and
+specialization, dispersed information, communication, persistent organization,
+causal-emergence analysis, and LLM agents explicitly last, "only once the
+measurables hold up without them."
+
+**Why:** the experiment had been written inside a repository about tool-calling
+agent ecologies, a different subject, and was moved so the research line had its
+own home.
+
+**Does not establish:** experiments 02 through 07 were never started. The
+repository is named for this question; the work that followed was almost
+entirely the `goal-discovery/` lane. See
+[the generative thesis](competence-thesis.md) for what the original question
+was actually reaching for.
+
+## Backfill note
+
+The three entries above were reconstructed on 2026-09-04 from commit history,
+the original README revisions, and the session transcript that created the
+repository. They cover 2026-08-26 to 2026-08-30, which this log did not
+previously reach: it was created during the 08-31 consolidation and began
+there, so the repository's first five days — including its founding question and
+the arrival of its main research lane — had no record here.
+
+Their supporting evidence, including the dated relationship between this
+repository and `levin-wiki`, `agent_ecology`, `platonic-semantics` and
+`platonic-atlas-math`, is in [the cross-repository timeline](cross-repo-timeline.md).
+
 ## Lifecycle note
 
 The three `goal-discovery/docs/archive/pre-consolidation-*` snapshots are
