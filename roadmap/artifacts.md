@@ -21,6 +21,12 @@ becoming current instructions.
 
 - [README.md](../experiments/01-self-sorting/README.md)
 
+## experiments/morphogenesis-scaling
+
+- [BOUNDARY_RESULTS.md](../experiments/morphogenesis-scaling/BOUNDARY_RESULTS.md)
+- [README.md](../experiments/morphogenesis-scaling/README.md)
+- [RESULTS.md](../experiments/morphogenesis-scaling/RESULTS.md)
+
 ## goal-discovery
 
 - [AGENTS.md](../goal-discovery/AGENTS.md)
@@ -234,12 +240,6 @@ becoming current instructions.
 ## misc
 
 - [README.md](../misc/README.md)
-
-## misc/morphogenesis-scaling-law
-
-- [BOUNDARY_RESULTS.md](../misc/morphogenesis-scaling-law/BOUNDARY_RESULTS.md)
-- [INTENT.md](../misc/morphogenesis-scaling-law/INTENT.md)
-- [RESULTS.md](../misc/morphogenesis-scaling-law/RESULTS.md)
 
 ## misc/platonic-ingress-toy-automata
 

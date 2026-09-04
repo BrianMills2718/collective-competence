@@ -78,6 +78,7 @@ than reconstructing definitions from historical experiment prose.
 | Where is the original pilot the repository is named for? | [`experiments/01-self-sorting/`](../experiments/01-self-sorting/README.md) — the founding Levin-style experiment, exploratory, superseded as a route on 2026-08-26 and never re-entered |
 | How do this repository and its neighbours relate over time? | [Cross-repository timeline](cross-repo-timeline.md) — dated, derived from commit history |
 | Where is an active or retained non-superseded source? | [Active document catalog](../roadmap/artifacts.md) and [source provenance](../goal-discovery/docs/sources/README.md); use governed archive recovery for superseded snapshots |
+| Where is the Collective Competence arm's evidence? | [`experiments/01-self-sorting/`](../experiments/01-self-sorting/README.md) — the founding pilot — and [`experiments/morphogenesis-scaling/`](../experiments/morphogenesis-scaling/README.md), a retained reference result promoted out of quarantine 2026-09-04, deliberately **not** registered as an experiment |
 | Where is quarantined or not-yet-classified material? | [`misc/README.md`](../misc/README.md) — expiring, non-authoritative holdings, each with its own `INTENT.md`; not part of this repository's evidence or priorities until explicitly classified |
 
 ## Shared experimental flow

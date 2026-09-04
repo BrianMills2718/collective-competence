@@ -612,6 +612,16 @@ Two consequences follow, and both matter:
   can come apart where a lineage paid heavily for something a bounded observer
   derives trivially today, or the reverse.
 
+**Partial evidence, added 2026-09-04.**
+[`experiments/morphogenesis-scaling/BOUNDARY_RESULTS.md`](../experiments/morphogenesis-scaling/BOUNDARY_RESULTS.md)
+probes this directly on one case: expanding the boundary to include mere sensing
+apparatus leaves the ingress classification unchanged, while expanding it to
+include baseline access to the same information source shifts the classification
+smoothly and continuously, with no pathological jump. That is one case, not a
+principled rule, and it does not close the gap — but it is evidence that the
+classification degrades gracefully under boundary redrawing rather than
+arbitrarily, which is the failure mode the weakness below names.
+
 **Known load-bearing weakness, carried over rather than hidden:** the
 `levin-wiki` page flags boundary arbitrariness as load-bearing for its central
 claim — "free relative to the agent boundary" currently holds only because every
