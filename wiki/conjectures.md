@@ -140,6 +140,73 @@ a mechanism, a parameter, a family, and a control.
 
 ---
 
+## C2 — Symmetry breaking from a shared quantity
+
+**Status:** open, untested. Admitted 2026-09-04, on the evidence of
+[C1-002](../goal-discovery/docs/hypotheses/c1_002_contended_channel_results.md).
+
+**Why this is not a rescue of C1.** C1 is about whether the shared quantity
+*tracks scarcity*. C2 is about whether it *carries enough structure for subunits
+to act differently on it*. Those are different properties, and C1-002 showed the
+first can hold completely while the second is absent: a signal that tracked
+contention perfectly still idled the channel 80–107 ticks out of 120, because
+every subunit read the same number and therefore did the same thing. C1 is not
+extended to cover this. It stays supported-on-one-family and this is a separate
+bet.
+
+**Claim.** For a family of discrete systems whose subunits contend for an
+**indivisible** resource, collective performance varies with the
+**distinguishability** the shared quantity affords — how many different local
+actions the population can derive from it at one step. A quantity carrying only
+*level* affords two (act, defer) applied in common, and cannot sustain
+allocation. A quantity carrying *phase* affords as many as its period.
+
+And the sharper half, which is where the content is: **the distinguishing
+information need not be authored per subunit.** It can be derived from the shared
+quantity together with each subunit's own pre-existing local state — its need,
+its history, its position — without a designer assigning slots.
+
+**What would refute it.** Two independent refuters, both required to survive:
+
+1. *The distinction is not load-bearing.* If a level-only signal, tuned freely,
+   achieves allocation comparable to the best phase-bearing one, then
+   distinguishability is not what matters and C2 is false. This is the direct
+   inverse of C1-002's finding and must be re-tested, not assumed from it.
+2. *Symmetry breaking requires authored identity.* If allocation works only when
+   the designer assigns phases directly, and a phase **derived** from the shared
+   quantity plus local state performs no better than level-only, then the sharper
+   half is false — coordination here needs an external labeller, and nothing has
+   emerged.
+
+Stated as a scaling claim rather than a universal, per this register's quantifier
+rule: performance should rise with afforded distinguishability up to the number
+of contending subunits and then flatten or decline, since a period longer than
+the population wastes steps on empty phases. A flat response, or a monotonic one
+past that point, contradicts it.
+
+**Known prior-art risk, stated before any work.** The baseline version of this is
+time-division multiplexing, which has been understood since the 1960s, and
+C1-002's post-mortem is essentially a rediscovery of why slotted protocols exist.
+[C1's own history](#c1--coordination-by-a-shared-scarcity-signal) is the warning:
+C1-001 looked like a result until C1-002 showed it was adaptive-versus-fixed
+pricing on a commons. **A confirmation of refuter 1 alone is not a finding** —
+it re-derives TDMA. The programme should only spend on this conjecture for the
+sake of refuter 2, which asks something the engineering literature does not:
+whether the phase assignment can arise from a shared quantity and local state
+rather than being handed down.
+
+**What it licenses.** One experiment testing refuter 2, on the existing
+contended-channel substrate, with refuter 1 present only as a precondition check.
+It does **not** license building a new substrate, and it does not license
+re-running C1-002 with a better signal in the hope of rescuing C1.
+
+**Evidence bearing on it.** None yet.
+[C1-002](../goal-discovery/docs/hypotheses/c1_002_contended_channel_results.md)
+motivates it and constrains it — it establishes that level-only fails here, which
+is a precondition for C2 being interesting, not evidence for C2.
+
+---
+
 ## Admitted and rejected elsewhere
 
 Claims considered for this register and **not** admitted, recorded so they are
@@ -150,4 +217,5 @@ not silently re-proposed:
 | Competence has no floor, because least action | Stipulative. A decision to extend the word downward; no observation distinguishes a world where it holds. Belongs in the ontology or the thesis. |
 | Composing minimal competent elements yields more than the parts | Unfalsifiable as stated — universally quantified over configurations. C1 is the admissible narrowing. |
 | Free lunch is where competence-per-unit-effort comes from | Not yet refutable: needs a declared accounting boundary before it denotes a quantity. See [the ontology's free-lunch section](ontology.md#free-lunch-one-quantity-two-boundary-conventions). Re-propose with a boundary and a refuter. |
+| Cognitive glue is a general coordination mechanism | Not admitted as stated. C1-002 showed the implemented form is a price mechanism requiring a divisible good, so the general version is unfalsifiable-by-vagueness in the same way the composition claim was. C2 is the admissible narrowing of what remains. |
 | Higher-level organization shapes the action landscape of lower-level agents | Levin's directional claim, imported with his multiscale competency architecture. Genuinely refutable, but nothing here tests it and no experiment is proposed. Hold. |
