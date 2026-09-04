@@ -152,6 +152,53 @@ activate only when the required data and assumptions are available.
 own the detailed contract. No single renderer, metric, or picture is universally
 meaningful across all substrates.
 
+## When is the instrument finished?
+
+The Goal and Competence Discovery arm is not a parallel research interest. It is
+the **verification instrument** for the Collective Competence claim: there is no
+way to assert that a collective competence was built without a procedure that can
+measure it and that does not smuggle in the answer. That dependency is why the
+analytic work ran first, and it is recorded here because it was not written down
+and its absence made the ordering look like drift.
+
+A prerequisite needs a completion condition, or it expands forever — there is
+always one more calibration. This is that condition.
+
+**The instrument is sufficient to verify a construction claim when, on a
+specimen it was not built for, all four hold:**
+
+1. **Recovery.** Under a frozen observation contract that withholds the design,
+   it proposes a candidate naming the coordinating structure the constructor
+   actually authored.
+2. **No false positive.** On a matched specimen with that structure removed and
+   everything else identical — same seed, same rules, same parameters — it does
+   not propose it. It abstains, or proposes something the constructor can see is
+   different.
+3. **Frozen before reveal.** Both dispositions are committed before the mapping
+   from opaque specimen to native design is revealed.
+4. **Not written for the case.** The proposal path that produced them was not
+   authored against this specimen. A path that dispatches on a signature only
+   this specimen satisfies does not count; see
+   [P15's measured deviation](hypotheses/p15_proposal_layer_benchmark_results.md).
+
+Until all four hold on at least one specimen the analytic arm's author did not
+build, **no construction claim in this programme is verified.** The constructive
+arm may build, measure, and report; "we built a collective competence" stays
+unsupported, because the only thing that could support it has not been qualified.
+
+**What this does not require.** Open-ended discovery across diverse systems,
+a universal substrate, a general grammar, or a proposal layer that works on
+everything. Those are the analytic arm's own long-term research goals and they
+are not prerequisites for verifying a construction claim. One qualified
+specimen class qualifies the instrument for that class, and the constructive arm
+can proceed inside it while the analytic arm widens it.
+
+**Why a paired positive and negative.** A measuring device is qualified against
+a standard whose value is known, in both directions. An instrument that reports
+structure wherever it looks is as useless as one that never does, and the
+existing evidence base cannot separate those, because every case in it was one
+whose ground truth the analyst had already read.
+
 ## Scope guardrails
 
 - Collective Competence and Goal and Competence Discovery are complementary
