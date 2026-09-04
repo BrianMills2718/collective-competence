@@ -63,6 +63,7 @@ than reconstructing definitions from historical experiment prose.
 | Question | Read next |
 |---|---|
 | Why does this programme exist and what is it building toward? | [The generative thesis](competence-thesis.md) — exploratory, not canonical |
+| What is the programme betting on that could turn out false? | [Standing conjectures](conjectures.md) — canonical; each with a stated refuter |
 | What is the terminology and how do the concepts relate? | [Canonical research ontology](ontology.md) |
 | What is the integrated purpose and scientific boundary? | [Scientific charter](../goal-discovery/docs/PROJECT.md) |
 | How can mechanisms and capabilities produce collective competence? | [Research roadmap](../roadmap/README.md), then the [apparatus map](../roadmap/apparatus.md) and relevant experiment evidence |

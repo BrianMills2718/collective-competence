@@ -301,6 +301,15 @@ plus candidate prebiotic drivers — which is a conjecture sitting in the
 definitions file. It is labelled a candidate, which keeps it honest, but it is
 the kind of content this page exists to hold.
 
+## Where the testable part of this went
+
+The conjectures sketched above now have a home that can authorize work:
+[the standing conjecture register](conjectures.md), which is canonical for what
+it owns. One claim from this page has been admitted there in refutable form
+(C1, coordination by a shared scarcity signal); three were considered and not
+admitted, with the reason recorded in that file. This page remains the
+motivating narrative and still authorizes nothing.
+
 ## Open questions
 
 - **Does composition actually pay?** The thesis predicts that composing minimal
