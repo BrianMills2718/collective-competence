@@ -194,14 +194,36 @@ has one, and cannot say where competence comes from, what it costs, or when it
 is free. That asymmetry is the most likely reason the constructive arm has not
 produced an experiment.
 
-## The missing layer
+## The missing layer is speculative, not merely generative
 
-The gap above is a layer up from what the ontology currently covers. The
-existing vocabulary is *stative*: it describes a system's competence as it
-stands. The missing vocabulary is *generative*: it would describe where that
-competence came from and what it cost.
+The layer the ontology lacks is separated from it by **what kind of failure is
+possible there**, not by subject matter.
 
-Sketching what that layer has to name, as questions rather than settled
+The [ontology](ontology.md) is stipulative. Everything in it is a decision about
+what to mean, including its operationalizations, and it could hold generative
+terms — cost of obtaining, composition yield — without changing character. A
+definition can be *inconsistent* with another definition, or *unhelpful* in that
+it discriminates nothing worth discriminating. It cannot be false: no experiment
+refutes the nine-dimension competence profile, it can only make it look clumsy.
+The one qualification is that a definition can inherit falsity by presupposition
+— an explication resting on something untrue is worse than unhelpful — which
+makes the boundary soft rather than absent.
+
+This layer asserts. *Competence has no floor because of least action.*
+*Composing minimal competent elements yields more than the parts.* *Free lunch
+is where competence-per-unit-effort comes from.* These answer to the world and
+can be **wrong**, and no definitional care rescues them if they are.
+
+That is also what makes the layer **strategic**. These are the programme's bets,
+and being refutable is exactly what lets them steer: they are the only part of
+the programme that can tell you what is worth building next. Everything else
+here — the evidence ladder, the claim stack, freeze-before-challenge, the
+abstention gates — is machinery for handling things that could be wrong. Until
+this layer was written down there was nowhere sanctioned to put something
+wrong-capable and not yet tested, so no bet could be derived from, and the
+constructive arm had no conjecture to build an experiment against.
+
+Sketching what the layer has to name, as questions rather than settled
 definitions:
 
 | It must be able to say | So that it can distinguish |
@@ -219,9 +241,16 @@ it. That is a candidate to adopt, not a settled import: it is still being
 formalized, and its authors there flag that its informational component is
 better defined than its computational one.
 
-This layer is deliberately not written into [the ontology](ontology.md) yet.
-The ontology is canonical and its terms are load-bearing for existing evidence;
-this vocabulary is unsettled and belongs here until it stabilizes.
+Terms from this layer that stabilize into definitions can move into
+[the ontology](ontology.md). The conjectures cannot: a claim that can be wrong
+does not belong in a file whose contents are decisions about what to mean.
+
+The separation is not currently maintained in that direction either.
+`ontology.md`'s section on metastability under continuous perturbation is a
+candidate *mechanism* — an occupancy law with a sensitivity-to-disturbance term,
+plus candidate prebiotic drivers — which is a conjecture sitting in the
+definitions file. It is labelled a candidate, which keeps it honest, but it is
+the kind of content this page exists to hold.
 
 ## Open questions
 
@@ -254,6 +283,14 @@ This section holds this page's own history, per the shared living-document
 convention; the wiki-wide [development log](development-log.md) records only
 that this page exists.
 
+- **2026-09-04 — reframed the layer separation as stipulation versus
+  conjecture.** The dividing line is what kind of failure is possible, not
+  whether the vocabulary is generative: the ontology's contents are decisions
+  about what to mean and can be inconsistent or unhelpful but not false, while
+  this layer holds claims that answer to the world and can be wrong, which is
+  what makes them able to steer. Noted the soft edge (falsity by
+  presupposition) and that `ontology.md` already holds one conjecture, the
+  metastability candidate mechanism.
 - **2026-09-04 — resolved the competence/intelligence question; scoped the
   missing layer.** Checked Levin's definition against the corpus rather than
   leaving the term undefined: intelligence is the capacity to achieve a goal by
