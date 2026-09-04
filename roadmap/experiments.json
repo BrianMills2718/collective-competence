@@ -861,6 +861,22 @@
       "cost": {"status": "unknown", "effort_minutes": null}
     },
     {
+      "id": "Q1-001",
+      "family": "calibration",
+      "question": "Can the analytic instrument recover an authored coordination it was not told about, and not report it where it is absent?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/q1_001_instrument_qualification.md",
+        "goal-discovery/docs/hypotheses/q1_001_instrument_qualification_results.md"
+      ],
+      "protocol_artifact": "goal-discovery/docs/hypotheses/q1_001_instrument_qualification.md",
+      "ontology_contract_version": 1,
+      "review_status": "result_reviewed",
+      "outcome": "not_qualified_instrument_cannot_see_this_coordination",
+      "outcome_source": "goal-discovery/docs/hypotheses/q1_001_instrument_qualification_results.md",
+      "disposition": "Same disposition for a coordinated and an uncoordinated run of the same system: shared_local_affine, candidate, passive_sufficient true on both. Worse than a tie - the instrument affirms passive sufficiency on a system whose behaviour is mediated by a shared quantity outside every entity. Clause 1 of the charter completion condition fails, so no construction claim in this programme is verified. Two positives: the proposal path accepted a fifth system it was not written for, confirming the case-specificity is in the packer not the proposer, and the vague open-endedness frontier is replaced by a specific gap - repeated_entity_dynamics has no candidate expressing dependence on an exogenous shared quantity.",
+      "cost": {"status": "unknown", "effort_minutes": null}
+    },
+    {
       "id": "C1-001",
       "family": "composition",
       "question": "Does a shared scarcity signal have to track scarcity, or does the best fixed threshold coordinate as well?",

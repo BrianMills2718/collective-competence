@@ -31,11 +31,23 @@ and goal-relative competence across diverse systems. For this active lane, the
 simulator, substrates, candidate models, interventions, and visual analytics are
 apparatus—not the scientific result.
 
-**Present frontier:** the laboratory can observe existing systems, compare a
-small supplied candidate grammar on held-out runs, freeze a candidate before a
-challenge, and reject or abstain. It cannot yet propose useful observables and
-candidate forms open-endedly. Researcher-supplied representation remains the
-largest source of interpretation.
+**Present frontier, measured 2026-09-04.** The vague version of this —
+"cannot yet propose useful observables and candidate forms open-endedly" — has
+been replaced by a specific measurement. [Q1-001](../hypotheses/q1_001_instrument_qualification_results.md)
+handed the proposal layer a matched pair differing only in whether a
+coordinating signal was present, and it returned the **same disposition for
+both**, reporting `passive_sufficient: true` on the coordinated run. The gap is
+not that the instrument refuses unfamiliar systems — it accepted a fifth system
+it was not written for. It is that `repeated_entity_dynamics` has **no candidate
+expressing dependence on a shared quantity outside the entities**, so coordination
+mediated by one is unrepresentable rather than merely undetected, and the fit
+degrades into a worse local law instead of signalling a missing variable.
+
+Per [the charter's completion condition](../PROJECT.md), clause 1 fails, so **no
+construction claim in this programme is currently verified**, including C1-001's.
+The first move against this is a candidate family carrying a latent shared
+regressor, plus an adequacy test that reports failure-to-explain rather than only
+relative improvement over persistence.
 
 **Next decision:** [P15](../hypotheses/p15_proposal_layer_benchmark_results.md) has
 executed and returned a **conditional pass covering the seam only**. Both held

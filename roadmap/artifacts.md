@@ -135,6 +135,8 @@ becoming current instructions.
 - [p7_003_selector_complexity_audit_results.md](../goal-discovery/docs/hypotheses/p7_003_selector_complexity_audit_results.md)
 - [p7_004_ants_trail_scale_results.md](../goal-discovery/docs/hypotheses/p7_004_ants_trail_scale_results.md)
 - [p7_005_network_intervention_value_results.md](../goal-discovery/docs/hypotheses/p7_005_network_intervention_value_results.md)
+- [q1_001_instrument_qualification.md](../goal-discovery/docs/hypotheses/q1_001_instrument_qualification.md)
+- [q1_001_instrument_qualification_results.md](../goal-discovery/docs/hypotheses/q1_001_instrument_qualification_results.md)
 
 ## goal-discovery/docs/plans
 
