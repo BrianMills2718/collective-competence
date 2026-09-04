@@ -861,6 +861,22 @@
       "cost": {"status": "unknown", "effort_minutes": null}
     },
     {
+      "id": "C2-001",
+      "family": "composition",
+      "question": "Can the distinguishing information that breaks symmetry come from the environment's own heterogeneity rather than from a designer assigning labels?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/c2_001_derived_phase.md",
+        "goal-discovery/docs/hypotheses/c2_001_derived_phase_results.md"
+      ],
+      "protocol_artifact": "goal-discovery/docs/hypotheses/c2_001_derived_phase.md",
+      "ontology_contract_version": 1,
+      "review_status": "result_reviewed",
+      "outcome": "c2_sharper_half_supported_on_one_family",
+      "outcome_source": "goal-discovery/docs/hypotheses/c2_001_derived_phase_results.md",
+      "disposition": "All three gates pass: precondition P0 (authored beats level-only 8/8, explicitly not a finding since it re-derives TDMA), G1 (derived beats level-only 8/8 at widest spread), G2 (derived monotonic in need spread). Mechanism confirmed rather than assumed: performance tracks the number of distinct phases the environment supplies, rising 1.0 to 6.6 as spread widens, and at zero spread every subunit derives the same phase, collides forever and scores exactly 0.000 as predicted. Real limit recorded: the environment supplied the values but the derivation rule is authored, so the claim is that environmental heterogeneity can substitute for designer-assigned identity GIVEN a rule, not that labels emerge. Fourth consecutive experiment where an authored choice of mine carried the mechanism. Does not change C1's status; C2 was admitted as a separate conjecture.",
+      "cost": {"status": "unknown", "effort_minutes": null}
+    },
+    {
       "id": "C1-002",
       "family": "composition",
       "question": "Does a shared-scalar coordination signal transfer from a divisible renewable resource to an indivisible contended slot?",

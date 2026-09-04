@@ -142,8 +142,14 @@ a mechanism, a parameter, a family, and a control.
 
 ## C2 — Symmetry breaking from a shared quantity
 
-**Status:** open, untested. Admitted 2026-09-04, on the evidence of
-[C1-002](../goal-discovery/docs/hypotheses/c1_002_contended_channel_results.md).
+**Status:** **sharper half supported on one family** as of 2026-09-04 — see
+[C2-001](../goal-discovery/docs/hypotheses/c2_001_derived_phase_results.md).
+Environmental heterogeneity substitutes for designer labelling at a rate set by
+how many distinct values it supplies (satisfaction 0.000 at zero spread rising to
+0.438 at widest, tracking distinct phases 1.0 to 6.6). Refuter 1 was confirmed as a
+precondition and is explicitly not counted as a finding. **Not promoted further:**
+the environment supplied the values but the derivation rule is authored, so this is
+not yet emergence of the rule, and the family is one.
 
 **Why this is not a rescue of C1.** C1 is about whether the shared quantity
 *tracks scarcity*. C2 is about whether it *carries enough structure for subunits
