@@ -54,7 +54,13 @@ non-monotonic `N_max`), and neither would have been expressible as a universal.
 
 ## C1 — Coordination by a shared scarcity signal
 
-**Status:** open, untested here. Admitted 2026-09-04.
+**Status:** **supported on one family** as of 2026-09-04 — see
+[C1-001](../goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal_results.md).
+Adaptive signal 1.000 vs best fixed threshold 0.500 over 8 seeds, with a
+monotonic fidelity sweep. Not promoted further: one authored family is not
+transfer, and the urgency definition that drives the mechanism was authored
+rather than derived. The result record carries a measured defect in the
+pre-registered control and restates the effect size accordingly.
 
 **Claim.** For a family of discrete state-transition systems whose subunits hold
 locally-conflicting objectives over a shared resource, collective goal-relative
@@ -107,7 +113,8 @@ It does **not** license adding a substrate, a simulator, or a UI. If the
 experiment cannot be built on the existing discrete apparatus, that is a finding
 about the apparatus and belongs in the plan, not a licence to expand it.
 
-**Evidence bearing on it.** None yet in this repository. Adjacent and
+**Evidence bearing on it.** [C1-001](../goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal_results.md),
+the first constructive experiment in this repository since 2026-08-26. Adjacent and
 non-substituting: `experiments/01-self-sorting` established that heterogeneous
 local rules break a collective by headcount rather than proportion, which is
 about *disruption* of coordination, not its construction. Lyons and Levin's own

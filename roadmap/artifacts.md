@@ -73,6 +73,8 @@ becoming current instructions.
 - [004_compensation_results.md](../goal-discovery/docs/hypotheses/004_compensation_results.md)
 - [005_adaptation.md](../goal-discovery/docs/hypotheses/005_adaptation.md)
 - [005_adaptation_results.md](../goal-discovery/docs/hypotheses/005_adaptation_results.md)
+- [c1_001_shared_scarcity_signal.md](../goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal.md)
+- [c1_001_shared_scarcity_signal_results.md](../goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal_results.md)
 - [composition_exploration_results.md](../goal-discovery/docs/hypotheses/composition_exploration_results.md)
 - [p10_candidate_relations.md](../goal-discovery/docs/hypotheses/p10_candidate_relations.md)
 - [p10_candidate_relations_results.md](../goal-discovery/docs/hypotheses/p10_candidate_relations_results.md)

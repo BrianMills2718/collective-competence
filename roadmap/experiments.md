@@ -13,7 +13,7 @@ remain unclassified until their native protocol and result are reviewed. Every r
 outside the explicit legacy-ID inventory must declare an ontology contract version and
 is structurally validated from its native protocol.
 
-**48 records: 30 reviewed or reproduced; 18 unreviewed.**
+**49 records: 31 reviewed or reproduced; 18 unreviewed.**
 
 Browse by declared family. Counts describe documentation review coverage,
 not scientific success or progress; historical dispositions are not current assignments.
@@ -25,7 +25,7 @@ not scientific success or progress; historical dispositions are not current assi
 | [representation](#representation) | 10 | 5 | 5 |
 | [substrate-reuse](#substrate-reuse) | 16 | 8 | 8 |
 | [biological-evidence](#biological-evidence) | 4 | 3 | 1 |
-| [composition](#composition) | 1 | 1 | 0 |
+| [composition](#composition) | 2 | 2 | 0 |
 
 ## sorting
 
@@ -104,5 +104,6 @@ not scientific success or progress; historical dispositions are not current assi
 | Experiment | Question | Review | Outcome / disposition | Native evidence |
 |---|---|---|---|---|
 | composition-exploration | Does categorical execution add practical value beyond validated Python without changing behavior? | result_reviewed | fidelity_pass_value_gate_failed; defer_production_runtime; retain_optional_prototype | [composition_exploration_results](../goal-discovery/docs/hypotheses/composition_exploration_results.md) |
+| C1-001 | Does a shared scarcity signal have to track scarcity, or does the best fixed threshold coordinate as well? | result_reviewed | conditional_pass_c1_supported_on_one_family_control_defect_recorded; All three frozen gates passed (G1 8/8, G2 8/8, G3 monotonic), and the conclusion survives a stronger control than the frozen one: adaptive 1.000 vs best fixed threshold 0.500. But the protocol's stated justification for its negative control is measured false - the frozen level (live time-average, ~0.51) sits below the 0.60-0.85 band where any constant works, so the recorded 0.000-to-1.000 effect size overstates. Restated effect: tracking roughly doubles satisfaction over the best constant. Constructive, authored, white-box, one family; not a discovery and not a claim about composition in general. | [c1_001_shared_scarcity_signal](../goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal.md); [c1_001_shared_scarcity_signal_results](../goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal_results.md) |
 
 Interpretation and counterevidence live in the linked research synthesis and native results.

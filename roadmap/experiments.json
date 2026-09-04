@@ -861,6 +861,22 @@
       "cost": {"status": "unknown", "effort_minutes": null}
     },
     {
+      "id": "C1-001",
+      "family": "composition",
+      "question": "Does a shared scarcity signal have to track scarcity, or does the best fixed threshold coordinate as well?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal.md",
+        "goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal_results.md"
+      ],
+      "protocol_artifact": "goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal.md",
+      "ontology_contract_version": 1,
+      "review_status": "result_reviewed",
+      "outcome": "conditional_pass_c1_supported_on_one_family_control_defect_recorded",
+      "outcome_source": "goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal_results.md",
+      "disposition": "All three frozen gates passed (G1 8/8, G2 8/8, G3 monotonic), and the conclusion survives a stronger control than the frozen one: adaptive 1.000 vs best fixed threshold 0.500. But the protocol's stated justification for its negative control is measured false - the frozen level (live time-average, ~0.51) sits below the 0.60-0.85 band where any constant works, so the recorded 0.000-to-1.000 effect size overstates. Restated effect: tracking roughly doubles satisfaction over the best constant. Constructive, authored, white-box, one family; not a discovery and not a claim about composition in general.",
+      "cost": {"status": "unknown", "effort_minutes": null}
+    },
+    {
       "id": "P15",
       "family": "calibration",
       "question": "Can a modest type-directed proposal layer produce decision-relevant relational candidates or honest abstention across opaque archived systems without task labels?",
