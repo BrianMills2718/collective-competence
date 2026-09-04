@@ -29,6 +29,33 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-04 — added a living page for the generative thesis
+
+**Changed:** created [the generative thesis](competence-thesis.md) and linked it
+from the [wiki front door](index.md). It records why the programme exists —
+least action as the reason competence has no floor, composition as the
+constructive bet, the discrete-substrate correction to "atoms", the
+construction/discovery loop, free lunch, and platonic ingression as the route
+into it — plus the measured gaps in current vocabulary.
+
+**Why:** the motivating thesis was not written down in any repository document,
+so the charter, ontology, and plan could describe how the work is conducted but
+not what it is for.
+
+**Log placement:** that page keeps its own development log in a section at its
+foot, per the shared living-document convention. An actively-explored page
+generates entries faster than this wiki-wide log can absorb; this entry records
+its existence and does not track its revisions.
+
+**References:** [the page itself](competence-thesis.md),
+[wiki index](index.md), [ontology](ontology.md).
+
+**Does not establish:** the page is `authority: exploratory`. It changes no
+terminology, scope, priority, or evidence; the [ontology](ontology.md),
+[charter](../goal-discovery/docs/PROJECT.md), and
+[current plan](../goal-discovery/docs/plans/current_research_plan.md) remain the
+owners of those.
+
 ## 2026-09-04 — recovered goal-discovery's founding brief from a session transcript
 
 **Changed:** added

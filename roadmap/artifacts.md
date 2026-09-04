@@ -234,6 +234,7 @@ becoming current instructions.
 
 ## wiki
 
+- [competence-thesis.md](../wiki/competence-thesis.md)
 - [development-log.md](../wiki/development-log.md)
 - [index.md](../wiki/index.md)
 - [ontology.md](../wiki/ontology.md)
