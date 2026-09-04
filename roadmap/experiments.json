@@ -861,6 +861,22 @@
       "cost": {"status": "unknown", "effort_minutes": null}
     },
     {
+      "id": "C2-002",
+      "family": "composition",
+      "question": "How load-bearing is the derivation rule that turns a subunit's own goal into a phase?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/c2_002_rule_load_bearing.md",
+        "goal-discovery/docs/hypotheses/c2_002_rule_load_bearing_results.md"
+      ],
+      "protocol_artifact": "goal-discovery/docs/hypotheses/c2_002_rule_load_bearing.md",
+      "ontology_contract_version": 1,
+      "review_status": "result_reviewed",
+      "outcome": "rule_load_bearing_only_through_distinct_phase_preservation_condition_exact",
+      "outcome_source": "goal-discovery/docs/hypotheses/c2_002_rule_load_bearing_results.md",
+      "disposition": "Landed in the frozen partial band (44.4% within 90% of authored), and reporting the distribution rather than rounding it produced the actual result: neither plateau nor ridge, but exact bimodality. The offset b does nothing (a constant before a modulo rotates all phases uniformly). Performance is a function of gcd(a, P) alone with no residual variation inside a class - 0.438 for coprime, 0.112 at gcd 2, 0.013 at gcd 5, 0.000 at gcd 10, matching 10/5/2/1 available phases. Unifies with C2-001: the rule affects performance only through how many of the environment's distinct values it preserves. Rule discovery is therefore a condition to satisfy, not a search problem. Partly clears the standing worry that my authored choices carry the mechanisms: a=1 is joint best tied with 19 other coprime members, so it was in the optimal class by construction rather than by judgement, though I could have violated the condition by picking a=2. Untested: a prime period, where the bimodality should vanish.",
+      "cost": {"status": "unknown", "effort_minutes": null}
+    },
+    {
       "id": "C2-001",
       "family": "composition",
       "question": "Can the distinguishing information that breaks symmetry come from the environment's own heterogeneity rather than from a designer assigning labels?",

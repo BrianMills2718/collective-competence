@@ -79,6 +79,8 @@ becoming current instructions.
 - [c1_002_contended_channel_results.md](../goal-discovery/docs/hypotheses/c1_002_contended_channel_results.md)
 - [c2_001_derived_phase.md](../goal-discovery/docs/hypotheses/c2_001_derived_phase.md)
 - [c2_001_derived_phase_results.md](../goal-discovery/docs/hypotheses/c2_001_derived_phase_results.md)
+- [c2_002_rule_load_bearing.md](../goal-discovery/docs/hypotheses/c2_002_rule_load_bearing.md)
+- [c2_002_rule_load_bearing_results.md](../goal-discovery/docs/hypotheses/c2_002_rule_load_bearing_results.md)
 - [composition_exploration_results.md](../goal-discovery/docs/hypotheses/composition_exploration_results.md)
 - [p10_candidate_relations.md](../goal-discovery/docs/hypotheses/p10_candidate_relations.md)
 - [p10_candidate_relations_results.md](../goal-discovery/docs/hypotheses/p10_candidate_relations_results.md)
