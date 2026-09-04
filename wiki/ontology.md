@@ -360,6 +360,7 @@ exploratory, internally reproduced only, or contradicted by a later test.
 | Constructed = authored answer | A constructed specimen can be analyzed blind-first with intent withheld. |
 | Collective = emergent or superior | Collective attribution requires boundary, component, coupling, and matched-control evidence. |
 | Prediction = competence | Predictability can arise from passive regularity and does not show achievement, maintenance, or recovery. |
+| Agency = a property of the substrate | In a discrete state-transition system there is no action, only transitions. Agency is an observer's coarse-graining, indexed to which intervention toolkit works most cheaply at a declared boundary. See [Levin's definitions alongside ours](#levins-definitions-alongside-ours). |
 | Intelligence/viability/self-preservation = autopoiesis | Distinct empirical properties; a system can show strong directed behavior while destroying its own organization. Autopoiesis specifically requires that a system's constituting processes recursively participate in maintaining/reconstituting the organization that defines the system — do not infer it from the presence of an attractor or a merely persistent boundary. |
 
 See the founding briefs
@@ -457,6 +458,183 @@ and their own `INTENT.md`. Not evidence for or against anything in this
 section; flagged here only so it's discoverable rather than invisible from
 this entry point, per this repository's own preference for reaching material
 through the wiki rather than by browsing `misc/` directly.
+
+## Levin's definitions alongside ours
+
+This section holds Levin's own vocabulary next to this ontology's, so that
+divergence is visible rather than assumed. It exists because the repository was
+using *competence*, *agency*, and *free lunch* without recording whether they
+meant what the corpus means by them.
+
+**Default rule:** where Levin has a definition, adopt it unless it creates an
+inconsistency or a problem here — and record what the inconsistency was when it
+does. This ontology stays canonical for terms in use; the parallel column is
+what the corpus says, not an override.
+
+**Provenance, and its limit.** The right-hand column is sourced through
+[`levin-wiki`](../../levin-wiki/wiki/index.md), a corpus wiki over the local
+bibliography whose pages cite immutable PDFs at page level. Phrases in
+"quotation marks" appear as quoted language on those pages; everything else is
+`levin-wiki`'s own summary of a source, one derivation step from Levin's words.
+Nothing here was read from the primary PDFs by this repository. Treat a
+divergence as a prompt to open the cited pages, not as a settled reading.
+
+### Where the vocabularies already agree
+
+| This ontology | Levin's language | Source | Relationship |
+|---|---|---|---|
+| **Flexibility** (competence-profile row): "can different routes, configurations, or means achieve the criterion?" | **Intelligence** / **goal-directedness**: "the capacity to achieve a goal by different means"; in *Self-Improvising Memory*, "publicly observable competency at reaching a goal by different means in a declared problem space". Problem-solving occurs in "an action space broader than familiar three-dimensional behavior." | Mind Everywhere Pt 1, pp. 1–18; Pt 2, pp. 1–11 | Containment, not conflict. Levin's *intelligence* is one row of our nine-dimension profile. Our *competence* is strictly broader. Already recorded in the competence section. |
+| **Capability** — a bounded system function under a local contract | **Competency** / **local competencies** — part-level capacity | Machines all the way up, pp. 4–7, 19–26 | Same referent. Levin's corpus keeps *competency* (part-level) distinct from *intelligence* (coordinated whole) in the same direction we do. |
+| **Collective competence** — attribution at a collective boundary, requiring boundary, component, coupling, and matched-control evidence | **Multiscale competency architecture** — "molecular networks, cells, tissues, organs, and organisms can have different degrees of problem-solving capacity, with higher-level organization shaping the action landscape of lower-level agents" | Machines all the way up, pp. 4–7, 19–26 | Compatible. Levin adds a directional claim we do not make: that the higher level *shapes the action landscape* of the lower. That is a mechanism conjecture, not a definition, and belongs in the conjecture layer if adopted. |
+| **Representation / problem space** — derived coordinates in which patterns and criteria are expressed | **Problem space** / **morphospace** — "cellular competencies in physiological, metabolic, or transcriptional space can be coordinated into tissue- and organ-level navigation of anatomical morphospace" | The collective intelligence of evolution and development, pp. 2–4, 9–15 | Same role. Levin's usage carries the additional commitment that non-3D spaces are navigable in the same sense as physical ones. |
+| **Evidence status / perturbational requirement** — a competence claim needs challenges, not convergence | Attribute a capacity "only after perturbational experiments reveal it, and prefer the descriptive level that improves prediction, control, or future discovery" | Mind Everywhere Pt 2, pp. 1–11, 13–15 | Direct agreement, independently reached. |
+
+### Terms Levin defines that this ontology lacked
+
+Adopted below as definitions, per the default rule. Each is a stipulation about
+what to mean; none asserts anything about the world, so none belongs in the
+conjecture layer.
+
+**Agency.** Not a property of the substrate. In a discrete state-transition
+system there is no action, only transitions. Agency is a coarse-graining an
+observer adopts because it buys predictive or control leverage, and its content
+is empirical: *which intervention toolkit changes this system most cheaply.*
+
+Levin's formulation: "an agent is a system capable of promoting goals," and a
+**significant agent** "closes a perceptual control loop around a setpoint and
+prior expectations." Agency is graded, and "the useful descriptive level is the
+one whose intervention strategy most efficiently predicts and controls the
+system" (Mind Everywhere Pt 2, pp. 4–8; TAME, pp. 1–4, 7–10).
+
+Consequence for this repository: *agency* is observer- and boundary-relative, so
+there is no absolute fact for a result to deny. Dispositions reading "no agency
+claim" are ill-formed and should state what was actually established — typically
+that no persuadability above state-level intervention was demonstrated.
+
+**Axis of persuadability.** The ordering of intervention toolkits by the effort
+required to change a system's behaviour: "from hardware micromanagement through
+setpoint editing and reward-based training toward communication." Levin's
+"continuum of persuadability" treats successful intervention — "mechanistic,
+behavioral, communicative, or otherwise" — as evidence about which toolkit fits
+a system. Explicitly "not a scala naturae or a consciousness test."
+(TAME, pp. 1–4, 7–10; Mind Everywhere Pt 2, pp. 4–8.)
+
+This repository already measures the axis under another name. The charter's
+intervention targets — state, transition rules/capabilities, interaction
+topology, sensing/action channels, environmental dynamics, demands/resources,
+noise — ordered by intervention cost, reconstruct it. P13's kicks and freezes
+are state- and rule-level interventions; 003B's ablations are channel-level.
+A system is more agential *to a given observer at a given boundary* the further
+up this axis its cheapest effective intervention sits.
+
+**Cognitive light cone.** "The spatiotemporal extent of goals and corrective
+action available to the system" (Mind Everywhere Pt 2, pp. 1–11). Doctor et al.
+give the collective form: coupling "can enlarge the states a system measures,
+remembers, and acts to change," described as expansion of its cognitive boundary
+or Care light cone.
+
+This is the scope parameter our **goal criterion** has been missing. A criterion
+already declares tolerance and temporal scope; the light cone names the same
+quantity as a property of the system rather than of the analyst's declaration,
+which makes it comparable across specimens and makes "did coupling enlarge it?"
+a measurable question.
+
+**Cognitive glue.** A shared parameter that makes subunit plans mutually
+compatible without centralised instruction — Lyons and Levin's example is the
+price system, where "relative prices summarize relative scarcities." Their five
+proposed properties for a shared scarcity model: its parameters should track
+changes in scarcity; connect causally to subunit motivation; leave detailed
+adaptation to subunit competencies; update swiftly, accurately, and rationally;
+and change as a direct consequence of plan changes. Such a parameter "can then
+function as a virtual governor that coordinates by adjusting incentives rather
+than commanding behavior." (Cognitive glues are shared models of relative
+scarcities, pp. 7–12, 21–22, 37–44.)
+
+This is the most directly usable import for the constructive arm: it is a
+specification for *what to build* when composing competent elements, with five
+checkable properties, and it is substrate-independent.
+
+**Polycomputing.** "The same material can provide different useful computations
+to different observers at the same time"; nested units act "as observers of one
+another's affordances" (There's plenty of room right here, pp. 1–5, 11–17).
+Relevant here because it makes observer-relativity structural rather than a
+caveat, and because it bears directly on whether a competence attributed at one
+boundary is the same competence attributed at another.
+
+**Levin's capacity scale.** "Persistence and plasticity through learning,
+novelty, planning, problem-solving, selfhood, and metacognition" — offered as "a
+qualitative scale, not a rigid checklist" (Mind Everywhere Pt 2, pp. 1–11).
+Recorded for translation only. It is not adopted as a competence dimension: it
+orders *kinds of system*, where our profile grades *performance* of one system
+against one criterion. Do not read a position on this scale off a competence
+profile.
+
+### Free lunch: one quantity, two boundary conventions
+
+Levin's use is "the gap between outcome and effort actually paid across
+design/evolution/training" (`levin-wiki` records this from his solo talks
+"Free Lunches: Model Systems for Studying the Agential Gifts from the Platonic
+Space" and "Inspiration Across Substrates").
+
+The account developed in `levin-wiki`'s
+[platonic-space-and-ingression](../../levin-wiki/wiki/concepts/platonic-space-and-ingression.md)
+page is the difference between an external observer with unlimited computation,
+who never needs an abstraction because brute-force simulation is always
+available, and a computationally bounded observer embedded in the system, for
+whom a valid compression is the only tractable route — and getting that
+compression **without paying the derivation cost** is what the free lunch is
+from the inside. Its one-line form: **"the free lunch is real relative to the
+agent boundary — it need not be free relative to the universe."** Formalised as
+`F_U(P;C,Y) = H(Y|C) − H(Y|C,P,U)`, with a partitioned ledger
+`B = (B_A, B_I, B_C)` separating resources spent inside the focal agent, by the
+interface producing its abstraction, and in communicating that abstraction.
+
+**These pick out the same quantity.** Levin's "effort actually paid" is only
+measurable relative to an accounting boundary — paid by whom — and both of his
+own worked examples supply one implicitly: the triangle's third angle costs the
+*constructor* nothing, and the gap junction hands a *lineage* logic it never had
+to evolve piece by piece. Read operationally, "effort not paid" is effort not
+paid by a specific bounded party, which is the bounded-observer account with the
+boundary left unstated. The difference is what each makes explicit, not what
+each denotes.
+
+Two consequences follow, and both matter:
+
+- Leaving the boundary implicit is what admits the metaphysical reading. If no
+  ledger is named, "free" sounds absolute rather than relative, and the term
+  starts to look like evidence for a non-physical contributor. Naming the
+  boundary is what converts the metaphor into a measurement.
+- The residual divergence is real but narrow: Levin's accounting is
+  **diachronic** — effort across design, evolution, and training, a history —
+  while the ledger version is **synchronic**, what this observer can derive now
+  under its compute bound. They coincide when effort went unpaid *because* the
+  structure was already there to exploit, which covers Levin's examples. They
+  can come apart where a lineage paid heavily for something a bounded observer
+  derives trivially today, or the reverse.
+
+**Known load-bearing weakness, carried over rather than hidden:** the
+`levin-wiki` page flags boundary arbitrariness as load-bearing for its central
+claim — "free relative to the agent boundary" currently holds only because every
+worked example's boundary happens to track real physical structure, and the
+framework has no principled rule ruling out gerrymandering. That is the same gap
+as Levin's unstated ledger, seen from the other side. Any use of free lunch here
+must state its boundary and say why that boundary is not gerrymandered.
+
+**Correction to the generative thesis.** [The thesis](competence-thesis.md)
+states "free lunch is where competence-per-unit-effort comes from," which
+encodes the diachronic accounting sense while citing the page that adopts the
+bounded-observer sense. Under the reconciliation above these are not different
+quantities, but the thesis states the version whose boundary is implicit, which
+is the version that cannot be measured. It should carry the ledger form.
+
+### Terms this ontology keeps that Levin does not supply
+
+Recorded so the absence is deliberate. **Reachability/opportunity**,
+**evidence status**, the **claim stack**, **analyst access** as a declared
+contract, and the **specimen origin / access / purpose** independence are this
+repository's own apparatus. The corpus has nothing that plays their role, and
+they exist to stop exactly the inferences the corpus's own scope guardrails warn
+against. Keep them.
 
 ## Prospective experiment declaration
 

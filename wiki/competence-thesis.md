@@ -86,11 +86,19 @@ at a more complicated level, a gap junction hands a cell access to logic
 circuits it never had to evolve piece by piece.
 
 The intuition driving the programme's interest is that this matters **on both
-sides at once**. For construction, free lunch is where competence-per-unit-effort
-actually comes from — if composition pays, this is plausibly why. For discovery,
-it is a confound and a target: competence that arrives free is competence the
-system did not build, so an analysis that cannot separate the two will
-misattribute it.
+sides at once**. For construction, free lunch is plausibly where
+competence-per-unit-effort comes from — if composition pays, this may be why.
+For discovery, it is a confound and a target: competence that arrives free is
+competence the system did not build, so an analysis that cannot separate the two
+will misattribute it.
+
+**Use the ledger form, not the bare accounting form.** "The gap between outcome
+and effort paid" is unmeasurable until it names *paid by whom*. The
+[ontology's free-lunch section](ontology.md#free-lunch-one-quantity-two-boundary-conventions)
+records the reconciliation: Levin's accounting sense and the bounded-observer
+sense pick out the same quantity, but only the second states its boundary, and
+an unstated boundary is what makes "free" sound absolute. Any use here states
+its boundary and why that boundary is not gerrymandered.
 
 This is the concept the programme most needs and has least written down.
 
