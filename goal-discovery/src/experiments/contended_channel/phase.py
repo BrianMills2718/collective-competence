@@ -17,7 +17,9 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from .model import Config
+from .model import Config, _RunConfig
+from src.substrate import run
+from src.substrate.specimens.contended_slot import specimen as _slot
 
 
 def derive_phase(own_need: float, period: int) -> int:
@@ -42,52 +44,19 @@ class PhaseResult:
 
 
 def simulate_phase(cfg: Config, seed: int, *, mode: str, spread: float) -> PhaseResult:
-    """Run one condition. `mode` is 'level_only', 'authored_phase', 'derived_phase'."""
+    """Run one arm. Adopted onto the shared substrate 2026-09-04.
+
+    C2-001's frozen package is reproduced by this entry point rather than by a
+    separate verification script.
+    """
     if mode not in {"level_only", "authored_phase", "derived_phase"}:
         raise ValueError(f"unknown mode: {mode!r}")
-    rng = np.random.default_rng(seed)
-    needs = np.maximum(
-        1,
-        np.round(rng.uniform(cfg.mean_need * (1 - spread),
-                             cfg.mean_need * (1 + spread),
-                             size=cfg.n_subunits)),
-    ).astype(int)
-
-    period = cfg.n_subunits
-    if mode == "authored_phase":
-        phases = np.arange(cfg.n_subunits) % period          # designer labels
-    elif mode == "derived_phase":
-        phases = np.array([derive_phase(n, period) for n in needs])
-    else:
-        phases = None
-
-    obtained = np.zeros(cfg.n_subunits, dtype=float)
-    p = 0.0
-    collisions = idle = 0
-
-    for tick in range(cfg.horizon):
-        remaining_ticks = cfg.horizon - tick
-        remaining = np.maximum(needs - obtained, 0.0)
-        if mode == "level_only":
-            urgency = remaining / remaining_ticks
-            attempts = (remaining > 0) & (urgency >= p)
-        else:
-            attempts = (remaining > 0) & (phases == (tick % period))
-
-        n = int(attempts.sum())
-        if n == 0:
-            idle += 1
-        else:
-            if n > 1:
-                collisions += 1
-            obtained[attempts] += 1.0 / (n * n)   # same congestion rule as C1-002
-
-        contention = max(0, n - 1)
-        p = max(0.0, p * (1.0 - cfg.decay) + cfg.kappa * contention)
-
+    substrate_mode = "live" if mode == "level_only" else mode
+    outcome = run(_slot(substrate_mode, spread),
+                  _RunConfig(cfg, mode=substrate_mode, spread=spread), seed)
     return PhaseResult(
-        need_satisfaction=float((obtained >= needs - 1e-9).mean()),
-        collisions=collisions,
-        idle_ticks=idle,
-        distinct_phases=int(len(set(phases.tolist()))) if phases is not None else 0,
+        need_satisfaction=outcome.satisfaction,
+        collisions=int(outcome.measurements["collisions"]),
+        idle_ticks=int(outcome.measurements["idle"]),
+        distinct_phases=int(outcome.measurements["distinct_phases"]),
     )

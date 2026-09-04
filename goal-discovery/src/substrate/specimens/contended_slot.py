@@ -62,7 +62,8 @@ def initialize(cfg: Any, seed: int) -> State:
         need=needs.astype(float), obtained=np.zeros(cfg.n_subunits, dtype=float),
         signal=0.0, resource=0.0,
         extra={"mode": mode, "phases": phases, "period": period,
-               "collisions": 0, "idle": 0, "served": 0},
+               "collisions": 0, "idle": 0, "served": 0,
+               "distinct_phases": 0 if phases is None else int(len(set(phases.tolist())))},
     )
 
 

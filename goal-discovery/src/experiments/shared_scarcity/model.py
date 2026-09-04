@@ -21,6 +21,9 @@ from dataclasses import dataclass
 
 import numpy as np
 
+from src.substrate import run
+from src.substrate.specimens.renewable_commons import SPECIMEN as COMMONS
+
 
 @dataclass(frozen=True)
 class Config:
@@ -61,9 +64,16 @@ def feasible(cfg: Config) -> bool:
     return ceiling >= cfg.n_subunits * cfg.quota
 
 
-def _regrow(stock: float, cfg: Config) -> float:
-    grown = stock + cfg.growth * stock * (1.0 - stock / cfg.capacity)
-    return float(np.clip(grown, 0.0, cfg.capacity))
+class _RunConfig:
+    """Config plus the per-run condition fields the substrate specimen reads."""
+
+    def __init__(self, cfg: Config, **overrides: object) -> None:
+        self._cfg = cfg
+        for key, value in overrides.items():
+            setattr(self, key, value)
+
+    def __getattr__(self, name: str) -> object:
+        return getattr(self._cfg, name)
 
 
 def simulate(
@@ -75,6 +85,13 @@ def simulate(
     alpha: float = 1.0,
 ) -> RunResult:
     """Run one condition.
+
+    Adopted onto the shared substrate 2026-09-04. This module is now a thin
+    adapter: loop, state, measurement and seeding live in `src.substrate`, and
+    the renewable-commons policies in
+    `src.substrate.specimens.renewable_commons`. The signature and RunResult
+    shape are unchanged, so C1-001's frozen result package is reproduced by the
+    real entry point rather than by a separate verification script.
 
     `signal` is 'live', 'frozen', or 'none'. For 'frozen', `frozen_level` is the
     constant the subunits read; the protocol requires it to be the time-average
@@ -88,64 +105,15 @@ def simulate(
     if signal != "live" and not (0.0 <= alpha <= 1.0):
         raise ValueError("alpha must be in [0, 1]")
 
-    rng = np.random.default_rng(seed)
-    # Seeds vary the challenge, not the rules: quotas are perturbed +/-15% around
-    # the authored quota, and initial stock +/-10%. Identical across conditions.
-    quotas = cfg.quota * rng.uniform(0.85, 1.15, size=cfg.n_subunits)
-    stock = float(cfg.initial_stock * rng.uniform(0.9, 1.1))
-
-    accumulated = np.zeros(cfg.n_subunits)
-    p_live = 0.0
-    trace: list[float] = []
-    collapse_tick: int | None = None
-
-    for tick in range(cfg.horizon):
-        stock = _regrow(stock, cfg)
-        if stock <= 0.0 and collapse_tick is None:
-            collapse_tick = tick
-
-        remaining_ticks = cfg.horizon - tick
-        remaining = np.maximum(quotas - accumulated, 0.0)
-        urgency = remaining / remaining_ticks
-
-        if signal == "none":
-            p_eff = 0.0
-        elif signal == "frozen":
-            p_eff = float(frozen_level)
-        else:
-            p_eff = alpha * p_live + (1.0 - alpha) * (frozen_level or 0.0)
-        trace.append(p_eff)
-
-        # A subunit draws iff its own urgency clears the shared threshold. It
-        # never sees another subunit's state.
-        wants = (remaining > 0.0) & (urgency >= p_eff)
-        attempted = np.where(wants, np.minimum(cfg.draw_cap, remaining), 0.0)
-        demand = float(attempted.sum())
-
-        n_drawing = int(wants.sum())
-        if n_drawing > 0 and demand > stock:
-            # Equal rationing: nobody is privileged when the commons is short.
-            share = stock / n_drawing
-            served = np.minimum(attempted, share)
-        else:
-            served = attempted
-
-        taken = float(served.sum())
-        accumulated += served
-        stock = max(0.0, stock - taken)
-
-        # The signal rises when the collective draws more than the resource
-        # regenerates -- "tracks changes in scarcity" and "changes as a direct
-        # consequence of plan changes".
-        available = cfg.growth * stock * (1.0 - stock / cfg.capacity)
-        p_live = max(
-            0.0, p_live + cfg.kappa * (demand - available) / cfg.max_sustainable_yield
-        )
-
+    outcome = run(
+        COMMONS,
+        _RunConfig(cfg, condition=signal, frozen_level=frozen_level, alpha=alpha),
+        seed,
+    )
     return RunResult(
-        quota_satisfaction=float((accumulated >= quotas - 1e-9).mean()),
-        final_stock=stock,
-        collapse_tick=collapse_tick,
-        mean_signal=float(np.mean(trace)),
-        signal_trace=np.asarray(trace),
+        quota_satisfaction=outcome.satisfaction,
+        final_stock=outcome.final_resource,
+        collapse_tick=outcome.collapse_tick,
+        mean_signal=outcome.mean_signal,
+        signal_trace=outcome.signal_trace,
     )

@@ -48,6 +48,17 @@ slot specimen and stays at zero — the commons contests a *stock*, the slot
 contests a *rate*, and one field cannot honestly mean both. That is a real seam
 in the contract and is named in the specimen's docstring rather than hidden.
 
+**Adopted 2026-09-04, after a self-audit found it wasn't.** Slices 1 and 2 left
+`src/substrate/` with exactly one consumer: its own test. The experiment entry
+points still ran the old duplicate implementations, so the substrate was
+demonstrated rather than used, and the commit messages saying "ported" read as
+adopted when nothing called it. `shared_scarcity/model.py`,
+`contended_channel/model.py` and `contended_channel/phase.py` are now thin
+adapters over the substrate, and the proof is that the **real entry points**
+regenerate all three frozen result packages byte-identically -- C1-001,
+C1-002's validity gate, and C2-001's sweep -- rather than a separate
+verification script doing so.
+
 The laboratory is not yet one universal substrate. It combines small custom
 systems and off-the-shelf engines through model-specific runners, observation
 boundaries, interventions, analyses, and visualization. Capability reuse must
