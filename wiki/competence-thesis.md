@@ -260,11 +260,20 @@ feedback record PMI-008, "Connect architecture views to definitions, operations,
 and evidence," is dated 2026-08-30 and scoped to the multiscale competency
 discussion; it was promoted as PMF-011.
 
-What it does not have is a typed element for a **conjecture** — a statement that
-can be false, is not yet evidence, and is not a definition. "Assumption" appears
-there only in prose, in the assertion that "current facts, proposals,
-assumptions, and observed results remain distinct." The separation is stated;
-the slot is missing. A conjecture element would need its statement, what would
+What it does not have is a typed element for a **standing domain conjecture** —
+a statement about the subject matter that can be false, is not yet evidence, and
+is not a definition. It types hypotheses in two narrower places: a
+`failure_hypothesis` field inside an end-to-end observation record, which
+explains why one observation failed, and `kind: hypothesis` in its
+planning-method feedback record, which is a hypothesis about the method itself.
+Neither holds a bet about the domain that a project's work is derived from.
+"Assumption" otherwise appears only in prose, in the assertion that "current
+facts, proposals, assumptions, and observed results remain distinct." The
+separation is stated; the slot is missing.
+
+The feedback record is the closest structural precedent: it already carries a
+kind, a status, an assessment, and a promotion path, which is the lifecycle a
+domain conjecture needs. A conjecture element would need its statement, what would
 refute it, what work it licenses, its current status, and traceability to the
 evidence bearing on it — and specifically must not be admissible into the
 ontology layer.
