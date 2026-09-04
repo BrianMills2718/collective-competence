@@ -13,7 +13,7 @@ remain unclassified until their native protocol and result are reviewed. Every r
 outside the explicit legacy-ID inventory must declare an ontology contract version and
 is structurally validated from its native protocol.
 
-**52 records: 34 reviewed or reproduced; 18 unreviewed.**
+**53 records: 35 reviewed or reproduced; 18 unreviewed.**
 
 Browse by declared family. Counts describe documentation review coverage,
 not scientific success or progress; historical dispositions are not current assignments.
@@ -25,7 +25,7 @@ not scientific success or progress; historical dispositions are not current assi
 | [representation](#representation) | 10 | 5 | 5 |
 | [substrate-reuse](#substrate-reuse) | 16 | 8 | 8 |
 | [biological-evidence](#biological-evidence) | 4 | 3 | 1 |
-| [composition](#composition) | 2 | 2 | 0 |
+| [composition](#composition) | 3 | 3 | 0 |
 
 ## sorting
 
@@ -107,6 +107,7 @@ not scientific success or progress; historical dispositions are not current assi
 | Experiment | Question | Review | Outcome / disposition | Native evidence |
 |---|---|---|---|---|
 | composition-exploration | Does categorical execution add practical value beyond validated Python without changing behavior? | result_reviewed | fidelity_pass_value_gate_failed; defer_production_runtime; retain_optional_prototype | [composition_exploration_results](../goal-discovery/docs/hypotheses/composition_exploration_results.md) |
+| C1-002 | Does a shared-scalar coordination signal transfer from a divisible renewable resource to an indivisible contended slot? | result_reviewed | validity_gate_failed_detector_never_read_c1_transfer_unsupported; The specimen failed its own pre-declared validity gate across three attempts (0 wins of 8 in every configuration), so the detector was never run, never read and never modified, and clause 4 of the completion condition remains unmet. Stopped at the declared retune budget rather than at the point of running out of ideas. The failure is structural and is the finding: a scalar threshold read identically by every subunit can only gate them together, never stagger them, so it coordinates a divisible renewable stock and cannot allocate an indivisible slot - it is common-mode by construction. Cognitive glue as implemented is a price mechanism and price mechanisms need a divisible good, so C1-001 now looks closer to a rediscovery of why adaptive prices beat fixed ones on a commons than to evidence of a general principle. C1 stays supported-on-one-family and this failure is recorded against it. Extending to symmetry-breaking primitives that carry phase or identity is a separate conjecture with its own refuter, not a rescue of C1. | [c1_002_contended_channel](../goal-discovery/docs/hypotheses/c1_002_contended_channel.md); [c1_002_contended_channel_results](../goal-discovery/docs/hypotheses/c1_002_contended_channel_results.md) |
 | C1-001 | Does a shared scarcity signal have to track scarcity, or does the best fixed threshold coordinate as well? | result_reviewed | conditional_pass_c1_supported_on_one_family_control_defect_recorded; All three frozen gates passed (G1 8/8, G2 8/8, G3 monotonic), and the conclusion survives a stronger control than the frozen one: adaptive 1.000 vs best fixed threshold 0.500. But the protocol's stated justification for its negative control is measured false - the frozen level (live time-average, ~0.51) sits below the 0.60-0.85 band where any constant works, so the recorded 0.000-to-1.000 effect size overstates. Restated effect: tracking roughly doubles satisfaction over the best constant. Constructive, authored, white-box, one family; not a discovery and not a claim about composition in general. | [c1_001_shared_scarcity_signal](../goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal.md); [c1_001_shared_scarcity_signal_results](../goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal_results.md) |
 
 Interpretation and counterevidence live in the linked research synthesis and native results.

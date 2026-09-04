@@ -114,7 +114,16 @@ experiment cannot be built on the existing discrete apparatus, that is a finding
 about the apparatus and belongs in the plan, not a licence to expand it.
 
 **Evidence bearing on it.** [C1-001](../goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal_results.md),
-the first constructive experiment in this repository since 2026-08-26. Adjacent and
+the first constructive experiment in this repository since 2026-08-26 — supporting,
+on a divisible renewable stock. And [C1-002](../goal-discovery/docs/hypotheses/c1_002_contended_channel_results.md),
+**against transfer**: the same mechanism could not be made to coordinate an
+indivisible contended slot at all. A scalar threshold read identically by every
+subunit is common-mode by construction — it can gate them together but never
+stagger them — so cognitive glue as implemented here is a price mechanism, and
+price mechanisms need a divisible good. C1-001 accordingly looks closer to a
+rediscovery of adaptive-versus-fixed pricing on a commons than to a general
+coordination principle. C1 stays **supported on one family** and must not be
+read more broadly. Adjacent and
 non-substituting: `experiments/01-self-sorting` established that heterogeneous
 local rules break a collective by headcount rather than proportion, which is
 about *disruption* of coordination, not its construction. Lyons and Levin's own

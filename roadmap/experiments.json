@@ -861,6 +861,22 @@
       "cost": {"status": "unknown", "effort_minutes": null}
     },
     {
+      "id": "C1-002",
+      "family": "composition",
+      "question": "Does a shared-scalar coordination signal transfer from a divisible renewable resource to an indivisible contended slot?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/c1_002_contended_channel.md",
+        "goal-discovery/docs/hypotheses/c1_002_contended_channel_results.md"
+      ],
+      "protocol_artifact": "goal-discovery/docs/hypotheses/c1_002_contended_channel.md",
+      "ontology_contract_version": 1,
+      "review_status": "result_reviewed",
+      "outcome": "validity_gate_failed_detector_never_read_c1_transfer_unsupported",
+      "outcome_source": "goal-discovery/docs/hypotheses/c1_002_contended_channel_results.md",
+      "disposition": "The specimen failed its own pre-declared validity gate across three attempts (0 wins of 8 in every configuration), so the detector was never run, never read and never modified, and clause 4 of the completion condition remains unmet. Stopped at the declared retune budget rather than at the point of running out of ideas. The failure is structural and is the finding: a scalar threshold read identically by every subunit can only gate them together, never stagger them, so it coordinates a divisible renewable stock and cannot allocate an indivisible slot - it is common-mode by construction. Cognitive glue as implemented is a price mechanism and price mechanisms need a divisible good, so C1-001 now looks closer to a rediscovery of why adaptive prices beat fixed ones on a commons than to evidence of a general principle. C1 stays supported-on-one-family and this failure is recorded against it. Extending to symmetry-breaking primitives that carry phase or identity is a separate conjecture with its own refuter, not a rescue of C1.",
+      "cost": {"status": "unknown", "effort_minutes": null}
+    },
+    {
       "id": "Q1-003",
       "family": "calibration",
       "question": "Can a candidate family with a latent shared regressor separate a shared quantity that gates decisions from one that only constrains outcomes?",
