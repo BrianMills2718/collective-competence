@@ -28,9 +28,13 @@ import numpy as np
 from ..contract import Dials, Specimen, State
 
 
-def dials_for(mode: str, spread: float) -> Dials:
+def dials_for(mode: str, spread: float, rival: bool = True) -> Dials:
     return Dials(
-        outcome_independence=False,
+        # Q1-008 sets rival=False: the first configuration in this repository to
+        # use outcome_independence=True. Non-rival allocation means simultaneous
+        # actors do not degrade each other, so entities that never exchange
+        # information share no outcome term.
+        outcome_independence=not rival,
         divisible=False,
         heterogeneity=spread,
         symmetry_channel="level" if mode in {"live", "none", "level_only"} else "phase",
@@ -62,6 +66,7 @@ def initialize(cfg: Any, seed: int) -> State:
         need=needs.astype(float), obtained=np.zeros(cfg.n_subunits, dtype=float),
         signal=0.0, resource=0.0,
         extra={"mode": mode, "phases": phases, "period": period,
+               "non_rival": bool(getattr(cfg, "non_rival", False)),
                "collisions": 0, "idle": 0, "served": 0,
                "distinct_phases": 0 if phases is None else int(len(set(phases.tolist())))},
     )
@@ -95,7 +100,7 @@ def allocate(state: State, attempted: np.ndarray, cfg: Any) -> np.ndarray:
     else:
         if n > 1:
             state.extra["collisions"] += 1
-        gain[acting] = 1.0 / (n * n)
+        gain[acting] = 1.0 if state.extra.get("non_rival") else 1.0 / (n * n)
         state.extra["served"] += 1
     state.extra["n_attempt"] = n
     return gain
@@ -111,10 +116,11 @@ def feasible(cfg: Any) -> bool:
     return cfg.horizon >= cfg.n_subunits * cfg.mean_need
 
 
-def specimen(mode: str = "live", spread: float | None = None) -> Specimen:
+def specimen(mode: str = "live", spread: float | None = None,
+             rival: bool = True) -> Specimen:
     return Specimen(
-        name=f"contended_slot[{mode}]",
-        dials=dials_for(mode, 0.5 if spread is None else spread),
+        name=f"contended_slot[{mode}{'' if rival else ',non-rival'}]",
+        dials=dials_for(mode, 0.5 if spread is None else spread, rival),
         initialize=initialize, replenish=replenish, decide=decide,
         allocate=allocate, update_signal=update_signal, feasible=feasible,
     )

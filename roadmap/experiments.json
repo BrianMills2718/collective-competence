@@ -861,6 +861,22 @@
       "cost": {"status": "unknown", "effort_minutes": null}
     },
     {
+      "id": "Q1-008",
+      "family": "calibration",
+      "question": "Is the clause-2 floor caused by the substrate's congestion coupling?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/q1_008_null_coupling_control.md",
+        "goal-discovery/docs/hypotheses/q1_008_null_coupling_control_results.md"
+      ],
+      "protocol_artifact": "goal-discovery/docs/hypotheses/q1_008_null_coupling_control.md",
+      "ontology_contract_version": 1,
+      "review_status": "result_reviewed",
+      "outcome": "diagnosis_wrong_floor_is_the_statistics_own_null",
+      "outcome_source": "goal-discovery/docs/hypotheses/q1_008_null_coupling_control_results.md",
+      "disposition": "DIAGNOSIS_WRONG, the disposition this was run for. Congestion refuted: removing the 1/k-squared coupling entirely RAISED the statistic, 0.108 to 0.134. A replacement saturation hypothesis was tested and also refuted (0.74 pre-saturation). The confirmed cause is the statistic itself: mean absolute correlation of INDEPENDENT series is positive at finite sample, and pure gaussian noise with no substrate scores 0.1218 at horizon 120, tracking sqrt(2/(pi(n-2))) across a 24x horizon range. Consequences: Q1-006's 0.10 ceiling was set BELOW that null so no independent process could have passed it and its clause-2 failure measured an unachievable gate, not the substrate; Q1-007 removed a coupling that was never the cause; and this protocol froze its own unachievable 0.05 gate, the same error inside the experiment designed to catch it. What survives and is strengthened: coordinated 0.284 against a measured null of ~0.12 is a real 2.4x separation. Clause 2 is neither met nor failed - it has not been validly tested. Both prior records carry superseding notes.",
+      "cost": {"status": "unknown", "effort_minutes": null}
+    },
+    {
       "id": "Q1-007",
       "family": "calibration",
       "question": "Does removing the substrate's congestion coupling let the relation statistic meet clause 2?",

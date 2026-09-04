@@ -9,6 +9,12 @@ lifecycle: completed
 [Q1-006](q1_006_pairwise_relation_results.md) · [Completion condition](../PROJECT.md) ·
 [Result package](../../results/q1-007-congestion-corrected/)
 
+> **Premise refuted, 2026-09-04, by [Q1-008](q1_008_null_coupling_control_results.md).**
+> This run removed a congestion coupling that was never the cause of the floor.
+> The observation stands — the correction changed nothing — but the stated reason
+> is wrong: not that the coupling is nonlinear, but that there was no coupling to
+> remove. The floor is the statistic's own finite-sample null.
+
 ## Decision
 
 **Congestion coupling is not linearly removable** — the third row of the frozen

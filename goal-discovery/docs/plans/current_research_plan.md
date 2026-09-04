@@ -31,6 +31,13 @@ and goal-relative competence across diverse systems. For this active lane, the
 simulator, substrates, candidate models, interventions, and visual analytics are
 apparatus—not the scientific result.
 
+**Correction, 2026-09-04 (Q1-008).** The frontier statement below rests on
+Q1-006/Q1-007, whose congestion explanation is refuted and whose clause-2 gate
+was set below the statistic's own null. Clause 2 is **neither met nor failed** —
+it has not been validly tested. The next action is re-running Q1-006's
+comparison with a null-calibrated threshold, not a new substrate or specimen.
+See [Q1-008](../hypotheses/q1_008_null_coupling_control_results.md).
+
 **Present frontier, measured 2026-09-04.** The vague version of this —
 "cannot yet propose useful observables and candidate forms open-endedly" — has
 been replaced by a specific measurement. [Q1-001](../hypotheses/q1_001_instrument_qualification_results.md)

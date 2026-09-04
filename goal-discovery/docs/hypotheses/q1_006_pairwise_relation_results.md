@@ -9,6 +9,14 @@ lifecycle: completed
 [Completion condition](../PROJECT.md) · [Q1-005](q1_005_idiosyncratic_fraction_results.md) ·
 [Result package](../../results/q1-006-pairwise-relation/)
 
+> **Superseded in part, 2026-09-04, by [Q1-008](q1_008_null_coupling_control_results.md).**
+> The congestion explanation below is **refuted**: removing the coupling entirely
+> raises the statistic rather than lowering it. And the 0.10 ceiling frozen here
+> is **below the statistic's own null** (~0.12 at this horizon and entity count),
+> so the clause-2 failure recorded below measured an unachievable gate rather than
+> the substrate. The discrimination result — coordinated 0.284 against a measured
+> null of ~0.12 — survives and is stronger than it reads here.
+
 ## Decision
 
 **Contaminated by congestion coupling** — the third row of the frozen
