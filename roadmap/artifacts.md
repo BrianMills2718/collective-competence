@@ -149,6 +149,8 @@ becoming current instructions.
 - [q1_003_latent_shared_regressor_results.md](../goal-discovery/docs/hypotheses/q1_003_latent_shared_regressor_results.md)
 - [q1_004_second_family_qualification.md](../goal-discovery/docs/hypotheses/q1_004_second_family_qualification.md)
 - [q1_004_second_family_qualification_results.md](../goal-discovery/docs/hypotheses/q1_004_second_family_qualification_results.md)
+- [q1_005_idiosyncratic_fraction.md](../goal-discovery/docs/hypotheses/q1_005_idiosyncratic_fraction.md)
+- [q1_005_idiosyncratic_fraction_results.md](../goal-discovery/docs/hypotheses/q1_005_idiosyncratic_fraction_results.md)
 
 ## goal-discovery/docs/plans
 

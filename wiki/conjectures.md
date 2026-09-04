@@ -142,7 +142,15 @@ a mechanism, a parameter, a family, and a control.
 
 ## C2 — Symmetry breaking from a shared quantity
 
-**Status:** **sharper half supported on one family** as of 2026-09-04 — see
+**Status:** **narrowed 2026-09-04** by
+[Q1-005](../goal-discovery/docs/hypotheses/q1_005_idiosyncratic_fraction_results.md),
+which supplied the control C2-001 lacked: matched independent random action reaches
+0.375 against derived phase's 0.438, so the advantage is about 17% relative, not the
+total effect the comparison against a level-only signal (0.000) implied. Most of the
+benefit is desynchronization, which randomness supplies for free. What survives:
+deriving a phase from a subunit's own need does beat matched randomness, and the
+distinct-phase mechanism is unaffected. Originally recorded as **sharper half
+supported on one family** — see
 [C2-001](../goal-discovery/docs/hypotheses/c2_001_derived_phase_results.md).
 Environmental heterogeneity substitutes for designer labelling at a rate set by
 how many distinct values it supplies (satisfaction 0.000 at zero spread rising to

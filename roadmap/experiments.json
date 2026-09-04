@@ -861,6 +861,22 @@
       "cost": {"status": "unknown", "effort_minutes": null}
     },
     {
+      "id": "Q1-005",
+      "family": "calibration",
+      "question": "Does the idiosyncratic fraction measure coordination, or only differentiation?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/q1_005_idiosyncratic_fraction.md",
+        "goal-discovery/docs/hypotheses/q1_005_idiosyncratic_fraction_results.md"
+      ],
+      "protocol_artifact": "goal-discovery/docs/hypotheses/q1_005_idiosyncratic_fraction.md",
+      "ontology_contract_version": 1,
+      "review_status": "result_reviewed",
+      "outcome": "measures_differentiation_not_coordination_clause_2_fails",
+      "outcome_source": "goal-discovery/docs/hypotheses/q1_005_idiosyncratic_fraction_results.md",
+      "disposition": "G1 necessity passes (coordinated 0.934, uniform 0.000) but G2 sufficiency fails with margin -0.014 against a required +0.20: a matched independent random population scores HIGHER (0.948) than the coordinated one. The statistic measures differentiation, not coordination, so an instrument using it would report structure in a random population, which clause 2 forbids. Persistence fails the same test (0.921 vs 0.877). Predicted in advance against my own proposed statistic. Secondary and more important: random_attempt reaches 0.375 need satisfaction against derived_phase 0.438, so C2-001 - which headlined derived against level_only at 0.000 - was missing a random control and its effect is 17% relative rather than total. Same defect class as C1-001 best-constant control, twice in one session. C2 narrowed accordingly. The rival source is now named and a matched-randomness control should be standing rather than per-experiment.",
+      "cost": {"status": "unknown", "effort_minutes": null}
+    },
+    {
       "id": "Q1-004",
       "family": "calibration",
       "question": "Does the frozen detector, unchanged, separate a differentiated population from an active undifferentiated one on a family it was not built for?",
