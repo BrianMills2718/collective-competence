@@ -241,6 +241,38 @@ it. That is a candidate to adopt, not a settled import: it is still being
 formalized, and its authors there flag that its informational component is
 better defined than its computational one.
 
+### The methodology this belongs to already exists
+
+The layer separation is not specific to this project, and most of it is already
+built. The Company Planning method — which this repository already runs under,
+via its `.company-planning/` directory — defines as typed elements an **ontology
+or domain vocabulary** ("definitions of concepts and their relationships"), an
+**operational definition** ("a precise procedure for determining a concept"),
+and **evidence** ("a typed, scoped observation tied to criterion, source
+revision"). Its linked-architecture-views reference states the separation
+directly: "a glossary or ontology defines terms and relationships; operational
+rules explain what changes, and observations support claims. None substitutes
+for the others." Its concern/viewpoint/view/notation apparatus is the mechanism
+that stops one layer being read as another.
+
+That method reached this shape partly through a discussion of this project: its
+feedback record PMI-008, "Connect architecture views to definitions, operations,
+and evidence," is dated 2026-08-30 and scoped to the multiscale competency
+discussion; it was promoted as PMF-011.
+
+What it does not have is a typed element for a **conjecture** — a statement that
+can be false, is not yet evidence, and is not a definition. "Assumption" appears
+there only in prose, in the assertion that "current facts, proposals,
+assumptions, and observed results remain distinct." The separation is stated;
+the slot is missing. A conjecture element would need its statement, what would
+refute it, what work it licenses, its current status, and traceability to the
+evidence bearing on it — and specifically must not be admissible into the
+ontology layer.
+
+That gap is one term wide, and closing it in the shared method rather than here
+would make this page an instance of a general practice instead of a local
+workaround.
+
 Terms from this layer that stabilize into definitions can move into
 [the ontology](ontology.md). The conjectures cannot: a claim that can be wrong
 does not belong in a file whose contents are decisions about what to mean.
@@ -283,6 +315,13 @@ This section holds this page's own history, per the shared living-document
 convention; the wiki-wide [development log](development-log.md) records only
 that this page exists.
 
+- **2026-09-04 — located the existing methodology.** The layer separation is
+  largely already built in the Company Planning method this repository runs
+  under: ontology/domain vocabulary, operational definition and evidence are
+  typed elements there, the concern/viewpoint/view apparatus keeps them from
+  being conflated, and its PMI-008 record came out of a discussion of this
+  project. The single missing element is a typed conjecture; "assumption"
+  exists there only in prose.
 - **2026-09-04 — reframed the layer separation as stipulation versus
   conjecture.** The dividing line is what kind of failure is possible, not
   whether the vocabulary is generative: the ontology's contents are decisions
