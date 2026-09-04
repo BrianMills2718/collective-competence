@@ -1,0 +1,12 @@
+P10     directional(P14)   ERROR: directional dynamics has an unsupported structural type signature
+P10     entity_dyn(P13)    ERROR: repeated_entity_dynamics requires two continuous fields
+P10     scalar(P12)        ERROR: branched_scalar_series requires exactly one field
+P12     directional(P14)   ERROR: directional dynamics has an unsupported structural type signature
+P12     endpoint(P10)      ERROR: frame_pair_entities requires one continuous and one ordinal field
+P12     entity_dyn(P13)    ERROR: repeated_entity_dynamics requires two continuous fields
+P13     directional(P14)   ERROR: directional dynamics has an unsupported structural type signature
+P13     endpoint(P10)      ERROR: frame_pair_entities requires one continuous and one ordinal field
+P13     scalar(P12)        ERROR: branched_scalar_series requires exactly one field
+P14     endpoint(P10)      ERROR: frame_pair_entities requires one continuous and one ordinal field
+P14     entity_dyn(P13)    ERROR: repeated_entity_dynamics requires two continuous fields
+P14     scalar(P12)        ERROR: branched_scalar_series requires exactly one field

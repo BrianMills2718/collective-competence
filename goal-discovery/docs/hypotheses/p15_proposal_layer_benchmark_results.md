@@ -137,6 +137,49 @@ yet in this evidence base** is what "Present frontier" in
 for a future plan revision, not a same-system protocol design this record can
 authorize on its own.
 
+## Measured deviation from the frozen operating condition (2026-09-04)
+
+The frozen protocol's `capability_claims.operating_conditions` required "one
+unchanged grammar and complexity budget across all four cases; **no task labels
+or case-specific code paths**." The implementation has one proposer per case,
+and a later diagnostic measured what that costs.
+
+Applying all four proposers to all four frozen packages
+([`generality-probe/`](../../results/p15-proposal-layer/generality-probe/))
+gives a 4x4 matrix whose diagonal reproduces this record and whose off-diagonal
+is empty: **12 of 12 cross-applications refuse before producing anything.** Not
+one produced a candidate, an abstention, or even a wrong answer.
+
+The mechanism is a hard field-signature guard in each proposer — "frame_pair_
+entities requires one continuous and one ordinal field", "branched_scalar_series
+requires exactly one field", "repeated_entity_dynamics requires two continuous
+fields", "directional dynamics has an unsupported structural type signature".
+Failing loud on unexpected input is correct engineering; the defect is in the
+claim, not the code.
+
+**What this bounds.** A defence of the frozen condition is available: the four
+paths dispatch on structural type signature, not on case identity. With these
+four cases that distinction has no operational content. The shape-to-case
+mapping is 1:1, the guards are mutually exclusive so no package satisfies more
+than one, and all four proposers were written in a single commit (`175b661`)
+before the freeze (`33f4973`) by an author who had necessarily read all four
+packages' formats to write their adapters. Under those conditions the dispatch
+is isomorphic to case identity, and the condition is not satisfied.
+
+**What this does not overturn.** The freeze-then-reveal seam, the retained
+hashes, the leakage and lineage checks, and the evaluator-rule correction all
+stand exactly as recorded; re-running the evaluator against the unmodified
+frozen artifacts still returns `pass`. What the pass measured is narrower than
+"the proposal layer works": it measured that four case-specific proposers, run
+opaque-first, emit the family names the evaluator was written to expect, plus
+the genuinely free bits — the pass-or-abstain outcome per case, P12's mixed
+`[True, True, False]` identifiability pattern, and P13's `passive_sufficient`
+flag. Proposal generality across unlike systems was not measured, and is now
+measured at zero for these four.
+
+This is a diagnostic over frozen artifacts. It opened no new outcome, changed
+no frozen input, proposal, or hash, and is not a new experiment.
+
 ## Provenance
 
 Proposal freeze: `33f4973` (2026-09-01). Initial evaluator reveal and audit:

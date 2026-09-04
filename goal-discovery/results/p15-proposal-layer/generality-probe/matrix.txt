@@ -1,0 +1,22 @@
+native package shape                proposer           result
+-----------------------------------------------------------------------------------------------
+P10    frame_pair_entities          directional(P14)   ERROR:ValueError
+P10    frame_pair_entities          endpoint(P10)      candidate:pairwise_endpoint_relation  <-- own
+P10    frame_pair_entities          entity_dyn(P13)    ERROR:ValueError
+P10    frame_pair_entities          scalar(P12)        ERROR:ValueError
+P12    branched_scalar_series       directional(P14)   ERROR:ValueError
+P12    branched_scalar_series       endpoint(P10)      ERROR:ValueError
+P12    branched_scalar_series       entity_dyn(P13)    ERROR:ValueError
+P12    branched_scalar_series       scalar(P12)        candidate:branched_affine_drift  <-- own
+P13    repeated_entity_dynamics     directional(P14)   ERROR:ValueError
+P13    repeated_entity_dynamics     endpoint(P10)      ERROR:ValueError
+P13    repeated_entity_dynamics     entity_dyn(P13)    candidate:shared_local_affine  <-- own
+P13    repeated_entity_dynamics     scalar(P12)        ERROR:ValueError
+P14    directional_entity_dynamics  directional(P14)   abstain:underdetermined  <-- own
+P14    directional_entity_dynamics  endpoint(P10)      ERROR:ValueError
+P14    directional_entity_dynamics  entity_dyn(P13)    ERROR:ValueError
+P14    directional_entity_dynamics  scalar(P12)        ERROR:ValueError
+
+off-diagonal applications: 12
+  raised before producing anything: 12
+  produced a candidate or abstention: 0

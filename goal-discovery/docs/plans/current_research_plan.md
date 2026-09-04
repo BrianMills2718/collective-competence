@@ -146,6 +146,17 @@ Both held dispositions and every integrity gate passed, earning design of one
 new prospective protocol. That design is not prospective evidence and is not
 made by this plan.
 
+**Scope of that pass, measured 2026-09-04.** Applying all four proposers to all
+four frozen packages returns an empty off-diagonal: 12 of 12 cross-applications
+refuse on a field-signature guard before producing anything. The frozen
+protocol's "no case-specific code paths" condition is therefore not satisfied,
+and the pass measured that four case-specific proposers emit the family names
+the evaluator expects — not proposal generality, which is measured at zero
+across these four. The freeze/reveal/audit seam, the hashes, and the evaluator
+correction are unaffected. See the
+[measured deviation](../hypotheses/p15_proposal_layer_benchmark_results.md) and
+[the probe](../../results/p15-proposal-layer/generality-probe/).
+
 **One correction along the way:** the first evaluator pass (2026-09-01)
 returned `no-go` because its P12 disposition rule required every fixture's
 reference to be identifiable, when P12's own native result documents a fixed

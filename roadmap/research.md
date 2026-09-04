@@ -225,6 +225,16 @@ a held-system proposal suggests — it does not authorize running that
 intervention, and four cases (two used for development) remain retrospective
 calibration, not open-ended discovery.
 
+A 2026-09-04 diagnostic bounds it further. Applying all four proposers to all
+four frozen packages leaves the off-diagonal empty: 12 of 12 cross-applications
+refuse on a field-signature guard before producing anything. The proposal layer
+is four case-specific programs behind a dispatch table, not one grammar, so the
+frozen protocol's "no case-specific code paths" condition is not satisfied and
+cross-case proposal generality is measured at zero. What the pass established
+stands — the freeze/reveal/audit seam works end to end on real archived
+evidence — but it is a statement about that seam, not about proposal
+generation.
+
 ## 3. Representation: useful descriptions must beat simple explanations
 
 **Question:** Which representations add reliable predictive information?
