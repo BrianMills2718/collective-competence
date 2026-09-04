@@ -120,6 +120,54 @@ reports representation-scrambling results with a passing positive control. It is
 the most developed treatment of this programme's central missing concept, and it
 lives in another repository.
 
+### This programme makes no ontological claim
+
+The deflationary reading is adopted here as a working construct, not as a
+metaphysical position: the question is whether the concept can be made coherent
+and useful for building and detecting competence, and it is judged on that.
+
+Whether Levin himself intends an ontological or an engineering claim is
+genuinely unsettled and does not need to be resolved for this work to proceed.
+The evidence pulls both ways. TAME is described as a pragmatic, materialist
+framework that explicitly rejects panpsychism and lists "operationalization of
+cognitive and teleological terms by effective interaction toolkits" among its
+commitments, and on X in June 2025 Levin says plainly that he prefers the
+Platonic-space reading because it is the more productive research program, "not
+because it's provably true" — "Occam takes a back seat to that, for me as an
+engineer." Against that, `levin-wiki`'s multi-source pass over his solo talks
+found them **more agentive and dualist than the written paper, not less**,
+introducing bodies as "thin clients" and a two-way "the pattern may be reaching
+toward the seeker" framing; the paper's own language is unhedged. That page
+records the conflict as an open tension rather than a resolved reading.
+
+The resource-bounded account does not depend on how that resolves. It is
+supported by its own tests, and this programme can use it either way.
+
+## Competence and Levin's "intelligence"
+
+They are not the same term, and the difference is a containment.
+
+Levin's operational definition, following William James, is that **intelligence
+is the capacity to achieve a goal by different means**; *Self-Improvising
+Memory* states it as "publicly observable competency at reaching a goal by
+different means in a declared problem space." His corpus does not treat the two
+words as synonyms — "multiscale competency architecture", "competent parts" and
+"local competencies" name part-level capacity, while intelligence names the
+goal-by-different-means capacity of the coordinated whole.
+
+Mapped onto [the ontology](ontology.md), Levin's definition of intelligence is
+**one row of the competence profile** — *flexibility*, "can different routes,
+configurations, or means achieve the criterion?" — together with the
+goal-relativity and declared problem space this ontology already requires.
+
+Competence as used here is therefore strictly broader: it also carries
+attainment, reliability, reachability, efficiency, robustness, recovery,
+adaptation and transfer. Nothing needs to change for internal consistency; this
+repository uses *competence*, *capability* and *a competency* consistently and
+does not use *intelligence*. The translation is recorded so that a reader moving
+between this work and the Levin literature can convert between them, and so that
+"intelligence" is not silently reintroduced as a synonym for the whole profile.
+
 ## What this repository's vocabulary can and cannot say
 
 The [ontology](ontology.md) is a strong **measurement** vocabulary. Its
@@ -146,12 +194,37 @@ has one, and cannot say where competence comes from, what it costs, or when it
 is free. That asymmetry is the most likely reason the constructive arm has not
 produced an experiment.
 
+## The missing layer
+
+The gap above is a layer up from what the ontology currently covers. The
+existing vocabulary is *stative*: it describes a system's competence as it
+stands. The missing vocabulary is *generative*: it would describe where that
+competence came from and what it cost.
+
+Sketching what that layer has to name, as questions rather than settled
+definitions:
+
+| It must be able to say | So that it can distinguish |
+|---|---|
+| What a competence **cost** to obtain | Competence that was built from competence that was inherited, reused, or free |
+| What was **paid by whom** | Effort inside the system from effort in its environment, its designer, its interface, or its representation |
+| What **composition** yields | Whether coupling produced competence beyond the parts, or merely aggregated them |
+| Which competence is **free at this boundary** | Free relative to the agent from free relative to the universe |
+| What a **minimal competent element** is | The floor of the construction ladder from an arbitrary starting point |
+
+The nearest existing answer to the middle three is `levin-wiki`'s partitioned
+resource ledger, which separates resources spent inside the focal agent, by the
+interface producing its abstraction, and in communicating that abstraction to
+it. That is a candidate to adopt, not a settled import: it is still being
+formalized, and its authors there flag that its informational component is
+better defined than its computational one.
+
+This layer is deliberately not written into [the ontology](ontology.md) yet.
+The ontology is canonical and its terms are load-bearing for existing evidence;
+this vocabulary is unsettled and belongs here until it stabilizes.
+
 ## Open questions
 
-- **Competence versus intelligence.** Unresolved, and the glossary needs it.
-  Competence is defined operationally and goal-relatively; intelligence is not
-  defined at all. Whether intelligence is a region of the competence profile, a
-  different property, or a word to avoid in this programme is undecided.
 - **Does composition actually pay?** The thesis predicts that composing minimal
   competent elements yields more than the parts. Untested here.
 - **What is the minimal composable element** on a discrete substrate, and what
@@ -159,6 +232,8 @@ produced an experiment.
 - **How is free lunch measured** rather than described? `levin-wiki`'s resource
   ledger is the closest existing answer; it has not been applied to anything in
   this repository.
+- **Does the generative layer above stabilize into terms worth promoting** into
+  the canonical ontology, and if so which.
 - **How does the construction/discovery loop get run** on one specimen, with
   the authored design withheld and then revealed?
 
@@ -179,6 +254,19 @@ This section holds this page's own history, per the shared living-document
 convention; the wiki-wide [development log](development-log.md) records only
 that this page exists.
 
+- **2026-09-04 — resolved the competence/intelligence question; scoped the
+  missing layer.** Checked Levin's definition against the corpus rather than
+  leaving the term undefined: intelligence is the capacity to achieve a goal by
+  different means, which is the flexibility row of this ontology's competence
+  profile, so competence here is strictly broader and the two are not synonyms
+  in his usage either. Recorded that this programme makes no ontological claim
+  and does not need Levin's own position resolved, noting the evidence pulls
+  both ways — TAME and a June 2025 X post are operationalist, his solo talks are
+  more agentive than the written paper. Added a sketch of the generative
+  vocabulary layer as questions rather than definitions, kept out of the
+  canonical ontology until it stabilizes. Sources: `levin-wiki`'s TAME,
+  self-improvising-memory and platonic-space-and-ingression pages, and
+  `ontology.md`.
 - **2026-09-04 — created.** Wrote down the generative thesis for the first time:
   least action as the reason competence has no floor, composition as the
   constructive bet, the discrete-substrate correction to "atoms," the
