@@ -151,6 +151,8 @@ becoming current instructions.
 - [q1_004_second_family_qualification_results.md](../goal-discovery/docs/hypotheses/q1_004_second_family_qualification_results.md)
 - [q1_005_idiosyncratic_fraction.md](../goal-discovery/docs/hypotheses/q1_005_idiosyncratic_fraction.md)
 - [q1_005_idiosyncratic_fraction_results.md](../goal-discovery/docs/hypotheses/q1_005_idiosyncratic_fraction_results.md)
+- [q1_006_pairwise_relation.md](../goal-discovery/docs/hypotheses/q1_006_pairwise_relation.md)
+- [q1_006_pairwise_relation_results.md](../goal-discovery/docs/hypotheses/q1_006_pairwise_relation_results.md)
 
 ## goal-discovery/docs/plans
 
