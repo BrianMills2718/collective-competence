@@ -29,6 +29,37 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-04 — recovered goal-discovery's founding brief from a session transcript
+
+**Changed:** added
+[the first-wave goal-discovery brief](../goal-discovery/docs/sources/briefs/First_Wave_Goal_Discovery_Implementation_Brief.md)
+to the preserved sources and listed it in
+[source provenance](../goal-discovery/docs/sources/README.md). It is the
+specification the `goal-discovery/` lane was built from: the four-layer
+state/observation/representation model, the evidentiary ladder from passive
+convergence to goal-model support, experiments 001-005, and the day-one
+milestone.
+
+**Why:** it had never been saved as a file. It was pasted into the Claude Code
+session that created the lane at 2026-08-26 19:22 local, and import commit
+`95b5099` followed 15 minutes later. The three other briefs were preserved into
+`docs/sources/briefs/` on 2026-08-30; this one was not, so the founding
+specification of the active research lane existed only in a session transcript,
+which is not durable project storage. Its experiment list and day-one section
+are the direct source of the imported `goal-discovery/README.md` state table and
+of that commit's message, which is what identifies it.
+
+**References:** [source provenance](../goal-discovery/docs/sources/README.md),
+[the brief itself](../goal-discovery/docs/sources/briefs/First_Wave_Goal_Discovery_Implementation_Brief.md),
+import commit `95b5099`.
+
+**Does not establish:** no scientific claim, priority, or authority changes. The
+brief is `authority: historical` like the other three; the
+[charter](../goal-discovery/docs/PROJECT.md) still owns scope and the
+[current plan](../goal-discovery/docs/plans/current_research_plan.md) still owns
+next actions. Recovering a source does not revive its instructions as a task
+queue.
+
 ## 2026-09-03 — correction: the P15 cursor was a real one, properly reclaimed
 
 **Changed:** commit `e19e53f`'s message claimed "neither the prior Codex

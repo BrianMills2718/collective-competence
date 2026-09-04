@@ -20,9 +20,13 @@ An original source calling itself "current" does not override either.
 | [Consolidated laboratory specification](briefs/Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md) | Full agenda, shared apparatus, observation/white-box separation, staged discovery |
 | [Coding-agent specification](briefs/Dynamical_Laboratory_Coding_Agent_Spec.md) | Experimental candidate-goal discovery, minimal engine, classical analysis baseline |
 | [Robinson-Crusoe addendum](briefs/Addendum_3_Robinson_Crusoe_Dynamical_Laboratory.md) | Progressive construction, candidate boundaries, entropy/information distinctions |
+| [First-wave goal-discovery brief](briefs/First_Wave_Goal_Discovery_Implementation_Brief.md) | The founding specification of the `goal-discovery/` lane: the four-layer state/observation/representation model, the evidentiary ladder, experiments 001-005, and the day-one milestone |
 
-Originals were supplied in the user's Windows Downloads directory and retained
-there unchanged. The repository snapshots add source-role headers and normalize
+The first three originals were supplied in the user's Windows Downloads directory
+and retained there unchanged. The first-wave brief was never a file: it was pasted
+directly into the session that created `goal-discovery/` on 2026-08-26 and was
+recovered from that session transcript on 2026-09-04, so it has no original
+fingerprint below. The repository snapshots add source-role headers and normalize
 line endings; they are not claimed to be byte-identical copies.
 
 Original SHA-256 fingerprints:

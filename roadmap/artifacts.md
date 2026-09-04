@@ -177,6 +177,7 @@ becoming current instructions.
 - [Addendum_3_Robinson_Crusoe_Dynamical_Laboratory.md](../goal-discovery/docs/sources/briefs/Addendum_3_Robinson_Crusoe_Dynamical_Laboratory.md)
 - [Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md](../goal-discovery/docs/sources/briefs/Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md)
 - [Dynamical_Laboratory_Coding_Agent_Spec.md](../goal-discovery/docs/sources/briefs/Dynamical_Laboratory_Coding_Agent_Spec.md)
+- [First_Wave_Goal_Discovery_Implementation_Brief.md](../goal-discovery/docs/sources/briefs/First_Wave_Goal_Discovery_Implementation_Brief.md)
 
 ## goal-discovery/results/p14-ants-relational-coupling-invalid-39a-working-tree
 
