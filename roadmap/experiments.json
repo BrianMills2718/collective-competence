@@ -861,6 +861,22 @@
       "cost": {"status": "unknown", "effort_minutes": null}
     },
     {
+      "id": "Q1-003",
+      "family": "calibration",
+      "question": "Can a candidate family with a latent shared regressor separate a shared quantity that gates decisions from one that only constrains outcomes?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/q1_003_latent_shared_regressor.md",
+        "goal-discovery/docs/hypotheses/q1_003_latent_shared_regressor_results.md"
+      ],
+      "protocol_artifact": "goal-discovery/docs/hypotheses/q1_003_latent_shared_regressor.md",
+      "ontology_contract_version": 1,
+      "review_status": "result_reviewed",
+      "outcome": "family_closes_the_gap_development_only_clause_4_fails",
+      "outcome_source": "goal-discovery/docs/hypotheses/q1_003_latent_shared_regressor_results.md",
+      "disposition": "Persistence distinguishes in the predicted direction (live 0.827 vs none 0.062), closing the structural gap Q1-002 named. Does NOT qualify the instrument: clause 4 of the charter completion condition fails because the family, its estimator and its statistics were authored while holding the specimen's ground truth - the same defect P15 recorded, and worse to repeat knowingly. Development case, not qualification. The naive adequacy statistic (shared-variance fraction) is a trap: it distinguishes in the WRONG direction, scoring the collapsed system 1.000 against the coordinated 0.586, because after collapse every subunit draws zero and residuals become identical - uniformity read as coordination. Caught only because the protocol froze both statistics and their predicted directions before implementation.",
+      "cost": {"status": "unknown", "effort_minutes": null}
+    },
+    {
       "id": "Q1-002",
       "family": "calibration",
       "question": "Is Q1-001's null caused by the authored observation contract, or by the candidate family?",

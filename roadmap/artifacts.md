@@ -139,6 +139,8 @@ becoming current instructions.
 - [q1_001_instrument_qualification_results.md](../goal-discovery/docs/hypotheses/q1_001_instrument_qualification_results.md)
 - [q1_002_observation_contract_variation.md](../goal-discovery/docs/hypotheses/q1_002_observation_contract_variation.md)
 - [q1_002_observation_contract_variation_results.md](../goal-discovery/docs/hypotheses/q1_002_observation_contract_variation_results.md)
+- [q1_003_latent_shared_regressor.md](../goal-discovery/docs/hypotheses/q1_003_latent_shared_regressor.md)
+- [q1_003_latent_shared_regressor_results.md](../goal-discovery/docs/hypotheses/q1_003_latent_shared_regressor_results.md)
 
 ## goal-discovery/docs/plans
 
