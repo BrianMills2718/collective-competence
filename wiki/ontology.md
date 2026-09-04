@@ -232,6 +232,22 @@ challenge contract. It is not a separate theoretical primitive. Prefer
 *capability* when naming an operation and *competence* when naming graded
 goal-relative performance.
 
+**Intelligence** is used here only in Levin's operational sense, following
+William James: *the capacity to achieve a goal by different means*, stated in
+*Self-Improvising Memory* as publicly observable competency at reaching a goal
+by different means in a declared problem space. That is one row of the
+competence profile above — **flexibility** — together with the goal-relativity
+and declared problem space this ontology already requires.
+
+Competence as defined here is therefore strictly broader than intelligence in
+that sense: it also carries attainment, reliability, reachability, efficiency,
+robustness, recovery, adaptation, and transfer. Do not use *intelligence* as a
+synonym for the whole profile, and do not read a flexibility result as an
+intelligence claim about a system without the goal criterion that makes
+"different means to the same end" meaningful. Levin's corpus keeps the words
+distinct in the same direction, using *competency* for part-level capacity and
+*intelligence* for the goal-by-different-means capacity of a coordinated whole.
+
 ### Robustness, recovery, adaptation, and viability
 
 - **Robustness** is the portion of a competence profile describing performance
@@ -355,8 +371,11 @@ organization, environmental control).
 
 ### A candidate mechanism for autopoiesis-supporting organization: metastability under continuous perturbation
 
-Originated in a discussion on a separate, unrelated project (`levin-wiki`, not
-part of this repository — see its living document,
+Originated in a discussion on `levin-wiki`, a separate repository — a corpus
+wiki over Michael Levin's bibliography, independently built, and working the
+same questions as this programme's constructive arm rather than an unrelated
+project (see [the generative thesis](competence-thesis.md) for the relationship,
+and that repository's living document,
 [`platonic-space-and-ingression.md`](../../levin-wiki/wiki/concepts/platonic-space-and-ingression.md)),
 now folded in here as real, independently-checked science rather than left as
 an external pointer. Documented here as a well-specified candidate for this
@@ -364,6 +383,14 @@ project's own Goal and Competence Discovery / Collective Competence arms — not
 yet an active priority, since [the current research plan](../goal-discovery/docs/plans/current_research_plan.md)
 alone owns that, and its own rules are explicit that no external programme
 becomes the agenda by default.
+
+**Layer note.** This section states a *candidate mechanism* — a claim about how
+some systems behave, which could turn out false — rather than a definition. The
+rest of this document is stipulative: its contents fix what terms mean and can
+be inconsistent or unhelpful but not false. This section is retained here
+because its subject is ontological vocabulary, and is marked so a reader does
+not take it for a definition; [the generative thesis](competence-thesis.md)
+holds the programme's other conjectures.
 
 **The mechanism, not merely persistence.** A driven system's long-run occupancy
 of a configuration follows a Boltzmann-like law using a sensitivity-to-

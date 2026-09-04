@@ -10,9 +10,17 @@ sources:
 # Purpose and scientific boundaries
 
 [Development wiki](../../wiki/index.md) ·
+[Generative thesis](../../wiki/competence-thesis.md) ·
 [Canonical ontology](../../wiki/ontology.md) ·
 [Current plan](plans/current_research_plan.md) ·
 [Source provenance](sources/README.md)
+
+This charter states purpose, scope and boundaries. It does not state the
+motivating idea behind them — why competence is expected to be buildable at all,
+and what the programme is betting on. That is
+[the generative thesis](../../wiki/competence-thesis.md), which is exploratory
+and governs nothing, but without it this document reads as a method with no
+question behind it.
 
 ## North star
 

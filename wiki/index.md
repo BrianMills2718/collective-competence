@@ -74,6 +74,7 @@ than reconstructing definitions from historical experiment prose.
 | How do I run and interpret the current laboratory? | [Operator guide](../goal-discovery/README.md) and [shared analytic contract](../goal-discovery/docs/plans/dynamic_experiment_artifact_standard.md) |
 | How should documentation and evidence be maintained? | [Workflow and policy routes](../roadmap/workflow.md) |
 | How did the project and its contracts change? | [Development log](development-log.md), with references to the current owners and evidence |
+| Where is the original pilot the repository is named for? | [`experiments/01-self-sorting/`](../experiments/01-self-sorting/README.md) — the founding Levin-style experiment, exploratory, superseded as a route on 2026-08-26 and never re-entered |
 | How do this repository and its neighbours relate over time? | [Cross-repository timeline](cross-repo-timeline.md) — dated, derived from commit history |
 | Where is an active or retained non-superseded source? | [Active document catalog](../roadmap/artifacts.md) and [source provenance](../goal-discovery/docs/sources/README.md); use governed archive recovery for superseded snapshots |
 | Where is quarantined or not-yet-classified material? | [`misc/README.md`](../misc/README.md) — expiring, non-authoritative holdings, each with its own `INTENT.md`; not part of this repository's evidence or priorities until explicitly classified |
@@ -107,9 +108,17 @@ of proposing useful observables and candidate forms without task labels. The
 is the first complete ontology-contract consumer and authorized only a bounded
 retrospective benchmark. [P15's result](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md)
 is now in: a pass, after correcting an evaluator disposition rule that had
-scored a correct passive-fixture abstention as a mismatch. A pass earns design
-of one new prospective protocol, not its execution. That is the current
-research slice, not a redefinition of the overall agenda.
+scored a correct passive-fixture abstention as a mismatch. Read what that pass
+covers carefully, because it is narrower than it sounds. A 2026-09-04
+diagnostic applied all four proposers to all four frozen packages and found the
+off-diagonal empty — 12 of 12 cross-applications refuse on a field-signature
+guard — so the proposal layer is four case-specific programs behind a dispatch
+table, not one grammar, and its cross-case generality is measured at zero. What
+the pass established is that the freeze/reveal/audit seam works end to end on
+real archived evidence; it is a result about the apparatus, not about proposal
+generation. The design it earned was checked and **not** produced: neither held
+case names an untested intervention, so no new prospective protocol exists and
+none is pending.
 Existing constructed controls and mechanism experiments also provide bounded
 evidence about competence, robustness, and adaptation; the
 [research synthesis](../roadmap/research.md) states their limits. Historical

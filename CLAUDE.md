@@ -19,7 +19,12 @@ the destination.
 ## Read before interpreting or changing the project
 
 1. Enter through [the project wiki](wiki/index.md).
-2. Read the canonical [research ontology](wiki/ontology.md) for terminology and
+2. Read [the generative thesis](wiki/competence-thesis.md) for what this
+   programme is for and what it is betting on — least action as the reason
+   competence has no floor, composition as the constructive bet, free lunch,
+   and the discrete substrate that follows. It is exploratory, not canonical,
+   and it is the only document that states the motivating idea.
+   Read the canonical [research ontology](wiki/ontology.md) for terminology and
    the [charter](goal-discovery/docs/PROJECT.md) for purpose and scientific scope;
    the [current plan](goal-discovery/docs/plans/current_research_plan.md) owns
    priorities for the active Goal and Competence Discovery lane, not the full
