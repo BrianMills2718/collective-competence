@@ -1,0 +1,10 @@
+{
+  "n_subunits": 12,
+  "quota": 80.0,
+  "horizon": 120,
+  "draw_cap": 1.5,
+  "capacity": 300.0,
+  "initial_stock": 150.0,
+  "growth": 0.12,
+  "kappa": 0.2
+}
