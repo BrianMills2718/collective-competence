@@ -13,6 +13,25 @@ sources:
 [Roadmap](README.md) · [Research](research.md) ·
 [Current plan](../goal-discovery/docs/plans/current_research_plan.md)
 
+**Substrate consolidation, started 2026-09-04.** `src/substrate/` now holds a
+shared specimen contract — one loop, one state, one measurement — with five
+explicit dials, each derived from a reproduced experimental failure rather than
+guessed: outcome independence (Q1-006/Q1-007), divisibility (C1-002),
+heterogeneity (C2-001), symmetry channel (C1-002 + C2-001), and absorbing
+failure (Q1-003 + Q1-004). C1-001's renewable commons is ported as the first
+configuration and reproduces its committed frozen result package exactly —
+every metric, every seed, plus the fidelity sweep — which is enforced by
+`tests/test_substrate.py` rather than asserted. Scope is deliberately the live
+specimens only; sorting, bowl and mesa_bubble are not ported, because their
+lanes are stopped and porting would risk archived findings for no live benefit.
+
+A correction this consolidation depends on: the eleven files named `model.py`
+are **not** eleven world models. Five simulate a world (1,128 lines); six are
+analysis modules that happen to share the filename (1,452 lines). Only the
+simulators are in scope for a shared substrate; the analysis modules already
+share the P15 package contract as their representation seam, which is extended
+rather than rebuilt.
+
 The laboratory is not yet one universal substrate. It combines small custom
 systems and off-the-shelf engines through model-specific runners, observation
 boundaries, interventions, analyses, and visualization. Capability reuse must
