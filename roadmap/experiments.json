@@ -861,6 +861,22 @@
       "cost": {"status": "unknown", "effort_minutes": null}
     },
     {
+      "id": "Q1-007",
+      "family": "calibration",
+      "question": "Does removing the substrate's congestion coupling let the relation statistic meet clause 2?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/q1_007_congestion_corrected_relation.md",
+        "goal-discovery/docs/hypotheses/q1_007_congestion_corrected_relation_results.md"
+      ],
+      "protocol_artifact": "goal-discovery/docs/hypotheses/q1_007_congestion_corrected_relation.md",
+      "ontology_contract_version": 1,
+      "review_status": "result_reviewed",
+      "outcome": "congestion_not_linearly_removable_chase_stopped",
+      "outcome_source": "goal-discovery/docs/hypotheses/q1_007_congestion_corrected_relation_results.md",
+      "disposition": "The correction removed essentially nothing: derived 0.2838 to 0.2826, random 0.1078 to 0.1076. G1 and G2 pass as before, G3 still fails at 0.1076 against 0.10. Cause is a protocol design defect of mine, visible in the substrate definition all along - the coupling is 1/k squared and I regressed on k, so a linear control against a quadratic-inverse effect captures almost none of it. Deliberately did NOT immediately run the 1/k squared version: it would likely pass and its justification is derivable without reference to any result, but it would be the fourth consecutive one-more-fix aimed at a single 0.008 overshoot, and the sequence has been converging on a threshold rather than on a question. Stopping the chase is the finding. What stands after seven runs: relation IS measurable (0.283 vs 0.108, 0.175 margin, reproduced twice), the two failure modes are mechanically understood, and the residual obstacle is substrate physics rather than the statistic. The live question is now whether to qualify on a substrate whose own physics sets a non-zero floor, or move to one where independent entities are genuinely independent in outcome - a design decision, not another statistic.",
+      "cost": {"status": "unknown", "effort_minutes": null}
+    },
+    {
       "id": "Q1-006",
       "family": "calibration",
       "question": "Can a statistic measure whether entity differences are related, rather than merely present?",
