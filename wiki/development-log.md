@@ -29,6 +29,60 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-03 — correction: the P15 cursor was a real one, properly reclaimed
+
+**Changed:** commit `e19e53f`'s message claimed "neither the prior Codex
+session's `.company-planning/candidate-r2..r5.json` nor my own
+`candidate-r6.json` ever actually invoked the installed company-planning
+execute-plan-loop skill's real manager... they hand-wrote JSON imitating its
+cursor schema." **That is wrong about the prior session.** An `/audit` sweep of
+this session's own trajectory found it disproved by evidence already sitting
+in `.company-planning/history/14c043239066395b-r5.MANUAL-RECLAIM-NOTE.md`
+(local, gitignored, not pushed) and in two durable, dated learnings-register
+entries this session should have grepped before asserting anything
+(`lrn-20260902T184601077772Z-8b66642ddb`, `lrn-20260902T184616787430Z-7db540dfe2`
+in `project-meta/learnings/entries/`, both 2026-09-02, a day before this
+session started).
+
+The actual sequence: the Codex session (`goal_ref: codex-goal:01a05be0-...`)
+**did** run the real `manage_plan_execution.py`, producing a genuine
+`.company-planning/active-execution.json` for cursor
+`goal-discovery-week-2026-09-01-p15` and progressing it through five real
+`start`/`replace` calls (`candidate-r2.json` through `r5.json` are byte-identical
+copies of that real cursor's revisions, confirmed by `diff`). It was never
+git-committed only because `.company-planning/` was gitignored here before the
+cursor existed (commit `046f049`, 2026-08-31) with no `!` exception, and the
+plugin version in use then apparently predated the tool's later
+`CP-LOOP-GITIGNORE` fail-closed behavior. A separate session on 2026-09-02
+verified the lease was **decisively dead** (not merely stale) — no matching
+Codex rollout transcript, no row in any `~/.codex/*.sqlite`, Brian confirmed no
+active Codex sessions directly — then manually moved the cursor out of
+`active-execution.json` by hand, because `manage_plan_execution.py` has no verb
+letting a different session close a lease it doesn't own. That gap is exactly
+what the reclaim note recommends fixing (a `reclaim` verb), which is
+company-planning tooling work, not something owned by this repository.
+
+**What doesn't change:** the actual decision in `e19e53f` — using the plan
+doc's Human Decisions section instead of the heavier claims/cursor apparatus —
+was still correct, and for the reason that survives: this is a one-human
+project, matching the skill's own solo-autonomous guidance, independent of
+whether the prior cursor was real or imitated.
+
+**Why this happened:** this session inferred "stale" from a single timestamp
+gap on `candidate-r5.json` instead of checking Codex's own liveness records or
+grepping the learnings register first — the audit skill's own rule ("what is
+already recorded about this target... before reporting, not after") was not
+followed during the original work, only during this later `/audit` sweep.
+
+**References:** [current plan](../goal-discovery/docs/plans/current_research_plan.md),
+commit `e19e53f` (correction target, not rewritten),
+`project-meta/learnings/entries/lrn-20260902T184601077772Z-8b66642ddb.json`,
+`project-meta/learnings/entries/lrn-20260902T184616787430Z-7db540dfe2.json`.
+
+**Does not establish:** any change to the P15 evaluator fix, its result, or the
+Human Decisions section's content — only the accuracy of one prior claim about
+tooling history.
+
 ## 2026-09-03 — P15's earned protocol design: none, and why
 
 **Changed:** checked both held-case P15 proposals against what each system's
