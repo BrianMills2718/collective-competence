@@ -861,6 +861,22 @@
       "cost": {"status": "unknown", "effort_minutes": null}
     },
     {
+      "id": "Q1-002",
+      "family": "calibration",
+      "question": "Is Q1-001's null caused by the authored observation contract, or by the candidate family?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/q1_002_observation_contract_variation.md",
+        "goal-discovery/docs/hypotheses/q1_002_observation_contract_variation_results.md"
+      ],
+      "protocol_artifact": "goal-discovery/docs/hypotheses/q1_002_observation_contract_variation.md",
+      "ontology_contract_version": 1,
+      "review_status": "result_reviewed",
+      "outcome": "modelling_problem_not_packaging_problem",
+      "outcome_source": "goal-discovery/docs/hypotheses/q1_002_observation_contract_variation_results.md",
+      "disposition": "None of three observation contracts distinguishes the coordinated from the uncoordinated run at the disposition level. Rules out the cheap explanation for Q1-001: the coupling is not hidden by packaging, it is unrepresentable in repeated_entity_dynamics, which fits each entity under a shared local law. Contract B (attempted, served) was predicted most likely to succeed and was worst - it made the series less affine and the instrument abstained on both, showing legibility to an analyst and representability in a candidate family are different properties. Consequence: a shared packaging contract is worth building and will not buy coordination detection; those are two separate units of work.",
+      "cost": {"status": "unknown", "effort_minutes": null}
+    },
+    {
       "id": "Q1-001",
       "family": "calibration",
       "question": "Can the analytic instrument recover an authored coordination it was not told about, and not report it where it is absent?",

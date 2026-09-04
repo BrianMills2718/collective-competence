@@ -58,7 +58,7 @@ experiment_declaration:
       provenance: authored
       claim_assessment: not_tested
   observation_contract:
-    allowed_variables: Two continuous per-entity fields, varied across three contracts: (accumulation, served), (attempted, served), (remaining quota, served).
+    allowed_variables: "Two continuous per-entity fields, varied across three contracts - (accumulation, served), (attempted, served), (remaining quota, served)."
     history: Full within-run ordering across 120 ticks, eight units per package.
     cutoff: Horizon of 120 ticks.
     units: Declared unknown to the proposer.

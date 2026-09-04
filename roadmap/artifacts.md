@@ -137,6 +137,8 @@ becoming current instructions.
 - [p7_005_network_intervention_value_results.md](../goal-discovery/docs/hypotheses/p7_005_network_intervention_value_results.md)
 - [q1_001_instrument_qualification.md](../goal-discovery/docs/hypotheses/q1_001_instrument_qualification.md)
 - [q1_001_instrument_qualification_results.md](../goal-discovery/docs/hypotheses/q1_001_instrument_qualification_results.md)
+- [q1_002_observation_contract_variation.md](../goal-discovery/docs/hypotheses/q1_002_observation_contract_variation.md)
+- [q1_002_observation_contract_variation_results.md](../goal-discovery/docs/hypotheses/q1_002_observation_contract_variation_results.md)
 
 ## goal-discovery/docs/plans
 

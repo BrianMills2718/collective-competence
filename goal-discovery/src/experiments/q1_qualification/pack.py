@@ -27,8 +27,13 @@ from src.experiments.shared_scarcity.run import SEEDS, load_config as load_c1_co
 # Tokens that would leak this specimen's identity or mechanism to the proposer.
 C1_FORBIDDEN = [
     "commons", "stock", "quota", "scarcity", "signal", "price", "coordination",
-    "subunit", "urgency", "draw", "regrow", "live", "frozen", "c1", "glue",
+    "subunit", "urgency", "regrow", "glue", "shared_scarcity", "c1-001",
 ]
+# Deliberately NOT in the list: bare "c1", "draw", "live", "frozen". They are
+# either too short to avoid colliding with hex digests (a case_id containing the
+# substring "c1" is a coincidence, not a leak) or are ordinary English that the
+# scanner would trip on inside field names. The tokens that would actually
+# identify this specimen are the compound ones above.
 
 
 def _digest(data: bytes) -> str:
@@ -39,7 +44,8 @@ def _case_id(salt: str, key: str) -> str:
     return "case-" + hashlib.sha256(f"{salt}:{key}".encode()).hexdigest()[:12]
 
 
-def _trace(cfg: Config, seed: int, condition: str, frozen_level: float | None) -> list[dict[str, Any]]:
+def _trace(cfg: Config, seed: int, condition: str, frozen_level: float | None,
+           contract: str = "A") -> list[dict[str, Any]]:
     """Re-run one C1-001 condition, recording per-entity observables per tick.
 
     Replays the frozen configuration; it does not regenerate C1-001's reported
@@ -73,10 +79,20 @@ def _trace(cfg: Config, seed: int, condition: str, frozen_level: float | None) -
         available = cfg.growth * stock * (1.0 - stock / cfg.capacity)
         p_live = max(0.0, p_live + cfg.kappa * (demand - available) / cfg.max_sustainable_yield)
 
+        # Contract A folds deferral into an integral; B exposes the decision and
+        # the rationing separately; C exposes the entity's own driving state.
+        if contract == "A":
+            first = accumulated
+        elif contract == "B":
+            first = attempted
+        elif contract == "C":
+            first = np.maximum(quotas - accumulated, 0.0)
+        else:
+            raise ValueError(f"unknown observation contract: {contract!r}")
         frames.append({
             "time": tick,
             "entities": [
-                {"entity_id": f"e{i:03d}", "values": {"f000": float(accumulated[i]),
+                {"entity_id": f"e{i:03d}", "values": {"f000": float(first[i]),
                                                       "f001": float(served[i])}}
                 for i in range(cfg.n_subunits)
             ],
@@ -84,20 +100,20 @@ def _trace(cfg: Config, seed: int, condition: str, frozen_level: float | None) -
     return frames
 
 
-def build_package(condition: str, salt: str) -> dict[str, Any]:
+def build_package(condition: str, salt: str, contract: str = "A") -> dict[str, Any]:
     cfg = load_c1_config()
     units = []
     for index, seed in enumerate(SEEDS):
         frozen_level = simulate(cfg, seed, signal="live").mean_signal if condition == "frozen" else None
         units.append({
             "unit_id": f"u{index:03d}",
-            "frames": _trace(cfg, seed, condition, frozen_level),
+            "frames": _trace(cfg, seed, condition, frozen_level, contract),
         })
     body = json.dumps(units, sort_keys=True).encode()
     return {
         "schema_version": 1,
         "contract_version": 1,
-        "case_id": _case_id(salt, condition),
+        "case_id": _case_id(salt, f"{contract}:{condition}"),
         "shape": "repeated_entity_dynamics",
         "source_digest": _digest(body),
         "fields": [
@@ -112,7 +128,7 @@ def build_package(condition: str, salt: str) -> dict[str, Any]:
     }
 
 
-def write_packages(out: Path, salt: str) -> dict[str, Any]:
+def write_packages(out: Path, salt: str, contract: str = "A") -> dict[str, Any]:
     config = load_config()
     config = {**config, "forbidden_proposal_tokens": sorted(
         set(config["forbidden_proposal_tokens"]) | set(C1_FORBIDDEN)
@@ -120,7 +136,7 @@ def write_packages(out: Path, salt: str) -> dict[str, Any]:
     manifest_cases = []
     mapping = []
     for condition in ("live", "none"):
-        package = build_package(condition, salt)
+        package = build_package(condition, salt, contract)
         validate_package(package, config)
         blob = gzip.compress(json.dumps(package, sort_keys=True).encode(), mtime=0)
         path = out / f"{package['case_id']}.json.gz"
@@ -133,5 +149,6 @@ def write_packages(out: Path, salt: str) -> dict[str, Any]:
             "package_path": path.name,
             "package_sha256": _digest(blob),
         })
-        mapping.append({"case_id": package["case_id"], "native_condition": condition})
+        mapping.append({"case_id": package["case_id"], "native_condition": condition,
+                        "contract": contract})
     return {"cases": manifest_cases, "mapping": mapping}
