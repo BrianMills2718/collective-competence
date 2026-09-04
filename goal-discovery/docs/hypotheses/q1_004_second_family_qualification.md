@@ -4,7 +4,7 @@ authority: experiment
 lifecycle: frozen
 artifact_intent:
   concern_id: q1-004-second-family-qualification
-  creation_justification: Freeze the clause-4 qualification run: the frozen detector, unchanged, on a second family it was not built for, with an active rather than degenerate negative arm.
+  creation_justification: "Freeze the clause-4 qualification run - the frozen detector, unchanged, on a second family it was not built for, with an active rather than degenerate negative arm."
   separate_file_reason: A preregistration must stay inspectable beside, and distinct from, its later result.
   retirement_condition: Archive only after the completion condition is met or explicitly revised.
 experiment_declaration:

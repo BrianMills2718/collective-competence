@@ -861,6 +861,22 @@
       "cost": {"status": "unknown", "effort_minutes": null}
     },
     {
+      "id": "Q1-004",
+      "family": "calibration",
+      "question": "Does the frozen detector, unchanged, separate a differentiated population from an active undifferentiated one on a family it was not built for?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/q1_004_second_family_qualification.md",
+        "goal-discovery/docs/hypotheses/q1_004_second_family_qualification_results.md"
+      ],
+      "protocol_artifact": "goal-discovery/docs/hypotheses/q1_004_second_family_qualification.md",
+      "ontology_contract_version": 1,
+      "review_status": "result_reviewed",
+      "outcome": "qualified_pass_directional_transfer_with_statistic_caveat",
+      "outcome_source": "goal-discovery/docs/hypotheses/q1_004_second_family_qualification_results.md",
+      "disposition": "Clause 4 satisfied by construction: the detector was authored against a divisible commons and run unchanged on an indivisible slot with a phase-based mechanism and a collision failure mode. It separated a differentiated population (persistence 0.921) from an active undifferentiated one (0.698) in the predicted direction. But the frozen prediction said low under the negative arm and 0.698 is not low - Q1-003's negative scored 0.062 - so the flagged risk partly materialised and the statistic is substantially measuring temporal extent rather than differentiation. Protocol defect recorded rather than exploited: it froze a direction but no numeric threshold, so the 0.1 gap cutoff is post-hoc and is not treated as a passed gate. Instrument NOT declared qualified outright; status is directional transfer on a statistic partly measuring the wrong thing. The variance-fraction inversion from Q1-003 replicates exactly on this second family (constant 1.000 vs derived 0.067), which strengthens that finding considerably.",
+      "cost": {"status": "unknown", "effort_minutes": null}
+    },
+    {
       "id": "C2-002",
       "family": "composition",
       "question": "How load-bearing is the derivation rule that turns a subunit's own goal into a phase?",
