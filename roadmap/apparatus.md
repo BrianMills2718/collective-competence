@@ -32,6 +32,22 @@ simulators are in scope for a shared substrate; the analysis modules already
 share the P15 package contract as their representation seam, which is extended
 rather than rebuilt.
 
+**Slice 2, 2026-09-04 — a structurally different specimen fits, with one honest
+seam.** The contended slot (C1-002 / C2-001) is now a second configuration:
+indivisible, no stock, no regrowth, no absorbing collapse, coupled by congestion
+rather than by consumption. It reproduces both frozen packages exactly — 64
+checks across C1-002's seeds, conditions and every recorded counter, plus all 15
+of C2-001's arm-by-spread cells.
+
+Two things the port changed, recorded rather than papered over. First,
+`RunOutcome` gained a `measurements` field: the port could reproduce a frozen
+package's headline metrics but not its collision, idle and served counters,
+which would have made "no recorded finding silently changed" true only of the
+fields the contract happened to name. Second, `state.resource` is unused by the
+slot specimen and stays at zero — the commons contests a *stock*, the slot
+contests a *rate*, and one field cannot honestly mean both. That is a real seam
+in the contract and is named in the specimen's docstring rather than hidden.
+
 The laboratory is not yet one universal substrate. It combines small custom
 systems and off-the-shelf engines through model-specific runners, observation
 boundaries, interventions, analyses, and visualization. Capability reuse must

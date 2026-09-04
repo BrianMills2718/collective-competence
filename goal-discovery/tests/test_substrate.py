@@ -80,3 +80,61 @@ def test_seeds_are_stable_across_conditions():
     b = SPECIMEN.initialize(_Cfg(base, condition="none"), 3)
     assert (a.need == b.need).all()
     assert a.resource == b.resource
+
+
+# --- slice 2: a structurally different specimen -----------------------------
+
+import numpy as np
+
+from src.experiments.contended_channel.run import SEEDS as SLOT_SEEDS, load_config as slot_config
+from src.substrate.specimens.contended_slot import specimen as slot_specimen
+
+C1_002 = Path(__file__).resolve().parents[1] / "results/c1-002-contended-channel/validity-gate.json"
+C2_001 = Path(__file__).resolve().parents[1] / "results/c2-001-derived-phase/result.json"
+
+
+class _SlotCfg:
+    def __init__(self, base, **kw):
+        for f in ("n_subunits", "mean_need", "need_spread", "horizon", "kappa", "decay"):
+            setattr(self, f, getattr(base, f))
+        for k, v in kw.items():
+            setattr(self, k, v)
+
+
+@pytest.mark.skipif(not C1_002.exists(), reason="frozen C1-002 package absent")
+def test_slot_port_reproduces_c1_002_including_counters():
+    """Headline metric and every recorded counter, not only the fields the contract names."""
+    frozen = json.loads(C1_002.read_text())
+    base = slot_config()
+    for row in frozen["per_seed"]:
+        for cond in ("live", "none"):
+            r = run(slot_specimen(cond), _SlotCfg(base, mode=cond), row["seed"])
+            assert row[cond] == r.satisfaction
+            assert row[f"{cond}_collisions"] == r.measurements["collisions"]
+            assert row[f"{cond}_idle"] == r.measurements["idle"]
+            assert row[f"{cond}_served"] == r.measurements["served"]
+
+
+@pytest.mark.skipif(not C2_001.exists(), reason="frozen C2-001 package absent")
+def test_slot_port_reproduces_c2_001_sweep():
+    """Three arms across five heterogeneity levels."""
+    frozen = json.loads(C2_001.read_text())
+    base = slot_config()
+    for spread_s, means in frozen["means"].items():
+        spread = float(spread_s)
+        for arm, expected in means.items():
+            got = float(np.mean([
+                run(slot_specimen(arm, spread), _SlotCfg(base, mode=arm, spread=spread), s).satisfaction
+                for s in SLOT_SEEDS
+            ]))
+            assert expected == got, f"{arm} at spread {spread_s}"
+
+
+def test_two_specimens_declare_different_dials():
+    """The dials must actually distinguish the specimens, or they are decoration."""
+    commons = SPECIMEN.dials
+    slot = slot_specimen("live").dials
+    assert commons.divisible and not slot.divisible
+    assert commons.absorbing_failure and not slot.absorbing_failure
+    assert slot_specimen("derived_phase").dials.symmetry_channel == "phase"
+    assert slot_specimen("live").dials.symmetry_channel == "level"

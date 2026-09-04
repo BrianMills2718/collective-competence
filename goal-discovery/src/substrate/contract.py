@@ -98,6 +98,13 @@ class RunOutcome:
     mean_signal: float
     signal_trace: np.ndarray
     obtained: np.ndarray
+    # Specimen-specific measurements the shared shape cannot anticipate --
+    # collision and idle counts for a contended slot, for instance. Added in
+    # slice 2 after the port could reproduce a frozen package's headline
+    # metrics but not its recorded counters, which would have made
+    # "no recorded finding silently changed" true only of the fields the
+    # contract happened to name.
+    measurements: dict[str, Any] = field(default_factory=dict)
 
 
 def run(specimen: Specimen, cfg: Any, seed: int) -> RunOutcome:
@@ -129,4 +136,6 @@ def run(specimen: Specimen, cfg: Any, seed: int) -> RunOutcome:
         mean_signal=float(np.mean(trace)),
         signal_trace=np.asarray(trace),
         obtained=state.obtained,
+        measurements={k: v for k, v in state.extra.items()
+                      if isinstance(v, (int, float)) and not isinstance(v, bool)},
     )
