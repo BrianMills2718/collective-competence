@@ -871,9 +871,9 @@
       "protocol_artifact": "goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md",
       "ontology_contract_version": 1,
       "review_status": "result_reviewed",
-      "outcome": "pass_earns_new_protocol_design",
+      "outcome": "conditional_pass_seam_only_capability_claim_revised",
       "outcome_source": "goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md",
-      "disposition": "Both held cases (P13, P14) and, after correcting a P12 evaluator disposition-rule error, both development cases (P10, P12) matched native dispositions with all leakage/lineage checks passing; earns design of one new prospective protocol, not its execution or a discovery/generalization claim.",
+      "disposition": "Seam passes: both held cases (P13, P14) and, after correcting a P12 evaluator disposition-rule error, both development cases (P10, P12) matched native dispositions with all leakage/lineage/package checks passing. Capability claim relational_proposal_and_abstention is NOT established: its frozen operating condition 'no case-specific code paths' was violated on both sides of the freeze (four hand-written per-case proposers behind a dispatch, fed by four hand-written per-case packers that assign the dispatch key), and cross-case generality is measured at zero (12/12 refusals, 2026-09-04 probe). The held-system decision gate is therefore not cleanly earned; no discovery, generalization, or competence claim.",
       "cost": {"status": "unknown", "effort_minutes": null}
     }
   ]

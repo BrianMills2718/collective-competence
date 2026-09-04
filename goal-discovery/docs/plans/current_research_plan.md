@@ -38,10 +38,14 @@ candidate forms open-endedly. Researcher-supplied representation remains the
 largest source of interpretation.
 
 **Next decision:** [P15](../hypotheses/p15_proposal_layer_benchmark_results.md) has
-executed and passed: both held cases (P13, P14) and, after correcting a P12
-evaluator disposition-rule error, both development cases (P10, P12) matched
-their native dispositions, with every leakage/lineage/package check passing.
-Checked against what a pass earns: **neither held-system proposal names a
+executed and returned a **conditional pass covering the seam only**. Both held
+cases (P13, P14) and, after correcting a P12 evaluator disposition-rule error,
+both development cases (P10, P12) matched their native dispositions, with every
+leakage/lineage/package check passing — so freeze/reveal/audit works end to end.
+Its capability claim did **not** pass: the frozen "no case-specific code paths"
+operating condition was violated on both sides of the freeze, and cross-case
+generality is measured at zero. The held-system decision gate is therefore not
+cleanly earned, and independently **neither held-system proposal names a
 genuinely untested small intervention**, so no new prospective protocol is
 designed from this pass (see the result record's "What changes next"). P13's
 proposal re-identifies the freeze P13 already ran natively (8/8, alongside
@@ -142,9 +146,11 @@ frozen questions:
 3. lineage, leakage, invalid-input, and per-case failure evidence remained
    inspectable — all package and leakage checks passed.
 
-Both held dispositions and every integrity gate passed, earning design of one
-new prospective protocol. That design is not prospective evidence and is not
-made by this plan.
+Both held dispositions and every integrity gate passed. On its own that would
+have earned design of one new prospective protocol; the measured deviation below
+withdraws that entitlement, because the capability claim the gate rewards was not
+established. Any such design is not prospective evidence and is not made by this
+plan.
 
 **Scope of that pass, measured 2026-09-04.** Applying all four proposers to all
 four frozen packages returns an empty off-diagonal: 12 of 12 cross-applications

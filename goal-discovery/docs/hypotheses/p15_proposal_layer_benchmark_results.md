@@ -3,7 +3,7 @@ doc-role: experiment-result
 authority: experiment
 lifecycle: completed
 ---
-# P15 — the proposal layer passes its bounded retrospective calibration
+# P15 — the freeze/reveal/audit seam passes; the proposal-layer capability claim does not
 
 [Wiki](../../../wiki/index.md) · [Frozen protocol](p15_proposal_layer_benchmark.md) ·
 [Frozen proposals and hashes](../../results/p15-proposal-layer/frozen/) ·
@@ -12,13 +12,30 @@ lifecycle: completed
 
 ## Decision
 
-**Pass.** Both held cases (P13, P14) matched their native evaluator
-dispositions, both development cases (P10, P12) matched once a disposition-rule
-error was corrected, and every leakage, lineage, package, and independent-unit
-check passed. Per the frozen protocol's held-system decision gate, this earns
-**design of one new prospective protocol** for the smallest intervention
-suggested by a held-system proposal — it does not authorize that intervention,
-and it is retrospective calibration, not discovered generalization (four cases,
+**Conditional pass — the seam only.** Two claims were on the table and they
+separate:
+
+- **The freeze/reveal/audit seam: pass.** Both held cases (P13, P14) matched
+  their native evaluator dispositions, both development cases (P10, P12) matched
+  once a disposition-rule error was corrected, and every leakage, lineage,
+  package, and independent-unit check passed. Opaque-first packaging, the
+  pre-reveal hash freeze, and the evaluator audit all worked end to end on real
+  archived evidence.
+- **The `relational_proposal_and_abstention` capability claim: not established.**
+  Its frozen `operating_conditions` required "one unchanged grammar... no task
+  labels or case-specific code paths." The implementation is four hand-written
+  per-case proposers behind a dispatch, fed by four hand-written per-case
+  packers that assign the very field the dispatch keys on. Cross-case generality
+  is measured at zero (12/12 refusals). See
+  [the measured deviation](#measured-deviation-from-the-frozen-operating-condition-2026-09-04).
+
+Per the current plan's rule — "Revise when a candidate restates supplied metrics,
+leaks task labels, or fails the frozen observation/intervention contract" — the
+capability claim is **revised, not promoted**. The protocol's held-system
+decision gate is therefore **not** cleanly earned: what a passing seam justifies
+is designing a protocol that tests proposal generality, not designing an
+intervention on the strength of a proposal layer whose generality was never
+measured. This remains retrospective calibration in every case (four cases,
 investigators not blind, grammar developed on two of the four).
 
 ## What happened between freeze and this record
@@ -103,10 +120,19 @@ allowed files (`contract.py`, `model.py`, `propose.py`, `config.json`).
 
 ## What changes next
 
-Per the frozen protocol's "What a pass earns," this record authorizes **design**
-of one new prospective protocol for the smallest intervention suggested by a
-held-system proposal. Checking both candidates against what each held case
-already tested:
+**Superseded by the measured deviation below (2026-09-04).** This section was
+written when the record read as an unqualified pass. The held-system decision
+gate it invokes is not cleanly earned, because the capability claim whose
+success the gate was meant to reward was not established. The analysis below is
+retained because its conclusion — that no new prospective protocol is designed
+— is unchanged and was reached independently; only its stated authority is
+withdrawn. The live next question is the one named at the end of this section
+and in the deviation: proposal generality on a system not in this evidence base.
+
+Per the frozen protocol's "What a pass earns," this record was read as
+authorizing **design** of one new prospective protocol for the smallest
+intervention suggested by a held-system proposal. Checking both candidates
+against what each held case already tested:
 
 - **P13's passive law.** Its `distinguishing_operation` in the P15 proposal is
   `freeze_entity_update` on one coordinate — but P13's own native protocol
@@ -156,6 +182,17 @@ requires exactly one field", "repeated_entity_dynamics requires two continuous
 fields", "directional dynamics has an unsupported structural type signature".
 Failing loud on unexpected input is correct engineering; the defect is in the
 claim, not the code.
+
+**The case-specificity is also upstream of the freeze, in the packer.**
+`pack.py` has four hand-written per-case adapters — `_package_endpoint`,
+`_package_scalar`, `_package_repeated`, `_package_directional` — and each one
+*hardcodes* both the `shape` string and the `operation_signatures` list for its
+case. The opaque package is opaque about labels, not about structure: a human
+read each native case and assigned its structural type, and the proposer then
+dispatches on that assignment. So the 1:1 shape-to-case mapping is not an
+artifact of having only four cases; it was authored on both sides. The
+`175b661` -> `33f4973` window is four minutes, which is the whole interval in
+which "implement" and "freeze" were separate events.
 
 **What this bounds.** A defence of the frozen condition is available: the four
 paths dispatch on structural type signature, not on case identity. With these

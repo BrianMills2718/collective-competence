@@ -107,18 +107,19 @@ of proposing useful observables and candidate forms without task labels. The
 [P15 protocol](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md)
 is the first complete ontology-contract consumer and authorized only a bounded
 retrospective benchmark. [P15's result](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md)
-is now in: a pass, after correcting an evaluator disposition rule that had
-scored a correct passive-fixture abstention as a mismatch. Read what that pass
-covers carefully, because it is narrower than it sounds. A 2026-09-04
-diagnostic applied all four proposers to all four frozen packages and found the
-off-diagonal empty — 12 of 12 cross-applications refuse on a field-signature
-guard — so the proposal layer is four case-specific programs behind a dispatch
-table, not one grammar, and its cross-case generality is measured at zero. What
-the pass established is that the freeze/reveal/audit seam works end to end on
-real archived evidence; it is a result about the apparatus, not about proposal
-generation. The design it earned was checked and **not** produced: neither held
-case names an untested intervention, so no new prospective protocol exists and
-none is pending.
+is now in: a **conditional pass covering the seam only**, after correcting an
+evaluator disposition rule that had scored a correct passive-fixture abstention
+as a mismatch. Two claims separate here. The freeze/reveal/audit seam passed —
+it works end to end on real archived evidence. The proposal capability claim did
+not: a 2026-09-04 diagnostic applied all four proposers to all four frozen
+packages and found the off-diagonal empty — 12 of 12 cross-applications refuse
+on a field-signature guard — so the proposal layer is four case-specific
+programs behind a dispatch table, not one grammar, and the packer feeding it is
+four hand-written per-case adapters that assign the very field the dispatch keys
+on. Cross-case generality is measured at zero, the frozen "no case-specific code
+paths" condition is not satisfied, and the held-system decision gate is
+therefore not cleanly earned. Independently, neither held case names an untested
+intervention, so no new prospective protocol exists and none is pending.
 Existing constructed controls and mechanism experiments also provide bounded
 evidence about competence, robustness, and adaptation; the
 [research synthesis](../roadmap/research.md) states their limits. Historical

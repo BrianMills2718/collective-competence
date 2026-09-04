@@ -32,7 +32,9 @@ generating useful observables and candidate forms beyond researcher-supplied
 grammars—not another generic simulator, dashboard, or representation leaderboard.
 The frozen [P15 protocol](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md)
 tested that gap retrospectively; [its result](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md)
-is a pass, earning design of one new prospective protocol, not its execution.
+is a conditional pass covering the freeze/reveal/audit seam only — its proposal
+capability claim was revised, not promoted, so no prospective protocol design is
+cleanly earned.
 
 ## How to read this page
 
@@ -216,21 +218,24 @@ authorization for retrospective calibration, not evidence that the method works.
 **P15 result:** both held cases (P13, P14) and, after a disposition-rule
 correction, both development cases (P10, P12) matched their native evaluator
 dispositions, with all leakage/lineage/package checks passing —
-[decision: pass](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md).
+[decision: conditional pass, seam only](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md).
 The correction mattered: the evaluator's first pass required every P12 fixture
 to have an identifiable reference, which scored the passive fixture's correct
 "no identifiable reference" as a mismatch rather than the intended finding. A
-pass earns design of one new prospective protocol for the smallest intervention
-a held-system proposal suggests — it does not authorize running that
-intervention, and four cases (two used for development) remain retrospective
-calibration, not open-ended discovery.
+clean pass would have earned design of one new prospective protocol for the
+smallest intervention a held-system proposal suggests; this one does not, and in
+any case would not have authorized running that intervention. Four cases (two
+used for development) remain retrospective calibration, not open-ended
+discovery.
 
 A 2026-09-04 diagnostic bounds it further. Applying all four proposers to all
 four frozen packages leaves the off-diagonal empty: 12 of 12 cross-applications
 refuse on a field-signature guard before producing anything. The proposal layer
-is four case-specific programs behind a dispatch table, not one grammar, so the
-frozen protocol's "no case-specific code paths" condition is not satisfied and
-cross-case proposal generality is measured at zero. What the pass established
+is four case-specific programs behind a dispatch table, not one grammar — and
+the packer that feeds it is four hand-written per-case adapters that assign the
+very field the dispatch keys on, so the case-specificity sits on both sides of
+the freeze. The frozen protocol's "no case-specific code paths" condition is not
+satisfied and cross-case proposal generality is measured at zero. What the pass established
 stands — the freeze/reveal/audit seam works end to end on real archived
 evidence — but it is a statement about that seam, not about proposal
 generation.
