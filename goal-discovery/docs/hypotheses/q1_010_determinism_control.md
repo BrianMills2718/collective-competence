@@ -117,6 +117,10 @@ experiment_declaration:
       - The commons is not re-run; every commons figure cited is Q1-009's.
       - Whether some other null or statistic separates determinism from coordination is untested.
 ---
+> **Source:** `goal-discovery/src/experiments/q1_010_control/` — `traces.py`
+> (arms), `calibrate.py` (nulls only), `run.py` (frozen gates); tests in
+> `goal-discovery/tests/test_q1_010_control.py`.
+
 # Q1-010 — is EI-above-shuffle-null a coordination detector or a determinism detector?
 
 [Project wiki](../../../wiki/index.md) · [Ontology](../../../wiki/ontology.md) ·

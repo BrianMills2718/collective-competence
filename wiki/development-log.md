@@ -151,6 +151,22 @@ this repository declares lifecycle in YAML frontmatter — so its "230 undeclare
 is a convention mismatch, not a backlog, and adopting a second lifecycle
 convention to satisfy it is not worth the ceremony.
 
+**Sweeps, 2026-09-06.** Three restored modules, a corrected attribution and one
+recorded non-action. `vector_dynamics`, `representation_discovery` and
+`predictive_goal` are back: three result records give **reproduction commands**
+that name them, and removing the code left those records promising a
+reproducibility they could not deliver. That is the fourth non-import consumer
+the archive criterion missed, after a goal, the evidence preserve-rule and the
+experiment register — recorded as [F19](failure-log.md), whose deeper cause is
+that **experiment records do not cite the code that produced them**.
+
+**A false attribution, caught before it was written down.** The cockpit renders
+empty on some loads, and a first comparison suggested this session had broken it.
+Running both revisions back-to-back under identical conditions reversed that: the
+pre-session revision renders empty **3 of 4** times and the current one **1 of
+4**. The intermittency is pre-existing and unrelated to this session's changes.
+A single screenshot of that app is not evidence.
+
 **What this does not establish.** No scientific claim changed. No result record,
 protocol, or result package was altered by any of it. The goal register is a
 draft with no authority, and the substrate question is open.
