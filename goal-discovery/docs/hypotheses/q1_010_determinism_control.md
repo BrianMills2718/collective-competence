@@ -7,6 +7,13 @@ artifact_intent:
   creation_justification: "Freeze the deterministic-independent control the slot family never had, to decide whether EI-above-shuffle-null separates coordination or separates determinism, before that statistic is used to test completion-condition clause 2."
   separate_file_reason: A preregistration must stay inspectable beside, and distinct from, its later result.
   retirement_condition: Archive only after clause 2 is validly tested or the statistic is withdrawn.
+metadata_note: >-
+  The capability_claims, goal_criteria, competence_profile and
+  intervention_contract blocks were added after the prose was frozen in daba7f0,
+  solely to satisfy the register's machine-readable ontology contract. They
+  restate the frozen prose and change no gate, threshold, arm definition, seed
+  set, null replicate count, prediction or disposition. The prose in daba7f0 is
+  the authority if the two ever disagree.
 experiment_declaration:
   contract_version: 1
   primary_research_purpose: calibration
@@ -31,6 +38,7 @@ experiment_declaration:
   focal_boundary_and_scale:
     boundary: The observed five subunits as a joint system; micro is their act pattern.
     scale: Micro only. Causal emergence is not re-measured; Q1-009 answered that.
+    rationale: The claim under test is about the micro statistic's response to coordination, so the coarse-graining is held identical to Q1-009's and no partition is searched.
   mechanism:
     summary: derived_phase acts when (t mod P) equals (need mod P) with P equal to the population size N. private_period replaces the shared P with p_i taken from the unit's own need, and changes nothing else.
     access_status: known
@@ -49,6 +57,44 @@ experiment_declaration:
     candidate_family_provenance: authored
     information_budget: No search over partitions, thresholds or arms.
     fitting_boundary: Observed-unit count, seed set, null replicate count and both gates are frozen here and may not change after any value is read.
+  capability_claims:
+    - capability_id: coordination_vs_determinism_discrimination
+      operation: Report whether effective information above a per-unit shuffle null distinguishes a coordinated population from a deterministic population that lost its shared period.
+      attribution_boundary: The measure, not the studied specimen.
+      interface: Per-tick action patterns in; effective information above a pre-committed null, and mean need-satisfaction, out.
+      operating_conditions: 1593 admissible seeds per arm, eight shuffle-null replicates, observed-unit count and both gates fixed before any value is read.
+      resource_bounds: One pass per arm; no specimen parameter altered; the commons is not re-run.
+      failure_semantics: G-B failing means the arm is not an uncoordinated control and the result is invalid rather than a refutation. A gate below its own measured null would be a protocol defect and is prevented by the calibration script's structural refusal to compute an observed value.
+      evidence_source: results/q1-010-determinism-control/result.json and null_calibration.json.
+      provenance: authored
+      claim_assessment: not_tested
+  goal_criteria:
+    - criterion_id: statistic_reports_structure_only_where_coordination_is_present
+      form: EI-micro above its own shuffle null exceeds two null standard deviations for the coordinated arm and not for a deterministic arm without a shared period.
+      focal_boundary: The observed five subunits as a joint system.
+      provenance: authored
+      temporal_scope: Whole run, aggregated across seeds.
+      tolerance: G-A at 0.1217 bits; G-B at 0.80 relative satisfaction.
+      claim_assessment: not_tested
+      rival_explanations:
+        - the statistic reads determinism rather than coordination
+        - finite-sample bias inflating the null for sparsely-visited rows
+        - duty-cycle mismatch driving the comparison rather than schedule structure
+  competence_profile:
+    - dimension: attainment
+      value: Reported by the frozen gates G-A and G-B
+      units: bits for the statistic; fraction of subunits meeting need for performance
+      uncertainty: Eight shuffle-null replicates per arm; mean and standard deviation reported.
+      claim_assessment: not_tested
+      individual_failures: Recorded in the result, including the analyst's falsified prediction and the ungated primes arm's negative value.
+      transfer_boundary: One specimen family, one coarse-graining; the commons is explicitly not covered.
+  intervention_contract:
+    target: None on the specimen. Arm identity is the whole manipulation.
+    operation: Replace the shared period with a per-unit period taken from that unit's own need; nothing else changes.
+    scope: The population's schedule, applied identically to every unit.
+    timing: Fixed at initialization; no within-run intervention.
+    persistence: Whole run.
+    counterfactual_comparator: The identical seed set under derived_phase, the arm carrying the shared period.
   challenge_family:
     initial_conditions: 1593 admissible seeds, identical seed set across arms.
     perturbations: Arm identity is the whole manipulation.
@@ -60,8 +106,16 @@ experiment_declaration:
   evidence:
     provenance: observed
     claim_assessment: not_tested
-    review_status: not_reviewed
+    review_status: result_reviewed
     result_source: goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md
+    abstention: G-B failing means private_period is not an uncoordinated control; the correct output is then invalid rather than a refutation, and no reading of G-A is taken.
+    counterevidence: Q1-009's commons frozen arm at +0.198 above null, 5.4 null sd, with coordination absent -- not addressed by this experiment and explicitly out of its scope.
+    limitations:
+      - One specimen family, one coarse-graining, one observation contract, 1593 seeds.
+      - Not a clause-2 test; these arms are not the completion condition's matched pair and nothing here is blind.
+      - private_period_primes is not duty-matched (0.0578 against 0.0865) and carries no gate.
+      - The commons is not re-run; every commons figure cited is Q1-009's.
+      - Whether some other null or statistic separates determinism from coordination is untested.
 ---
 # Q1-010 — is EI-above-shuffle-null a coordination detector or a determinism detector?
 

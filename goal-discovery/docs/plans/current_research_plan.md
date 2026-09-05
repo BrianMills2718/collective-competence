@@ -62,6 +62,17 @@ relative improvement over persistence.
 Nothing else is queued. Item 1 below is finished and is kept for what it changed;
 item 2 is the action.
 
+**This action was challenged on 2026-09-05 and survives.** A
+[prose-vs-code audit](../audits/2026-09-05b_prose_vs_code_audit.md) argued that
+EI-above-shuffle-null reads determinism rather than coordination, and that the
+re-run would therefore produce a clause-2 pass on an unqualified instrument.
+[Q1-010](../hypotheses/q1_010_determinism_control_results.md) tested that
+objection on Q1-006's own family with a gate frozen against a null committed
+beforehand, and the objection **failed its own gate**: on the slot, the statistic
+separates coordination (+6.3 null sd) from a deterministic population that lost
+its shared period (+1.7 sd) from an independent draw (~0). The re-run proceeds.
+What survives the test is recorded as debt 4 below.
+
 *Revised 2026-09-05 — measure the macro description, do not define it.*
 
 1. ~~Q1-009: effective information and empowerment on the existing specimens.~~
@@ -93,7 +104,7 @@ shape, on a statistic whose null is measured rather than assumed — so the re-r
 should carry the null-subtracted form rather than an absolute ceiling, and it now
 has a second statistic to cross-check against.
 
-**Three debts Q1-009 opened. Two are paid; the third is not.**
+**Four debts. Two are paid; two are not.**
 
 1. ~~The commons arms have no matched-independent control.~~ **Paid 2026-09-05.**
    The commons specimen now carries a `random` arm matched to each seed's own
@@ -118,7 +129,27 @@ has a second statistic to cross-check against.
    and checked by the same agent in the same session, and that is the same
    structural problem the charter's clause 4 names for the analytic instrument.
    The cheapest countermeasure is an independent review pass on any experiment
-   before its result record is treated as evidence.
+   before its result record is treated as evidence. **Reinforced 2026-09-05:** a
+   [prose-vs-code audit](../audits/2026-09-05b_prose_vs_code_audit.md) found five
+   further defects of exactly this shape, none detectable by any green check —
+   including a C2 anti-smuggling guard that guards a function no experiment calls
+   and asserts a property the code violates, and a test suite that cannot be
+   collected at all on a clean checkout. This debt now outranks the information
+   barrier in value.
+
+4. **The EI reading is supported on one family, not two, and is graded rather
+   than binary.** [Q1-010](../hypotheses/q1_010_determinism_control_results.md)
+   qualified the statistic on the slot but left three things standing. The
+   deterministic-independent arm still reaches **39%** of the coordinated arm's
+   effect, so "essentially nothing where it is absent" overstates it. The
+   **commons is untouched**: Q1-009's own table puts the uncoordinated `frozen`
+   arm at +0.198, which is 5.4 null sd, against `random`'s +0.006, and no
+   experiment explains that — so the "on two families" clause in Q1-009's
+   correction section is unsupported on the commons and should be narrowed. And
+   two deterministic arms (`constant_phase` −0.118, `private_period_primes`
+   −0.155) score *below* their own nulls, plausibly from duty-driven null
+   inflation, which is untested. The cheap next move on this debt is a commons
+   deterministic-independent arm, not another slot arm.
 
 **The scope question this replaces.** Whether the constructive arm is about
 *composition* or *coordination* was raised on 2026-09-05 and is **withdrawn as
@@ -184,7 +215,7 @@ rather than deciding it or inventing a parallel tracker.
 | What is the full purpose and scientific scope? | [Project charter](../PROJECT.md) |
 | What is the vocabulary and how do the concepts relate? | [Research ontology](../../../wiki/ontology.md) |
 | What has accumulated across all experiments? | [Research synthesis](../../../roadmap/research.md) |
-| What exactly happened in the latest run? | [Q1-008 result](../hypotheses/q1_008_null_coupling_control_results.md) and [protocol](../hypotheses/q1_008_null_coupling_control.md) — the last of the twelve experiments of 2026-09-04. This row pointed at P14 until 2026-09-05, twelve runs out of date. |
+| What exactly happened in the latest run? | [Q1-010 result](../hypotheses/q1_010_determinism_control_results.md) and [protocol](../hypotheses/q1_010_determinism_control.md) — the deterministic-independent control, run 2026-09-05. Its analyst's recorded prediction was falsified by its own frozen gate. |
 | Which records exist and how are they classified? | [Experiment register](../../../roadmap/experiments.md) |
 | How does the implemented apparatus fit together? | [Apparatus map](../../../roadmap/apparatus.md) |
 

@@ -60,6 +60,7 @@ becoming current instructions.
 - [2026-08-30_p8_c1_vertical_slice.md](../goal-discovery/docs/audits/2026-08-30_p8_c1_vertical_slice.md)
 - [2026-08-30_p9_c1_blind_sorting_ui.md](../goal-discovery/docs/audits/2026-08-30_p9_c1_blind_sorting_ui.md)
 - [2026-09-05_external_assessment.md](../goal-discovery/docs/audits/2026-09-05_external_assessment.md)
+- [2026-09-05b_prose_vs_code_audit.md](../goal-discovery/docs/audits/2026-09-05b_prose_vs_code_audit.md)
 - [v1.md](../goal-discovery/docs/audits/v1.md)
 
 ## goal-discovery/docs/hypotheses
@@ -166,6 +167,8 @@ becoming current instructions.
 - [q1_008_null_coupling_control_results.md](../goal-discovery/docs/hypotheses/q1_008_null_coupling_control_results.md)
 - [q1_009_information_measures.md](../goal-discovery/docs/hypotheses/q1_009_information_measures.md)
 - [q1_009_information_measures_results.md](../goal-discovery/docs/hypotheses/q1_009_information_measures_results.md)
+- [q1_010_determinism_control.md](../goal-discovery/docs/hypotheses/q1_010_determinism_control.md)
+- [q1_010_determinism_control_results.md](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md)
 
 ## goal-discovery/docs/plans
 

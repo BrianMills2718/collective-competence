@@ -66,6 +66,7 @@ than reconstructing definitions from historical experiment prose.
 | What is the programme betting on that could turn out false? | [Standing conjectures](conjectures.md) — canonical; each with a stated refuter |
 | Which of these terms are actually decidable, and by what measure? | [What this vocabulary makes decidable](ontology.md#what-this-vocabulary-makes-decidable-and-what-it-does-not) — canonical; the formalization inventory and candidate measures |
 | How does this programme look to someone outside it? | [External assessment, 2026-09-05](../goal-discovery/docs/audits/2026-09-05_external_assessment.md) — a point-in-time judgement by a fresh reader, with each finding marked open or closed |
+| Does the code do what the prose beside it says? | [Prose-vs-code audit, 2026-09-05](../goal-discovery/docs/audits/2026-09-05b_prose_vs_code_audit.md) — five findings the green check surface cannot detect, one of them since tested and partly refuted |
 | What is the terminology and how do the concepts relate? | [Canonical research ontology](ontology.md) |
 | What is the integrated purpose and scientific boundary? | [Scientific charter](../goal-discovery/docs/PROJECT.md) |
 | How can mechanisms and capabilities produce collective competence? | [Research roadmap](../roadmap/README.md), then the [apparatus map](../roadmap/apparatus.md) and relevant experiment evidence |
@@ -113,7 +114,13 @@ next action and is the file to read second.*
 **One action is next.** Re-run
 [Q1-006](../goal-discovery/docs/hypotheses/q1_006_pairwise_relation_results.md)'s
 comparison with a **null-calibrated threshold**, which settles the analytic
-instrument's completion-condition clause 2 either way.
+instrument's completion-condition clause 2 either way. A
+[2026-09-05 audit](../goal-discovery/docs/audits/2026-09-05b_prose_vs_code_audit.md)
+argued that this re-run would inherit a confound and should be held;
+[Q1-010](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md)
+tested that objection on Q1-006's own family and **falsified it**, so the re-run
+stands. What the audit's objection does still hold against is the commons, and
+that is recorded below.
 
 **[Q1-009](../goal-discovery/docs/hypotheses/q1_009_information_measures_results.md)
 ran first and answered a prior question: there is no causal emergence here.** On
@@ -138,6 +145,18 @@ now records this, alongside an honest inventory of what the vocabulary makes
 decidable: competence as defined here is a nine-question rubric with no
 combining rule, so "A is more competent than B" is not decidable from the
 ontology alone.
+
+**One instrument claim is narrower than the plan states.** Q1-009's reading that
+effective information above its own shuffle null "reports structure where
+coordination is present and reports essentially nothing where it is absent, on
+two families" is supported on the slot and **not on the commons**, where Q1-009's
+own table puts the uncoordinated `frozen` arm 5.4 null standard deviations above
+its null. [Q1-010](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md)
+built the deterministic-independent arm the slot family lacked and found the
+statistic holds there — coordinated +6.3 null sd, deterministic-independent +1.7,
+independent draw ~0 — but the deterministic arm still reaches 39% of the
+coordinated effect, and two deterministic arms now score *below* their own nulls,
+so the response is graded and non-monotonic rather than clean.
 
 **Both arms are now live, and both are narrower than they first read.**
 [The conjecture register](conjectures.md) is canonical and admits a claim only

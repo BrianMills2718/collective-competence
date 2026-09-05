@@ -16,7 +16,7 @@ experiment_declaration:
   evidence:
     provenance: observed
     claim_assessment: tested
-    review_status: not_reviewed
+    review_status: result_reviewed
     result_source: goal-discovery/results/q1-010-determinism-control/result.json
 ---
 # Q1-010 result — the statistic survives on the slot, and my prediction did not
