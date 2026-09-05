@@ -117,6 +117,26 @@ is not: being ours makes it ours, not verified. `misc/` is now empty, which is
 its intended steady state. Earlier entries in this log name the old
 `misc/platonic-ingress-toy-automata` path and are left as written.
 
+**An ADR surface, installed rather than invented, and citing rather than
+absorbing.** Asked whether "decisions" differ from ADRs, the answer was no:
+`capability_ownership_registry.yaml` records `enforced-planning.adr_pattern` as
+**adopted**, hosted in enforced-planning and project-meta, and calls it *"the
+most mechanically portable governance artifact found in this ecosystem."*
+
+Eight decisions now have [numbered ADRs](../goal-discovery/docs/adr/README.md),
+four of them **negative** — *do not install CompuCell3D*, *stop the internal
+simulator search*, *stop the Slime line*, *do not make Mesa the default* — which
+are the most valuable entries, since they exist to stop an evaluation being run
+twice. **Nothing was moved, archived or rewritten**: the ADRs cite their sources,
+because the sources turned out to be registered experiment artifacts. See
+[F17](failure-log.md). `scripts/relationships.yaml` arrives with the pattern and
+is also what `archive_lifecycle.py` needed; the reporter now runs here over 220
+documents.
+
+Research-direction decisions stay with the conjecture register, charter, failure
+log and plan. `p2_research_pivot.md` was a candidate and was rejected on that
+rule: pivoting away from the thermostat family is direction, not architecture.
+
 **What this does not establish.** No scientific claim changed. No result record,
 protocol, or result package was altered by any of it. The goal register is a
 draft with no authority, and the substrate question is open.

@@ -78,6 +78,17 @@ python3 scripts/render_status_page.py --check
 python3 scripts/check_archive_index.py
 ```
 
+Architecture and tooling decisions are
+[ADRs](../goal-discovery/docs/adr/README.md), installed 2026-09-05 from
+enforced-planning's adopted pattern rather than invented here. They are
+immutable and superseded rather than edited, and `scripts/relationships.yaml`
+maps source files to the decisions that govern them. That file is also what
+`enforced-planning/scripts/archive_lifecycle.py` requires: without it the shared
+lifecycle reporter refused to run against this repository at all, which is why
+archiving looked blocked on tooling for weeks. Research-direction decisions are
+**not** ADRs — they belong to the conjecture register, the charter, the failure
+log and the current plan.
+
 The last one is the evidence-custody guard, added 2026-09-05. It fails when a
 result package that a tracked document or module references is not itself
 tracked, which is how thirteen packages backing the live conjectures stayed

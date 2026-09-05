@@ -1,0 +1,56 @@
+# File-to-decision mappings, per enforced-planning's ADR pattern
+# (~/projects/enforced-planning/patterns/07_adr.md, step 4: "scripts/governance.yaml
+# ... can be unified into relationships.yaml").
+#
+# This file has a second consumer. enforced-planning's archive_lifecycle.py --
+# the ecosystem's report-only document-lifecycle and archive-blocker reporter --
+# refuses to run against a repository without it:
+#
+#   archive-lifecycle: relationship config does not exist:
+#   /home/brian/code/collective-competence/scripts/relationships.yaml
+#
+# That refusal is why this repository's plan spent weeks recording that archiving
+# was blocked on shared tooling. See wiki/failure-log.md F13.
+version: 1
+governance:
+  - files:
+      - goal-discovery/src/experiments/sorting/model.py
+      - goal-discovery/src/experiments/sorting/laboratory.py
+    adrs:
+      - "0002-mesa-as-optional-backend-not-default"
+    description: >-
+      ADR-0002: Mesa is an optional backend, not the default architecture, and
+      completed experiments are not migrated to it. The sorting replication stays
+      on its own implementation.
+  - files:
+      - goal-discovery/src/spikes/netlogo_flocking/run.py
+      - goal-discovery/src/spikes/netlogo_fireflies/run.py
+      - goal-discovery/src/spikes/netlogo_slime/run.py
+      - goal-discovery/src/spikes/netlogo_heatbugs/run.py
+    adrs:
+      - "0003-adopt-netlogo-for-visual-prototyping"
+      - "0006-reuse-netlogo-scikit-image-and-networkx"
+    description: >-
+      ADR-0003 and ADR-0006: NetLogo is the visual-prototyping and model-supply
+      route; Python remains the analysis and evidence layer. These spikes exist
+      because of those decisions and should not be reimplemented in Python.
+  - files:
+      - goal-discovery/src/cockpit/app.py
+      - goal-discovery/src/workbench/app.py
+    adrs:
+      - "0004-adopt-a-small-visual-analytics-stack"
+    description: >-
+      ADR-0004: a deliberately small visual-analytics stack, Panel/HoloViews
+      passed and the fallback survey stopped. Adding a renderer is an ADR-level
+      change, not an implementation detail.
+  - files:
+      - goal-discovery/src/spikes/morpheus_neuromast/run.py
+    adrs:
+      - "0007-select-morpheus-m4377-for-one-causal-calibration"
+      - "0008-no-candidate-qualifies-do-not-install-compucell3d"
+      - "0009-stop-internal-simulator-search"
+    description: >-
+      ADR-0007 selected Morpheus M4377 for one bounded calibration. ADR-0008 and
+      ADR-0009 are the negative decisions beside it: do not install CompuCell3D,
+      and stop the internal simulator search. Read all three before proposing
+      another simulator integration.
