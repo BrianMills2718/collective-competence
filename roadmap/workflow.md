@@ -76,6 +76,7 @@ python3 scripts/check_evidence_custody.py
 python3 scripts/render_status_page.py --write
 python3 scripts/render_status_page.py --check
 python3 scripts/check_archive_index.py
+python3 scripts/check_links.py
 ```
 
 Architecture and tooling decisions are

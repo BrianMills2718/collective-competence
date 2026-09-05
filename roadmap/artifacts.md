@@ -27,6 +27,10 @@ becoming current instructions.
 - [README.md](../experiments/morphogenesis-scaling/README.md)
 - [RESULTS.md](../experiments/morphogenesis-scaling/RESULTS.md)
 
+## experiments/platonic-ingression
+
+- [README.md](../experiments/platonic-ingression/README.md)
+
 ## experiments/platonic-ingression/narrative
 
 - [README.md](../experiments/platonic-ingression/narrative/README.md)
