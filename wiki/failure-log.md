@@ -140,6 +140,24 @@ axis on which it advances beyond its predecessor, and the programme needs a
 **goal list** so "simplest configuration that resolves the goal" has a second
 term. Neither exists yet.
 
+## F11 — Code deleted against current state, not against goals — `CLOSED`
+
+**What happened.** The 2026-09-05 archive pass removed ten experiment packages
+on the criterion that no source file imported them (`b7f8876`). Two of them —
+`compensation` and `adaptation` — are required specimens for
+[First Wave question 4](goals.md#d4--does-the-analysis-classify-contrastive-systems-correctly),
+which asks whether one analysis can separate passive convergence,
+negative-feedback regulation, compensation and adaptation.
+
+**Why it happened.** The criterion was import analysis: a fact about what the
+current code calls. The goal register did not exist yet, so there was nothing to
+check the deletion against except the code's own present shape.
+
+**Closed** by restoring both packages and their tests. Nothing was lost — Git
+retained them — but the near-miss is the exact failure the goal register exists
+to prevent, committed on the same day while drafting it. Recorded rather than
+quietly reverted.
+
 ## F3 — A gate frozen below its own statistic's null, three times — `CLOSED`
 
 **What stopped.** Q1-006 froze a clause-2 ceiling at 0.10 when the statistic's

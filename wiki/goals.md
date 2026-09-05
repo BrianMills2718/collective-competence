@@ -3,251 +3,185 @@ doc-role: research-goal-register
 authority: draft
 lifecycle: active
 sources:
-  - ../goal-discovery/docs/sources/briefs/Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md
-  - ../goal-discovery/docs/sources/briefs/Addendum_3_Robinson_Crusoe_Dynamical_Laboratory.md
+  - ontology.md
   - ../goal-discovery/docs/sources/briefs/First_Wave_Goal_Discovery_Implementation_Brief.md
-  - competence-thesis.md
+  - ../goal-discovery/docs/sources/briefs/Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md
+  - ../experiments/01-self-sorting/README.md
   - substrate-design.md
-  - failure-log.md
 ---
 # Research goals — draft for review
 
-[Project wiki](index.md) · [Substrate design](substrate-design.md) ·
-[Thesis](competence-thesis.md) · [Failure log](failure-log.md)
+[Project wiki](index.md) · [Ontology](ontology.md) ·
+[Substrate design](substrate-design.md) · [Failure log](failure-log.md)
 
-> **DRAFT. Authority: none until reviewed.** Written 2026-09-05 at the owner's
-> request after a full documentation review, to supply the missing second term
-> in the method: *constrain the substrate to the simplest configuration that
-> resolves the goals.* Nothing here authorizes work.
+> **DRAFT. Authority: none until reviewed.** Revised 2026-09-05 after the owner
+> narrowed the scope: *"we should only really be working on the discovery arm
+> extending the work that starts with the sorting algorithm. and then we will
+> learn things from that before going onto these other questions about authoring
+> etc."*
 
-## The main finding of the review: this list already existed
+## Scope, as narrowed
 
-**Almost nothing below is new.** The founding briefs contain the scientific
-question, the substrate specification, the capability dimensions, a fourteen-step
-model ladder and a thirteen-phase experiment sequence. The programme did not
-follow them, and every framing correction the owner made across today's design
-discussion — pre-biological scope, capability rather than production, generalized
-cellular automata, detection rather than performance, minimality — restates
-something already written in his own founding documents.
+**One arm.** Goal and Competence Discovery only. The constructive arm is not
+worked on, and questions about recovering *authored* structure are deferred —
+they presuppose a construction arm producing specimens to recover.
 
-This register is therefore mostly **recovery**, and should be read as a
-reconciliation rather than a proposal. Where the agent adds something, it is
-marked.
+**One lineage.** The sorting system and the contrastive toy systems beside it.
+Not the commons, not the contended slot, not a new substrate.
 
-## The scientific question, verbatim
+**One output.** [The ontology](ontology.md#goal-and-competence-may-be-jointly-assessed-from-behavior)
+already specifies what the analytic arm returns:
 
-From the laboratory spec, section 2, *"What we are ultimately trying to learn"*:
+```text
+(candidate goal criterion,
+ competence profile,
+ focal boundary and scale,
+ observation/representation contract,
+ evidence status, alternatives, and confidence limits)
+```
 
-> **How do useful dynamical structures, control relationships, and forms of
-> competence arise and change as simple systems become internally richer,
-> coupled, and organized across scales?**
+with `abstain` and `underdetermined` admissible. *"Goal discovery is not a
+requirement to force a goal label onto every system."*
 
-And the second, stated there as more ambitious:
+Every goal below is a part of producing that structure for sorting that does not
+yet work.
 
-> **Under what conditions does a higher-level description of a coupled system
-> become sufficiently predictive, controllable, or causally informative that it
-> is useful to treat the higher-level organization as a distinct system?**
+**This is allowed on a constructed specimen.** The ontology lists
+*"constructed = authored answer"* as a category error: *"A constructed specimen
+can be analyzed blind-first with intent withheld."* Sorting being built here does
+not make analysing it construction work.
 
-The same section lists where analogous mechanisms might eventually appear —
-simple deterministic systems, adaptive computational systems, physical/resource
-environments, collective agents, organizations, economic systems — and adds:
-*"We should not assume in advance that the answer is yes."*
+## The previous draft's errors
 
-## The substrate, as already specified
+The first draft of this file proposed six goals in the agent's vocabulary rather
+than this project's. Two specific faults, both corrected here:
 
-Laboratory spec section 28: the preferred first substrate is
-*"a discrete interacting dynamical system with local state and explicit
-transition rules,"* of which *"a standard cellular automaton is a particularly
-constrained case."* A general entity-based discrete system may contain:
-
-- discrete positions
-- heterogeneous entity states
-- local neighborhoods
-- explicit coupling
-- different update schedules
-- persistent internal variables
-
-Section 29 starts it at 1-D for tiny state, cheap execution, exact
-observability, deterministic reproducibility and arbitrary perturbation.
-
-**This is the answer to "what should the substrate be."** It was specified before
-any code was written, and it is what the owner restated independently as
-*"basically like cellular automata but probably more generalized."*
-
-## The capability dimensions, and a correction to the agent's proposal
-
-Laboratory spec section 20, *"Intelligence dimensions are experimental variables,
-not necessarily levels"* — twelve capabilities to manipulate **independently**:
-
-`sensing` · `memory` · `feedback` · `internal state` · `prediction` ·
-`learning` · `exploration` · `generalization` · `planning` · `communication` ·
-`policy adaptation` · `self-modeling`
-
-> *"A system can have one without another. Do not build a universal intelligence
-> hierarchy unless the literature or experiments justify it."*
-
-**This corrects the agent's round-three proposal.** The Chomsky hierarchy was
-offered as *the* capability axis; the brief says explicitly not to build a
-universal hierarchy. What survives is narrower and compatible: the Chomsky
-ladder is a **proved ordering within the `memory` dimension alone** — a finite
-automaton is strictly weaker than one with a counter — and its value is that it
-supplies cases where absence is provable. It is one dimension's yardstick, not
-the programme's spine.
-
-These twelve are also the answer to *"one component contributes memory, one
-contributes learning"*: `memory`, `learning` and `policy adaptation` are three of
-the twelve, listed as independently manipulable.
-
-## Where the programme actually is
-
-The addendum's thirteen-phase sequence, against reality:
-
-| Phase | | Status |
-|---|---|---|
-| A | Minimal discrete dynamics — smallest reusable runner | **partial and duplicated** — `selfsort.py` and `src/substrate/` are two incompatible runners |
-| B | Trajectory analysis | partial — the cockpit, five days stale |
-| C | Perturbation | **partial** — five perturbation kinds exist, single-shot only |
-| D | Dynamical structures — recurrence, periodicity, stability | partial |
-| E | **Levin sorting** | **done** — replication of Zhang, Goldstein & Levin |
-| F | Black-box/white-box comparison — does generic analysis recover known structure | **this is the entire Q1 series**, unresolved |
-| G–J | representations · system identification · multiscale/causal · topological | touched: P7, Q1-009 |
-| K | **Capability additions — sensing, memory, feedback, learning, one at a time** | **not started** |
-| L | Richer environments | not started, correctly |
-| M | **LLMs and economics** — *"only after the preceding results justify"* | **executed early as C1/C2** |
-
-**Row M is the drift, precisely located.** The renewable commons is phase-M
-content run at phase-F time. Everything the owner objected to today follows from
-that one inversion.
+- **"Maintenance versus arrival" was not our language.** The ontology's
+  competence profile already has the distinction as its first row —
+  *"Attainment or maintenance: does the system reach or preserve
+  criterion-satisfying histories?"* — and the non-equivalence table already
+  names the rival explanation: *"Goal = attractor or invariant. Passive dynamics
+  can converge or preserve structure without active goal-directed performance."*
+  The question is D2 below, under its proper name.
+- **Recovering authored structure was too far.** It was drafted as G2 and is now
+  deferred entirely.
 
 ## The goals
 
-Each goal states the question, the **minimal substrate configuration** that can
-resolve it, and what already bears on it. Configuration is given as the
-capability dimensions and structural properties required — anything not listed is
-deliberately absent.
+All six restate questions from
+[the First Wave brief's closing section](../goal-discovery/docs/sources/briefs/First_Wave_Goal_Discovery_Implementation_Brief.md),
+which already scoped the discovery arm on sorting. The brief's numbering is
+noted. Nothing here is new; the mapping to ontology vocabulary is the only
+addition.
 
-### G1 — Can we tell maintenance from arrival?
+### D1 — Can a candidate goal criterion be inferred without semantic labels?
 
-**Question.** From behaviour alone, can an analyst distinguish a system that is
-*maintaining* a configuration against ongoing disturbance from one that merely
-*arrived* at it and stopped?
+*First Wave question 1.* Can a small, pre-specified representation set recover
+the sorting tendency from behaviour alone, with no task labels in the
+observation contract?
 
-**Minimal configuration.** 1-D line · uniform reactive elements · no memory · no
-shared signal · local neighbourhood · **repeated perturbation** · scheduler as
-the varied dimension · target in the measurement only.
+**Ontology terms.** Produces the `candidate goal criterion` field of the analytic
+result, under a declared `observation/representation contract`.
 
-**Bears on it.** Experiment 01 at D=20: `central_closed` recovers 0.00,
-`central_watchdog` 1.00. One observation, single perturbation.
+**Bears on it.** P10–P13 established a narrow proposal/freeze/challenge seam.
+P15 measured proposal generality at **zero** — 12 of 12 cross-applications refuse
+on a field-signature guard.
 
-**Cost.** One change: make the perturbation schedule repeat. Phase C completion.
+### D2 — Can goal-directed performance be told apart from passive convergence?
 
-### G2 — Does generic analysis recover structure the constructor authored?
+*First Wave question 3.* Does sorting exhibit behaviour stronger than a passive
+attractor under targeted perturbations?
 
-**Question.** Phase F, and the charter's completion condition. Under a frozen
-observation contract, does the analytic path name the coordinating structure
-actually authored, and abstain where it is absent?
+**Ontology terms.** This is the **attainment or maintenance** row — *reach or
+preserve* — evaluated against the declared **robustness** and **recovery** rows,
+with *"Goal = attractor or invariant"* as the rival explanation the ontology
+already forbids conflating.
 
-**Minimal configuration.** Whatever G1 uses, plus a withheld design and a matched
-specimen with the structure removed.
+**Bears on it.** Experiment 01, disturbing 20 operations after first sorted:
+`central_closed` recovers **0.00**, `central_watchdog` **1.00**. One perturbation,
+fired once.
 
-**Bears on it.** Q1-001 through Q1-010. Clause 1 met on two families; **clause 2
-never validly tested**; clause 4 unsatisfiable with one agent writing both sides.
+**What it needs.** The perturbation schedule currently fires **once** —
+`fired = perturbation is None` in `selfsort.py`. Repeating it is the change that
+turns a single observation into a measurable robustness profile.
 
-**Blocked on.** A negative control whose ground truth is proved rather than
-asserted — see G3 — and an information barrier.
+### D3 — Which profile dimensions are measurable from observation alone?
 
-### G3 — Can capability class be detected from behaviour?
+*First Wave question 2.* Which measures distinguish approach, persistence and
+recovery — and which of the nine competence-profile dimensions require
+intervention rather than observation?
 
-**Question.** Given a system whose element capability is known by construction,
-does analysis recover it? Specifically for `memory`, where absence is provable:
-a finite automaton *cannot* hold a counter.
+**Ontology terms.** Directly the `competence profile` field. The ontology permits
+reporting only the dimensions actually measured, *"with others marked untested or
+unknown"* — this goal is finding out which those are for sorting.
 
-**Minimal configuration.** G1's, plus **one capability dimension varied** —
-`memory` — across elements. Nothing else.
+### D4 — Does the analysis classify contrastive systems correctly?
 
-**Bears on it.** `misc/platonic-ingress-toy-automata` measured the ladder
-(`3-state DFA → one counter` on Dyck-1; `pushdown → two counters` on aⁿbⁿcⁿ).
-Design input, not evidence: no runnable source here, controls never run.
+*First Wave question 4.* Can the same analysis separate passive convergence,
+negative-feedback regulation, compensation, and adaptation?
 
-**Why it matters beyond itself.** It is the only source in the programme of a
-negative control that cannot be argued with, which is what G2 has always lacked.
+**Ontology terms.** Tests the **robustness / recovery / adaptation** distinctions
+the ontology draws but that no analysis here has had to respect —
+*"Robustness = adaptation"* is a listed category error, since *"robustness can
+require no change; adaptation specifically involves restorative or improving
+change."*
 
-### G4 — Does a higher-level description earn being treated as a system?
+**Specimens.** All four exist: `bowl` (passive convergence), `thermostat`
+(negative feedback), `compensation`, `adaptation`.
 
-**Question.** The spec's second ultimate question. When is a macro description
-sufficiently predictive, controllable or causally informative to be worth
-treating as a distinct system?
+> **Correction, 2026-09-05.** `compensation` and `adaptation` were deleted
+> earlier the same day in the archive pass (`b7f8876`), on the criterion that no
+> source file imported them. They are restored in this change. The criterion was
+> import analysis, which is a fact about the current code; this goal is a fact
+> about what the programme intends to do, and it had not been written down yet.
+> That is precisely the failure this register exists to prevent, committed while
+> drafting it.
 
-**Minimal configuration.** G1's, plus **coupling** and a declared
-coarse-graining. Models 8–11 of the addendum ladder.
+### D5 — How much history before a representation is predictively useful?
 
-**Bears on it.** Q1-009: **no causal emergence** on either specimen — the
-coarse-grained description carries strictly *less* effective information than the
-micro one, in every non-degenerate arm. A real negative result on this goal.
+*First Wave question 5.*
 
-### G5 — What does a capability cost, and who paid?
+**Ontology terms.** A property of the `observation/representation contract`, and
+the ontology's warning that *"prediction = competence"* is a category error —
+*"predictability can arise from passive regularity and does not show achievement,
+maintenance, or recovery."*
 
-**Question.** The thesis's central missing vocabulary. What did a competence cost
-to obtain, and was that cost paid inside the system, by its environment, its
-designer, its interface, or its representation?
+### D6 — Which claims survive held-out intervention types?
 
-**Minimal configuration.** Any of the above, plus **one currency** in which every
-controller's operations are priced — including a coordinator's monitoring scans.
+*First Wave question 6.*
 
-**Bears on it.** `selfsort.py` already implements the currency and produced
-*"robustness is bought, not free — the decentralized version pays 1.6×."*
-`levin-wiki`'s partitioned resource ledger is the nearest existing formalism and
-has never been applied here.
+**Ontology terms.** The `evidence status, alternatives, and confidence limits`
+field, and the **generalization/transfer** row — *"does the profile hold outside
+the fitting or calibration conditions?"*
 
-**Note.** Round four framed pricing as what makes a performance comparison fair.
-Under the corrected detection frame it is an **observable** — what a structure
-costs to maintain may or may not be readable from behaviour.
+## Apparatus questions, not research goals
 
-### G6 — Does structure persist without a driver, and when is one needed?
+First Wave questions 7 and 8 — what diagnostic information the trajectory schema
+lacks, and which abstractions are genuinely shared rather than experiment-local —
+are apparatus concerns. They are answered as a by-product of D1–D6, not pursued
+for their own sake.
 
-**Question.** Under a disorder source, structure decays unless something
-maintains it. Does that maintenance come from an external drive, from the
-system's own competence, or either?
+## Deferred, and why
 
-**Minimal configuration.** G1's, plus a **structured external input** varied
-independently of the disturbance.
+| | Why deferred |
+|---|---|
+| Recovering **authored** structure; the charter's completion condition | Presupposes a construction arm. Learn from the discovery arm on sorting first. |
+| Capability composition — memory, learning, one at a time | Phase K of the founding sequence. Below sorting. |
+| External drivers, metastability, dissipative structure | Owner marked it beyond initial scope; needs a disorder source and an energy story sorting does not have. |
+| Free lunch, cost accounting, who-paid | The thesis's central missing vocabulary, and still missing. Not resolvable on sorting alone. |
+| Economics, markets, LLM agents, richer environments | Phases L and M. Out of scope by the pre-biological boundary. |
 
-**Bears on it.** Game of Life settles the undriven case: gliders persist in a
-closed deterministic system, so no driver is needed absent noise. The platonic
-metastability results bear on the driven noisy case and are **design input only**
-— their constitutive law is a chosen toy physics whose controls were never run.
+## What this narrowing supersedes
 
-**Sequencing.** Below G1–G3. The owner has marked it beyond the initial
-experiments and it should not creep back up.
-
-## Explicitly out of scope
-
-- **Economics, markets, prices, quotas, renewable stocks** — phase M, and ruled
-  out by the pre-biological boundary. C1/C2's results are retained; the family is
-  closed.
-- **LLM agents** — phase M, retired rather than deferred; `agent_ecology2/3`.
-- **Richer environments** — phase L. Crafter, MiniHack, Minecraft.
-- **A universal intelligence hierarchy** — forbidden by the spec's own section 20.
-
-## What the agent added, marked
-
-Everything above is recovered from the briefs except:
-
-- **G1 as a distinct goal.** The owner proposed the reframing (an external driver
-  that goes in and breaks the agents); stating it as *maintenance versus arrival*
-  and locating it as phase C completion is the agent's.
-- **The one-axis-per-experiment gate** from
-  [the design discussion](substrate-design.md) — an experiment must name the
-  single dimension it advances beyond its predecessor.
-- **The G3 rationale** that the Chomsky ladder's value is supplying a provable
-  negative control for G2, rather than being a capability spine.
+**The current plan's queued next action.** Re-running Q1-006's comparison with a
+null-calibrated threshold advances the Q1 instrument-qualification sequence on
+the commons and slot families — a lineage this scope excludes. It is not wrong;
+it is out of scope. The plan should be updated rather than the action quietly
+dropped.
 
 ## Open for review
 
-1. Are these the right six, and is anything missing that the briefs do not cover?
-2. Is the ordering right? G1 → G3 → G2 is the agent's read; G2 is the charter's
-   stated prerequisite for everything constructive, but it is blocked on G3.
-3. Do the twelve capability dimensions replace the substrate's five dials
-   outright, or do the dials survive as declared specimen properties?
-4. Should this register become canonical, and if so does it supersede the
-   roadmap's two-arm framing or sit beside it?
+1. Are D1–D6 the right set, and is the First Wave brief's list the right spine?
+2. D2 is the only one with a cheap next step. Is it the first?
+3. Does this register become canonical, and does the charter's two-arm framing
+   stay as the destination while only one arm is worked?

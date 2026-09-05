@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<model version="NetLogo 7.0.4" snapToGrid="true">
+  <code><![CDATA[__includes ["compensation.nls"]]]></code>
+  <widgets>
+    <view x="10" y="10" width="20" height="20" minPxcor="-10" maxPxcor="9" minPycor="-10" maxPycor="9" patchSize="8" wrappingAllowedX="true" wrappingAllowedY="true" frameRate="30" updateMode="1" showTickCounter="true" tickCounterLabel="ticks" fontSize="11"></view>
+    <button x="190" y="10" width="90" height="40" display="Setup demo" kind="Observer" forever="false" disableUntilTicks="false">set arm "route-a-disabled"
+set allocation "reroute"
+set initial-temperature 20
+set ambient-temperature 20
+set setpoint 20
+set relaxation-rate 0.05
+set controller-gain 0.30
+set max-control 2
+set load-magnitude 0.36
+set max-ticks 160
+setup</button>
+    <button x="285" y="10" width="90" height="40" display="Go" kind="Observer" forever="true" disableUntilTicks="true">go</button>
+    <plot x="190" y="60" width="620" height="250" display="Target preservation" xAxis="tick" yAxis="temperature" xMin="0" xMax="160" yMin="10" yMax="30" autoPlotX="true" autoPlotY="true" legend="true"><setup>clear-plot</setup><update></update><pen display="temperature" interval="1" mode="0" color="-955883" legend="true"><setup></setup><update>plot temperature</update></pen><pen display="target" interval="1" mode="0" color="-10899396" legend="true"><setup></setup><update>plot setpoint</update></pen></plot>
+    <plot x="190" y="320" width="620" height="250" display="Actuator routes" xAxis="tick" yAxis="applied control" xMin="0" xMax="160" yMin="-2" yMax="2" autoPlotX="true" autoPlotY="true" legend="true"><setup>clear-plot</setup><update></update><pen display="route A" interval="1" mode="0" color="-2674135" legend="true"><setup></setup><update>plot route-a-applied</update></pen><pen display="route B" interval="1" mode="0" color="-13345367" legend="true"><setup></setup><update>plot route-b-applied</update></pen><pen display="load" interval="1" mode="0" color="-16777216" legend="true"><setup></setup><update>plot external-load</update></pen></plot>
+  </widgets>
+  <info><![CDATA[# Experiment 004
+
+Two actuator routes jointly preserve a target. Click **Setup demo**, then **Go**. At tick 20 route A fails and a sustained load begins. One route drops to zero while the surviving route takes over.]]></info>
+  <turtleShapes><shape name="default" rotatable="true" editableColorIndex="0"><polygon color="-1920102913" filled="true" marked="true"><point x="150" y="5"></point><point x="40" y="250"></point><point x="150" y="205"></point><point x="260" y="250"></point></polygon></shape></turtleShapes>
+  <linkShapes><shape name="default" curviness="0"><lines><line x="0" visible="true"><dash value="1"></dash><dash value="0"></dash></line></lines><indicator><shape name="link direction" rotatable="true" editableColorIndex="0"><line endX="90" startY="150" marked="true" color="-1920102913" endY="180" startX="150"></line><line endX="210" startY="150" marked="true" color="-1920102913" endY="180" startX="150"></line></shape></indicator></shape></linkShapes>
+  <previewCommands>set arm "route-a-disabled"
+set allocation "reroute"
+set initial-temperature 20
+set ambient-temperature 20
+set setpoint 20
+set relaxation-rate 0.05
+set controller-gain 0.30
+set max-control 2
+set load-magnitude 0.36
+set max-ticks 160
+setup
+repeat 160 [ go ]</previewCommands>
+  <experiments></experiments>
+</model>
