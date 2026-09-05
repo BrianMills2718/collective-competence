@@ -360,6 +360,44 @@ the thing rather than reading its label, and each time an existing guard caught
 it before damage. **The guards are load-bearing; the proposals were not
 trustworthy without them.**
 
+## F18 — A promised file was never committed, and no check reads a link — `CLOSED 2026-09-06`
+
+**What was found.** A housekeeping sweep found four dead Markdown links.
+
+Three were left by the 2026-09-05 archive pass: `roadmap/apparatus.md` cited
+`candidate_relations/proposal.py`, `vector_dynamics/model.py` and
+`ants_relational_coupling/model.py`, all removed that day as code with no
+importer. The removal was correct; repairing the document that cited them was
+missed.
+
+**The fourth is the serious one.** `wiki/development-log.md` linked to
+`experiments/platonic-ingression/README.md` — a file whose own pull request
+**described its contents in detail** and which was **never committed**. The
+classification commit moved 46 files and deleted the old `INTENT.md`, so the
+directory ended up with no top-level explanation at all, and the closing report
+claimed a README that did not exist.
+
+**Why nothing caught it.** Each existing check is correct and each is blind here.
+`render_knowledge_index.py` validates generated projections and the experiment
+register. `check_evidence_custody.py` validates cited result packages.
+`sync_agent_context.py` validates instruction pairs. `check_archive_index.py`
+validates archived entries. **None of them reads an ordinary Markdown link**, and
+the wiki is held together by ordinary Markdown links.
+
+**Closed** by repairing all four, writing the missing README with a note saying
+it was missing, and adding `scripts/check_links.py` to the maintenance loop —
+tracked Markdown, relative links only, no network. Its negative control (a dead
+link fails), positive control (a live link passes) and vacuity guard (an empty
+file set fails rather than passing) were each checked by making them fire.
+
+**The general form**, and it is the second custody blind spot found in two days
+after [F14](#f14--5496-lines-of-cited-narrative-existed-in-one-untracked-copy--closed-2026-09-05):
+a guard that models one kind of reference reports clean while another kind rots.
+Result packages were modelled; cited external documents were not, then were.
+Ordinary links were not, and now are. **Nothing yet checks a cited external
+repository** — `levin-wiki` is cited by the thesis and its availability is
+verified by nothing.
+
 ## F3 — A gate frozen below its own statistic's null, three times — `CLOSED`
 
 **What stopped.** Q1-006 froze a clause-2 ceiling at 0.10 when the statistic's

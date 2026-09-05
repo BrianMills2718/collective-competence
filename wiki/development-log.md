@@ -137,6 +137,20 @@ Research-direction decisions stay with the conjecture register, charter, failure
 log and plan. `p2_research_pivot.md` was a candidate and was rejected on that
 rule: pivoting away from the thermostat family is direction, not architecture.
 
+**A housekeeping sweep, and the file it found missing.** Four dead Markdown links:
+three left by the archive pass in `roadmap/apparatus.md`, and one to
+`experiments/platonic-ingression/README.md` — **a file whose own pull request
+described it in detail and which was never committed**, leaving that directory
+with no top-level explanation. All four repaired, the README written, and
+`scripts/check_links.py` added to the maintenance loop with its negative,
+positive and vacuity controls each checked by making them fire. Recorded as
+[F18](failure-log.md). The shared `archive_lifecycle.py` reporter now runs here
+but reports nothing usable: it reads lifecycle from a `**Status:**` line in the
+document body and wants per-document declarations in `relationships.yaml`, while
+this repository declares lifecycle in YAML frontmatter — so its "230 undeclared"
+is a convention mismatch, not a backlog, and adopting a second lifecycle
+convention to satisfy it is not worth the ceremony.
+
 **What this does not establish.** No scientific claim changed. No result record,
 protocol, or result package was altered by any of it. The goal register is a
 draft with no authority, and the substrate question is open.
