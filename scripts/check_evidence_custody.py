@@ -28,6 +28,8 @@ from pathlib import Path
 
 DEFAULT_ROOT = Path(__file__).resolve().parents[1]
 LAB = "goal-discovery"
+# Every one of these must yield at least one citation, or the filter is broken.
+SCANNED_EXTENSIONS = (".md", ".py")
 
 # Matches `results/<pkg>` and `../../results/<pkg>` in links, code spans and prose.
 CITATION = re.compile(r"(?:\.\./)*results/([A-Za-z0-9][A-Za-z0-9._-]*)")
@@ -66,12 +68,14 @@ def main() -> int:
     skip = {"scripts/check_evidence_custody.py", f"{LAB}/tests/test_evidence_custody.py"}
 
     citations: dict[str, set[str]] = {}
-    for doc in sorted(p for p in tracked if p.endswith((".md", ".py")) and p not in skip):
+    per_extension: dict[str, int] = {ext: 0 for ext in SCANNED_EXTENSIONS}
+    for doc in sorted(p for p in tracked if p.endswith(SCANNED_EXTENSIONS) and p not in skip):
         text = (root / doc).read_text(encoding="utf-8", errors="replace")
         for pkg in CITATION.findall(text):
             if not pkg or pkg in {"README.md", "LATEST", ".gitkeep"}:
                 continue
             citations.setdefault(pkg, set()).add(doc)
+            per_extension["." + doc.rsplit(".", 1)[-1]] += 1
 
     if args.list:
         for pkg in sorted(citations):
@@ -105,16 +109,33 @@ def main() -> int:
         )
 
     tracked_count = len(citations) - len(known) - len(drifted)
-    if not citations:
-        # Family M: zero read as success. A repository whose documents are supposed
-        # to cite evidence, in which the scan finds no citation at all, has told us
-        # the scan is broken -- a renamed lab directory, a changed file extension, a
-        # regex that stopped matching -- not that custody is clean. Green here would
-        # be the guard reporting on nothing.
+    # Family M: zero read as success. A repository whose records are supposed to
+    # cite evidence, in which the scan finds nothing, has told us the scan is
+    # broken -- not that custody is clean.
+    #
+    # A total-is-zero floor was the first attempt and covered one of the three
+    # failure modes its own message named. Measured: deleting ".md" from the
+    # scanned extensions drops citations from 55 to 24, and 24 is not zero, so the
+    # guard printed PASS while 31 citations went unscanned. Each configured
+    # extension must therefore contribute, which is what actually detects a broken
+    # filter, and the total floor still catches a wholly-broken pattern.
+    # Compared against a recorded floor, not an absolute rule. Requiring every
+    # extension to contribute unconditionally was over-strict and broke this
+    # guard's own negative control, whose synthetic repository legitimately has no
+    # Python citations. The signal wanted is "a source type that used to
+    # contribute now contributes nothing", which is drift; an extension absent
+    # from the floor is simply not asserted about.
+    floor = json.loads(baseline_path.read_text()).get("citation_sources_floor", {})
+    starved = sorted(ext for ext, least in floor.items()
+                     if least > 0 and per_extension.get(ext, 0) == 0)
+    if not citations or starved:
+        detail = (f"no citations at all" if not citations
+                  else f"no citations from any {', '.join(starved)} source")
         print(
-            "FAIL: no result-package citations found in any tracked document or "
-            "module. That is a broken scan, not a clean repository: check LAB, the "
-            "file extensions scanned, and the CITATION pattern."
+            f"FAIL: {detail}. That is a broken scan, not a clean repository. "
+            f"Citations by source type: "
+            f"{', '.join(f'{e} {n}' for e, n in sorted(per_extension.items()))}. "
+            f"Check LAB, SCANNED_EXTENSIONS, and the CITATION pattern."
         )
         return 1
     if drifted:

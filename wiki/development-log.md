@@ -339,6 +339,15 @@ substrate's acceptance criterion able to fail.
   here. **One, `p12-reproduction`, exists in neither Git nor any checkout**,
   and the [P12 result](../goal-discovery/docs/hypotheses/p12_reference_inference_results.md)
   cites it; that claim can no longer be inspected at all.
+  **Corrected later the same day, and this sentence was wrong when written rather
+  than superseded by anything:** `p12-reproduction` is not lost and was never a
+  stored package. The P12 result names it inside a fenced shell block as the
+  `--directory` a reproduction command *writes to*. Reading the citing line was
+  the whole check, and it was not run before the claim was made twice. The
+  baseline now classifies it `command_output_path` and records that nothing this
+  repository cites is lost; the counts in the bullet above (28 packages, 27
+  on-disk-untracked, 220MB) were also superseded within hours when all of them
+  were committed.
 - **Three of the five substrate dials are read by no code.**
   `outcome_independence`, `divisible` and `heterogeneity` declare a property
   that each specimen implements in its own policies. The test that was supposed

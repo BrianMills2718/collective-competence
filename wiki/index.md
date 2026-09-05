@@ -106,7 +106,7 @@ failure conditions, and evidence limits.
 
 ## Current position
 
-*Accurate as of 2026-09-04. This section is the fresh-reader entry point; the
+*Accurate as of 2026-09-05. This section is the fresh-reader entry point; the
 [current plan](../goal-discovery/docs/plans/current_research_plan.md) owns the
 next action and is the file to read second.*
 

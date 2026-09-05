@@ -22,5 +22,10 @@
       "kilobytes": 0,
       "note": "Not evidence and not lost. p12_reference_inference_results.md names this inside a fenced shell block as the --directory a reproduction command WRITES to; it was never a stored package. Recorded here so the guard does not report it as missing evidence, and so the earlier classification of it as permanently lost is not repeated."
     }
-  }
+  },
+  "citation_sources_floor": {
+    ".md": 1,
+    ".py": 1
+  },
+  "citation_sources_floor_note": "Each source type listed here contributed citations when recorded, so zero from one of them means the scan broke rather than that custody is clean. Measured 2026-09-05: .md 135 citations, .py 46. A total-of-zero floor missed this -- dropping .md left 24 citations, which is not zero, and the guard printed PASS while 31 went unscanned."
 }

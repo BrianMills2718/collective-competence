@@ -109,3 +109,34 @@ def test_a_scan_that_finds_no_citations_at_all_is_a_failure_not_a_pass():
         r = _run(empty)
         assert r.returncode == 1, f"a scan that found nothing reported success:\n{r.stdout}"
         assert "broken scan" in r.stdout
+
+
+def test_a_source_type_contributing_no_citations_is_a_failure(tmp_path):
+    """A total-of-zero floor covered one of the three failure modes it named.
+
+    Measured 2026-09-05 on this repository: deleting ".md" from the scanned
+    extensions dropped citations from 55 to 24, and 24 is not zero, so the guard
+    printed PASS while 31 citations went unscanned. A source type recorded as
+    contributing that now contributes nothing means the scan broke.
+
+    Built here as a repository whose baseline requires Python citations and which
+    has none, which is the same condition without mutating the script.
+    """
+    root = tmp_path / "repo"
+    (root / "scripts").mkdir(parents=True)
+    (root / "goal-discovery" / "results" / "kept").mkdir(parents=True)
+    (root / "goal-discovery" / "results" / "kept" / "r.json").write_text("{}")
+    (root / "scripts" / "evidence_custody_baseline.json").write_text(
+        json.dumps({"packages": {}, "citation_sources_floor": {".md": 1, ".py": 1}})
+    )
+    (root / "notes.md").write_text("cites [kept](results/kept/)\n")
+    subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+    subprocess.run(["git", "add", "-A"], cwd=root, check=True, capture_output=True)
+    subprocess.run(
+        ["git", "-c", "user.email=t@t", "-c", "user.name=t",
+         "commit", "--quiet", "-m", "fixture"],
+        cwd=root, check=True, capture_output=True,
+    )
+    r = _run(root)
+    assert r.returncode == 1, f"a starved source type reported success:\n{r.stdout}"
+    assert "no citations from any .py source" in r.stdout

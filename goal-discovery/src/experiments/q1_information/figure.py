@@ -2,17 +2,21 @@
 
 Exists because the result records did not survive contact with a reader. Three
 prose explanations of the same findings failed in a row; the thing that landed was
-a picture of the actual system with the actual numbers on it. Regenerate from the `goal-discovery/` directory, not the repository root -- the
-package root is there and the output path is relative to it:
+a picture of the actual system with the actual numbers on it. Regenerate with, from `goal-discovery/`:
 
-    cd goal-discovery
-    uv run --extra visual-workbench python -m src.experiments.q1_information.figure
+    uv run python -m src.experiments.q1_information.figure
+
+Paths resolve from this file rather than the working directory, and matplotlib
+and numpy are base dependencies -- an earlier version of this line asked for
+`--extra visual-workbench`, which installs holoviews, hvplot and panel and is
+used by nothing here.
 
 Every value is computed at render time from the specimen and from
 results/q1-009-information/followup.json, so the figure cannot drift from the
 evidence it describes.
 """
 import json
+import pathlib
 
 import matplotlib
 
@@ -40,7 +44,8 @@ live_s, live_d, live_sat = trace("live")
 rand_s, rand_d, rand_sat = trace("random")
 none_s, none_d, none_sat = trace("none")
 
-with open("results/q1-009-information/followup.json") as fh:
+LAB = pathlib.Path(__file__).resolve().parents[3]
+with open(LAB / "results/q1-009-information/followup.json") as fh:
     nums = json.load(fh)
 ei = {k: nums["commons"][k]["ei_micro_above_null"] for k in ("live", "random", "none")}
 emerg_detail = nums["commons"]["live"]["ei_micro"]
@@ -122,7 +127,7 @@ fig.text(0.065, 0.020,
     "pattern on a second, unrelated test system. That is the result this project had been trying to demonstrate. Separately, and negatively: looking at the group\n"
     "instead of the individuals loses information rather than gaining it, so there is no hidden higher level here to find.",
     fontsize=10, color=INK, linespacing=1.65)
-out = "results/q1-009-information/what-q1-009-showed.png"
+out = LAB / "results/q1-009-information/what-q1-009-showed.png"
 fig.savefig(out, dpi=155, facecolor="white")
 print("wrote", out)
 print("live/random/none satisfaction:", live_sat, rand_sat, none_sat)
