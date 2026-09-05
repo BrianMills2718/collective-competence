@@ -124,7 +124,7 @@ and recorded a prediction.
 
 **What it found.** The prediction was **falsified**. On the slot family the
 statistic separates coordinated (+6.3 null sd) from a deterministic population
-that lost its shared period (+1.7 sd, under the frozen two-sd bar) from an
+that lost its shared period (+1.65 sd, under the frozen two-sd bar) from an
 independent draw (~0), and the arm is a real control: removing the period cost
 27% of need-satisfaction on a duty cycle matched to 4.3%.
 
