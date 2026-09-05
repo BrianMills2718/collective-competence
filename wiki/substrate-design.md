@@ -615,10 +615,129 @@ substrate.
    is the owner's stated reason to expect a driver to be necessary at all. It
    should return as a named later rung rather than be dropped.
 
+---
+
+# Round seven — the driver claim was too strong, and minimality becomes the method
+
+Owner's correction, 2026-09-05, verbatim:
+
+> "this 'structured input without which nothing stays organised at all' is too
+> strogn a claim. there are gliders and stuff in the game of life. but this 'And
+> you're right it's out of scope now. Sorting has no thermodynamics, no energy
+> budget, nothing to devolve toward. I've written that down explicitly so it
+> doesn't creep back.' is why we need to be really disciplined in staying at the
+> simplest level possible for each part of the researhc program and figuring out
+> how we characterize simple if possible because we want to have a genrealized
+> susbtrate and then a kind of list of goals in our researhc agneda and constrain
+> the substrate to the simplest poossible to resovle those goals i think"
+
+## The correction, and the narrower claim that survives
+
+**Game of Life is the counterexample and it is decisive.** A glider is
+persistent structure in a closed, undriven, deterministic system. No input, no
+energy accounting, no relaxation. Still lifes, oscillators and universal
+computation are all there without a driver. So "without a driver nothing stays
+organised" is simply false.
+
+What survives is narrower and more useful:
+
+> **A driver is needed only in the presence of a disorder source.** Under noise
+> or damage, structure decays unless something maintains it — and that
+> maintenance can come from outside, as a drive, **or from the system's own
+> competence.**
+
+That disjunction is the research question, not a premise. And it lands exactly on
+round six's experiment: sorting under repeated perturbation is a noisy system,
+and the controllers differ in whether they keep paying to maintain order. Nothing
+thermodynamic is needed to ask it.
+
+## Minimality as the method
+
+The owner's proposal, and it reframes the whole design effort:
+
+1. A **generalized substrate** — the full space of capabilities.
+2. A **list of research goals** in the agenda.
+3. For each goal, **constrain the substrate to the simplest configuration that
+   resolves it.**
+4. And, the hard part: **characterise "simple"**, so minimality is checkable
+   rather than asserted.
+
+**This rule already exists in this repository and was not followed.**
+[The current plan](../goal-discovery/docs/plans/current_research_plan.md), line
+347: *"Add substrate capability only when a concrete, otherwise-unexpressible
+experiment requires it."* And line 349: *"Promote a shared abstraction only after
+a second system uses the same contract."*
+
+The five dials violated both. They were derived from **reproduced failures** —
+what went wrong in experiments that had already run — rather than from goals that
+needed them. That is why the substrate ended up shaped like the commons: it was
+generalised backwards from accidents instead of forwards from questions.
+
+## How to characterise "simple" — a partial order, not a total one
+
+**A total ordering will not work, and Game of Life shows why.** Compare it with
+sorting:
+
+| Axis | Game of Life | Sorting |
+|---|---|---|
+| rule uniformity | uniform | uniform |
+| element class | reactive, no hidden state | reactive, no hidden state |
+| topology | 2D lattice | 1D line |
+| scheduler | synchronous, fixed | **five different controllers** |
+| faults | none | **four kinds** |
+| target location | none — no goal at all | in the measurement only |
+| driver | none | optional, one-shot today |
+
+Neither is simpler overall. GoL is simpler on scheduler and faults; sorting is
+simpler on topology and has a goal at all. A single "simplicity number" would
+have to trade these off, and any trade-off would be arbitrary.
+
+**A partial order along independent axes is enough, and it gives a real gate:**
+
+> An experiment must name the **single axis** on which it advances beyond its
+> predecessor. If it advances two, it is two experiments.
+
+That is checkable, it needs no simplicity metric, and it would have caught the
+actual drift: the commons advanced *several* axes at once over sorting — it added
+a shared signal, per-element goals, a resource, and a stochastic scheduler — and
+no single step was ever argued for.
+
+**Some axes have a principled ordering already.** The Chomsky ladder is a proved
+partial order on element capability: a finite automaton is strictly weaker than
+one with a counter. Where such an ordering exists, use it; where it does not,
+"one axis at a time" still does the work.
+
+**The substrate is therefore not a thing to build but a space to locate
+experiments in.** The generalized substrate is the set of axes. A given
+experiment is a point in that space, and the discipline is that consecutive
+experiments are adjacent.
+
+## What is still missing
+
+**The goal list.** Step 2 of the method has no artifact. The repository has a
+charter (purpose), an ontology (vocabulary), conjectures (bets) and an experiment
+register (what ran) — but nothing that says *these are the questions the
+programme intends to answer*, against which a substrate configuration could be
+justified as minimal. Every substrate decision so far has been argued from
+failures or from analogies rather than from a goal.
+
+Until that list exists, "constrain the substrate to the simplest that resolves
+the goals" has no second term.
+
+## Open questions, round seven
+
+1. **Does the goal list get written next?** It is the missing half of the method
+   and nothing else in this discussion can be settled without it.
+2. **Are the axes right?** The seven in the comparison table above are the
+   agent's, extracted from two systems. A third and fourth system would test
+   whether they are the natural axes or just the ones these two happen to differ
+   on.
+3. **Does the one-axis-per-experiment rule get enforced mechanically**, the way
+   the headline and outcome-class gates now are, or does it stay a discipline?
+
 ## Status
 
-Round six. Nothing decided, but the first experiment is now describable in one
-sentence and sits on the founding substrate. The proposal has moved from the agent's
+Round seven. The method is now the thing being designed, not just the substrate. The proposal has moved from the agent's
 "configuration + rewrite + scheduler" skeleton to the owner's automata framing,
 which subsumes it: the skeleton is how a run is executed, the automaton class is
 what an element *is*, and pricing is what keeps the composition claim honest.
