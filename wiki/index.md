@@ -63,6 +63,7 @@ than reconstructing definitions from historical experiment prose.
 | Question | Read next |
 |---|---|
 | **What did every experiment actually find?** | **[Scoreboard](scoreboard.md)** — one plain sentence per live experiment, generated from the register so it cannot go stale. Start here if you want the state of the programme in one pass. |
+| **What have we tried that did not work, and is it still costing us?** | **[Failure log](failure-log.md)** — stopped routes, measures that read the wrong thing, and decisions that closed something off. Canonical; an entry retires when its *consequence* is dispositioned, not when the route stops. |
 | **Show me, don't tell me.** | **[Visual status page](status.html)** — the two bets, the instrument's four clauses, the contested measurement as charts, and all fifteen experiments. Self-contained HTML: open it straight from disk, no server. Generated from committed result packages. |
 | Why does this programme exist and what is it building toward? | [The generative thesis](competence-thesis.md) — exploratory, not canonical |
 | What is the programme betting on that could turn out false? | [Standing conjectures](conjectures.md) — canonical; each with a stated refuter |
