@@ -209,4 +209,14 @@ whose ground truth the analyst had already read.
 - Do not infer consciousness, intelligence, or goal-directedness from attractive motion.
 - Do not require a promoted macro-scale description before investigating every
   elementary competency; that prerequisite belonged to a specific historical route.
-- Later biological, economic, and LLM applications are options, not current deliverables.
+- **Pre-biological is the scope boundary, set by the owner 2026-09-05.** The
+  systems studied here are configurations of simple elements under local rules.
+  Economic framings — prices, quotas, markets, renewable stocks — and LLM agents
+  are **out of scope, not deferred**. They are several strata above where this
+  programme operates, and the one economic specimen that reached the laboratory
+  (C1-001's renewable commons) arrived without that being decided. LLM work has
+  its own home in `agent_ecology2` / `agent_ecology3`; if this programme's
+  measurables ever warrant it, that is a new repository, not this one. The
+  founding ladder's rung 7 — "LLM agents, only once the measurables hold up
+  without them" — is **retired** rather than pending. See
+  [the substrate design discussion](../../wiki/substrate-design.md).
