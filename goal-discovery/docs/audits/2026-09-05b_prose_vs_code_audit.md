@@ -209,7 +209,13 @@ shared a cycle of exactly 120 at seed 6, and a primary arm inadmissible on 7 of
 1600 seeds — and both were found by checking exhaustively where a 16-seed sample
 had passed.
 
-## Question for the owner
+## Question for the owner — `ANSWERED 2026-09-05`
+
+> **The owner's answer: "agent ecology should not be a part of this."** Not a
+> member, not a later phase, not a sibling pursuing the same bet. The question
+> below is left as asked; it is closed as answered rather than acted upon, and
+> the conjecture register's quantifier rule stands on its own merits without the
+> comparison. See [failure log F15](../../../wiki/failure-log.md).
 
 `agent_ecology2` (1,217 commits) states its goal as "a system where agents
 produce more together than the sum of what they could produce alone." That is
