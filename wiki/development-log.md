@@ -29,6 +29,42 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — a visual status page, generated from the evidence it describes
+
+**Changed:** [`wiki/status.html`](status.html) and its generator
+`scripts/render_status_page.py`, plus a required `outcome_class` on every
+live-era register record.
+
+**Why visual, and why generated.** The owner asked for something he could look
+at rather than read. The page shows the two bets, the charter's four completion
+clauses, the contested effective-information measurement as two diverging bar
+charts, and all fifteen live experiments classified by outcome. Every number is
+read at render time from a committed result package —
+`q1-009-information/followup.json` and `q1-010-determinism-control/result.json` —
+or from the register. Nothing on the page is transcribed, and
+`render_status_page.py --check` fails when the page and the evidence disagree.
+
+**The charts say something the prose had to argue for.** Side by side, the
+commons and the slot make the open half of the audit immediately visible: on the
+commons, `frozen` — an arm that coordinates nothing — stands 5.3 null standard
+deviations above its null, thirty-five times the matched-independent arm, while
+on the slot every arm falls where the claim predicts. That is one picture instead
+of two paragraphs.
+
+**Constraints it holds to.** Self-contained: no CDN, no script, no webfont, no
+build step, opens from `file://` on a machine with no network. Light and dark are
+both selected rather than one being an automatic flip. Colour follows the shared
+data-visualisation method — diverging blue/red around a real zero for the effect
+charts, since above and below the null mean opposite things, and a validated
+four-slot categorical set for outcome classes, every one carrying a visible text
+label because the aqua/red pair sits in the band where colour alone may not carry
+meaning. Rendered and inspected in both modes; one label-overflow defect was
+found that way and fixed.
+
+**What this does not establish.** It makes the state legible; it makes no result
+more trustworthy. The cockpit under `goal-discovery/src/cockpit/` is still five
+days behind and this page does not replace it.
+
 ## 2026-09-05 — the register now has to say what it found in words a person can read
 
 **Changed:** every live-era experiment record carries a required `headline` — one

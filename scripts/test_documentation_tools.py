@@ -330,6 +330,53 @@ if __name__ == "__main__":
     unittest.main()
 
 
+class StatusPageGate(unittest.TestCase):
+    """The visual page must refuse a record it cannot classify.
+
+    Checked by making it fire. The page is generated so it cannot go stale; the
+    gate is what stops it going stale by omission instead.
+    """
+
+    def setUp(self):
+        self.status = module("render_status_page")
+
+    def test_every_live_record_declares_an_outcome_class(self):
+        register = json.loads((self.status.ROOT / "roadmap/experiments.json").read_text())
+        legacy = set(register["ontology_contract_policy"]["legacy_unversioned_record_ids"])
+        live = [r for r in register["experiments"] if r["id"] not in legacy]
+        self.assertTrue(live)
+        for record in live:
+            self.assertIn(record.get("outcome_class"), self.status.OUTCOME_CLASSES,
+                          f"{record['id']} has no valid outcome_class")
+
+    def test_unknown_outcome_class_is_rejected(self):
+        register = json.loads((self.status.ROOT / "roadmap/experiments.json").read_text())
+        legacy = set(register["ontology_contract_policy"]["legacy_unversioned_record_ids"])
+        original = self.status.load
+
+        def patched(rel):
+            data = original(rel)
+            if rel == self.status.REGISTER:
+                for record in data["experiments"]:
+                    if record["id"] not in legacy:
+                        record["outcome_class"] = "vibes"
+                        break
+            return data
+
+        self.status.load = patched
+        try:
+            with self.assertRaisesRegex(ValueError, "expected one of"):
+                self.status.render()
+        finally:
+            self.status.load = original
+
+    def test_the_committed_page_matches_the_evidence(self):
+        page = self.status.render()
+        committed = (self.status.ROOT / self.status.OUTPUT).read_text(encoding="utf-8")
+        self.assertEqual(page, committed,
+                         "wiki/status.html is stale; run render_status_page.py --write")
+
+
 class HeadlineLegibilityGate(DocumentationControls):
     """The register must say what each live-era experiment found, in words.
 
