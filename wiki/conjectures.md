@@ -154,7 +154,10 @@ supported on one family** — see
 [C2-001](../goal-discovery/docs/hypotheses/c2_001_derived_phase_results.md).
 Environmental heterogeneity substitutes for designer labelling at a rate set by
 how many distinct values it supplies (satisfaction 0.000 at zero spread rising to
-0.438 at widest, tracking distinct phases 1.0 to 6.6). Refuter 1 was confirmed as a
+0.438 at widest, tracking distinct phases 1.0 to 6.6) — **given a period equal to
+the population size**, which is authored, not derived, and which
+[Q1-010](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md)
+measured at 27% of need-satisfaction by removing it. Refuter 1 was confirmed as a
 precondition and is explicitly not counted as a finding. **Not promoted further:**
 the environment supplied the values but the derivation rule is authored, so this is
 not yet emergence of the rule, and the family is one.
@@ -193,10 +196,37 @@ its history, its position — without a designer assigning slots.
    emerged.
 
 Stated as a scaling claim rather than a universal, per this register's quantifier
-rule: performance should rise with afforded distinguishability up to the number
-of contending subunits and then flatten or decline, since a period longer than
-the population wastes steps on empty phases. A flat response, or a monotonic one
-past that point, contradicts it.
+rule: **mean performance is non-decreasing in the heterogeneity the environment
+supplies**, which is the parameter the substrate can actually vary. A flat
+response across the swept range contradicts it.
+
+> **Corrected 2026-09-05 — the earlier statement of this claim could only be
+> confirmed.** It read: *"performance should rise with afforded
+> distinguishability up to the number of contending subunits and then flatten or
+> decline, since a period longer than the population wastes steps on empty
+> phases. A flat response, or a monotonic one past that point, contradicts it."*
+> Half of that refuter is unreachable by construction. Afforded
+> distinguishability here is the count of distinct `need % P` residues, bounded
+> above by `P`; and `P` is assigned in exactly one place —
+> `src/substrate/specimens/contended_slot.py:55`, `period = cfg.n_subunits` —
+> and never varied. The region past the population size, where the falsifying
+> observation lives, cannot be entered on this apparatus.
+>
+> [C2-001's frozen protocol](../goal-discovery/docs/hypotheses/c2_001_derived_phase.md)
+> never tested that version. Its G2 is "mean `derived_phase` performance is
+> non-decreasing in need spread" — monotone in spread, with no turnover. The
+> register and the protocol were stating different predictions, and the
+> register's was the one carrying the unreachable half. The claim above is now
+> the protocol's, which is the one that has evidence.
+>
+> **The turnover prediction is not refuted; it has never been tested**, and it
+> stays out of this register until the apparatus can vary `P` independently of
+> the population. Recorded so it is not silently re-proposed:
+> *performance against afforded distinguishability should turn over once the
+> period exceeds the number of contending subunits.* Admitting it requires
+> unpinning `P`, which is a substrate change and is not licensed here. See
+> [the audit](../goal-discovery/docs/audits/2026-09-05b_prose_vs_code_audit.md)
+> finding 2.
 
 **Known prior-art risk, stated before any work.** The baseline version of this is
 time-division multiplexing, which has been understood since the 1960s, and

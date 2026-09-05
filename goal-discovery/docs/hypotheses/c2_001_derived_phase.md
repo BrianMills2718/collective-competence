@@ -163,6 +163,22 @@ needs, and RNG.
 
 ## The anti-smuggling guard
 
+> **Correction, 2026-09-05 — the implementation did not satisfy this section.**
+> The prose below is preserved unchanged because it is a preregistration and
+> states what was intended. What ran did not meet it. The guard was a signature
+> assertion on `derive_phase`, a function **no experiment path called**; phases
+> are derived inline in `src.substrate.specimens.contended_slot.initialize`. And
+> the property was false regardless: this section forbids the derivation from
+> seeing "the population size", while the `period` argument **is**
+> `cfg.n_subunits`, so the forbidden quantity arrived through the parameter the
+> assertion permitted by name. See
+> [the audit](../audits/2026-09-05b_prose_vs_code_audit.md) finding 1. The dead
+> guard was removed rather than repaired; what the shared period is actually
+> worth was then measured directly by
+> [Q1-010](q1_010_determinism_control_results.md) — 27% of need-satisfaction.
+> No gate, threshold, arm, or result of C2-001 changes.
+
+
 The whole result turns on `derived_phase` not receiving an identity in disguise.
 Enforced structurally rather than promised:
 
