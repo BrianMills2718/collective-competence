@@ -70,8 +70,13 @@ define it.** Two actions, in this order.
    *wrongly* (uncoordinated `frozen` has the highest raw EI of any arm), so the
    null subtraction is load-bearing. Two caveats own the reading: **G2 passed
    against a degenerate control** — the commons `none` arm visits one micro state
-   of thirty-two — and **empowerment is unmeasured rather than zero**, because the
-   forced intervention is smaller than the estimator's resolution.
+   of thirty-two — and **empowerment measures the wrong thing**: its ordering
+   tracks channel idle fraction exactly, arm for arm, so what it reads is unused
+   capacity available to a unilateral actor rather than agency.
+   **Corrected 2026-09-05** after a review found eight defects in the experiment's
+   own implementation, two of them serious enough to void a published claim. Every
+   effective-information value survived unchanged; every empowerment value moved,
+   and G3 flipped from fail to pass. See the correction section of the result.
 2. **Now: re-run [Q1-006](../hypotheses/q1_006_pairwise_relation_results.md)'s
    comparison with a null-calibrated threshold**, which settles
    completion-condition clause 2 either way.
@@ -83,10 +88,24 @@ shape, on a statistic whose null is measured rather than assumed — so the re-r
 should carry the null-subtracted form rather than an absolute ceiling, and it now
 has a second statistic to cross-check against.
 
-**Two debts Q1-009 opened**, both cheap and neither blocking: one, the commons
-arms have no matched-independent control and should get one before any further
-commons comparison; two, empowerment needs a contiguous-block intervention and
-finer buckets before it can be called inapplicable.
+**Three debts Q1-009 opened**, all cheap and none blocking the Q1-006 re-run.
+
+1. **The commons arms have no matched-independent control.** Every commons
+   comparison until one exists is measured against `frozen` or against a
+   degenerate `none`. Roughly an hour to add.
+2. **Empowerment needs an intervention its measurement can resolve** — a
+   contiguous block of forced ticks rather than one, and buckets finer than the
+   intervention's maximum effect — before "confounded with idleness" can be
+   separated from "inapplicable to this family." Roughly an hour.
+3. **The nine defects were found by review, not by the suite.** Fifty-eight tests
+   written alongside that code caught none of them, because they asserted the
+   failures their author had already imagined: analytic fixed points for the
+   measures, equivalence for the arms. Each defect now has a regression test, but
+   the general lesson is unaddressed — this programme's experiments are written
+   and checked by the same agent in the same session, and that is the same
+   structural problem the charter's clause 4 names for the analytic instrument.
+   The cheapest countermeasure is an independent review pass on any experiment
+   before its result record is treated as evidence.
 
 **The scope question this replaces.** Whether the constructive arm is about
 *composition* or *coordination* was raised on 2026-09-05 and is **withdrawn as
