@@ -12,6 +12,7 @@ number.
 from __future__ import annotations
 
 import argparse
+import itertools
 import json
 from pathlib import Path
 
@@ -40,7 +41,7 @@ def ei_pair(actions_list: list[np.ndarray], observed: int) -> dict:
     pairs = []
     for actions in actions_list:
         micro, _ = micro_macro_codes(actions, observed)
-        pairs.extend(zip(micro[:-1], micro[1:]))
+        pairs.extend(itertools.pairwise(micro))
     pairs = np.asarray(pairs)
     tpm, seen, totals = tpm_from_transitions(pairs, n_micro)
     ei_micro = effective_information(tpm, rows_seen=seen)

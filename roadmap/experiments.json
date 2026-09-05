@@ -830,7 +830,10 @@
       "outcome": "bounded-reference-inference-and-falsification-pass",
       "outcome_source": "goal-discovery/docs/hypotheses/p12_reference_inference_results.md",
       "disposition": "Retain causal reference inference; passive reference unidentified; reject affine predictions under feedback saturation. No unexpected-goal claim.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     },
     {
       "id": "P13",
@@ -844,7 +847,10 @@
       "outcome": "bounded-vector-proposal-and-falsification-pass",
       "outcome_source": "goal-discovery/docs/hypotheses/p13_vector_dynamics_results.md",
       "disposition": "Retain observation-only proposal/freeze/challenge seam; stop passive bowl line; no unexpected-goal, competency, agency, or universal-substrate claim.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     },
     {
       "id": "P14",
@@ -858,7 +864,29 @@
       "outcome": "abstain_at_frozen_pre_intervention_gate",
       "outcome_source": "goal-discovery/docs/hypotheses/p14_ants_relational_coupling_results.md",
       "disposition": "Retain proposal-comparison and honest-abstention seam; stop Ants lane; no causal relation, competency, unexpected-goal, or agency claim.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
+    },
+    {
+      "id": "Q1-009",
+      "family": "calibration",
+      "question": "Does a coarse-grained description of these specimens carry causal structure the micro description does not, and does an independent goal-free measure agree?",
+      "artifacts": [
+        "goal-discovery/docs/hypotheses/q1_009_information_measures.md",
+        "goal-discovery/docs/hypotheses/q1_009_information_measures_results.md"
+      ],
+      "protocol_artifact": "goal-discovery/docs/hypotheses/q1_009_information_measures.md",
+      "ontology_contract_version": 1,
+      "review_status": "result_reviewed",
+      "outcome": "no_causal_emergence_null_subtracted_ei_discriminates_g2_control_degenerate_empowerment_unresolved",
+      "outcome_source": "goal-discovery/docs/hypotheses/q1_009_information_measures_results.md",
+      "disposition": "G1 pass (+0.589 bits vs 0.10), G2 pass (+0.589 vs 0.05) BUT HOLLOW AND NOT CLAIMED, G3 fail (+0.028 vs 0.05). Gates were derived from a null calibration committed before the protocol named any threshold (87ef7a8, then a89f768), on a specimen and a measure not yet looked at. NO CAUSAL EMERGENCE: EI(macro) minus EI(micro) is negative in every non-degenerate arm on both specimens and outside null noise (commons live -0.133, frozen -0.321; slot derived_phase -0.112). The coarse-grained description carries strictly LESS causal structure than the micro one. Scope is one coarse-graining (count of units acting); the partition was not retuned to find emergence. WHAT DISCRIMINATES: EI-micro above its own shuffle null, on both families - commons live +0.589 vs frozen +0.198; slot derived_phase +0.168 vs matched-random -0.040 vs constant_phase -0.118. Raw EI ranks the arms WRONGLY - uncoordinated frozen has the highest raw EI of any arm (1.006) - so the null subtraction is load-bearing and an absolute threshold would have inverted, as it did for share-of-variance in Q1-003/Q1-004. On the slot the matched-independent arm sits AT its null (-0.040, null sd 0.055), which is the clause-2 shape; recorded as suggestive and explicitly NOT a clause-2 claim, since these arms are not the clause-2 matched pair. G2's CONTROL WAS DEGENERATE, measured not inferred: the commons none arm visits 1 micro state of 32, all twelve subunits acting on 100 percent of ticks. Third time in this repository an effect was measured against a control weaker than the obvious rival, after C1-001 and C2-001, and the standing lesson to default to a matched-independent arm was already recorded before this protocol was frozen. EMPOWERMENT IS UNMEASURED, NOT ZERO: forcing one tick moves a subunit's own remaining need by at most 1.9 percent of quota, read through three buckets, so the channels differ by about one percent and capacity is ~0. A measurement-resolution failure, not a property of the family; the separating check (force a contiguous block, bucket finer) is named and not run. Predictions: 1 of 4 held, and the one that held is the one the weak gate tested.",
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     },
     {
       "id": "Q1-008",
@@ -874,7 +902,10 @@
       "outcome": "diagnosis_wrong_floor_is_the_statistics_own_null",
       "outcome_source": "goal-discovery/docs/hypotheses/q1_008_null_coupling_control_results.md",
       "disposition": "DIAGNOSIS_WRONG, the disposition this was run for. Congestion refuted: removing the 1/k-squared coupling entirely RAISED the statistic, 0.108 to 0.134. A replacement saturation hypothesis was tested and also refuted (0.74 pre-saturation). The confirmed cause is the statistic itself: mean absolute correlation of INDEPENDENT series is positive at finite sample, and pure gaussian noise with no substrate scores 0.1218 at horizon 120, tracking sqrt(2/(pi(n-2))) across a 24x horizon range. Consequences: Q1-006's 0.10 ceiling was set BELOW that null so no independent process could have passed it and its clause-2 failure measured an unachievable gate, not the substrate; Q1-007 removed a coupling that was never the cause; and this protocol froze its own unachievable 0.05 gate, the same error inside the experiment designed to catch it. What survives and is strengthened: coordinated 0.284 against a measured null of ~0.12 is a real 2.4x separation. Clause 2 is neither met nor failed - it has not been validly tested. Both prior records carry superseding notes.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     },
     {
       "id": "Q1-007",
@@ -890,7 +921,10 @@
       "outcome": "congestion_not_linearly_removable_chase_stopped",
       "outcome_source": "goal-discovery/docs/hypotheses/q1_007_congestion_corrected_relation_results.md",
       "disposition": "The correction removed essentially nothing: derived 0.2838 to 0.2826, random 0.1078 to 0.1076. G1 and G2 pass as before, G3 still fails at 0.1076 against 0.10. Cause is a protocol design defect of mine, visible in the substrate definition all along - the coupling is 1/k squared and I regressed on k, so a linear control against a quadratic-inverse effect captures almost none of it. Deliberately did NOT immediately run the 1/k squared version: it would likely pass and its justification is derivable without reference to any result, but it would be the fourth consecutive one-more-fix aimed at a single 0.008 overshoot, and the sequence has been converging on a threshold rather than on a question. Stopping the chase is the finding. What stands after seven runs: relation IS measurable (0.283 vs 0.108, 0.175 margin, reproduced twice), the two failure modes are mechanically understood, and the residual obstacle is substrate physics rather than the statistic. The live question is now whether to qualify on a substrate whose own physics sets a non-zero floor, or move to one where independent entities are genuinely independent in outcome - a design decision, not another statistic.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     },
     {
       "id": "Q1-006",
@@ -906,7 +940,10 @@
       "outcome": "relation_measurable_but_contaminated_by_congestion_coupling",
       "outcome_source": "goal-discovery/docs/hypotheses/q1_006_pairwise_relation_results.md",
       "disposition": "Mean absolute off-diagonal residual correlation scores coordinated 0.284, matched-random 0.108, uniform 0.000. G1 signal passes and G2 sufficiency passes with a 0.176 margin - the gate every previous statistic failed, so relation IS measurable and the line from Q1-003 is not exhausted. G3 fails by 0.008 (random 0.108 against a frozen ceiling of 0.10), which is exactly the contamination the protocol named in advance: congestion makes independent entities non-independent in outcome, since k simultaneous attempters each receive 1/k squared, and removing the cross-entity mean does not remove a term nonlinear in k. Not rounded away; clause 2 is not claimable and the instrument remains unqualified, for the first time for a reason that is small, specific and mechanically understood. Next step is a correction rather than a new idea: regress out the population attempt count before taking pairwise correlation.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     },
     {
       "id": "Q1-005",
@@ -922,7 +959,10 @@
       "outcome": "measures_differentiation_not_coordination_clause_2_fails",
       "outcome_source": "goal-discovery/docs/hypotheses/q1_005_idiosyncratic_fraction_results.md",
       "disposition": "G1 necessity passes (coordinated 0.934, uniform 0.000) but G2 sufficiency fails with margin -0.014 against a required +0.20: a matched independent random population scores HIGHER (0.948) than the coordinated one. The statistic measures differentiation, not coordination, so an instrument using it would report structure in a random population, which clause 2 forbids. Persistence fails the same test (0.921 vs 0.877). Predicted in advance against my own proposed statistic. Secondary and more important: random_attempt reaches 0.375 need satisfaction against derived_phase 0.438, so C2-001 - which headlined derived against level_only at 0.000 - was missing a random control and its effect is 17% relative rather than total. Same defect class as C1-001 best-constant control, twice in one session. C2 narrowed accordingly. The rival source is now named and a matched-randomness control should be standing rather than per-experiment.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     },
     {
       "id": "Q1-004",
@@ -938,7 +978,10 @@
       "outcome": "qualified_pass_directional_transfer_with_statistic_caveat",
       "outcome_source": "goal-discovery/docs/hypotheses/q1_004_second_family_qualification_results.md",
       "disposition": "Clause 4 satisfied by construction: the detector was authored against a divisible commons and run unchanged on an indivisible slot with a phase-based mechanism and a collision failure mode. It separated a differentiated population (persistence 0.921) from an active undifferentiated one (0.698) in the predicted direction. But the frozen prediction said low under the negative arm and 0.698 is not low - Q1-003's negative scored 0.062 - so the flagged risk partly materialised and the statistic is substantially measuring temporal extent rather than differentiation. Protocol defect recorded rather than exploited: it froze a direction but no numeric threshold, so the 0.1 gap cutoff is post-hoc and is not treated as a passed gate. Instrument NOT declared qualified outright; status is directional transfer on a statistic partly measuring the wrong thing. The variance-fraction inversion from Q1-003 replicates exactly on this second family (constant 1.000 vs derived 0.067), which strengthens that finding considerably.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     },
     {
       "id": "C2-002",
@@ -954,7 +997,10 @@
       "outcome": "rule_load_bearing_only_through_distinct_phase_preservation_condition_exact",
       "outcome_source": "goal-discovery/docs/hypotheses/c2_002_rule_load_bearing_results.md",
       "disposition": "Landed in the frozen partial band (44.4% within 90% of authored), and reporting the distribution rather than rounding it produced the actual result: neither plateau nor ridge, but exact bimodality. The offset b does nothing (a constant before a modulo rotates all phases uniformly). Performance is a function of gcd(a, P) alone with no residual variation inside a class - 0.438 for coprime, 0.112 at gcd 2, 0.013 at gcd 5, 0.000 at gcd 10, matching 10/5/2/1 available phases. Unifies with C2-001: the rule affects performance only through how many of the environment's distinct values it preserves. Rule discovery is therefore a condition to satisfy, not a search problem. Partly clears the standing worry that my authored choices carry the mechanisms: a=1 is joint best tied with 19 other coprime members, so it was in the optimal class by construction rather than by judgement, though I could have violated the condition by picking a=2. Untested: a prime period, where the bimodality should vanish.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     },
     {
       "id": "C2-001",
@@ -970,7 +1016,10 @@
       "outcome": "c2_sharper_half_supported_on_one_family",
       "outcome_source": "goal-discovery/docs/hypotheses/c2_001_derived_phase_results.md",
       "disposition": "All three gates pass: precondition P0 (authored beats level-only 8/8, explicitly not a finding since it re-derives TDMA), G1 (derived beats level-only 8/8 at widest spread), G2 (derived monotonic in need spread). Mechanism confirmed rather than assumed: performance tracks the number of distinct phases the environment supplies, rising 1.0 to 6.6 as spread widens, and at zero spread every subunit derives the same phase, collides forever and scores exactly 0.000 as predicted. Real limit recorded: the environment supplied the values but the derivation rule is authored, so the claim is that environmental heterogeneity can substitute for designer-assigned identity GIVEN a rule, not that labels emerge. Fourth consecutive experiment where an authored choice of mine carried the mechanism. Does not change C1's status; C2 was admitted as a separate conjecture.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     },
     {
       "id": "C1-002",
@@ -986,7 +1035,10 @@
       "outcome": "validity_gate_failed_detector_never_read_c1_transfer_unsupported",
       "outcome_source": "goal-discovery/docs/hypotheses/c1_002_contended_channel_results.md",
       "disposition": "The specimen failed its own pre-declared validity gate across three attempts (0 wins of 8 in every configuration), so the detector was never run, never read and never modified, and clause 4 of the completion condition remains unmet. Stopped at the declared retune budget rather than at the point of running out of ideas. The failure is structural and is the finding: a scalar threshold read identically by every subunit can only gate them together, never stagger them, so it coordinates a divisible renewable stock and cannot allocate an indivisible slot - it is common-mode by construction. Cognitive glue as implemented is a price mechanism and price mechanisms need a divisible good, so C1-001 now looks closer to a rediscovery of why adaptive prices beat fixed ones on a commons than to evidence of a general principle. C1 stays supported-on-one-family and this failure is recorded against it. Extending to symmetry-breaking primitives that carry phase or identity is a separate conjecture with its own refuter, not a rescue of C1.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     },
     {
       "id": "Q1-003",
@@ -1002,7 +1054,10 @@
       "outcome": "family_closes_the_gap_development_only_clause_4_fails",
       "outcome_source": "goal-discovery/docs/hypotheses/q1_003_latent_shared_regressor_results.md",
       "disposition": "Persistence distinguishes in the predicted direction (live 0.827 vs none 0.062), closing the structural gap Q1-002 named. Does NOT qualify the instrument: clause 4 of the charter completion condition fails because the family, its estimator and its statistics were authored while holding the specimen's ground truth - the same defect P15 recorded, and worse to repeat knowingly. Development case, not qualification. The naive adequacy statistic (shared-variance fraction) is a trap: it distinguishes in the WRONG direction, scoring the collapsed system 1.000 against the coordinated 0.586, because after collapse every subunit draws zero and residuals become identical - uniformity read as coordination. Caught only because the protocol froze both statistics and their predicted directions before implementation.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     },
     {
       "id": "Q1-002",
@@ -1018,7 +1073,10 @@
       "outcome": "modelling_problem_not_packaging_problem",
       "outcome_source": "goal-discovery/docs/hypotheses/q1_002_observation_contract_variation_results.md",
       "disposition": "None of three observation contracts distinguishes the coordinated from the uncoordinated run at the disposition level. Rules out the cheap explanation for Q1-001: the coupling is not hidden by packaging, it is unrepresentable in repeated_entity_dynamics, which fits each entity under a shared local law. Contract B (attempted, served) was predicted most likely to succeed and was worst - it made the series less affine and the instrument abstained on both, showing legibility to an analyst and representability in a candidate family are different properties. Consequence: a shared packaging contract is worth building and will not buy coordination detection; those are two separate units of work.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     },
     {
       "id": "Q1-001",
@@ -1034,7 +1092,10 @@
       "outcome": "not_qualified_instrument_cannot_see_this_coordination",
       "outcome_source": "goal-discovery/docs/hypotheses/q1_001_instrument_qualification_results.md",
       "disposition": "Same disposition for a coordinated and an uncoordinated run of the same system: shared_local_affine, candidate, passive_sufficient true on both. Worse than a tie - the instrument affirms passive sufficiency on a system whose behaviour is mediated by a shared quantity outside every entity. Clause 1 of the charter completion condition fails, so no construction claim in this programme is verified. Two positives: the proposal path accepted a fifth system it was not written for, confirming the case-specificity is in the packer not the proposer, and the vague open-endedness frontier is replaced by a specific gap - repeated_entity_dynamics has no candidate expressing dependence on an exogenous shared quantity.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     },
     {
       "id": "C1-001",
@@ -1050,7 +1111,10 @@
       "outcome": "conditional_pass_c1_supported_on_one_family_control_defect_recorded",
       "outcome_source": "goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal_results.md",
       "disposition": "All three frozen gates passed (G1 8/8, G2 8/8, G3 monotonic), and the conclusion survives a stronger control than the frozen one: adaptive 1.000 vs best fixed threshold 0.500. But the protocol's stated justification for its negative control is measured false - the frozen level (live time-average, ~0.51) sits below the 0.60-0.85 band where any constant works, so the recorded 0.000-to-1.000 effect size overstates. Restated effect: tracking roughly doubles satisfaction over the best constant. Constructive, authored, white-box, one family; not a discovery and not a claim about composition in general.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     },
     {
       "id": "P15",
@@ -1066,7 +1130,10 @@
       "outcome": "conditional_pass_seam_only_capability_claim_revised",
       "outcome_source": "goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md",
       "disposition": "Seam passes: both held cases (P13, P14) and, after correcting a P12 evaluator disposition-rule error, both development cases (P10, P12) matched native dispositions with all leakage/lineage/package checks passing. Capability claim relational_proposal_and_abstention is NOT established: its frozen operating condition 'no case-specific code paths' was violated on both sides of the freeze (four hand-written per-case proposers behind a dispatch, fed by four hand-written per-case packers that assign the dispatch key), and cross-case generality is measured at zero (12/12 refusals, 2026-09-04 probe). The held-system decision gate is therefore not cleanly earned; no discovery, generalization, or competence claim.",
-      "cost": {"status": "unknown", "effort_minutes": null}
+      "cost": {
+        "status": "unknown",
+        "effort_minutes": null
+      }
     }
   ]
 }

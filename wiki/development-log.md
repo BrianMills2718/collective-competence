@@ -29,6 +29,74 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — Q1-009: no causal emergence, and the null subtraction is what discriminates
+
+**Changed:** the deferred measure was run.
+[Q1-009](../goal-discovery/docs/hypotheses/q1_009_information_measures_results.md)
+computed effective information, causal emergence and interventional empowerment
+on both existing specimens.
+
+- **No causal emergence, on either specimen.** EI(macro) minus EI(micro) is
+  negative in every non-degenerate arm and outside null noise — commons `live`
+  −0.133, commons `frozen` −0.321, slot `derived_phase` −0.112. The
+  coarse-grained description carries strictly *less* causal structure than the
+  micro description it was built from. The only non-negative readings are the two
+  degenerate arms, where micro and macro coincide because every unit does the
+  same thing. Scope is one coarse-graining; the partition was **not** retuned to
+  find emergence.
+- **What discriminates is EI above a shuffle null, on both families.** Commons
+  `live` +0.589 against `frozen` +0.198; slot `derived_phase` +0.168 against
+  matched-random −0.040 and `constant_phase` −0.118. **Raw EI ranks the arms
+  wrongly** — uncoordinated `frozen` has the highest raw EI of any arm measured
+  (1.006) — so the null subtraction is load-bearing and an absolute threshold
+  would have produced the same inversion Q1-003 and Q1-004 recorded for
+  share-of-variance.
+- **On the slot the matched-independent arm sits at its null** (−0.040 against a
+  null sd of 0.055) while the coordinated arm sits about six sd above. That is
+  the clause-2 shape, recorded as **suggestive and explicitly not a clause-2
+  claim**, since these arms are not the clause-2 matched pair.
+- **G2 passed against a degenerate control, and that is recorded as an error.**
+  The commons `none` arm visits one micro state of thirty-two: with no signal
+  every subunit draws every tick, so the pattern never varies. Third time in this
+  repository an effect has been measured against a control weaker than the
+  obvious rival, after C1-001 and C2-001 — and the standing lesson to default to
+  a matched-independent arm was already recorded before this protocol was frozen.
+  The commons arms still have no such control.
+- **Empowerment is unmeasured, not zero.** Forcing one tick moves a subunit's own
+  remaining need by at most 1.9% of quota, read through three buckets, so the
+  channels differ by about one percent and capacity is ~0. A measurement-
+  resolution failure rather than a property of the family; the separating check
+  is named and not run.
+- **Predictions: one of four held**, and the one that held is the one the weak
+  gate tested. The empowerment ordering contradicted the prediction and was **not
+  read**, because its validity gate failed — the frozen disposition table
+  forbidding that read is what stopped it becoming a finding.
+- **Apparatus.** Effective information, coarse-graining and channel capacity, with
+  five analytic fixed points asserted; arms reused from their owning modules with
+  equivalence checked for every arm and seed; the substrate gained a read-only
+  observer callback whose no-op status the port-fidelity tests confirm.
+
+**Why:** the founding
+[laboratory spec §37](../goal-discovery/docs/sources/briefs/Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md)
+asked whether causal emergence correlates with collective competence; the
+2026-08-29 audit deferred it as "premature without a generalizing macro signal,"
+which was circular. The answer is now measured rather than deferred, and it is
+negative for this coarse-graining.
+
+**Two facts found while building the instrument**, both of which shaped the
+design: equal-sized groups can never show emergence, because a uniform
+intervention on micro induces a uniform one on macro and data processing bounds
+EI(macro) ≤ EI(micro) — verified against 80,000 random systems — so the
+coarse-graining uses binomial group sizes; and finite-sample EI is biased upward
+hard, scoring 2.49 bits of a possible 5.00 on structureless input at six
+transitions per row.
+
+**Does not establish:** no competence, coordination, agency or emergence claim
+about any natural system. C1 and C2 are unchanged and remain supported on one
+family each; completion-condition clause 2 remains neither met nor failed. A
+negative emergence result for one coarse-graining is not a result about every
+coarse-graining.
+
 ## 2026-09-05 — competence is a rubric, composition is a description, and the measure was deferred circularly
 
 **Changed:** [the ontology](ontology.md#what-this-vocabulary-makes-decidable-and-what-it-does-not)

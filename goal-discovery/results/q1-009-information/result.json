@@ -1,0 +1,200 @@
+{
+  "commons": {
+    "frozen": {
+      "ei_macro": 0.4004660516081758,
+      "ei_micro": 1.0056085376418438,
+      "ei_micro_above_null": 0.1982105910670161,
+      "emergence": -0.605142486033668,
+      "emergence_above_null": -0.32083987595825864,
+      "null_ei_micro_mean": 0.8073979465748277,
+      "null_ei_micro_sd": 0.03720079062329975,
+      "null_emergence_mean": -0.2843026100754094,
+      "null_emergence_sd": 0.029985989482064147,
+      "transitions_per_seen_row": 5950.0
+    },
+    "live": {
+      "ei_macro": 0.4560699957973259,
+      "ei_micro": 0.5925879182732895,
+      "ei_micro_above_null": 0.5887951044881642,
+      "emergence": -0.13651792247596362,
+      "emergence_above_null": -0.13290858120721974,
+      "null_ei_micro_mean": 0.003792813785125275,
+      "null_ei_micro_sd": 0.00014357598774190967,
+      "null_emergence_mean": -0.0036093412687438742,
+      "null_emergence_sd": 0.00012190939444102986,
+      "transitions_per_seen_row": 5950.0
+    },
+    "none": {
+      "ei_macro": 0.0,
+      "ei_micro": 0.0,
+      "ei_micro_above_null": 0.0,
+      "emergence": 0.0,
+      "emergence_above_null": 0.0,
+      "null_ei_micro_mean": 0.0,
+      "null_ei_micro_sd": 0.0,
+      "null_emergence_mean": 0.0,
+      "null_emergence_sd": 0.0,
+      "transitions_per_seen_row": 190400.0
+    }
+  },
+  "empowerment": {
+    "commons": {
+      "frozen": {
+        "capacity_bits": 1.2372025968490858e-06,
+        "channel": [
+          [
+            0.0025,
+            0.021125,
+            0.976375
+          ],
+          [
+            0.0025,
+            0.02075,
+            0.97675
+          ]
+        ],
+        "samples": 16000
+      },
+      "live": {
+        "capacity_bits": 0.0001580793181751661,
+        "channel": [
+          [
+            0.425375,
+            0.32725,
+            0.247375
+          ],
+          [
+            0.41275,
+            0.32875,
+            0.2585
+          ]
+        ],
+        "samples": 16000
+      },
+      "none": {
+        "capacity_bits": 0.0,
+        "channel": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "samples": 16000
+      }
+    },
+    "slot": {
+      "constant_phase": {
+        "capacity_bits": 0.06589571674651967,
+        "channel": [
+          [
+            0.0,
+            0.119375,
+            0.880625
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "samples": 16000
+      },
+      "derived_phase": {
+        "capacity_bits": 0.04722256668072874,
+        "channel": [
+          [
+            0.18325,
+            0.08025,
+            0.7365
+          ],
+          [
+            0.144,
+            0.0,
+            0.856
+          ]
+        ],
+        "samples": 16000
+      },
+      "random_attempt": {
+        "capacity_bits": 0.03788816008136996,
+        "channel": [
+          [
+            0.181625,
+            0.06325,
+            0.755125
+          ],
+          [
+            0.134125,
+            0.000125,
+            0.86575
+          ]
+        ],
+        "samples": 16000
+      }
+    }
+  },
+  "gates": {
+    "G1_structure_above_null": {
+      "min": 0.1,
+      "pass": true,
+      "value": 0.5887951044881642
+    },
+    "G2_discrimination": {
+      "min": 0.05,
+      "pass": true,
+      "value": 0.5887951044881642
+    },
+    "G3_empowerment_not_vacuous": {
+      "min": 0.05,
+      "pass": false,
+      "value": 0.02800755666514971
+    }
+  },
+  "null_replicates": 5,
+  "observed_units": 5,
+  "seeds": 1600,
+  "slot": {
+    "constant_phase": {
+      "ei_macro": 0.05341203937178946,
+      "ei_micro": 0.05341203937178946,
+      "ei_micro_above_null": -0.11809237277234427,
+      "emergence": 0.0,
+      "emergence_above_null": 0.027605087248040294,
+      "null_ei_micro_mean": 0.17150441214413373,
+      "null_ei_micro_sd": 0.059891999826523684,
+      "null_emergence_mean": -0.027605087248040294,
+      "null_emergence_sd": 0.06526888047595142,
+      "transitions_per_seen_row": 95200.0
+    },
+    "derived_phase": {
+      "ei_macro": 0.10082392042311213,
+      "ei_micro": 0.3506121093502688,
+      "ei_micro_above_null": 0.1675837222452472,
+      "emergence": -0.2497881889271567,
+      "emergence_above_null": -0.11161476218244251,
+      "null_ei_micro_mean": 0.18302838710502162,
+      "null_ei_micro_sd": 0.02941550897538198,
+      "null_emergence_mean": -0.1381734267447142,
+      "null_emergence_sd": 0.04726767433495446,
+      "transitions_per_seen_row": 6346.666666666667
+    },
+    "random_attempt": {
+      "ei_macro": 0.11938756212824621,
+      "ei_micro": 0.1912679140528611,
+      "ei_micro_above_null": -0.0401273756975315,
+      "emergence": -0.07188035192461488,
+      "emergence_above_null": 0.011894597911221091,
+      "null_ei_micro_mean": 0.23139528975039259,
+      "null_ei_micro_sd": 0.05461463532714901,
+      "null_emergence_mean": -0.08377494983583597,
+      "null_emergence_sd": 0.07040763041601265,
+      "transitions_per_seen_row": 5950.0
+    }
+  }
+}

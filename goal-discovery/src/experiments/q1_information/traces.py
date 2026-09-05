@@ -78,7 +78,7 @@ def micro_macro_codes(actions: np.ndarray, observed: int) -> tuple[np.ndarray, n
 
 def micro_state_groups(observed: int) -> np.ndarray:
     """Group label (popcount) for each of the 2**observed micro states."""
-    return np.array([bin(i).count("1") for i in range(1 << observed)])
+    return np.array([(i).bit_count() for i in range(1 << observed)])
 
 
 def shuffle_null(actions: np.ndarray, rng: np.random.Generator) -> np.ndarray:

@@ -163,6 +163,8 @@ becoming current instructions.
 - [q1_007_congestion_corrected_relation_results.md](../goal-discovery/docs/hypotheses/q1_007_congestion_corrected_relation_results.md)
 - [q1_008_null_coupling_control.md](../goal-discovery/docs/hypotheses/q1_008_null_coupling_control.md)
 - [q1_008_null_coupling_control_results.md](../goal-discovery/docs/hypotheses/q1_008_null_coupling_control_results.md)
+- [q1_009_information_measures.md](../goal-discovery/docs/hypotheses/q1_009_information_measures.md)
+- [q1_009_information_measures_results.md](../goal-discovery/docs/hypotheses/q1_009_information_measures_results.md)
 
 ## goal-discovery/docs/plans
 

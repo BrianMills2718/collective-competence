@@ -59,26 +59,34 @@ relative improvement over persistence.
 **Next decision, revised 2026-09-05 — measure the macro description, do not
 define it.** Two actions, in this order.
 
-1. **Q1-009: effective information and empowerment on the existing specimens.**
-   Compute both on `renewable_commons` and `contended_slot`, micro against a
-   coarse-grained macro, with a matched-random arm, and with each statistic's
-   null measured **before** any threshold is frozen. This is the measure the
-   founding spec named in its section 37 and the
-   [2026-08-29 audit](../audits/2026-08-29_progress_and_allocation.md) deferred
-   as "premature without a generalizing macro signal" — circular reasoning, since
-   the measure's purpose is to test whether a macro description carries signal.
-   See [the ontology](../../../wiki/ontology.md#candidate-formal-measures-and-what-each-would-make-decidable).
-2. **Then re-run [Q1-006](../hypotheses/q1_006_pairwise_relation_results.md)'s
+1. ~~Q1-009: effective information and empowerment on the existing specimens.~~
+   **Done 2026-09-05** — [result](../hypotheses/q1_009_information_measures_results.md).
+   There is **no causal emergence** on either specimen: the coarse-grained
+   description carries strictly *less* effective information than the micro one,
+   in every non-degenerate arm and outside null noise. What does discriminate is
+   **EI-micro above its own shuffle null**, on both families — commons `live`
+   +0.589 against `frozen` +0.198; slot `derived_phase` +0.168 against
+   matched-random −0.040 and `constant_phase` −0.118. Raw EI ranks the arms
+   *wrongly* (uncoordinated `frozen` has the highest raw EI of any arm), so the
+   null subtraction is load-bearing. Two caveats own the reading: **G2 passed
+   against a degenerate control** — the commons `none` arm visits one micro state
+   of thirty-two — and **empowerment is unmeasured rather than zero**, because the
+   forced intervention is smaller than the estimator's resolution.
+2. **Now: re-run [Q1-006](../hypotheses/q1_006_pairwise_relation_results.md)'s
    comparison with a null-calibrated threshold**, which settles
    completion-condition clause 2 either way.
 
-Why this order: Q1-006's re-run resolves a gate on a statistic
-([Q1-004](../hypotheses/q1_004_second_family_qualification_results.md) already
-records that the statistic is "partly measuring the wrong thing"). Q1-009 asks
-whether any macro description of these specimens carries causal structure at all,
-which is prior to choosing a statistic for detecting one. If Q1-009 comes back
-negative, clause 2 is being contested on a substrate where there is nothing to
-detect, and that is worth knowing first.
+**What Q1-009 changes about that re-run.** On the slot, where a matched-independent
+control exists, the coordinated arm sat about six null standard deviations above
+its null while the matched-independent arm sat *at* its null. That is the clause-2
+shape, on a statistic whose null is measured rather than assumed — so the re-run
+should carry the null-subtracted form rather than an absolute ceiling, and it now
+has a second statistic to cross-check against.
+
+**Two debts Q1-009 opened**, both cheap and neither blocking: one, the commons
+arms have no matched-independent control and should get one before any further
+commons comparison; two, empowerment needs a contiguous-block intervention and
+finer buckets before it can be called inapplicable.
 
 **The scope question this replaces.** Whether the constructive arm is about
 *composition* or *coordination* was raised on 2026-09-05 and is **withdrawn as

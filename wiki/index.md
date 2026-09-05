@@ -109,16 +109,22 @@ failure conditions, and evidence limits.
 [current plan](../goal-discovery/docs/plans/current_research_plan.md) owns the
 next action and is the file to read second.*
 
-**Two actions are next, in order** (revised 2026-09-05). First **Q1-009**:
-compute effective information and empowerment on the two existing specimens,
-micro against a coarse-grained macro, with each statistic's null measured before
-any threshold is frozen — asking whether a macro description of these systems
-carries causal structure at all. Then re-run
+**One action is next.** Re-run
 [Q1-006](../goal-discovery/docs/hypotheses/q1_006_pairwise_relation_results.md)'s
 comparison with a **null-calibrated threshold**, which settles the analytic
-instrument's completion-condition clause 2 either way. The
-[current plan](../goal-discovery/docs/plans/current_research_plan.md) owns the
-reasoning for that order.
+instrument's completion-condition clause 2 either way.
+
+**[Q1-009](../goal-discovery/docs/hypotheses/q1_009_information_measures_results.md)
+ran first and answered a prior question: there is no causal emergence here.** On
+both specimens, in every non-degenerate arm, the coarse-grained description
+carries strictly *less* effective information than the micro description it was
+built from — a clean negative on the question the founding laboratory spec asked
+in its section 37 and the 2026-08-29 audit deferred. What *does* discriminate
+coordinated from uncoordinated, on both families, is effective information
+measured **against its own shuffle null**; raw EI ranks the arms wrongly, giving
+the uncoordinated arm the highest score of any. Two caveats own that reading: one
+gate passed against a degenerate control, and empowerment is unmeasured rather
+than zero.
 
 **A term this programme had been using as a fact turned out to be a
 description.** Composition and coordination are separated by where the analyst

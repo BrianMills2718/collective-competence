@@ -2,6 +2,118 @@
 doc-role: experiment-protocol
 authority: experiment
 lifecycle: frozen
+artifact_intent:
+  concern_id: q1-009-information-measures
+  creation_justification: "Freeze the first interventional information measures in this repository -- effective information, causal emergence, and empowerment -- with thresholds derived from a committed null calibration rather than judgement."
+  separate_file_reason: A preregistration must stay inspectable beside, and distinct from, its later result.
+  retirement_condition: Archive only after the completion condition is met or explicitly revised.
+metadata_note: >-
+  The experiment_declaration block below was added after the prose was frozen in
+  a89f768, solely to satisfy the register's machine-readable contract. It
+  restates the frozen prose and changes no gate, prediction, arm, threshold,
+  observation contract, or sampling parameter. The prose in a89f768 is the
+  authority if the two ever disagree.
+experiment_declaration:
+  contract_version: 1
+  primary_research_purpose: goal_competence_discovery
+  secondary_research_purposes:
+    - calibration
+  specimen_origin: constructed
+  analyst_access_phases:
+    - phase: measurement
+      access: white_box
+      allowed_information:
+        - per-tick act/no-act of the first five subunits, for every arm
+        - the arm label, since this characterises an instrument rather than inferring a goal
+      privileged_exclusions:
+        - no exclusion; this is declared white-box and is not a discovery study
+  substrate_and_world:
+    realization: C1-001's renewable commons and C2-001's contended slot, both on the shared substrate; actions read through the substrate's read-only observer.
+    version: Measures and calibration committed in 87ef7a8; this protocol frozen in a89f768 before the commons or empowerment were measured.
+    environment: Pure Python and NumPy; no external solver.
+    limitations:
+      - One coarse-graining (count of units acting) and one observation contract (five of the subunits).
+      - Effective information estimated from a sampled transition matrix is biased upward, so only null-relative values are interpretable.
+      - The commons arms include no matched-independent control; the slot arms do.
+  focal_boundary_and_scale:
+    boundary: The observed five subunits as a joint system; micro is their act pattern, macro is how many act.
+    scale: Emergence is a claim about the macro description relative to the micro one, not about either alone.
+    rationale: Group sizes must be unequal or data processing bounds macro EI below micro EI, making emergence unreportable by construction.
+  mechanism:
+    summary: Phase and threshold rules already characterised by C1-001, C1-002 and C2-001; unchanged here.
+    access_status: known
+    provenance: authored
+    claim_assessment: not_tested
+  capability_claims:
+    - capability_id: macro_structure_detection
+      operation: Report whether a coarse-grained description carries effective information beyond its micro description, and beyond a shuffle null.
+      attribution_boundary: The measure, not the studied specimen.
+      interface: Per-tick action patterns in; effective information, causal emergence and channel capacity out, each with a null.
+      operating_conditions: 1600 seeds per arm, five shuffle-null replicates, coarse-graining and observed-unit count fixed before any value is read.
+      resource_bounds: One pass per arm; no specimen parameter altered.
+      failure_semantics: A gate below its own measured null is a protocol defect and is reported as one; a spread below the validity gate means no ordering is read.
+      evidence_source: results/q1-009-information/result.json and calibration.json.
+      provenance: authored
+      claim_assessment: not_tested
+  observation_contract:
+    allowed_variables: Binary act/no-act per tick for the first five subunits.
+    history: Full within-run ordering across 120 ticks.
+    cutoff: Horizon of 120 ticks; 1600 seeds per arm.
+    units: Bits.
+    privileged_exclusions:
+      - none; this is a declared white-box instrument characterisation
+    lineage: Calibration committed in 87ef7a8 before this protocol named a threshold.
+  representation_contract:
+    transformation: Micro state is the joint act pattern of five units (32 states); macro state is their sum (6 states, binomial group sizes).
+    candidate_family_provenance: authored
+    information_budget: One coarse-graining; no search over partitions.
+    fitting_boundary: Coarse-graining and observed-unit count are frozen here and may not change after any value is read.
+  goal_criteria:
+    - criterion_id: macro_carries_structure
+      form: EI of the macro description exceeds EI of the micro description, above a shuffle null.
+      focal_boundary: The observed collective.
+      provenance: authored
+      temporal_scope: Whole run, aggregated across seeds.
+      tolerance: Reported without a gate, per the calibration.
+      claim_assessment: not_tested
+      rival_explanations:
+        - finite-sample bias in a sparsely estimated transition matrix
+        - degeneracy, where micro and macro coincide because every unit does the same thing
+        - the chosen partition is wrong even though some partition would work
+  challenge_family:
+    initial_conditions: 1600 seeds per arm, identical seed sets across arms.
+    perturbations: Arm identity is the manipulation; for empowerment, a forced action at one tick.
+    routes: Not applicable.
+    demands: Separate coordinated from uncoordinated populations without a goal criterion.
+    resources: One pass per arm plus five null replicates.
+    opportunity_rules: The coordinated arms are known to coordinate, so failure to separate them is a failure of the measure, not an opportunity limit.
+    coverage_status: partial
+  competence_profile:
+    - dimension: attainment
+      value: Reported by the frozen gates G1, G2 and G3
+      units: bits
+      uncertainty: Five shuffle-null replicates per arm, mean and standard deviation reported.
+      claim_assessment: not_tested
+      individual_failures: Recorded in the result, including any gate that passes against a degenerate control.
+      transfer_boundary: Two specimen classes, one coarse-graining.
+  intervention_contract:
+    target: For empowerment, one subunit's action at one tick.
+    operation: Overwrite the action to act or to not act, then run forward under ordinary rules.
+    scope: One subunit.
+    timing: A single tick, sampled uniformly away from the horizon end.
+    persistence: One tick only.
+    counterfactual_comparator: The identical seed, arm and tick with the opposite forced action.
+  evidence:
+    provenance: observed
+    claim_assessment: not_tested
+    review_status: result_reviewed
+    result_source: goal-discovery/docs/hypotheses/q1_009_information_measures_results.md
+    counterevidence: Raw effective information ranks the uncoordinated frozen arm highest of any arm, so only the null-subtracted value discriminates.
+    abstention: Empowerment ordering is not read, because its validity gate failed.
+    limitations:
+      - One coarse-graining; the partition is not searched and is not retuned to find emergence.
+      - The commons arms lack a matched-independent control, so G2 passed against a degenerate arm.
+      - Empowerment is unmeasured rather than measured-as-zero; the intervention is smaller than the measurement resolves.
 ---
 # Q1-009 — does a macro description of these specimens carry causal structure?
 
