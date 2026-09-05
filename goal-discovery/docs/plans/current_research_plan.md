@@ -195,6 +195,28 @@ generic simulator, polish the dashboard, or treat the P15 pass itself as a
 discovery, generalization, or competence claim. Each would spend the earned
 protocol design on apparatus instead.
 
+**Amended 2026-09-05 — "polish the dashboard" never meant "leave the owner
+unable to see the work."** That line was aimed at apparatus drift, and it
+achieved something else: the cockpit's last commit is 2026-08-31 and the twelve
+experiments of 2026-09-04, plus Q1-009 and Q1-010, have no view in it at all.
+Every agent that read this list correctly declined to touch the UI, and nothing
+anywhere asked whether the owner could still follow what was happening. The
+distinction now holds:
+
+- **Still forbidden:** polishing, restyling, adding viewers, or building a
+  generic simulator or dashboard maturity ladder. Apparatus is not the result.
+- **Now required:** every live-era experiment carries a one-sentence `headline`
+  on its register record saying what it found, and
+  [the generated scoreboard](../../../wiki/scoreboard.md) renders them in one
+  pass. `render_knowledge_index.py --check` fails on a missing or oversized
+  headline and on a stale scoreboard, so this cannot rot the way the cockpit
+  did. Adding a headline is not dashboard work and is not covered by the line
+  above.
+
+The cockpit itself stays where it is. Bringing it up to date is real work with a
+real cost and is not queued by this amendment; the scoreboard is the cheap thing
+that makes the state legible today.
+
 ## Human Decisions
 
 This is a one-human project; per the installed `company-planning` skill's

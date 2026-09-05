@@ -93,7 +93,8 @@
       "cost": {
         "status": "unknown",
         "effort_minutes": null
-      }
+      },
+      "headline": "The suspicion that the headline statistic reads determinism rather than coordination was tested on the slot family and FAILED its own frozen gate: coordinated +6.3 null sd, deterministic-but-independent +1.7, independent draw ~0. It still holds unexplained on the commons, where an uncoordinated arm sits 5.4 null sd up."
     },
     {
       "id": "001",
@@ -905,7 +906,8 @@
       "cost": {
         "status": "unknown",
         "effort_minutes": null
-      }
+      },
+      "headline": "No causal emergence on either specimen: the coarse-grained description carries strictly LESS effective information than the micro one it was built from, in every non-degenerate arm. A later review found eight defects in this experiment's own code; every effective-information value survived, every empowerment value moved."
     },
     {
       "id": "Q1-008",
@@ -924,7 +926,8 @@
       "cost": {
         "status": "unknown",
         "effort_minutes": null
-      }
+      },
+      "headline": "The statistic's floor is its own finite-sample null, about 0.12 at this horizon and entity count — not any property of the substrate. This experiment then committed the same below-null gate error it was written to catch."
     },
     {
       "id": "Q1-007",
@@ -943,7 +946,8 @@
       "cost": {
         "status": "unknown",
         "effort_minutes": null
-      }
+      },
+      "headline": "The congestion explanation this experiment was built on is refuted: removing the coupling entirely RAISES the statistic instead of lowering it. Lane stopped."
     },
     {
       "id": "Q1-006",
@@ -962,7 +966,8 @@
       "cost": {
         "status": "unknown",
         "effort_minutes": null
-      }
+      },
+      "headline": "Coordinated scored 0.284 against matched-random 0.108. The clause-2 gate was frozen at 0.10 — BELOW the statistic's own finite-sample null — so no independent process could ever have passed it, and the recorded failure measured an unachievable gate."
     },
     {
       "id": "Q1-005",
@@ -981,7 +986,8 @@
       "cost": {
         "status": "unknown",
         "effort_minutes": null
-      }
+      },
+      "headline": "The advantage over matched randomness is about 17% relative, not the total effect an earlier comparison implied: matched random reaches 0.375 against derived phase's 0.438. Most of the benefit is desynchronization, which randomness supplies free."
     },
     {
       "id": "Q1-004",
@@ -1000,7 +1006,8 @@
       "cost": {
         "status": "unknown",
         "effort_minutes": null
-      }
+      },
+      "headline": "The instrument recovered an authored coordination on a second family it was not built for — a directional pass, carrying a caveat about the statistic it leans on."
     },
     {
       "id": "C2-002",
@@ -1019,7 +1026,8 @@
       "cost": {
         "status": "unknown",
         "effort_minutes": null
-      }
+      },
+      "headline": "The derivation rule matters only through how many distinct phases it preserves, which is one line of algebra about gcd(a, P) rather than an empirical discovery."
     },
     {
       "id": "C2-001",
@@ -1038,7 +1046,8 @@
       "cost": {
         "status": "unknown",
         "effort_minutes": null
-      }
+      },
+      "headline": "Environmental heterogeneity can substitute for designer-assigned identity: satisfaction rises 0.000 to 0.438 as need spread widens, tracking distinct phases 1.0 to 6.6. Both the derivation rule and the period, which equals the population size, are still authored."
     },
     {
       "id": "C1-002",
@@ -1057,7 +1066,8 @@
       "cost": {
         "status": "unknown",
         "effort_minutes": null
-      }
+      },
+      "headline": "The same mechanism could not coordinate an indivisible slot at all. A shared scalar every subunit reads identically is common-mode by construction: it can gate a population together but never stagger it, so C1 is a price mechanism and needs a divisible good."
     },
     {
       "id": "Q1-003",
@@ -1076,7 +1086,8 @@
       "cost": {
         "status": "unknown",
         "effort_minutes": null
-      }
+      },
+      "headline": "A candidate family carrying a latent shared regressor closes the gap — but the record says plainly it does not qualify the instrument, because its author wrote it knowing the answer."
     },
     {
       "id": "Q1-002",
@@ -1095,7 +1106,8 @@
       "cost": {
         "status": "unknown",
         "effort_minutes": null
-      }
+      },
+      "headline": "The gap is not how the cases are packaged; it is what the model family can say. Repackaging changes nothing."
     },
     {
       "id": "Q1-001",
@@ -1114,7 +1126,8 @@
       "cost": {
         "status": "unknown",
         "effort_minutes": null
-      }
+      },
+      "headline": "Handed a matched pair differing only in whether a coordinating signal was present, the instrument returned the SAME disposition for both. The candidate family has no way to express dependence on a shared quantity, so coordination is unrepresentable rather than merely undetected."
     },
     {
       "id": "C1-001",
@@ -1133,7 +1146,8 @@
       "cost": {
         "status": "unknown",
         "effort_minutes": null
-      }
+      },
+      "headline": "A shared scarcity signal beat the best fixed threshold on a renewable commons, 1.000 against 0.500 over 8 seeds — but the pre-registered control was weaker than claimed, and the effect size was revised down in the record."
     },
     {
       "id": "P15",
@@ -1152,7 +1166,8 @@
       "cost": {
         "status": "unknown",
         "effort_minutes": null
-      }
+      },
+      "headline": "The freeze/reveal/audit machinery works end to end, but the capability it was meant to reward does not exist: applying all four proposers to all four cases gives an empty off-diagonal, so proposal generality measured zero."
     }
   ]
 }
