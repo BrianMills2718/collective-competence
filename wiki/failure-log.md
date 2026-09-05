@@ -293,6 +293,36 @@ own merits and needs no comparison to another project.
 [The cross-repository timeline](cross-repo-timeline.md) records dated history and
 is not a membership claim; its mentions are historical fact, not routing.
 
+## F16 — Two preregistrations were filed as historical plans — `CLOSED 2026-09-05`
+
+**What was wrong.** `p7_004_ants_trail_scale_preregistration.md` declared
+`doc-role: historical-plan-or-decision`, `authority: historical`,
+`lifecycle: retained`. `p7_005_network_intervention_value_preregistration.md`
+declared **nothing at all** — no frontmatter, so no role and no lifecycle.
+
+Both are frozen preregistrations, which this repository's own rule places on the
+preserve list beside result measurements, original briefs and historic audits.
+Filed among historical plans, they read as archive candidates.
+
+**How it surfaced.** By being about to archive them. A recommendation to archive
+"the 17 retained plans" treated the directory's lifecycle field as the
+classification, and two of the seventeen were mislabelled evidence. Reading them
+was what caught it — the same failure that removed `compensation` and
+`adaptation` earlier the same day ([F11](#f11--code-deleted-against-current-state-not-against-goals--closed)),
+now twice in one session.
+
+**Closed** by reclassifying both to `doc-role: preregistration`,
+`authority: evidence`, `lifecycle: frozen`. Bodies unchanged.
+
+**The open half.** *"The 17 retained plans"* is not one category. It is at least
+three: two preregistrations (evidence, now fixed), roughly seven **decision
+records** — `x01_mesa_decision` concludes *"Mixed. Keep Mesa as an optional
+backend... Do not make Mesa the default architecture"* — and the genuinely
+historical remainder. Only the third group is an archive candidate, and the
+decision records want to be **findable**, not merely recoverable, because
+"did we already evaluate Mesa?" recurs unprompted. This repository has no
+decisions surface for them; they sit in `plans/` because there is nowhere else.
+
 ## F3 — A gate frozen below its own statistic's null, three times — `CLOSED`
 
 **What stopped.** Q1-006 froze a clause-2 ceiling at 0.10 when the statistic's
