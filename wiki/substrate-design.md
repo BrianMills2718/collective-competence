@@ -391,9 +391,134 @@ Composition, drive, and pricing are then one experiment rather than three:
 **does a population with mixed capability, at fixed total spend, match a drive
 that no uniform population of the same spend can match?**
 
+---
+
+# Round five — the frame is detection, and the paper supplies the list
+
+Owner's correction, 2026-09-05, verbatim:
+
+> "i think this 'The composition claim is a mixed population beats a uniform
+> one. ' is the wrong framing. we are trying to detect things. we arent making
+> claims about beating or whatever. the cognitive glue paper has a lot of stuff
+> that can apply to us. not the ecocnomic stuff. we jsut have to figure out what
+> it representaiton in our susbtfate is, and it also discusses the different
+> components of intellgience and stuff like learning, adapataion, memory i cant
+> remeber them all"
+
+## The framing was wrong, and this is what it cost
+
+"Does a mixed population beat a uniform one" is a **performance** question. It
+asks which arrangement wins. That is optimisation, and it is not what this
+programme is for. Two rounds of the agent's proposal — including the pricing
+argument built to make "beating" measurable — were aimed at the wrong target.
+
+**The programme is detection.** Given a system, can we tell what it has? That is
+what the charter's completion condition already says — recover the authored
+structure, do not report it where it is absent — and the whole analytic arm
+exists to do it. Composition is not a contest between arrangements; it is a
+property to be detected.
+
+**Pricing survives the reframe, in a smaller role.** It is no longer what makes
+a comparison fair. It is one *observable*: what a structure costs to maintain is
+something a detector may or may not be able to read off behaviour.
+
+## The nine properties, from the source rather than a summary
+
+Read from `levin-wiki/raw/papers/cognitive_glues_economics.pdf` (53 pages,
+extracted directly; the earlier round cited only this wiki's own summary page,
+which does not carry the list). The paper's own words for what a cognitive glue
+should do — the price system is presented as **one instantiation**, and the
+economics is the example, not the content:
+
+1. **Control over form** — control the form the system takes in some space.
+2. **Encoding goal states** — patterns that guide subagents to target states
+   *without any of the subagents intending to do so*.
+3. **Encoding multiple goal states** — counterfactuals; "two-headed patterns
+   existing in a one-headed animal".
+4. **Mnemonic improvisation** — *"remap information onto new media and new
+   contexts"*, as in metamorphosis.
+5. **Prepatterns** — guide subagents by providing patterns for them to follow.
+6. **Hijackability / external control** — *"manipulated by an external agent to
+   control the behavior of the system"*.
+7. **Scaling** — *"scales up individual plans and competencies into a collective
+   entity with larger and different goals and competencies than can be found
+   among the members"*; explicitly *"an interaction between individual ambitions
+   and global affordances"*.
+8. **Owner wiping / partial erasure of identity / stress sharing** — subagents
+   attend to others' problems as their own. The paper says this one *"is the
+   property that justifies the term cognitive glue"*.
+9. **Credit assignment** — credit to subagents whose work benefits others.
+
+**Two of these settle open questions in this discussion.**
+
+**Property 6 is the drive.** External control is a *named glue property*, not an
+analogy the agent forced onto the material in round four. The platonic thread's
+periodic forcing is an instance of it, and the measured drive-dependence — TV
+distance 0.753 between the pattern distributions under 01 and 001 forcing — is
+that property being exercised.
+
+**Property 4 is memory, defined substrate-independently.** The paper's economic
+gloss is the ability to preserve a pattern *while the people, firms, resources
+and materials instantiating it change*. That is **pattern persistence under
+substrate turnover** — no prices required, and directly measurable in an
+automata population whose machines fail and rewire. The platonic metastability
+result is exactly this quantity: a pattern family holding 1.5% of machine space
+occupying 71% of physical time while individual machines turn over.
+
+## Candidate representations, and the detection question for each
+
+Marked as candidates. The right-hand column is the programme's actual work.
+
+| Property | Candidate representation here | What detection would mean |
+|---|---|---|
+| Control over form | which structures occupy time under a given drive | recover the drive from occupancy alone |
+| Encoding goal states | the metastable family the drive selects | name the selected structure without being told the drive |
+| Multiple goal states | two families co-occupied; behaviour under drive switching | detect that two are held at once rather than one |
+| **Mnemonic improvisation** | **pattern persistence while machines turn over** | separate a persisting pattern from a persisting substrate |
+| Prepatterns | the drive's structure is present before any element matches it | detect availability distinct from occupancy |
+| **Hijackability** | **the drive itself** — change it, the landscape changes | detect that a system is drive-coupled at all |
+| Scaling | population matches structure no single element implements | and its **bound** — see below |
+| Partial erasure of identity | strain sharing: one element's mismatch raises another's failure rate | detect coupling from behaviour without seeing the law |
+| Credit assignment | differential survival — better-coupled elements fail less | detect that survival tracks contribution |
+
+## Why the Chomsky ladder matters under the detection frame
+
+Not as a performance dial. **As the only source of cases where absence is
+provable.**
+
+A three-state machine *cannot* implement a four-phase clock — that is a theorem,
+not an observation, and the platonic thread measured its consequence: minimum
+attainable strain 0.1442 rather than zero, enrichment collapsing to 1.79x where
+the two- and three-phase cases reached 22x and 181x.
+
+So the ladder supplies what
+[the charter's completion condition](../goal-discovery/docs/PROJECT.md) clause 2
+has never had: **a negative control whose ground truth is proved rather than
+asserted.** If a detector reports scaling to a competence the members provably
+cannot implement, the detector is wrong, and we know it without arguing about
+the specimen. Every previous attempt at clause 2 in this repository failed
+because "the structure is absent" was a claim about an authored specimen rather
+than a mathematical fact.
+
+## Open questions, round five
+
+1. **Which properties are in scope first?** Nine is too many for one substrate.
+   4 (memory), 6 (hijackability) and 7 (scaling) are the three the platonic
+   thread already touches and the three with the clearest pre-biological
+   representation.
+2. **Is property 8 — stress sharing — the same thing as the strain law?** If so,
+   the platonic constitutive law is not an arbitrary toy physics choice but an
+   implementation of the property the paper calls the one that *justifies the
+   term cognitive glue*. That would change how seriously to take it.
+3. **What is "adaptation" here?** The owner's list named learning, adaptation and
+   memory. Memory maps to property 4. The paper's nine do not obviously contain
+   learning or adaptation as separate entries — they may live under mnemonic
+   improvisation and credit assignment, or they may be a different taxonomy that
+   needs reconciling rather than merging.
+
 ## Status
 
-Round four. Nothing decided. The proposal has moved from the agent's
+Round five. Nothing decided. The proposal has moved from the agent's
 "configuration + rewrite + scheduler" skeleton to the owner's automata framing,
 which subsumes it: the skeleton is how a run is executed, the automaton class is
 what an element *is*, and pricing is what keeps the composition claim honest.
