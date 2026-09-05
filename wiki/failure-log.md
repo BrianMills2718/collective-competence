@@ -224,6 +224,13 @@ really contains the file, that the file is really absent from the tree, and that
 a reason is recorded. Both guards were checked by making them fire. The three
 snapshots are archived; the plan's stale paragraph is corrected.
 
+**Second half, 2026-09-05.** The report-only tool became usable too. It refused
+to run for a missing `scripts/relationships.yaml`; installing
+[the ADR pattern](../goal-discovery/docs/adr/README.md) creates that file as its
+governance mapping, and `archive_lifecycle.py` now runs here and reports real
+blockers over 220 tracked documents. Two gaps, one install — and neither needed
+the mover the plan was waiting for.
+
 **The general lesson**, and it is the third instance today: a recorded blocker is
 a claim. This one had been true of nothing for as long as it was written down,
 and the cost was 1,135 lines held in the active tree plus an instruction telling
@@ -322,6 +329,36 @@ historical remainder. Only the third group is an archive candidate, and the
 decision records want to be **findable**, not merely recoverable, because
 "did we already evaluate Mesa?" recurs unprompted. This repository has no
 decisions surface for them; they sit in `plans/` because there is nowhere else.
+
+## F17 — Eight of nine "plans" were registered experiment artifacts — `CLOSED 2026-09-05`
+
+**The plan.** Convert nine decision records out of `docs/plans/` into numbered
+ADRs, carrying their text, and archive the plan-shaped originals through
+[the recovery index](archive-index.md).
+
+**What the register said.** `render_knowledge_index.py --check` refused, naming
+one file at a time. Querying `roadmap/experiments.json` directly instead of
+iterating showed **eight of the nine are registered artifacts** of experiments
+`X01`, `X02`, `X03`, `P4-generator-selection`, `P5-001`, `P6-000`, `P6-002` and
+`P6-003`. They were never loose plans. Only `p2_research_pivot.md` was
+unregistered — and it was then rejected on a different rule, being research
+direction rather than architecture.
+
+**The corrected design is better and smaller.** The ADRs **cite** their sources
+instead of absorbing them. Every source stays exactly where the experiment
+register expects it, and the change becomes pure addition: an index, eight thin
+records, a template and a governance mapping. Nothing moved, nothing archived,
+nothing rewritten.
+
+**What this cost, and the pattern it completes.** Fourth time in one session that
+reading the actual data changed a disposition after it had been proposed —
+[F11](#f11--code-deleted-against-current-state-not-against-goals--closed) removed
+two specimens a goal needed, [F16](#f16--two-preregistrations-were-filed-as-historical-plans--closed-2026-09-05)
+nearly archived two preregistrations, the ingression thread was three times
+proposed a home it did not need, and this. Each time the fix came from opening
+the thing rather than reading its label, and each time an existing guard caught
+it before damage. **The guards are load-bearing; the proposals were not
+trustworthy without them.**
 
 ## F3 — A gate frozen below its own statistic's null, three times — `CLOSED`
 

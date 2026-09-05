@@ -50,6 +50,19 @@ becoming current instructions.
 - [PROJECT.md](../goal-discovery/docs/PROJECT.md)
 - [outcome_backcasting_final_report.md](../goal-discovery/docs/outcome_backcasting_final_report.md)
 
+## goal-discovery/docs/adr
+
+- [0001-mesa-as-optional-backend-not-default.md](../goal-discovery/docs/adr/0001-mesa-as-optional-backend-not-default.md)
+- [0002-adopt-netlogo-for-visual-prototyping.md](../goal-discovery/docs/adr/0002-adopt-netlogo-for-visual-prototyping.md)
+- [0003-adopt-a-small-visual-analytics-stack.md](../goal-discovery/docs/adr/0003-adopt-a-small-visual-analytics-stack.md)
+- [0004-stop-the-slime-line-select-a-standard-generator.md](../goal-discovery/docs/adr/0004-stop-the-slime-line-select-a-standard-generator.md)
+- [0005-reuse-netlogo-scikit-image-and-networkx.md](../goal-discovery/docs/adr/0005-reuse-netlogo-scikit-image-and-networkx.md)
+- [0006-select-morpheus-m4377-for-one-causal-calibration.md](../goal-discovery/docs/adr/0006-select-morpheus-m4377-for-one-causal-calibration.md)
+- [0007-no-candidate-qualifies-do-not-install-compucell3d.md](../goal-discovery/docs/adr/0007-no-candidate-qualifies-do-not-install-compucell3d.md)
+- [0008-stop-internal-simulator-search.md](../goal-discovery/docs/adr/0008-stop-internal-simulator-search.md)
+- [README.md](../goal-discovery/docs/adr/README.md)
+- [TEMPLATE.md](../goal-discovery/docs/adr/TEMPLATE.md)
+
 ## goal-discovery/docs/audits
 
 - [2026-08-29_company_planning_reflection.md](../goal-discovery/docs/audits/2026-08-29_company_planning_reflection.md)
