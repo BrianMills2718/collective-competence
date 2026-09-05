@@ -147,6 +147,19 @@ distinction may be the one doing the work:
 | commons `random` | no | +0.006 |
 | slot `constant_phase` | every unit acts on the same tick — the most synchronised arm measured | **−0.118** |
 
+> **Provenance and stability of the three figures above, added 2026-09-06.**
+> They are from `results/q1-009-information/result.json`. Q1-009 also has a
+> later `followup.json` whose slot arms differ, because its shuffle nulls are
+> drawn from a different stream: `constant_phase` −0.085 rather than −0.118, and
+> `random_attempt` **+0.024 rather than −0.040 — a change of sign.**
+>
+> The motivating reading survives both: `constant_phase` is below its null in
+> each, and `random_attempt` is indistinguishable from its null in each (its
+> null sd is 0.055 and 0.021 respectively, so both values sit inside noise).
+> But **−0.040 is not a stable measurement** and should not be read as one. The
+> gates below are unaffected — they are computed in this experiment's own run and
+> do not depend on either Q1-009 package.
+
 Two arms with coordination absent land on opposite sides of the statistic, 33×
 apart, and the most synchronised arm scores *below* its own null. Q1-009 reports
 `frozen`'s +0.198 and even calls it "genuinely uncoordinated"; its 2026-09-05

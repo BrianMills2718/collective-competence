@@ -52,7 +52,7 @@ family.**
 | arm | EI micro | shuffle null | above null | in null sd | satisfaction | duty |
 |---|---|---|---|---|---|---|
 | `derived_phase` (coordinated) | 0.3502 | 0.1766 | **+0.1736** | **+6.3** | 0.3929 | 0.0865 |
-| `private_period` (deterministic, independent) | 0.2373 | 0.1704 | **+0.0670** | **+1.7** | 0.2863 | 0.0902 |
+| `private_period` (deterministic, independent) | 0.2373 | 0.1704 | **+0.0670** | **+1.65** | 0.2863 | 0.0902 |
 | `private_period_primes` (declared, ungated) | 0.1127 | 0.2680 | −0.1553 | −1.7 | 0.1652 | 0.0578 |
 
 | gate | required | actual | |
@@ -70,7 +70,7 @@ correctly declined to report it as structured at the frozen bar.
 Three things stand, and two of them are the reason the concern was raised.
 
 **1. The response is graded, not binary.** `private_period` is not *at* its null
-the way `random_attempt` is (−0.040 in Q1-009). It is +1.7 null sd, and
+the way `random_attempt` is (−0.040 in Q1-009). It is +1.65 null sd, and
 +0.0670 is **39% of the coordinated arm's +0.1736**. Determinism with no shared
 period buys about two fifths of the effect that Q1-009's summary attributes to
 coordination. It falls under the frozen two-sd bar, which is the honest reading
@@ -90,7 +90,9 @@ is absent, **on two families**." That conclusion is not supported on the commons
 by Q1-009's own numbers, and this experiment does not supply it.
 
 **3. The response across deterministic arms is non-monotonic.** Two deterministic
-arms now score *below* their own nulls: `constant_phase` at −0.118 (Q1-009) and
+arms now score *below* their own nulls: `constant_phase` at −0.118 (Q1-009's
+`result.json`; −0.085 in its later `followup.json`, which draws its nulls from a
+different stream — below its null in both) and
 `private_period_primes` at −0.1553 here. The primes arm carries no gate because
 its duty cycle is 0.0578 against 0.0865 and sparser rows inflate its null, which
 is the likely mechanism — but the same explanation is available for
@@ -109,7 +111,8 @@ advice is superseded rather than softened.
 
 The reasoning error is worth naming because it is cheap to repeat: I read two
 numbers from the commons (`frozen` +0.198) and one from the slot
-(`constant_phase` −0.118), inferred a common mechanism, and generalised it to a
+(`constant_phase` −0.118, from `result.json`), inferred a common mechanism, and
+generalised it to a
 family where the deterministic-independent arm had never been measured. The
 mechanism may still be right on the commons. It was not established anywhere.
 
@@ -136,6 +139,27 @@ a negative control in `tests/test_q1_010_control.py`.
 `results/*` is still ignore-everything-plus-allowlist. This package was invisible
 to Git until its entry was added by hand — the mechanism behind finding 1 of the
 2026-09-05 assessment is unrepaired, and it caught the next new experiment.
+
+## A provenance correction, 2026-09-06
+
+Every Q1-009 figure this record cites was taken from
+`results/q1-009-information/result.json` without naming that package. Q1-009 has
+a second, later package, `followup.json`, whose **slot** arms differ because its
+shuffle nulls come from a different stream:
+
+| slot arm | `result.json` | `followup.json` |
+|---|---|---|
+| `constant_phase` | −0.1181 | −0.0846 |
+| `derived_phase` | +0.1676 | +0.1672 |
+| `random_attempt` | **−0.0401** | **+0.0239** |
+
+`random_attempt` **changes sign**. Both values are inside their own null noise —
+sd 0.055 and 0.021 — so *"indistinguishable from its null"* is the honest reading
+and is what Q1-009's own record says. But quoting −0.040 as a measurement, as
+this record did, overstates its stability.
+
+**No gate or disposition changes.** Q1-010's gates are computed in its own run
+against its own committed null and never referenced either Q1-009 package.
 
 ## Evidence limits
 

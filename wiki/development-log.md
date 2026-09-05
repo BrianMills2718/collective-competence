@@ -50,7 +50,7 @@ beside it claims*.
 **The experiment.** [Q1-010](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md)
 tested the audit's sharpest finding — that EI-above-shuffle-null reads
 determinism rather than coordination — and **falsified it** on Q1-006's own
-family: coordinated +6.3 null sd, deterministic-but-independent +1.7 under a bar
+family: coordinated +6.3 null sd, deterministic-but-independent +1.65 under a bar
 frozen beforehand, independent draw ~0. The advice against the queued re-run was
 withdrawn. What survives is that the response is graded rather than binary and
 that the commons counterexample is unexplained, recorded as debt 4 in the plan.
@@ -166,6 +166,16 @@ Running both revisions back-to-back under identical conditions reversed that: th
 pre-session revision renders empty **3 of 4** times and the current one **1 of
 4**. The intermittency is pre-existing and unrelated to this session's changes.
 A single screenshot of that app is not evidence.
+
+**Sweep 4 — quoted numbers against their packages.** `+1.7 null sd` was quoted in
+six documents for a measured `+1.65`, while the paired `+6.3` was exact; the
+round-up favoured the hypothesis Q1-010 was built to test and falsified. And
+Q1-010's records cited Q1-009 figures without naming which of its two packages,
+one of which — `random_attempt` — **changes sign** between them (−0.0401 against
++0.0239), both inside null noise. Corrected, with the comparison recorded, and
+closed by `scripts/check_quoted_figures.py` and its two controls. No gate or
+disposition changes: Q1-010's gates came from its own run. Recorded as
+[F20](failure-log.md).
 
 **What this does not establish.** No scientific claim changed. No result record,
 protocol, or result package was altered by any of it. The goal register is a

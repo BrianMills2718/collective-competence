@@ -439,6 +439,53 @@ command, and consumed only by a test. It lost its one `src/` consumer when
 `opportunity_adjusted` was removed. By every criterion checked it is removable,
 and it is being left in place because the criterion is the thing under suspicion.
 
+## F20 — A rounded figure and an unnamed package — `CLOSED 2026-09-06`
+
+Two defects from checking quoted numbers against the packages they come from.
+
+**A round-up in the flattering direction.** `+1.7 null sd` was quoted across six
+documents for a measured **`+1.65`**, while its paired figure `+6.3` was quoted
+exactly — so one number in the same sentence was rounded and the other was not.
+The rounding favoured the deterministic-independent arm sitting further above its
+null, which is the direction supporting the hypothesis Q1-010 was built to test
+**and falsified**. Corrected to `+1.65` everywhere, including the two generated
+surfaces, whose source fields in `roadmap/experiments.json` had to be fixed
+first.
+
+**A cited package that was never named, and one figure that changes sign.**
+Q1-010's protocol and result cited Q1-009 figures without saying which of that
+experiment's two packages they came from. The slot arms differ between them,
+because the shuffle nulls are drawn from a different stream:
+
+| slot arm | `result.json` | `followup.json` |
+|---|---|---|
+| `constant_phase` | −0.1181 | −0.0846 |
+| `derived_phase` | +0.1676 | +0.1672 |
+| `random_attempt` | **−0.0401** | **+0.0239** |
+
+`random_attempt` **changes sign**. Both values sit inside their own null noise
+(sd 0.055 and 0.021), so *"indistinguishable from its null"* is the honest
+reading and is what Q1-009's own record says — but quoting −0.040 as a
+measurement, as Q1-010's records did, overstates its stability. Both records now
+name the package and carry the comparison.
+
+**No gate or disposition changes.** Q1-010's gates were computed in its own run
+against its own committed null and never referenced either Q1-009 package.
+
+**Closed** by `scripts/check_quoted_figures.py`, which reads the seven figures
+the live argument rests on and compares each to its package at the precision it
+is quoted. Its negative control reproduces the `+1.7` defect exactly; its
+missing-package control fails rather than passing silently. It states in its own
+output that it is a spot check on load-bearing numbers, not a general
+fact-checker, rather than implying coverage it does not have.
+
+**Why nothing else could see this.** `render_knowledge_index.py` validates the
+register, `check_evidence_custody.py` validates that packages are tracked,
+`check_links.py` validates that links resolve. **Nothing read a number in prose
+and compared it to the package it claimed to come from.** That is the fourth
+distinct guard gap found in two days, after cited packages, cited external
+documents and ordinary links.
+
 ## F3 — A gate frozen below its own statistic's null, three times — `CLOSED`
 
 **What stopped.** Q1-006 froze a clause-2 ceiling at 0.10 when the statistic's

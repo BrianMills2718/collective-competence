@@ -70,7 +70,7 @@ re-run would therefore produce a clause-2 pass on an unqualified instrument.
 objection on Q1-006's own family with a gate frozen against a null committed
 beforehand, and the objection **failed its own gate**: on the slot, the statistic
 separates coordination (+6.3 null sd) from a deterministic population that lost
-its shared period (+1.7 sd) from an independent draw (~0). The re-run proceeds.
+its shared period (+1.65 sd) from an independent draw (~0). The re-run proceeds.
 What survives the test is recorded as debt 4 below.
 
 *Revised 2026-09-05 — measure the macro description, do not define it.*
