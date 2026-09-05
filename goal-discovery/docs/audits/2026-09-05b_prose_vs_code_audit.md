@@ -35,7 +35,7 @@ the audit. The check surface tests two things — does it run, and do the docume
 agree with each other. It has no check of the third kind, and all four findings
 live there.
 
-## Finding 1 — C2's anti-smuggling guard guards dead code, and its stated property is false — `OPEN`
+## Finding 1 — C2's anti-smuggling guard guards dead code, and its stated property is false — `CLOSED 2026-09-05`
 
 `src/experiments/contended_channel/phase.py:24` defines `derive_phase` and
 asserts its own signature, described as "the guard, enforced rather than
@@ -63,11 +63,15 @@ population. Knowing `N` is what makes the mechanism work, and
 [Q1-010](../hypotheses/q1_010_determinism_control_results.md) now measures what
 removing it costs — 27% of need-satisfaction.
 
-**Recommended disposition:** delete `derive_phase` and its assertion rather than
-patching them, and correct the two documents. A guard on dead code is worse than
-no guard: it is what made three readers stop checking.
+**Closed 2026-09-05.** `derive_phase` and its assertion are deleted rather than
+patched; the module docstring records what the guard claimed and why it was
+false, and points at the line that actually derives the phases. C2-001's frozen
+protocol keeps its prose and carries a dated correction saying the implementation
+did not satisfy it. The result record's false sentence is quoted and withdrawn in
+place. No measurement changed — the code always did what the correction now says
+it does; what changed is the claim about what was ruled out.
 
-## Finding 2 — C2's canonical scaling claim has a structurally unreachable refuter — `OPEN`
+## Finding 2 — C2's canonical scaling claim has a structurally unreachable refuter — `CLOSED 2026-09-05`
 
 [The conjecture register](../../../wiki/conjectures.md) states C2's falsifiable
 form: performance "should rise with afforded distinguishability up to the number
@@ -89,9 +93,14 @@ refuter.
 This is the register's own stated discipline failing on its second entry. The
 quantifier rule exists to exclude claims that cannot lose.
 
-**Recommended disposition:** either unpin `period` from `N` so the stated refuter
-can fire, or restate C2's scaling claim as the one the protocol actually froze
-and mark the register's version as never tested.
+**Closed 2026-09-05** by restatement rather than by unpinning. C2's scaling claim
+in the register is now the one its protocol froze — mean performance
+non-decreasing in the heterogeneity the environment supplies, which the substrate
+can actually vary. The turnover prediction is recorded inside the correction as
+**never tested rather than refuted**, and admitting it is noted as requiring `P`
+to vary independently of the population, which is a substrate change this audit
+does not license. Unpinning was rejected because it is a new experiment;
+restatement is bookkeeping that makes the register honest today.
 
 ## Finding 3 — the EI claim was over-read; the confound is real but smaller than alleged — `TESTED 2026-09-05, and I was partly wrong`
 
@@ -135,7 +144,7 @@ worth naming: two numbers from the commons and one from the slot were read as on
 mechanism and generalised to a family where the decisive arm had never been
 measured.
 
-## Finding 4 — the suite cannot be collected on a clean checkout — `OPEN`
+## Finding 4 — the suite cannot be collected on a clean checkout — `CLOSED 2026-09-05`
 
 Discovered by running it. In a fresh worktree, `uv sync` then `uv run pytest`
 gives **2 collection errors and 0 tests run**: `tests/test_scale_evidence.py` and
@@ -152,9 +161,16 @@ the work happens, and the failure is silent in the direction of looking healthy.
 The NetLogo tests handle their own optional dependency correctly, by skipping
 with a stated reason; these two do not.
 
-**Recommended disposition:** either guard the two imports with the same
-skip-with-reason pattern the NetLogo tests use, or make `make sync` install the
-extras the suite requires.
+**Closed 2026-09-05.** `make sync` and `make test` now pass `--all-extras`, so
+`make dayone` is true of a clean checkout as it claims to be. Guarding the two
+imports with a skip was rejected: it trades a loud failure for quiet lost
+coverage, which is the pattern the first assessment had to repair.
+
+A second, smaller gap surfaced while fixing this and is closed by the same
+change: the README's own documented verification command names three extras and
+runs **456** tests, where the full extra set runs **467**. The documented
+handoff contract was under-installing, so eleven tests never ran under it —
+including every `test_mesa_spike` case. Measured on this checkout, not inferred.
 
 ## Finding 5 — the ignore trap that hid the evidence base is unrepaired — `OPEN`
 
@@ -179,7 +195,8 @@ imagined." Findings 1, 2, 4 and 5 are the same shape, and two parallel audits on
 2026-09-05 missed all of them.
 
 A guard asserting a false property, a hard-pinned parameter a conjecture claims
-to vary, a suite that cannot collect on a clone, and an ignore rule that hides
+to vary, a suite that cannot collect on a clone, a documented verification
+command that under-installs by eleven tests, and an ignore rule that hides
 evidence all pass every green check. **Debt 3 — an independent review pass
 checking each prose claim against the line of code it describes — is therefore a
 higher-value open item than the information barrier.** The barrier fixes

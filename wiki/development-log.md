@@ -29,6 +29,51 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — three audit findings closed, one of them a canonical claim that was false
+
+**Changed:** C2's anti-smuggling guard is deleted, C2's scaling claim in
+[the conjecture register](conjectures.md) is restated, and `make sync` / `make
+test` now install the extras the suite needs.
+
+**A canonical document asserted something the code never did.**
+[C2-001's result record](../goal-discovery/docs/hypotheses/c2_001_derived_phase_results.md)
+stated that the derivation was "structurally prevented from seeing an index, a
+rank, the population size, another subunit's state, or the seed, and the
+implementation asserts its own signature so a reader can verify that". Both
+halves were false: the guarded function was never called by any experiment path,
+and `period` **is** `cfg.n_subunits`, so the assertion on parameter names
+admitted the one quantity it advertised excluding. The sentence is quoted and
+withdrawn in place; the frozen protocol keeps its prose and carries a dated
+correction saying the implementation did not satisfy it. **No measurement
+changed** — the code always did what the correction now says. What changed is
+the claim about what was ruled out, and the honest version of C2-001 is narrower
+again: heterogeneity substitutes for labelling *given a period equal to the
+population size*, which is authored. [Q1-010](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md)
+measured what that period is worth by removing it — 27% of need-satisfaction.
+
+**A conjecture carried a refuter that could not fire.** C2's scaling claim
+predicted a turnover "past the number of contending subunits", but afforded
+distinguishability is bounded by the period and the period is pinned to the
+population size in one place and never varied, so the falsifying region is
+unreachable. C2-001's frozen protocol had tested a different, weaker claim all
+along. The register now states the protocol's claim; the turnover prediction is
+recorded as **never tested rather than refuted**, with the substrate change
+admitting it would require. Restatement was chosen over unpinning because
+unpinning is a new experiment and restatement makes the register honest today.
+
+**`make dayone` was not true of a clean checkout.** Two test modules import an
+optional extra unconditionally, so `make sync && make test` gave two collection
+errors and zero tests where the authoring machine gave a full green suite. Fixed
+by installing the extras rather than skipping the modules. A second gap closed
+with it: the README's own documented verification command runs 456 tests where
+the full extra set runs 467, so the documented contract was under-installing by
+eleven.
+
+**What this does not establish.** Findings 3 and 5 of
+[the audit](../goal-discovery/docs/audits/2026-09-05b_prose_vs_code_audit.md)
+remain open — the EI reading is still unsupported on the commons, and the
+`results/*` ignore trap is unrepaired.
+
 ## 2026-09-05 — a challenge to the strongest current result, and its falsification
 
 **Changed:** a new audit and one new experiment. The

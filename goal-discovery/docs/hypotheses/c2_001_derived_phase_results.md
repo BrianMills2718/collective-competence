@@ -51,12 +51,30 @@ required it be paid rather than engineered around.
 
 **The environment supplied the values. I supplied the rule.**
 
-`derive_phase` is `int(own_need) % period` — a function I chose. The
-anti-smuggling guard did its job on the input side: the derivation is
-structurally prevented from seeing an index, a rank, the population size, another
-subunit's state, or the seed, and the implementation asserts its own signature so
-a reader can verify that rather than trust this document. But the *form* of the
-mapping is authored.
+`derive_phase` is `int(own_need) % period` — a function I chose. But the *form*
+of the mapping is authored.
+
+> **Correction, 2026-09-05.** This paragraph originally continued: *"the
+> anti-smuggling guard did its job on the input side: the derivation is
+> structurally prevented from seeing an index, a rank, the population size,
+> another subunit's state, or the seed, and the implementation asserts its own
+> signature so a reader can verify that rather than trust this document."*
+> **That was false on both counts, and the sentence is withdrawn.** The guarded
+> function was never called — phases are derived inline in the specimen — and
+> `period` **is** `cfg.n_subunits`, the population size the protocol forbids, so
+> the assertion on parameter names admitted exactly the quantity it advertised
+> excluding. See [the audit](../audits/2026-09-05b_prose_vs_code_audit.md)
+> finding 1. **The derivation does read the population size**, as the period of
+> the cycle it schedules against.
+>
+> No measurement in this record changes: the arms, gates, distinct-phase counts
+> and satisfaction figures are unaffected, because the code always did what this
+> correction now says it does. What changes is the claim about what was ruled
+> out. And the honest claim is narrower again than the one below: environmental
+> heterogeneity substitutes for designer labelling **given a derivation rule and
+> a period equal to the population size**, both authored.
+> [Q1-010](q1_010_determinism_control_results.md) measured what that period is
+> worth by removing it — 27% of need-satisfaction.
 
 So the honest claim is narrower than "labels emerge": **given a derivation rule,
 environmental heterogeneity can substitute for designer-assigned identity, at a

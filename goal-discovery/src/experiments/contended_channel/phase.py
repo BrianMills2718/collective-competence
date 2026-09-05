@@ -3,35 +3,38 @@
 The substrate's resolution rule is imported unchanged from .model, so results
 remain comparable with C1-002.
 
-Anti-smuggling guard (protocol, "The anti-smuggling guard"): `derive_phase`
-takes ONE scalar -- the subunit's own need -- and nothing else. It cannot see an
-index, a rank, the population size, another subunit's state, or the seed. The
-signature is asserted at import so a reader can check the guard held rather than
-trusting prose.
+**The anti-smuggling guard that used to live here was removed on 2026-09-05
+because it did not do what it said.** It defined `derive_phase(own_need, period)`
+and asserted its own parameter names, describing this as "enforced rather than
+promised". Two things were wrong with it, and both are recorded in
+`docs/audits/2026-09-05b_prose_vs_code_audit.md` finding 1:
+
+  * `derive_phase` was never called. The experiment derives phases inline in
+    `src.substrate.specimens.contended_slot.initialize`, so the assertion
+    protected code no run executed.
+  * The property it claimed was false anyway. The protocol forbids the
+    derivation from seeing "the population size", and `period` IS
+    `cfg.n_subunits`. Asserting parameter *names* let the one forbidden quantity
+    through the parameter the assertion permits.
+
+The derivation the experiment actually runs is
+`phases = [int(n) % period for n in needs]` with `period = cfg.n_subunits`, at
+`src/substrate/specimens/contended_slot.py:59`. Read it there. A guard is not
+reinstated here because a guard on this seam would have to check a *value* on the
+executed path, and the one check that matters -- what the shared period is worth
+-- has now been measured directly rather than asserted:
+[Q1-010](../../../docs/hypotheses/q1_010_determinism_control_results.md) removed
+it and found it worth 27% of need-satisfaction.
 """
 
 from __future__ import annotations
 
-import inspect
 from dataclasses import dataclass
 
 from src.substrate import run
 from src.substrate.specimens.contended_slot import specimen as _slot
 
 from .model import Config, _RunConfig
-
-
-def derive_phase(own_need: float, period: int) -> int:
-    """Phase from the subunit's own need alone. No identity, no rank."""
-    return int(own_need) % period
-
-
-# The guard, enforced rather than promised.
-_params = list(inspect.signature(derive_phase).parameters)
-assert _params == ["own_need", "period"], (
-    f"derive_phase must take only its own need and the period; got {_params}. "
-    "Adding an index, rank, or population argument would smuggle in an identity."
-)
 
 
 @dataclass(frozen=True)
