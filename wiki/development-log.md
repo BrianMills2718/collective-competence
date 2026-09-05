@@ -29,6 +29,50 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-04 — a conjecture layer, eight experiments, and a shared substrate
+
+**Changed:** the programme gained somewhere to put a claim that can be wrong,
+ran the constructive arm's first experiments since its founding, and
+consolidated its specimens onto shared apparatus.
+
+- **[Conjecture register](conjectures.md) created**, canonical, admitting a
+  claim only with a stated refuter and an explicit quantifier rule (universally
+  quantified claims over configurations are inadmissible; state a scaling claim).
+  Two conjectures admitted, four considered and rejected with reasons —
+  including two of the generative thesis's own headline bets.
+- **[Charter](../goal-discovery/docs/PROJECT.md) gained a completion condition**
+  for the analytic instrument: four clauses saying when it is sufficient to
+  verify a construction claim. Its absence was why fifteen prior experiments
+  could only calibrate instruments.
+- **Eight experiments** — C1-001, C1-002, C2-001, C2-002 on the constructive
+  side; Q1-001 through Q1-008 qualifying the instrument. Every protocol frozen
+  and committed before its implementation existed, verifiable from git.
+- **Shared substrate** (`goal-discovery/src/substrate/`) with five dials, each
+  derived from one of those experiments' reproduced failures. Adopted, not
+  merely built: the entry points run on it and regenerate three frozen result
+  packages byte-identically.
+- **P15's disposition revised** — the freeze/reveal/audit seam passed; its
+  proposal capability claim did not, its "no case-specific code paths" condition
+  having been violated on both sides of the freeze.
+- **Levin's definitions placed beside this ontology's** so divergence is visible,
+  adopting agency, the persuadability axis, cognitive light cone, cognitive glue
+  and polycomputing, and reconciling the two senses of "free lunch."
+- **`misc/morphogenesis-scaling-law` promoted** out of an expiring quarantine to
+  `experiments/morphogenesis-scaling/` as a retained reference result — not
+  registered as an experiment, because it was never preregistered here.
+
+**Why:** the programme could state how competent a system is and not what it was
+betting on, so nothing refutable could steer it; and the analytic arm had no
+definition of "finished," so instrument work could expand indefinitely.
+
+**Does not establish:** no construction claim in this programme is verified.
+Clause 2 of the completion condition is **neither met nor failed** — Q1-008
+found the gate that appeared to fail it had been frozen below the statistic's
+own finite-sample null. Both conjectures are supported on one family each and
+both were narrowed by controls a later experiment supplied, not their own
+design. The next action is a single null-calibrated re-run; see the
+[current plan](../goal-discovery/docs/plans/current_research_plan.md).
+
 ## 2026-09-04 — added a living page for the generative thesis
 
 **Changed:** created [the generative thesis](competence-thesis.md) and linked it

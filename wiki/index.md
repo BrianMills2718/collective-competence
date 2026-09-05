@@ -104,25 +104,52 @@ failure conditions, and evidence limits.
 
 ## Current position
 
-The active plan concentrates on Goal and Competence Discovery and the bottleneck
-of proposing useful observables and candidate forms without task labels. The
-[P15 protocol](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md)
-is the first complete ontology-contract consumer and authorized only a bounded
-retrospective benchmark. [P15's result](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md)
-is now in: a **conditional pass covering the seam only**, after correcting an
-evaluator disposition rule that had scored a correct passive-fixture abstention
-as a mismatch. Two claims separate here. The freeze/reveal/audit seam passed —
-it works end to end on real archived evidence. The proposal capability claim did
-not: a 2026-09-04 diagnostic applied all four proposers to all four frozen
-packages and found the off-diagonal empty — 12 of 12 cross-applications refuse
-on a field-signature guard — so the proposal layer is four case-specific
-programs behind a dispatch table, not one grammar, and the packer feeding it is
-four hand-written per-case adapters that assign the very field the dispatch keys
-on. Cross-case generality is measured at zero, the frozen "no case-specific code
-paths" condition is not satisfied, and the held-system decision gate is
-therefore not cleanly earned. Independently, neither held case names an untested
-intervention, so no new prospective protocol exists and none is pending.
-Existing constructed controls and mechanism experiments also provide bounded
-evidence about competence, robustness, and adaptation; the
-[research synthesis](../roadmap/research.md) states their limits. Historical
-stops close tested routes, not either research purpose or the shared laboratory.
+*Accurate as of 2026-09-04. This section is the fresh-reader entry point; the
+[current plan](../goal-discovery/docs/plans/current_research_plan.md) owns the
+next action and is the file to read second.*
+
+**One action is next, and everything else waits on it.** Re-run
+[Q1-006](../goal-discovery/docs/hypotheses/q1_006_pairwise_relation_results.md)'s
+comparison with a **null-calibrated threshold**. It settles the analytic
+instrument's completion-condition clause 2 either way.
+
+**Both arms are now live, and both are narrower than they first read.**
+[The conjecture register](conjectures.md) is canonical and admits a claim only
+with a stated refuter. **C1** (coordination by a shared scarcity signal) is
+supported on one family and does **not** transfer to an indivisible good — a
+shared scalar is common-mode by construction and can gate a population together
+but never stagger it. **C2** (symmetry breaking from a shared quantity) has its
+sharper half supported on one family: environmental heterogeneity substitutes
+for designer labelling, at a rate set by how many distinct values the
+environment supplies — but only ~17% better than matched randomness, not the
+total effect an earlier comparison implied.
+
+**The analytic instrument has a completion condition and has not met it.**
+[The charter](../goal-discovery/docs/PROJECT.md) states four clauses: recover an
+authored coordination on a specimen the instrument was not built for, do not
+report one where it is absent, freeze before reveal, and use a path not authored
+against the case. Clause 1 is met on two families. **Clause 2 is neither met nor
+failed** — [Q1-008](../goal-discovery/docs/hypotheses/q1_008_null_coupling_control_results.md)
+found the gate that "failed" it had been set below the statistic's own
+finite-sample null, so no independent process could have passed. Until clause 2
+is validly tested, **no construction claim in this programme is verified**,
+including C1's and C2's.
+
+**The apparatus is real and adopted.** `goal-discovery/src/substrate/` holds a
+shared specimen contract with five dials — outcome independence, divisibility,
+heterogeneity, symmetry channel, absorbing failure — each derived from a
+reproduced experimental failure rather than guessed. The experiment entry points
+run on it and regenerate all three frozen result packages byte-identically.
+
+**Read in this order:** this section, then the
+[current plan](../goal-discovery/docs/plans/current_research_plan.md), then
+[the conjecture register](conjectures.md). The
+[research synthesis](../roadmap/research.md) carries cross-experiment
+interpretation; the [development log](development-log.md) carries the dated
+account.
+
+Historical stops close tested routes, not either research purpose or the shared
+laboratory. The earlier P15 proposal-layer work is preserved in the
+[experiment register](../roadmap/experiments.md); its conditional pass covers
+the freeze/reveal/audit seam only, and its proposal capability claim was revised
+rather than promoted.

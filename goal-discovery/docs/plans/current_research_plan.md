@@ -56,22 +56,41 @@ The first move against this is a candidate family carrying a latent shared
 regressor, plus an adequacy test that reports failure-to-explain rather than only
 relative improvement over persistence.
 
-**Next decision:** [P15](../hypotheses/p15_proposal_layer_benchmark_results.md) has
-executed and returned a **conditional pass covering the seam only**. Both held
-cases (P13, P14) and, after correcting a P12 evaluator disposition-rule error,
-both development cases (P10, P12) matched their native dispositions, with every
-leakage/lineage/package check passing — so freeze/reveal/audit works end to end.
-Its capability claim did **not** pass: the frozen "no case-specific code paths"
-operating condition was violated on both sides of the freeze, and cross-case
-generality is measured at zero. The held-system decision gate is therefore not
-cleanly earned, and independently **neither held-system proposal names a
-genuinely untested small intervention**, so no new prospective protocol is
-designed from this pass (see the result record's "What changes next"). P13's
-proposal re-identifies the freeze P13 already ran natively (8/8, alongside
-displace and kick); P14 abstained and its lane stays stopped. The sharpened
-bottleneck is proposing a new observable or candidate form on a **system not
-yet in this evidence base** — a next-system decision for a future plan
-revision, which this plan does not select on its own.
+**Next decision — one action, and it is cheap.** Re-run
+[Q1-006](../hypotheses/q1_006_pairwise_relation_results.md)'s comparison with a
+**null-calibrated threshold**. That settles the instrument's completion-condition
+clause 2 either way, and nothing else should be built until it does.
+
+Why this and nothing else: [Q1-008](../hypotheses/q1_008_null_coupling_control_results.md)
+established that the statistic's floor is its own finite-sample null (pure noise
+scores ~0.12 at horizon 120 with 10 entities), not any property of the substrate.
+Q1-006's ceiling was frozen at 0.10, **below** that null, so no independent
+process could have passed it. Clause 2 is therefore **neither met nor failed** —
+it has never been validly tested. Measure the null at the exact horizon and
+entity count, then compare the coordinated arm (0.284) and the matched-random
+arm against it rather than against an absolute number.
+
+**Where the two arms actually stand.** Both now have live conjectures in
+[the conjecture register](../../../wiki/conjectures.md), which is canonical and
+requires a stated refuter before admission:
+
+| | Status | Narrowed by |
+|---|---|---|
+| **C1** — coordination by a shared scarcity signal | supported on **one** family (a divisible renewable commons) | [C1-001](../hypotheses/c1_001_shared_scarcity_signal_results.md)'s control was weaker than claimed (best constant reaches 0.500, not 0.000); [C1-002](../hypotheses/c1_002_contended_channel_results.md) showed it does **not** transfer to an indivisible good — a shared scalar is common-mode and cannot stagger |
+| **C2** — symmetry breaking from a shared quantity | sharper half supported on **one** family | [Q1-005](../hypotheses/q1_005_idiosyncratic_fraction_results.md) supplied the missing control: matched randomness reaches 0.375 against derived phase's 0.438, so the advantage is ~17% relative, not the total effect a comparison against 0.000 implied |
+
+**The instrument.** [The charter](../PROJECT.md) now carries a completion
+condition — four clauses, on a specimen the instrument was not built for. Clause
+1 (recovery) is met on two families. Clause 4 (path not authored against the
+case) is met by construction for
+[Q1-004](../hypotheses/q1_004_second_family_qualification_results.md). Clause 2
+is the open one, per above.
+
+**The apparatus.** `src/substrate/` is a shared specimen contract with five
+dials, each derived from a reproduced failure rather than guessed. It is
+**adopted, not merely built**: the real experiment entry points run on it and
+regenerate all three frozen result packages byte-identically. `outcome_independence`
+is the one dial no coordination specimen yet uses.
 
 **Do not do next:** add another substrate, broaden the fixed family menu, build a
 generic simulator, polish the dashboard, or treat the P15 pass itself as a

@@ -346,6 +346,63 @@ No goal was discovered.
 production categorical runtime. Reconsider only when a real experiment exposes
 an unmet composition need and a measurable advantage over ordinary code.
 
+## 7. Constructive arm and instrument qualification (2026-09-04)
+
+Eight experiments in one day, on two new specimens, under a
+[conjecture register](../wiki/conjectures.md) that did not previously exist.
+Read this section for what they established; the register owns the claims and
+their refuters.
+
+**The constructive arm ran its first experiments since 2026-08-26.**
+[C1-001](../goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal_results.md)
+found that a shared scalar tracking scarcity coordinates a divisible renewable
+commons, and that no *fixed* threshold does as well — but its pre-registered
+control was measured weaker than claimed: the best constant reaches 0.500
+against the frozen control's 0.000, so the effect is roughly a doubling, not a
+total.
+[C1-002](../goal-discovery/docs/hypotheses/c1_002_contended_channel_results.md)
+then failed its own validity gate across three attempts and the failure is the
+finding: a scalar read identically by every subunit is **common-mode by
+construction** — it can gate a population together but never stagger it — so it
+coordinates a divisible stock and cannot allocate an indivisible slot. That
+answers the standing worry that C1 was rediscovering price theory, unfavourably.
+
+[C2-001](../goal-discovery/docs/hypotheses/c2_001_derived_phase_results.md)
+showed the repair does not need a designer: a phase derived from each subunit's
+own goal beats a level signal, at a rate tracking how many **distinct** values
+the environment supplies (1.0 → 6.6 phases, satisfaction 0.000 → 0.438).
+[C2-002](../goal-discovery/docs/hypotheses/c2_002_rule_load_bearing_results.md)
+found the derivation rule matters through exactly one channel and by an exact
+condition — performance is a function of `gcd(multiplier, period)` alone — so
+rule discovery is a condition to satisfy, not a search problem.
+
+**Limit on both.** [Q1-005](../goal-discovery/docs/hypotheses/q1_005_idiosyncratic_fraction_results.md)
+supplied a control neither had: matched independent randomness reaches 0.375
+against derived phase's 0.438. Most of the benefit over a level signal is
+desynchronisation, which randomness supplies free. Both conjectures stay
+supported on one family.
+
+**The instrument was given a completion condition, and has not met it.** The
+[charter](../goal-discovery/docs/PROJECT.md) now states when the analytic arm is
+sufficient to verify a construction claim. Q1-001 through Q1-004 measured what
+successive statistics actually detect: share-of-variance measures uniformity and
+*inverts*; persistence and idiosyncratic fraction measure differentiation, which
+independent noise maximises. Q1-006's pairwise-relation statistic was the first
+to separate coordination from matched independence.
+
+**Then [Q1-008](../goal-discovery/docs/hypotheses/q1_008_null_coupling_control_results.md)
+voided the reading.** The floor under the independent arm is the statistic's own
+finite-sample null — pure noise with no substrate scores ~0.12 — and Q1-006's
+ceiling had been frozen at 0.10, below it. Two prior explanations (congestion
+coupling, then saturation) were tested and refuted. **Clause 2 is neither met
+nor failed.** What survives is stronger than it read: coordinated 0.284 against
+a measured null of 0.12 is a real separation, once scored against the null
+rather than an absolute number.
+
+**Apparatus.** A shared specimen substrate now exists and is adopted — the
+experiment entry points run on it and regenerate three frozen result packages
+byte-identically. Its five dials each come from one of the failures above.
+
 ## Learning and drift review
 
 These records show useful narrowing and abstention, but they do not establish
