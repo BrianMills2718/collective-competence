@@ -313,12 +313,22 @@ motivating narrative and still authorizes nothing.
 ## Open questions
 
 - **Does composition actually pay?** The thesis predicts that composing minimal
-  competent elements yields more than the parts. Untested here.
+  competent elements yields more than the parts. Untested here — and, as stated,
+  **not yet a well-formed question at the scales this programme works at.**
+  [The ontology](ontology.md#what-this-vocabulary-makes-decidable-and-what-it-does-not)
+  records why: composition and coordination are descriptions separated by where
+  the analyst draws the boundary and by what the study varies, not kinds a system
+  belongs to, so "these elements composed" is not something a result can
+  establish. The answerable form is *does a coarse-grained description carry more
+  causal structure than the micro description it was built from*, which effective
+  information measures. Reformulate before spending on it.
 - **What is the minimal composable element** on a discrete substrate, and what
   does "oscillator as timer or memory" become concretely?
 - **How is free lunch measured** rather than described? `levin-wiki`'s resource
   ledger is the closest existing answer; it has not been applied to anything in
-  this repository.
+  this repository. Empowerment and effective information are two further
+  candidates, both computable on this repository's existing specimens; see
+  [the ontology's measure table](ontology.md#candidate-formal-measures-and-what-each-would-make-decidable).
 - **Does the generative layer above stabilize into terms worth promoting** into
   the canonical ontology, and if so which.
 - **How does the construction/discovery loop get run** on one specimen, with

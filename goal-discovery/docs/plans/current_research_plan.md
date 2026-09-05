@@ -56,10 +56,37 @@ The first move against this is a candidate family carrying a latent shared
 regressor, plus an adequacy test that reports failure-to-explain rather than only
 relative improvement over persistence.
 
-**Next decision — one action, and it is cheap.** Re-run
-[Q1-006](../hypotheses/q1_006_pairwise_relation_results.md)'s comparison with a
-**null-calibrated threshold**. That settles the instrument's completion-condition
-clause 2 either way, and nothing else should be built until it does.
+**Next decision, revised 2026-09-05 — measure the macro description, do not
+define it.** Two actions, in this order.
+
+1. **Q1-009: effective information and empowerment on the existing specimens.**
+   Compute both on `renewable_commons` and `contended_slot`, micro against a
+   coarse-grained macro, with a matched-random arm, and with each statistic's
+   null measured **before** any threshold is frozen. This is the measure the
+   founding spec named in its section 37 and the
+   [2026-08-29 audit](../audits/2026-08-29_progress_and_allocation.md) deferred
+   as "premature without a generalizing macro signal" — circular reasoning, since
+   the measure's purpose is to test whether a macro description carries signal.
+   See [the ontology](../../../wiki/ontology.md#candidate-formal-measures-and-what-each-would-make-decidable).
+2. **Then re-run [Q1-006](../hypotheses/q1_006_pairwise_relation_results.md)'s
+   comparison with a null-calibrated threshold**, which settles
+   completion-condition clause 2 either way.
+
+Why this order: Q1-006's re-run resolves a gate on a statistic
+([Q1-004](../hypotheses/q1_004_second_family_qualification_results.md) already
+records that the statistic is "partly measuring the wrong thing"). Q1-009 asks
+whether any macro description of these specimens carries causal structure at all,
+which is prior to choosing a statistic for detecting one. If Q1-009 comes back
+negative, clause 2 is being contested on a substrate where there is nothing to
+detect, and that is worth knowing first.
+
+**The scope question this replaces.** Whether the constructive arm is about
+*composition* or *coordination* was raised on 2026-09-05 and is **withdrawn as
+malformed**, not answered: the two are boundary-relative descriptions rather than
+kinds, per
+[the ontology](../../../wiki/ontology.md#what-this-vocabulary-makes-decidable-and-what-it-does-not).
+Q1-009 is what that question becomes once it is stated in terms of a measurable
+quantity.
 
 Why this and nothing else: [Q1-008](../hypotheses/q1_008_null_coupling_control_results.md)
 established that the statistic's floor is its own finite-sample null (pure noise

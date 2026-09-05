@@ -29,6 +29,68 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — competence is a rubric, composition is a description, and the measure was deferred circularly
+
+**Changed:** [the ontology](ontology.md#what-this-vocabulary-makes-decidable-and-what-it-does-not)
+gained a canonical section stating what this vocabulary makes decidable and what
+it does not, and the next action moved from one experiment to two.
+
+- **Almost nothing here is formalized, and the file did not say so.** Of four
+  pieces of notation in the ontology, three are type declarations and the fourth
+  — `K = performance_profile(system, boundary, representation, goal criterion,
+  challenge family, resources)` — is a **signature with no body**. Competence is
+  a nine-question rubric with no combining rule, deliberately, so **"A is more
+  competent than B" is not decidable from the ontology**. That consequence is now
+  stated rather than left to be discovered. The only real formula in the file,
+  the free-lunch expression, is adopted from `levin-wiki` and has still been
+  applied to nothing here.
+- **Composition and coordination are descriptions, not kinds.** They are
+  separated by where the analyst draws the boundary and by what a study varies,
+  and the ontology's own rule that boundaries are relational makes "these
+  elements composed" unavailable as an empirical finding. At the simplest scales
+  the two descriptions nearly coincide, which is expected. The answerable
+  replacement is whether a coarse-grained description carries more causal
+  structure than its micro description.
+- **The pattern was already here and had not been applied.** The ontology's
+  treatment of [agency](ontology.md#terms-levin-defines-that-this-ontology-lacked)
+  is correct: observer- and boundary-relative, graded, with empirical content
+  located in which intervention toolkit works most cheaply. Composition and
+  coordination now get the same treatment. `Emergence` is flagged as undefined
+  and not to be used as though it were.
+- **Six candidate formal measures recorded**, none adopted, each with what it
+  would make decidable and what it needs: effective information / causal
+  emergence, empowerment, statistical complexity, optimizing systems, mechanised
+  causal graphs, and partial information decomposition. Two already have homes
+  here under other names — empowerment formalizes the axis of persuadability the
+  ontology adopts, and effective information is what the collective-attribution
+  requirement has been asking for informally.
+- **A circular deferral reopened.** The founding
+  [laboratory spec](../goal-discovery/docs/sources/briefs/Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md#37-hoel-style-causal-emergence)
+  names Hoel-style causal emergence in section 37 and asks whether it correlates
+  with collective competence; it was experiment 06 of the original ladder. The
+  [2026-08-29 audit](../goal-discovery/docs/audits/2026-08-29_progress_and_allocation.md)
+  deferred it as "premature without a generalizing macro signal" — but the
+  measure's purpose is to test whether a macro description carries signal, so the
+  precondition was the conclusion. Fifty-one experiments have since not produced
+  that signal.
+- **Next action is now Q1-009 then the Q1-006 re-run**, in that order, per
+  [the current plan](../goal-discovery/docs/plans/current_research_plan.md).
+  Q1-006's re-run resolves a gate on a statistic that
+  [Q1-004](../goal-discovery/docs/hypotheses/q1_004_second_family_qualification_results.md)
+  already records as "partly measuring the wrong thing"; Q1-009 asks whether
+  there is macro structure to detect at all, which is prior.
+
+**Why:** the programme was carrying three terms — competence, composition,
+coordination — as though they named facts, when one is a rubric and two are
+descriptions. A scope question put to the owner ("is the constructive arm about
+composition or coordination?") was **withdrawn as malformed** rather than
+answered, and replaced by a measurable one.
+
+**Does not establish:** no measure is adopted, no result is produced, and no
+existing claim changes status. C1 and C2 remain supported on one family each;
+completion-condition clause 2 remains neither met nor failed. Naming a formalism
+records a route to decidability; it does not walk it.
+
 ## 2026-09-05 — the evidence the frontier rests on was never in Git
 
 **Changed:** committed the thirteen result packages written on 2026-09-04 (27

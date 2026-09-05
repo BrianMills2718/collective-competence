@@ -689,6 +689,118 @@ renderer checks the required shape, controlled vocabulary, linked protocol, and
 agreement of review status. This structural check does not certify the
 experiment, infer missing values, or backfill historical records.
 
+## What this vocabulary makes decidable, and what it does not
+
+Added 2026-09-05, after a review found that the distinction between a definition
+and a formula had never been stated, and that a reader could reasonably take the
+competence expression below for the second.
+
+### Almost nothing here is formalized, and that is a choice with consequences
+
+This file contains four pieces of notation. Three are **type declarations**:
+`o_t = H(x_t, access contract)` says an observation is some function of state,
+`z_t = phi(o_0:t)` says a representation is some function of observation
+history, and
+
+```text
+K = performance_profile(system, boundary, representation,
+                        goal criterion, challenge family, resources)
+```
+
+names the arguments of competence without saying what it computes. It is a
+**signature with no body**. The fourth, the free-lunch expression
+`F_U(P;C,Y) = H(Y|C) - H(Y|C,P,U)`, is the only formula in the document; it is
+adopted from `levin-wiki` and has never been applied to anything here.
+
+**Competence, as defined in this file, is a rubric and not a function.** The
+nine-dimension profile is nine questions with no combining rule, and the absence
+of a combining rule is deliberate — "no universal scalar is assumed." That is a
+defensible choice for a measurement vocabulary. Its consequence must be stated
+plainly rather than discovered later: **"system A is more competent than system
+B" is not decidable from this file.** A study can only report which rows it
+measured. Any ordering across systems is supplied by the study, not licensed
+here.
+
+The same holds for **capability**, **robustness**, **adaptation** and
+**recovery**: each has a clear operational shape and no computed quantity.
+
+### The distinction this file already draws correctly, and where it was not applied
+
+[Agency](#terms-levin-defines-that-this-ontology-lacked) is handled well: it is
+declared **observer- and boundary-relative**, a coarse-graining adopted because
+it buys predictive or control leverage, with its empirical content located in a
+measurable quantity — *which intervention toolkit changes this system most
+cheaply*. That pattern is the right one, because it does not ask whether a
+system "really is" an agent; it asks for a number and lets the answer be graded.
+
+That pattern had not been applied to two other terms, and both were being used
+as though they named facts about systems.
+
+**Composition and coordination are descriptions, not kinds.** Both apply to the
+same class of system, and they are separated by where the analyst draws the
+boundary and by what the study varies — not by any property the system has.
+
+| | Boundary | Goal criterion | What the study varies |
+|---|---|---|---|
+| **Coordination** | fixed, one population of N units | an aggregate over the units' own criteria | a mechanism, at fixed N |
+| **Composition** | redrawn to enclose a group as one unit | stated at the enclosing boundary | *depth* — whether grouping, repeated, keeps paying |
+
+Because boundary is relational — "the same component can be system or
+environment under different, explicitly compared boundaries" — two coupled
+elements are a composite or a coordinated pair according to where the box is
+drawn, and nothing in the elements decides it. **"This is composition, not
+coordination" is therefore not an empirical claim**, and a result must not be
+reported as establishing one rather than the other. At the simplest scales the
+two descriptions coincide almost entirely, which is expected and is not a defect
+in either the systems or the vocabulary.
+
+What *is* empirical, and what should be asked instead: **does a coarse-grained
+description support better prediction or control than the micro description it
+was built from?** That question has formal answers, below.
+
+**Emergence** is not defined in this file and should not be used as though it
+were. Where a record means "the coarse-grained description does causal work,"
+say that, and cite the measure used.
+
+### Candidate formal measures, and what each would make decidable
+
+None of these is adopted. They are recorded so that the terms above have a
+stated route to becoming decidable, and so the choice to leave them undecidable
+stays visible rather than silent.
+
+| Measure | Makes decidable | Needs | Bears on |
+|---|---|---|---|
+| **Effective information / causal emergence** (Hoel; Albantakis; Rosas) | whether a coarse-grained description carries more causal structure than its micro description, measured under intervention rather than observation | a transition structure and a maximum-entropy intervention distribution | composition vs coordination; collective attribution; "emergence" |
+| **Empowerment** (Klyubin, Polani, Nehaniv) | channel capacity from a unit's action sequence to its own later observations, with **no goal criterion required** | an action/observation split at a declared boundary | agency; the persuadability axis; goal-free competence |
+| **Statistical complexity / epsilon-machines** (Crutchfield) | the minimal sufficient predictive representation of a process, and its memory cost in bits | a stationary discrete process | representation debt; "supplied vs discovered representation" |
+| **Optimizing systems** (Flint) | whether a system is retargetably convergent over a basin, without attributing a goal | a perturbation family and a target set | "convergence does not establish a goal" |
+| **Mechanised causal graphs / agent discovery** (Kenton et al.) | whether a policy would have differed had the environment differed | interventional access to mechanisms, not only states | agency; the analytic arm's core question |
+| **Partial information decomposition / synergy** (Williams & Beer; Mediano, Rosas et al.) | whether a collective property is synergistic or merely aggregate | a joint distribution over parts and whole | collective attribution; "collective = emergent or superior" |
+
+Two of these already have a home in this vocabulary under other names.
+**Empowerment** is a formalization of the
+[axis of persuadability](#terms-levin-defines-that-this-ontology-lacked) this
+file already adopts — an intervention-cost ordering — and would turn "more
+agential to a given observer" from a comparative judgement into bits.
+**Effective information** is what the charter's collective-attribution
+requirement has been asking for informally.
+
+### This was asked for at the outset and deferred
+
+The founding
+[Automated Dynamical Systems Discovery Laboratory Spec](../goal-discovery/docs/sources/briefs/Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md#37-hoel-style-causal-emergence)
+names Hoel-style causal emergence in section 37, asks "Does causal emergence
+correlate with collective competence?", and predicts that causal emergence and
+agency "increase together—or systematically diverge." Causal-emergence analysis
+was experiment 06 of the repository's original seven-experiment ladder. The
+[2026-08-29 allocation audit](../goal-discovery/docs/audits/2026-08-29_progress_and_allocation.md)
+deferred it in one row — "Premature without a generalizing macro signal" — and
+the fifty-one experiments since have not produced that signal.
+
+The deferral is **reopened as of 2026-09-05**. The reasoning that closed it was
+circular: a macro signal was named as the precondition for adopting the measure
+whose purpose is to test whether a macro description carries signal.
+
 ## Observability rule
 
 Prefer **maximum useful observability**: retain the state, events, configuration,

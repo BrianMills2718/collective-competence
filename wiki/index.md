@@ -64,6 +64,7 @@ than reconstructing definitions from historical experiment prose.
 |---|---|
 | Why does this programme exist and what is it building toward? | [The generative thesis](competence-thesis.md) — exploratory, not canonical |
 | What is the programme betting on that could turn out false? | [Standing conjectures](conjectures.md) — canonical; each with a stated refuter |
+| Which of these terms are actually decidable, and by what measure? | [What this vocabulary makes decidable](ontology.md#what-this-vocabulary-makes-decidable-and-what-it-does-not) — canonical; the formalization inventory and candidate measures |
 | What is the terminology and how do the concepts relate? | [Canonical research ontology](ontology.md) |
 | What is the integrated purpose and scientific boundary? | [Scientific charter](../goal-discovery/docs/PROJECT.md) |
 | How can mechanisms and capabilities produce collective competence? | [Research roadmap](../roadmap/README.md), then the [apparatus map](../roadmap/apparatus.md) and relevant experiment evidence |
@@ -108,10 +109,26 @@ failure conditions, and evidence limits.
 [current plan](../goal-discovery/docs/plans/current_research_plan.md) owns the
 next action and is the file to read second.*
 
-**One action is next, and everything else waits on it.** Re-run
+**Two actions are next, in order** (revised 2026-09-05). First **Q1-009**:
+compute effective information and empowerment on the two existing specimens,
+micro against a coarse-grained macro, with each statistic's null measured before
+any threshold is frozen — asking whether a macro description of these systems
+carries causal structure at all. Then re-run
 [Q1-006](../goal-discovery/docs/hypotheses/q1_006_pairwise_relation_results.md)'s
-comparison with a **null-calibrated threshold**. It settles the analytic
-instrument's completion-condition clause 2 either way.
+comparison with a **null-calibrated threshold**, which settles the analytic
+instrument's completion-condition clause 2 either way. The
+[current plan](../goal-discovery/docs/plans/current_research_plan.md) owns the
+reasoning for that order.
+
+**A term this programme had been using as a fact turned out to be a
+description.** Composition and coordination are separated by where the analyst
+draws the boundary and by what a study varies, not by a property a system has,
+so no result can establish that a system "composed" rather than "coordinated."
+[The ontology](ontology.md#what-this-vocabulary-makes-decidable-and-what-it-does-not)
+now records this, alongside an honest inventory of what the vocabulary makes
+decidable: competence as defined here is a nine-question rubric with no
+combining rule, so "A is more competent than B" is not decidable from the
+ontology alone.
 
 **Both arms are now live, and both are narrower than they first read.**
 [The conjecture register](conjectures.md) is canonical and admits a claim only
