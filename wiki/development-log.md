@@ -104,6 +104,19 @@ boundary already excludes. The charter and failure-log F9 had both routed LLM
 work there, phrasing that made those repositories read as this programme's
 designated endpoint; removed. Recorded as [F15](failure-log.md).
 
+**The ingression thread is this project's own conceptual work** (owner,
+2026-09-05), not an external import, and `levin-wiki` should hold Levin corpus
+only. Classified out of `misc/` quarantine to
+[`experiments/platonic-ingression/`](../experiments/platonic-ingression/README.md)
+following the morphogenesis-scaling precedent: it does not expire, it is not a
+candidate for its own repository, and `levin-wiki` is a **reference source this
+project cites rather than a member**. Its former `INTENT.md` called it *"an
+external, independent research thread"* with `specimen_origin:
+constructed/imported` — that framing is corrected. The data's evidentiary status
+is not: being ours makes it ours, not verified. `misc/` is now empty, which is
+its intended steady state. Earlier entries in this log name the old
+`misc/platonic-ingress-toy-automata` path and are left as written.
+
 **What this does not establish.** No scientific claim changed. No result record,
 protocol, or result package was altered by any of it. The goal register is a
 draft with no authority, and the substrate question is open.
