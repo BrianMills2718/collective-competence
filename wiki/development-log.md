@@ -86,6 +86,15 @@ instead of restating. Recorded as [F12](failure-log.md). Untouched by rule: the
 104 hypothesis records, 20 audits, 5 founding briefs, and the 3 pre-consolidation
 snapshots the plan forbids moving.
 
+**Archiving unblocked.** The plan had waited on *"the shared archive system"*
+performing a *"registered, logged move"*; no such mover exists anywhere in
+`project-meta/scripts` or `enforced-planning/scripts`, and the one lifecycle tool
+is report-only and cannot run here for a missing `scripts/relationships.yaml`.
+The policy asks for an index and a recovery route, not a move. Archiving is now
+deletion plus a row in [the archive recovery index](archive-index.md), checked by
+`scripts/check_archive_index.py`; the three pre-consolidation snapshots are
+archived. Recorded as [F13](failure-log.md).
+
 **What this does not establish.** No scientific claim changed. No result record,
 protocol, or result package was altered by any of it. The goal register is a
 draft with no authority, and the substrate question is open.

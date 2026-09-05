@@ -189,6 +189,42 @@ briefs, and the 3 pre-consolidation snapshots the plan says *"do not manually
 move or delete."* Evidence and preregistrations are preserved by rule; the
 narrative layer is where the growth was.
 
+## F13 — The plan waited on a mover that was never built — `CLOSED 2026-09-05`
+
+**What happened.** The current research plan recorded that three superseded
+pre-consolidation snapshots *"remain physically present until the shared archive
+system can perform the registered, logged move"*, and instructed that they not be
+moved or deleted by hand. That instruction held from the documentation
+consolidation until today.
+
+**The blocker did not exist.** Checked 2026-09-05: nothing in
+`project-meta/scripts` or `enforced-planning/scripts` moves documents to an
+archive. `archive_registered_repository.py` archives whole repositories,
+`archive_coordination_records.py` archives coordination claims, and
+`generate_archive_preflight.py` produces preflight evidence for project-meta's
+own two archive roots. `archive_lifecycle.py` calls itself a *"CLI wrapper for
+report-only document lifecycle and archive blockers"* — report-only by design —
+**and it cannot run against this repository at all**, exiting with
+`relationship config does not exist: .../collective-competence/scripts/relationships.yaml`.
+
+**And it was never needed.** The shared policy requires archived material to be
+*"reached through the archive index and recovery route on demand, not injected as
+current instructions"* — leave current instructions, stay reachable. It does not
+require the bytes to move, and moving them into an `archive/` directory keeps
+them inside grep and inside the generated document catalog, which is the opposite
+of leaving current instructions.
+
+**Closed** by [the archive recovery index](archive-index.md) and
+`scripts/check_archive_index.py`, which verifies each entry names a commit that
+really contains the file, that the file is really absent from the tree, and that
+a reason is recorded. Both guards were checked by making them fire. The three
+snapshots are archived; the plan's stale paragraph is corrected.
+
+**The general lesson**, and it is the third instance today: a recorded blocker is
+a claim. This one had been true of nothing for as long as it was written down,
+and the cost was 1,135 lines held in the active tree plus an instruction telling
+every agent not to touch them.
+
 ## F3 — A gate frozen below its own statistic's null, three times — `CLOSED`
 
 **What stopped.** Q1-006 froze a clause-2 ceiling at 0.10 when the statistic's
