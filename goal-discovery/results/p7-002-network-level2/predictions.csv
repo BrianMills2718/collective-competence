@@ -1,0 +1,321 @@
+split,seed,arm,extinct,model,probability
+discovery,10001,baseline,1,intervention-only null,0.2700100881574064
+discovery,10002,baseline,1,intervention-only null,0.25628860966331296
+discovery,10003,baseline,1,intervention-only null,0.26114631369752966
+discovery,10004,baseline,0,intervention-only null,0.4005352817790912
+discovery,10005,baseline,0,intervention-only null,0.37994650093780274
+discovery,10006,baseline,0,intervention-only null,0.3911358264638096
+discovery,10007,baseline,0,intervention-only null,0.3858200258007425
+discovery,10008,baseline,0,intervention-only null,0.37514672004966926
+discovery,10001,random-10,0,intervention-only null,0.2902171281900974
+discovery,10002,random-10,1,intervention-only null,0.2091593672266981
+discovery,10003,random-10,0,intervention-only null,0.3314700092019742
+discovery,10004,random-10,0,intervention-only null,0.31621917313446785
+discovery,10005,random-10,0,intervention-only null,0.33475634449726804
+discovery,10006,random-10,0,intervention-only null,0.35844910586858203
+discovery,10007,random-10,0,intervention-only null,0.3054665550578323
+discovery,10008,random-10,0,intervention-only null,0.28409444849683524
+discovery,10001,degree-10,1,intervention-only null,0.41778393412042036
+discovery,10002,degree-10,0,intervention-only null,0.5347739754449825
+discovery,10003,degree-10,1,intervention-only null,0.3967548288223598
+discovery,10004,degree-10,0,intervention-only null,0.5139072613430113
+discovery,10005,degree-10,0,intervention-only null,0.5429069303011357
+discovery,10006,degree-10,0,intervention-only null,0.49288642501236374
+discovery,10007,degree-10,1,intervention-only null,0.43422139508650015
+discovery,10008,degree-10,1,intervention-only null,0.480923942028828
+discovery,10001,random-20,1,intervention-only null,0.4688224079023456
+discovery,10002,random-20,1,intervention-only null,0.42235887521438076
+discovery,10003,random-20,0,intervention-only null,0.5624542562463201
+discovery,10004,random-20,1,intervention-only null,0.4376009761669853
+discovery,10005,random-20,0,intervention-only null,0.5569556336174586
+discovery,10006,random-20,0,intervention-only null,0.5305422443599006
+discovery,10007,random-20,1,intervention-only null,0.45868442622570166
+discovery,10008,random-20,1,intervention-only null,0.4828675587582878
+discovery,10001,degree-20,1,intervention-only null,0.6076822754561517
+discovery,10002,degree-20,0,intervention-only null,0.7606458082162882
+discovery,10003,degree-20,1,intervention-only null,0.6303380455566494
+discovery,10004,degree-20,1,intervention-only null,0.6401329320455239
+discovery,10005,degree-20,0,intervention-only null,0.7479327192363244
+discovery,10006,degree-20,1,intervention-only null,0.6628379531997145
+discovery,10007,degree-20,1,intervention-only null,0.5965502976227889
+discovery,10008,degree-20,0,intervention-only null,0.685538629314992
+discovery,10001,baseline,1,temporal,0.39303313193020706
+discovery,10002,baseline,1,temporal,0.38954635548850536
+discovery,10003,baseline,1,temporal,0.366749680953396
+discovery,10004,baseline,0,temporal,0.5596122758104655
+discovery,10005,baseline,0,temporal,0.003396992813499089
+discovery,10006,baseline,0,temporal,0.4037837056178904
+discovery,10007,baseline,0,temporal,0.6566292717878774
+discovery,10008,baseline,0,temporal,0.31851255930742184
+discovery,10001,random-10,0,temporal,0.3276844314148007
+discovery,10002,random-10,1,temporal,0.3110101377528856
+discovery,10003,random-10,0,temporal,0.41863589157348835
+discovery,10004,random-10,0,temporal,0.4119732180026196
+discovery,10005,random-10,0,temporal,0.047485625213581385
+discovery,10006,random-10,0,temporal,0.27754449634048767
+discovery,10007,random-10,0,temporal,0.348266011798927
+discovery,10008,random-10,0,temporal,0.19080283664292316
+discovery,10001,degree-10,1,temporal,0.6569952085006265
+discovery,10002,degree-10,0,temporal,0.7779309988935623
+discovery,10003,degree-10,1,temporal,0.6259629820272417
+discovery,10004,degree-10,0,temporal,0.6653345453242576
+discovery,10005,degree-10,0,temporal,0.002015563925252238
+discovery,10006,degree-10,0,temporal,0.6082271297363657
+discovery,10007,degree-10,1,temporal,0.7725664602499728
+discovery,10008,degree-10,1,temporal,0.101363072535943
+discovery,10001,random-20,1,temporal,0.5930097135130897
+discovery,10002,random-20,1,temporal,0.6671591305198361
+discovery,10003,random-20,0,temporal,0.7648102818989677
+discovery,10004,random-20,1,temporal,0.5841624016735828
+discovery,10005,random-20,0,temporal,0.10148455111684092
+discovery,10006,random-20,0,temporal,0.5619092115498525
+discovery,10007,random-20,1,temporal,0.5747153595955075
+discovery,10008,random-20,1,temporal,0.4157359362262315
+discovery,10001,degree-20,1,temporal,0.8513249121465262
+discovery,10002,degree-20,0,temporal,0.9395971435336942
+discovery,10003,degree-20,1,temporal,0.8831441666655272
+discovery,10004,degree-20,1,temporal,0.7994494527362999
+discovery,10005,degree-20,0,temporal,0.004554848208586147
+discovery,10006,degree-20,1,temporal,0.8382758082151758
+discovery,10007,degree-20,1,temporal,0.8957291347347353
+discovery,10008,degree-20,0,temporal,0.2539470070169814
+discovery,10001,baseline,1,relational,0.2982414165463811
+discovery,10002,baseline,1,relational,0.3351647279116559
+discovery,10003,baseline,1,relational,0.36288070992853977
+discovery,10004,baseline,0,relational,0.5100159113865087
+discovery,10005,baseline,0,relational,0.21353324556645134
+discovery,10006,baseline,0,relational,0.39677022423875663
+discovery,10007,baseline,0,relational,0.6481599751125307
+discovery,10008,baseline,0,relational,0.2931549867499679
+discovery,10001,random-10,0,relational,0.2560110016544848
+discovery,10002,random-10,1,relational,0.23283030585887707
+discovery,10003,random-10,0,relational,0.43224273747613984
+discovery,10004,random-10,0,relational,0.3746808614478756
+discovery,10005,random-10,0,relational,0.021192809405903543
+discovery,10006,random-10,0,relational,0.3349828750206631
+discovery,10007,random-10,0,relational,0.5452278778477001
+discovery,10008,random-10,0,relational,0.07066905055427515
+discovery,10001,degree-10,1,relational,0.4519093126343489
+discovery,10002,degree-10,0,relational,0.7249736010344264
+discovery,10003,degree-10,1,relational,0.5364717485952885
+discovery,10004,degree-10,0,relational,0.626889859541558
+discovery,10005,degree-10,0,relational,0.4277366195870322
+discovery,10006,degree-10,0,relational,0.42590585239100737
+discovery,10007,degree-10,1,relational,0.6477951968634853
+discovery,10008,degree-10,1,relational,0.2691047207568845
+discovery,10001,random-20,1,relational,0.5070953774216583
+discovery,10002,random-20,1,relational,0.6088168902962504
+discovery,10003,random-20,0,relational,0.7669716219606534
+discovery,10004,random-20,1,relational,0.574433095255397
+discovery,10005,random-20,0,relational,0.15260007274073964
+discovery,10006,random-20,0,relational,0.5877745423825647
+discovery,10007,random-20,1,relational,0.7536005982130586
+discovery,10008,random-20,1,relational,0.22531952960179238
+discovery,10001,degree-20,1,relational,0.7114075540053775
+discovery,10002,degree-20,0,relational,0.9311190874633359
+discovery,10003,degree-20,1,relational,0.8334312083323685
+discovery,10004,degree-20,1,relational,0.7910136320708279
+discovery,10005,degree-20,0,relational,0.8614312749255071
+discovery,10006,degree-20,1,relational,0.6774180365759996
+discovery,10007,degree-20,1,relational,0.8243154320752748
+discovery,10008,degree-20,0,relational,0.5847628273434763
+discovery,10001,baseline,1,identity-conditioned,0.3682840700289793
+discovery,10002,baseline,1,identity-conditioned,0.31657617729075566
+discovery,10003,baseline,1,identity-conditioned,0.45043374401869407
+discovery,10004,baseline,0,identity-conditioned,0.654653688516421
+discovery,10005,baseline,0,identity-conditioned,0.006827187823114322
+discovery,10006,baseline,0,identity-conditioned,0.241048252878908
+discovery,10007,baseline,0,identity-conditioned,0.5217573375670762
+discovery,10008,baseline,0,identity-conditioned,0.4130816036041457
+discovery,10001,random-10,0,identity-conditioned,0.2750806393458395
+discovery,10002,random-10,1,identity-conditioned,0.19930146063682985
+discovery,10003,random-10,0,identity-conditioned,0.5003898530956679
+discovery,10004,random-10,0,identity-conditioned,0.5257249380057415
+discovery,10005,random-10,0,identity-conditioned,0.0026689668795697834
+discovery,10006,random-10,0,identity-conditioned,0.09586801634627246
+discovery,10007,random-10,0,identity-conditioned,0.37752083657207725
+discovery,10008,random-10,0,identity-conditioned,0.17159440458398753
+discovery,10001,degree-10,1,identity-conditioned,0.5870227077874914
+discovery,10002,degree-10,0,identity-conditioned,0.612072018416154
+discovery,10003,degree-10,1,identity-conditioned,0.6208293607794858
+discovery,10004,degree-10,0,identity-conditioned,0.6963861039234691
+discovery,10005,degree-10,0,identity-conditioned,0.008043871483417434
+discovery,10006,degree-10,0,identity-conditioned,0.252426042319417
+discovery,10007,degree-10,1,identity-conditioned,0.5132640030699475
+discovery,10008,degree-10,1,identity-conditioned,0.33749947929691676
+discovery,10001,random-20,1,identity-conditioned,0.5542032045400035
+discovery,10002,random-20,1,identity-conditioned,0.5831154069327407
+discovery,10003,random-20,0,identity-conditioned,0.8286586244696205
+discovery,10004,random-20,1,identity-conditioned,0.7142029257478647
+discovery,10005,random-20,0,identity-conditioned,0.04010441888114755
+discovery,10006,random-20,0,identity-conditioned,0.24436695028944674
+discovery,10007,random-20,1,identity-conditioned,0.6238885123094079
+discovery,10008,random-20,1,identity-conditioned,0.47025963459537606
+discovery,10001,degree-20,1,identity-conditioned,0.8232225834121328
+discovery,10002,degree-20,0,identity-conditioned,0.8986461871708374
+discovery,10003,degree-20,1,identity-conditioned,0.8877200247474888
+discovery,10004,degree-20,1,identity-conditioned,0.8379484175874437
+discovery,10005,degree-20,0,identity-conditioned,0.11237427949950886
+discovery,10006,degree-20,1,identity-conditioned,0.5073502487305792
+discovery,10007,degree-20,1,identity-conditioned,0.7425450774153038
+discovery,10008,degree-20,0,identity-conditioned,0.68585463423183
+discovery,10001,baseline,1,network,0.2125112331576666
+discovery,10002,baseline,1,network,0.033932148808340015
+discovery,10003,baseline,1,network,0.3135504328073832
+discovery,10004,baseline,0,network,0.3705392824737814
+discovery,10005,baseline,0,network,0.3949196169429088
+discovery,10006,baseline,0,network,0.4390474237231175
+discovery,10007,baseline,0,network,0.5141744711452385
+discovery,10008,baseline,0,network,0.3933969530406491
+discovery,10001,random-10,0,network,0.11837095126642097
+discovery,10002,random-10,1,network,0.0667247311602906
+discovery,10003,random-10,0,network,0.26250855198449197
+discovery,10004,random-10,0,network,0.17020728400703852
+discovery,10005,random-10,0,network,0.4521030706290067
+discovery,10006,random-10,0,network,0.2384852937835311
+discovery,10007,random-10,0,network,0.45805066835419117
+discovery,10008,random-10,0,network,0.14425308719460703
+discovery,10001,degree-10,1,network,0.5401163155560876
+discovery,10002,degree-10,0,network,0.16560042521727456
+discovery,10003,degree-10,1,network,0.5996193421474918
+discovery,10004,degree-10,0,network,0.6159669517843162
+discovery,10005,degree-10,0,network,0.010918991717085491
+discovery,10006,degree-10,0,network,0.7128033215874157
+discovery,10007,degree-10,1,network,0.44771403775338925
+discovery,10008,degree-10,1,network,0.2548624204783006
+discovery,10001,random-20,1,network,0.34011336807570247
+discovery,10002,random-20,1,network,0.3945465232545192
+discovery,10003,random-20,0,network,0.6303151794233987
+discovery,10004,random-20,1,network,0.40561756093037815
+discovery,10005,random-20,0,network,0.5208585482981423
+discovery,10006,random-20,0,network,0.5615633326158895
+discovery,10007,random-20,1,network,0.7945783518522895
+discovery,10008,random-20,1,network,0.41207971187561815
+discovery,10001,degree-20,1,network,0.8184631787611196
+discovery,10002,degree-20,0,network,0.6439957093465007
+discovery,10003,degree-20,1,network,0.8776561418577391
+discovery,10004,degree-20,1,network,0.8421763836462082
+discovery,10005,degree-20,0,network,0.014334992627659918
+discovery,10006,degree-20,1,network,0.910320072059047
+discovery,10007,degree-20,1,network,0.7876851897953919
+discovery,10008,degree-20,0,network,0.5871475279468167
+confirmation,10014,baseline,1,intervention-only null,0.3408050400955096
+confirmation,10015,baseline,0,intervention-only null,0.3408050400955096
+confirmation,10016,baseline,0,intervention-only null,0.3408050400955096
+confirmation,10017,baseline,0,intervention-only null,0.3408050400955096
+confirmation,10018,baseline,0,intervention-only null,0.3408050400955096
+confirmation,10019,baseline,1,intervention-only null,0.3408050400955096
+confirmation,10020,baseline,0,intervention-only null,0.3408050400955096
+confirmation,10021,baseline,1,intervention-only null,0.3408050400955096
+confirmation,10014,random-10,1,intervention-only null,0.2981090857738566
+confirmation,10015,random-10,0,intervention-only null,0.2981090857738566
+confirmation,10016,random-10,1,intervention-only null,0.2981090857738566
+confirmation,10017,random-10,0,intervention-only null,0.2981090857738566
+confirmation,10018,random-10,0,intervention-only null,0.2981090857738566
+confirmation,10019,random-10,0,intervention-only null,0.2981090857738566
+confirmation,10020,random-10,0,intervention-only null,0.2981090857738566
+confirmation,10021,random-10,1,intervention-only null,0.2981090857738566
+confirmation,10014,degree-10,1,intervention-only null,0.47194851021358397
+confirmation,10015,degree-10,0,intervention-only null,0.47194851021358397
+confirmation,10016,degree-10,1,intervention-only null,0.47194851021358397
+confirmation,10017,degree-10,0,intervention-only null,0.47194851021358397
+confirmation,10018,degree-10,0,intervention-only null,0.47194851021358397
+confirmation,10019,degree-10,0,intervention-only null,0.47194851021358397
+confirmation,10020,degree-10,0,intervention-only null,0.47194851021358397
+confirmation,10021,degree-10,1,intervention-only null,0.47194851021358397
+confirmation,10014,random-20,1,intervention-only null,0.4920016980559817
+confirmation,10015,random-20,0,intervention-only null,0.4920016980559817
+confirmation,10016,random-20,1,intervention-only null,0.4920016980559817
+confirmation,10017,random-20,1,intervention-only null,0.4920016980559817
+confirmation,10018,random-20,1,intervention-only null,0.4920016980559817
+confirmation,10019,random-20,1,intervention-only null,0.4920016980559817
+confirmation,10020,random-20,0,intervention-only null,0.4920016980559817
+confirmation,10021,random-20,1,intervention-only null,0.4920016980559817
+confirmation,10014,degree-20,1,intervention-only null,0.6708426437337456
+confirmation,10015,degree-20,1,intervention-only null,0.6708426437337456
+confirmation,10016,degree-20,0,intervention-only null,0.6708426437337456
+confirmation,10017,degree-20,0,intervention-only null,0.6708426437337456
+confirmation,10018,degree-20,1,intervention-only null,0.6708426437337456
+confirmation,10019,degree-20,1,intervention-only null,0.6708426437337456
+confirmation,10020,degree-20,1,intervention-only null,0.6708426437337456
+confirmation,10021,degree-20,1,intervention-only null,0.6708426437337456
+confirmation,10014,baseline,1,identity-conditioned,0.5166624440620184
+confirmation,10015,baseline,0,identity-conditioned,0.30251001310819015
+confirmation,10016,baseline,0,identity-conditioned,0.10516758413324977
+confirmation,10017,baseline,0,identity-conditioned,0.3672259142723748
+confirmation,10018,baseline,0,identity-conditioned,0.22129294244950581
+confirmation,10019,baseline,1,identity-conditioned,0.27594367160921096
+confirmation,10020,baseline,0,identity-conditioned,0.20383481716935314
+confirmation,10021,baseline,1,identity-conditioned,0.4903884039002343
+confirmation,10014,random-10,1,identity-conditioned,0.4281031665066713
+confirmation,10015,random-10,0,identity-conditioned,0.18178389702219697
+confirmation,10016,random-10,1,identity-conditioned,0.07433652033037712
+confirmation,10017,random-10,0,identity-conditioned,0.2342516992991889
+confirmation,10018,random-10,0,identity-conditioned,0.1079733666349569
+confirmation,10019,random-10,0,identity-conditioned,0.24972262252694097
+confirmation,10020,random-10,0,identity-conditioned,0.08114869080537235
+confirmation,10021,random-10,1,identity-conditioned,0.31846619353574873
+confirmation,10014,degree-10,1,identity-conditioned,0.6054927514413044
+confirmation,10015,degree-10,0,identity-conditioned,0.36438501023633935
+confirmation,10016,degree-10,1,identity-conditioned,0.09382437511131253
+confirmation,10017,degree-10,0,identity-conditioned,0.409590588786322
+confirmation,10018,degree-10,0,identity-conditioned,0.24727790213501585
+confirmation,10019,degree-10,0,identity-conditioned,0.29231223822817426
+confirmation,10020,degree-10,0,identity-conditioned,0.27385103547816997
+confirmation,10021,degree-10,1,identity-conditioned,0.6854926525641696
+confirmation,10014,random-20,1,identity-conditioned,0.7313155190982511
+confirmation,10015,random-20,0,identity-conditioned,0.486373865947015
+confirmation,10016,random-20,1,identity-conditioned,0.2218884172729441
+confirmation,10017,random-20,1,identity-conditioned,0.5370683911730547
+confirmation,10018,random-20,1,identity-conditioned,0.34709139520725546
+confirmation,10019,random-20,1,identity-conditioned,0.5038295699485942
+confirmation,10020,random-20,0,identity-conditioned,0.29680554588380237
+confirmation,10021,random-20,1,identity-conditioned,0.661242786275995
+confirmation,10014,degree-20,1,identity-conditioned,0.8480395156203828
+confirmation,10015,degree-20,1,identity-conditioned,0.7095929341336316
+confirmation,10016,degree-20,0,identity-conditioned,0.2688243835304723
+confirmation,10017,degree-20,0,identity-conditioned,0.7245900534004667
+confirmation,10018,degree-20,1,identity-conditioned,0.590632107481237
+confirmation,10019,degree-20,1,identity-conditioned,0.5575513810616902
+confirmation,10020,degree-20,1,identity-conditioned,0.6431618309144864
+confirmation,10021,degree-20,1,identity-conditioned,0.9010367324140512
+confirmation,10014,baseline,1,identity-conditioned ablated,0.48636831442664397
+confirmation,10015,baseline,0,identity-conditioned ablated,0.27622615163797437
+confirmation,10016,baseline,0,identity-conditioned ablated,0.2035749982233047
+confirmation,10017,baseline,0,identity-conditioned ablated,0.3436908598663138
+confirmation,10018,baseline,0,identity-conditioned ablated,0.19226107512164822
+confirmation,10019,baseline,1,identity-conditioned ablated,0.446648158414879
+confirmation,10020,baseline,0,identity-conditioned ablated,0.17192424147832083
+confirmation,10021,baseline,1,identity-conditioned ablated,0.4526583456490236
+confirmation,10014,random-10,1,identity-conditioned ablated,0.4165634986602534
+confirmation,10015,random-10,0,identity-conditioned ablated,0.21428275263240354
+confirmation,10016,random-10,1,identity-conditioned ablated,0.1466935483374137
+confirmation,10017,random-10,0,identity-conditioned ablated,0.24670129010972297
+confirmation,10018,random-10,0,identity-conditioned ablated,0.09992698771604488
+confirmation,10019,random-10,0,identity-conditioned ablated,0.42933978191955163
+confirmation,10020,random-10,0,identity-conditioned ablated,0.07230292629795086
+confirmation,10021,random-10,1,identity-conditioned ablated,0.3237966131470077
+confirmation,10014,degree-10,1,identity-conditioned ablated,0.61480238188057
+confirmation,10015,degree-10,0,identity-conditioned ablated,0.3127341966566632
+confirmation,10016,degree-10,1,identity-conditioned ablated,0.2015325187413812
+confirmation,10017,degree-10,0,identity-conditioned ablated,0.4086435664780502
+confirmation,10018,degree-10,0,identity-conditioned ablated,0.23773798233504767
+confirmation,10019,degree-10,0,identity-conditioned ablated,0.4900408842160714
+confirmation,10020,degree-10,0,identity-conditioned ablated,0.2526169597128457
+confirmation,10021,degree-10,1,identity-conditioned ablated,0.6562076632753453
+confirmation,10014,random-20,1,identity-conditioned ablated,0.6895761938029397
+confirmation,10015,random-20,0,identity-conditioned ablated,0.49042812121400503
+confirmation,10016,random-20,1,identity-conditioned ablated,0.3860325445421978
+confirmation,10017,random-20,1,identity-conditioned ablated,0.5166536296562876
+confirmation,10018,random-20,1,identity-conditioned ablated,0.30117744879129094
+confirmation,10019,random-20,1,identity-conditioned ablated,0.6913414493883445
+confirmation,10020,random-20,0,identity-conditioned ablated,0.24700550655018377
+confirmation,10021,random-20,1,identity-conditioned ablated,0.6240109942801375
+confirmation,10014,degree-20,1,identity-conditioned ablated,0.8323786418095795
+confirmation,10015,degree-20,1,identity-conditioned ablated,0.6162451403776306
+confirmation,10016,degree-20,0,identity-conditioned ablated,0.480012982635122
+confirmation,10017,degree-20,0,identity-conditioned ablated,0.6928222963248353
+confirmation,10018,degree-20,1,identity-conditioned ablated,0.5476592853129714
+confirmation,10019,degree-20,1,identity-conditioned ablated,0.7409864161004259
+confirmation,10020,degree-20,1,identity-conditioned ablated,0.5872212392325156
+confirmation,10021,degree-20,1,identity-conditioned ablated,0.8686900579349469

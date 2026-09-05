@@ -1,0 +1,16 @@
+{
+  "cases": 14880,
+  "experiment_id": "p2-003-barrier-reachability",
+  "freeze_modes": [
+    "immovable",
+    "moveable"
+  ],
+  "horizon_ticks": 150,
+  "protocol": "docs/hypotheses/p2_003_barrier_reachability.md",
+  "protocol_sha256": "4c1227fc60cc85ee04e1b3380f4df3d44b6483850e102d32fbf07ba64fa26cd8",
+  "schedules": [
+    "index",
+    "shuffled"
+  ],
+  "system_size": 5
+}

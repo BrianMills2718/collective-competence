@@ -1,0 +1,11 @@
+{
+  "behaviorspace_setup": "src/spikes/netlogo_slime/p3_006_behaviorspace.xml",
+  "behaviorspace_setup_sha256": "68e7817f56e78914b677c39e9ed5aa1d93e18213b3c4327ff49563df712aaa72",
+  "experiment_id": "p3-006-slime-bidirectional-target",
+  "netlogo_version": "7.0.4",
+  "protocol": "docs/hypotheses/p3_006_slime_bidirectional_target.md",
+  "protocol_sha256": "c35b955fcd9dfe19b6e1e2b46e4186e58224519e7d9d58f91e0f29a027e4b636",
+  "source_model": "/mnt/c/Program Files/NetLogo 7.0.4/models/Sample Models/Biology/Slime.nlogox",
+  "source_model_modified": false,
+  "source_model_sha256": "ede03dc05cc186a9607cb2ef1b11dfde4a1c05eb57edd19e2a577768c04644da"
+}

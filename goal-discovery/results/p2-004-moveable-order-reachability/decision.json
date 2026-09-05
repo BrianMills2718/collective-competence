@@ -1,0 +1,27 @@
+{
+  "accuracy": 1.0,
+  "cases": 90720,
+  "criteria": {
+    "accuracy_is_100_percent": true,
+    "both_outcomes_present": true,
+    "every_schedule_is_100_percent": true,
+    "mode_specific_success_exists": true,
+    "zero_false_feasible": true,
+    "zero_false_infeasible": true,
+    "zero_time_limit_exits": true
+  },
+  "false_feasible": 0,
+  "false_infeasible": 0,
+  "mode_specific_successes": 24180,
+  "outcomes": {
+    "false": 65506,
+    "true": 25214
+  },
+  "passed": true,
+  "schedule_accuracy": {
+    "index": 1.0,
+    "shuffled": 1.0
+  },
+  "study": "p2-004-moveable-order-reachability",
+  "time_limit_exits": 0
+}

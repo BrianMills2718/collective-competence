@@ -1,0 +1,17 @@
+{
+  "analysis_recovered_from_intact_raw_tables": true,
+  "behaviorspace_setup": "src/spikes/netlogo_heatbugs/p4_002_behaviorspace.xml",
+  "behaviorspace_setup_sha256": "3b37d6f28e68d901df556e54723b939960d8c7aa071db7bb3e1215df05dbae59",
+  "experiment_id": "p4-002-heatbugs-blind-target-inference",
+  "inference_excludes": [
+    "ideal-temp",
+    "unhappiness",
+    "generator decision calculation"
+  ],
+  "netlogo_version": "7.0.4",
+  "protocol": "docs/hypotheses/p4_002_heatbugs_blind_target_inference.md",
+  "protocol_sha256": "8733b2474336600ea1114d26b84d01348b336134de99f982cb5627fe4e0f6983",
+  "source_model": "/mnt/c/Program Files/NetLogo 7.0.4/models/Sample Models/Biology/Heatbugs.nlogox",
+  "source_model_modified": false,
+  "source_model_sha256": "9b439a81d1526f34fe9716a9d2d690d9948ecd119fa6f64502aee3b424c6fa59"
+}

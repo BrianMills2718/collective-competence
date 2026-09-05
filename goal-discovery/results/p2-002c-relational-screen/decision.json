@@ -1,0 +1,14 @@
+{
+  "stage": "existing-data observation screen",
+  "promoted_to_new_seed_validation": false,
+  "criteria": {
+    "20pct_better_than_value": true,
+    "20pct_better_than_intervention": false,
+    "brier_below_0_25": true,
+    "no_more_than_nine_inputs": true
+  },
+  "relational_log_loss": 0.5378345104345357,
+  "value_log_loss": 0.7062467689134633,
+  "intervention_log_loss": 0.6138429411476698,
+  "relational_brier_loss": 0.18455165532508896
+}

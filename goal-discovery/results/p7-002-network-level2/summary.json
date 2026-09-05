@@ -1,0 +1,39 @@
+{
+  "ablation_gate": true,
+  "confirmation_ablated_log_loss": 0.564686470525066,
+  "confirmation_gate": false,
+  "confirmation_improvement": 0.08397627654328102,
+  "confirmation_null_log_loss": 0.6596801747737358,
+  "confirmation_selected_log_loss": 0.6042826899868166,
+  "decision": "fail",
+  "discovery_null_log_loss": 0.7414431591477086,
+  "discovery_tie_within_0_005": false,
+  "experiment": "P7-002",
+  "integrity": {
+    "confirmation_has_both_classes": true,
+    "confirmation_seeds": [
+      10014,
+      10015,
+      10016,
+      10017,
+      10018,
+      10019,
+      10020,
+      10021
+    ],
+    "discovery_has_both_classes": true,
+    "discovery_seeds": [
+      10001,
+      10002,
+      10003,
+      10004,
+      10005,
+      10006,
+      10007,
+      10008
+    ],
+    "preintervention_matched": true
+  },
+  "promoted": false,
+  "selected_family": "identity-conditioned"
+}

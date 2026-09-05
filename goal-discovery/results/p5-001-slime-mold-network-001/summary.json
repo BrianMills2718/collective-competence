@@ -1,0 +1,32 @@
+{
+  "experiment": "P5-001",
+  "decision": "no-go",
+  "promoted": false,
+  "model_present": true,
+  "mechanism": {
+    "extraction_integrity_rate": 1.0,
+    "boost_zero_median_retention": 1.0,
+    "best_positive_boost": 20,
+    "best_median_advantage": -0.2923047446925642,
+    "seeds_clearing_paired_advantage": 1,
+    "largest_adjacent_median_jump": 0.2923047446925642,
+    "candidate_boundary": 10.0,
+    "mechanism_gate": false,
+    "median_retention_by_boost": {
+      "0": 1.0,
+      "20": 0.7076952553074358,
+      "40": 0.6901398812740644,
+      "60": 0.588289144975317,
+      "80": 0.5114407372512653
+    }
+  },
+  "prediction": {
+    "intervention_mae": 0.09471034913939458,
+    "density_mae": 0.10470199065292567,
+    "network_mae": 0.1318548957564827,
+    "shuffle_fifth_percentile_mae": 0.09851169643577212,
+    "shuffle_median_mae": 0.11195410209871527,
+    "prediction_gate": false,
+    "shuffle_gate": false
+  }
+}

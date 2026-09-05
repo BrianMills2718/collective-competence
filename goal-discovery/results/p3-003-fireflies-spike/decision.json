@@ -1,0 +1,18 @@
+{
+  "adopted": false,
+  "criteria": {
+    "baseline_synchronized_in_three_seeds": false,
+    "four_complete_paired_trajectories": true,
+    "half_gap_closed_in_three_seeds": false,
+    "installed_gui_model_present": true,
+    "population_preserved": true,
+    "prebranch_trajectories_identical": true,
+    "shock_detected_in_three_seeds": false
+  },
+  "mean_gap_closed_fraction": -6.308651833597712,
+  "mean_late_order_gap": 0.10417286541315125,
+  "mean_pre_phase_order": 0.24919795879194814,
+  "mean_shock_order_gap": 0.07647204607179754,
+  "runs": 4,
+  "study": "p3-003-fireflies-spike"
+}

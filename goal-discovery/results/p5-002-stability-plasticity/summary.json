@@ -1,0 +1,37 @@
+{
+  "experiment": "P5-002",
+  "decision": "no-go",
+  "confirmed": false,
+  "model_present": true,
+  "extraction_integrity_rate": 1.0,
+  "integrity_gate": true,
+  "median_sham_0_to_80_increase": 0.09033523542924893,
+  "seeds_sham_increase_at_least_0_20": 2,
+  "stability_gate": false,
+  "geometries": {
+    "near": {
+      "median_difference_in_differences": -0.18955894619143593,
+      "seeds_difference_in_differences_at_most_minus_0_20": 3,
+      "median_retention_by_boost": {
+        "0": 0.7656848180117664,
+        "40": 0.7319433900564565,
+        "80": 0.7207139171254979
+      },
+      "boost_0_to_80_retention_drop": 0.04497090088626843,
+      "retention_nonincreasing": true,
+      "geometry_gate": false
+    },
+    "far": {
+      "median_difference_in_differences": -0.13246750530348048,
+      "seeds_difference_in_differences_at_most_minus_0_20": 2,
+      "median_retention_by_boost": {
+        "0": 0.7417749262107185,
+        "40": 0.6765395268086649,
+        "80": 0.5969671761164308
+      },
+      "boost_0_to_80_retention_drop": 0.1448077500942877,
+      "retention_nonincreasing": true,
+      "geometry_gate": false
+    }
+  }
+}

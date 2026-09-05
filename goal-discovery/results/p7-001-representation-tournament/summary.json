@@ -1,0 +1,14 @@
+{
+  "experiment": "P7-001",
+  "evidence_level": 1,
+  "n_tasks": 4,
+  "n_correct": 4,
+  "classification": "pass",
+  "next_investment": "freeze a prospective Level 2 selector test",
+  "input_sha256": {
+    "results/p5-000-representation-discovery/scores.csv": "0487930aa708084e822438c6f288ac7b8a6c80de19dff3236ed6c53689fa8123",
+    "results/p2-002c-relational-screen/representation_scores.csv": "0f615649a75b45baa96dbf26f2dfb7f274d27d77f3da2e2d4f21eeef2b02f0e9",
+    "results/p4-002-heatbugs-blind-target-inference-001/held_out_seed_scores.csv": "7415373704cbed9e720f160bbe1424538e91581e426d0fe72f39b318a550329c",
+    "results/p5-001-slime-mold-network-001/summary.json": "1084749305ee0ebad5ba41f071e4890949fca6364e982185a6b770e808adfa0c"
+  }
+}

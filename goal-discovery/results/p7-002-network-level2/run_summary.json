@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "experiment_id": "P7-002",
+    "evidence_level": 2,
+    "protocol": "docs/hypotheses/p7_002_prospective_network_selector.md",
+    "protocol_sha256": "f57af7870ea99e559ace68efd6efefd9711b689809c1b5bbf17c985f6cb74a8a",
+    "netlogo_version": "7.0.4",
+    "source_model": "/mnt/c/Program Files/NetLogo 7.0.4/models/Sample Models/Networks/Virus on a Network.nlogox",
+    "source_model_sha256": "3ebb041175d22c6a1b32279dc25af14b4f76c06f2eb18e62539ca84f1f8dd5d1",
+    "source_model_modified": false,
+    "behaviorspace_setup": "src/experiments/prospective_network_selector/level2.xml",
+    "behaviorspace_setup_sha256": "0284f879d998b08b891748ad98f03b394cba0cea8b1d2d1ca29e98a337e0e116",
+    "arms": {
+      "baseline": "p7-002-level2-baseline",
+      "random-10": "p7-002-level2-random-10",
+      "degree-10": "p7-002-level2-degree-10",
+      "random-20": "p7-002-level2-random-20",
+      "degree-20": "p7-002-level2-degree-20"
+    }
+  },
+  "decision": {
+    "experiment": "P7-002",
+    "integrity": {
+      "discovery_seeds": [
+        10001,
+        10002,
+        10003,
+        10004,
+        10005,
+        10006,
+        10007,
+        10008
+      ],
+      "confirmation_seeds": [
+        10014,
+        10015,
+        10016,
+        10017,
+        10018,
+        10019,
+        10020,
+        10021
+      ],
+      "preintervention_matched": true,
+      "discovery_has_both_classes": true,
+      "confirmation_has_both_classes": true
+    },
+    "discovery_null_log_loss": 0.7414431591477086,
+    "selected_family": "identity-conditioned",
+    "discovery_tie_within_0_005": false,
+    "decision": "fail",
+    "promoted": false,
+    "confirmation_null_log_loss": 0.6596801747737358,
+    "confirmation_selected_log_loss": 0.6042826899868166,
+    "confirmation_improvement": 0.08397627654328102,
+    "confirmation_ablated_log_loss": 0.564686470525066,
+    "confirmation_gate": false,
+    "ablation_gate": true
+  }
+}

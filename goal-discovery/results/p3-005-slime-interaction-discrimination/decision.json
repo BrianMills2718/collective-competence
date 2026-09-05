@@ -1,0 +1,19 @@
+{
+  "candidate": "interaction-dependent aggregation recovery",
+  "criteria": {
+    "active_recovered_in_three_seeds": true,
+    "disabled_dispersed_in_three_seeds": true,
+    "disabled_field_regenerated_all_seeds": true,
+    "four_complete_paired_trajectories": true,
+    "interaction_advantage_in_three_seeds": true,
+    "population_preserved": true,
+    "prebranch_trajectories_identical": true,
+    "shock_detected_in_three_seeds": true
+  },
+  "mean_active_advantage": 22.361532258064518,
+  "mean_active_late_neighbors": 24.10435483870968,
+  "mean_disabled_late_neighbors": 1.7428225806451612,
+  "promoted": true,
+  "runs": 4,
+  "study": "p3-005-slime-interaction-discrimination"
+}

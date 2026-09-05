@@ -1,0 +1,11 @@
+{
+  "behaviorspace_setup": "src/spikes/netlogo_flocking/behaviorspace.xml",
+  "behaviorspace_setup_sha256": "7af4a1f34bdf2695a0aea5ceaa60b57c74d333871655db5c5a8b486916d7b140",
+  "experiment_id": "p3-001-flocking-spike",
+  "netlogo_version": "7.0.4",
+  "protocol": "docs/hypotheses/p3_001_flocking_spike.md",
+  "protocol_sha256": "658f9398cf4c8c3fce1b2217b9610e7ee6953c641d1a12e69bca449597c64828",
+  "source_model": "/mnt/c/Program Files/NetLogo 7.0.4/models/Sample Models/Biology/Flocking.nlogox",
+  "source_model_modified": false,
+  "source_model_sha256": "0ce9a6b0ee385898dfcacc7ed06699286cd51e5302a80c90b32687e13cefa143"
+}

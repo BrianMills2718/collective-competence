@@ -1,0 +1,13 @@
+{
+  "behaviorspace_setup": "src/spikes/netlogo_slime_network/behaviorspace.xml",
+  "behaviorspace_setup_sha256": "c74bb25dce407ea4fd31d0fbc31cee712252242dcc6ae1bdc2069164d07fb359",
+  "decision": "no-go",
+  "execution_note": "Three frozen arms ran concurrently; analysis reran without simulation after a CSV field-size parser limit was raised.",
+  "experiment_id": "p5-001-slime-mold-network",
+  "netlogo_version": "7.0.4",
+  "protocol": "docs/hypotheses/p5_001_slime_mold_network_threshold.md",
+  "protocol_sha256": "be33df6c98b414f113b999a35ed98d6d3c3421ccbb005fcf18719f8810cb93da",
+  "source_model": "/mnt/c/Program Files/NetLogo 7.0.4/models/Sample Models/Biology/Slime Mold Network.nlogox",
+  "source_model_modified": false,
+  "source_model_sha256": "93b05eeb698936369e66dd81fba1aaa23ccf21978a5af4b7d081e6dc81ae3e1b"
+}

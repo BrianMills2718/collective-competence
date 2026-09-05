@@ -1,0 +1,48 @@
+{
+  "actual_runs": 17280,
+  "integrity_criteria": {
+    "at_least_30_reachable_cases_per_cell": true,
+    "bubble_immovable_oracle_matches_invariant": true,
+    "bubble_moveable_oracle_matches_invariant": true,
+    "zero_time_limit_exits": true,
+    "zero_unreachable_successes": true
+  },
+  "integrity_passed": true,
+  "oracle_cases": 2160,
+  "promoted": false,
+  "promotion_candidates": [
+    {
+      "best_by_schedule": {
+        "index": null,
+        "shuffled": null
+      },
+      "freeze_mode": "moveable",
+      "passed": false,
+      "robust_rate_gap_by_schedule": {
+        "index": 0.040000000000000036,
+        "shuffled": 0.07999999999999996
+      },
+      "worst_by_schedule": {
+        "index": "selection",
+        "shuffled": "selection"
+      }
+    },
+    {
+      "best_by_schedule": {
+        "index": null,
+        "shuffled": null
+      },
+      "freeze_mode": "immovable",
+      "passed": false,
+      "robust_rate_gap_by_schedule": {
+        "index": 0.0,
+        "shuffled": 0.0
+      },
+      "worst_by_schedule": {
+        "index": null,
+        "shuffled": null
+      }
+    }
+  ],
+  "study": "p2-005-opportunity-adjusted-performance"
+}

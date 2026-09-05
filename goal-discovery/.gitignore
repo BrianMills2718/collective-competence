@@ -63,3 +63,63 @@ results/*
 !results/q1-008-null-coupling/
 !results/q1-009-information/
 !results/q1-009-information/**
+
+# 2026-09-05: the remaining cited-but-untracked packages, committed.
+# 221MB, largest single file 23MB. These are cited as evidence by tracked
+# result records and several are NOT regenerable here -- the P3/P4/P5 spikes
+# need NetLogo, which is absent. Repository weight is a worse problem to have
+# than losing the evidence a published claim rests on.
+!results/003-thermostat/
+!results/003-thermostat/**
+!results/003b-blind-target/
+!results/003b-blind-target/**
+!results/p2-002-crossed/
+!results/p2-002-crossed/**
+!results/p2-002b-within-intervention/
+!results/p2-002b-within-intervention/**
+!results/p2-002c-relational-screen/
+!results/p2-002c-relational-screen/**
+!results/p2-003-barrier-reachability/
+!results/p2-003-barrier-reachability/**
+!results/p2-004-moveable-order-reachability/
+!results/p2-004-moveable-order-reachability/**
+!results/p2-005-opportunity-adjusted-performance/
+!results/p2-005-opportunity-adjusted-performance/**
+!results/p3-001-flocking-spike/
+!results/p3-001-flocking-spike/**
+!results/p3-002-flocking-representation-discrimination/
+!results/p3-002-flocking-representation-discrimination/**
+!results/p3-003-fireflies-spike/
+!results/p3-003-fireflies-spike/**
+!results/p3-004-slime-spike/
+!results/p3-004-slime-spike/**
+!results/p3-005-slime-interaction-discrimination/
+!results/p3-005-slime-interaction-discrimination/**
+!results/p3-006-slime-bidirectional-target/
+!results/p3-006-slime-bidirectional-target/**
+!results/p4-001-heatbugs-spike/
+!results/p4-001-heatbugs-spike/**
+!results/p4-002-heatbugs-blind-target-inference-001/
+!results/p4-002-heatbugs-blind-target-inference-001/**
+!results/p5-000-representation-discovery/
+!results/p5-000-representation-discovery/**
+!results/p5-001-slime-mold-network-001/
+!results/p5-001-slime-mold-network-001/**
+!results/p5-002-stability-plasticity/
+!results/p5-002-stability-plasticity/**
+!results/p6-001-neuromast-causal-calibration/
+!results/p6-001-neuromast-causal-calibration/**
+!results/p7-001-representation-tournament/
+!results/p7-001-representation-tournament/**
+!results/p7-002-network-level2/
+!results/p7-002-network-level2/**
+!results/p7-003-selector-complexity-audit/
+!results/p7-003-selector-complexity-audit/**
+!results/p7-004-ants-trail-scale-001/
+!results/p7-004-ants-trail-scale-001/**
+!results/p7-005-network-intervention-value/
+!results/p7-005-network-intervention-value/**
+!results/x02-netlogo/
+!results/x02-netlogo/**
+!results/x03-workbench/
+!results/x03-workbench/**

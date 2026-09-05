@@ -1,0 +1,5 @@
+task,family,metric,candidate_score,primary_null_score,improvement,threshold,action,expected_action,calibration_correct,source
+thermostat preservation,temporal,log loss,0.1263136760595496,0.5795556028261065,0.7820508067843673,0.2,select,select,True,results/p5-000-representation-discovery/scores.csv
+sorting recovery,relational,log loss,0.5378345104345357,0.6138429411476698,0.12382390611354945,0.1,select,select,True,results/p2-002c-relational-screen/representation_scores.csv
+Heatbugs target inference,identity-conditioned,accuracy,0.715,0.555,0.15999999999999992,0.1,select,select,True,results/p4-002-heatbugs-blind-target-inference-001/held_out_seed_scores.csv
+Slime recovery,network,MAE,0.1318548957564827,0.09471034913939458,-0.3921910008210278,0.1,abstain,abstain,True,results/p5-001-slime-mold-network-001/summary.json

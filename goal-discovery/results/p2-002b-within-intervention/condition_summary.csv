@@ -1,0 +1,7 @@
+batch,activation_schedule,branch_tick,freeze_mode,freeze_count,runs,goal_rate,median_time_to_goal,mean_final_boundary
+discovery,index,4,immovable,1,12,0.16666666666666666,5.5,0.08333333333333333
+discovery,index,4,moveable,2,12,0.75,8.0,0.022727272727272724
+discovery,index,4,moveable,3,12,0.5833333333333334,9.0,0.04545454545454545
+discovery,shuffled,4,immovable,1,12,0.25,4.0,0.07575757575757575
+discovery,shuffled,4,moveable,2,12,0.9166666666666666,7.0,0.007575757575757575
+discovery,shuffled,4,moveable,3,12,0.4166666666666667,8.0,0.05303030303030302

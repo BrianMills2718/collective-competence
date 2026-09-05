@@ -1,0 +1,25 @@
+{
+  "alignment_polarization_criteria": {
+    "interaction_advantage_in_six_seeds": true,
+    "late_local_alignment_in_six_seeds": true,
+    "late_polarization_in_six_seeds": false
+  },
+  "alignment_polarization_supported": false,
+  "integrity_criteria": {
+    "eight_complete_trajectories_per_arm": true,
+    "population_and_mean_vectors_valid": true,
+    "prebranch_trajectories_identical": true,
+    "quarter_shock_detected_in_six_seeds": true,
+    "whole_rotation_detected_in_six_seeds": true
+  },
+  "integrity_passed": true,
+  "prior_heading_criteria": {
+    "half_heading_error_closed_in_six_seeds": false,
+    "late_prior_heading_in_six_seeds": false
+  },
+  "prior_heading_supported": false,
+  "promoted": false,
+  "runs": 8,
+  "selected_representation": "none",
+  "study": "p3-002-flocking-representation-discrimination"
+}

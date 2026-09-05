@@ -1,0 +1,11 @@
+{
+  "behaviorspace_setup": "src/spikes/netlogo_flocking/p3_002_behaviorspace.xml",
+  "behaviorspace_setup_sha256": "47a83901b5eebce8009895cdefd84e0c00f1e90aa6951626204a9f7a0c2b1a82",
+  "experiment_id": "p3-002-flocking-representation-discrimination",
+  "netlogo_version": "7.0.4",
+  "protocol": "docs/hypotheses/p3_002_flocking_representation_discrimination.md",
+  "protocol_sha256": "66389afd992210061533ebc8b795f04383ba0b7f13089eb17ade0a1a688d456b",
+  "source_model": "/mnt/c/Program Files/NetLogo 7.0.4/models/Sample Models/Biology/Flocking.nlogox",
+  "source_model_modified": false,
+  "source_model_sha256": "0ce9a6b0ee385898dfcacc7ed06699286cd51e5302a80c90b32687e13cefa143"
+}

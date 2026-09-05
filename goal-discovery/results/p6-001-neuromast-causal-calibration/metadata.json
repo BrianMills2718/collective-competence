@@ -1,0 +1,21 @@
+{
+  "active_replay_skipped_after_stop": true,
+  "batch_status": "stopped_by_frozen_runtime_rule",
+  "completed_runs": 8,
+  "decision": "no-go",
+  "experiment_id": "p6-001-neuromast-causal-calibration",
+  "experimental_data_sha256": "6d2831af0a3a6c1e45258b4728ef5a2126729d4ee911abcc242eea0e1c2c772d",
+  "feedback_controls_preserved_as_partial_trajectories": true,
+  "generated_variant_sha256": {
+    "active": "95606c8806cc5130e0b3c5e959b72926d158db59dcd19717f9ddf90408c21ceb",
+    "feedback_disabled": "153550923fa59b33c6ffc13becc276e5238bef4c72251eb626ae11e9cdce91a4",
+    "proliferation_disabled": "ac80d39cc3d7b2be281b2188e289ffe4ecf1c9e709b4d55b3e4386e125a1cebc"
+  },
+  "morpheus_sha256": "06a9b44dca3195536907657348e5c6882711f9ce6e60f39af71fef2362e093c7",
+  "morpheus_version": "2.4.1",
+  "planned_runs": 12,
+  "protocol": "docs/hypotheses/p6_001_neuromast_causal_calibration.md",
+  "protocol_sha256": "cf076687bbbbaac8e5a33066183fb09b563082e2081cf6de812625d24ce6cd81",
+  "source_archive_sha256": "03aae512a6d299593a45db46ae4946867993be3b8144528399cf81e9271417f1",
+  "source_model_sha256": "b289691efcb699bf141106ae47cc024a3be75aad6927b0bf9a6bcf5794d0ab26"
+}

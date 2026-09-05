@@ -1,0 +1,12 @@
+{
+  "analysis_recovered_from_intact_raw_tables": true,
+  "behaviorspace_setup": "src/spikes/netlogo_heatbugs/behaviorspace.xml",
+  "behaviorspace_setup_sha256": "fc26852bcf2415421a05d0a9b75d8f9dc16161b20e85ab575d1555d7d292897f",
+  "experiment_id": "p4-001-heatbugs-spike",
+  "netlogo_version": "7.0.4",
+  "protocol": "docs/hypotheses/p4_001_heatbugs_spike.md",
+  "protocol_sha256": "25fba768efc60d0bded22cfd87d4b3123be27c811107709dd422813a84ea1ac4",
+  "source_model": "/mnt/c/Program Files/NetLogo 7.0.4/models/Sample Models/Biology/Heatbugs.nlogox",
+  "source_model_modified": false,
+  "source_model_sha256": "9b439a81d1526f34fe9716a9d2d690d9948ecd119fa6f64502aee3b424c6fa59"
+}

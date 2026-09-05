@@ -1,0 +1,148 @@
+{
+    "components": [
+        {
+            "name": "Initialisation",
+            "runtime": "0.023847818375",
+            "cputime": "0.026498"
+        },
+        {
+            "name": "CellDivision",
+            "description": "",
+            "inputs": "Mantle_Neighbours,dia,pm,tau,time,umbral",
+            "outputs": "cell.center,umbral",
+            "runtime": "0.290773",
+            "cputime": "0.382241124"
+        },
+        {
+            "name": "NeighborhoodReporter",
+            "description": "",
+            "inputs": "cell.center,cell.type,celltype.mantle.id",
+            "outputs": "Mantle_Neighbours",
+            "runtime": "1.026098",
+            "cputime": "1.19833448"
+        },
+        {
+            "name": "NeighborhoodReporter",
+            "description": "",
+            "inputs": "cell.center,cell.type,celltype.hair.id",
+            "outputs": "HairCell_Neighbours",
+            "runtime": "0.000128",
+            "cputime": "0.000157538"
+        },
+        {
+            "name": "NeighborhoodReporter",
+            "description": "",
+            "inputs": "cell.center,cell.type,celltype.sustentacular.id",
+            "outputs": "Sustentacular_Neighbours",
+            "runtime": "0.000126",
+            "cputime": "0.00015845"
+        },
+        {
+            "name": "ChangeCellType",
+            "description": "",
+            "inputs": "p",
+            "outputs": "",
+            "runtime": "0.210336",
+            "cputime": "0.305176547"
+        },
+        {
+            "name": "ChangeCellType",
+            "description": "",
+            "inputs": "p",
+            "outputs": "",
+            "runtime": "0.144529",
+            "cputime": "0.225974861"
+        },
+        {
+            "name": "ChangeCellType",
+            "description": "",
+            "inputs": "p,s",
+            "outputs": "",
+            "runtime": "0.229142",
+            "cputime": "0.320281791"
+        },
+        {
+            "name": "CellDivision",
+            "description": "",
+            "inputs": "Sustentacular_Neighbours,a,dia,ps,r,tau,time,umbral",
+            "outputs": "cell.center,p",
+            "runtime": "1.449908",
+            "cputime": "1.676424204"
+        },
+        {
+            "name": "CellDivision",
+            "description": "",
+            "inputs": "Sustentacular_Neighbours,a,dia,ps,r,tau,time,umbral",
+            "outputs": "cell.center,p,s",
+            "runtime": "1.039776",
+            "cputime": "1.230084595"
+        },
+        {
+            "name": "NeighborhoodReporter",
+            "description": "",
+            "inputs": "cell.center,cell.type,celltype.sustentacular.id",
+            "outputs": "Sustentacular_Neighbours",
+            "runtime": "1.492567",
+            "cputime": "1.717309244"
+        },
+        {
+            "name": "NeighborhoodReporter",
+            "description": "",
+            "inputs": "cell.center,cell.type,celltype.hair.id",
+            "outputs": "HairCell_Neighbours",
+            "runtime": "0.000241",
+            "cputime": "0.000284535"
+        },
+        {
+            "name": "NeighborhoodReporter",
+            "description": "",
+            "inputs": "cell.center,cell.type,celltype.mantle.id",
+            "outputs": "Mantle_Neighbours",
+            "runtime": "0.000225",
+            "cputime": "0.000262943"
+        },
+        {
+            "name": "System",
+            "description": "",
+            "inputs": "",
+            "outputs": "d",
+            "runtime": "0.568734",
+            "cputime": "0.742320166"
+        },
+        {
+            "name": "CPM",
+            "description": "",
+            "inputs": "time",
+            "outputs": "cell.center,cell.length,cell.surface,cell.type,cell.volume",
+            "runtime": "537.226942",
+            "cputime": "535.40824693"
+        },
+        {
+            "name": "Mapper",
+            "description": "",
+            "inputs": "cell.center.y",
+            "outputs": "sum_cell_center_y",
+            "runtime": "0.635409",
+            "cputime": "0.76508374"
+        },
+        {
+            "name": "Mapper",
+            "description": "",
+            "inputs": "cell.center.x",
+            "outputs": "sum_cell_center_x",
+            "runtime": "0.371506",
+            "cputime": "0.484580739"
+        },
+        {
+            "name": "Logger",
+            "description": "number_cell_vs_time",
+            "inputs": "HairCell_Neighbours,Mantle_Neighbours,Sustentacular_Neighbours,cell.center.x,cell.center.y,cell.type,cell.volume,celltype.hair.size,celltype.mantle.size,celltype.sustentacular.size,total_cells",
+            "outputs": "",
+            "runtime": "0.0078",
+            "cputime": "0.008675644"
+        }
+    ],
+    "runtime": "546.35564088821411",
+    "cputime": "547.32090900000003",
+    "ompthreads": "1"
+}

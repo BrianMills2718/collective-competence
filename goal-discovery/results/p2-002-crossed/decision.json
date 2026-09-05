@@ -1,0 +1,20 @@
+{
+  "discovery": {
+    "stage": "discovery",
+    "promoted": false,
+    "criteria": {
+      "20pct_better_than_value": true,
+      "20pct_better_than_intervention": false,
+      "within_10pct_of_micro": true,
+      "quarter_micro_features": true,
+      "brier_below_0_25": true,
+      "ablation_beats_both_nulls": true
+    },
+    "capability_log_loss": 0.26399418350422843,
+    "value_log_loss": 0.6296975945191162,
+    "intervention_log_loss": 0.32562470686400563,
+    "micro_log_loss": 0.6688829636511043,
+    "capability_brier_loss": 0.08338775824641678
+  },
+  "heldout": null
+}

@@ -212,9 +212,81 @@ becoming current instructions.
 - [Dynamical_Laboratory_Coding_Agent_Spec.md](../goal-discovery/docs/sources/briefs/Dynamical_Laboratory_Coding_Agent_Spec.md)
 - [First_Wave_Goal_Discovery_Implementation_Brief.md](../goal-discovery/docs/sources/briefs/First_Wave_Goal_Discovery_Implementation_Brief.md)
 
+## goal-discovery/results/003b-blind-target/analysis
+
+- [report.md](../goal-discovery/results/003b-blind-target/analysis/report.md)
+
 ## goal-discovery/results/p14-ants-relational-coupling-invalid-39a-working-tree
 
 - [INVALID.md](../goal-discovery/results/p14-ants-relational-coupling-invalid-39a-working-tree/INVALID.md)
+
+## goal-discovery/results/p2-002-crossed
+
+- [result.md](../goal-discovery/results/p2-002-crossed/result.md)
+
+## goal-discovery/results/p2-002b-within-intervention
+
+- [result.md](../goal-discovery/results/p2-002b-within-intervention/result.md)
+
+## goal-discovery/results/p2-002c-relational-screen
+
+- [result.md](../goal-discovery/results/p2-002c-relational-screen/result.md)
+
+## goal-discovery/results/p2-003-barrier-reachability
+
+- [result.md](../goal-discovery/results/p2-003-barrier-reachability/result.md)
+
+## goal-discovery/results/p2-004-moveable-order-reachability
+
+- [result.md](../goal-discovery/results/p2-004-moveable-order-reachability/result.md)
+
+## goal-discovery/results/p2-005-opportunity-adjusted-performance
+
+- [result.md](../goal-discovery/results/p2-005-opportunity-adjusted-performance/result.md)
+
+## goal-discovery/results/p3-001-flocking-spike
+
+- [result.md](../goal-discovery/results/p3-001-flocking-spike/result.md)
+
+## goal-discovery/results/p3-002-flocking-representation-discrimination
+
+- [result.md](../goal-discovery/results/p3-002-flocking-representation-discrimination/result.md)
+
+## goal-discovery/results/p3-003-fireflies-spike
+
+- [result.md](../goal-discovery/results/p3-003-fireflies-spike/result.md)
+
+## goal-discovery/results/p3-004-slime-spike
+
+- [result.md](../goal-discovery/results/p3-004-slime-spike/result.md)
+
+## goal-discovery/results/p3-005-slime-interaction-discrimination
+
+- [result.md](../goal-discovery/results/p3-005-slime-interaction-discrimination/result.md)
+
+## goal-discovery/results/p3-006-slime-bidirectional-target
+
+- [result.md](../goal-discovery/results/p3-006-slime-bidirectional-target/result.md)
+
+## goal-discovery/results/p4-001-heatbugs-spike
+
+- [result.md](../goal-discovery/results/p4-001-heatbugs-spike/result.md)
+
+## goal-discovery/results/p4-002-heatbugs-blind-target-inference-001
+
+- [result.md](../goal-discovery/results/p4-002-heatbugs-blind-target-inference-001/result.md)
+
+## goal-discovery/results/p7-004-ants-trail-scale-001
+
+- [result.md](../goal-discovery/results/p7-004-ants-trail-scale-001/result.md)
+
+## goal-discovery/results/p7-005-network-intervention-value
+
+- [result.md](../goal-discovery/results/p7-005-network-intervention-value/result.md)
+
+## goal-discovery/results/x03-workbench
+
+- [representation_decision.md](../goal-discovery/results/x03-workbench/representation_decision.md)
 
 ## goal-discovery/src
 

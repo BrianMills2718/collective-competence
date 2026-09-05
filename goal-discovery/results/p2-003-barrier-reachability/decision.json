@@ -1,0 +1,33 @@
+{
+  "criteria": {
+    "every_schedule_is_100_percent": true,
+    "immovable_accuracy_is_100_percent": true,
+    "moveable_specificity_case_exists": true,
+    "zero_false_feasible": true,
+    "zero_false_infeasible": true,
+    "zero_immovable_time_limit_exits": true
+  },
+  "false_feasible": 0,
+  "false_infeasible": 0,
+  "immovable_accuracy": 1.0,
+  "immovable_cases": 7440,
+  "immovable_time_limit_exits": 0,
+  "moveable_cases": 7440,
+  "moveable_specificity_cases": 2622,
+  "outcomes_by_mode": {
+    "immovable": {
+      "false": 7210,
+      "true": 230
+    },
+    "moveable": {
+      "false": 4588,
+      "true": 2852
+    }
+  },
+  "passed": true,
+  "schedule_accuracy": {
+    "index": 1.0,
+    "shuffled": 1.0
+  },
+  "study": "p2-003-barrier-reachability"
+}

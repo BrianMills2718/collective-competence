@@ -1,0 +1,11 @@
+{
+  "behaviorspace_setup": "src/spikes/netlogo_fireflies/behaviorspace.xml",
+  "behaviorspace_setup_sha256": "591616c1a81f66cceaaaf55ce28067c958d2234e48d7cbc164fe02d48c888b31",
+  "experiment_id": "p3-003-fireflies-spike",
+  "netlogo_version": "7.0.4",
+  "protocol": "docs/hypotheses/p3_003_fireflies_spike.md",
+  "protocol_sha256": "f7e10b7010742db087f2d570ba7785f153a222a48d6e1e457fa68c820be7ba42",
+  "source_model": "/mnt/c/Program Files/NetLogo 7.0.4/models/Sample Models/Biology/Fireflies.nlogox",
+  "source_model_modified": false,
+  "source_model_sha256": "3e27054691236c9aadca9d425a1c4b66cc0452e4195c2266e09ba3729f5e7cb2"
+}

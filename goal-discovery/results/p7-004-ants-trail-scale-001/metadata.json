@@ -1,0 +1,23 @@
+{
+  "behaviorspace_setup": "src/experiments/ants_trail_scale/behaviorspace.xml",
+  "behaviorspace_setup_sha256": "9fa96918386472a99b8224ddcdcb45ac3d7c81fb4ed0e5420007702c8f7b0b1f",
+  "analysis_correction": "The instantaneous removal gate is established by the frozen set-chemical-zero command; tick 301 is post-diffusion and remains a diagnostic. Raw trajectories were not regenerated.",
+  "decision": "abstain-no-go",
+  "experiment_id": "p7-004-ants-trail-scale",
+  "netlogo_version": "7.0.4",
+  "protocol": "docs/plans/p7_004_ants_trail_scale_preregistration.md",
+  "protocol_sha256": "e0c6f4cc7b092bf14a8a19f376cdbfcf0d7b5908654c24d9dcda0ef7734dc7f5",
+  "seeds": [
+    1101,
+    1102,
+    1103,
+    1104,
+    1105,
+    1106,
+    1107,
+    1108
+  ],
+  "source_model": "/mnt/c/Program Files/NetLogo 7.0.4/models/Sample Models/Biology/Ants.nlogox",
+  "source_model_modified": false,
+  "source_model_sha256": "a7c54ba49c1a492efff67522e894cce469284783a3f3d87e91acc8692cc78ce6"
+}

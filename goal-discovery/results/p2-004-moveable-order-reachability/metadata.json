@@ -1,0 +1,15 @@
+{
+  "cases": 90720,
+  "experiment_id": "p2-004-moveable-order-reachability",
+  "freeze_modes": [
+    "moveable"
+  ],
+  "horizon_ticks": 180,
+  "protocol": "docs/hypotheses/p2_004_moveable_order_reachability.md",
+  "protocol_sha256": "74fc50358c5d05dfa9e1a73b47bf6c733be3607159e0bbca2e4c58c2e821dd19",
+  "schedules": [
+    "index",
+    "shuffled"
+  ],
+  "system_size": 6
+}

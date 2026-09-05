@@ -1,0 +1,82 @@
+{
+  "discovery": {
+    "stage": "discovery",
+    "promoted": false,
+    "criteria": {
+      "all_six_strata_present": true,
+      "all_six_strata_mixed": true,
+      "no_pre_sorted_branches": true,
+      "20pct_better_than_value": false,
+      "20pct_better_than_intervention": false,
+      "within_10pct_of_micro": true,
+      "quarter_micro_features": true,
+      "brier_below_0_25": true,
+      "ablation_beats_both_nulls": true
+    },
+    "capability_log_loss": 0.5699388374726936,
+    "value_log_loss": 0.7062467689134633,
+    "intervention_log_loss": 0.6138429411476698,
+    "micro_log_loss": 1.2235368392696069,
+    "capability_brier_loss": 0.19401389339656858,
+    "study": "p2-002b-within-intervention",
+    "eligibility": {
+      "passed": true,
+      "criteria": {
+        "all_six_strata_present": true,
+        "all_six_strata_mixed": true,
+        "no_pre_sorted_branches": true
+      },
+      "strata": [
+        {
+          "activation_schedule": "index",
+          "freeze_mode": "immovable",
+          "freeze_count": 1,
+          "runs": 12,
+          "goal_rate": 0.16666666666666666,
+          "outcomes": 2
+        },
+        {
+          "activation_schedule": "index",
+          "freeze_mode": "moveable",
+          "freeze_count": 2,
+          "runs": 12,
+          "goal_rate": 0.75,
+          "outcomes": 2
+        },
+        {
+          "activation_schedule": "index",
+          "freeze_mode": "moveable",
+          "freeze_count": 3,
+          "runs": 12,
+          "goal_rate": 0.5833333333333334,
+          "outcomes": 2
+        },
+        {
+          "activation_schedule": "shuffled",
+          "freeze_mode": "immovable",
+          "freeze_count": 1,
+          "runs": 12,
+          "goal_rate": 0.25,
+          "outcomes": 2
+        },
+        {
+          "activation_schedule": "shuffled",
+          "freeze_mode": "moveable",
+          "freeze_count": 2,
+          "runs": 12,
+          "goal_rate": 0.9166666666666666,
+          "outcomes": 2
+        },
+        {
+          "activation_schedule": "shuffled",
+          "freeze_mode": "moveable",
+          "freeze_count": 3,
+          "runs": 12,
+          "goal_rate": 0.4166666666666667,
+          "outcomes": 2
+        }
+      ]
+    }
+  },
+  "heldout": null
+}

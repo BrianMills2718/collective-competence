@@ -1,0 +1,33 @@
+{
+  "decision": "evidence-closed-no-go",
+  "integrity_pass": true,
+  "integrity_gates": {
+    "exactly_16_seeds_and_four_intervention_rows": true,
+    "matched_through_tick_20": true,
+    "complete_or_extinct_trajectories": true,
+    "node_count_150": true,
+    "fixed_15_and_30_node_public_actions": true,
+    "both_budgets_have_16_pairs": true,
+    "stored_source_and_setup_hashes_match": true
+  },
+  "causal_gate": false,
+  "pooled_random_mean_burden": 205.90625,
+  "pooled_degree_mean_burden": 173.5625,
+  "pooled_reduction_fraction": 0.1570799817878282,
+  "degree_seed_wins": {
+    "10": 10,
+    "20": 9
+  },
+  "mean_paired_effects": {
+    "discovery_10": 173.25,
+    "discovery_20": -19.875,
+    "confirmation_10": -39.75,
+    "confirmation_20": 15.75
+  },
+  "secondary": {
+    "random_10_extinction_rate": 0.25,
+    "random_20_extinction_rate": 0.6875,
+    "degree_10_extinction_rate": 0.4375,
+    "degree_20_extinction_rate": 0.6875
+  }
+}

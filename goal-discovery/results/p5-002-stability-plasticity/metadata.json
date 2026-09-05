@@ -1,0 +1,12 @@
+{
+  "behaviorspace_setup": "src/spikes/netlogo_slime_network/p5_002_behaviorspace.xml",
+  "behaviorspace_setup_sha256": "1b54127a76f2561e58d57295dfcfc60db883a4e9b3d16eea813675a743ef287b",
+  "decision": "no-go",
+  "experiment_id": "p5-002-stability-plasticity",
+  "netlogo_version": "7.0.4",
+  "protocol": "docs/hypotheses/p5_002_stability_plasticity_confirmation.md",
+  "protocol_sha256": "34e0f0e0cdd5eda3d8bdf63757f5064ca84c6d9843b1982e9141918cc6849f55",
+  "source_model": "/mnt/c/Program Files/NetLogo 7.0.4/models/Sample Models/Biology/Slime Mold Network.nlogox",
+  "source_model_modified": false,
+  "source_model_sha256": "93b05eeb698936369e66dd81fba1aaa23ccf21978a5af4b7d081e6dc81ae3e1b"
+}

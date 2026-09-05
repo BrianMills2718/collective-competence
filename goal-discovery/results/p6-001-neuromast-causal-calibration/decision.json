@@ -1,0 +1,44 @@
+{
+  "decision": "no-go",
+  "protocol_gate_complete": false,
+  "stop_reason": "Feedback-disabled seed 801 reached only time 80000 by the runtime decision point while already containing 558 cells; it could not reach 210000 within the frozen 25-minute cap, and all four feedback-disabled runs showed the same runaway direction.",
+  "completed_runs": 8,
+  "planned_runs": 12,
+  "active_final_totals": {
+    "801": 65,
+    "802": 58,
+    "803": 60,
+    "804": 8
+  },
+  "active_recovered_seed_count": 3,
+  "active_seed_804_failure": {
+    "total": 8,
+    "sustentacular": 0,
+    "macro_distance": 1.3653846153846154
+  },
+  "feedback_disabled_latest": {
+    "801": {
+      "time": 80000,
+      "total": 558,
+      "target_multiple": 10.73076923076923
+    },
+    "802": {
+      "time": 65000,
+      "total": 300,
+      "target_multiple": 5.769230769230769
+    },
+    "803": {
+      "time": 70000,
+      "total": 394,
+      "target_multiple": 7.576923076923077
+    },
+    "804": {
+      "time": 60000,
+      "total": 260,
+      "target_multiple": 5.0
+    }
+  },
+  "feedback_runaway_all_seeds": true,
+  "proliferation_disabled_unchanged_all_seeds": true,
+  "interpretation": "The local stopping rule has a large causal effect in this model, but the selected example is not a robust fresh-seed benchmark: one of four active runs lost the sustentacular population and failed recovery, while the mechanism-off control is computationally pathological before the frozen endpoint."
+}

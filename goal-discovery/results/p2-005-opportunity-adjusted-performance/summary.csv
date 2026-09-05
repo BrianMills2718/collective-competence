@@ -1,0 +1,13 @@
+algotype,freeze_mode,activation_schedule,cases,reachable_cases,opportunity_rate,realization_rate,realized_case_rate,robust_case_rate
+bubble,immovable,index,360,30,0.08333333333333333,1.0,1.0,1.0
+insertion,immovable,index,360,30,0.08333333333333333,1.0,1.0,1.0
+selection,immovable,index,360,41,0.11388888888888889,1.0,1.0,1.0
+bubble,immovable,shuffled,360,30,0.08333333333333333,1.0,1.0,1.0
+insertion,immovable,shuffled,360,30,0.08333333333333333,1.0,1.0,1.0
+selection,immovable,shuffled,360,41,0.11388888888888889,1.0,1.0,1.0
+bubble,moveable,index,360,185,0.5138888888888888,1.0,1.0,1.0
+insertion,moveable,index,360,96,0.26666666666666666,1.0,1.0,1.0
+selection,moveable,index,360,100,0.2777777777777778,0.96,0.96,0.96
+bubble,moveable,shuffled,360,185,0.5138888888888888,1.0,1.0,1.0
+insertion,moveable,shuffled,360,96,0.26666666666666666,1.0,1.0,1.0
+selection,moveable,shuffled,360,100,0.2777777777777778,0.9575,1.0,0.92

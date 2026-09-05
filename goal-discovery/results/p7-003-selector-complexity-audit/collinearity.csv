@@ -1,0 +1,5 @@
+family,seed_count,feature_count,matrix_rank,max_absolute_pair_correlation,most_correlated_pair
+temporal,8,4,3,0.9999999999999999,resistant_tick20 / resistant_slope
+relational,8,4,4,0.9997696200542026,boundary_edge_fraction / mean_infected_neighbors_susceptible
+identity-conditioned,8,4,4,0.9684378481463299,mean_infected_duration / degree_weighted_burden
+network,8,4,4,0.8721033075952185,infected_degree_share / infected_betweenness_share

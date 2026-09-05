@@ -1,0 +1,37 @@
+{
+  "decision": "abstain-no-go",
+  "integrity": {
+    "passed": true,
+    "gates": {
+      "complete_trajectories": true,
+      "paired_identical_through_300": true,
+      "population_preserved": true,
+      "paired_tick_300_food": true,
+      "intervention_scope_frozen": true,
+      "annulus_removal_all_eight": true,
+      "cut_food_remaining_at_least_six": true,
+      "cut_future_collection_at_least_six": true,
+      "predictions_complete_and_bounded": true
+    },
+    "instantaneous_annulus_removal_fraction": 1.0,
+    "minimum_post_step_annulus_gap_fraction": 0.24620422704316547,
+    "cut_food_remaining_count": 8,
+    "cut_future_collection_count": 8
+  },
+  "scoring": {
+    "decision": "abstain-no-go",
+    "mesoscopic_pass": false,
+    "simpler_passes": [],
+    "mae": {
+      "persistence": 91.53232758620689,
+      "primary": 17.56871829218813,
+      "local": 21.290760915240327,
+      "colony": 19.226050234115014,
+      "trail": 27.03240222742624
+    },
+    "trail_seed_wins": {
+      "local": 3,
+      "colony": 3
+    }
+  }
+}

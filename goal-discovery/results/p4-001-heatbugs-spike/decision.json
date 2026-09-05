@@ -1,0 +1,19 @@
+{
+  "adopted": true,
+  "criteria": {
+    "baseline_settled_in_three_seeds": true,
+    "four_complete_paired_trajectories": true,
+    "half_gap_closed_in_three_seeds": true,
+    "installed_gui_model_present": true,
+    "paired_ideal_mean_preserved": true,
+    "population_preserved": true,
+    "prebranch_trajectories_identical": true,
+    "shock_detected_in_three_seeds": true
+  },
+  "mean_gap_closed_fraction": 0.9808687299605177,
+  "mean_late_gap": 0.24040554809284975,
+  "mean_pre_unhappiness": 4.207911834350119,
+  "mean_shock_gap": 12.387582877920604,
+  "runs": 4,
+  "study": "p4-001-heatbugs-spike"
+}

@@ -1,0 +1,26 @@
+{
+  "classification": "interaction-dependent attractor reconstruction",
+  "criteria": {
+    "bidirectional_return_in_three_seeds": false,
+    "candidate_band_eligible": false,
+    "compressed_returned_in_three_seeds": false,
+    "compression_valid_in_three_seeds": true,
+    "dispersal_valid_in_three_seeds": true,
+    "dispersed_returned_in_three_seeds": false,
+    "four_complete_triplets": true,
+    "population_preserved": true,
+    "prebranch_trajectories_identical": true
+  },
+  "eligibility": {
+    "baseline_remains_in_band_in_three_seeds": true,
+    "half_windows_stable_in_three_seeds": true,
+    "slope_stable_in_three_seeds": false
+  },
+  "mean_band_center": 41.13366721854304,
+  "mean_band_slope": 0.014096017776228549,
+  "mean_compressed_late": 227.99745967741939,
+  "mean_dispersed_late": 21.950322580645164,
+  "promoted": false,
+  "runs": 4,
+  "study": "p3-006-slime-bidirectional-target"
+}

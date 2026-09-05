@@ -1,0 +1,816 @@
+Setting output directory results/p6-001-neuromast-causal-calibration/runs/proliferation_disabled-seed-802
+Initializing from file results/p6-001-neuromast-causal-calibration/models/proliferation_disabled.xml
+AutoFix: Moved 1 element(s)  matching /MorpheusModel/CPM/ShapeSurface/@scaling to /MorpheusModel/CPM/ShapeSurface/@scaling
+AutoFix: Moved 6 element(s)  matching /MorpheusModel/CellTypes/CellType/NeighborhoodReporter/Output/@mapping to /MorpheusModel/CellTypes/CellType/NeighborhoodReporter/Output/@mapping
+wildcard_string Global
+wildcard_string Global
+AutoFix: Moved 2 element(s)  matching /MorpheusModel/*/Mapper/Output/@mapping to /MorpheusModel/*/Mapper/Output/@mapping
+AutoFix: Moved 3 element(s)  matching /MorpheusModel/CellTypes/CellType/CellDivision/@division-plane to /MorpheusModel/CellTypes/CellType/CellDivision/@division-plane
+wildcard_string CellTypes/CellType
+Applied 12 patches to update MorpheusML version to internal v5!
+Intitalize Thread 0 with seed 0
+Registering Symbol stoptime of linktype PrimitiveConstant in Scope root
+Registering Symbol time of linktype TimeLink in Scope root
+Intitalize Thread 0 with seed 802
+Registering Symbol space of linktype LocationLink in Scope root
+Registering Symbol space.x of linktype VectorComponentLink in Scope root
+Registering Symbol space.y of linktype VectorComponentLink in Scope root
+Registering Symbol space.z of linktype VectorComponentLink in Scope root
+Registering Symbol space.phi of linktype VectorComponentLink in Scope root
+Registering Symbol space.theta of linktype VectorComponentLink in Scope root
+Registering Symbol space.abs of linktype VectorComponentLink in Scope root
+Creating lattice
+getXMLAttribute: seeking for Lattice->class: square
+getXMLAttribute: seeking for Size->value: 800,800,0
+getXMLAttribute: seeking for Size->symbol: size
+Loading [15] Global Plugins
+getXMLAttribute: seeking for Variable->name .. not found
+getXMLAttribute: seeking for Variable->symbol: sum_cell_center_y
+getXMLAttribute: seeking for Variable->value: 0.0
+getXMLAttribute: seeking for Variable->notation .. not found
+Registering Symbol sum_cell_center_y of linktype VariableLink in Scope root
+getXMLAttribute: seeking for Variable->name .. not found
+getXMLAttribute: seeking for Variable->symbol: sum_cell_center_x
+getXMLAttribute: seeking for Variable->value: 0.0
+getXMLAttribute: seeking for Variable->notation .. not found
+Registering Symbol sum_cell_center_x of linktype VariableLink in Scope root
+getXMLAttribute: seeking for Variable->name .. not found
+getXMLAttribute: seeking for Variable->symbol: tau
+getXMLAttribute: seeking for Variable->value: 0.8
+getXMLAttribute: seeking for Variable->notation .. not found
+Registering Symbol tau of linktype VariableLink in Scope root
+getXMLAttribute: seeking for Input->value: cell.center.y
+getXMLAttribute: seeking for Polarity->symbol-ref .. not found
+getXMLAttribute: seeking for Output[0]->mapping: sum
+getXMLAttribute: seeking for Output[0]->symbol-ref: sum_cell_center_y
+getXMLAttribute: seeking for Input->value: cell.center.x
+getXMLAttribute: seeking for Polarity->symbol-ref .. not found
+getXMLAttribute: seeking for Output[0]->mapping: sum
+getXMLAttribute: seeking for Output[0]->symbol-ref: sum_cell_center_x
+Creating subscope Function in scope root
+getXMLAttribute: seeking for Function->symbol: mean_center_y
+getXMLAttribute: seeking for Expression->text: sum_cell_center_y/total_cells
+Registering Symbol mean_center_y of linktype FunctionLink in Scope root
+Creating subscope Function in scope root
+getXMLAttribute: seeking for Function->symbol: mean_center_x
+getXMLAttribute: seeking for Expression->text: sum_cell_center_x/total_cells
+Registering Symbol mean_center_x of linktype FunctionLink in Scope root
+Creating subscope Function in scope root
+getXMLAttribute: seeking for Function->symbol: total_cells
+getXMLAttribute: seeking for Expression->text: celltype.mantle.size+celltype.hair.size+celltype.sustentacular.size
+Registering Symbol total_cells of linktype FunctionLink in Scope root
+getXMLAttribute: seeking for Variable->name .. not found
+getXMLAttribute: seeking for Variable->symbol: NumberOfNeighbours
+getXMLAttribute: seeking for Variable->value: 0.0
+getXMLAttribute: seeking for Variable->notation .. not found
+Registering Symbol NumberOfNeighbours of linktype VariableLink in Scope root
+getXMLAttribute: seeking for Variable->name .. not found
+getXMLAttribute: seeking for Variable->symbol: Sustentacular_Neighbours
+getXMLAttribute: seeking for Variable->value: 0.0
+getXMLAttribute: seeking for Variable->notation .. not found
+Registering Symbol Sustentacular_Neighbours of linktype VariableLink in Scope root
+getXMLAttribute: seeking for Variable->name .. not found
+getXMLAttribute: seeking for Variable->symbol: HairCell_Neighbours
+getXMLAttribute: seeking for Variable->value: 0.0
+getXMLAttribute: seeking for Variable->notation .. not found
+Registering Symbol HairCell_Neighbours of linktype VariableLink in Scope root
+getXMLAttribute: seeking for Variable->name .. not found
+getXMLAttribute: seeking for Variable->symbol: Mantle_Neighbours
+getXMLAttribute: seeking for Variable->value: 0.0
+getXMLAttribute: seeking for Variable->notation .. not found
+Registering Symbol Mantle_Neighbours of linktype VariableLink in Scope root
+getXMLAttribute: seeking for Variable->name .. not found
+getXMLAttribute: seeking for Variable->symbol: dia
+getXMLAttribute: seeking for Variable->value: 30000
+getXMLAttribute: seeking for Variable->notation .. not found
+Registering Symbol dia of linktype VariableLink in Scope root
+getXMLAttribute: seeking for Variable->name .. not found
+getXMLAttribute: seeking for Variable->symbol: ps
+getXMLAttribute: seeking for Variable->value: 0
+getXMLAttribute: seeking for Variable->notation .. not found
+Registering Symbol ps of linktype VariableLink in Scope root
+getXMLAttribute: seeking for Variable->name .. not found
+getXMLAttribute: seeking for Variable->symbol: pm
+getXMLAttribute: seeking for Variable->value: 0
+getXMLAttribute: seeking for Variable->notation .. not found
+Registering Symbol pm of linktype VariableLink in Scope root
+Creating subscope CellType[mantle] in scope root
+Registering Symbol cell.type of linktype PrimitiveConstant in Scope CellType[mantle]
+Registering Symbol cell.type of linktype CompositeLink in Scope root
+Registering Symbol cell.id of linktype CellIDLink in Scope CellType[mantle]
+Registering Symbol cell.id of linktype CompositeLink in Scope root
+Registering Symbol cell.center of linktype CellCenterLink in Scope CellType[mantle]
+Registering Symbol cell.center of linktype CompositeLink in Scope root
+Registering Symbol cell.center.x of linktype VectorComponentLink in Scope root
+Registering Symbol cell.center.y of linktype VectorComponentLink in Scope root
+Registering Symbol cell.center.z of linktype VectorComponentLink in Scope root
+Registering Symbol cell.center.phi of linktype VectorComponentLink in Scope root
+Registering Symbol cell.center.theta of linktype VectorComponentLink in Scope root
+Registering Symbol cell.center.abs of linktype VectorComponentLink in Scope root
+Registering Symbol cell.center.x of linktype VectorComponentLink in Scope CellType[mantle]
+Registering Symbol cell.center.y of linktype VectorComponentLink in Scope CellType[mantle]
+Registering Symbol cell.center.z of linktype VectorComponentLink in Scope CellType[mantle]
+Registering Symbol cell.center.phi of linktype VectorComponentLink in Scope CellType[mantle]
+Registering Symbol cell.center.theta of linktype VectorComponentLink in Scope CellType[mantle]
+Registering Symbol cell.center.abs of linktype VectorComponentLink in Scope CellType[mantle]
+Registering Symbol cell.volume of linktype CellVolumeLink in Scope CellType[mantle]
+Registering Symbol cell.volume of linktype CompositeLink in Scope root
+Registering Symbol cell.length of linktype CellLengthLink in Scope CellType[mantle]
+Registering Symbol cell.length of linktype CompositeLink in Scope root
+Registering Symbol cell.surface of linktype CellInterfaceLengthLink in Scope CellType[mantle]
+Registering Symbol cell.surface of linktype CompositeLink in Scope root
+Registering Symbol cell.orientation of linktype CellOrientationLink in Scope CellType[mantle]
+Registering Symbol cell.orientation of linktype CompositeLink in Scope root
+Registering Symbol cell.orientation.x of linktype VectorComponentLink in Scope root
+Registering Symbol cell.orientation.y of linktype VectorComponentLink in Scope root
+Registering Symbol cell.orientation.z of linktype VectorComponentLink in Scope root
+Registering Symbol cell.orientation.phi of linktype VectorComponentLink in Scope root
+Registering Symbol cell.orientation.theta of linktype VectorComponentLink in Scope root
+Registering Symbol cell.orientation.abs of linktype VectorComponentLink in Scope root
+Registering Symbol cell.orientation.x of linktype VectorComponentLink in Scope CellType[mantle]
+Registering Symbol cell.orientation.y of linktype VectorComponentLink in Scope CellType[mantle]
+Registering Symbol cell.orientation.z of linktype VectorComponentLink in Scope CellType[mantle]
+Registering Symbol cell.orientation.phi of linktype VectorComponentLink in Scope CellType[mantle]
+Registering Symbol cell.orientation.theta of linktype VectorComponentLink in Scope CellType[mantle]
+Registering Symbol cell.orientation.abs of linktype VectorComponentLink in Scope CellType[mantle]
+Registering Symbol celltype.mantle.id of linktype PrimitiveConstant in Scope root
+Registering Symbol celltype.mantle.size of linktype CellPopulationSizeLink in Scope root
+Creating subscope CellType[sustentacular] in scope root
+Registering Symbol cell.type of linktype PrimitiveConstant in Scope CellType[sustentacular]
+Registering Symbol cell.id of linktype CellIDLink in Scope CellType[sustentacular]
+Registering Symbol cell.center of linktype CellCenterLink in Scope CellType[sustentacular]
+Registering Symbol cell.center.x of linktype VectorComponentLink in Scope CellType[sustentacular]
+Registering Symbol cell.center.y of linktype VectorComponentLink in Scope CellType[sustentacular]
+Registering Symbol cell.center.z of linktype VectorComponentLink in Scope CellType[sustentacular]
+Registering Symbol cell.center.phi of linktype VectorComponentLink in Scope CellType[sustentacular]
+Registering Symbol cell.center.theta of linktype VectorComponentLink in Scope CellType[sustentacular]
+Registering Symbol cell.center.abs of linktype VectorComponentLink in Scope CellType[sustentacular]
+Registering Symbol cell.volume of linktype CellVolumeLink in Scope CellType[sustentacular]
+Registering Symbol cell.length of linktype CellLengthLink in Scope CellType[sustentacular]
+Registering Symbol cell.surface of linktype CellInterfaceLengthLink in Scope CellType[sustentacular]
+Registering Symbol cell.orientation of linktype CellOrientationLink in Scope CellType[sustentacular]
+Registering Symbol cell.orientation.x of linktype VectorComponentLink in Scope CellType[sustentacular]
+Registering Symbol cell.orientation.y of linktype VectorComponentLink in Scope CellType[sustentacular]
+Registering Symbol cell.orientation.z of linktype VectorComponentLink in Scope CellType[sustentacular]
+Registering Symbol cell.orientation.phi of linktype VectorComponentLink in Scope CellType[sustentacular]
+Registering Symbol cell.orientation.theta of linktype VectorComponentLink in Scope CellType[sustentacular]
+Registering Symbol cell.orientation.abs of linktype VectorComponentLink in Scope CellType[sustentacular]
+Registering Symbol celltype.sustentacular.id of linktype PrimitiveConstant in Scope root
+Registering Symbol celltype.sustentacular.size of linktype CellPopulationSizeLink in Scope root
+Creating subscope CellType[hair] in scope root
+Registering Symbol cell.type of linktype PrimitiveConstant in Scope CellType[hair]
+Registering Symbol cell.id of linktype CellIDLink in Scope CellType[hair]
+Registering Symbol cell.center of linktype CellCenterLink in Scope CellType[hair]
+Registering Symbol cell.center.x of linktype VectorComponentLink in Scope CellType[hair]
+Registering Symbol cell.center.y of linktype VectorComponentLink in Scope CellType[hair]
+Registering Symbol cell.center.z of linktype VectorComponentLink in Scope CellType[hair]
+Registering Symbol cell.center.phi of linktype VectorComponentLink in Scope CellType[hair]
+Registering Symbol cell.center.theta of linktype VectorComponentLink in Scope CellType[hair]
+Registering Symbol cell.center.abs of linktype VectorComponentLink in Scope CellType[hair]
+Registering Symbol cell.volume of linktype CellVolumeLink in Scope CellType[hair]
+Registering Symbol cell.length of linktype CellLengthLink in Scope CellType[hair]
+Registering Symbol cell.surface of linktype CellInterfaceLengthLink in Scope CellType[hair]
+Registering Symbol cell.orientation of linktype CellOrientationLink in Scope CellType[hair]
+Registering Symbol cell.orientation.x of linktype VectorComponentLink in Scope CellType[hair]
+Registering Symbol cell.orientation.y of linktype VectorComponentLink in Scope CellType[hair]
+Registering Symbol cell.orientation.z of linktype VectorComponentLink in Scope CellType[hair]
+Registering Symbol cell.orientation.phi of linktype VectorComponentLink in Scope CellType[hair]
+Registering Symbol cell.orientation.theta of linktype VectorComponentLink in Scope CellType[hair]
+Registering Symbol cell.orientation.abs of linktype VectorComponentLink in Scope CellType[hair]
+Registering Symbol celltype.hair.id of linktype PrimitiveConstant in Scope root
+Registering Symbol celltype.hair.size of linktype CellPopulationSizeLink in Scope root
+Creating subscope CellType[medium] in scope root
+Registering Symbol cell.type of linktype PrimitiveConstant in Scope CellType[medium]
+Registering Symbol cell.id of linktype CellIDLink in Scope CellType[medium]
+Registering Symbol cell.center of linktype CellCenterLink in Scope CellType[medium]
+Registering Symbol cell.center.x of linktype VectorComponentLink in Scope CellType[medium]
+Registering Symbol cell.center.y of linktype VectorComponentLink in Scope CellType[medium]
+Registering Symbol cell.center.z of linktype VectorComponentLink in Scope CellType[medium]
+Registering Symbol cell.center.phi of linktype VectorComponentLink in Scope CellType[medium]
+Registering Symbol cell.center.theta of linktype VectorComponentLink in Scope CellType[medium]
+Registering Symbol cell.center.abs of linktype VectorComponentLink in Scope CellType[medium]
+Registering Symbol cell.volume of linktype CellVolumeLink in Scope CellType[medium]
+Registering Symbol celltype.medium.id of linktype PrimitiveConstant in Scope root
+Registering Symbol celltype.medium.size of linktype CellPopulationSizeLink in Scope root
+getXMLAttribute: seeking for Property->name: color
+getXMLAttribute: seeking for Property->symbol: c
+getXMLAttribute: seeking for Property->value: 2
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol c of linktype CellPropertyLink in Scope CellType[mantle]
+Registering Symbol c of linktype CompositeLink in Scope root
+getXMLAttribute: seeking for Property->name .. not found
+getXMLAttribute: seeking for Property->symbol: umbral
+getXMLAttribute: seeking for Property->value: 1
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol umbral of linktype CellPropertyLink in Scope CellType[mantle]
+Registering Symbol umbral of linktype CompositeLink in Scope root
+getXMLAttribute: seeking for Condition->text: tau*dia < time and rand_uni(0,1) < pm and Mantle_Neighbours < umbral
+getXMLAttribute: seeking for CellDivision->division-plane: major
+getXMLAttribute: seeking for CellDivision->orientation .. not found
+getXMLAttribute: seeking for CellDivision->write-log .. not found
+getXMLAttribute: seeking for CellDivision->trigger .. not found
+Creating subscope System in scope CellType[mantle]
+getXMLAttribute: seeking for Rule->symbol-ref: umbral
+getXMLAttribute: seeking for Expression->text: 1
+Registering Symbol __daughterID of linktype PrimitiveVariable in Scope System
+getXMLAttribute: seeking for Input->scaling: cell
+getXMLAttribute: seeking for Input->value: cell.type == celltype.mantle.id
+getXMLAttribute: seeking for Input->noflux-cell-medium .. not found
+getXMLAttribute: seeking for Output[0]->mapping: sum
+getXMLAttribute: seeking for Output[0]->symbol-ref: Mantle_Neighbours
+getXMLAttribute: seeking for Input->scaling: cell
+getXMLAttribute: seeking for Input->value: cell.type == celltype.hair.id
+getXMLAttribute: seeking for Input->noflux-cell-medium .. not found
+getXMLAttribute: seeking for Output[0]->mapping: sum
+getXMLAttribute: seeking for Output[0]->symbol-ref: HairCell_Neighbours
+getXMLAttribute: seeking for Input->scaling: cell
+getXMLAttribute: seeking for Input->value: cell.type == celltype.sustentacular.id
+getXMLAttribute: seeking for Input->noflux-cell-medium .. not found
+getXMLAttribute: seeking for Output[0]->mapping: sum
+getXMLAttribute: seeking for Output[0]->symbol-ref: Sustentacular_Neighbours
+getXMLAttribute: seeking for Property->name .. not found
+getXMLAttribute: seeking for Property->symbol: Sustentacular_Neighbours
+getXMLAttribute: seeking for Property->value: 0.0
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol Sustentacular_Neighbours of linktype CellPropertyLink in Scope CellType[mantle]
+Registering Symbol Sustentacular_Neighbours of linktype CompositeLink in Scope root
+getXMLAttribute: seeking for Property->name .. not found
+getXMLAttribute: seeking for Property->symbol: Mantle_Neighbours
+getXMLAttribute: seeking for Property->value: 0.0
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol Mantle_Neighbours of linktype CellPropertyLink in Scope CellType[mantle]
+Registering Symbol Mantle_Neighbours of linktype CompositeLink in Scope root
+getXMLAttribute: seeking for Property->name .. not found
+getXMLAttribute: seeking for Property->symbol: HairCell_Neighbours
+getXMLAttribute: seeking for Property->value: 0.0
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol HairCell_Neighbours of linktype CellPropertyLink in Scope CellType[mantle]
+Registering Symbol HairCell_Neighbours of linktype CompositeLink in Scope root
+getXMLAttribute: seeking for VolumeConstraint->target: 1643
+getXMLAttribute: seeking for VolumeConstraint->strength: time^2/(1000^2+time^2)
+getXMLAttribute: seeking for SurfaceConstraint->target: 213
+getXMLAttribute: seeking for SurfaceConstraint->strength: 1
+getXMLAttribute: seeking for SurfaceConstraint->mode: surface
+getXMLAttribute: seeking for SurfaceConstraint->exponent .. not found
+getXMLAttribute: seeking for Property->name: color
+getXMLAttribute: seeking for Property->symbol: c
+getXMLAttribute: seeking for Property->value: 1
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol c of linktype CellPropertyLink in Scope CellType[sustentacular]
+getXMLAttribute: seeking for Condition->text: p == 1
+getXMLAttribute: seeking for ChangeCellType->newCellType: hair
+Creating subscope System in scope CellType[hair]
+getXMLAttribute: seeking for Rule->symbol-ref: c
+getXMLAttribute: seeking for Expression->text: 0
+getXMLAttribute: seeking for Condition->text: p == 2
+getXMLAttribute: seeking for ChangeCellType->newCellType: mantle
+Creating subscope System in scope CellType[mantle]
+getXMLAttribute: seeking for Rule->symbol-ref: c
+getXMLAttribute: seeking for Expression->text: 2
+getXMLAttribute: seeking for Rule->symbol-ref: umbral
+getXMLAttribute: seeking for Expression->text: 1
+getXMLAttribute: seeking for Condition->text: p == 3 and s == 1
+getXMLAttribute: seeking for ChangeCellType->newCellType: mantle
+Creating subscope System in scope CellType[mantle]
+getXMLAttribute: seeking for Rule->symbol-ref: c
+getXMLAttribute: seeking for Expression->text: 2
+getXMLAttribute: seeking for Rule->symbol-ref: umbral
+getXMLAttribute: seeking for Expression->text: 1
+getXMLAttribute: seeking for Condition->text: (tau*dia < time) and (rand_uni(0,1) < ps )and (Sustentacular_Neighbours < umbral) and (r<=a)
+getXMLAttribute: seeking for CellDivision->division-plane: random
+getXMLAttribute: seeking for CellDivision->orientation .. not found
+getXMLAttribute: seeking for CellDivision->write-log .. not found
+getXMLAttribute: seeking for CellDivision->trigger .. not found
+Creating subscope System in scope CellType[sustentacular]
+getXMLAttribute: seeking for Rule->symbol-ref: p
+getXMLAttribute: seeking for Expression->text: if(d<0.594,0,1)
+Registering Symbol __daughterID of linktype PrimitiveVariable in Scope System
+getXMLAttribute: seeking for Condition->text: (tau*dia < time) and (rand_uni(0,1) < ps ) and (Sustentacular_Neighbours < umbral) and (r>a)
+getXMLAttribute: seeking for CellDivision->division-plane: random
+getXMLAttribute: seeking for CellDivision->orientation .. not found
+getXMLAttribute: seeking for CellDivision->write-log .. not found
+getXMLAttribute: seeking for CellDivision->trigger .. not found
+Creating subscope System in scope CellType[sustentacular]
+getXMLAttribute: seeking for Rule->symbol-ref: s
+getXMLAttribute: seeking for Expression->text: if(daughter == 1, 1, 0 )
+getXMLAttribute: seeking for Rule->symbol-ref: p
+getXMLAttribute: seeking for Expression->text: if(d < 0.9,0,if((0.9<=d) and (d< 0.95),2,3))
+Registering Symbol daughter of linktype PrimitiveVariable in Scope System
+Creating subscope Function in scope CellType[sustentacular]
+getXMLAttribute: seeking for Function->symbol: r
+getXMLAttribute: seeking for Expression->text: sqrt((cell.center.x-mean_center_x)^2+(cell.center.y-mean_center_y)^2)
+Registering Symbol r of linktype FunctionLink in Scope CellType[sustentacular]
+Registering Symbol r of linktype CompositeLink in Scope root
+getXMLAttribute: seeking for Constant->name .. not found
+getXMLAttribute: seeking for Constant->symbol: a
+getXMLAttribute: seeking for Constant->value: 95 
+getXMLAttribute: seeking for Constant->notation .. not found
+Registering Symbol a of linktype ConstantLink in Scope CellType[sustentacular]
+Registering Symbol a of linktype CompositeLink in Scope root
+getXMLAttribute: seeking for Property->name .. not found
+getXMLAttribute: seeking for Property->symbol: umbral
+getXMLAttribute: seeking for Property->value: 3
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol umbral of linktype CellPropertyLink in Scope CellType[sustentacular]
+getXMLAttribute: seeking for Property->name .. not found
+getXMLAttribute: seeking for Property->symbol: p
+getXMLAttribute: seeking for Property->value: 0.0
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol p of linktype CellPropertyLink in Scope CellType[sustentacular]
+Registering Symbol p of linktype CompositeLink in Scope root
+getXMLAttribute: seeking for Property->name .. not found
+getXMLAttribute: seeking for Property->symbol: d
+getXMLAttribute: seeking for Property->value: 0
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol d of linktype CellPropertyLink in Scope CellType[sustentacular]
+Registering Symbol d of linktype CompositeLink in Scope root
+getXMLAttribute: seeking for Property->name .. not found
+getXMLAttribute: seeking for Property->symbol: s
+getXMLAttribute: seeking for Property->value: 0.0
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol s of linktype CellPropertyLink in Scope CellType[sustentacular]
+Registering Symbol s of linktype CompositeLink in Scope root
+getXMLAttribute: seeking for Property->name .. not found
+getXMLAttribute: seeking for Property->symbol: HairCell_Neighbours
+getXMLAttribute: seeking for Property->value: 0.0
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol HairCell_Neighbours of linktype CellPropertyLink in Scope CellType[sustentacular]
+getXMLAttribute: seeking for Property->name .. not found
+getXMLAttribute: seeking for Property->symbol: Mantle_Neighbours
+getXMLAttribute: seeking for Property->value: 0.0
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol Mantle_Neighbours of linktype CellPropertyLink in Scope CellType[sustentacular]
+getXMLAttribute: seeking for Property->name .. not found
+getXMLAttribute: seeking for Property->symbol: Sustentacular_Neighbours
+getXMLAttribute: seeking for Property->value: 0.0
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol Sustentacular_Neighbours of linktype CellPropertyLink in Scope CellType[sustentacular]
+getXMLAttribute: seeking for Input->scaling: cell
+getXMLAttribute: seeking for Input->value: cell.type == celltype.sustentacular.id
+getXMLAttribute: seeking for Input->noflux-cell-medium .. not found
+getXMLAttribute: seeking for Output[0]->mapping: sum
+getXMLAttribute: seeking for Output[0]->symbol-ref: Sustentacular_Neighbours
+getXMLAttribute: seeking for Input->scaling: cell
+getXMLAttribute: seeking for Input->value: cell.type == celltype.hair.id
+getXMLAttribute: seeking for Input->noflux-cell-medium .. not found
+getXMLAttribute: seeking for Output[0]->mapping: sum
+getXMLAttribute: seeking for Output[0]->symbol-ref: HairCell_Neighbours
+getXMLAttribute: seeking for Input->scaling: cell
+getXMLAttribute: seeking for Input->value: cell.type == celltype.mantle.id
+getXMLAttribute: seeking for Input->noflux-cell-medium .. not found
+getXMLAttribute: seeking for Output[0]->mapping: sum
+getXMLAttribute: seeking for Output[0]->symbol-ref: Mantle_Neighbours
+getXMLAttribute: seeking for System->time-step: 1.0
+Creating subscope System in scope CellType[sustentacular]
+getXMLAttribute: seeking for System->solver: Runge-Kutta [fixed, O(4)]
+getXMLAttribute: seeking for System->solver-eps .. not found
+getXMLAttribute: seeking for Rule->symbol-ref: d
+getXMLAttribute: seeking for Expression->text: rand_uni(0,1)
+getXMLAttribute: seeking for VolumeConstraint->target: 1579
+getXMLAttribute: seeking for VolumeConstraint->strength: time^2/(1000^2+time^2)
+getXMLAttribute: seeking for SurfaceConstraint->target: 177
+getXMLAttribute: seeking for SurfaceConstraint->strength: 1
+getXMLAttribute: seeking for SurfaceConstraint->mode: surface
+getXMLAttribute: seeking for SurfaceConstraint->exponent .. not found
+getXMLAttribute: seeking for Property->name: color
+getXMLAttribute: seeking for Property->symbol: c
+getXMLAttribute: seeking for Property->value: 0
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol c of linktype CellPropertyLink in Scope CellType[hair]
+getXMLAttribute: seeking for VolumeConstraint->target: 2597
+getXMLAttribute: seeking for VolumeConstraint->strength: time^2/(1000^2+time^2)
+getXMLAttribute: seeking for SurfaceConstraint->target: 206
+getXMLAttribute: seeking for SurfaceConstraint->strength: 1
+getXMLAttribute: seeking for SurfaceConstraint->mode: surface
+getXMLAttribute: seeking for SurfaceConstraint->exponent .. not found
+getXMLAttribute: seeking for Property->name .. not found
+getXMLAttribute: seeking for Property->symbol: z
+getXMLAttribute: seeking for Property->value: 0.5
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol z of linktype CellPropertyLink in Scope CellType[medium]
+Registering Symbol z of linktype CompositeLink in Scope root
+getXMLAttribute: seeking for Property->name .. not found
+getXMLAttribute: seeking for Property->symbol: count
+getXMLAttribute: seeking for Property->value: 0
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol count of linktype CellPropertyLink in Scope CellType[medium]
+Registering Symbol count of linktype CompositeLink in Scope root
+CellTypes defined: 'hair' 'mantle' 'medium' 'sustentacular' 
+getXMLAttribute: seeking for MonteCarloSampler/MCSDuration->value: 1
+getXMLAttribute: seeking for MonteCarloSampler->stepper: edgelist
+getXMLAttribute: seeking for CPM->update-direction .. not found
+getXMLAttribute: seeking for MonteCarloSampler/MetropolisKinetics->temperature: 10
+getXMLAttribute: seeking for MonteCarloSampler/MetropolisKinetics->yield .. not found
+getXMLAttribute: seeking for Contact->value: -38
+getXMLAttribute: seeking for Contact->value: -36
+getXMLAttribute: seeking for Contact->value: -40
+getXMLAttribute: seeking for Contact->value: 56
+getXMLAttribute: seeking for Contact->value: -60
+getXMLAttribute: seeking for Contact->value: 5
+getXMLAttribute: seeking for Contact->value: 80
+getXMLAttribute: seeking for Contact->value: -45
+getXMLAttribute: seeking for Contact->value: -10
+Registering Symbol size of linktype PrimitiveConstant in Scope root
+Registering Symbol size.x of linktype VectorComponentLink in Scope root
+Registering Symbol size.y of linktype VectorComponentLink in Scope root
+Registering Symbol size.z of linktype VectorComponentLink in Scope root
+Registering Symbol size.phi of linktype VectorComponentLink in Scope root
+Registering Symbol size.theta of linktype VectorComponentLink in Scope root
+Registering Symbol size.abs of linktype VectorComponentLink in Scope root
+Setting boundary neighborhood to order 3
+Assigning Shape Neighborhood of size 1.41421 -> 8 neighbors.
+Setting boundary neighborhood to order 2
+Creating cell layer of size 17.3467 MB
+with initial state set to CellType 'medium'
+Initializing celltype 'mantle'
+Scope: Creating Accessor for symbol 'tau' from Scope root
+Scope: Creating Accessor for symbol 'dia' from Scope root
+Scope: Creating Accessor for symbol 'time' from Scope root
+Scope: Creating Accessor for symbol 'pm' from Scope root
+Scope: Creating Accessor for symbol 'Mantle_Neighbours' from Scope CellType[mantle]
+Scope: Creating Accessor for symbol 'umbral' from Scope CellType[mantle]
+Warning: Could not initialize default property Mantle_Neighbours of celltype mantle.
+Plugin CellDivision: Registered input symbol dependencies time [root] ,dia [root] ,umbral [CellType[mantle]] ,pm [root] ,tau [root] ,Mantle_Neighbours [CellType[mantle]] ,
+Scope: Creating Accessor for symbol 'cell.center' from Scope CellType[mantle]
+Scope: Creating Accessor for symbol 'umbral' from Scope CellType[mantle]
+System::init: Reordering Initializers ...
+Scope: Creating Accessor for symbol '__daughterID' from Scope System
+Scope: Creating Accessor for symbol 'cell.type' from Scope root
+Scope: Creating Accessor for symbol 'celltype.mantle.id' from Scope root
+Scope: Creating Accessor for symbol 'Mantle_Neighbours' from Scope CellType[mantle]
+Plugin NeighborhoodReporter: Registered input symbol dependencies cell.type [root] ,celltype.mantle.id [root] ,
+PluginNeighborhoodReporter: Registered output symbol dependencies Mantle_Neighbours [CellType[mantle]] ,
+Scope: Creating Accessor for symbol 'cell.center' from Scope CellType[mantle]
+noflux_cell_medium_interface.isDefined()
+Scope: Creating Accessor for symbol 'cell.type' from Scope root
+Scope: Creating Accessor for symbol 'celltype.hair.id' from Scope root
+Scope: Creating Accessor for symbol 'HairCell_Neighbours' from Scope CellType[mantle]
+Warning: Could not initialize default property HairCell_Neighbours of celltype mantle.
+Plugin NeighborhoodReporter: Registered input symbol dependencies celltype.hair.id [root] ,cell.type [root] ,
+PluginNeighborhoodReporter: Registered output symbol dependencies HairCell_Neighbours [CellType[mantle]] ,
+Scope: Creating Accessor for symbol 'cell.center' from Scope CellType[mantle]
+noflux_cell_medium_interface.isDefined()
+Scope: Creating Accessor for symbol 'cell.type' from Scope root
+Scope: Creating Accessor for symbol 'celltype.sustentacular.id' from Scope root
+Scope: Creating Accessor for symbol 'Sustentacular_Neighbours' from Scope CellType[mantle]
+Warning: Could not initialize default property Sustentacular_Neighbours of celltype mantle.
+Plugin NeighborhoodReporter: Registered input symbol dependencies celltype.sustentacular.id [root] ,cell.type [root] ,
+PluginNeighborhoodReporter: Registered output symbol dependencies Sustentacular_Neighbours [CellType[mantle]] ,
+Scope: Creating Accessor for symbol 'cell.center' from Scope CellType[mantle]
+noflux_cell_medium_interface.isDefined()
+Scope: Creating Accessor for symbol 'time' from Scope root
+Plugin VolumeConstraint: Registered input symbol dependencies time [root] ,
+CellType 'mantle': loading 3 cells from XML
+Cells 3 requested 0
+Initializing celltype 'sustentacular'
+Scope: Creating Accessor for symbol 'p' from Scope CellType[sustentacular]
+Warning: Could not initialize default property p of celltype sustentacular.
+Plugin ChangeCellType: Registered input symbol dependencies p [CellType[sustentacular]] ,
+Scope: Creating Accessor for symbol 'c' from Scope CellType[hair]
+System::init: Reordering Initializers ...
+Scope: Creating Accessor for symbol 'p' from Scope CellType[sustentacular]
+Plugin ChangeCellType: Registered input symbol dependencies p [CellType[sustentacular]] ,
+Scope: Creating Accessor for symbol 'c' from Scope CellType[mantle]
+Scope: Creating Accessor for symbol 'umbral' from Scope CellType[mantle]
+System::init: Reordering Initializers ...
+Scope: Creating Accessor for symbol 'p' from Scope CellType[sustentacular]
+Scope: Creating Accessor for symbol 's' from Scope CellType[sustentacular]
+Warning: Could not initialize default property s of celltype sustentacular.
+Plugin ChangeCellType: Registered input symbol dependencies p [CellType[sustentacular]] ,s [CellType[sustentacular]] ,
+Scope: Creating Accessor for symbol 'c' from Scope CellType[mantle]
+Scope: Creating Accessor for symbol 'umbral' from Scope CellType[mantle]
+System::init: Reordering Initializers ...
+Scope: Creating Accessor for symbol 'tau' from Scope root
+Scope: Creating Accessor for symbol 'dia' from Scope root
+Scope: Creating Accessor for symbol 'time' from Scope root
+Scope: Creating Accessor for symbol 'ps' from Scope root
+Scope: Creating Accessor for symbol 'Sustentacular_Neighbours' from Scope CellType[sustentacular]
+Scope: Creating Accessor for symbol 'umbral' from Scope CellType[sustentacular]
+Scope: Creating Accessor for symbol 'r' from Scope CellType[sustentacular]
+Scope: Creating Accessor for symbol 'a' from Scope CellType[sustentacular]
+Warning: Could not initialize default property umbral of celltype sustentacular.
+Scope: Creating Accessor for symbol 'cell.center.x' from Scope CellType[sustentacular]
+Scope: Creating Accessor for symbol 'mean_center_x' from Scope root
+Scope: Creating Accessor for symbol 'cell.center.y' from Scope CellType[sustentacular]
+Scope: Creating Accessor for symbol 'mean_center_y' from Scope root
+Scope: Creating Accessor for symbol 'sum_cell_center_x' from Scope root
+Scope: Creating Accessor for symbol 'total_cells' from Scope root
+Scope: Creating Accessor for symbol 'celltype.mantle.size' from Scope root
+Scope: Creating Accessor for symbol 'celltype.hair.size' from Scope root
+Scope: Creating Accessor for symbol 'celltype.sustentacular.size' from Scope root
+Scope: Creating Accessor for symbol 'sum_cell_center_y' from Scope root
+Scope: Creating Accessor for symbol 'total_cells' from Scope root
+Warning: Could not initialize default property Sustentacular_Neighbours of celltype sustentacular.
+Plugin CellDivision: Registered input symbol dependencies umbral [CellType[sustentacular]] ,time [root] ,ps [root] ,dia [root] ,tau [root] ,r [CellType[sustentacular]] ,a [CellType[sustentacular]] ,Sustentacular_Neighbours [CellType[sustentacular]] ,
+Scope: Creating Accessor for symbol 'cell.center' from Scope CellType[sustentacular]
+Scope: Creating Accessor for symbol 'p' from Scope CellType[sustentacular]
+Scope: Creating Accessor for symbol 'd' from Scope CellType[sustentacular]
+Warning: Could not initialize default property d of celltype sustentacular.
+System::init: Reordering Initializers ...
+Scope: Creating Accessor for symbol '__daughterID' from Scope System
+Scope: Creating Accessor for symbol 'tau' from Scope root
+Scope: Creating Accessor for symbol 'dia' from Scope root
+Scope: Creating Accessor for symbol 'time' from Scope root
+Scope: Creating Accessor for symbol 'ps' from Scope root
+Scope: Creating Accessor for symbol 'Sustentacular_Neighbours' from Scope CellType[sustentacular]
+Scope: Creating Accessor for symbol 'umbral' from Scope CellType[sustentacular]
+Scope: Creating Accessor for symbol 'r' from Scope CellType[sustentacular]
+Scope: Creating Accessor for symbol 'a' from Scope CellType[sustentacular]
+Plugin CellDivision: Registered input symbol dependencies umbral [CellType[sustentacular]] ,time [root] ,ps [root] ,dia [root] ,tau [root] ,r [CellType[sustentacular]] ,a [CellType[sustentacular]] ,Sustentacular_Neighbours [CellType[sustentacular]] ,
+Scope: Creating Accessor for symbol 'cell.center' from Scope CellType[sustentacular]
+Scope: Creating Accessor for symbol 's' from Scope CellType[sustentacular]
+Scope: Creating Accessor for symbol 'p' from Scope CellType[sustentacular]
+Scope: Creating Accessor for symbol 'daughter' from Scope System
+Scope: Creating Accessor for symbol 'd' from Scope CellType[sustentacular]
+System::init: Reordering Initializers ...
+Scope: Creating Accessor for symbol 'daughter' from Scope System
+Scope: Creating Accessor for symbol 'cell.type' from Scope root
+Scope: Creating Accessor for symbol 'celltype.sustentacular.id' from Scope root
+Scope: Creating Accessor for symbol 'Sustentacular_Neighbours' from Scope CellType[sustentacular]
+Plugin NeighborhoodReporter: Registered input symbol dependencies celltype.sustentacular.id [root] ,cell.type [root] ,
+PluginNeighborhoodReporter: Registered output symbol dependencies Sustentacular_Neighbours [CellType[sustentacular]] ,
+Scope: Creating Accessor for symbol 'cell.center' from Scope CellType[sustentacular]
+noflux_cell_medium_interface.isDefined()
+Scope: Creating Accessor for symbol 'cell.type' from Scope root
+Scope: Creating Accessor for symbol 'celltype.hair.id' from Scope root
+Scope: Creating Accessor for symbol 'HairCell_Neighbours' from Scope CellType[sustentacular]
+Plugin NeighborhoodReporter: Registered input symbol dependencies celltype.hair.id [root] ,cell.type [root] ,
+PluginNeighborhoodReporter: Registered output symbol dependencies HairCell_Neighbours [CellType[sustentacular]] ,
+Scope: Creating Accessor for symbol 'cell.center' from Scope CellType[sustentacular]
+noflux_cell_medium_interface.isDefined()
+Scope: Creating Accessor for symbol 'cell.type' from Scope root
+Scope: Creating Accessor for symbol 'celltype.mantle.id' from Scope root
+Scope: Creating Accessor for symbol 'Mantle_Neighbours' from Scope CellType[sustentacular]
+Plugin NeighborhoodReporter: Registered input symbol dependencies cell.type [root] ,celltype.mantle.id [root] ,
+PluginNeighborhoodReporter: Registered output symbol dependencies Mantle_Neighbours [CellType[sustentacular]] ,
+Scope: Creating Accessor for symbol 'cell.center' from Scope CellType[sustentacular]
+noflux_cell_medium_interface.isDefined()
+Scope: Creating Accessor for symbol 'd' from Scope CellType[sustentacular]
+System::init: Reordering Initializers ...
+Scope: Creating Accessor for symbol 'time' from Scope root
+Plugin VolumeConstraint: Registered input symbol dependencies time [root] ,
+CellType 'sustentacular': loading 2 cells from XML
+Cells 2 requested 0
+Initializing celltype 'hair'
+Scope: Creating Accessor for symbol 'time' from Scope root
+Plugin VolumeConstraint: Registered input symbol dependencies time [root] ,
+Cells 0 requested 0
+Initializing celltype 'medium'
+CellType 'medium': loading 1 cells from XML
+Cell 0 already has 0 nodes.
+Cells 1 requested 0
+Scope: Creating Accessor for symbol 'cell.center' from Scope root
+Scope: Creating Accessor for symbol 'cell.volume' from Scope root
+Scope: Creating Accessor for symbol 'cell.surface' from Scope root
+Scope: Creating Accessor for symbol 'cell.length' from Scope root
+Scope: Creating Accessor for symbol 'cell.type' from Scope root
+creating Edge tracker 
+
+ thread_id = 295829440, register_thread_index = 0, shared_locks_array[cur_index].value = 1
+EdgeListTracker::init() : Created Tracker with Neighborhood size 8 of size 14.7217 MB
+EdgeListTracker::init() : Found 2186 initial edges, wherof 2186 can be modified.
+CPM: InteractionEnergy has 8 neighbors
+CPM: InteractionEnergy was initialized with  IA_COLLAPSE 
+Scope: Creating Accessor for symbol 'cell.center.y' from Scope root
+Scope: Creating Accessor for symbol 'sum_cell_center_y' from Scope root
+Plugin Mapper: Registered input symbol dependencies cell.center.y [root] ,
+PluginMapper: Registered output symbol dependencies sum_cell_center_y [root] ,
+Scope: Creating Accessor for symbol 'cell.center.x' from Scope root
+Scope: Creating Accessor for symbol 'sum_cell_center_x' from Scope root
+Plugin Mapper: Registered input symbol dependencies cell.center.x [root] ,
+PluginMapper: Registered output symbol dependencies sum_cell_center_x [root] ,
+Loading Analysis tools [1]
+getXMLAttribute: seeking for Input/Symbol[0]->symbol-ref: cell.type
+getXMLAttribute: seeking for Input/Symbol[1]->symbol-ref: cell.center.x
+getXMLAttribute: seeking for Input/Symbol[2]->symbol-ref: cell.center.y
+getXMLAttribute: seeking for Input/Symbol[3]->symbol-ref: cell.volume
+getXMLAttribute: seeking for Input/Symbol[4]->symbol-ref: HairCell_Neighbours
+getXMLAttribute: seeking for Input/Symbol[5]->symbol-ref: Sustentacular_Neighbours
+getXMLAttribute: seeking for Input/Symbol[6]->symbol-ref: Mantle_Neighbours
+getXMLAttribute: seeking for Input/Symbol[7]->symbol-ref: celltype.mantle.size
+getXMLAttribute: seeking for Input/Symbol[8]->symbol-ref: celltype.sustentacular.size
+getXMLAttribute: seeking for Input/Symbol[9]->symbol-ref: celltype.hair.size
+getXMLAttribute: seeking for Input/Symbol[10]->symbol-ref: total_cells
+getXMLAttribute: seeking for Restriction/Slice->value .. not found
+getXMLAttribute: seeking for Restriction/Slice->axis .. not found
+getXMLAttribute: seeking for Restriction/Celltype->celltype .. not found
+getXMLAttribute: seeking for Restriction/Cells->cell-ids .. not found
+getXMLAttribute: seeking for Restriction->domain-only .. not found
+getXMLAttribute: seeking for Restriction->condition .. not found
+getXMLAttribute: seeking for Input->force-node-granularity .. not found
+getXMLAttribute: seeking for Input->include-boundary .. not found
+getXMLAttribute: seeking for Restriction->exclude-medium .. not found
+getXMLAttribute: seeking for Output/TextOutput->header .. not found
+getXMLAttribute: seeking for Output/TextOutput->header-guarding .. not found
+getXMLAttribute: seeking for Output/TextOutput->separator .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-name: number_cell_vs_time
+getXMLAttribute: seeking for Output/TextOutput->file-numbering .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-separation .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-format: csv
+getXMLAttribute: seeking for Logger->time-step: 5000
+Scope: Creating Accessor for symbol 'cell.type' from Scope root
+Scope: Creating Accessor for symbol 'cell.center.x' from Scope root
+Scope: Creating Accessor for symbol 'cell.center.y' from Scope root
+Scope: Creating Accessor for symbol 'cell.volume' from Scope root
+Scope: Creating Accessor for symbol 'HairCell_Neighbours' from Scope root
+Scope: Creating Accessor for symbol 'Sustentacular_Neighbours' from Scope root
+Scope: Creating Accessor for symbol 'Mantle_Neighbours' from Scope root
+Scope: Creating Accessor for symbol 'celltype.mantle.size' from Scope root
+Scope: Creating Accessor for symbol 'celltype.sustentacular.size' from Scope root
+Scope: Creating Accessor for symbol 'celltype.hair.size' from Scope root
+Scope: Creating Accessor for symbol 'total_cells' from Scope root
+Plugin Logger: Registered input symbol dependencies celltype.hair.size [root] ,total_cells [root] ,celltype.sustentacular.size [root] ,cell.type [root] ,celltype.mantle.size [root] ,cell.center.x [root] ,cell.center.y [root] ,cell.volume [root] ,Sustentacular_Neighbours [root] ,Mantle_Neighbours [root] ,HairCell_Neighbours [root] ,
+Logger range:
+-> size 5
+-> dataAxes CELL, 
+-> data.sizes: 5, 
+-> file separation: None
+Scope: Creating Accessor for symbol 'time' from Scope root
+Scope: Creating Accessor for symbol 'cell.id' from Scope root
+CellDivision
+NeighborhoodReporter
+NeighborhoodReporter
+NeighborhoodReporter
+ChangeCellType
+ChangeCellType
+ChangeCellType
+CellDivision
+CellDivision
+NeighborhoodReporter
+NeighborhoodReporter
+NeighborhoodReporter
+System
+CPM
+Mapper
+Mapper
+Logger
+
+ TimeStepListener "CellDivision" propagates its time step 1
+
+ TimeStepListener "NeighborhoodReporter" propagates its time step 1
+
+ TimeStepListener "ChangeCellType" propagates its time step 1
+
+ TimeStepListener "ChangeCellType" propagates its time step 1
+
+ TimeStepListener "ChangeCellType" propagates its time step 1
+
+ TimeStepListener "CellDivision" propagates its time step 1
+
+ TimeStepListener "CellDivision" propagates its time step 1
+
+ TimeStepListener "NeighborhoodReporter" propagates its time step 1
+
+ TimeStepListener "System" propagates its time step 1
+
+ TimeStepListener "CPM" propagates its time step 1
+
+ TimeStepListener "Mapper" propagates its time step 1
+
+ TimeStepListener "Mapper" propagates its time step 1
+
+ TimeStepListener "Logger" propagates its time step 5000
+TimeScheduler::init: Ordering instantaneous processes for sequential update ...
+Trying to remove unregistered symbol "cell.center" from unresolved_symbols.Trying to remove unregistered symbol "cell.center" from unresolved_symbols.Trying to remove unregistered symbol "cell.center" from unresolved_symbols. 
+======================================================
+ Time Schedule
+======================================================
+ Time precision patch is 0.001
+
+=====|    Phase I     |===============================
+-----. CPM .------------------------------------
+  + 1 => CPM [time] -> [cell.center,cell.length,cell.surface,cell.type,cell.volume]
+-----. Reactions .------------------------------------
+  + 1 => System [] -> [d]
+
+=====|    Phase II    |===============================
+-----. Reporters and Instantaneous Processes.---------
+  + 1 => NeighborhoodReporter [cell.center,cell.type,celltype.mantle.id] -> [Mantle_Neighbours]
+  + 1 => CellDivision [Mantle_Neighbours,dia,pm,tau,time,umbral] -> [cell.center,umbral]
+  + 5000 => NeighborhoodReporter [cell.center,cell.type,celltype.hair.id] -> [HairCell_Neighbours]
+  + 5000 => NeighborhoodReporter [cell.center,cell.type,celltype.sustentacular.id] -> [Sustentacular_Neighbours]
+  + 1 => NeighborhoodReporter [cell.center,cell.type,celltype.sustentacular.id] -> [Sustentacular_Neighbours]
+  + 1 => CellDivision [Sustentacular_Neighbours,a,dia,ps,r,tau,time,umbral] -> [cell.center,p]
+  + 1 => CellDivision [Sustentacular_Neighbours,a,dia,ps,r,tau,time,umbral] -> [cell.center,p,s]
+  + 1 => ChangeCellType [p] -> []
+  + 1 => ChangeCellType [p] -> []
+  + 1 => ChangeCellType [p,s] -> []
+  + 5000 => NeighborhoodReporter [cell.center,cell.type,celltype.hair.id] -> [HairCell_Neighbours]
+  + 5000 => NeighborhoodReporter [cell.center,cell.type,celltype.mantle.id] -> [Mantle_Neighbours]
+  + 1 => Mapper [cell.center.y] -> [sum_cell_center_y]
+  + 1 => Mapper [cell.center.x] -> [sum_cell_center_x]
+
+=====|    Phase III   |===============================
+-----. Analysis .-------------------------------------
+  + 5000 => Logger [HairCell_Neighbours,Mantle_Neighbours,Sustentacular_Neighbours,cell.center.x,cell.center.y,cell.type,cell.volume,celltype.hair.size,celltype.mantle.size,celltype.sustentacular.size,total_cells] 
+------------------------------------------------------
+======================================================
+
+model is up
+Time: 0.00 atu
+Time: 2100 
+Time: 4200 
+Time: 6300 
+Time: 8400 
+Time: 10500 
+Time: 12600 
+Time: 14700 
+Time: 16800 
+Time: 18900 
+Time: 21000 
+Time: 23100 
+Time: 25200 
+Time: 27300 
+Time: 29400 
+Time: 31500 
+Time: 33600 
+Time: 35700 
+Time: 37800 
+Time: 39900 
+Time: 42000 
+Time: 44100 
+Time: 46200 
+Time: 48300 
+Time: 50400 
+Time: 52500 
+Time: 54600 
+Time: 56700 
+Time: 58800 
+Time: 60900 
+Time: 63000 
+Time: 65100 
+Time: 67200 
+Time: 69300 
+Time: 71400 
+Time: 73500 
+Time: 75600 
+Time: 77700 
+Time: 79800 
+Time: 81900 
+Time: 84000 
+Time: 86100 
+Time: 88200 
+Time: 90300 
+Time: 92400 
+Time: 94500 
+Time: 96600 
+Time: 98700 
+Time: 100800 
+Time: 102900 
+Time: 105000 
+Time: 107100 
+Time: 109200 
+Time: 111300 
+Time: 113400 
+Time: 115500 
+Time: 117600 
+Time: 119700 
+Time: 121800 
+Time: 123900 
+Time: 126000 
+Time: 128100 
+Time: 130200 
+Time: 132300 
+Time: 134400 
+Time: 136500 
+Time: 138600 
+Time: 140700 
+Time: 142800 
+Time: 144900 
+Time: 147000 
+Time: 149100 
+Time: 151200 
+Time: 153300 
+Time: 155400 
+Time: 157500 
+Time: 159600 
+Time: 161700 
+Time: 163800 
+Time: 165900 
+Time: 168000 
+Time: 170100 
+Time: 172200 
+Time: 174300 
+Time: 176400 
+Time: 178500 
+Time: 180600 
+Time: 182700 
+Time: 184800 
+Time: 186900 
+Time: 189000 
+Time: 191100 
+Time: 193200 
+Time: 195300 
+Time: 197400 
+Time: 199500 
+Time: 201600 
+Time: 203700 
+Time: 205800 
+Time: 207900 
+Time: 210000 
+sampler 1 layer 15
+
+=== Simulation finished ===
+Wall Time   = 1m 05s
+CPU Time    = 1m 05s (1 threads)
+

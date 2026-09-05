@@ -1,0 +1,14 @@
+{
+  "adopted": true,
+  "criteria": {
+    "four_complete_paired_trajectories": true,
+    "half_gap_closed_in_at_least_three_seeds": true,
+    "installed_gui_model_present": true,
+    "shock_detected_in_at_least_three_seeds": true
+  },
+  "mean_gap_closed_fraction": 1.0150038674415205,
+  "mean_late_gap_degrees": -0.3360988738189312,
+  "mean_shock_gap_degrees": 22.661796312429196,
+  "runs": 4,
+  "study": "p3-001-flocking-spike"
+}

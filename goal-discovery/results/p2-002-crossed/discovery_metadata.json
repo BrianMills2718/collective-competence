@@ -1,0 +1,41 @@
+{
+  "branches": 144,
+  "design": {
+    "branch_fractions": [
+      0.0,
+      0.3333333333333333
+    ],
+    "freeze_counts": [
+      1,
+      2,
+      3
+    ],
+    "freeze_modes": [
+      "moveable",
+      "immovable"
+    ],
+    "horizon_ticks": null,
+    "n": 12,
+    "name": "discovery",
+    "schedules": [
+      "index",
+      "shuffled"
+    ],
+    "seeds": [
+      101,
+      102,
+      103,
+      104,
+      105,
+      106
+    ]
+  },
+  "experiment_id": "p2-002-distributed-macro-prediction",
+  "goal_rate": 0.3263888888888889,
+  "observation_boundary": "src.experiments.sorting.observe.observe",
+  "phase": "discovery",
+  "protocol_path": "docs/hypotheses/p2_002_distributed_macro_prediction.md",
+  "protocol_sha256": "298ce164995c2240f494428a2694e2bfcc587bd50dcc9f2cb0c1f5adac20a763",
+  "rule_version": "sorting-v1",
+  "trajectory_rows": 1714
+}

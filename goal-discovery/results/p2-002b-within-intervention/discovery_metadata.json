@@ -1,0 +1,60 @@
+{
+  "branches": 72,
+  "design": {
+    "branch_fractions": [
+      0.3333333333333333
+    ],
+    "damage_conditions": [
+      [
+        "moveable",
+        2
+      ],
+      [
+        "moveable",
+        3
+      ],
+      [
+        "immovable",
+        1
+      ]
+    ],
+    "freeze_counts": [
+      1,
+      2,
+      3
+    ],
+    "freeze_modes": [
+      "moveable",
+      "immovable"
+    ],
+    "horizon_ticks": null,
+    "n": 12,
+    "name": "discovery",
+    "schedules": [
+      "index",
+      "shuffled"
+    ],
+    "seeds": [
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212
+    ]
+  },
+  "experiment_id": "p2-002b-within-intervention-prediction",
+  "goal_rate": 0.5138888888888888,
+  "observation_boundary": "src.experiments.sorting.observe.observe",
+  "phase": "discovery",
+  "protocol_path": "docs/hypotheses/p2_002b_within_intervention_prediction.md",
+  "protocol_sha256": "014db3896ba3cf009ab665d603110325172abe41459bd72996eca9b524c20d19",
+  "rule_version": "sorting-v1",
+  "trajectory_rows": 917
+}

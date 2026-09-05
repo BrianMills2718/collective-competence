@@ -1,0 +1,11 @@
+{
+  "behaviorspace_setup": "src/spikes/netlogo_slime/p3_005_behaviorspace.xml",
+  "behaviorspace_setup_sha256": "e8bd58a51f82d7215f1868e78b0f233c14634a09bf0f4854a7305b078eb491d1",
+  "experiment_id": "p3-005-slime-interaction-discrimination",
+  "netlogo_version": "7.0.4",
+  "protocol": "docs/hypotheses/p3_005_slime_interaction_discrimination.md",
+  "protocol_sha256": "9c5e5e15edacb8bbd0d300703e2e677145c935c2fdfe52e97e74bd583fe9e286",
+  "source_model": "/mnt/c/Program Files/NetLogo 7.0.4/models/Sample Models/Biology/Slime.nlogox",
+  "source_model_modified": false,
+  "source_model_sha256": "ede03dc05cc186a9607cb2ef1b11dfde4a1c05eb57edd19e2a577768c04644da"
+}

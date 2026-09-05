@@ -1,0 +1,23 @@
+{
+  "actual_runs": 17280,
+  "experiment_id": "p2-005-opportunity-adjusted-performance",
+  "freeze_modes": [
+    "moveable",
+    "immovable"
+  ],
+  "horizon_ticks": 120,
+  "oracle_cases": 2160,
+  "protocol": "docs/hypotheses/p2_005_opportunity_adjusted_performance.md",
+  "protocol_sha256": "6dd73c9890bb60896d2009b4006a7359061be235412affaf52e1463af2596c8a",
+  "replicates": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "schedules": [
+    "index",
+    "shuffled"
+  ],
+  "system_size": 4
+}

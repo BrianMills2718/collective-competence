@@ -1,0 +1,12 @@
+{
+  "experiment_id": "P7-005",
+  "evidence_level": 1,
+  "retrospective": true,
+  "source": "results/p7-002-network-level2",
+  "source_run_summary_sha256": "eda79c239a0022798b39a15d5e5689d58a5c18e14e25d072ad4db06e726cb836",
+  "protocol": "docs/plans/p7_005_network_intervention_value_preregistration.md",
+  "protocol_sha256": "e476f3d52c636fbc06372a67d2700b3305dc44f70f71a187e0370dc9e7921565",
+  "new_netlogo_outcomes_generated": false,
+  "analysis_recovery": "A JSON bool normalization fixed finalization after the frozen paired tables were written; no source trajectory, contrast, outcome, or gate changed.",
+  "decision": "evidence-closed-no-go"
+}

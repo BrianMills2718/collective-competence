@@ -1,0 +1,22 @@
+{
+  "accuracy_advantage": 0.15999999999999992,
+  "agents": 200,
+  "criteria": {
+    "all_probe_agent_pairs_complete": true,
+    "beats_midpoint_null_by_15_points": true,
+    "held_out_accuracy_at_least_70pct": true,
+    "interpretable_response_rate_at_least_95pct": true,
+    "median_absolute_target_error_at_most_5": true,
+    "paired_hidden_targets_agree": true,
+    "paired_initial_positions_agree": true,
+    "population_preserved": true,
+    "seven_seeds_at_least_65pct": true
+  },
+  "held_out_accuracy": 0.715,
+  "interpretable_response_rate": 1.0,
+  "mean_absolute_target_error": 2.13,
+  "median_absolute_target_error": 2.0,
+  "midpoint_null_accuracy": 0.555,
+  "promoted": true,
+  "study": "p4-002-heatbugs-blind-target-inference"
+}

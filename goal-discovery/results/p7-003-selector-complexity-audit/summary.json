@@ -1,0 +1,24 @@
+{
+  "claim_limit": "No prospective claim; P7-002 discovery and confirmation were both opened.",
+  "decision": "stop-generic-family-selection",
+  "discovery_seed_count": 8,
+  "evidence_boundary": "retrospective-development",
+  "experiment": "P7-003",
+  "gate_passed": false,
+  "plurality_family": "identity-conditioned",
+  "plurality_wins": 3,
+  "protocol": "docs/plans/p7_003_selector_complexity_audit.md",
+  "protocol_sha256": "93f0b6b5f533f498bf6c8f2c1cb9b3a0ed230a6bb6fb81d1b4bcbf612da7d733",
+  "required_wins": 6,
+  "selected_confirmation_improvement": null,
+  "selected_max_coefficient_sign_flips": null,
+  "source_feature_table": "results/p7-002-network-level2/feature_table.csv",
+  "source_feature_table_sha256": "818ee33a5549cfaffb2e9de706a8693ace59a3471936f7374ba6ffa129b898fa",
+  "stable_winner": null,
+  "summaries_per_family": 4,
+  "winner_counts": {
+    "identity-conditioned": 3,
+    "network": 3,
+    "temporal": 2
+  }
+}

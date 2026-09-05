@@ -1,0 +1,18 @@
+{
+  "adopted": true,
+  "criteria": {
+    "baseline_aggregated_in_three_seeds": true,
+    "four_complete_paired_trajectories": true,
+    "half_gap_closed_in_three_seeds": true,
+    "installed_gui_model_present": true,
+    "population_preserved": true,
+    "prebranch_trajectories_identical": true,
+    "shock_detected_in_three_seeds": true
+  },
+  "mean_gap_closed_fraction": 0.5679252588974095,
+  "mean_late_neighbor_gap": 11.79076612903226,
+  "mean_pre_neighbors": 28.222738095238096,
+  "mean_shock_neighbor_gap": 27.3284375,
+  "runs": 4,
+  "study": "p3-004-slime-spike"
+}

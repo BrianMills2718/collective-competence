@@ -1,0 +1,53 @@
+task,feature,folds_selected
+sorting_recovery,inversions_norm__minimum,4
+sorting_recovery,inversions_norm__quantile__q_0.1,4
+sorting_recovery,"inversions_norm__cwt_coefficients__coeff_4__w_5__widths_(2, 5, 10, 20)",4
+sorting_recovery,"inversions_norm__cwt_coefficients__coeff_4__w_10__widths_(2, 5, 10, 20)",4
+sorting_recovery,"inversions_norm__cwt_coefficients__coeff_4__w_20__widths_(2, 5, 10, 20)",4
+sorting_recovery,"inversions_norm__cwt_coefficients__coeff_3__w_20__widths_(2, 5, 10, 20)",3
+sorting_recovery,inversions_norm__sum_values,2
+sorting_recovery,"inversions_norm__cwt_coefficients__coeff_0__w_20__widths_(2, 5, 10, 20)",2
+sorting_recovery,"inversions_norm__fft_coefficient__attr_""real""__coeff_0",2
+sorting_recovery,"inversions_norm__fft_coefficient__attr_""abs""__coeff_0",2
+sorting_recovery,inversions_norm__quantile__q_0.2,2
+sorting_recovery,inversions_norm__quantile__q_0.3,2
+sorting_recovery,"inversions_norm__cwt_coefficients__coeff_3__w_5__widths_(2, 5, 10, 20)",2
+sorting_recovery,inversions_norm__energy_ratio_by_chunks__num_segments_10__segment_focus_4,1
+sorting_recovery,inversions_norm__mean,1
+sorting_recovery,inversions_norm__time_reversal_asymmetry_statistic__lag_2,1
+sorting_recovery,"inversions_norm__cwt_coefficients__coeff_4__w_2__widths_(2, 5, 10, 20)",1
+sorting_recovery,inversions_norm__maximum,1
+sorting_recovery,inversions_norm__absolute_maximum,1
+sorting_recovery,inversions_norm__benford_correlation,1
+sorting_recovery,inversions_norm__quantile__q_0.9,1
+sorting_recovery,inversions_norm__index_mass_quantile__q_0.3,1
+sorting_recovery,inversions_norm__index_mass_quantile__q_0.8,1
+sorting_recovery,inversions_norm__index_mass_quantile__q_0.9,1
+sorting_recovery,"inversions_norm__cwt_coefficients__coeff_0__w_5__widths_(2, 5, 10, 20)",1
+sorting_recovery,"inversions_norm__cwt_coefficients__coeff_1__w_2__widths_(2, 5, 10, 20)",1
+sorting_recovery,"inversions_norm__linear_trend__attr_""intercept""",1
+sorting_recovery,inversions_norm__mean_abs_change,1
+sorting_recovery,inversions_norm__mean_change,1
+sorting_recovery,inversions_norm__standard_deviation,1
+sorting_recovery,inversions_norm__variance,1
+sorting_recovery,inversions_norm__absolute_sum_of_changes,1
+sorting_recovery,"inversions_norm__change_quantiles__f_agg_""mean""__isabs_False__qh_1.0__ql_0.0",1
+sorting_recovery,"inversions_norm__change_quantiles__f_agg_""mean""__isabs_True__qh_1.0__ql_0.0",1
+sorting_recovery,"inversions_norm__change_quantiles__f_agg_""mean""__isabs_False__qh_1.0__ql_0.2",1
+sorting_recovery,"inversions_norm__change_quantiles__f_agg_""mean""__isabs_True__qh_1.0__ql_0.2",1
+sorting_recovery,"inversions_norm__linear_trend__attr_""slope""",1
+sorting_recovery,inversions_norm__quantile__q_0.4,1
+sorting_recovery,"inversions_norm__cwt_coefficients__coeff_3__w_2__widths_(2, 5, 10, 20)",1
+thermostat_preservation,"temperature__agg_linear_trend__attr_""slope""__chunk_len_10__f_agg_""var""",2
+thermostat_preservation,"temperature__agg_linear_trend__attr_""stderr""__chunk_len_5__f_agg_""var""",2
+thermostat_preservation,temperature__ratio_beyond_r_sigma__r_1,2
+thermostat_preservation,temperature__ratio_beyond_r_sigma__r_2,2
+thermostat_preservation,temperature__ratio_beyond_r_sigma__r_2.5,2
+thermostat_preservation,temperature__lempel_ziv_complexity__bins_2,2
+thermostat_preservation,temperature__lempel_ziv_complexity__bins_3,2
+thermostat_preservation,temperature__lempel_ziv_complexity__bins_5,2
+thermostat_preservation,temperature__lempel_ziv_complexity__bins_10,2
+thermostat_preservation,temperature__lempel_ziv_complexity__bins_100,2
+thermostat_preservation,temperature__fourier_entropy__bins_2,2
+thermostat_preservation,"temperature__agg_linear_trend__attr_""slope""__chunk_len_5__f_agg_""var""",1
+thermostat_preservation,"temperature__linear_trend__attr_""stderr""",1
