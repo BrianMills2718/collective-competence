@@ -110,8 +110,12 @@ measurables hold up without them", and in the charter as a deferred option.
 
 **Closed 2026-09-05** by the owner setting pre-biological as an explicit scope
 boundary: economic framings and LLM agents are out of scope rather than
-deferred, and rung 7 is retired rather than pending. LLM work has its own home
-in `agent_ecology2` / `agent_ecology3`.
+deferred, and rung 7 is retired rather than pending.
+
+**Amended 2026-09-05:** the original wording sent LLM work to `agent_ecology2` /
+`agent_ecology3`, which implied those repositories are this programme's later
+phase. The owner's disposition is that **`agent_ecology` is not part of this
+project at all** — see [F15](#f15--agent_ecology-is-not-part-of-this-project--closed-2026-09-05).
 
 **What this does not do:** C1-001 and C1-002's results are retained and
 unchanged. A specimen being out of scope going forward does not retract what it
@@ -255,6 +259,39 @@ not, and it is the owner's. The copy exists so that decision has no deadline.
 clean while another kind is unprotected. This repository's guard checks result
 packages; nothing checks cited documents, cited external repositories, or cited
 loose files.
+
+## F15 — `agent_ecology` is not part of this project — `CLOSED 2026-09-05`
+
+**The open question.** The
+[first 2026-09-05 assessment](../goal-discovery/docs/audits/2026-09-05_external_assessment.md)
+raised finding 7 — *"a sibling repository is running the same bet, unreferenced"*
+— observing that `agent_ecology2` (1,217 commits) states its goal as *"emergent
+collective capability — a system where agents produce more together than the sum
+of what they could produce alone,"* which is close to this programme's C1
+conjecture, and that this repository's cross-repo timeline records zero mentions
+of it. Its question to the owner was *"prior work, sibling, or dead end? Any
+answer is fine. Unexamined is the expensive one."* The
+[second assessment](../goal-discovery/docs/audits/2026-09-05b_prose_vs_code_audit.md)
+sharpened it into a question about the conjecture register's quantifier rule.
+
+**The owner's answer, 2026-09-05: "agent ecology should not be a part of this."**
+
+**What that settles.** It is **not a member, not a later phase, and not a sibling
+pursuing the same bet.** The surface similarity of the stated goals does not make
+it the same programme: `agent_ecology` is LLM and economic work, both of which
+this project's pre-biological boundary places out of scope
+([F9](#f9--economic-and-llm-framings-entered-without-a-decision--closed-2026-09-05)).
+Finding 7 is closed as answered, not as acted upon.
+
+**What was corrected.** The charter and F9 both routed LLM work to
+`agent_ecology2` / `agent_ecology3`, phrasing that made them read as this
+programme's designated endpoint. Removed. If this programme's measurables ever
+warrant LLM work, that is a new repository.
+
+**What is not affected.** The conjecture register's quantifier rule stands on its
+own merits and needs no comparison to another project.
+[The cross-repository timeline](cross-repo-timeline.md) records dated history and
+is not a membership claim; its mentions are historical fact, not routing.
 
 ## F3 — A gate frozen below its own statistic's null, three times — `CLOSED`
 

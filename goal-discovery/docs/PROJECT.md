@@ -214,9 +214,12 @@ whose ground truth the analyst had already read.
   Economic framings — prices, quotas, markets, renewable stocks — and LLM agents
   are **out of scope, not deferred**. They are several strata above where this
   programme operates, and the one economic specimen that reached the laboratory
-  (C1-001's renewable commons) arrived without that being decided. LLM work has
-  its own home in `agent_ecology2` / `agent_ecology3`; if this programme's
-  measurables ever warrant it, that is a new repository, not this one. The
-  founding ladder's rung 7 — "LLM agents, only once the measurables hold up
-  without them" — is **retired** rather than pending. See
+  (C1-001's renewable commons) arrived without that being decided. If this
+  programme's measurables ever warrant LLM work, that is a new repository, not
+  this one. The founding ladder's rung 7 — "LLM agents, only once the measurables
+  hold up without them" — is **retired** rather than pending.
+  **`agent_ecology` is not part of this project** (owner, 2026-09-05): not a
+  member, not a later phase, and not a sibling pursuing the same bet. Do not
+  route work there, cite it as this programme's endpoint, or treat its goals as
+  bearing on these. See
   [the substrate design discussion](../../wiki/substrate-design.md).

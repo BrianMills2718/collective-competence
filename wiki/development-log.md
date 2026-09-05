@@ -95,6 +95,15 @@ deletion plus a row in [the archive recovery index](archive-index.md), checked b
 `scripts/check_archive_index.py`; the three pre-consolidation snapshots are
 archived. Recorded as [F13](failure-log.md).
 
+**`agent_ecology` is not part of this project** (owner, 2026-09-05). That closes
+the first assessment's finding 7 — *"a sibling repository is running the same bet,
+unreferenced"* — as **answered**, not as acted upon: not a member, not a later
+phase, not a sibling. The surface similarity of the stated goals does not make it
+the same programme, since it is LLM and economic work that the pre-biological
+boundary already excludes. The charter and failure-log F9 had both routed LLM
+work there, phrasing that made those repositories read as this programme's
+designated endpoint; removed. Recorded as [F15](failure-log.md).
+
 **What this does not establish.** No scientific claim changed. No result record,
 protocol, or result package was altered by any of it. The goal register is a
 draft with no authority, and the substrate question is open.
