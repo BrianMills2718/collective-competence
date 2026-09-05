@@ -29,381 +29,66 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
-## 2026-09-05 — goals narrowed to the discovery arm on sorting, and two specimens restored
+## 2026-09-05 — an outside audit, a falsified prediction, and the scope narrowed to one arm
 
-**Changed:** [`wiki/goals.md`](goals.md) rewritten, `compensation` and
-`adaptation` restored, failure log F11 added.
+**Changed:** an audit of code against the prose beside it; one experiment;
+consolidation of what the programme is for. Written as one entry because it was
+one day's work; the eight separate entries it replaces are in this file's Git
+history.
 
-**The narrowing, from the owner:** work only the Goal and Competence Discovery
-arm, extending from the sorting algorithm, and learn from that before taking up
-questions about authoring. One arm, one specimen lineage.
+**The audit.** [Prose-vs-code audit](../goal-discovery/docs/audits/2026-09-05b_prose_vs_code_audit.md)
+found five defects while `pytest`, `ruff`, evidence custody and instruction sync
+were all green — a C2 anti-smuggling guard on a function no experiment calls
+whose asserted property was false anyway, a conjecture whose refuter could not
+fire because the period is pinned to the population size, a suite that could not
+be collected on a clean checkout, an ignore rule that hides new evidence, and an
+over-read of the effective-information result. Three are closed. The general
+problem is not: the check surface verifies *that code runs* and *that documents
+agree with each other*, and nothing verifies *that code does what the prose
+beside it claims*.
 
-**Two faults in the first draft, both corrected.** "Maintenance versus arrival"
-was the agent's phrasing for something [the ontology](ontology.md) already names
-— the competence profile's first row is *"attainment or maintenance: does the
-system reach or preserve criterion-satisfying histories?"*, and the
-non-equivalence table already forbids conflating a goal with an attractor,
-because *"passive dynamics can converge or preserve structure without active
-goal-directed performance."* And recovering *authored* structure was drafted as a
-goal when it presupposes a construction arm; it is now deferred.
+**The experiment.** [Q1-010](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md)
+tested the audit's sharpest finding — that EI-above-shuffle-null reads
+determinism rather than coordination — and **falsified it** on Q1-006's own
+family: coordinated +6.3 null sd, deterministic-but-independent +1.7 under a bar
+frozen beforehand, independent draw ~0. The advice against the queued re-run was
+withdrawn. What survives is that the response is graded rather than binary and
+that the commons counterexample is unexplained, recorded as debt 4 in the plan.
 
-**The six goals are the First Wave brief's own closing questions**, mapped to
-ontology vocabulary. Nothing is invented. The brief had already scoped the
-discovery arm on sorting, and its list survives the narrowing unchanged.
+**The scope.** The founding briefs turned out to contain the scientific question,
+the substrate specification, twelve independently-manipulable capability
+dimensions, a fourteen-model ladder and a thirteen-phase sequence placing
+economics and LLMs **last**. The programme left them within ten days; the
+renewable commons is phase-M content executed at phase-F time. Pre-biological is
+now a charter boundary rather than a deferred option, and
+[the goal register](goals.md) narrows work to the Goal and Competence Discovery
+arm on the sorting lineage, restating the First Wave brief's own closing
+questions in ontology vocabulary.
 
-**A near-miss, recorded rather than quietly reverted.** The archive pass earlier
-the same day (`b7f8876`) deleted `compensation` and `adaptation` on the criterion
-that no source file imported them. Both are required specimens for First Wave
-question 4 — whether one analysis can separate passive convergence,
-negative-feedback regulation, compensation and adaptation. Import analysis is a
-fact about the current code; the goal is a fact about what the programme intends,
-and it had not been written down yet. Restored here; recorded as F11.
+**New durable surfaces**, all routed from the wiki index:
+[failure log](failure-log.md) (what stopped and what it still costs, retiring on
+consequence rather than on the route stopping), [goals](goals.md),
+[substrate design](substrate-design.md), and two generated views —
+[scoreboard](scoreboard.md) and [status page](status.html) — which cannot go
+stale because `--check` fails when they disagree with the register.
 
-**What this supersedes.** The current plan's queued action — re-running Q1-006
-with a null-calibrated threshold — advances the Q1 sequence on the commons and
-slot families, a lineage this scope excludes. Out of scope rather than wrong; the
-plan needs updating rather than the action quietly dropped.
+**Housekeeping.** 4,354 lines of experiment code with no importer removed, and
+`compensation` and `adaptation` restored after the goal register showed they are
+required specimens ([F11](failure-log.md)). `make dayone` now works on a clean
+checkout for the first time. Every live-era experiment record carries a required
+one-sentence `headline`.
 
-**What this does not establish.** The register remains a draft with no authority.
-Whether D1–D6 are the right set, which comes first, and whether the charter's
-two-arm framing stays as the destination are all open.
+**Consolidation, same day.** The narrative this session produced was itself the
+problem: 2,725 lines of markdown against 416 of evidence. The design discussion
+is compressed 743 → 148 lines and now reflects the current position rather than
+the path to it, the day's eight log entries are this one, and the index routes
+instead of restating. Recorded as [F12](failure-log.md). Untouched by rule: the
+104 hypothesis records, 20 audits, 5 founding briefs, and the 3 pre-consolidation
+snapshots the plan forbids moving.
 
-## 2026-09-05 — the goal list was already written, in the founding briefs
-
-**Changed:** [`wiki/goals.md`](goals.md) drafted for review after a full
-documentation review.
-
-**The finding of the review is that almost none of it is new.** The founding
-briefs contain the scientific question, the substrate specification, the
-capability dimensions, a fourteen-step model ladder and a thirteen-phase
-experiment sequence. The programme did not follow them. Every framing correction
-the owner made across today's design discussion — pre-biological scope,
-capability rather than production, generalized cellular automata, detection
-rather than performance, minimality — restates something already written in his
-own founding documents.
-
-**Three recoveries change the design discussion directly.** The laboratory spec's
-section 28 specifies *"a discrete interacting dynamical system with local state
-and explicit transition rules"* of which *"a standard cellular automaton is a
-particularly constrained case"* — which is what the owner restated independently
-as "like cellular automata but probably more generalized." Section 20 lists
-twelve capability dimensions to manipulate **independently**, including memory,
-learning and policy adaptation, and says plainly *"do not build a universal
-intelligence hierarchy"* — which corrects the agent's proposal of the Chomsky
-ladder as the capability spine; it survives only as a proved ordering within the
-memory dimension. And addendum 3's phase sequence puts **LLMs and economics at
-phase M**, *"only after the preceding results justify those dimensions"*, while
-sorting is phase E and black-box/white-box comparison is phase F.
-
-**That locates the drift precisely.** The renewable commons is phase-M content
-executed at phase-F time. Everything objected to today follows from that single
-inversion.
-
-**Six goals drafted**, each with the minimal substrate configuration it needs and
-what already bears on it: maintenance versus arrival; recovery of authored
-structure; detection of capability class; when a macro description earns being a
-system; what a capability cost and who paid; and whether a driver is needed. What
-the agent added rather than recovered is marked as such in the register.
-
-**What this does not establish.** The register is a draft with no authority. Its
-ordering, its completeness, and whether it supersedes or sits beside the
-roadmap's two-arm framing are all open for the owner's review.
-
-## 2026-09-05 — rung 2 was about capability, not production, and the ladder is already measured here
-
-**Changed:** round three of
-[the substrate design discussion](substrate-design.md), and a relevance note on
-the `misc/platonic-ingress-toy-automata` holding four days before it expires.
-
-**The correction.** The agent read the founding ladder's rung 2, "production and
-specialisation", economically — an economy of producers and traders — and the
-owner corrected it: what it meant was **one component contributes memory, one
-contributes learning**, expressed *at the substrate level*. Functional
-specialisation of computational capability, not division of labour. That reading
-is pre-biological, it is falsifiable, and it makes "composition" mean something
-specific for the first time in this programme: composing capabilities.
-
-**The substrate framing.** The owner's words: *"basically like cellular automata
-but probably more generalized."* Taken literally, the generalisations sorting and
-capability-composition each require are non-uniform rules, an element that is an
-automaton rather than a symbol, an arbitrary scheduler, an arbitrary
-neighbourhood, per-element faults, and a rule that may itself be state. That adds
-up to a network of communicating state machines under a scheduler, of which both
-classical CA and sorting are instances.
-
-**The composition question now has a control.** *Does a heterogeneous population —
-some reactive, some memory-bearing — achieve a task no homogeneous population of
-the same total budget can?* This only means anything **if capability is priced**:
-if a memory-bearing element costs what a reactive one costs, "memory helps" is
-true before the run. Sorting's one-currency discipline is what makes it a
-measurement, and the current substrate has no budget concept at all.
-
-**Prior art, already here, expiring.**
-`misc/platonic-ingress-toy-automata/computational_capacity_ladder_summary.csv`
-measures this exact axis — `3-state DFA -> one counter` on Dyck-1 with first
-failure at `(())`, `pushdown -> two counters` on a^n b^n c^n — and
-`abc_capacity_boundary.csv` shows a modular PDA's precision falling 1.0 -> 0.33
-as N grows while two counters hold. Its quarantine expires **2026-09-17**.
-
-**What this does not establish.** The platonic material is **design input, not
-evidence**: no native runnable source, its own generating agent warned its
-headline numbers should not be treated as benchmark results, and its positive
-controls were never run. Nothing about the substrate is decided; round three is
-a proposal with five open questions.
-
-## 2026-09-05 — pre-biological set as a scope boundary, and a design discussion opened
-
-**Changed:** the charter now states **pre-biological** as a scope boundary rather
-than listing biological, economic and LLM applications as deferred options.
-[`wiki/substrate-design.md`](substrate-design.md) opens as a live, exploratory
-design discussion. Failure log gains F2b and F9.
-
-**The correction, from the owner.** The renewable commons — quotas, a stock, a
-scarcity price, subunits carrying needs — is an *economic* model, several strata
-above where this programme is supposed to operate, and it arrived as the
-reference family for two conjectures and the shared substrate's five dials
-without anyone deciding the programme should be modelling economies. Economic
-framings and LLM agents are now out of scope rather than deferred; the founding
-ladder's rung 7 is retired rather than pending; LLM work has its own home in
-`agent_ecology2` / `agent_ecology3`. Sorting is the reference case, and the
-substrate is whatever generalises *it*.
-
-**There was almost nothing to delete.** Eighteen LLM mentions across nine files;
-four of those files are preserved source briefs, which stay untouched because
-editing a historical brief falsifies provenance. Both live mentions were already
-*exclusions* — "options, not current deliverables" and a not-doing list. The
-change is that a deferred option became a boundary.
-
-**F2b is the sharper half of the diagnosis.** `State` carries `signal: float` as
-one of seven fields every specimen inherits, so a coordination mechanism is part
-of the container rather than something an experiment supplies and tests. C1-002's
-result — a shared scalar is common-mode and can gate but never stagger — follows
-from the type signature. The same container gives every element a `need`, putting
-the goal *inside* the system, which inverts the founding experiment's design:
-"nothing in the system holds the target — it exists only in the measurement."
-
-**What this does not establish.** No result is retracted: a specimen being out of
-scope going forward does not change what it measured. The replacement contract is
-a proposal under discussion and nothing about it is decided.
-
-## 2026-09-05 — a failure log, and 4,354 lines of experiment code with no consumer removed
-
-**Changed:** [`wiki/failure-log.md`](failure-log.md) is added as a canonical
-register, and ten experiment packages with zero source consumers are removed
-along with their tests.
-
-**Why the register.** The owner asked whether history is retained anywhere. It
-is — this log, the research synthesis, nineteen audits, fifty result records —
-but none of them answers *what have we tried that did not work, and is any of it
-still costing us?* That question had no home, so its answer was spread across a
-thousand lines and never read as a whole. The register's rule is the part that
-matters: **an entry retires when its consequence is dispositioned, not when the
-route stops.** F1 exists precisely because this log recorded on 2026-08-26 that
-superseding the ladder left the constructive question with no experiment, and
-nothing acted on that for ten days.
-
-**What was removed, and what was not.** Ten packages —
-`compensation`, `adaptation`, `representation_tournament`, `predictive_goal`,
-`network_intervention_value`, `candidate_relations`, `opportunity_adjusted`,
-`representation_discovery`, `vector_dynamics`, `ants_relational_coupling` — had
-**no importer anywhere in `src/`**; each was kept alive only by a test asserting
-it still ran. Every one has result records, which are untouched: the evidence is
-the record, not the code, and Git retains the code regardless.
-
-`src/spikes/` was removed and then **restored**. `netlogo_flocking` turns out to
-be a real shared dependency of `probe_selection`, `ants_trail_scale` and
-`prospective_network_selector`, so removing it cascades into the cockpit — which
-is a decision about the cockpit, not about dead code, and is deliberately not
-taken here.
-
-**What this does not establish.** No scientific claim changes. No result record,
-protocol, or result package was touched. The two open questions the owner is
-weighing — whether to resume the founding ladder, and what to do with the
-cockpit — are recorded in the failure log as F1 and F7 and remain undecided.
-
-## 2026-09-05 — the status page was quoting a ratio that contradicted its own reading
-
-**Changed:** the bar tooltips on [`wiki/status.html`](status.html) report the
-effect and the null spread as two numbers instead of dividing them.
-
-**What was wrong.** Each bar's tooltip read `value / null_sd` as "N null sd".
-That sd is the spread of an eight-replicate estimate, and on arms whose shuffle
-null is near-deterministic it collapses toward zero: the commons `live` sd is
-0.0001 and `random` is 0.0003. So the tooltips said **"+4101 null sd"** for
-`live` and **"+20.1 null sd"** for `random` — and the second flatly contradicts
-the sentence printed directly beneath it, which says the matched-independent arm
-sits *at* its null. A reader hovering the bar would have been told the opposite
-of the page's own reading.
-
-**Found by serving the page and reading what it emitted**, not by looking at the
-picture — the ratios live in `<title>` elements that only appear on hover. The
-rendered screenshots were inspected in both modes and showed nothing.
-
-The ratios still quoted in prose are the ones a result package computed and
-froze — Q1-010's +6.3 and +1.7 — plus `frozen`'s 5.3, which is defensible
-because that arm's null has real spread (0.037) and the note now says so.
-
-## 2026-09-05 — a visual status page, generated from the evidence it describes
-
-**Changed:** [`wiki/status.html`](status.html) and its generator
-`scripts/render_status_page.py`, plus a required `outcome_class` on every
-live-era register record.
-
-**Why visual, and why generated.** The owner asked for something he could look
-at rather than read. The page shows the two bets, the charter's four completion
-clauses, the contested effective-information measurement as two diverging bar
-charts, and all fifteen live experiments classified by outcome. Every number is
-read at render time from a committed result package —
-`q1-009-information/followup.json` and `q1-010-determinism-control/result.json` —
-or from the register. Nothing on the page is transcribed, and
-`render_status_page.py --check` fails when the page and the evidence disagree.
-
-**The charts say something the prose had to argue for.** Side by side, the
-commons and the slot make the open half of the audit immediately visible: on the
-commons, `frozen` — an arm that coordinates nothing — stands 5.3 null standard
-deviations above its null, thirty-five times the matched-independent arm, while
-on the slot every arm falls where the claim predicts. That is one picture instead
-of two paragraphs.
-
-**Constraints it holds to.** Self-contained: no CDN, no script, no webfont, no
-build step, opens from `file://` on a machine with no network. Light and dark are
-both selected rather than one being an automatic flip. Colour follows the shared
-data-visualisation method — diverging blue/red around a real zero for the effect
-charts, since above and below the null mean opposite things, and a validated
-four-slot categorical set for outcome classes, every one carrying a visible text
-label because the aqua/red pair sits in the band where colour alone may not carry
-meaning. Rendered and inspected in both modes; one label-overflow defect was
-found that way and fixed.
-
-**What this does not establish.** It makes the state legible; it makes no result
-more trustworthy. The cockpit under `goal-discovery/src/cockpit/` is still five
-days behind and this page does not replace it.
-
-## 2026-09-05 — the register now has to say what it found in words a person can read
-
-**Changed:** every live-era experiment record carries a required `headline` — one
-plain sentence saying what the experiment found — and
-[a generated scoreboard](scoreboard.md) renders all fifteen in one pass. The
-[current plan](../goal-discovery/docs/plans/current_research_plan.md)'s
-"do not polish the dashboard" line is amended to distinguish polish from
-coverage.
-
-**Why.** The owner asked why he was never shown anything he could review, and
-the mechanical answer is that nothing ever required it. The register's own
-fields are agent-shaped: `outcome` is a slug like
-`no_causal_emergence_null_subtracted_ei_discriminates_g2_control_degenerate`,
-and `disposition` runs to several hundred words. Neither answers "what did this
-find?" for a reader. Meanwhile the cockpit's last commit is 2026-08-31, so the
-twelve experiments of 2026-09-04 plus Q1-009 and Q1-010 have no view at all, and
-this plan's do-not-do list told every agent that reading it correctly to leave
-the UI alone. The canonical, active
-[visual analytics contract](../goal-discovery/docs/plans/dynamic_experiment_artifact_standard.md)
-— whose first sentence is that visual analysis exists so **a human** can inspect
-behaviour — is cited by exactly one experiment record, `P7-002`, and by none of
-the fifteen since.
-
-**Why a generated page rather than another written one.** The
-[first 2026-09-05 assessment](../goal-discovery/docs/audits/2026-09-05_external_assessment.md)'s
-advice 7 is that three status surfaces already have to be updated in lockstep
-and two were stale when found. A fourth hand-maintained surface would be that
-problem, not its fix. The scoreboard restates no claim status and no next
-action: it is rendered from the register, and
-`render_knowledge_index.py --check` fails on a missing headline, an oversized
-one, or a stale page. Both guards were verified by making them fire.
-
-**What this does not establish.** The scoreboard makes the *state* legible; it
-does not make any individual result more trustworthy, and `result_reviewed`
-still means the prose was read rather than anything reproduced. The cockpit is
-still five days behind and bringing it up to date is not queued by this change.
-
-## 2026-09-05 — three audit findings closed, one of them a canonical claim that was false
-
-**Changed:** C2's anti-smuggling guard is deleted, C2's scaling claim in
-[the conjecture register](conjectures.md) is restated, and `make sync` / `make
-test` now install the extras the suite needs.
-
-**A canonical document asserted something the code never did.**
-[C2-001's result record](../goal-discovery/docs/hypotheses/c2_001_derived_phase_results.md)
-stated that the derivation was "structurally prevented from seeing an index, a
-rank, the population size, another subunit's state, or the seed, and the
-implementation asserts its own signature so a reader can verify that". Both
-halves were false: the guarded function was never called by any experiment path,
-and `period` **is** `cfg.n_subunits`, so the assertion on parameter names
-admitted the one quantity it advertised excluding. The sentence is quoted and
-withdrawn in place; the frozen protocol keeps its prose and carries a dated
-correction saying the implementation did not satisfy it. **No measurement
-changed** — the code always did what the correction now says. What changed is
-the claim about what was ruled out, and the honest version of C2-001 is narrower
-again: heterogeneity substitutes for labelling *given a period equal to the
-population size*, which is authored. [Q1-010](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md)
-measured what that period is worth by removing it — 27% of need-satisfaction.
-
-**A conjecture carried a refuter that could not fire.** C2's scaling claim
-predicted a turnover "past the number of contending subunits", but afforded
-distinguishability is bounded by the period and the period is pinned to the
-population size in one place and never varied, so the falsifying region is
-unreachable. C2-001's frozen protocol had tested a different, weaker claim all
-along. The register now states the protocol's claim; the turnover prediction is
-recorded as **never tested rather than refuted**, with the substrate change
-admitting it would require. Restatement was chosen over unpinning because
-unpinning is a new experiment and restatement makes the register honest today.
-
-**`make dayone` was not true of a clean checkout.** Two test modules import an
-optional extra unconditionally, so `make sync && make test` gave two collection
-errors and zero tests where the authoring machine gave a full green suite. Fixed
-by installing the extras rather than skipping the modules. A second gap closed
-with it: the README's own documented verification command runs 456 tests where
-the full extra set runs 467, so the documented contract was under-installing by
-eleven.
-
-**What this does not establish.** Findings 3 and 5 of
-[the audit](../goal-discovery/docs/audits/2026-09-05b_prose_vs_code_audit.md)
-remain open — the EI reading is still unsupported on the commons, and the
-`results/*` ignore trap is unrepaired.
-
-## 2026-09-05 — a challenge to the strongest current result, and its falsification
-
-**Changed:** a new audit and one new experiment. The
-[prose-vs-code audit](../goal-discovery/docs/audits/2026-09-05b_prose_vs_code_audit.md)
-asks a question the [first 2026-09-05 assessment](../goal-discovery/docs/audits/2026-09-05_external_assessment.md)
-did not — does the code do what the prose beside it claims — and records five
-findings, none of which any green check can detect. `pytest`, `ruff`,
-`check_evidence_custody.py` and `sync_agent_context.py --check` were all green at
-`28fa0c0` while every one of them was true.
-
-**The sharpest finding was tested and largely failed.** The audit argued that
-effective information above its own shuffle null reads *determinism* rather than
-coordination — Q1-009's own table has commons `frozen`, which coordinates
-nothing, 5.4 null standard deviations above its null, and `constant_phase`, the
-most synchronised arm measured, *below* its null — and advised holding the queued
-Q1-006 re-run. [Q1-010](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md)
-built the deterministic-independent arm the slot family lacked, froze two gates
-against a null committed beforehand, recorded the analyst's prediction, and
-**falsified it**: on Q1-006's own family the statistic separates coordination
-(+6.3 null sd) from a deterministic population that lost its shared period (+1.7
-sd, under the frozen bar) from an independent draw (~0). The re-run stands and
-the advice against it is withdrawn.
-
-**What the challenge left standing** is now debt 4 in the
-[current plan](../goal-discovery/docs/plans/current_research_plan.md): the
-deterministic-independent arm still reaches 39% of the coordinated effect, so the
-response is graded rather than binary; the commons was not re-run, so Q1-009's
-"on two families" clause remains unsupported there; and two deterministic arms
-score below their own nulls, so the response is non-monotonic and
-uncharacterised.
-
-**Two findings are about the check surface itself.** The suite **cannot be
-collected on a clean checkout** — two modules import an optional extra
-unconditionally, so `make sync && make test` gives two collection errors and zero
-tests where the authoring machine gives 467 passed. And the `results/*`
-ignore-plus-allowlist that hid the evidence base is unrepaired: the first
-assessment committed the packages that existed but left the mechanism, which
-silently caught Q1-010's package as the next new experiment.
-
-**What this does not establish.** Q1-010 is one family, one coarse-graining, not
-a clause-2 test, and nothing in it was blind. The audit is a judgement and
-licenses no work. Findings 1, 2, 4 and 5 are open and carry recommended
-dispositions, not decisions.
+**What this does not establish.** No scientific claim changed. No result record,
+protocol, or result package was altered by any of it. The goal register is a
+draft with no authority, and the substrate question is open.
 
 ## 2026-09-05 — handoff state, and what a fresh reader should not have to reconstruct
 
