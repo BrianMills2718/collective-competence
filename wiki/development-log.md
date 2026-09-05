@@ -29,6 +29,43 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — the register now has to say what it found in words a person can read
+
+**Changed:** every live-era experiment record carries a required `headline` — one
+plain sentence saying what the experiment found — and
+[a generated scoreboard](scoreboard.md) renders all fifteen in one pass. The
+[current plan](../goal-discovery/docs/plans/current_research_plan.md)'s
+"do not polish the dashboard" line is amended to distinguish polish from
+coverage.
+
+**Why.** The owner asked why he was never shown anything he could review, and
+the mechanical answer is that nothing ever required it. The register's own
+fields are agent-shaped: `outcome` is a slug like
+`no_causal_emergence_null_subtracted_ei_discriminates_g2_control_degenerate`,
+and `disposition` runs to several hundred words. Neither answers "what did this
+find?" for a reader. Meanwhile the cockpit's last commit is 2026-08-31, so the
+twelve experiments of 2026-09-04 plus Q1-009 and Q1-010 have no view at all, and
+this plan's do-not-do list told every agent that reading it correctly to leave
+the UI alone. The canonical, active
+[visual analytics contract](../goal-discovery/docs/plans/dynamic_experiment_artifact_standard.md)
+— whose first sentence is that visual analysis exists so **a human** can inspect
+behaviour — is cited by exactly one experiment record, `P7-002`, and by none of
+the fifteen since.
+
+**Why a generated page rather than another written one.** The
+[first 2026-09-05 assessment](../goal-discovery/docs/audits/2026-09-05_external_assessment.md)'s
+advice 7 is that three status surfaces already have to be updated in lockstep
+and two were stale when found. A fourth hand-maintained surface would be that
+problem, not its fix. The scoreboard restates no claim status and no next
+action: it is rendered from the register, and
+`render_knowledge_index.py --check` fails on a missing headline, an oversized
+one, or a stale page. Both guards were verified by making them fire.
+
+**What this does not establish.** The scoreboard makes the *state* legible; it
+does not make any individual result more trustworthy, and `result_reviewed`
+still means the prose was read rather than anything reproduced. The cockpit is
+still five days behind and bringing it up to date is not queued by this change.
+
 ## 2026-09-05 — three audit findings closed, one of them a canonical claim that was false
 
 **Changed:** C2's anti-smuggling guard is deleted, C2's scaling claim in

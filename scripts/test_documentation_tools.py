@@ -34,7 +34,8 @@ class DocumentationControls(unittest.TestCase):
         path.write_text("# Original evidence\n", encoding="utf-8")
         self.record = {"id": "example", "family": "test", "question": "What?",
                        "artifacts": [self.artifact], "review_status": "not_reviewed",
-                       "outcome": None, "disposition": None}
+                       "outcome": None, "disposition": None,
+                       "headline": "A fixture record, so the legibility gate is satisfied."}
 
     def render(self, records, *, legacy_ids=None, markdown_paths=None):
         if legacy_ids is None:
@@ -327,3 +328,54 @@ class RepositoryNavigationContract(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class HeadlineLegibilityGate(DocumentationControls):
+    """The register must say what each live-era experiment found, in words.
+
+    Both guards are checked by making them fire. A gate nobody has seen refuse
+    is a gate nobody knows is wired up -- which is how this repository once
+    froze a threshold below its own null.
+    """
+
+    def test_missing_headline_is_rejected(self):
+        record = self.ontology_record()
+        record.pop("headline", None)
+        with self.assertRaisesRegex(ValueError, "has no headline"):
+            self.render([record])
+
+    def test_blank_headline_is_rejected(self):
+        record = self.ontology_record()
+        record["headline"] = "   "
+        with self.assertRaisesRegex(ValueError, "has no headline"):
+            self.render([record])
+
+    def test_headline_longer_than_the_cap_is_rejected(self):
+        record = self.ontology_record()
+        record["headline"] = "x" * (knowledge.HEADLINE_MAX + 1)
+        with self.assertRaisesRegex(ValueError, "is a disposition"):
+            self.render([record])
+
+    def test_legacy_record_needs_no_headline(self):
+        record = dict(self.record)
+        record.pop("headline", None)
+        self.render([record], legacy_ids=["example"])
+
+    def test_headline_reaches_the_scoreboard(self):
+        record = self.ontology_record()
+        record["headline"] = "The distinctive thing this fixture found."
+        board = self.render([record])["wiki/scoreboard.md"]
+        self.assertIn("The distinctive thing this fixture found.", board)
+        self.assertIn("example", board)
+
+    def test_a_contract_error_is_not_masked_by_the_headline_gate(self):
+        """Ordering regression: the legibility check must run after validity.
+
+        The first version ran first, so every ontology-contract test in this
+        module reported a missing headline instead of the contract error it
+        asserted on.
+        """
+        record = self.ontology_record(mutate=lambda d: d.pop("evidence"))
+        record.pop("headline", None)
+        with self.assertRaisesRegex(ValueError, "missing required fields: evidence"):
+            self.render([record])

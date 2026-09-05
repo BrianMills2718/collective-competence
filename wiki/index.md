@@ -62,6 +62,7 @@ than reconstructing definitions from historical experiment prose.
 
 | Question | Read next |
 |---|---|
+| **What did every experiment actually find?** | **[Scoreboard](scoreboard.md)** — one plain sentence per live experiment, generated from the register so it cannot go stale. Start here if you want the state of the programme in one pass. |
 | Why does this programme exist and what is it building toward? | [The generative thesis](competence-thesis.md) — exploratory, not canonical |
 | What is the programme betting on that could turn out false? | [Standing conjectures](conjectures.md) — canonical; each with a stated refuter |
 | Which of these terms are actually decidable, and by what measure? | [What this vocabulary makes decidable](ontology.md#what-this-vocabulary-makes-decidable-and-what-it-does-not) — canonical; the formalization inventory and candidate measures |

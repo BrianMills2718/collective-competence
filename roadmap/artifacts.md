@@ -342,3 +342,4 @@ becoming current instructions.
 - [development-log.md](../wiki/development-log.md)
 - [index.md](../wiki/index.md)
 - [ontology.md](../wiki/ontology.md)
+- [scoreboard.md](../wiki/scoreboard.md)
