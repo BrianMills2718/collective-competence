@@ -29,6 +29,41 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — a failure log, and 4,354 lines of experiment code with no consumer removed
+
+**Changed:** [`wiki/failure-log.md`](failure-log.md) is added as a canonical
+register, and ten experiment packages with zero source consumers are removed
+along with their tests.
+
+**Why the register.** The owner asked whether history is retained anywhere. It
+is — this log, the research synthesis, nineteen audits, fifty result records —
+but none of them answers *what have we tried that did not work, and is any of it
+still costing us?* That question had no home, so its answer was spread across a
+thousand lines and never read as a whole. The register's rule is the part that
+matters: **an entry retires when its consequence is dispositioned, not when the
+route stops.** F1 exists precisely because this log recorded on 2026-08-26 that
+superseding the ladder left the constructive question with no experiment, and
+nothing acted on that for ten days.
+
+**What was removed, and what was not.** Ten packages —
+`compensation`, `adaptation`, `representation_tournament`, `predictive_goal`,
+`network_intervention_value`, `candidate_relations`, `opportunity_adjusted`,
+`representation_discovery`, `vector_dynamics`, `ants_relational_coupling` — had
+**no importer anywhere in `src/`**; each was kept alive only by a test asserting
+it still ran. Every one has result records, which are untouched: the evidence is
+the record, not the code, and Git retains the code regardless.
+
+`src/spikes/` was removed and then **restored**. `netlogo_flocking` turns out to
+be a real shared dependency of `probe_selection`, `ants_trail_scale` and
+`prospective_network_selector`, so removing it cascades into the cockpit — which
+is a decision about the cockpit, not about dead code, and is deliberately not
+taken here.
+
+**What this does not establish.** No scientific claim changes. No result record,
+protocol, or result package was touched. The two open questions the owner is
+weighing — whether to resume the founding ladder, and what to do with the
+cockpit — are recorded in the failure log as F1 and F7 and remain undecided.
+
 ## 2026-09-05 — the status page was quoting a ratio that contradicted its own reading
 
 **Changed:** the bar tooltips on [`wiki/status.html`](status.html) report the
