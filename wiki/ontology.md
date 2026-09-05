@@ -436,7 +436,7 @@ not what's been claimed.
 **Evidence status of the imported toy-automaton work specifically**, per this
 repository's own evidence discipline: unresolved. Raw output from the related
 external toy-automaton experiments (basin-size counts, a mutation-robustness
-filter) sits in `misc/platonic-ingress-toy-automata/` (see that directory's
+filter) sits in `experiments/platonic-ingression/` (see that directory's
 `INTENT.md` for its quarantine terms and expiry) — not a registered experiment
 here, and not itself evidence for the mechanism above, since neither of those
 experiments actually runs a continuous perturbation process with time-averaged

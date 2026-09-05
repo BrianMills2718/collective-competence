@@ -27,6 +27,16 @@ becoming current instructions.
 - [README.md](../experiments/morphogenesis-scaling/README.md)
 - [RESULTS.md](../experiments/morphogenesis-scaling/RESULTS.md)
 
+## experiments/platonic-ingression/narrative
+
+- [README.md](../experiments/platonic-ingression/narrative/README.md)
+- [part1.md](../experiments/platonic-ingression/narrative/part1.md)
+- [part2.md](../experiments/platonic-ingression/narrative/part2.md)
+- [part3.md](../experiments/platonic-ingression/narrative/part3.md)
+- [part4.md](../experiments/platonic-ingression/narrative/part4.md)
+- [part5.md](../experiments/platonic-ingression/narrative/part5.md)
+- [part6.md](../experiments/platonic-ingression/narrative/part6.md)
+
 ## goal-discovery
 
 - [AGENTS.md](../goal-discovery/AGENTS.md)
@@ -320,20 +330,6 @@ becoming current instructions.
 ## misc
 
 - [README.md](../misc/README.md)
-
-## misc/platonic-ingress-toy-automata
-
-- [INTENT.md](../misc/platonic-ingress-toy-automata/INTENT.md)
-
-## misc/platonic-ingress-toy-automata/narrative
-
-- [README.md](../misc/platonic-ingress-toy-automata/narrative/README.md)
-- [part1.md](../misc/platonic-ingress-toy-automata/narrative/part1.md)
-- [part2.md](../misc/platonic-ingress-toy-automata/narrative/part2.md)
-- [part3.md](../misc/platonic-ingress-toy-automata/narrative/part3.md)
-- [part4.md](../misc/platonic-ingress-toy-automata/narrative/part4.md)
-- [part5.md](../misc/platonic-ingress-toy-automata/narrative/part5.md)
-- [part6.md](../misc/platonic-ingress-toy-automata/narrative/part6.md)
 
 ## roadmap
 

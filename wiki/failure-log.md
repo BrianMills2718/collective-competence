@@ -244,7 +244,7 @@ its model entirely — the guard cannot see a class of citation it was not built
 for, and reported `0 new drift` throughout.
 
 **Closed** by copying them to
-`misc/platonic-ingress-toy-automata/narrative/`, bytes verified identical by
+`experiments/platonic-ingression/narrative/`, bytes verified identical by
 checksum, with the originals left in place. Evidentiary status is unchanged:
 **design input, not evidence** — no runnable source here, the generating agent's
 own warning that its headline figures are not benchmark-grade, and positive
