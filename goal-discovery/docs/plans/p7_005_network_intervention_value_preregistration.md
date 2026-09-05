@@ -1,3 +1,14 @@
+---
+doc-role: preregistration
+authority: evidence
+lifecycle: frozen
+---
+> **Classified 2026-09-05.** This file carried no frontmatter at all, so it
+> declared neither a role nor a lifecycle and read as an ordinary historical
+> plan. It is a **frozen preregistration**, which the repository's own rule
+> places on the preserve list alongside result measurements, original briefs
+> and historic audits. Body unchanged.
+
 # P7-005 — network-informed intervention-value audit
 
 **Status:** executed once / complete-negative. This frozen Level 1 retrospective
