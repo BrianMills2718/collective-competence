@@ -516,9 +516,109 @@ than a mathematical fact.
    improvisation and credit assignment, or they may be a different taxonomy that
    needs reconciling rather than merging.
 
+---
+
+# Round six — two different externals, and the driver sorting can already almost carry
+
+Owner's correction, 2026-09-05, verbatim:
+
+> "hijacking i think might be a different thing. the external driver i was
+> talking about was mroe just like without an external driver with some sort of
+> structure the system generally just devlovles into uniformly high entorpy is
+> my intution. btu thais is alos o al evel of compelcxity beyodn where we need
+> to be for the intial experiments for things like the algorithm i think.
+> although maybe the algorthm thing could be reframed as an external driver that
+> was going in and rbekaing the agents or somethign."
+
+## The conflation, and why it matters
+
+Round five treated the paper's **hijackability** as the same thing as the drive.
+It is not, and merging them hides a real distinction:
+
+| | Hijackability (paper, property 6) | The thermodynamic driver |
+|---|---|---|
+| What it is | an external agent **steers** an existing glue | structured input without which **nothing stays organised at all** |
+| Paper's examples | taxes and subsidies on prices; bacteria inducing two-headed planaria | not in the paper |
+| Presupposes | that a glue already exists and works | nothing; it is why there is anything to steer |
+| Question it answers | can the system be controlled from outside? | why does order persist instead of relaxing? |
+
+One is a **control channel**. The other is the **precondition for structure**.
+The platonic thread's periodic forcing is genuinely the second — its own
+reference is Chvykov's result that *low-rattling configurations are fine-tuned to
+a specific external drive* — and calling it "hijacking" imported a cognitive
+framing onto what is a physics claim.
+
+## And it is out of scope for the first experiments
+
+Correct, and worth stating plainly so it does not creep back. Sorting has no
+thermodynamics, no energy budget and no entropy to devolve toward. It is a finite
+process that terminates. Dissipative structure, metastability and drive-matched
+occupancy are several rungs above rung 1, and the metastability material stays
+where it is — design input for later, not a dependency of the first experiment.
+
+## The reframing, which is the useful part
+
+> *"maybe the algorthm thing could be reframed as an external driver that was
+> going in and rbekaing the agents or somethign."*
+
+**This works, and the substrate is one small change away from supporting it.**
+
+`selfsort.py` already has the vocabulary: five perturbations — `swap2`,
+`teleport`, `frozen_member`, `unreliable_member`, `dead_member` — that damage
+either the configuration or the elements themselves. But they fire **once**:
+`fired = perturbation is None`, then a single application at *D* operations after
+the array first reaches sorted, and never again.
+
+**A driver is that same perturbation applied repeatedly.** No thermodynamics
+imported, no energy accounting, nothing above rung 1. Just an external process
+that keeps breaking the system while the controllers keep working.
+
+### Why repetition changes what can be asked
+
+Without it, sorting terminates and sits in a dead attractor. There is **no
+difference between reaching the goal and holding it**, so no experiment can
+distinguish a system that arrived from one that is maintaining.
+
+With a repeating driver, holding the configuration **costs ongoing operations**,
+and the controllers separate by their own design: `central_open` and
+`central_closed` reach the goal and stop watching; `central_watchdog` never
+concludes it is finished; `decentralized` has no halting condition at all.
+
+Experiment 01 already glimpsed this with a single perturbation. Disturb the array
+20 operations after it first sorts and `central_closed` recovers **0.00** while
+`central_watchdog` recovers **1.00**. That is one observation of a difference
+that a repeating driver would turn into a sustained regime.
+
+### And it is a detection question, not a performance one
+
+Under the corrected frame from round five, the question is not which controller
+wins. It is:
+
+> **From behaviour alone, can we tell whether a system is *maintaining* its
+> configuration or merely *arrived* at it?**
+
+Sorting can pose that with ground truth known by construction — we know which
+controller is still watching — and it needs no drive-matched occupancy, no
+strain law, and no capability ladder. It is the smallest thing in this whole
+discussion that is both in the corrected frame and buildable on the founding
+substrate.
+
+## Open questions, round six
+
+1. **Is "maintaining versus arrived" the first detection target?** It is the one
+   sorting can pose today with a one-line change to the perturbation schedule.
+2. **Does the driver break elements, or the configuration, or both?** Sorting has
+   both kinds — `swap2`/`teleport` damage the arrangement, `frozen`/`dead`
+   damage the elements. They are different drivers and may separate different
+   controllers.
+3. **Where does the entropy intuition re-enter?** It is out of scope now, but it
+   is the owner's stated reason to expect a driver to be necessary at all. It
+   should return as a named later rung rather than be dropped.
+
 ## Status
 
-Round five. Nothing decided. The proposal has moved from the agent's
+Round six. Nothing decided, but the first experiment is now describable in one
+sentence and sits on the founding substrate. The proposal has moved from the agent's
 "configuration + rewrite + scheduler" skeleton to the owner's automata framing,
 which subsumes it: the skeleton is how a run is executed, the automaton class is
 what an element *is*, and pricing is what keeps the composition claim honest.
