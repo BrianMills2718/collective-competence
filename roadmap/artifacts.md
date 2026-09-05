@@ -341,6 +341,7 @@ becoming current instructions.
 - [cross-repo-timeline.md](../wiki/cross-repo-timeline.md)
 - [development-log.md](../wiki/development-log.md)
 - [failure-log.md](../wiki/failure-log.md)
+- [goals.md](../wiki/goals.md)
 - [index.md](../wiki/index.md)
 - [ontology.md](../wiki/ontology.md)
 - [scoreboard.md](../wiki/scoreboard.md)
