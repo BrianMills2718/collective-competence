@@ -112,7 +112,15 @@ def diverging_chart(title: str, source: str, note: str, rows, gate=None) -> str:
         w = abs(value) * scale
         x = zero_x if value >= 0 else zero_x - w
         cls = "pos" if value >= 0 else "neg"
-        sds = f"{value / sd:+.1f} null sd" if sd else "null sd 0"
+        # Deliberately NOT value/sd. The shuffle-null sd is the spread of an
+        # eight-replicate estimate, and on arms whose null is near-deterministic
+        # it collapses toward zero: the commons `live` sd is 0.0001 and `random`
+        # is 0.0003, so the ratio reads "+4101 null sd" and "+20 null sd" --
+        # the second of which flatly contradicts this page's own statement that
+        # the matched-independent arm sits at its null. Report both numbers and
+        # let the reader divide, or not. The ratios that ARE quoted in prose
+        # come from result packages that computed and froze them.
+        sds = f"null sd {sd:.4f} over 8 replicates"
         parts.append(
             f'<text class="rowlab" x="{label_w - 12}" y="{y + row_h * 0.68:.1f}">'
             f'{esc(name)}</text>'
@@ -212,9 +220,12 @@ def render() -> str:
         "Commons — the statistic does not behave",
         f"goal-discovery/results/q1-009-information/followup.json · {q9['seeds']} seeds",
         "<strong>frozen</strong> coordinates nothing — C1-001 measures its "
-        "satisfaction at 0.000 — yet it sits 5.3 null standard deviations above its "
-        "null, thirty-five times the matched-independent arm. No experiment explains "
-        "this. It is the open half of the audit.",
+        "satisfaction at 0.000 — yet it sits <strong>+0.198 above its null</strong>, "
+        "thirty-five times the matched-independent arm and 5.3 times its own null "
+        "spread of 0.037. That ratio is quoted because this arm's null has real "
+        "spread; the near-deterministic arms' do not, which is why the bars carry "
+        "raw numbers rather than ratios. No experiment explains this. It is the open "
+        "half of the audit.",
         commons_rows))
     body.append(diverging_chart(
         "Slot — the statistic behaves",
