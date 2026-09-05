@@ -398,6 +398,47 @@ Ordinary links were not, and now are. **Nothing yet checks a cited external
 repository** — `levin-wiki` is cited by the thesis and its availability is
 verified by nothing.
 
+## F19 — The archive criterion kept missing non-import consumers — `CLOSED 2026-09-06`
+
+**Four failures, one cause.** The 2026-09-05 archive pass removed experiment code
+on the criterion *"nothing in `src/` imports it."* That criterion missed a
+different consumer every time:
+
+| | Missed consumer | Cost |
+|---|---|---|
+| [F11](#f11--code-deleted-against-current-state-not-against-goals--closed) | a **goal** that needs the specimen | `compensation`, `adaptation` removed |
+| [F16](#f16--two-preregistrations-were-filed-as-historical-plans--closed-2026-09-05) | the **preserve rule** for evidence | two preregistrations nearly archived |
+| [F17](#f17--eight-of-nine-plans-were-registered-experiment-artifacts--closed-2026-09-05) | the **experiment register** | eight registered artifacts nearly archived |
+| **this** | a **reproduction command in a result record** | `vector_dynamics`, `representation_discovery`, `predictive_goal` removed |
+
+Three result records give commands like
+`uv run python -m src.experiments.vector_dynamics.run discover`. Removing the
+module leaves the record promising a reproducibility it cannot deliver. All three
+modules and their tests are restored.
+
+**The deeper reason it kept happening, and it is not carelessness.** *Experiment
+records do not cite the code that produced them.* `P2-002`'s protocol and results
+never name `distributed_prediction`; Q1-010's records named a commit and a test
+file but not `src/experiments/q1_010_control/` until this entry was written. So
+there is **no route from an experiment to its implementation**, and an
+import-graph is the only signal available — which is exactly the signal that
+misses documents, registers, goals and rules.
+
+**Closed** for the immediate damage: three modules restored, Q1-010's records now
+name their own source.
+
+**The general fix is not made.** No check requires an experiment record to cite
+its implementation, and until one exists the archive criterion stays unreliable.
+Recorded rather than built, because this session has removed things on its own
+judgement four times and each was wrong.
+
+**One candidate, recorded and deliberately not acted on:**
+`goal-discovery/src/experiments/distributed_prediction/` — 1,886 lines, no
+importer, no document reference, no register entry, cited by no reproduction
+command, and consumed only by a test. It lost its one `src/` consumer when
+`opportunity_adjusted` was removed. By every criterion checked it is removable,
+and it is being left in place because the criterion is the thing under suspicion.
+
 ## F3 — A gate frozen below its own statistic's null, three times — `CLOSED`
 
 **What stopped.** Q1-006 froze a clause-2 ceiling at 0.10 when the statistic's

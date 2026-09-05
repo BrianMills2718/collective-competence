@@ -26,6 +26,10 @@ experiment_declaration:
 [Current plan](../plans/current_research_plan.md) ·
 [Audit that motivated this](../audits/2026-09-05b_prose_vs_code_audit.md)
 
+> **Source:** `goal-discovery/src/experiments/q1_010_control/` — `traces.py`
+> (arms), `calibrate.py` (nulls only), `run.py` (frozen gates); tests in
+> `goal-discovery/tests/test_q1_010_control.py`.
+>
 > Run at `daba7f0` from a clean worktree; package
 > `results/q1-010-determinism-control/result.json`. Gates read once, thresholds
 > taken from `null_calibration.json` committed in `4f09f00` before the protocol
