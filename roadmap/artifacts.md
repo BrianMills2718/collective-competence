@@ -59,6 +59,7 @@ becoming current instructions.
 - [2026-08-29_reachability_reflection.md](../goal-discovery/docs/audits/2026-08-29_reachability_reflection.md)
 - [2026-08-30_p8_c1_vertical_slice.md](../goal-discovery/docs/audits/2026-08-30_p8_c1_vertical_slice.md)
 - [2026-08-30_p9_c1_blind_sorting_ui.md](../goal-discovery/docs/audits/2026-08-30_p9_c1_blind_sorting_ui.md)
+- [2026-09-05_external_assessment.md](../goal-discovery/docs/audits/2026-09-05_external_assessment.md)
 - [v1.md](../goal-discovery/docs/audits/v1.md)
 
 ## goal-discovery/docs/hypotheses

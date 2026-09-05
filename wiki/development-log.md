@@ -29,6 +29,35 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — an outside assessment, written down
+
+**Changed:** added
+[an external assessment](../goal-discovery/docs/audits/2026-09-05_external_assessment.md)
+to the audit record and linked it from [the wiki front door](index.md).
+
+It is a point-in-time judgement made at `55fc885` by a reader who entered through
+this repository's own stated path with no prior involvement, covering the wiki,
+ontology, thesis, conjecture register, charter, plan, substrate, nine result
+records, the git history, and the repository's own self-checks run rather than
+assumed. Its verdict: the epistemics are better than most published science and
+the programme was nonetheless not yet doing science, because the machine for not
+fooling itself was pointed at problems whose answers were available without
+running anything.
+
+Each finding is marked **open** or **closed**, because four of them were repaired
+the same day and a later reader would otherwise re-fix them. It also records one
+correction to itself: its original framing of composition versus coordination was
+wrong, and the owner was right that the distinction blurs at these scales.
+
+**Why:** the assessment existed only in a session transcript, which is not
+durable project storage — the same failure that lost the `goal-discovery` founding
+brief until it was recovered on 2026-09-04.
+
+**Does not establish:** it is a judgement, not an authority. It changes no
+terminology, scope, priority or evidence status, licenses no work, and the
+[current plan](../goal-discovery/docs/plans/current_research_plan.md) still owns
+the next action. Its open findings are opinions the owner has not yet ruled on.
+
 ## 2026-09-05 — Q1-009: no causal emergence, and the null subtraction is what discriminates
 
 **Changed:** the deferred measure was run.

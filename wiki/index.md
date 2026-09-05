@@ -65,6 +65,7 @@ than reconstructing definitions from historical experiment prose.
 | Why does this programme exist and what is it building toward? | [The generative thesis](competence-thesis.md) — exploratory, not canonical |
 | What is the programme betting on that could turn out false? | [Standing conjectures](conjectures.md) — canonical; each with a stated refuter |
 | Which of these terms are actually decidable, and by what measure? | [What this vocabulary makes decidable](ontology.md#what-this-vocabulary-makes-decidable-and-what-it-does-not) — canonical; the formalization inventory and candidate measures |
+| How does this programme look to someone outside it? | [External assessment, 2026-09-05](../goal-discovery/docs/audits/2026-09-05_external_assessment.md) — a point-in-time judgement by a fresh reader, with each finding marked open or closed |
 | What is the terminology and how do the concepts relate? | [Canonical research ontology](ontology.md) |
 | What is the integrated purpose and scientific boundary? | [Scientific charter](../goal-discovery/docs/PROJECT.md) |
 | How can mechanisms and capabilities produce collective competence? | [Research roadmap](../roadmap/README.md), then the [apparatus map](../roadmap/apparatus.md) and relevant experiment evidence |
