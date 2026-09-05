@@ -325,6 +325,16 @@ becoming current instructions.
 
 - [INTENT.md](../misc/platonic-ingress-toy-automata/INTENT.md)
 
+## misc/platonic-ingress-toy-automata/narrative
+
+- [README.md](../misc/platonic-ingress-toy-automata/narrative/README.md)
+- [part1.md](../misc/platonic-ingress-toy-automata/narrative/part1.md)
+- [part2.md](../misc/platonic-ingress-toy-automata/narrative/part2.md)
+- [part3.md](../misc/platonic-ingress-toy-automata/narrative/part3.md)
+- [part4.md](../misc/platonic-ingress-toy-automata/narrative/part4.md)
+- [part5.md](../misc/platonic-ingress-toy-automata/narrative/part5.md)
+- [part6.md](../misc/platonic-ingress-toy-automata/narrative/part6.md)
+
 ## roadmap
 
 - [README.md](../roadmap/README.md)

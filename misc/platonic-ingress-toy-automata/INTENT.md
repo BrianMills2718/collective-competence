@@ -39,6 +39,13 @@ expires_at: "2026-09-17T00:00:00Z"
 > should not be treated as benchmark results, positive controls proposed and not
 > run. It is **design input, not evidence.**
 >
+> **Narrative copied in 2026-09-05.** The six documents this INTENT describes as
+> living *"outside this repo at /home/brian/code/algorithmic_ingress*.md"* existed
+> in exactly one place, untracked, on a directory that is not a repository. They
+> are now copied to [`narrative/`](narrative/README.md) — 5,496 lines, bytes
+> unmodified — so the disposition decision is not also a race against losing
+> them. Evidentiary status is unchanged: design input, not evidence.
+>
 > The open disposition question is therefore no longer "does this expire" but "is
 > this the capability axis the substrate should be built around" — see
 > [the substrate design discussion](../../wiki/substrate-design.md). Do not let
