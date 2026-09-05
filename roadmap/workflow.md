@@ -68,6 +68,8 @@ python3 scripts/sync_agent_context.py --check
 uv run --project goal-discovery python scripts/render_knowledge_index.py --check
 uv run --project goal-discovery python -m unittest scripts.test_documentation_tools
 python3 scripts/check_evidence_custody.py
+python3 scripts/render_status_page.py --write
+python3 scripts/render_status_page.py --check
 ```
 
 The last one is the evidence-custody guard, added 2026-09-05. It fails when a
@@ -80,6 +82,8 @@ contributing — a scan that finds nothing has reported that it is broken, not t
 custody is clean. `goal-discovery/tests/test_evidence_custody.py` runs it as part
 of the suite and includes the negative controls that prove each of those paths
 fires.
+
+`scripts/render_status_page.py` renders [the visual status page](../wiki/status.html) from committed result packages and the experiment register. It is generated for the same reason the scoreboard is: a hand-maintained status surface goes stale, and this repository already had three that must move in lockstep, two of which were stale when an outside reader looked. `--check` fails when the page and the evidence disagree, and the renderer refuses a live record with no `outcome_class`.
 
 These tiny adapters generate navigation from authored sources. They do not
 infer scientific outcomes, replace shared governance tooling, install hooks,

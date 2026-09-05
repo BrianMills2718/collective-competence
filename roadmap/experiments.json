@@ -94,7 +94,8 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "The suspicion that the headline statistic reads determinism rather than coordination was tested on the slot family and FAILED its own frozen gate: coordinated +6.3 null sd, deterministic-but-independent +1.7, independent draw ~0. It still holds unexplained on the commons, where an uncoordinated arm sits 5.4 null sd up."
+      "headline": "The suspicion that the headline statistic reads determinism rather than coordination was tested on the slot family and FAILED its own frozen gate: coordinated +6.3 null sd, deterministic-but-independent +1.7, independent draw ~0. It still holds unexplained on the commons, where an uncoordinated arm sits 5.4 null sd up.",
+      "outcome_class": "corrected"
     },
     {
       "id": "001",
@@ -907,7 +908,8 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "No causal emergence on either specimen: the coarse-grained description carries strictly LESS effective information than the micro one it was built from, in every non-degenerate arm. A later review found eight defects in this experiment's own code; every effective-information value survived, every empowerment value moved."
+      "headline": "No causal emergence on either specimen: the coarse-grained description carries strictly LESS effective information than the micro one it was built from, in every non-degenerate arm. A later review found eight defects in this experiment's own code; every effective-information value survived, every empowerment value moved.",
+      "outcome_class": "negative"
     },
     {
       "id": "Q1-008",
@@ -927,7 +929,8 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "The statistic's floor is its own finite-sample null, about 0.12 at this horizon and entity count — not any property of the substrate. This experiment then committed the same below-null gate error it was written to catch."
+      "headline": "The statistic's floor is its own finite-sample null, about 0.12 at this horizon and entity count — not any property of the substrate. This experiment then committed the same below-null gate error it was written to catch.",
+      "outcome_class": "corrected"
     },
     {
       "id": "Q1-007",
@@ -947,7 +950,8 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "The congestion explanation this experiment was built on is refuted: removing the coupling entirely RAISES the statistic instead of lowering it. Lane stopped."
+      "headline": "The congestion explanation this experiment was built on is refuted: removing the coupling entirely RAISES the statistic instead of lowering it. Lane stopped.",
+      "outcome_class": "corrected"
     },
     {
       "id": "Q1-006",
@@ -967,7 +971,8 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "Coordinated scored 0.284 against matched-random 0.108. The clause-2 gate was frozen at 0.10 — BELOW the statistic's own finite-sample null — so no independent process could ever have passed it, and the recorded failure measured an unachievable gate."
+      "headline": "Coordinated scored 0.284 against matched-random 0.108. The clause-2 gate was frozen at 0.10 — BELOW the statistic's own finite-sample null — so no independent process could ever have passed it, and the recorded failure measured an unachievable gate.",
+      "outcome_class": "corrected"
     },
     {
       "id": "Q1-005",
@@ -987,7 +992,8 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "The advantage over matched randomness is about 17% relative, not the total effect an earlier comparison implied: matched random reaches 0.375 against derived phase's 0.438. Most of the benefit is desynchronization, which randomness supplies free."
+      "headline": "The advantage over matched randomness is about 17% relative, not the total effect an earlier comparison implied: matched random reaches 0.375 against derived phase's 0.438. Most of the benefit is desynchronization, which randomness supplies free.",
+      "outcome_class": "narrowed"
     },
     {
       "id": "Q1-004",
@@ -1007,7 +1013,8 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "The instrument recovered an authored coordination on a second family it was not built for — a directional pass, carrying a caveat about the statistic it leans on."
+      "headline": "The instrument recovered an authored coordination on a second family it was not built for — a directional pass, carrying a caveat about the statistic it leans on.",
+      "outcome_class": "supported"
     },
     {
       "id": "C2-002",
@@ -1027,7 +1034,8 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "The derivation rule matters only through how many distinct phases it preserves, which is one line of algebra about gcd(a, P) rather than an empirical discovery."
+      "headline": "The derivation rule matters only through how many distinct phases it preserves, which is one line of algebra about gcd(a, P) rather than an empirical discovery.",
+      "outcome_class": "narrowed"
     },
     {
       "id": "C2-001",
@@ -1047,7 +1055,8 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "Environmental heterogeneity can substitute for designer-assigned identity: satisfaction rises 0.000 to 0.438 as need spread widens, tracking distinct phases 1.0 to 6.6. Both the derivation rule and the period, which equals the population size, are still authored."
+      "headline": "Environmental heterogeneity can substitute for designer-assigned identity: satisfaction rises 0.000 to 0.438 as need spread widens, tracking distinct phases 1.0 to 6.6. Both the derivation rule and the period, which equals the population size, are still authored.",
+      "outcome_class": "supported"
     },
     {
       "id": "C1-002",
@@ -1067,7 +1076,8 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "The same mechanism could not coordinate an indivisible slot at all. A shared scalar every subunit reads identically is common-mode by construction: it can gate a population together but never stagger it, so C1 is a price mechanism and needs a divisible good."
+      "headline": "The same mechanism could not coordinate an indivisible slot at all. A shared scalar every subunit reads identically is common-mode by construction: it can gate a population together but never stagger it, so C1 is a price mechanism and needs a divisible good.",
+      "outcome_class": "negative"
     },
     {
       "id": "Q1-003",
@@ -1087,7 +1097,8 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "A candidate family carrying a latent shared regressor closes the gap — but the record says plainly it does not qualify the instrument, because its author wrote it knowing the answer."
+      "headline": "A candidate family carrying a latent shared regressor closes the gap — but the record says plainly it does not qualify the instrument, because its author wrote it knowing the answer.",
+      "outcome_class": "negative"
     },
     {
       "id": "Q1-002",
@@ -1107,7 +1118,8 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "The gap is not how the cases are packaged; it is what the model family can say. Repackaging changes nothing."
+      "headline": "The gap is not how the cases are packaged; it is what the model family can say. Repackaging changes nothing.",
+      "outcome_class": "negative"
     },
     {
       "id": "Q1-001",
@@ -1127,7 +1139,8 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "Handed a matched pair differing only in whether a coordinating signal was present, the instrument returned the SAME disposition for both. The candidate family has no way to express dependence on a shared quantity, so coordination is unrepresentable rather than merely undetected."
+      "headline": "Handed a matched pair differing only in whether a coordinating signal was present, the instrument returned the SAME disposition for both. The candidate family has no way to express dependence on a shared quantity, so coordination is unrepresentable rather than merely undetected.",
+      "outcome_class": "negative"
     },
     {
       "id": "C1-001",
@@ -1147,7 +1160,8 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "A shared scarcity signal beat the best fixed threshold on a renewable commons, 1.000 against 0.500 over 8 seeds — but the pre-registered control was weaker than claimed, and the effect size was revised down in the record."
+      "headline": "A shared scarcity signal beat the best fixed threshold on a renewable commons, 1.000 against 0.500 over 8 seeds — but the pre-registered control was weaker than claimed, and the effect size was revised down in the record.",
+      "outcome_class": "supported"
     },
     {
       "id": "P15",
@@ -1167,7 +1181,8 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "The freeze/reveal/audit machinery works end to end, but the capability it was meant to reward does not exist: applying all four proposers to all four cases gives an empty off-diagonal, so proposal generality measured zero."
+      "headline": "The freeze/reveal/audit machinery works end to end, but the capability it was meant to reward does not exist: applying all four proposers to all four cases gives an empty off-diagonal, so proposal generality measured zero.",
+      "outcome_class": "narrowed"
     }
   ]
 }
