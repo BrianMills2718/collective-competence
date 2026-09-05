@@ -124,8 +124,10 @@ in its section 37 and the 2026-08-29 audit deferred. What *does* discriminate
 coordinated from uncoordinated, on both families, is effective information
 measured **against its own shuffle null**; raw EI ranks the arms wrongly, giving
 the uncoordinated arm the highest score of any. Two caveats own that reading: one
-gate passed against a degenerate control, and empowerment is unmeasured rather
-than zero.
+gate passed against a degenerate control, and the second measure, empowerment,
+turned out to be reading the wrong thing — its ordering tracks how often the
+channel sits idle, arm for arm, so what it measures is unused capacity available
+to a unilateral actor rather than anything like agency.
 
 **A term this programme had been using as a fact turned out to be a
 description.** Composition and coordination are separated by where the analyst

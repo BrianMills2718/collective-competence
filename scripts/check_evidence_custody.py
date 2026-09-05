@@ -105,6 +105,18 @@ def main() -> int:
         )
 
     tracked_count = len(citations) - len(known) - len(drifted)
+    if not citations:
+        # Family M: zero read as success. A repository whose documents are supposed
+        # to cite evidence, in which the scan finds no citation at all, has told us
+        # the scan is broken -- a renamed lab directory, a changed file extension, a
+        # regex that stopped matching -- not that custody is clean. Green here would
+        # be the guard reporting on nothing.
+        print(
+            "FAIL: no result-package citations found in any tracked document or "
+            "module. That is a broken scan, not a clean repository: check LAB, the "
+            "file extensions scanned, and the CITATION pattern."
+        )
+        return 1
     if drifted:
         print(
             f"\nFAIL: {len(drifted)} cited result package(s) drifted out of Git "

@@ -2,8 +2,10 @@
 
 Exists because the result records did not survive contact with a reader. Three
 prose explanations of the same findings failed in a row; the thing that landed was
-a picture of the actual system with the actual numbers on it. Regenerate with:
+a picture of the actual system with the actual numbers on it. Regenerate from the `goal-discovery/` directory, not the repository root -- the
+package root is there and the output path is relative to it:
 
+    cd goal-discovery
     uv run --extra visual-workbench python -m src.experiments.q1_information.figure
 
 Every value is computed at render time from the specimen and from

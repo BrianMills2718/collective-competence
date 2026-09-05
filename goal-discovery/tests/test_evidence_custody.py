@@ -82,3 +82,30 @@ def test_nothing_cited_is_actually_lost():
     lost = {k: v for k, v in packages.items() if v["status"] == "absent_everywhere"}
     assert not lost, f"evidence recorded as lost: {sorted(lost)}"
     assert all(v["status"] == "command_output_path" for v in packages.values()), packages
+
+
+def test_a_scan_that_finds_no_citations_at_all_is_a_failure_not_a_pass():
+    """Family M: zero read as success. Found by auditing this guard, 2026-09-05.
+
+    The guard printed `PASS: 0 cited result packages tracked ... 0 new drift` and
+    exited 0 on a repository containing no documents. A repository whose records
+    are supposed to cite evidence, in which the scan finds no citation at all, has
+    told us the scan is broken -- a renamed lab directory, a changed file
+    extension, a regex that stopped matching -- not that custody is clean.
+    """
+    with tempfile.TemporaryDirectory() as tmp:
+        empty = Path(tmp) / "repo"
+        (empty / "scripts").mkdir(parents=True)
+        (empty / "goal-discovery" / "results").mkdir(parents=True)
+        (empty / "scripts" / "evidence_custody_baseline.json").write_text('{"packages": {}}')
+        (empty / "notes.md").write_text("a document that cites no result package\n")
+        subprocess.run(["git", "init", "--quiet"], cwd=empty, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=empty, check=True, capture_output=True)
+        subprocess.run(
+            ["git", "-c", "user.email=t@t", "-c", "user.name=t",
+             "commit", "--quiet", "-m", "fixture"],
+            cwd=empty, check=True, capture_output=True,
+        )
+        r = _run(empty)
+        assert r.returncode == 1, f"a scan that found nothing reported success:\n{r.stdout}"
+        assert "broken scan" in r.stdout
