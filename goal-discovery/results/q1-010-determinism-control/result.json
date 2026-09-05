@@ -1,0 +1,73 @@
+{
+  "admissible_seeds": 1593,
+  "arms": {
+    "derived_phase": {
+      "above_null_in_null_sd": 6.322606659546394,
+      "ei_micro": 0.3502094619840084,
+      "ei_micro_above_null": 0.17362350846115596,
+      "mean_duty_cycle": 0.08653797865662273,
+      "mean_satisfaction": 0.3929064657878218,
+      "micro_rows_seen": 30,
+      "null_ei_micro_mean": 0.17658595352285242,
+      "null_ei_micro_sd": 0.02746074804432201,
+      "sd_satisfaction": 0.1627145724113286,
+      "transitions": 189567,
+      "transitions_per_seen_row": 6318.9
+    },
+    "private_period": {
+      "above_null_in_null_sd": 1.653375100868,
+      "ei_micro": 0.23733412991020517,
+      "ei_micro_above_null": 0.06696619355403668,
+      "mean_duty_cycle": 0.09019041640510568,
+      "mean_satisfaction": 0.28631512868801007,
+      "micro_rows_seen": 32,
+      "null_ei_micro_mean": 0.17036793635616848,
+      "null_ei_micro_sd": 0.040502722896262514,
+      "sd_satisfaction": 0.1366819424626051,
+      "transitions": 189567,
+      "transitions_per_seen_row": 5923.96875
+    },
+    "private_period_primes": {
+      "above_null_in_null_sd": -1.749738946534363,
+      "ei_micro": 0.11271862308425454,
+      "ei_micro_above_null": -0.15527370989445125,
+      "mean_duty_cycle": 0.057829566854990584,
+      "mean_satisfaction": 0.16522284996861272,
+      "micro_rows_seen": 32,
+      "null_ei_micro_mean": 0.2679923329787058,
+      "null_ei_micro_sd": 0.08874107203362856,
+      "sd_satisfaction": 0.09717539021005057,
+      "transitions": 189567,
+      "transitions_per_seen_row": 5923.96875
+    }
+  },
+  "disposition": "statistic separates shared-period coordination here; critique narrows to the commons",
+  "excluded_seeds": [
+    557,
+    772,
+    818,
+    1004,
+    1075,
+    1119,
+    1287
+  ],
+  "frozen_gates": {
+    "G_A_min_above_null": 0.1217,
+    "G_B_max_relative_satisfaction": 0.8
+  },
+  "gates": {
+    "G_A_statistic_reports_structure": {
+      "pass": false,
+      "required": 0.1217,
+      "value": 0.06696619355403668
+    },
+    "G_B_coordination_performance_absent": {
+      "pass": true,
+      "required_at_most": 0.8,
+      "value": 0.7287106566544176
+    }
+  },
+  "null_replicates": 8,
+  "observed_units": 5,
+  "seed_pool": 1600
+}
