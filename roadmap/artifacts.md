@@ -336,6 +336,7 @@ becoming current instructions.
 
 ## wiki
 
+- [archive-index.md](../wiki/archive-index.md)
 - [competence-thesis.md](../wiki/competence-thesis.md)
 - [conjectures.md](../wiki/conjectures.md)
 - [cross-repo-timeline.md](../wiki/cross-repo-timeline.md)

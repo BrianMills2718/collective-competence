@@ -57,7 +57,12 @@ referencing the current owner and evidence. The log replaces stale narrative
 snapshots, not native protocols or observations. Superseded authored material
 moves outside active search only through the shared manifest, semantic preflight,
 stable repository identity, and recovery-log procedure; never create another
-project-local archive directory.
+project-local archive directory. Archiving here is **deletion plus a row in**
+[**the archive recovery index**](../wiki/archive-index.md): Git is the recovery
+route, and `scripts/check_archive_index.py` verifies every entry is genuinely
+recoverable and genuinely gone from the tree. Evidence — preregistrations,
+results, packages, briefs, historic audits — is preserved by rule and is never
+an archive candidate.
 
 Run from this checkout:
 
@@ -70,6 +75,7 @@ uv run --project goal-discovery python -m unittest scripts.test_documentation_to
 python3 scripts/check_evidence_custody.py
 python3 scripts/render_status_page.py --write
 python3 scripts/render_status_page.py --check
+python3 scripts/check_archive_index.py
 ```
 
 The last one is the evidence-custody guard, added 2026-09-05. It fails when a

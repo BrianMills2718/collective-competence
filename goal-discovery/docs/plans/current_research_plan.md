@@ -267,9 +267,12 @@ Ignored virtual environments and caches are reproducible local support. Ignored
 result packages may contain scientific evidence, while `.company-planning/`
 receipts preserve local execution history. None is a tracked change; do not use
 a broad `git clean` operation. The three superseded pre-consolidation snapshots
-are excluded from active navigation but remain physically present until the
-shared archive system can perform the registered, logged move. Do not manually
-move or delete them.
+were **archived on 2026-09-05** and are recorded in
+[the archive recovery index](../../../wiki/archive-index.md), recoverable with
+`git show`. This paragraph previously said they must remain physically present
+"until the shared archive system can perform the registered, logged move" — no
+such mover exists in `project-meta/scripts` or `enforced-planning/scripts`, and
+the shared policy asks for an index and a recovery route rather than a move.
 
 ## Evidence ladder that leads to this frontier
 
