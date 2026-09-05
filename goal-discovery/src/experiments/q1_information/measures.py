@@ -57,7 +57,7 @@ import numpy as np
 LOG2 = np.log(2.0)
 
 
-def _safe_row_normalise(counts: np.ndarray) -> np.ndarray:
+def _safe_row_normalise(counts: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
     totals = counts.sum(axis=1, keepdims=True)
     out = np.zeros_like(counts, dtype=float)
     seen = totals[:, 0] > 0
@@ -65,7 +65,8 @@ def _safe_row_normalise(counts: np.ndarray) -> np.ndarray:
     return out, seen
 
 
-def effective_information(tpm: np.ndarray, *, rows_seen: np.ndarray | None = None) -> float:
+def effective_information(tpm: np.ndarray, *, rows_seen: np.ndarray | None = None,
+                          _allow_unvisited: bool = False) -> float:
     """EI in bits under a uniform intervention on the earlier state.
 
     `rows_seen` restricts the intervention distribution to states the estimate
@@ -75,6 +76,15 @@ def effective_information(tpm: np.ndarray, *, rows_seen: np.ndarray | None = Non
     """
     tpm = np.asarray(tpm, dtype=float)
     if rows_seen is None:
+        # An all-zero row in an ESTIMATED tpm is an unvisited state, not a state
+        # with no successors. Averaging it into pbar and scoring it 0 returns a
+        # quietly wrong number, so refuse rather than answer.
+        empty = ~(tpm > 0).any(axis=1)
+        if empty.any() and not _allow_unvisited:
+            raise ValueError(
+                f"rows {np.flatnonzero(empty).tolist()} have no outgoing mass; pass "
+                "rows_seen to exclude unvisited states rather than scoring them as 0"
+            )
         rows_seen = np.ones(tpm.shape[0], dtype=bool)
     rows = tpm[rows_seen]
     if rows.shape[0] == 0:
@@ -125,6 +135,16 @@ def tpm_from_transitions(pairs: np.ndarray, n_states: int) -> tuple[np.ndarray, 
 def blahut_arimoto(channel: np.ndarray, *, tol: float = 1e-10, max_iter: int = 5000) -> float:
     """Channel capacity in bits for p(o|a) given as rows indexed by action."""
     channel = np.asarray(channel, dtype=float)
+    usable = (channel > 0).any(axis=1)
+    if not usable.all():
+        # An all-zero row is an input that was never observed. Left in, its
+        # unnormalised weight is exp(0) = 1 -- the maximum -- so a never-used action
+        # dominates the capacity-achieving distribution and the result can exceed
+        # the true capacity over the usable inputs.
+        raise ValueError(
+            f"channel rows {np.flatnonzero(~usable).tolist()} have no observations; "
+            "drop unobserved inputs before taking capacity"
+        )
     n_in = channel.shape[0]
     r = np.full(n_in, 1.0 / n_in)
     for _ in range(max_iter):
@@ -135,8 +155,8 @@ def blahut_arimoto(channel: np.ndarray, *, tol: float = 1e-10, max_iter: int = 5
             logs = np.where((channel > 0) & (q > 0), channel * np.log(np.where(q > 0, q, 1.0)), 0.0)
         r_new = np.exp(logs.sum(axis=1))
         total = r_new.sum()
-        if total <= 0:
-            return 0.0
+        if total <= 0:  # unreachable given the usable-row guard; fail loud, do not fake a capacity
+            raise ValueError("Blahut-Arimoto lost all input mass; channel is degenerate")
         r_new /= total
         if np.max(np.abs(r_new - r)) < tol:
             r = r_new

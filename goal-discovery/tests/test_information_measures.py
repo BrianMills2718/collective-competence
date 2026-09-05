@@ -175,3 +175,30 @@ def test_finite_sample_effective_information_is_biased_upward(n_pairs, at_least,
     tpm, seen, _ = tpm_from_transitions(pairs, n_states)
     estimated = effective_information(tpm, rows_seen=seen)
     assert at_least <= estimated <= at_most, (n_pairs, estimated)
+
+
+def test_capacity_refuses_a_channel_with_an_unobserved_input():
+    """An all-zero row used to inflate capacity above its true value.
+
+    Left in, an unobserved input's unnormalised weight is exp(0) = 1 -- the
+    maximum -- so it dominates the capacity-achieving distribution. Measured
+    before the guard: [[1,0],[0,1],[0,0]] returned 1.0566 bits against a true
+    capacity of log2(2) = 1.0 over the two usable inputs.
+    """
+    with pytest.raises(ValueError, match="no observations"):
+        blahut_arimoto(np.array([[1.0, 0.0], [0.0, 1.0], [0.0, 0.0]]))
+    assert blahut_arimoto(np.array([[1.0, 0.0], [0.0, 1.0]])) == pytest.approx(1.0)
+
+
+def test_effective_information_refuses_an_unvisited_row_rather_than_scoring_it_zero():
+    """In an estimated TPM an all-zero row is an unvisited state, not a dead end.
+
+    Averaging it into pbar and scoring it 0 returns a quietly wrong number.
+    Measured before the guard: a 3-state TPM whose state 2 was never visited
+    returned 1.0566 instead of the correct 1.0.
+    """
+    tpm = np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 0.0]])
+    with pytest.raises(ValueError, match="no outgoing mass"):
+        effective_information(tpm)
+    seen = np.array([True, True, False])
+    assert effective_information(tpm, rows_seen=seen) == pytest.approx(1.0)

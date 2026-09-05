@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail when a tracked document cites a result package Git does not carry.
+"""Fail when tracked documents or code reference a result package Git does not carry.
 
 Why this exists. `goal-discovery/.gitignore` protects evidence with an
 ignore-everything-plus-negation allowlist. That list encodes the packages that
@@ -56,11 +56,20 @@ def main() -> int:
         p.split("/")[2] for p in tracked if p.startswith(f"{LAB}/results/") and p.count("/") > 2
     }
 
+    # Documents AND code. Scanning documents alone left results/p7-002-network-feasibility
+    # untracked: no document cited it, but tests/test_prospective_network_selector.py
+    # depends on it and skipped itself when it was absent -- the same silent-skip failure
+    # this guard exists to prevent, in the half the guard was not looking at.
+    # This file and its test both contain example package names as string literals
+    # -- the negative control builds a synthetic repository out of them -- so a
+    # scanner that reads itself reports its own examples as missing evidence.
+    skip = {"scripts/check_evidence_custody.py", f"{LAB}/tests/test_evidence_custody.py"}
+
     citations: dict[str, set[str]] = {}
-    for doc in sorted(p for p in tracked if p.endswith(".md")):
+    for doc in sorted(p for p in tracked if p.endswith((".md", ".py")) and p not in skip):
         text = (root / doc).read_text(encoding="utf-8", errors="replace")
         for pkg in CITATION.findall(text):
-            if pkg in {"README.md", "LATEST", ".gitkeep"}:
+            if not pkg or pkg in {"README.md", "LATEST", ".gitkeep"}:
                 continue
             citations.setdefault(pkg, set()).add(doc)
 

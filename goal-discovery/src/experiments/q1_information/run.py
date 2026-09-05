@@ -17,7 +17,7 @@ from src.experiments.q1_information.traces import (
     action_trace as slot_trace,
 )
 from src.experiments.q1_information.traces import (
-    forced_action_outcome,
+    forced_action_outcome_pair,
     shuffle_null,
 )
 
@@ -51,21 +51,32 @@ def ei_block(traces: list[np.ndarray], rng: np.random.Generator) -> dict:
 
 
 def empowerment(kind: str, cfg, arm: str) -> dict:
-    rng = np.random.default_rng(hash((kind, arm)) % (2**32))
+    # Not hash(): Python salts it per process, so the original seeding made every
+    # empowerment number unreproducible across runs. SeedSequence over the bytes
+    # is stable.
+    rng = np.random.default_rng(
+        np.random.SeedSequence(list(f"{kind}/{arm}".encode()))
+    )
     counts = np.zeros((2, EMP_BUCKETS))
+    inadmissible = 0
     n_units = cfg.n_subunits
     for seed in range(EMP_SEEDS):
         for _ in range(EMP_SAMPLES):
             unit = int(rng.integers(n_units))
             tick = int(rng.integers(0, cfg.horizon - EMP_AHEAD - 1))
             if kind == "slot":
-                buckets = []
-                for forced in (True, False):
-                    rem = forced_action_outcome(cfg, seed, arm, unit, tick, forced, EMP_AHEAD)
-                    buckets.append(rem)
-                scale = max(max(buckets), 1e-12)
-                on, off = (min(EMP_BUCKETS - 1, int(b / (scale + 1e-12) * EMP_BUCKETS))
-                           for b in buckets)
+                # Bucket against the unit's OWN need, absolutely. The original code
+                # divided by the larger of the counterfactual pair, which made the
+                # code for do(act) depend on what happened under do(not act) and
+                # forced the larger outcome into the top bucket every time -- p(middle
+                # bucket | do not act) was structurally 0.000 in all three arms. It
+                # also put the slot on a different scale from the commons, so the two
+                # could not be compared. Same absolute rule as commons.empowerment_channel.
+                pair = forced_action_outcome_pair(cfg, seed, arm, unit, tick, EMP_AHEAD)
+                if pair is None:
+                    inadmissible += 1
+                    continue
+                on, off = pair
             else:
                 on, off = cm.empowerment_channel(cfg, seed, arm, unit, tick,
                                                  EMP_AHEAD, EMP_BUCKETS)
@@ -75,7 +86,8 @@ def empowerment(kind: str, cfg, arm: str) -> dict:
     channel = np.divide(counts, totals, out=np.zeros_like(counts), where=totals > 0)
     return {"capacity_bits": blahut_arimoto(channel),
             "channel": channel.tolist(),
-            "samples": int(counts.sum())}
+            "samples": int(counts.sum()),
+            "inadmissible_samples": int(inadmissible)}
 
 
 def main() -> int:

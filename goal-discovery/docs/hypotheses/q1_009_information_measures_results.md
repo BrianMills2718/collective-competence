@@ -9,17 +9,35 @@ lifecycle: completed
 [Ontology](../../../wiki/ontology.md#what-this-vocabulary-makes-decidable-and-what-it-does-not) ·
 [Result package](../../results/q1-009-information/)
 
+> **Corrected 2026-09-05, after a code review of this experiment's own
+> implementation.** Eight defects were found and confirmed by execution. Two were
+> serious: the empowerment sampler was seeded from Python's `hash()`, which is
+> salted per process, so **every empowerment number below was unreproducible and
+> this record's original provenance section wrongly claimed otherwise**; and the
+> slot outcome coding divided by the larger of the counterfactual pair, which
+> coupled the two arms of the intervention and put the slot on a different scale
+> from the commons, making the comparison scored as "prediction 3 wrong"
+> meaningless. Two further defects forced interventions outside the system's own
+> action space. The measures were rerun on corrected code.
+>
+> **Every effective-information number is unchanged**, to three decimals, on both
+> specimens — the defects were confined to the empowerment path. **The empowerment
+> numbers all changed and G3 now passes**, which means its ordering must be read
+> rather than withheld. The affected sections below are marked and rewritten; the
+> original values are retained in the correction section at the foot rather than
+> overwritten.
+
 ## Decision
 
-**G1 pass, G2 pass but hollow, G3 fail. Two of four predictions wrong, one not
-assessable.** The frozen gates are reported as frozen; the reading below is
+**G1 pass, G2 pass but hollow, G3 pass on corrected code. Three of four
+predictions wrong.** The frozen gates are reported as frozen; the reading below is
 narrower than they are, and the narrowing is mine, not a later experiment's.
 
 | Gate | Value | Min | Frozen verdict |
 |---|---|---|---|
 | G1 — commons `live` above its shuffle null | **+0.589 bits** | 0.10 | **pass** |
 | G2 — commons `live` minus `none` | **+0.589 bits** | 0.05 | **pass, and see below** |
-| G3 — empowerment spread across slot arms | **+0.028 bits** | 0.05 | **fail** |
+| G3 — empowerment spread across slot arms | **+0.053 bits** | 0.05 | **pass** *(corrected; was +0.028 fail on defective code)* |
 
 ## G2 passed against a degenerate control, and that is my error
 
@@ -106,39 +124,50 @@ partition could behave differently, and this run does not search over partitions
 Per the frozen disposition table, the coarse-graining is **not** retuned to find
 emergence.
 
-## Empowerment failed its validity gate, and the diagnosis is my estimator
+## Empowerment: the gate passes on corrected code, and the measure is reading idleness
 
-Per the frozen table, a spread below 0.05 bits means no ordering is read. The
-spread was 0.028, so the ordering is not read — which matters, because the
-measured ordering contradicts my prediction and it would have been tempting.
+The original run reported a spread of 0.028 bits and failed G3, and this record
+diagnosed that as a resolution limit. **That diagnosis was wrong**, and it was
+derived from the commons channel while being stated about the slot. On corrected
+code the spread is **0.053 bits and G3 passes**, so the frozen protocol requires
+the ordering to be read.
 
-The channels say why:
+| arm | empowerment (bits) | channel idle | before correction |
+|---|---|---|---|
+| slot `constant_phase` | **0.0605** | 90.0% | 0.0659 |
+| slot `derived_phase` | **0.0123** | 49.2% | 0.0472 |
+| slot `random_attempt` | **0.0074** | 41.0% | 0.0379 |
+| commons, all three arms | **0.0000–0.0002** | — | unchanged |
 
-| arm | p(outcome \| do act) | p(outcome \| do not act) |
-|---|---|---|
-| commons `live` | 0.425, 0.327, 0.247 | 0.413, 0.329, 0.259 |
-| commons `frozen` | 0.003, 0.021, 0.976 | 0.003, 0.021, 0.977 |
+**The ordering tracks idle capacity exactly, arm for arm.** That is the most
+important thing in this section and it is a caveat, not a result: what this
+operationalization measures is **how much unused capacity a unilateral actor can
+capture**, not how much control a subunit has. `constant_phase` leaves the channel
+empty on 90% of ticks because every subunit shares one phase and they act
+together or not at all, so a forced action almost always lands in an empty slot
+and takes the full gain. The measure is picking up slack.
 
-Forcing the action changes the outcome distribution by about one percent. **The
-intervention is smaller than the measurement can resolve**: one forced tick out
-of 120, moving a subunit's own remaining need by at most `draw_cap`/`quota` =
-1.5/80 ≈ 1.9%, read through three buckets.
+So the apparent divergence between the two measures — effective information ranks
+`derived_phase` first, empowerment ranks `constant_phase` first — should **not** be
+read as the founding spec's "causal emergence and agency systematically diverge."
+It is more plausibly read as: this empowerment estimator is not yet measuring
+agency on this family. Distinguishing the two would need an operationalization
+that is not confounded with idleness, and that has not been designed.
 
-So this run **does not establish that empowerment is inapplicable to this
-family**. It establishes that this operationalization has no dynamic range on it.
-The check that separates the two is cheap and is not run here: force the action
-over a **contiguous block of ticks** rather than one, and bucket the outcome at a
-resolution finer than the intervention's maximum effect. Until that is done,
-empowerment is **unmeasured**, not zero.
+**The commons remains at essentially zero**, and now the comparison with the slot
+is legitimate, since both use the same absolute bucketing against the subunit's
+own need. A single forced draw moves a subunit's remaining need by at most
+`draw_cap`/`quota` = 1.5/80 ≈ 1.9%, which three buckets cannot resolve. The
+resolution diagnosis was wrong about the slot and remains right about the commons.
 
 ## Predictions, scored
 
 | # | Prediction | Outcome |
 |---|---|---|
 | 1 | commons: `live` largest above null, `frozen` and `none` lower | **held** — +0.589, +0.198, +0.000 |
-| 2 | slot empowerment `derived_phase` > `random_attempt` > `constant_phase` | **wrong**, and not read: gate failed, and the measured order was `constant_phase` > `derived_phase` > `random_attempt` |
-| 3 | empowerment higher on commons than slot | **wrong** — commons is 0.0000–0.0002 bits, effectively nothing, for the resolution reason above |
-| 4 | the two measures agree in ordering on the slot arms | **not assessable** — G3 failed, so empowerment's ordering is not read |
+| 2 | slot empowerment `derived_phase` > `random_attempt` > `constant_phase` | **wrong**, and now it counts: G3 passes, so the ordering is read. Measured `constant_phase` > `derived_phase` > `random_attempt` |
+| 3 | empowerment higher on commons than slot | **wrong**, and now legitimately so — both families use the same absolute coding on corrected code |
+| 4 | the two measures agree in ordering on the slot arms | **wrong** — they disagree. But see above: the empowerment ordering tracks idle capacity, so this is weak evidence for divergence and better evidence that the estimator is confounded |
 
 One of four held. The one that held is the one the experiment was gated on, and
 its gate was the weak one.
@@ -164,3 +193,33 @@ every arm and seed, and the commons intervention against the substrate loop it
 mirrors. The degeneracy diagnostic ran after the frozen gates were evaluated,
 over the same configuration; it opened no new outcome and changed no frozen
 number.
+
+---
+
+## Correction of 2026-09-05: what the defects were and what they changed
+
+Found by a code review of this experiment's implementation, each confirmed by
+running the code rather than reading it.
+
+| # | Defect | Effect on this record |
+|---|---|---|
+| 1 | Empowerment sampler seeded from `hash()`, salted per process (three runs gave 1587520858, 2185188335, 141428917) | **Every empowerment number was unreproducible.** This record's provenance section claimed the opposite. |
+| 2 | Slot outcome bucketed against the larger of the counterfactual pair | Coupled the two arms; forced `p(middle bucket \| do not act) = 0.000` structurally in all three arms; put slot and commons on different scales, voiding the prediction-3 comparison |
+| 3 | Forced commons draw used the full `draw_cap`, exceeding what the subunit could legally take on ~11% of interventions; the excess depleted the shared stock and raised the signal for everyone | Intervention was neither minimal nor inside the action space |
+| 4 | Forced a subunit to act when its need was already met, which the arm rules forbid; not a no-op, since an extra actor lowers everyone's gain | 127 of 800 sampled interventions on one arm were inert and diluted the channel |
+| 5 | `blahut_arimoto` gave an unobserved input the maximum weight, returning 1.0566 bits where true capacity was 1.0 | Not triggered by these callers; a live defect in the shared instrument |
+| 6 | `effective_information` scored unvisited rows as zero instead of refusing | Not triggered by these callers; same class |
+| 7–8 | A wrong type annotation, and a docstring overstating the arm-equivalence check's seed coverage (8 of 1600) | Claim fidelity |
+
+**Original empowerment values, retained:** slot `derived_phase` 0.0472,
+`constant_phase` 0.0659, `random_attempt` 0.0379; G3 spread 0.028, recorded as a
+fail. **Every effective-information and emergence value in this record is
+unchanged by the correction**, which is the evidence that the defects were
+confined to the empowerment path.
+
+Each of the eight now has a regression test. **None of them was caught by the
+tests written alongside the original code**, which asserted analytic fixed points
+for the measures and equivalence for the arms — the things their author had
+already thought about. That is the more durable finding here, and it is the same
+shape as this repository's standing problem with controls: a check written by the
+person who wrote the code tests the failures they anticipated.

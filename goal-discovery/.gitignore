@@ -111,6 +111,10 @@ results/*
 !results/p6-001-neuromast-causal-calibration/**
 !results/p7-001-representation-tournament/
 !results/p7-001-representation-tournament/**
+# A test depends on this one although no document cites it -- the custody guard
+# originally scanned documents only, which is how it stayed untracked.
+!results/p7-002-network-feasibility/
+!results/p7-002-network-feasibility/**
 !results/p7-002-network-level2/
 !results/p7-002-network-level2/**
 !results/p7-003-selector-complexity-audit/

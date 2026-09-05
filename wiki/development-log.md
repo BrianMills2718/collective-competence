@@ -29,6 +29,65 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — a review of Q1-009 found eight defects in its own implementation
+
+**Changed:** [Q1-009](../goal-discovery/docs/hypotheses/q1_009_information_measures_results.md)
+was rerun on corrected code and its result record now carries a correction
+section. A code review of the experiment's implementation found eight defects,
+each confirmed by execution rather than by reading.
+
+- **Two were serious.** The empowerment sampler was seeded from Python's
+  `hash()`, which is salted per process — three runs gave 1587520858,
+  2185188335, 141428917 — so **every empowerment number was unreproducible while
+  the record's provenance section claimed the opposite**. And the slot outcome
+  coding divided by the larger of the counterfactual pair, which made the code
+  for `do(act)` depend on what happened under `do(not act)`, forced
+  `p(middle bucket | do not act)` to exactly 0.000 in all three arms, and put the
+  slot on a different scale from the commons — voiding the comparison the record
+  had scored as a failed prediction.
+- **Two forced interventions outside the system's own action space:** a commons
+  draw at the full cap when the subunit could legally take less, with the excess
+  depleting the shared stock and raising the signal for everyone; and forcing a
+  subunit to act after its need was met, which is not a no-op because an extra
+  actor lowers every other unit's gain.
+- **Two were in the shared instrument.** `blahut_arimoto` gave a never-observed
+  input the maximum weight and returned 1.0566 bits where the true capacity was
+  1.0; `effective_information` scored unvisited rows as zero instead of refusing.
+  Neither was triggered by these callers. Both now refuse.
+
+**Every effective-information and emergence value is unchanged**, which is the
+evidence that the defects were confined to the empowerment path. **The
+empowerment numbers all changed and G3 now passes** (+0.053 against a frozen
+0.05, where the defective code read +0.028 and failed), so the frozen protocol
+requires its ordering to be read rather than withheld. Read, it says something
+sharper than the original "unmeasured": the ordering tracks channel idle fraction
+exactly, arm for arm — `constant_phase` 0.0605 at 90.0% idle, `derived_phase`
+0.0123 at 49.2%, `random_attempt` 0.0074 at 41.0%. **What the estimator measures
+is unused capacity available to a unilateral actor, not agency**, so the
+disagreement with effective information is weak evidence for the founding spec's
+"systematically diverge" and better evidence that the estimator is confounded.
+
+**A ninth defect surfaced while fixing the others**, in
+[the custody guard](../scripts/check_evidence_custody.py) added earlier the same
+day: it scanned documents only. `results/p7-002-network-feasibility` is cited by
+no document but depended on by `tests/test_prospective_network_selector.py`,
+which had been skipping itself — the same silent-skip failure the guard exists to
+prevent, in the half it was not looking at. The guard now reads code as well as
+documents, and excludes itself and its own test, whose example package names it
+otherwise reported as missing evidence.
+
+**Why this entry exists rather than a quiet rewrite:** the record claimed
+reproducibility it did not have. Correcting that in place, with the original
+values retained, is what this repository's rule against revising historical
+outcomes requires.
+
+**Does not establish:** no scientific conclusion changed. There is still no
+causal emergence on either specimen, C1 and C2 are unchanged, and clause 2 of the
+completion condition is still neither met nor failed. **None of the eight defects
+was caught by the tests written alongside the original code** — those asserted
+analytic fixed points and arm equivalence, the failures their author had already
+imagined. Each now has a regression test.
+
 ## 2026-09-05 — an outside assessment, written down
 
 **Changed:** added

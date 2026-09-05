@@ -62,7 +62,12 @@ def forced_run(specimen, cfg, seed: int, *, unit: int | None = None,
         attempted = specimen.decide(state, cfg)
         if unit is not None and t == tick:
             attempted = attempted.copy()
-            attempted[unit] = cfg.draw_cap if forced else 0.0
+            # The specimen's own decide() caps a draw at min(draw_cap, remaining).
+            # Forcing the full cap asked ~11% of interventions to draw more than the
+            # unit could legally take, and the excess depleted the shared stock and
+            # raised the signal for everyone else -- neither minimal nor inside the
+            # system's action space.
+            attempted[unit] = min(cfg.draw_cap, float(state.remaining[unit])) if forced else 0.0
         gained = specimen.allocate(state, attempted, cfg)
         state.obtained = state.obtained + gained
         specimen.update_signal(state, attempted, cfg)

@@ -1,0 +1,18 @@
+{
+  "arms": {
+    "baseline": "p7-002-feasibility-baseline",
+    "degree": "p7-002-feasibility-degree",
+    "random": "p7-002-feasibility-random"
+  },
+  "behaviorspace_setup": "src/experiments/prospective_network_selector/feasibility.xml",
+  "behaviorspace_setup_sha256": "baeb0f491aba627132704517748e35da03fb2e1e942a51c4bf497e03326868ba",
+  "evidence_level": 0,
+  "experiment_id": "P7-002-feasibility",
+  "netlogo_version": "7.0.4",
+  "note": "Level 0 feasibility only; settings may change before Level 2 freeze.",
+  "protocol": "docs/hypotheses/p7_002_prospective_network_selector.md",
+  "protocol_sha256": "84652728156b90a42512df579b6a579033db959484b2a7c9a7f002083b3a9e21",
+  "source_model": "/mnt/c/Program Files/NetLogo 7.0.4/models/Sample Models/Networks/Virus on a Network.nlogox",
+  "source_model_modified": false,
+  "source_model_sha256": "3ebb041175d22c6a1b32279dc25af14b4f76c06f2eb18e62539ca84f1f8dd5d1"
+}
