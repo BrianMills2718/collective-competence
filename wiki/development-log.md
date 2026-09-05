@@ -29,6 +29,50 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — a challenge to the strongest current result, and its falsification
+
+**Changed:** a new audit and one new experiment. The
+[prose-vs-code audit](../goal-discovery/docs/audits/2026-09-05b_prose_vs_code_audit.md)
+asks a question the [first 2026-09-05 assessment](../goal-discovery/docs/audits/2026-09-05_external_assessment.md)
+did not — does the code do what the prose beside it claims — and records five
+findings, none of which any green check can detect. `pytest`, `ruff`,
+`check_evidence_custody.py` and `sync_agent_context.py --check` were all green at
+`28fa0c0` while every one of them was true.
+
+**The sharpest finding was tested and largely failed.** The audit argued that
+effective information above its own shuffle null reads *determinism* rather than
+coordination — Q1-009's own table has commons `frozen`, which coordinates
+nothing, 5.4 null standard deviations above its null, and `constant_phase`, the
+most synchronised arm measured, *below* its null — and advised holding the queued
+Q1-006 re-run. [Q1-010](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md)
+built the deterministic-independent arm the slot family lacked, froze two gates
+against a null committed beforehand, recorded the analyst's prediction, and
+**falsified it**: on Q1-006's own family the statistic separates coordination
+(+6.3 null sd) from a deterministic population that lost its shared period (+1.7
+sd, under the frozen bar) from an independent draw (~0). The re-run stands and
+the advice against it is withdrawn.
+
+**What the challenge left standing** is now debt 4 in the
+[current plan](../goal-discovery/docs/plans/current_research_plan.md): the
+deterministic-independent arm still reaches 39% of the coordinated effect, so the
+response is graded rather than binary; the commons was not re-run, so Q1-009's
+"on two families" clause remains unsupported there; and two deterministic arms
+score below their own nulls, so the response is non-monotonic and
+uncharacterised.
+
+**Two findings are about the check surface itself.** The suite **cannot be
+collected on a clean checkout** — two modules import an optional extra
+unconditionally, so `make sync && make test` gives two collection errors and zero
+tests where the authoring machine gives 467 passed. And the `results/*`
+ignore-plus-allowlist that hid the evidence base is unrepaired: the first
+assessment committed the packages that existed but left the mechanism, which
+silently caught Q1-010's package as the next new experiment.
+
+**What this does not establish.** Q1-010 is one family, one coarse-graining, not
+a clause-2 test, and nothing in it was blind. The audit is a judgement and
+licenses no work. Findings 1, 2, 4 and 5 are open and carry recommended
+dispositions, not decisions.
+
 ## 2026-09-05 — handoff state, and what a fresh reader should not have to reconstruct
 
 **Changed:** the [current plan](../goal-discovery/docs/plans/current_research_plan.md)
