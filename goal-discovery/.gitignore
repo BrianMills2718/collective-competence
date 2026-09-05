@@ -63,6 +63,8 @@ results/*
 !results/q1-008-null-coupling/
 !results/q1-009-information/
 !results/q1-009-information/**
+!results/q1-010-determinism-control/
+!results/q1-010-determinism-control/**
 
 # 2026-09-05: the remaining cited-but-untracked packages, committed.
 # 221MB, largest single file 23MB. These are cited as evidence by tracked

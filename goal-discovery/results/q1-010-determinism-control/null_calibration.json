@@ -1,0 +1,165 @@
+{
+  "admissible_seeds": 1593,
+  "arms": {
+    "derived_phase": {
+      "shuffle_null": {
+        "null_ei_micro_mean": 0.16853326370084581,
+        "null_ei_micro_replicates": [
+          0.1433980816746869,
+          0.14324032709354417,
+          0.16557984216082713,
+          0.25619605508728566,
+          0.18402817907399704,
+          0.17779790916074784,
+          0.141379916773356,
+          0.1366457985823217
+        ],
+        "null_ei_micro_sd": 0.039722319111432175,
+        "replicates": 8
+      },
+      "trace_structure": {
+        "distinct_periods_seed0": 1,
+        "horizon": 120,
+        "mean_duty_cycle": 0.08653797865662273,
+        "offsets_seed0": [
+          0,
+          5,
+          2,
+          2,
+          2,
+          3,
+          9,
+          1,
+          9,
+          3
+        ],
+        "periods_seed0": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "shared_cycle_exceeds_horizon": false,
+        "shared_cycle_length_seed0": 10
+      }
+    },
+    "private_period": {
+      "shuffle_null": {
+        "null_ei_micro_mean": 0.20527297168641961,
+        "null_ei_micro_replicates": [
+          0.14897837414356835,
+          0.18527291048241645,
+          0.2504263105928798,
+          0.15199453727279258,
+          0.2444107868832437,
+          0.3198757907593278,
+          0.15612685523213127,
+          0.18509820812499708
+        ],
+        "null_ei_micro_sd": 0.06086804969273468,
+        "replicates": 8
+      },
+      "trace_structure": {
+        "distinct_periods_seed0": 5,
+        "horizon": 120,
+        "mean_duty_cycle": 0.09019041640510568,
+        "offsets_seed0": [
+          2,
+          5,
+          2,
+          2,
+          2,
+          2,
+          9,
+          2,
+          9,
+          2
+        ],
+        "periods_seed0": [
+          8,
+          8,
+          10,
+          10,
+          10,
+          11,
+          12,
+          9,
+          12,
+          11
+        ],
+        "shared_cycle_exceeds_horizon": true,
+        "shared_cycle_length_seed0": 3960
+      }
+    },
+    "private_period_primes": {
+      "shuffle_null": {
+        "null_ei_micro_mean": 0.2287214729812333,
+        "null_ei_micro_replicates": [
+          0.1672661478782017,
+          0.15182777439022263,
+          0.2992588691840276,
+          0.32140324948750937,
+          0.2943999740896522,
+          0.31127931193798986,
+          0.12437869104177225,
+          0.1599577658404908
+        ],
+        "null_ei_micro_sd": 0.0845155604181991,
+        "replicates": 8
+      },
+      "trace_structure": {
+        "distinct_periods_seed0": 5,
+        "horizon": 120,
+        "mean_duty_cycle": 0.057829566854990584,
+        "offsets_seed0": [
+          10,
+          5,
+          2,
+          2,
+          12,
+          13,
+          9,
+          11,
+          9,
+          13
+        ],
+        "periods_seed0": [
+          11,
+          11,
+          17,
+          17,
+          17,
+          19,
+          23,
+          13,
+          23,
+          19
+        ],
+        "shared_cycle_exceeds_horizon": true,
+        "shared_cycle_length_seed0": 1062347
+      }
+    }
+  },
+  "excluded_seeds": [
+    557,
+    772,
+    818,
+    1004,
+    1075,
+    1119,
+    1287
+  ],
+  "horizon": 120,
+  "micro_states": 32,
+  "n_subunits": 10,
+  "observed_units": 5,
+  "purpose": "null and trace structure only; no observed statistic is computed here",
+  "seed_pool": 1600,
+  "seeds": 1600
+}
