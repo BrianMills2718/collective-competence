@@ -108,8 +108,17 @@ class RunOutcome:
     measurements: dict[str, Any] = field(default_factory=dict)
 
 
-def run(specimen: Specimen, cfg: Any, seed: int) -> RunOutcome:
-    """The shared loop. Order is fixed and is the bit-identity contract."""
+def run(specimen: Specimen, cfg: Any, seed: int,
+        observer: Callable[[int, np.ndarray, State], None] | None = None) -> RunOutcome:
+    """The shared loop. Order is fixed and is the bit-identity contract.
+
+    `observer`, when given, is called once per tick with `(tick, attempted,
+    state)` immediately after `decide` and before `allocate`. It is read-only by
+    contract: it must not mutate `state` or `attempted`, and it draws no
+    randomness. Added for Q1-009, which needs the per-tick action pattern to
+    estimate a transition matrix. Passing nothing leaves the loop byte-identical,
+    which the three port-fidelity tests in tests/test_substrate.py check.
+    """
     if not specimen.feasible(cfg):
         raise ValueError(
             f"{specimen.name}: configuration is infeasible; failure would be an "
@@ -125,6 +134,8 @@ def run(specimen: Specimen, cfg: Any, seed: int) -> RunOutcome:
         if specimen.dials.absorbing_failure and state.resource <= 0.0 and collapse_tick is None:
             collapse_tick = tick
         attempted = specimen.decide(state, cfg)
+        if observer is not None:
+            observer(tick, attempted, state)
         trace.append(state.signal if specimen.dials.symmetry_channel != "none" else 0.0)
         gained = specimen.allocate(state, attempted, cfg)
         state.obtained = state.obtained + gained

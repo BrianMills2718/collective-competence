@@ -61,3 +61,5 @@ results/*
 !results/q1-006-pairwise-relation/
 !results/q1-007-congestion-corrected/
 !results/q1-008-null-coupling/
+!results/q1-009-information/
+!results/q1-009-information/**

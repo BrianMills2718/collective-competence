@@ -1,0 +1,173 @@
+{
+  "arms": {
+    "constant_phase": {
+      "emergence_above_null": 0.19411048644567552,
+      "observed": {
+        "ei_macro": 0.05341203937178946,
+        "ei_micro": 0.05341203937178946,
+        "emergence": 0.0,
+        "micro_rows_seen": 2,
+        "min_row_count": 4800.0,
+        "transitions": 47600,
+        "transitions_per_seen_row": 23800.0
+      },
+      "shuffle_null": {
+        "ei_macro": 0.11330311490309253,
+        "ei_micro": 0.30741360134876805,
+        "emergence": -0.19411048644567552,
+        "micro_rows_seen": 32,
+        "min_row_count": 2.0,
+        "transitions": 47600,
+        "transitions_per_seen_row": 1487.5
+      }
+    },
+    "derived_phase": {
+      "emergence_above_null": -0.21050143874297633,
+      "observed": {
+        "ei_macro": 0.10174174279660798,
+        "ei_micro": 0.5033720731401136,
+        "emergence": -0.4016303303435056,
+        "micro_rows_seen": 28,
+        "min_row_count": 12.0,
+        "transitions": 47600,
+        "transitions_per_seen_row": 1700.0
+      },
+      "shuffle_null": {
+        "ei_macro": 0.04711134833618577,
+        "ei_micro": 0.23824023993671503,
+        "emergence": -0.19112889160052926,
+        "micro_rows_seen": 30,
+        "min_row_count": 1.0,
+        "transitions": 47600,
+        "transitions_per_seen_row": 1586.6666666666667
+      }
+    },
+    "random_attempt": {
+      "emergence_above_null": -0.025117905855151668,
+      "observed": {
+        "ei_macro": 0.02840275061128161,
+        "ei_micro": 0.39686763172346845,
+        "emergence": -0.36846488111218684,
+        "micro_rows_seen": 31,
+        "min_row_count": 3.0,
+        "transitions": 47600,
+        "transitions_per_seen_row": 1535.483870967742
+      },
+      "shuffle_null": {
+        "ei_macro": 0.1351609149964808,
+        "ei_micro": 0.478507890253516,
+        "emergence": -0.34334697525703517,
+        "micro_rows_seen": 32,
+        "min_row_count": 1.0,
+        "transitions": 47600,
+        "transitions_per_seen_row": 1487.5
+      }
+    }
+  },
+  "horizon": 120,
+  "macro_states": 6,
+  "micro_states": 32,
+  "observed_units": 5,
+  "seed_sweep": {
+    "100": {
+      "observed": {
+        "ei_macro": 0.11507431580808808,
+        "ei_micro": 0.5908669720592821,
+        "emergence": -0.475792656251194,
+        "micro_rows_seen": 26,
+        "min_row_count": 12.0,
+        "transitions": 11900,
+        "transitions_per_seen_row": 457.6923076923077
+      },
+      "shuffle_null": {
+        "ei_macro": 0.04455861645807334,
+        "ei_micro": 0.44596097251467576,
+        "emergence": -0.4014023560566024,
+        "micro_rows_seen": 30,
+        "min_row_count": 1.0,
+        "transitions": 11900,
+        "transitions_per_seen_row": 396.6666666666667
+      }
+    },
+    "200": {
+      "observed": {
+        "ei_macro": 0.1038902856632834,
+        "ei_micro": 0.5969063429689759,
+        "emergence": -0.49301605730569253,
+        "micro_rows_seen": 27,
+        "min_row_count": 12.0,
+        "transitions": 23800,
+        "transitions_per_seen_row": 881.4814814814815
+      },
+      "shuffle_null": {
+        "ei_macro": 0.07258816207984321,
+        "ei_micro": 0.404461033915739,
+        "emergence": -0.3318728718358958,
+        "micro_rows_seen": 28,
+        "min_row_count": 2.0,
+        "transitions": 23800,
+        "transitions_per_seen_row": 850.0
+      }
+    },
+    "25": {
+      "observed": {
+        "ei_macro": 0.07398904330735173,
+        "ei_micro": 1.1669395231570068,
+        "emergence": -1.092950479849655,
+        "micro_rows_seen": 18,
+        "min_row_count": 12.0,
+        "transitions": 2975,
+        "transitions_per_seen_row": 165.27777777777777
+      },
+      "shuffle_null": {
+        "ei_macro": 0.006919915086529513,
+        "ei_micro": 0.6386380476745844,
+        "emergence": -0.6317181325880549,
+        "micro_rows_seen": 24,
+        "min_row_count": 1.0,
+        "transitions": 2975,
+        "transitions_per_seen_row": 123.95833333333333
+      }
+    },
+    "400": {
+      "observed": {
+        "ei_macro": 0.10174174279660798,
+        "ei_micro": 0.5033720731401136,
+        "emergence": -0.4016303303435056,
+        "micro_rows_seen": 28,
+        "min_row_count": 12.0,
+        "transitions": 47600,
+        "transitions_per_seen_row": 1700.0
+      },
+      "shuffle_null": {
+        "ei_macro": 0.019730450216695068,
+        "ei_micro": 0.23598024753163538,
+        "emergence": -0.21624979731494032,
+        "micro_rows_seen": 30,
+        "min_row_count": 1.0,
+        "transitions": 47600,
+        "transitions_per_seen_row": 1586.6666666666667
+      }
+    },
+    "50": {
+      "observed": {
+        "ei_macro": 0.03851969735595377,
+        "ei_micro": 0.7347100162352298,
+        "emergence": -0.6961903188792761,
+        "micro_rows_seen": 21,
+        "min_row_count": 12.0,
+        "transitions": 5950,
+        "transitions_per_seen_row": 283.3333333333333
+      },
+      "shuffle_null": {
+        "ei_macro": 0.11875844872824362,
+        "ei_micro": 0.4976601007402471,
+        "emergence": -0.37890165201200343,
+        "micro_rows_seen": 26,
+        "min_row_count": 1.0,
+        "transitions": 5950,
+        "transitions_per_seen_row": 228.84615384615384
+      }
+    }
+  }
+}
