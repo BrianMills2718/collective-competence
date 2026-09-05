@@ -117,6 +117,29 @@ in `agent_ecology2` / `agent_ecology3`.
 unchanged. A specimen being out of scope going forward does not retract what it
 measured.
 
+## F10 — The minimality rule existed and was not followed — `OPEN`
+
+**The rule.** [The current plan](../goal-discovery/docs/plans/current_research_plan.md)
+line 347: *"Add substrate capability only when a concrete, otherwise-unexpressible
+experiment requires it."* Line 349: *"Promote a shared abstraction only after a
+second system uses the same contract."*
+
+**What happened instead.** The shared substrate's five dials were derived from
+**reproduced failures** — what went wrong in experiments that had already run —
+rather than from goals that required them. That is generalising backwards from
+accidents rather than forwards from questions, and it is why the contract ended
+up shaped like the commons.
+
+**The cost.** The commons advanced several axes over sorting at once: a shared
+signal, per-element goals, a contested resource, a stochastic scheduler. No
+single step was ever argued for, so no single step could be objected to.
+
+**Still open because** the countermeasure is not built. Two candidate forms, from
+[the design discussion](substrate-design.md): an experiment must name the single
+axis on which it advances beyond its predecessor, and the programme needs a
+**goal list** so "simplest configuration that resolves the goal" has a second
+term. Neither exists yet.
+
 ## F3 — A gate frozen below its own statistic's null, three times — `CLOSED`
 
 **What stopped.** Q1-006 froze a clause-2 ceiling at 0.10 when the statistic's
