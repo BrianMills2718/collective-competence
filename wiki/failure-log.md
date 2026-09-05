@@ -158,6 +158,37 @@ retained them — but the near-miss is the exact failure the goal register exist
 to prevent, committed on the same day while drafting it. Recorded rather than
 quietly reverted.
 
+## F12 — The narrative layer grew faster than the science — `OPEN`
+
+**What happened.** On 2026-09-05 a single session added **2,725 lines of
+markdown** against 416 lines of experiment evidence. Roughly 1,900 of those were
+narrative: a seven-round design discussion accreted as a transcript rather than
+maintained as a current-state document, eight development-log entries for one
+day's work, and a status narrative in the wiki index duplicating what the goal
+register, the plan and this file each own.
+
+**Why it matters beyond tidiness.** The
+[first 2026-09-05 assessment](../goal-discovery/docs/audits/2026-09-05_external_assessment.md)'s
+advice 7 was to *collapse the three status surfaces that must be updated in
+lockstep*, noting two of the three were stale when found. That session then added
+more of them.
+
+**Partly closed the same day.** The design discussion is compressed from 743 to
+148 lines and now reflects the current position with superseded proposals as one
+line each; the day's log entries are one; the index routes rather than restates.
+Two of the new surfaces — [scoreboard](scoreboard.md) and
+[status page](status.html) — are **generated**, so they cannot go stale.
+
+**Still open because** the hand-maintained set is still four —
+[goals](goals.md), [this file](failure-log.md),
+[substrate design](substrate-design.md) and the current plan — and nothing
+enforces their consistency. The generated ones show the shape of the fix.
+
+**Not touched, deliberately:** 104 hypothesis records, 20 audits, 5 founding
+briefs, and the 3 pre-consolidation snapshots the plan says *"do not manually
+move or delete."* Evidence and preregistrations are preserved by rule; the
+narrative layer is where the growth was.
+
 ## F3 — A gate frozen below its own statistic's null, three times — `CLOSED`
 
 **What stopped.** Q1-006 froze a clause-2 ceiling at 0.10 when the statistic's

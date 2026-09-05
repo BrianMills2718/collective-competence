@@ -112,94 +112,34 @@ failure conditions, and evidence limits.
 
 ## Current position
 
-*Accurate as of 2026-09-05. This section is the fresh-reader entry point; the
-[current plan](../goal-discovery/docs/plans/current_research_plan.md) owns the
-next action and is the file to read second.*
+*Accurate as of 2026-09-05. This section routes; it does not restate. Every
+figure below has an owner that is authoritative over it.*
 
-**One action is next.** Re-run
-[Q1-006](../goal-discovery/docs/hypotheses/q1_006_pairwise_relation_results.md)'s
-comparison with a **null-calibrated threshold**, which settles the analytic
-instrument's completion-condition clause 2 either way. A
-[2026-09-05 audit](../goal-discovery/docs/audits/2026-09-05b_prose_vs_code_audit.md)
-argued that this re-run would inherit a confound and should be held;
-[Q1-010](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md)
-tested that objection on Q1-006's own family and **falsified it**, so the re-run
-stands. What the audit's objection does still hold against is the commons, and
-that is recorded below.
+**Scope narrowed to one arm.** Work is the Goal and Competence Discovery arm,
+extending from the sorting algorithm; questions about recovering *authored*
+structure are deferred until that produces something.
+[The goal register](goals.md) owns this and lists six goals, all restating the
+First Wave brief's own closing questions. It is a **draft**.
 
-**[Q1-009](../goal-discovery/docs/hypotheses/q1_009_information_measures_results.md)
-ran first and answered a prior question: there is no causal emergence here.** On
-both specimens, in every non-degenerate arm, the coarse-grained description
-carries strictly *less* effective information than the micro description it was
-built from — a clean negative on the question the founding laboratory spec asked
-in its section 37 and the 2026-08-29 audit deferred. What *does* discriminate
-coordinated from uncoordinated, on both families, is effective information
-measured **against its own shuffle null**; raw EI ranks the arms wrongly, giving
-the uncoordinated arm the highest score of any. Two caveats own that reading: one
-gate passed against a degenerate control, and the second measure, empowerment,
-turned out to be reading the wrong thing — its ordering tracks how often the
-channel sits idle, arm for arm, so what it measures is unused capacity available
-to a unilateral actor rather than anything like agency.
+**Pre-biological is a scope boundary**, not a deferred option. Economic framings
+and LLM agents are out of scope; the founding sequence placed them last and the
+renewable commons was phase-M content run at phase-F time.
+[The charter](../goal-discovery/docs/PROJECT.md) owns the boundary.
 
-**A term this programme had been using as a fact turned out to be a
-description.** Composition and coordination are separated by where the analyst
-draws the boundary and by what a study varies, not by a property a system has,
-so no result can establish that a system "composed" rather than "coordinated."
-[The ontology](ontology.md#what-this-vocabulary-makes-decidable-and-what-it-does-not)
-now records this, alongside an honest inventory of what the vocabulary makes
-decidable: competence as defined here is a nine-question rubric with no
-combining rule, so "A is more competent than B" is not decidable from the
-ontology alone.
+**The next action is contested.** [The current plan](../goal-discovery/docs/plans/current_research_plan.md)
+queues a Q1-006 re-run, which advances a lineage the narrowed scope excludes.
+Out of scope rather than wrong; the plan needs updating.
 
-**One instrument claim is narrower than the plan states.** Q1-009's reading that
-effective information above its own shuffle null "reports structure where
-coordination is present and reports essentially nothing where it is absent, on
-two families" is supported on the slot and **not on the commons**, where Q1-009's
-own table puts the uncoordinated `frozen` arm 5.4 null standard deviations above
-its null. [Q1-010](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md)
-built the deterministic-independent arm the slot family lacked and found the
-statistic holds there — coordinated +6.3 null sd, deterministic-independent +1.7,
-independent draw ~0 — but the deterministic arm still reaches 39% of the
-coordinated effect, and two deterministic arms now score *below* their own nulls,
-so the response is graded and non-monotonic rather than clean.
+**What every experiment found:** [the scoreboard](scoreboard.md), one sentence
+each, generated. **What it looks like:** [the status page](status.html).
+**What stopped and what it still costs:** [the failure log](failure-log.md),
+where three entries are open — the ladder superseded on day one, the substrate
+unable to express the founding experiment, and green checks that cannot see
+prose-versus-code defects.
 
-**Both arms are now live, and both are narrower than they first read.**
-[The conjecture register](conjectures.md) is canonical and admits a claim only
-with a stated refuter. **C1** (coordination by a shared scarcity signal) is
-supported on one family and does **not** transfer to an indivisible good — a
-shared scalar is common-mode by construction and can gate a population together
-but never stagger it. **C2** (symmetry breaking from a shared quantity) has its
-sharper half supported on one family: environmental heterogeneity substitutes
-for designer labelling, at a rate set by how many distinct values the
-environment supplies — but only ~17% better than matched randomness, not the
-total effect an earlier comparison implied.
-
-**The analytic instrument has a completion condition and has not met it.**
-[The charter](../goal-discovery/docs/PROJECT.md) states four clauses: recover an
-authored coordination on a specimen the instrument was not built for, do not
-report one where it is absent, freeze before reveal, and use a path not authored
-against the case. Clause 1 is met on two families. **Clause 2 is neither met nor
-failed** — [Q1-008](../goal-discovery/docs/hypotheses/q1_008_null_coupling_control_results.md)
-found the gate that "failed" it had been set below the statistic's own
-finite-sample null, so no independent process could have passed. Until clause 2
-is validly tested, **no construction claim in this programme is verified**,
-including C1's and C2's.
-
-**The apparatus is real and adopted.** `goal-discovery/src/substrate/` holds a
-shared specimen contract with five dials — outcome independence, divisibility,
-heterogeneity, symmetry channel, absorbing failure — each derived from a
-reproduced experimental failure rather than guessed. The experiment entry points
-run on it and regenerate all three frozen result packages byte-identically.
-
-**Read in this order:** this section, then the
-[current plan](../goal-discovery/docs/plans/current_research_plan.md), then
-[the conjecture register](conjectures.md). The
-[research synthesis](../roadmap/research.md) carries cross-experiment
-interpretation; the [development log](development-log.md) carries the dated
-account.
+**What is not established.** No construction claim in this programme is
+verified, because the instrument that would verify one has not met the charter's
+completion condition. Both conjectures are supported on exactly one family each.
 
 Historical stops close tested routes, not either research purpose or the shared
-laboratory. The earlier P15 proposal-layer work is preserved in the
-[experiment register](../roadmap/experiments.md); its conditional pass covers
-the freeze/reveal/audit seam only, and its proposal capability claim was revised
-rather than promoted.
+laboratory.
