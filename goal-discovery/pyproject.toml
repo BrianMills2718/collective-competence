@@ -37,6 +37,10 @@ dev = ["pytest>=8.0", "ruff>=0.6"]
 [tool.ruff]
 line-length = 100
 target-version = "py311"
+# results/ holds frozen evidence, including the probe scripts that produced it.
+# Those files record what was actually run; reformatting them would edit
+# evidence to satisfy a style rule. Lint source, not results.
+extend-exclude = ["results"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

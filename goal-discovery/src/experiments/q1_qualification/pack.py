@@ -22,7 +22,8 @@ import numpy as np
 
 from src.experiments.proposal_layer.contract import load_config, validate_package
 from src.experiments.shared_scarcity.model import Config, simulate
-from src.experiments.shared_scarcity.run import SEEDS, load_config as load_c1_config
+from src.experiments.shared_scarcity.run import SEEDS
+from src.experiments.shared_scarcity.run import load_config as load_c1_config
 
 # Tokens that would leak this specimen's identity or mechanism to the proposer.
 C1_FORBIDDEN = [

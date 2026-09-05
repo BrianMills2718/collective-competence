@@ -116,4 +116,15 @@ intents:
     review_triggers: [new_document_added, document_lifecycle_change, documentation_authority_change]
     discoverable_from: [roadmap/workflow.md]
 
+  - id: evidence-custody-baseline
+    path: scripts/evidence_custody_baseline.json
+    owner: collective-competence
+    lifecycle: active
+    review_state: reviewed
+    authority_type: supporting
+    purpose_source: wiki/development-log.md#2026-09-05--the-evidence-the-frontier-rests-on-was-never-in-git
+    separate_file_reason: Records which cited result packages Git does not carry, so acknowledged evidence debt is a tracked fact rather than an invisible one; the gate in scripts/check_evidence_custody.py reads it to distinguish known debt from new drift.
+    review_triggers: [result_package_committed, result_package_lost, evidence_citation_added]
+    discoverable_from: [wiki/development-log.md, goal-discovery/.gitignore]
+
 families: []

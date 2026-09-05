@@ -15,10 +15,10 @@ from src.experiments.shared_scarcity.run import execute, load_config
 
 
 def _cfg(**over) -> Config:
-    base = dict(
-        n_subunits=6, quota=40.0, horizon=60, draw_cap=1.5,
-        capacity=300.0, initial_stock=150.0, growth=0.12, kappa=0.2,
-    )
+    base = {
+        "n_subunits": 6, "quota": 40.0, "horizon": 60, "draw_cap": 1.5,
+        "capacity": 300.0, "initial_stock": 150.0, "growth": 0.12, "kappa": 0.2,
+    }
     base.update(over)
     return Config(**base)
 

@@ -15,11 +15,10 @@ from __future__ import annotations
 import inspect
 from dataclasses import dataclass
 
-import numpy as np
-
-from .model import Config, _RunConfig
 from src.substrate import run
 from src.substrate.specimens.contended_slot import specimen as _slot
+
+from .model import Config, _RunConfig
 
 
 def derive_phase(own_need: float, period: int) -> int:

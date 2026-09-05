@@ -348,7 +348,8 @@ an unmet composition need and a measurable advantage over ordinary code.
 
 ## 7. Constructive arm and instrument qualification (2026-09-04)
 
-Eight experiments in one day, on two new specimens, under a
+Twelve experiments in one day (C1-001 through C2-002 and Q1-001 through
+Q1-008; this section said "eight" until 2026-09-05), on two new specimens, under a
 [conjecture register](../wiki/conjectures.md) that did not previously exist.
 Read this section for what they established; the register owns the claims and
 their refuters.

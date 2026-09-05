@@ -1,0 +1,38 @@
+{
+  "rows": [
+    {
+      "arm": "derived_phase",
+      "idiosyncratic_fraction": 0.9334755300345822,
+      "shared_variance_fraction": 0.06652446996541782,
+      "persistence": 0.9212184873949579,
+      "need_satisfaction": 0.4375
+    },
+    {
+      "arm": "constant_phase",
+      "idiosyncratic_fraction": 0.0,
+      "shared_variance_fraction": 1.0,
+      "persistence": 0.6974789915966386,
+      "need_satisfaction": 0.0
+    },
+    {
+      "arm": "random_attempt",
+      "idiosyncratic_fraction": 0.9474806854257068,
+      "shared_variance_fraction": 0.052519314574293166,
+      "persistence": 0.8771008403361344,
+      "need_satisfaction": 0.375
+    }
+  ],
+  "gates": {
+    "G1_necessity": {
+      "pass": true,
+      "coord_min": 0.3,
+      "uniform_max": 0.1
+    },
+    "G2_sufficiency": {
+      "pass": false,
+      "margin": -0.01400515539112468,
+      "required": 0.2
+    }
+  },
+  "disposition": "measures_differentiation_not_coordination_clause_2_fails"
+}

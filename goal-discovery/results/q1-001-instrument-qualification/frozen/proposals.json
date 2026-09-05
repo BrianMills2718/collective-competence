@@ -1,0 +1,213 @@
+{
+  "cases": [
+    {
+      "case_id": "case-d05e0f7d4467",
+      "outcome": "produced",
+      "proposal": {
+        "case_id": "case-d05e0f7d4467",
+        "claim_type": "predictive_law",
+        "complexity": {
+          "primitive_transforms": 2,
+          "relations": 1
+        },
+        "distinguishing_operation": {
+          "operation": "displace_state_component",
+          "scope": "entity",
+          "timing": "challenge"
+        },
+        "expression": "next([f000,f001]) = A*current + b",
+        "family": "shared_local_affine",
+        "goal_or_competence_promoted": false,
+        "input_fields": [
+          "f000",
+          "f001"
+        ],
+        "parameters": {
+          "fixed_point": [
+            185.59272479631886,
+            -4.485301019485867e-14
+          ],
+          "matrix": [
+            [
+              0.992294531846602,
+              -0.6393849521298294
+            ],
+            [
+              -0.007705468153398258,
+              -0.6393849521298298
+            ]
+          ],
+          "offset": [
+            1.4300788304203675,
+            1.4300788304203687
+          ],
+          "spectral_radius": 0.9953084061988144
+        },
+        "passive_sufficient": true,
+        "qualification": {
+          "baseline_mean_loss": 0.6654573492011999,
+          "candidate_mean_loss": 0.56122380868533,
+          "eligible_units": 8,
+          "leave_one_unit_out_stable": true,
+          "passed": true,
+          "relative_improvement": 0.15663444192327214,
+          "unit_win_fraction": 1.0,
+          "unit_wins": 8
+        },
+        "rivals": [
+          "persistence",
+          "independent scalar drift",
+          "passive attraction"
+        ],
+        "status": "candidate",
+        "unit_scores": [
+          {
+            "baseline_loss": 0.6625434528328903,
+            "candidate_loss": 0.547279240999781,
+            "unit_id": "u000"
+          },
+          {
+            "baseline_loss": 0.6674946457732325,
+            "candidate_loss": 0.5693317356865893,
+            "unit_id": "u001"
+          },
+          {
+            "baseline_loss": 0.6706537329281698,
+            "candidate_loss": 0.5685856152102973,
+            "unit_id": "u002"
+          },
+          {
+            "baseline_loss": 0.6624258536741834,
+            "candidate_loss": 0.5472822332573871,
+            "unit_id": "u003"
+          },
+          {
+            "baseline_loss": 0.6588178209995472,
+            "candidate_loss": 0.5477135188932177,
+            "unit_id": "u004"
+          },
+          {
+            "baseline_loss": 0.6685724153355261,
+            "candidate_loss": 0.5656329482372255,
+            "unit_id": "u005"
+          },
+          {
+            "baseline_loss": 0.66962930407409,
+            "candidate_loss": 0.5825141014578717,
+            "unit_id": "u006"
+          },
+          {
+            "baseline_loss": 0.6635215679919604,
+            "candidate_loss": 0.5614510757402698,
+            "unit_id": "u007"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "case-9a9a25da1bab",
+      "outcome": "produced",
+      "proposal": {
+        "case_id": "case-9a9a25da1bab",
+        "claim_type": "predictive_law",
+        "complexity": {
+          "primitive_transforms": 2,
+          "relations": 1
+        },
+        "distinguishing_operation": {
+          "operation": "displace_state_component",
+          "scope": "entity",
+          "timing": "challenge"
+        },
+        "expression": "next([f000,f001]) = A*current + b",
+        "family": "shared_local_affine",
+        "goal_or_competence_promoted": false,
+        "input_fields": [
+          "f000",
+          "f001"
+        ],
+        "parameters": {
+          "fixed_point": [
+            19.528598228296268,
+            -1.078026556911072e-13
+          ],
+          "matrix": [
+            [
+              0.9796812556802936,
+              0.8134363372988223
+            ],
+            [
+              -0.020318744319710504,
+              0.813436337298826
+            ]
+          ],
+          "offset": [
+            0.39679659432311043,
+            0.39679659432308334
+          ],
+          "spectral_radius": 0.9019070557983394
+        },
+        "passive_sufficient": true,
+        "qualification": {
+          "baseline_mean_loss": 0.1940578190283257,
+          "candidate_mean_loss": 0.09854774205130659,
+          "eligible_units": 8,
+          "leave_one_unit_out_stable": true,
+          "passed": true,
+          "relative_improvement": 0.492173298943847,
+          "unit_win_fraction": 1.0,
+          "unit_wins": 8
+        },
+        "rivals": [
+          "persistence",
+          "independent scalar drift",
+          "passive attraction"
+        ],
+        "status": "candidate",
+        "unit_scores": [
+          {
+            "baseline_loss": 0.2689579318140951,
+            "candidate_loss": 0.10600309834868529,
+            "unit_id": "u000"
+          },
+          {
+            "baseline_loss": 0.17764827050481136,
+            "candidate_loss": 0.10368383643979148,
+            "unit_id": "u001"
+          },
+          {
+            "baseline_loss": 0.17365245915953603,
+            "candidate_loss": 0.09649160456043791,
+            "unit_id": "u002"
+          },
+          {
+            "baseline_loss": 0.17386974566991112,
+            "candidate_loss": 0.09713675697404972,
+            "unit_id": "u003"
+          },
+          {
+            "baseline_loss": 0.17388443686398425,
+            "candidate_loss": 0.09717962507232884,
+            "unit_id": "u004"
+          },
+          {
+            "baseline_loss": 0.17341528844180773,
+            "candidate_loss": 0.09576078455345538,
+            "unit_id": "u005"
+          },
+          {
+            "baseline_loss": 0.23547757077083842,
+            "candidate_loss": 0.10676376147859705,
+            "unit_id": "u006"
+          },
+          {
+            "baseline_loss": 0.17555684900162155,
+            "candidate_loss": 0.08536246898310708,
+            "unit_id": "u007"
+          }
+        ]
+      }
+    }
+  ],
+  "schema_version": 1
+}

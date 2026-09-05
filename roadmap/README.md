@@ -85,8 +85,14 @@ non-superseded documents, not every recovery object and not a reading list.
 Most recent work has tested Goal and Competence Discovery instruments: target-blind proposal,
 freeze-before-challenge, discriminating interventions, and principled abstention.
 The [P15 protocol](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md)
-now freezes a retrospective cross-system test of proposal generation; it has no
-result and authorizes no new intervention. The programme has not established
+froze a retrospective cross-system test of proposal generation and
+[has a result](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md):
+the freeze/reveal/audit seam passed, and the proposal-capability claim did not —
+cross-case generality measured zero, 12 of 12 applications refusing on a
+field-signature guard. A constructive arm (C1, C2) and an instrument-qualification
+sequence (Q1-001 through Q1-008) also ran on 2026-09-04; the
+[current plan](../goal-discovery/docs/plans/current_research_plan.md) owns their
+status and this page does not restate it. The programme has not established
 open-ended goal discovery. Constructed controller,
 compensation, and adaptation studies provide bounded mechanistic calibrations,
 but the historical register was not organized around the three independent

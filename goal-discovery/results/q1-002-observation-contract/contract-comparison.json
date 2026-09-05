@@ -1,0 +1,58 @@
+{
+  "rows": [
+    {
+      "contract": "A",
+      "condition": "live",
+      "outcome": "produced",
+      "family": "shared_local_affine",
+      "status": "candidate",
+      "passive_sufficient": true,
+      "relative_improvement": 0.15663444192327214
+    },
+    {
+      "contract": "A",
+      "condition": "none",
+      "outcome": "produced",
+      "family": "shared_local_affine",
+      "status": "candidate",
+      "passive_sufficient": true,
+      "relative_improvement": 0.492173298943847
+    },
+    {
+      "contract": "B",
+      "condition": "live",
+      "outcome": "produced",
+      "family": null,
+      "status": "abstain",
+      "passive_sufficient": null,
+      "relative_improvement": 3.7574036730202357e-16
+    },
+    {
+      "contract": "B",
+      "condition": "none",
+      "outcome": "produced",
+      "family": null,
+      "status": "abstain",
+      "passive_sufficient": null,
+      "relative_improvement": -3.704838543181643e-16
+    },
+    {
+      "contract": "C",
+      "condition": "live",
+      "outcome": "produced",
+      "family": "shared_local_affine",
+      "status": "candidate",
+      "passive_sufficient": true,
+      "relative_improvement": 0.1724041207234611
+    },
+    {
+      "contract": "C",
+      "condition": "none",
+      "outcome": "produced",
+      "family": "shared_local_affine",
+      "status": "candidate",
+      "passive_sufficient": true,
+      "relative_improvement": 0.6544634496437859
+    }
+  ]
+}

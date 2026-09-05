@@ -4,9 +4,24 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 
-# Runs are regenerable from their seed in seconds, so most are not committed --
-# except the accepted-evidence and calibration runs below, kept so a reader
-# can inspect the evidence without running anything.
+# Bulk runs are regenerable from their seed in seconds, so most are not
+# committed -- except the accepted-evidence and calibration runs below, kept so
+# a reader can inspect the evidence without running anything.
+#
+# HAZARD, and the reason this list is checked rather than trusted: an
+# ignore-everything-plus-negation allowlist encodes the set of packages that
+# existed when it was last edited, and nothing fails when reality outgrows it.
+# It went stale exactly once, on 2026-09-04: thirteen packages -- the whole
+# constructive arm and the whole instrument-qualification sequence -- were
+# written, cited by committed result records, and never tracked, while
+# `git status` stayed clean because ignored files are invisible by design.
+# Three port-fidelity tests that call themselves the substrate's acceptance
+# criterion turned green by skipping on every machine but the author's.
+#
+# Before adding a results directory, add its exception here. The guard is
+# `python3 scripts/check_evidence_custody.py`, which fails when any results
+# path linked from a tracked document is untracked; `tests/test_evidence_custody.py`
+# runs it as part of the suite.
 results/*
 !results/.gitkeep
 !results/dayone-baseline/
@@ -26,3 +41,23 @@ results/*
 !results/p14-ants-relational-coupling-invalid-39a-working-tree/
 !results/p15-proposal-layer/
 !results/p15-proposal-layer/**
+
+# 2026-09-04 constructive arm (C1, C2) and instrument qualification (Q1).
+# 27 files, 332KB. These are the packages the current conjecture register and
+# the charter's completion condition rest on.
+!results/c1-pilot/
+!results/c1-001-shared-scarcity/
+!results/c1-001-shared-scarcity/**
+!results/c1-002-contended-channel/
+!results/c2-001-derived-phase/
+!results/c2-002-rule-load-bearing/
+!results/q1-001-instrument-qualification/
+!results/q1-001-instrument-qualification/**
+!results/q1-002-observation-contract/
+!results/q1-002-observation-contract/**
+!results/q1-003-latent-shared/
+!results/q1-004-second-family/
+!results/q1-005-idiosyncratic/
+!results/q1-006-pairwise-relation/
+!results/q1-007-congestion-corrected/
+!results/q1-008-null-coupling/

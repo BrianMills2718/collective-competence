@@ -47,7 +47,7 @@ claim but cannot be refuted: a negative instance is always answerable with "that
 configuration was badly chosen," and a positive instance confirms nothing. State
 a **scaling claim** instead — how an effect varies with a named parameter, in a
 named family. Both of this programme's real positive results already have that
-form (`01`'s headcount-not-proportion; `misc/morphogenesis-scaling-law`'s
+form (`01`'s headcount-not-proportion; `experiments/morphogenesis-scaling`'s
 non-monotonic `N_max`), and neither would have been expressible as a universal.
 
 ---

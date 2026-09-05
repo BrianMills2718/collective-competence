@@ -47,7 +47,9 @@ def main() -> int:
                     "passive_sufficient": out.get("passive_sufficient"),
                     "relative_improvement": out.get("qualification", {}).get("relative_improvement"),
                 })
-            except Exception as exc:
+            # Why the noqa below: as in run.py, a refusal is one of the outcomes this
+            # comparison measures; the error type and message are recorded in the row.
+            except Exception as exc:  # noqa: BLE001 - refusal is a recorded outcome
                 rows.append({
                     "contract": contract, "condition": by_case[case["case_id"]],
                     "outcome": "refused", "error": f"{type(exc).__name__}: {exc}",
@@ -62,8 +64,8 @@ def main() -> int:
             print(f"{r['contract']:<9}{r['condition']:<11}REFUSED: {r['error'][:50]}")
         else:
             ri = r["relative_improvement"]
-            print(f"{r['contract']:<9}{r['condition']:<11}{str(r['family']):<22}"
-                  f"{str(r['status']):<11}{str(r['passive_sufficient']):<14}"
+            print(f"{r['contract']:<9}{r['condition']:<11}{r['family']!s:<22}"
+                  f"{r['status']!s:<11}{r['passive_sufficient']!s:<14}"
                   f"{ri if ri is None else round(ri, 4)}")
 
     print()

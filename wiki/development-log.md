@@ -29,6 +29,82 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — the evidence the frontier rests on was never in Git
+
+**Changed:** committed the thirteen result packages written on 2026-09-04 (27
+files, 332KB: `c1-pilot`, `c1-001`, `c1-002`, `c2-001`, `c2-002`, and `q1-001`
+through `q1-008`), added a guard against the failure that hid them, and made the
+substrate's acceptance criterion able to fail.
+
+- **The packages were untracked and invisible.** `goal-discovery/.gitignore`
+  protects evidence with an ignore-everything-plus-negation allowlist whose last
+  entry was `p15-`. That list encodes the packages existing when it was edited,
+  and nothing fails when reality outgrows it, because ignored files never appear
+  in `git status`. Every package cited by
+  [the conjecture register](conjectures.md) and by
+  [the charter's completion condition](../goal-discovery/docs/PROJECT.md) fell
+  through it.
+- **Three tests were passing by skipping.** `tests/test_substrate.py` opens by
+  calling port fidelity "the acceptance criterion for the shared substrate… so
+  'no recorded finding silently changed' is a checkable claim rather than a
+  judgement", then guarded all three fidelity tests with
+  `skipif(not PACKAGE.exists())`. Measured: 382 passed / 17 skipped in the
+  authoring checkout against 369 passed / 30 skipped in a clone of the same
+  commit, both exit 0. They now fail with a diagnostic instead, per
+  [tests/CLAUDE.md](../goal-discovery/tests/CLAUDE.md)'s rule that missing
+  optional data is missing evidence, not a passed experiment.
+- **New guard:** `scripts/check_evidence_custody.py` fails when any
+  `results/…` path cited by a tracked document is untracked, with
+  `tests/test_evidence_custody.py` running it in the suite — including a
+  negative control on a synthetic repository, because a gate that cannot be
+  shown to fire is the same defect one level up.
+- **New inventory:** `scripts/evidence_custody_baseline.json` records the 28
+  packages that are cited and not tracked, so the debt is visible rather than
+  invisible. 27 exist in the authoring checkout only and total 220MB — whether
+  to commit any of them is a repository-weight decision left open, not decided
+  here. **One, `p12-reproduction`, exists in neither Git nor any checkout**,
+  and the [P12 result](../goal-discovery/docs/hypotheses/p12_reference_inference_results.md)
+  cites it; that claim can no longer be inspected at all.
+- **Three of the five substrate dials are read by no code.**
+  `outcome_independence`, `divisible` and `heterogeneity` declare a property
+  that each specimen implements in its own policies. The test that was supposed
+  to catch this asserted only that two specimens set *different values* — the
+  tautology its own docstring warned against. Replaced with
+  `test_only_two_dials_are_load_bearing`, which flips the three and asserts the
+  run is identical, and flips the two that are load-bearing and asserts it is
+  not. [The substrate docstring](../goal-discovery/src/substrate/__init__.py)
+  now says which is which.
+- **Corrections to canonical documents.** The count of 2026-09-04's experiments
+  was twelve, not eight, in this log and in
+  [research synthesis](../roadmap/research.md). This log's claim that every
+  protocol's freeze is "verifiable from git" is false for Q1-007, whose
+  protocol, implementation and result arrive together in `1a5880a`.
+  [roadmap/README.md](../roadmap/README.md) still said P15 had no result.
+  [The current plan](../goal-discovery/docs/plans/current_research_plan.md)
+  contradicted itself on whether P15's protocol-design entitlement survived, and
+  routed "the latest run" to P14. The `misc/morphogenesis-scaling-law` path in
+  [conjectures](conjectures.md) and [ontology](ontology.md) died when `165c1de`
+  moved it to `experiments/morphogenesis-scaling/`.
+- **`make lint` passes for the first time** — 18 pre-existing ruff errors
+  cleared. The two blind `except Exception` handlers in `q1_qualification/` are
+  exempted with a stated reason rather than narrowed: they record a proposer's
+  refusal, with its exception type, into frozen evidence, so they are the
+  opposite of a swallowed error and narrowing them would change what that
+  evidence contains. `results/` is now excluded from lint, because reformatting
+  a committed probe script edits evidence to satisfy a style rule.
+
+**Why:** committed canonical documents cited directories a clone cannot open,
+and the substrate's stated acceptance criterion — byte-identical regeneration of
+three frozen packages — was checkable only on the machine that produced them.
+That criterion is now checkable anywhere.
+
+**Does not establish:** no scientific claim changes, and no result was re-run or
+re-interpreted. C1 and C2 remain supported on one family each; completion
+condition clause 2 remains neither met nor failed. Committing the evidence makes
+existing claims inspectable; it does not make them stronger. The 220MB of older
+untracked packages remain untracked, and `p12-reproduction` remains lost.
+`src/experiments/q1_qualification/` still has 894 lines and no tests.
+
 ## 2026-09-04 — a conjecture layer, eight experiments, and a shared substrate
 
 **Changed:** the programme gained somewhere to put a claim that can be wrong,
@@ -44,9 +120,20 @@ consolidated its specimens onto shared apparatus.
   for the analytic instrument: four clauses saying when it is sufficient to
   verify a construction claim. Its absence was why fifteen prior experiments
   could only calibrate instruments.
-- **Eight experiments** — C1-001, C1-002, C2-001, C2-002 on the constructive
-  side; Q1-001 through Q1-008 qualifying the instrument. Every protocol frozen
-  and committed before its implementation existed, verifiable from git.
+- **Twelve experiments** — C1-001, C1-002, C2-001, C2-002 on the constructive
+  side; Q1-001 through Q1-008 qualifying the instrument. (This entry and
+  [research synthesis](../roadmap/research.md) both said "eight" until
+  2026-09-05; four plus eight is twelve, and the register carries twelve new
+  records for the day.) Eleven of the twelve froze their protocol in a commit
+  preceding the one that added their implementation, which is verifiable from
+  git. **Q1-007 is the exception**: `1a5880a` adds its protocol, its
+  implementation and its result together, so its freeze is asserted by the
+  record and not evidenced by the history. The freeze intervals are also short —
+  a median of four minutes between the freeze commit and the result commit, with
+  all twelve run between 13:37 and 16:55 — so the ordering is real but it is a
+  record of intent rather than an externally timestamped preregistration, which
+  is the standard [research synthesis](../roadmap/research.md) already applies to
+  the earlier studies.
 - **Shared substrate** (`goal-discovery/src/substrate/`) with five dials, each
   derived from one of those experiments' reproduced failures. Adopted, not
   merely built: the entry points run on it and regenerate three frozen result

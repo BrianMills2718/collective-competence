@@ -1,0 +1,22 @@
+{
+  "rows": [
+    {
+      "arm": "derived_phase",
+      "shared_variance_fraction": 0.06652446996541782,
+      "persistence": 0.9212184873949579,
+      "local_residual_variance": 0.02961806764417385,
+      "residual_variance_after_shared": 0.027647741392745295,
+      "n_entities": 10,
+      "n_transitions": 9520
+    },
+    {
+      "arm": "constant_phase",
+      "shared_variance_fraction": 1.0,
+      "persistence": 0.6974789915966386,
+      "local_residual_variance": 8.278789367800304e-06,
+      "residual_variance_after_shared": 1.6245911333107236e-37,
+      "n_entities": 10,
+      "n_transitions": 9520
+    }
+  ]
+}

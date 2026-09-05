@@ -1,0 +1,319 @@
+{
+  "spread": 0.75,
+  "authored_rule_mean": 0.4375,
+  "n_members": 50,
+  "n_nondegenerate": 45,
+  "fraction_within_90pct": 0.4444444444444444,
+  "best": {
+    "a": 1.0,
+    "b": 0.0,
+    "mean": 0.4375,
+    "degenerate": false
+  },
+  "best_beats_authored_by": 0.0,
+  "degenerate_max": 0.0,
+  "discrimination_check_passed": true,
+  "rows": [
+    {
+      "a": 0.0,
+      "b": 0.0,
+      "mean": 0.0,
+      "degenerate": true
+    },
+    {
+      "a": 0.0,
+      "b": 1.0,
+      "mean": 0.0,
+      "degenerate": true
+    },
+    {
+      "a": 0.0,
+      "b": 2.0,
+      "mean": 0.0,
+      "degenerate": true
+    },
+    {
+      "a": 0.0,
+      "b": 3.0,
+      "mean": 0.0,
+      "degenerate": true
+    },
+    {
+      "a": 0.0,
+      "b": 5.0,
+      "mean": 0.0,
+      "degenerate": true
+    },
+    {
+      "a": 0.25,
+      "b": 0.0,
+      "mean": 0.15000000000000002,
+      "degenerate": false
+    },
+    {
+      "a": 0.25,
+      "b": 1.0,
+      "mean": 0.15000000000000002,
+      "degenerate": false
+    },
+    {
+      "a": 0.25,
+      "b": 2.0,
+      "mean": 0.15000000000000002,
+      "degenerate": false
+    },
+    {
+      "a": 0.25,
+      "b": 3.0,
+      "mean": 0.15000000000000002,
+      "degenerate": false
+    },
+    {
+      "a": 0.25,
+      "b": 5.0,
+      "mean": 0.15000000000000002,
+      "degenerate": false
+    },
+    {
+      "a": 0.5,
+      "b": 0.0,
+      "mean": 0.30000000000000004,
+      "degenerate": false
+    },
+    {
+      "a": 0.5,
+      "b": 1.0,
+      "mean": 0.30000000000000004,
+      "degenerate": false
+    },
+    {
+      "a": 0.5,
+      "b": 2.0,
+      "mean": 0.30000000000000004,
+      "degenerate": false
+    },
+    {
+      "a": 0.5,
+      "b": 3.0,
+      "mean": 0.30000000000000004,
+      "degenerate": false
+    },
+    {
+      "a": 0.5,
+      "b": 5.0,
+      "mean": 0.30000000000000004,
+      "degenerate": false
+    },
+    {
+      "a": 0.75,
+      "b": 0.0,
+      "mean": 0.3875,
+      "degenerate": false
+    },
+    {
+      "a": 0.75,
+      "b": 1.0,
+      "mean": 0.3875,
+      "degenerate": false
+    },
+    {
+      "a": 0.75,
+      "b": 2.0,
+      "mean": 0.3875,
+      "degenerate": false
+    },
+    {
+      "a": 0.75,
+      "b": 3.0,
+      "mean": 0.3875,
+      "degenerate": false
+    },
+    {
+      "a": 0.75,
+      "b": 5.0,
+      "mean": 0.3875,
+      "degenerate": false
+    },
+    {
+      "a": 1.0,
+      "b": 0.0,
+      "mean": 0.4375,
+      "degenerate": false
+    },
+    {
+      "a": 1.0,
+      "b": 1.0,
+      "mean": 0.4375,
+      "degenerate": false
+    },
+    {
+      "a": 1.0,
+      "b": 2.0,
+      "mean": 0.4375,
+      "degenerate": false
+    },
+    {
+      "a": 1.0,
+      "b": 3.0,
+      "mean": 0.4375,
+      "degenerate": false
+    },
+    {
+      "a": 1.0,
+      "b": 5.0,
+      "mean": 0.4375,
+      "degenerate": false
+    },
+    {
+      "a": 1.5,
+      "b": 0.0,
+      "mean": 0.4,
+      "degenerate": false
+    },
+    {
+      "a": 1.5,
+      "b": 1.0,
+      "mean": 0.4,
+      "degenerate": false
+    },
+    {
+      "a": 1.5,
+      "b": 2.0,
+      "mean": 0.4,
+      "degenerate": false
+    },
+    {
+      "a": 1.5,
+      "b": 3.0,
+      "mean": 0.4,
+      "degenerate": false
+    },
+    {
+      "a": 1.5,
+      "b": 5.0,
+      "mean": 0.4,
+      "degenerate": false
+    },
+    {
+      "a": 2.0,
+      "b": 0.0,
+      "mean": 0.11249999999999999,
+      "degenerate": false
+    },
+    {
+      "a": 2.0,
+      "b": 1.0,
+      "mean": 0.11249999999999999,
+      "degenerate": false
+    },
+    {
+      "a": 2.0,
+      "b": 2.0,
+      "mean": 0.11249999999999999,
+      "degenerate": false
+    },
+    {
+      "a": 2.0,
+      "b": 3.0,
+      "mean": 0.11249999999999999,
+      "degenerate": false
+    },
+    {
+      "a": 2.0,
+      "b": 5.0,
+      "mean": 0.11249999999999999,
+      "degenerate": false
+    },
+    {
+      "a": 3.0,
+      "b": 0.0,
+      "mean": 0.4375,
+      "degenerate": false
+    },
+    {
+      "a": 3.0,
+      "b": 1.0,
+      "mean": 0.4375,
+      "degenerate": false
+    },
+    {
+      "a": 3.0,
+      "b": 2.0,
+      "mean": 0.4375,
+      "degenerate": false
+    },
+    {
+      "a": 3.0,
+      "b": 3.0,
+      "mean": 0.4375,
+      "degenerate": false
+    },
+    {
+      "a": 3.0,
+      "b": 5.0,
+      "mean": 0.4375,
+      "degenerate": false
+    },
+    {
+      "a": 5.0,
+      "b": 0.0,
+      "mean": 0.0125,
+      "degenerate": false
+    },
+    {
+      "a": 5.0,
+      "b": 1.0,
+      "mean": 0.0125,
+      "degenerate": false
+    },
+    {
+      "a": 5.0,
+      "b": 2.0,
+      "mean": 0.0125,
+      "degenerate": false
+    },
+    {
+      "a": 5.0,
+      "b": 3.0,
+      "mean": 0.0125,
+      "degenerate": false
+    },
+    {
+      "a": 5.0,
+      "b": 5.0,
+      "mean": 0.0125,
+      "degenerate": false
+    },
+    {
+      "a": 7.0,
+      "b": 0.0,
+      "mean": 0.4375,
+      "degenerate": false
+    },
+    {
+      "a": 7.0,
+      "b": 1.0,
+      "mean": 0.4375,
+      "degenerate": false
+    },
+    {
+      "a": 7.0,
+      "b": 2.0,
+      "mean": 0.4375,
+      "degenerate": false
+    },
+    {
+      "a": 7.0,
+      "b": 3.0,
+      "mean": 0.4375,
+      "degenerate": false
+    },
+    {
+      "a": 7.0,
+      "b": 5.0,
+      "mean": 0.4375,
+      "degenerate": false
+    }
+  ],
+  "disposition": "partial_report_the_distribution"
+}

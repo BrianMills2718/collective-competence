@@ -1,0 +1,158 @@
+{
+  "purpose": "Result packages that a tracked document cites and Git does not carry. This file makes an invisible fact visible: it is the acknowledged evidence debt, not a permission slip. scripts/check_evidence_custody.py reports these and does not fail on them; it DOES fail on any cited package that is untracked and not listed here, which is the drift that occurred on 2026-09-04.",
+  "recorded_at": "2026-09-05",
+  "recorded_from": "checkout /home/brian/code/collective-competence at 55fc885",
+  "how_to_clear_an_entry": "Commit the package (add its `!results/<name>/` exception to goal-discovery/.gitignore) and delete its row here, or -- if the run is genuinely not worth its weight -- change the citing document to state that the raw package was not retained, so the claim carries its own evidence limit.",
+  "status_meanings": {
+    "on_disk_untracked": "Present in the authoring checkout only. Recoverable now, lost with that machine. Sizes are why these were not committed wholesale; the choice of which to keep is a repository-weight decision for the owner.",
+    "absent_everywhere": "Cited by a tracked document and present in neither Git nor the authoring checkout. The claim resting on it can no longer be inspected at all."
+  },
+  "totals": {
+    "packages": 28,
+    "on_disk_untracked": 27,
+    "absent_everywhere": 1,
+    "megabytes_on_disk": 220.3
+  },
+  "packages": {
+    "003-thermostat": {
+      "status": "on_disk_untracked",
+      "files": 10,
+      "kilobytes": 1308
+    },
+    "003b-blind-target": {
+      "status": "on_disk_untracked",
+      "files": 9,
+      "kilobytes": 812
+    },
+    "p12-reproduction": {
+      "status": "absent_everywhere",
+      "files": 0,
+      "kilobytes": 0
+    },
+    "p2-002-crossed": {
+      "status": "on_disk_untracked",
+      "files": 10,
+      "kilobytes": 888
+    },
+    "p2-002b-within-intervention": {
+      "status": "on_disk_untracked",
+      "files": 10,
+      "kilobytes": 524
+    },
+    "p2-002c-relational-screen": {
+      "status": "on_disk_untracked",
+      "files": 4,
+      "kilobytes": 96
+    },
+    "p2-003-barrier-reachability": {
+      "status": "on_disk_untracked",
+      "files": 4,
+      "kilobytes": 2172
+    },
+    "p2-004-moveable-order-reachability": {
+      "status": "on_disk_untracked",
+      "files": 4,
+      "kilobytes": 14724
+    },
+    "p2-005-opportunity-adjusted-performance": {
+      "status": "on_disk_untracked",
+      "files": 6,
+      "kilobytes": 2568
+    },
+    "p3-001-flocking-spike": {
+      "status": "on_disk_untracked",
+      "files": 8,
+      "kilobytes": 556
+    },
+    "p3-002-flocking-representation-discrimination": {
+      "status": "on_disk_untracked",
+      "files": 10,
+      "kilobytes": 3784
+    },
+    "p3-003-fireflies-spike": {
+      "status": "on_disk_untracked",
+      "files": 8,
+      "kilobytes": 1128
+    },
+    "p3-004-slime-spike": {
+      "status": "on_disk_untracked",
+      "files": 8,
+      "kilobytes": 912
+    },
+    "p3-005-slime-interaction-discrimination": {
+      "status": "on_disk_untracked",
+      "files": 8,
+      "kilobytes": 940
+    },
+    "p3-006-slime-bidirectional-target": {
+      "status": "on_disk_untracked",
+      "files": 9,
+      "kilobytes": 2460
+    },
+    "p4-001-heatbugs-spike": {
+      "status": "on_disk_untracked",
+      "files": 8,
+      "kilobytes": 1172
+    },
+    "p4-002-heatbugs-blind-target-inference-001": {
+      "status": "on_disk_untracked",
+      "files": 14,
+      "kilobytes": 264
+    },
+    "p5-000-representation-discovery": {
+      "status": "on_disk_untracked",
+      "files": 6,
+      "kilobytes": 864
+    },
+    "p5-001-slime-mold-network-001": {
+      "status": "on_disk_untracked",
+      "files": 8,
+      "kilobytes": 70864
+    },
+    "p5-002-stability-plasticity": {
+      "status": "on_disk_untracked",
+      "files": 8,
+      "kilobytes": 42532
+    },
+    "p6-001-neuromast-causal-calibration": {
+      "status": "on_disk_untracked",
+      "files": 45,
+      "kilobytes": 1864
+    },
+    "p7-001-representation-tournament": {
+      "status": "on_disk_untracked",
+      "files": 3,
+      "kilobytes": 80
+    },
+    "p7-002-network-level2": {
+      "status": "on_disk_untracked",
+      "files": 12,
+      "kilobytes": 66396
+    },
+    "p7-003-selector-complexity-audit": {
+      "status": "on_disk_untracked",
+      "files": 7,
+      "kilobytes": 68
+    },
+    "p7-004-ants-trail-scale-001": {
+      "status": "on_disk_untracked",
+      "files": 10,
+      "kilobytes": 8328
+    },
+    "p7-005-network-intervention-value": {
+      "status": "on_disk_untracked",
+      "files": 5,
+      "kilobytes": 24
+    },
+    "x02-netlogo": {
+      "status": "on_disk_untracked",
+      "files": 4,
+      "kilobytes": 116
+    },
+    "x03-workbench": {
+      "status": "on_disk_untracked",
+      "files": 3,
+      "kilobytes": 164
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "config": {
+    "arms": [
+      "bubble",
+      "insertion",
+      "selection",
+      "random_swap"
+    ],
+    "c1_replication": {
+      "freeze_counts": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "freeze_kinds": [
+        "moveable",
+        "immovable"
+      ],
+      "max_ticks": 30000,
+      "n": 100,
+      "order": "shuffled",
+      "published": {
+        "immovable": {
+          "bubble": [
+            1.91,
+            3.72,
+            5.37
+          ],
+          "selection": [
+            1.0,
+            1.96,
+            2.91
+          ]
+        },
+        "moveable": {
+          "bubble": [
+            0.0,
+            0.8,
+            2.64
+          ],
+          "selection": [
+            2.24,
+            4.36,
+            13.24
+          ]
+        }
+      }
+    },
+    "c2_mechanism": {
+      "branch_timing": 0.9,
+      "extra_control": {
+        "kind": "randomize_cells",
+        "params": {
+          "fraction": 0.2
+        }
+      },
+      "freeze_counts": [
+        1,
+        2,
+        3
+      ],
+      "freeze_kinds": [
+        "moveable",
+        "immovable"
+      ],
+      "horizon_minimum": 400,
+      "horizon_multiplier": 5,
+      "max_ticks": 4000,
+      "n": 40,
+      "order": "shuffled",
+      "state_damage_control": {
+        "kind": "block_swap",
+        "params": {
+          "fraction": 0.2
+        }
+      }
+    },
+    "c5_order": {
+      "max_ticks": 4000,
+      "n": 40,
+      "orders": [
+        "shuffled",
+        "index"
+      ]
+    },
+    "null_arms": [
+      "random_swap"
+    ],
+    "null_schedule_matched_to": "bubble",
+    "phase": "confirmation",
+    "seeds": {
+      "count": 40,
+      "start": 3000
+    },
+    "suite": "confirmation"
+  },
+  "freeze_kinds": [
+    "none",
+    "moveable",
+    "immovable"
+  ],
+  "git_commit": "c0af8920efc9079222dd0de4cea53438ddae99d0",
+  "phase": "confirmation",
+  "preregistration": "docs/hypotheses/001_sorting_confirmation.md",
+  "representation_set_version": "sorting-reps-v2",
+  "rule_version": "sorting-v1",
+  "run_id": "c1-pilot",
+  "seeds": [
+    3000,
+    3001,
+    3002,
+    3003
+  ],
+  "suite": "/home/brian/code/collective-competence/goal-discovery/configs/suites/confirmation.yaml"
+}

@@ -1,8 +1,17 @@
 """Shared specimen substrate.
 
 One loop, one state, one measurement, one result shape. What differs between
-specimens is expressed as policies selected by five explicit dials, each of
-which was derived from a reproduced experimental failure rather than guessed:
+specimens is expressed as policies, alongside five explicit dials, each derived
+from a reproduced experimental failure rather than guessed.
+
+Two of the five select behaviour and three record it. `absorbing_failure` and
+`symmetry_channel` are read by the shared loop; `outcome_independence`,
+`divisible` and `heterogeneity` are read by no code, because the property each
+names is implemented inside a specimen's own policies and the dial only declares
+it. That is asserted, not assumed, by `tests/test_substrate.py`'s
+`test_only_two_dials_are_load_bearing`, which fails if a dial is ever wired in.
+Read the three as documentation of what a specimen is, not as a mechanism that
+makes it so:
 
   outcome_independence  Q1-006/Q1-007 -- congestion coupling put a floor under
                         matched-random and blocked completion-condition clause 2
@@ -20,6 +29,6 @@ deliberately not ported -- their lanes are stopped and porting would risk
 archived findings for no live benefit. See the bounded design's non-goals.
 """
 
-from .contract import Dials, Specimen, RunOutcome, run
+from .contract import Dials, RunOutcome, Specimen, run
 
-__all__ = ["Dials", "Specimen", "RunOutcome", "run"]
+__all__ = ["Dials", "RunOutcome", "Specimen", "run"]

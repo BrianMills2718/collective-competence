@@ -1,0 +1,109 @@
+{
+  "config": {
+    "n_subunits": 10,
+    "mean_need": 8.0,
+    "need_spread": 0.5,
+    "horizon": 120,
+    "kappa": 0.08,
+    "decay": 0.1
+  },
+  "per_seed": [
+    {
+      "seed": 0,
+      "live": 0.0,
+      "none": 0.0,
+      "live_collisions": 26,
+      "none_collisions": 120,
+      "live_idle": 94,
+      "none_idle": 0,
+      "live_served": 26,
+      "none_served": 120
+    },
+    {
+      "seed": 1,
+      "live": 0.0,
+      "none": 0.0,
+      "live_collisions": 32,
+      "none_collisions": 120,
+      "live_idle": 88,
+      "none_idle": 0,
+      "live_served": 32,
+      "none_served": 120
+    },
+    {
+      "seed": 2,
+      "live": 0.0,
+      "none": 0.0,
+      "live_collisions": 26,
+      "none_collisions": 120,
+      "live_idle": 93,
+      "none_idle": 0,
+      "live_served": 27,
+      "none_served": 120
+    },
+    {
+      "seed": 3,
+      "live": 0.0,
+      "none": 0.0,
+      "live_collisions": 27,
+      "none_collisions": 120,
+      "live_idle": 93,
+      "none_idle": 0,
+      "live_served": 27,
+      "none_served": 120
+    },
+    {
+      "seed": 4,
+      "live": 0.0,
+      "none": 0.0,
+      "live_collisions": 30,
+      "none_collisions": 120,
+      "live_idle": 90,
+      "none_idle": 0,
+      "live_served": 30,
+      "none_served": 120
+    },
+    {
+      "seed": 5,
+      "live": 0.0,
+      "none": 0.0,
+      "live_collisions": 29,
+      "none_collisions": 120,
+      "live_idle": 89,
+      "none_idle": 0,
+      "live_served": 31,
+      "none_served": 120
+    },
+    {
+      "seed": 6,
+      "live": 0.0,
+      "none": 0.0,
+      "live_collisions": 21,
+      "none_collisions": 120,
+      "live_idle": 96,
+      "none_idle": 0,
+      "live_served": 24,
+      "none_served": 120
+    },
+    {
+      "seed": 7,
+      "live": 0.0,
+      "none": 0.0,
+      "live_collisions": 25,
+      "none_collisions": 120,
+      "live_idle": 95,
+      "none_idle": 0,
+      "live_served": 25,
+      "none_served": 120
+    }
+  ],
+  "means": {
+    "live": 0.0,
+    "none": 0.0
+  },
+  "validity_gate": {
+    "wins": 0,
+    "of": 8,
+    "pass": false
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "cases": [
+    {
+      "case_id": "case-d05e0f7d4467",
+      "native_condition": "live"
+    },
+    {
+      "case_id": "case-9a9a25da1bab",
+      "native_condition": "none"
+    }
+  ]
+}

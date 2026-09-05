@@ -1,0 +1,22 @@
+{
+  "rows": [
+    {
+      "condition": "live",
+      "shared_variance_fraction": 0.5858267330383911,
+      "persistence": 0.8266806722689075,
+      "local_residual_variance": 0.31436676501642546,
+      "residual_variance_after_shared": 0.13020231009100539,
+      "n_entities": 12,
+      "n_transitions": 11424
+    },
+    {
+      "condition": "none",
+      "shared_variance_fraction": 1.0,
+      "persistence": 0.06197478991596639,
+      "local_residual_variance": 0.009394279201670625,
+      "residual_variance_after_shared": 5.259552699266675e-35,
+      "n_entities": 12,
+      "n_transitions": 11424
+    }
+  ]
+}

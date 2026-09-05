@@ -448,7 +448,8 @@ project's own apparatus needs to specify explicitly what is continuously
 perturbing the system, on what timescale, and then measure where the system
 spends its time on average — not count starting configurations.
 
-**A separate, unrelated quarantined holding**, `misc/morphogenesis-scaling-law/`,
+**A separate, unrelated holding**, since 2026-09-04 at `experiments/morphogenesis-scaling/`
+and no longer quarantined,
 also originated from the `levin-wiki` discussion but is not about autopoiesis
 or metastability — it's a resource-ledger/agent-boundary methodology test
 (does an "ingress" classification hold up under different ways of drawing the

@@ -68,13 +68,13 @@ def initialize(cfg: Any, seed: int) -> State:
         extra={"mode": mode, "phases": phases, "period": period,
                "non_rival": bool(getattr(cfg, "non_rival", False)),
                "collisions": 0, "idle": 0, "served": 0,
-               "distinct_phases": 0 if phases is None else int(len(set(phases.tolist())))},
+               "distinct_phases": 0 if phases is None else len(set(phases.tolist()))},
     )
 
 
 def replenish(state: State, cfg: Any) -> None:
     """No stock: a slot exists each tick whether or not it is used."""
-    return None
+    return
 
 
 def decide(state: State, cfg: Any) -> np.ndarray:

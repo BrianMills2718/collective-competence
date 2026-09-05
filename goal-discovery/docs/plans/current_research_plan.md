@@ -117,7 +117,7 @@ rather than deciding it or inventing a parallel tracker.
 | What is the full purpose and scientific scope? | [Project charter](../PROJECT.md) |
 | What is the vocabulary and how do the concepts relate? | [Research ontology](../../../wiki/ontology.md) |
 | What has accumulated across all experiments? | [Research synthesis](../../../roadmap/research.md) |
-| What exactly happened in the latest run? | [P14 result](../hypotheses/p14_ants_relational_coupling_results.md) and [protocol](../hypotheses/p14_ants_relational_coupling.md) |
+| What exactly happened in the latest run? | [Q1-008 result](../hypotheses/q1_008_null_coupling_control_results.md) and [protocol](../hypotheses/q1_008_null_coupling_control.md) — the last of the twelve experiments of 2026-09-04. This row pointed at P14 until 2026-09-05, twelve runs out of date. |
 | Which records exist and how are they classified? | [Experiment register](../../../roadmap/experiments.md) |
 | How does the implemented apparatus fit together? | [Apparatus map](../../../roadmap/apparatus.md) |
 
@@ -261,9 +261,13 @@ is not part of the canonical experiment sequence. Remote experiment or recovery
 refs do not change that status and must not be merged as P14 authority.
 
 Historical plans and `research_state.yaml` milestones do not authorize work.
-The frozen P15 protocol authorized only its bounded retrospective benchmark;
-[its result](../hypotheses/p15_proposal_layer_benchmark_results.md) is a pass,
-earning design of one new prospective protocol, not its execution.
+The frozen P15 protocol authorized only its bounded retrospective benchmark.
+[Its result](../hypotheses/p15_proposal_layer_benchmark_results.md) passed the
+freeze/reveal/audit seam, and the measured deviation recorded above **withdrew**
+the protocol-design entitlement that a pass would otherwise have earned, because
+the capability claim the gate rewards was not established. This paragraph said
+the entitlement stood until 2026-09-05, contradicting the P15 checkpoint section
+in this same file; the withdrawal is the current reading.
 A running URL must identify its checkout and revision before it can support a
 claim. The current plan owns priorities; native protocols/results own evidence;
 the research synthesis owns cross-experiment interpretation.

@@ -1,0 +1,15 @@
+{
+  "proposals_sha256": "8ad65f3ee0e063b8cf9865113d6b6347e19a8e2f3e02921daf7b7622706e8f55",
+  "packages": [
+    {
+      "case_id": "case-d05e0f7d4467",
+      "package_path": "case-d05e0f7d4467.json.gz",
+      "package_sha256": "4838a9cfa115351b61f4298ac5dc70b1b9ae095aa705178f69ccecf0036d2244"
+    },
+    {
+      "case_id": "case-9a9a25da1bab",
+      "package_path": "case-9a9a25da1bab.json.gz",
+      "package_sha256": "4982772ede41a48a4854cbb1c92630df93c83c9fe963573c4d881dd8c13ceb44"
+    }
+  ]
+}

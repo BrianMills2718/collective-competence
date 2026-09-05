@@ -11,7 +11,6 @@ import gzip
 import hashlib
 import json
 from pathlib import Path
-from typing import Any
 
 from src.experiments.proposal_layer.contract import load_config
 from src.experiments.proposal_layer.model import propose
@@ -43,7 +42,11 @@ def main() -> int:
         try:
             out = propose(package, config)
             record = {"case_id": case["case_id"], "outcome": "produced", "proposal": out}
-        except Exception as exc:  # refusal is a result, not an error
+        # Why the noqa below: this is not a swallowed exception. A proposer refusing a
+        # package is a recorded outcome of the experiment, and the type and message
+        # are written into the frozen result package rather than discarded. Narrowing
+        # the catch would change what that evidence contains.
+        except Exception as exc:  # noqa: BLE001 - refusal is a result, not an error
             record = {
                 "case_id": case["case_id"],
                 "outcome": "refused",

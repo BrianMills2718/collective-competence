@@ -1,0 +1,56 @@
+{
+  "means": {
+    "0.0": {
+      "level_only": 0.0,
+      "authored_phase": 1.0,
+      "derived_phase": 0.0
+    },
+    "0.1": {
+      "level_only": 0.0,
+      "authored_phase": 1.0,
+      "derived_phase": 0.0625
+    },
+    "0.25": {
+      "level_only": 0.0,
+      "authored_phase": 1.0,
+      "derived_phase": 0.175
+    },
+    "0.5": {
+      "level_only": 0.0,
+      "authored_phase": 1.0,
+      "derived_phase": 0.35
+    },
+    "0.75": {
+      "level_only": 0.0,
+      "authored_phase": 0.8875,
+      "derived_phase": 0.4375
+    }
+  },
+  "distinct_phases_at_widest": {
+    "authored_phase": 10,
+    "derived_phase": 6
+  },
+  "gates": {
+    "P0_authored_beats_level": {
+      "wins": 8,
+      "of": 8,
+      "pass": true
+    },
+    "G1_derived_beats_level": {
+      "wins": 8,
+      "of": 8,
+      "pass": true
+    },
+    "G2_derived_monotonic_in_spread": {
+      "pass": true,
+      "means": [
+        0.0,
+        0.0625,
+        0.175,
+        0.35,
+        0.4375
+      ]
+    }
+  },
+  "disposition": "c2_sharper_half_supported_on_this_family"
+}

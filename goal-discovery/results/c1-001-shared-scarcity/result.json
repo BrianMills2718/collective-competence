@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "protocol": "goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal.md",
+  "config": {
+    "n_subunits": 12,
+    "quota": 80.0,
+    "horizon": 120,
+    "draw_cap": 1.5,
+    "capacity": 300.0,
+    "initial_stock": 150.0,
+    "growth": 0.12,
+    "kappa": 0.2
+  },
+  "per_seed": [
+    {
+      "seed": 0,
+      "p_bar": 0.46744177982567386,
+      "live": 1.0,
+      "frozen": 0.0,
+      "none": 0.0,
+      "live_final_stock": 247.44268286081288,
+      "none_final_stock": 0.0,
+      "none_collapse_tick": 16,
+      "sweep": {
+        "0.00": 0.0,
+        "0.25": 0.75,
+        "0.50": 0.75,
+        "0.75": 0.75,
+        "1.00": 1.0
+      }
+    },
+    {
+      "seed": 1,
+      "p_bar": 0.5382763626906635,
+      "live": 1.0,
+      "frozen": 0.0,
+      "none": 0.0,
+      "live_final_stock": 208.43944273677926,
+      "none_final_stock": 0.0,
+      "none_collapse_tick": 13,
+      "sweep": {
+        "0.00": 0.0,
+        "0.25": 0.8333333333333334,
+        "0.50": 0.8333333333333334,
+        "0.75": 1.0,
+        "1.00": 1.0
+      }
+    },
+    {
+      "seed": 2,
+      "p_bar": 0.463517368525617,
+      "live": 1.0,
+      "frozen": 0.0,
+      "none": 0.0,
+      "live_final_stock": 251.04140438313513,
+      "none_final_stock": 0.0,
+      "none_collapse_tick": 14,
+      "sweep": {
+        "0.00": 0.0,
+        "0.25": 0.8333333333333334,
+        "0.50": 0.9166666666666666,
+        "0.75": 1.0,
+        "1.00": 1.0
+      }
+    },
+    {
+      "seed": 3,
+      "p_bar": 0.4595118444145989,
+      "live": 1.0,
+      "frozen": 0.0,
+      "none": 0.0,
+      "live_final_stock": 251.83414418251215,
+      "none_final_stock": 0.0,
+      "none_collapse_tick": 14,
+      "sweep": {
+        "0.00": 0.0,
+        "0.25": 0.6666666666666666,
+        "0.50": 0.75,
+        "0.75": 1.0,
+        "1.00": 1.0
+      }
+    },
+    {
+      "seed": 4,
+      "p_bar": 0.5558856105884686,
+      "live": 1.0,
+      "frozen": 0.0,
+      "none": 0.0,
+      "live_final_stock": 197.96078208803578,
+      "none_final_stock": 0.0,
+      "none_collapse_tick": 14,
+      "sweep": {
+        "0.00": 0.0,
+        "0.25": 0.6666666666666666,
+        "0.50": 0.6666666666666666,
+        "0.75": 0.8333333333333334,
+        "1.00": 1.0
+      }
+    },
+    {
+      "seed": 5,
+      "p_bar": 0.48463709722467824,
+      "live": 1.0,
+      "frozen": 0.0,
+      "none": 0.0,
+      "live_final_stock": 241.94477505409128,
+      "none_final_stock": 0.0,
+      "none_collapse_tick": 15,
+      "sweep": {
+        "0.00": 0.0,
+        "0.25": 0.5833333333333334,
+        "0.50": 0.75,
+        "0.75": 0.9166666666666666,
+        "1.00": 1.0
+      }
+    },
+    {
+      "seed": 6,
+      "p_bar": 0.5628119116973489,
+      "live": 1.0,
+      "frozen": 0.0,
+      "none": 0.0,
+      "live_final_stock": 178.07299858399145,
+      "none_final_stock": 0.0,
+      "none_collapse_tick": 12,
+      "sweep": {
+        "0.00": 0.0,
+        "0.25": 0.5833333333333334,
+        "0.50": 0.75,
+        "0.75": 1.0,
+        "1.00": 1.0
+      }
+    },
+    {
+      "seed": 7,
+      "p_bar": 0.5390126145874977,
+      "live": 1.0,
+      "frozen": 0.0,
+      "none": 0.0,
+      "live_final_stock": 201.4308762564864,
+      "none_final_stock": 0.0,
+      "none_collapse_tick": 13,
+      "sweep": {
+        "0.00": 0.0,
+        "0.25": 0.75,
+        "0.50": 0.8333333333333334,
+        "0.75": 0.9166666666666666,
+        "1.00": 1.0
+      }
+    }
+  ],
+  "means": {
+    "live": 1.0,
+    "frozen": 0.0,
+    "none": 0.0
+  },
+  "sweep_means": {
+    "0.00": 0.0,
+    "0.25": 0.7083333333333334,
+    "0.50": 0.78125,
+    "0.75": 0.9270833333333333,
+    "1.00": 1.0
+  },
+  "gates": {
+    "G1_live_beats_none_20pct": {
+      "wins": 8,
+      "of": 8,
+      "pass": true
+    },
+    "G2_live_beats_frozen_10pct": {
+      "wins": 8,
+      "of": 8,
+      "pass": true
+    },
+    "G3_monotonic_in_alpha": {
+      "pass": true
+    }
+  },
+  "disposition": "c1_supported_on_this_family_only"
+}

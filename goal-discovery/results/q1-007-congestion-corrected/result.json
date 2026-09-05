@@ -1,0 +1,34 @@
+{
+  "rows": [
+    {
+      "arm": "derived_phase",
+      "mean_abs_offdiag_corr": 0.28255797486470896
+    },
+    {
+      "arm": "constant_phase",
+      "mean_abs_offdiag_corr": 0.0
+    },
+    {
+      "arm": "random_attempt",
+      "mean_abs_offdiag_corr": 0.107596408803993
+    }
+  ],
+  "gates": {
+    "G1_signal": {
+      "pass": true,
+      "value": 0.28255797486470896,
+      "required": 0.15
+    },
+    "G2_sufficiency": {
+      "pass": true,
+      "margin": 0.17496156606071595,
+      "required": 0.1
+    },
+    "G3_clause2_random_low": {
+      "pass": false,
+      "value": 0.107596408803993,
+      "max": 0.1
+    }
+  },
+  "disposition": "contaminated_by_congestion_coupling"
+}
