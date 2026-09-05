@@ -29,6 +29,45 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — goals narrowed to the discovery arm on sorting, and two specimens restored
+
+**Changed:** [`wiki/goals.md`](goals.md) rewritten, `compensation` and
+`adaptation` restored, failure log F11 added.
+
+**The narrowing, from the owner:** work only the Goal and Competence Discovery
+arm, extending from the sorting algorithm, and learn from that before taking up
+questions about authoring. One arm, one specimen lineage.
+
+**Two faults in the first draft, both corrected.** "Maintenance versus arrival"
+was the agent's phrasing for something [the ontology](ontology.md) already names
+— the competence profile's first row is *"attainment or maintenance: does the
+system reach or preserve criterion-satisfying histories?"*, and the
+non-equivalence table already forbids conflating a goal with an attractor,
+because *"passive dynamics can converge or preserve structure without active
+goal-directed performance."* And recovering *authored* structure was drafted as a
+goal when it presupposes a construction arm; it is now deferred.
+
+**The six goals are the First Wave brief's own closing questions**, mapped to
+ontology vocabulary. Nothing is invented. The brief had already scoped the
+discovery arm on sorting, and its list survives the narrowing unchanged.
+
+**A near-miss, recorded rather than quietly reverted.** The archive pass earlier
+the same day (`b7f8876`) deleted `compensation` and `adaptation` on the criterion
+that no source file imported them. Both are required specimens for First Wave
+question 4 — whether one analysis can separate passive convergence,
+negative-feedback regulation, compensation and adaptation. Import analysis is a
+fact about the current code; the goal is a fact about what the programme intends,
+and it had not been written down yet. Restored here; recorded as F11.
+
+**What this supersedes.** The current plan's queued action — re-running Q1-006
+with a null-calibrated threshold — advances the Q1 sequence on the commons and
+slot families, a lineage this scope excludes. Out of scope rather than wrong; the
+plan needs updating rather than the action quietly dropped.
+
+**What this does not establish.** The register remains a draft with no authority.
+Whether D1–D6 are the right set, which comes first, and whether the charter's
+two-arm framing stays as the destination are all open.
+
 ## 2026-09-05 — the goal list was already written, in the founding briefs
 
 **Changed:** [`wiki/goals.md`](goals.md) drafted for review after a full

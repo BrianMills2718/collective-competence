@@ -1,0 +1,332 @@
+<?xml version='1.0' encoding='utf-8'?>
+<experiments>
+  <experiment name="004-passive" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="160">
+    <setup>setup</setup>
+    <go>go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>temperature</metric>
+      <metric>route-a-applied</metric>
+      <metric>route-b-applied</metric>
+      <metric>route-a-disabled?</metric>
+      <metric>route-b-disabled?</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="arm">
+        <value value="&quot;passive&quot;" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="allocation">
+        <value value="&quot;reroute&quot;" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="load-magnitude">
+        <value value="-0.43" />
+        <value value="-0.27" />
+        <value value="0.16" />
+        <value value="0.36" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="initial-temperature">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="ambient-temperature">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="setpoint">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="relaxation-rate">
+        <value value="0.05" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="controller-gain">
+        <value value="0.30" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="max-control">
+        <value value="2" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="max-ticks">
+        <value value="160" />
+      </enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="004-intact" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="160">
+    <setup>setup</setup>
+    <go>go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>temperature</metric>
+      <metric>route-a-applied</metric>
+      <metric>route-b-applied</metric>
+      <metric>route-a-disabled?</metric>
+      <metric>route-b-disabled?</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="arm">
+        <value value="&quot;intact&quot;" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="allocation">
+        <value value="&quot;reroute&quot;" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="load-magnitude">
+        <value value="-0.43" />
+        <value value="-0.27" />
+        <value value="0.16" />
+        <value value="0.36" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="initial-temperature">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="ambient-temperature">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="setpoint">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="relaxation-rate">
+        <value value="0.05" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="controller-gain">
+        <value value="0.30" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="max-control">
+        <value value="2" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="max-ticks">
+        <value value="160" />
+      </enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="004-route-a-disabled" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="160">
+    <setup>setup</setup>
+    <go>go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>temperature</metric>
+      <metric>route-a-applied</metric>
+      <metric>route-b-applied</metric>
+      <metric>route-a-disabled?</metric>
+      <metric>route-b-disabled?</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="arm">
+        <value value="&quot;route-a-disabled&quot;" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="allocation">
+        <value value="&quot;reroute&quot;" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="load-magnitude">
+        <value value="-0.43" />
+        <value value="-0.27" />
+        <value value="0.16" />
+        <value value="0.36" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="initial-temperature">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="ambient-temperature">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="setpoint">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="relaxation-rate">
+        <value value="0.05" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="controller-gain">
+        <value value="0.30" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="max-control">
+        <value value="2" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="max-ticks">
+        <value value="160" />
+      </enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="004-route-b-disabled" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="160">
+    <setup>setup</setup>
+    <go>go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>temperature</metric>
+      <metric>route-a-applied</metric>
+      <metric>route-b-applied</metric>
+      <metric>route-a-disabled?</metric>
+      <metric>route-b-disabled?</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="arm">
+        <value value="&quot;route-b-disabled&quot;" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="allocation">
+        <value value="&quot;reroute&quot;" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="load-magnitude">
+        <value value="-0.43" />
+        <value value="-0.27" />
+        <value value="0.16" />
+        <value value="0.36" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="initial-temperature">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="ambient-temperature">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="setpoint">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="relaxation-rate">
+        <value value="0.05" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="controller-gain">
+        <value value="0.30" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="max-control">
+        <value value="2" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="max-ticks">
+        <value value="160" />
+      </enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="004-route-a-fixed" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="160">
+    <setup>setup</setup>
+    <go>go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>temperature</metric>
+      <metric>route-a-applied</metric>
+      <metric>route-b-applied</metric>
+      <metric>route-a-disabled?</metric>
+      <metric>route-b-disabled?</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="arm">
+        <value value="&quot;route-a-disabled&quot;" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="allocation">
+        <value value="&quot;fixed&quot;" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="load-magnitude">
+        <value value="-0.43" />
+        <value value="-0.27" />
+        <value value="0.16" />
+        <value value="0.36" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="initial-temperature">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="ambient-temperature">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="setpoint">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="relaxation-rate">
+        <value value="0.05" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="controller-gain">
+        <value value="0.30" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="max-control">
+        <value value="2" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="max-ticks">
+        <value value="160" />
+      </enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="004-route-b-fixed" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="160">
+    <setup>setup</setup>
+    <go>go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>temperature</metric>
+      <metric>route-a-applied</metric>
+      <metric>route-b-applied</metric>
+      <metric>route-a-disabled?</metric>
+      <metric>route-b-disabled?</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="arm">
+        <value value="&quot;route-b-disabled&quot;" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="allocation">
+        <value value="&quot;fixed&quot;" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="load-magnitude">
+        <value value="-0.43" />
+        <value value="-0.27" />
+        <value value="0.16" />
+        <value value="0.36" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="initial-temperature">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="ambient-temperature">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="setpoint">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="relaxation-rate">
+        <value value="0.05" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="controller-gain">
+        <value value="0.30" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="max-control">
+        <value value="2" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="max-ticks">
+        <value value="160" />
+      </enumeratedValueSet>
+    </constants>
+  </experiment>
+  <experiment name="004-dual-disabled" repetitions="1" sequentialRunOrder="true" runMetricsEveryStep="true" timeLimit="160">
+    <setup>setup</setup>
+    <go>go</go>
+    <metrics>
+      <metric>ticks</metric>
+      <metric>temperature</metric>
+      <metric>route-a-applied</metric>
+      <metric>route-b-applied</metric>
+      <metric>route-a-disabled?</metric>
+      <metric>route-b-disabled?</metric>
+    </metrics>
+    <constants>
+      <enumeratedValueSet variable="arm">
+        <value value="&quot;dual-disabled&quot;" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="allocation">
+        <value value="&quot;reroute&quot;" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="load-magnitude">
+        <value value="-0.43" />
+        <value value="-0.27" />
+        <value value="0.16" />
+        <value value="0.36" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="initial-temperature">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="ambient-temperature">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="setpoint">
+        <value value="20" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="relaxation-rate">
+        <value value="0.05" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="controller-gain">
+        <value value="0.30" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="max-control">
+        <value value="2" />
+      </enumeratedValueSet>
+      <enumeratedValueSet variable="max-ticks">
+        <value value="160" />
+      </enumeratedValueSet>
+    </constants>
+  </experiment>
+</experiments>
