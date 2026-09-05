@@ -344,3 +344,4 @@ becoming current instructions.
 - [index.md](../wiki/index.md)
 - [ontology.md](../wiki/ontology.md)
 - [scoreboard.md](../wiki/scoreboard.md)
+- [substrate-design.md](../wiki/substrate-design.md)

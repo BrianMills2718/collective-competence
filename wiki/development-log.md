@@ -29,6 +29,41 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — pre-biological set as a scope boundary, and a design discussion opened
+
+**Changed:** the charter now states **pre-biological** as a scope boundary rather
+than listing biological, economic and LLM applications as deferred options.
+[`wiki/substrate-design.md`](substrate-design.md) opens as a live, exploratory
+design discussion. Failure log gains F2b and F9.
+
+**The correction, from the owner.** The renewable commons — quotas, a stock, a
+scarcity price, subunits carrying needs — is an *economic* model, several strata
+above where this programme is supposed to operate, and it arrived as the
+reference family for two conjectures and the shared substrate's five dials
+without anyone deciding the programme should be modelling economies. Economic
+framings and LLM agents are now out of scope rather than deferred; the founding
+ladder's rung 7 is retired rather than pending; LLM work has its own home in
+`agent_ecology2` / `agent_ecology3`. Sorting is the reference case, and the
+substrate is whatever generalises *it*.
+
+**There was almost nothing to delete.** Eighteen LLM mentions across nine files;
+four of those files are preserved source briefs, which stay untouched because
+editing a historical brief falsifies provenance. Both live mentions were already
+*exclusions* — "options, not current deliverables" and a not-doing list. The
+change is that a deferred option became a boundary.
+
+**F2b is the sharper half of the diagnosis.** `State` carries `signal: float` as
+one of seven fields every specimen inherits, so a coordination mechanism is part
+of the container rather than something an experiment supplies and tests. C1-002's
+result — a shared scalar is common-mode and can gate but never stagger — follows
+from the type signature. The same container gives every element a `need`, putting
+the goal *inside* the system, which inverts the founding experiment's design:
+"nothing in the system holds the target — it exists only in the measurement."
+
+**What this does not establish.** No result is retracted: a specimen being out of
+scope going forward does not change what it measured. The replacement contract is
+a proposal under discussion and nothing about it is decided.
+
 ## 2026-09-05 — a failure log, and 4,354 lines of experiment code with no consumer removed
 
 **Changed:** [`wiki/failure-log.md`](failure-log.md) is added as a canonical

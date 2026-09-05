@@ -81,6 +81,42 @@ that calls itself shared is shaped entirely by the two specimens that replaced
 the founding question, and returning to that question means either a second
 contract or no contract.
 
+## F2b — The substrate makes a coordination mechanism structural — `OPEN`
+
+**What is wrong.** `State` in `goal-discovery/src/substrate/contract.py` carries
+`signal: float` — *"the shared scalar, whatever it means"* — as one of seven
+fields every specimen inherits. A coordination mechanism is therefore part of
+the container, not something an experiment supplies and tests.
+
+**The cost.** Every experiment on this substrate necessarily studies
+coordination-mediated-by-a-shared-scalar. C1-002's result — a shared scalar is
+common-mode and can gate a population together but never stagger it — follows
+from the type signature and is derivable without running anything. The same
+container gives every element a `need`, so the goal sits *inside* the system,
+which is the opposite of the founding experiment's design, where "nothing in the
+system holds the target — it exists only in the measurement."
+
+**Still open because** the replacement contract is under discussion in
+[the substrate design document](substrate-design.md) and nothing is decided.
+
+## F9 — Economic and LLM framings entered without a decision — `CLOSED`
+
+**What happened.** The one economic specimen in the laboratory — a renewable
+commons with quotas, a stock and a scarcity price — arrived as C1-001 on
+2026-09-04 and became the reference family for two conjectures and the shared
+substrate's five dials. Nobody decided the programme should be modelling
+economies. LLM agents sat in the founding ladder as rung 7, "only once the
+measurables hold up without them", and in the charter as a deferred option.
+
+**Closed 2026-09-05** by the owner setting pre-biological as an explicit scope
+boundary: economic framings and LLM agents are out of scope rather than
+deferred, and rung 7 is retired rather than pending. LLM work has its own home
+in `agent_ecology2` / `agent_ecology3`.
+
+**What this does not do:** C1-001 and C1-002's results are retained and
+unchanged. A specimen being out of scope going forward does not retract what it
+measured.
+
 ## F3 — A gate frozen below its own statistic's null, three times — `CLOSED`
 
 **What stopped.** Q1-006 froze a clause-2 ceiling at 0.10 when the statistic's
