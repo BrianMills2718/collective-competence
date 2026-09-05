@@ -260,9 +260,140 @@ axis the substrate should be built around?"
    bit-identity guarantee and read-only observer hook are good and independent of
    the bad `State` shape.
 
+---
+
+# Round four — the drive is the pre-biological glue, and the ladder reappears inside it
+
+Owner's questions, 2026-09-05, verbatim:
+
+> "what is the chomsky heiarchy? also levins stuff relates to hthis. i think the
+> cognivie glue paper is helpful. what do you mean priced? also onin the
+> platonic ingression discussion it seemed like we need an external driver to
+> actually get this competnecy scaling, althoguhth e external driver is probably
+> not enough"
+
+## Why the Chomsky hierarchy is the right ladder
+
+It is the classification of what a machine can recognise, ordered by how much
+memory structure it has:
+
+| Level | Machine | Cannot do without the next level |
+|---|---|---|
+| regular | finite automaton — fixed states, no memory | count unboundedly |
+| context-free | + one stack | match three counts at once |
+| context-sensitive | + bounded tape / two counters | — |
+| recursively enumerable | Turing machine | — |
+
+**Its value here is that the boundaries are proved, not chosen.** There are tiny
+concrete tasks sitting exactly on each one: Dyck-1 (balanced parentheses) is
+unreachable for a finite automaton and trivial with one counter; `a^n b^n c^n`
+is unreachable with one stack and reachable with two counters. So a substrate
+built on this ladder gets a **positive control for free** — if the apparatus
+cannot reproduce a boundary that is mathematically certain, the apparatus is
+wrong, and we learn that before trusting it on anything open.
+
+That is what the `misc/platonic-ingress-toy-automata` thread walked: two rungs,
+`3-state DFA -> one counter` and `pushdown -> two counters`.
+
+## What "priced" means, and why it decides whether the experiment is real
+
+The composition claim is *a mixed population beats a uniform one*. Adding a
+memory-bearing element is adding capability, and capability is a resource. **If
+capability is free, mixed populations win by construction and the experiment
+proves nothing** — it measures that we added something.
+
+`selfsort.py` already solved this: *everything is priced in one currency — one
+attempted inspection of an adjacent pair — and every controller spends it,
+including the coordinator's monitoring scans.* That is exactly why "the
+decentralized version pays about 1.6x" is a measurement rather than a
+preference. The current substrate has no budget concept at all.
+
+So pricing means: a memory-bearing element's step costs more of the same
+currency than a reactive element's, and the comparison holds **total spend**
+fixed rather than element count. The claim then has a way to lose: the mixed
+population may simply not be worth what it costs.
+
+**Open, and it is the load-bearing choice:** per operation, per element per
+step, or a one-off construction cost.
+
+## Levin's cognitive glue — useful as a lens, dangerous as a specification
+
+[The levin-wiki page](../../levin-wiki/wiki/concepts/cognitive-glues-and-shared-scarcity-models.md)
+records Lyons and Levin's proposal: a shared parameter that tracks relative
+scarcity, connects causally to subunit motivation, leaves detailed adaptation to
+subunit competence, updates swiftly, and changes as a consequence of plan
+changes — *"a virtual governor that coordinates by adjusting incentives rather
+than commanding behavior."*
+
+**This is how the economics got in.** The conjecture register says so plainly of
+that import: *"the only import from that corpus that is a specification for what
+to build rather than a vocabulary for describing what was built."* Built as a
+specification, it produces a price mechanism, which produces the commons. The
+wiki page itself is more careful than the use made of it — it calls the concept
+*"a comparison rubric, not a claim that every collective uses literal prices"*
+and notes the source asks for empirical tests rather than supplying a design.
+
+**But there is a pre-biological reading, and the platonic thread already found
+it.** A virtual governor that coordinates without commanding, couples causally
+to every element, and leaves adaptation to local competence — that is a
+**drive**. Not a price. An external periodic forcing, coupling to every element
+through physics, determining which structures survive without selecting any of
+them. The five properties become checkable against a drive rather than a market,
+and nothing economic is imported.
+
+## The external driver: necessary, and demonstrably not sufficient
+
+The owner's recollection is right and the thread states it as a boxed result:
+
+> **"drive can stabilize available structure, but it cannot stabilize a perfect
+> structure the interface cannot implement."**
+
+**Necessary.** Under constant forcing the matched family reaches 1.67x
+enrichment — essentially nothing. Under period-2 forcing, a family holding
+1.5% of machine space occupies **71% of physical time**. Under period-3, a
+family at 0.069% reaches 12.41% and, at higher coupling, 22.05% — **181x**. The
+drive also *chooses* which structures: total-variation distance between the
+pattern distributions under 01 and 001 forcing is **0.753**. There is no
+universal preference for clocks.
+
+**Not sufficient, and the reason is the capacity ladder again.** Three-state
+machines cannot build a perfect four-phase clock. Under period-4 forcing the
+minimum attainable strain is **0.1442 rather than zero**, so no structure earns
+the residence-time advantage, and enrichment collapses to **1.79x**. The
+computational-capacity boundary reappears *inside* the metastability experiment.
+
+The thread's decomposition:
+
+> dynamic prevalence ~ **basin size** x **mechanical lifetime** x **coupling to the drive**
+
+**Stated limitation, from the thread's own author:** it chose a physical
+constitutive law — output/drive mismatch creates strain, strain increases wiring
+failure. That is a legitimate toy physics, but the next control must ask whether
+the phenomenon survives different plausible energy and failure laws and natural
+recodings. Until that runs, this is a property of one model, not a structural
+result. Its headline enrichment numbers are explicitly not benchmark-grade.
+
+## What this adds to the substrate
+
+Three requirements the current contract has none of:
+
+1. **An external drive** — a forcing signal that couples to every element and is
+   varied as the independent variable. This is the shared quantity, and it is
+   physics rather than economics.
+2. **A cost/failure law** — mismatch between an element's behaviour and the drive
+   must have a consequence. In the platonic model, strain that raises failure
+   rate. This is what makes selection happen with nobody selecting.
+3. **A capability ceiling per element** — what an element *can* match, from the
+   Chomsky ladder. This is what makes the drive insufficient, and it is the same
+   dial as capability composition.
+
+Composition, drive, and pricing are then one experiment rather than three:
+**does a population with mixed capability, at fixed total spend, match a drive
+that no uniform population of the same spend can match?**
+
 ## Status
 
-Round three. Nothing decided. The proposal has moved from the agent's
+Round four. Nothing decided. The proposal has moved from the agent's
 "configuration + rewrite + scheduler" skeleton to the owner's automata framing,
 which subsumes it: the skeleton is how a run is executed, the automaton class is
 what an element *is*, and pricing is what keeps the composition claim honest.
