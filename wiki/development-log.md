@@ -29,6 +29,48 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — rung 2 was about capability, not production, and the ladder is already measured here
+
+**Changed:** round three of
+[the substrate design discussion](substrate-design.md), and a relevance note on
+the `misc/platonic-ingress-toy-automata` holding four days before it expires.
+
+**The correction.** The agent read the founding ladder's rung 2, "production and
+specialisation", economically — an economy of producers and traders — and the
+owner corrected it: what it meant was **one component contributes memory, one
+contributes learning**, expressed *at the substrate level*. Functional
+specialisation of computational capability, not division of labour. That reading
+is pre-biological, it is falsifiable, and it makes "composition" mean something
+specific for the first time in this programme: composing capabilities.
+
+**The substrate framing.** The owner's words: *"basically like cellular automata
+but probably more generalized."* Taken literally, the generalisations sorting and
+capability-composition each require are non-uniform rules, an element that is an
+automaton rather than a symbol, an arbitrary scheduler, an arbitrary
+neighbourhood, per-element faults, and a rule that may itself be state. That adds
+up to a network of communicating state machines under a scheduler, of which both
+classical CA and sorting are instances.
+
+**The composition question now has a control.** *Does a heterogeneous population —
+some reactive, some memory-bearing — achieve a task no homogeneous population of
+the same total budget can?* This only means anything **if capability is priced**:
+if a memory-bearing element costs what a reactive one costs, "memory helps" is
+true before the run. Sorting's one-currency discipline is what makes it a
+measurement, and the current substrate has no budget concept at all.
+
+**Prior art, already here, expiring.**
+`misc/platonic-ingress-toy-automata/computational_capacity_ladder_summary.csv`
+measures this exact axis — `3-state DFA -> one counter` on Dyck-1 with first
+failure at `(())`, `pushdown -> two counters` on a^n b^n c^n — and
+`abc_capacity_boundary.csv` shows a modular PDA's precision falling 1.0 -> 0.33
+as N grows while two counters hold. Its quarantine expires **2026-09-17**.
+
+**What this does not establish.** The platonic material is **design input, not
+evidence**: no native runnable source, its own generating agent warned its
+headline numbers should not be treated as benchmark results, and its positive
+controls were never run. Nothing about the substrate is decided; round three is
+a proposal with five open questions.
+
 ## 2026-09-05 — pre-biological set as a scope boundary, and a design discussion opened
 
 **Changed:** the charter now states **pre-biological** as a scope boundary rather

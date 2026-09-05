@@ -26,6 +26,24 @@ expires_at: "2026-09-17T00:00:00Z"
 
 # Platonic ingress toy automata — imported, unvalidated
 
+> **Relevance changed 2026-09-05, before the 09-17 expiry.** The substrate design
+> discussion turned to *capability composition* — elements differing in
+> computational class, one contributing memory, one contributing learning — and
+> this holding's `computational_capacity_ladder_summary.csv` measures exactly that
+> axis: `3-state DFA -> one counter` on Dyck-1, `pushdown -> two counters` on
+> a^n b^n c^n, with `abc_capacity_boundary.csv` showing a modular PDA degrading
+> 1.0 -> 0.33 while two counters hold at 1.0.
+>
+> **This does not change its evidentiary status**, which remains as stated above:
+> no native runnable source here, headline enrichment numbers its own author said
+> should not be treated as benchmark results, positive controls proposed and not
+> run. It is **design input, not evidence.**
+>
+> The open disposition question is therefore no longer "does this expire" but "is
+> this the capability axis the substrate should be built around" — see
+> [the substrate design discussion](../../wiki/substrate-design.md). Do not let
+> it lapse on the date without answering that.
+
 39 files (`.csv`, `.png`, one `.json` per major result) covering: static vs.
 dynamic ("metastable") occupancy of abstract patterns in a 5,832-machine toy
 automaton universe, drive-dependent selection under periodic forcing,
