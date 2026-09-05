@@ -56,8 +56,13 @@ The first move against this is a candidate family carrying a latent shared
 regressor, plus an adequacy test that reports failure-to-explain rather than only
 relative improvement over persistence.
 
-**Next decision, revised 2026-09-05 — measure the macro description, do not
-define it.** Two actions, in this order.
+**Next action — one thing.** Re-run
+[Q1-006](../hypotheses/q1_006_pairwise_relation_results.md)'s comparison with a
+**null-calibrated threshold**, in the null-subtracted form Q1-009 established.
+Nothing else is queued. Item 1 below is finished and is kept for what it changed;
+item 2 is the action.
+
+*Revised 2026-09-05 — measure the macro description, do not define it.*
 
 1. ~~Q1-009: effective information and empowerment on the existing specimens.~~
    **Done 2026-09-05** — [result](../hypotheses/q1_009_information_measures_results.md).

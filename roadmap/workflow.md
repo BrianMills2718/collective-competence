@@ -67,7 +67,19 @@ uv run --project goal-discovery python scripts/render_knowledge_index.py --write
 python3 scripts/sync_agent_context.py --check
 uv run --project goal-discovery python scripts/render_knowledge_index.py --check
 uv run --project goal-discovery python -m unittest scripts.test_documentation_tools
+python3 scripts/check_evidence_custody.py
 ```
+
+The last one is the evidence-custody guard, added 2026-09-05. It fails when a
+result package that a tracked document or module references is not itself
+tracked, which is how thirteen packages backing the live conjectures stayed
+outside Git while `git status` reported clean. It also fails when the scan finds
+no citations at all, or none from a source type that
+[its baseline](../scripts/evidence_custody_baseline.json) records as
+contributing — a scan that finds nothing has reported that it is broken, not that
+custody is clean. `goal-discovery/tests/test_evidence_custody.py` runs it as part
+of the suite and includes the negative controls that prove each of those paths
+fires.
 
 These tiny adapters generate navigation from authored sources. They do not
 infer scientific outcomes, replace shared governance tooling, install hooks,

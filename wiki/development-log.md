@@ -29,6 +29,53 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — handoff state, and what a fresh reader should not have to reconstruct
+
+**Changed:** the [current plan](../goal-discovery/docs/plans/current_research_plan.md)
+now names one next action in its first sentence instead of two with the first
+struck through, and [workflow](../roadmap/workflow.md#maintenance-loop) lists the
+evidence-custody guard among the commands to run from this checkout. Nothing
+scientific changed.
+
+**Where the programme stands.** One action is queued and nothing waits on it:
+re-run [Q1-006](../goal-discovery/docs/hypotheses/q1_006_pairwise_relation_results.md)'s
+comparison with a null-calibrated threshold, in the null-subtracted form
+[Q1-009](../goal-discovery/docs/hypotheses/q1_009_information_measures_results.md)
+established. The strongest current result is that a statistic separates
+coordinated from matched-independent populations on **two** families against real
+controls — commons `live` +0.589 against `random` +0.006, slot `derived_phase`
++0.168 against `random_attempt` +0.024 — which is the completion condition's
+clause-2 shape and is deliberately not claimed as clause 2. The strongest
+negative is that there is **no causal emergence** on either specimen under the
+one coarse-graining tested.
+
+**Three debts are open and none blocks that action.** Empowerment measures idle
+capacity rather than agency and should be redesigned against a different
+observable or dropped. The commons specimen's control arm exists now but the
+slot's `constant_phase` remains degenerate for variety-sensitive statistics.
+And nine defects in Q1-009's implementation were found by an independent review
+rather than by the fifty-eight tests written beside that code, which is a
+standing argument for a review pass before a result record counts as evidence.
+
+**What is now mechanical rather than remembered.** The custody guard fails when a
+referenced result package is untracked, when the scan finds nothing, or when a
+recorded source type contributes nothing; the substrate's port-fidelity tests
+fail rather than skip when a frozen package is absent; and
+`test_only_two_dials_are_load_bearing` pins which substrate dials actually change
+behaviour. Each has a negative control that has been observed firing. Prefer
+extending these over adding prose: a rule with no mechanism did not survive this
+session, repeatedly and on record.
+
+**Why this entry exists:** the session that produced today's work ran long enough
+that its reasoning lived mostly in a transcript. The
+[external assessment](../goal-discovery/docs/audits/2026-09-05_external_assessment.md)
+holds the judgement, this log holds the sequence, and the plan holds the next
+action; none of the three should require reading the others to be actionable.
+
+**Does not establish:** no result changed. C1 and C2 remain supported on one
+family each, completion-condition clause 2 remains neither met nor failed, and
+the emergence negative covers one coarse-graining that was not searched over.
+
 ## 2026-09-05 — the two Q1-009 debts paid, and the sibling-repo question closed
 
 **Changed:** the commons specimen gained the matched-independent control it
