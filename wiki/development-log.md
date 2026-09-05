@@ -29,6 +29,47 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — the goal list was already written, in the founding briefs
+
+**Changed:** [`wiki/goals.md`](goals.md) drafted for review after a full
+documentation review.
+
+**The finding of the review is that almost none of it is new.** The founding
+briefs contain the scientific question, the substrate specification, the
+capability dimensions, a fourteen-step model ladder and a thirteen-phase
+experiment sequence. The programme did not follow them. Every framing correction
+the owner made across today's design discussion — pre-biological scope,
+capability rather than production, generalized cellular automata, detection
+rather than performance, minimality — restates something already written in his
+own founding documents.
+
+**Three recoveries change the design discussion directly.** The laboratory spec's
+section 28 specifies *"a discrete interacting dynamical system with local state
+and explicit transition rules"* of which *"a standard cellular automaton is a
+particularly constrained case"* — which is what the owner restated independently
+as "like cellular automata but probably more generalized." Section 20 lists
+twelve capability dimensions to manipulate **independently**, including memory,
+learning and policy adaptation, and says plainly *"do not build a universal
+intelligence hierarchy"* — which corrects the agent's proposal of the Chomsky
+ladder as the capability spine; it survives only as a proved ordering within the
+memory dimension. And addendum 3's phase sequence puts **LLMs and economics at
+phase M**, *"only after the preceding results justify those dimensions"*, while
+sorting is phase E and black-box/white-box comparison is phase F.
+
+**That locates the drift precisely.** The renewable commons is phase-M content
+executed at phase-F time. Everything objected to today follows from that single
+inversion.
+
+**Six goals drafted**, each with the minimal substrate configuration it needs and
+what already bears on it: maintenance versus arrival; recovery of authored
+structure; detection of capability class; when a macro description earns being a
+system; what a capability cost and who paid; and whether a driver is needed. What
+the agent added rather than recovered is marked as such in the register.
+
+**What this does not establish.** The register is a draft with no authority. Its
+ordering, its completeness, and whether it supersedes or sits beside the
+roadmap's two-arm framing are all open for the owner's review.
+
 ## 2026-09-05 — rung 2 was about capability, not production, and the ladder is already measured here
 
 **Changed:** round three of
