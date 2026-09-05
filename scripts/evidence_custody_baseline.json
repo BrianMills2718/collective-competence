@@ -1,23 +1,26 @@
 {
-  "purpose": "Result packages that a tracked document cites and Git does not carry. As of 2026-09-05 every recoverable one has been committed; what remains is the irrecoverable. scripts/check_evidence_custody.py reports these and does not fail on them; it DOES fail on any cited package that is untracked and not listed here.",
+  "purpose": "Cited result paths that Git does not carry, with why. As of 2026-09-05 every recoverable package has been committed and nothing is lost: the single remaining entry is a command's output directory, not stored evidence. scripts/check_evidence_custody.py reports these and does not fail on them; it DOES fail on any cited package that is untracked and not listed here.",
   "recorded_at": "2026-09-05",
   "recorded_from": "checkout /home/brian/code/collective-competence at 55fc885",
   "how_to_clear_an_entry": "An entry here can only be cleared by the citing document stating that the raw package was not retained, so the claim carries its own evidence limit. The data itself is gone.",
   "status_meanings": {
     "on_disk_untracked": "Present in the authoring checkout only. Recoverable now, lost with that machine. Sizes are why these were not committed wholesale; the choice of which to keep is a repository-weight decision for the owner.",
-    "absent_everywhere": "Cited by a tracked document and present in neither Git nor the authoring checkout. The claim resting on it can no longer be inspected at all."
+    "absent_everywhere": "Cited by a tracked document and present in neither Git nor the authoring checkout. The claim resting on it can no longer be inspected at all.",
+    "command_output_path": "A path a documented command creates, not a package that should exist. Reported separately from evidence debt and never treated as a loss."
   },
   "totals": {
     "packages": 1,
     "on_disk_untracked": 0,
-    "absent_everywhere": 1,
+    "absent_everywhere": 0,
+    "command_output_paths": 1,
     "megabytes_on_disk": 0.0
   },
   "packages": {
     "p12-reproduction": {
-      "status": "absent_everywhere",
+      "status": "command_output_path",
       "files": 0,
-      "kilobytes": 0
+      "kilobytes": 0,
+      "note": "Not evidence and not lost. p12_reference_inference_results.md names this inside a fenced shell block as the --directory a reproduction command WRITES to; it was never a stored package. Recorded here so the guard does not report it as missing evidence, and so the earlier classification of it as permanently lost is not repeated."
     }
   }
 }

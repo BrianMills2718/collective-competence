@@ -101,3 +101,26 @@ def test_outcome_buckets_do_not_depend_on_the_counterfactual():
                 assert code == expected, (unit, tick, forced)
             seen_middle += pair[1] == 1
     assert seen_middle > 0, "do(not act) never reached the middle bucket; coding is still coupled"
+
+
+def test_a_block_intervention_moves_the_outcome_further_than_a_single_tick():
+    """Positive control on the resolution fix.
+
+    A single forced tick moved a subunit's own outcome by less than the coding
+    could resolve, so measured capacity was ~0 for instrumentation reasons. If a
+    block does not move it further, the fix did nothing and the empowerment
+    numbers still describe the estimator rather than the system.
+    """
+    cfg = load_config()
+    single = block = 0
+    for unit in range(cfg.n_subunits):
+        for tick in (0, 5, 11, 23):
+            a1 = forced_action_outcome(cfg, 0, "derived_phase", unit, tick, True, 5, block=1)
+            b1 = forced_action_outcome(cfg, 0, "derived_phase", unit, tick, False, 5, block=1)
+            a10 = forced_action_outcome(cfg, 0, "derived_phase", unit, tick, True, 5, block=10)
+            b10 = forced_action_outcome(cfg, 0, "derived_phase", unit, tick, False, 5, block=10)
+            if None in (a1, b1, a10, b10):
+                continue
+            single += abs(a1 - b1)
+            block += abs(a10 - b10)
+    assert block > single, f"block {block} did not exceed single {single}"

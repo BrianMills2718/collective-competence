@@ -1,0 +1,305 @@
+{
+  "commons": {
+    "frozen": {
+      "ei_macro": 0.4004660516081758,
+      "ei_micro": 1.0056085376418438,
+      "ei_micro_above_null": 0.1982105910670161,
+      "emergence": -0.605142486033668,
+      "emergence_above_null": -0.32083987595825864,
+      "null_ei_micro_mean": 0.8073979465748277,
+      "null_ei_micro_sd": 0.03720079062329975,
+      "null_emergence_mean": -0.2843026100754094,
+      "null_emergence_sd": 0.029985989482064147,
+      "transitions_per_seen_row": 5950.0
+    },
+    "live": {
+      "ei_macro": 0.4560699957973259,
+      "ei_micro": 0.5925879182732895,
+      "ei_micro_above_null": 0.5887951044881642,
+      "emergence": -0.13651792247596362,
+      "emergence_above_null": -0.13290858120721974,
+      "null_ei_micro_mean": 0.003792813785125275,
+      "null_ei_micro_sd": 0.00014357598774190967,
+      "null_emergence_mean": -0.0036093412687438742,
+      "null_emergence_sd": 0.00012190939444102986,
+      "transitions_per_seen_row": 5950.0
+    },
+    "none": {
+      "ei_macro": 0.0,
+      "ei_micro": 0.0,
+      "ei_micro_above_null": 0.0,
+      "emergence": 0.0,
+      "emergence_above_null": 0.0,
+      "null_ei_micro_mean": 0.0,
+      "null_ei_micro_sd": 0.0,
+      "null_emergence_mean": 0.0,
+      "null_emergence_sd": 0.0,
+      "transitions_per_seen_row": 190400.0
+    },
+    "random": {
+      "ei_macro": 0.009680267187762628,
+      "ei_micro": 0.009825449300443512,
+      "ei_micro_above_null": 0.005747220503144152,
+      "emergence": -0.00014518211268088436,
+      "emergence_above_null": 0.003730356107675606,
+      "null_ei_micro_mean": 0.00407822879729936,
+      "null_ei_micro_sd": 0.00028629308081463164,
+      "null_emergence_mean": -0.0038755382203564904,
+      "null_emergence_sd": 0.0002584656729785179,
+      "transitions_per_seen_row": 5950.0
+    }
+  },
+  "empowerment": {
+    "commons": {
+      "frozen": {
+        "capacity_bits": 0.03275365432317416,
+        "channel": [
+          [
+            0.0,
+            0.001125,
+            0.001125,
+            0.006625,
+            0.010125,
+            0.626875,
+            0.3535,
+            0.000625
+          ],
+          [
+            0.0,
+            0.0,
+            0.001875,
+            0.004625,
+            0.009125,
+            0.528875,
+            0.39725,
+            0.05825
+          ]
+        ],
+        "inadmissible_samples": 0,
+        "samples": 16000
+      },
+      "live": {
+        "capacity_bits": 0.0663001647428233,
+        "channel": [
+          [
+            0.289875,
+            0.13775,
+            0.143125,
+            0.141625,
+            0.137375,
+            0.128625,
+            0.021625,
+            0.0
+          ],
+          [
+            0.173,
+            0.132,
+            0.121875,
+            0.12925,
+            0.135625,
+            0.133375,
+            0.1305,
+            0.044375
+          ]
+        ],
+        "inadmissible_samples": 0,
+        "samples": 16000
+      },
+      "none": {
+        "capacity_bits": 0.036479990045267405,
+        "channel": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.491625,
+            0.508375,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.427125,
+            0.507,
+            0.065875
+          ]
+        ],
+        "inadmissible_samples": 0,
+        "samples": 16000
+      },
+      "random": {
+        "capacity_bits": 0.11425556807702024,
+        "channel": [
+          [
+            0.247375,
+            0.135625,
+            0.154875,
+            0.142125,
+            0.148,
+            0.137375,
+            0.034625,
+            0.0
+          ],
+          [
+            0.076,
+            0.104,
+            0.131,
+            0.145625,
+            0.152875,
+            0.14675,
+            0.14175,
+            0.102
+          ]
+        ],
+        "inadmissible_samples": 0,
+        "samples": 16000
+      }
+    },
+    "slot": {
+      "constant_phase": {
+        "capacity_bits": 1.0,
+        "channel": [
+          [
+            0.314375,
+            0.111625,
+            0.132625,
+            0.205,
+            0.20625,
+            0.030125,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "inadmissible_samples": 0,
+        "samples": 16000
+      },
+      "derived_phase": {
+        "capacity_bits": 0.44574541883220176,
+        "channel": [
+          [
+            0.3269176735037932,
+            0.08288845181230682,
+            0.10382129811744872,
+            0.1279853891542568,
+            0.16310761449845462,
+            0.14638943523461648,
+            0.04818769317223939,
+            0.0007024445068839561
+          ],
+          [
+            0.012924978926664794,
+            0.03666760325934251,
+            0.045939870750210735,
+            0.04242764821579095,
+            0.08148356279853891,
+            0.0993256532733914,
+            0.22829446473728576,
+            0.45293621803877493
+          ]
+        ],
+        "inadmissible_samples": 882,
+        "samples": 14236
+      },
+      "random_attempt": {
+        "capacity_bits": 0.3100479791628472,
+        "channel": [
+          [
+            0.3145690738930018,
+            0.09889649392373237,
+            0.12836988406201982,
+            0.13968431345159937,
+            0.14638916049727616,
+            0.12068724682218186,
+            0.0465148763793826,
+            0.0048889509708059786
+          ],
+          [
+            0.0224891744657075,
+            0.04427992736415701,
+            0.058527727336220144,
+            0.08590585277273362,
+            0.12725240955440703,
+            0.15211621734879174,
+            0.19625646039949712,
+            0.3131722307584858
+          ]
+        ],
+        "inadmissible_samples": 841,
+        "samples": 14318
+      }
+    }
+  },
+  "gates": {
+    "G1_structure_above_null": {
+      "min": 0.1,
+      "pass": true,
+      "value": 0.5887951044881642
+    },
+    "G2_discrimination": {
+      "min": 0.05,
+      "pass": true,
+      "value": 0.5887951044881642
+    },
+    "G3_empowerment_not_vacuous": {
+      "min": 0.05,
+      "pass": true,
+      "value": 0.6899520208371528
+    }
+  },
+  "null_replicates": 5,
+  "observed_units": 5,
+  "seeds": 1600,
+  "slot": {
+    "constant_phase": {
+      "ei_macro": 0.05341203937178946,
+      "ei_micro": 0.05341203937178946,
+      "ei_micro_above_null": -0.08458242110817082,
+      "emergence": 0.0,
+      "emergence_above_null": 0.09216865680357395,
+      "null_ei_micro_mean": 0.13799446047996028,
+      "null_ei_micro_sd": 0.02031813149836644,
+      "null_emergence_mean": -0.09216865680357395,
+      "null_emergence_sd": 0.058415726252672016,
+      "transitions_per_seen_row": 95200.0
+    },
+    "derived_phase": {
+      "ei_macro": 0.10082392042311213,
+      "ei_micro": 0.3506121093502688,
+      "ei_micro_above_null": 0.16721280230768823,
+      "emergence": -0.2497881889271567,
+      "emergence_above_null": -0.11615033568811253,
+      "null_ei_micro_mean": 0.1833993070425806,
+      "null_ei_micro_sd": 0.03964762857859414,
+      "null_emergence_mean": -0.13363785323904417,
+      "null_emergence_sd": 0.034354801630797384,
+      "transitions_per_seen_row": 6346.666666666667
+    },
+    "random_attempt": {
+      "ei_macro": 0.11938756212824621,
+      "ei_micro": 0.1912679140528611,
+      "ei_micro_above_null": 0.02386109335970721,
+      "emergence": -0.07188035192461488,
+      "emergence_above_null": 0.030689752138359436,
+      "null_ei_micro_mean": 0.16740682069315388,
+      "null_ei_micro_sd": 0.02072232189661499,
+      "null_emergence_mean": -0.10257010406297432,
+      "null_emergence_sd": 0.037903603384630224,
+      "transitions_per_seen_row": 5950.0
+    }
+  }
+}

@@ -16,7 +16,7 @@ from src.experiments.shared_scarcity.run import load_config
 from src.substrate import run
 from src.substrate.specimens.renewable_commons import SPECIMEN
 
-ARMS = ("live", "frozen", "none")
+ARMS = ("live", "frozen", "random", "none")
 
 
 class Cfg:
@@ -30,11 +30,21 @@ class Cfg:
 
 
 def arm_cfg(base, arm: str, seed: int):
-    """`frozen` is held at that seed's own live time-average, per C1-001's rule."""
-    if arm != "frozen":
-        return Cfg(base, condition=arm)
-    live = run(SPECIMEN, Cfg(base, condition="live"), seed)
-    return Cfg(base, condition="frozen", frozen_level=live.mean_signal)
+    """`frozen` and `random` are both matched to that seed's own live run.
+
+    `frozen` holds the signal at live's time-average, per C1-001's rule. `random`
+    holds the per-subunit draw probability at live's observed draw rate, so the
+    independent control shares live's duty cycle and differs only in coordination.
+    """
+    if arm == "frozen":
+        live = run(SPECIMEN, Cfg(base, condition="live"), seed)
+        return Cfg(base, condition="frozen", frozen_level=live.mean_signal)
+    if arm == "random":
+        acted: list[float] = []
+        run(SPECIMEN, Cfg(base, condition="live"), seed,
+            observer=lambda t, attempted, st: acted.append(float((attempted > 0.0).mean())))
+        return Cfg(base, condition="random", draw_prob=float(np.mean(acted)))
+    return Cfg(base, condition=arm)
 
 
 def action_trace(cfg, seed: int, arm: str) -> tuple[np.ndarray, float]:
@@ -47,7 +57,7 @@ def action_trace(cfg, seed: int, arm: str) -> tuple[np.ndarray, float]:
 
 def forced_run(specimen, cfg, seed: int, *, unit: int | None = None,
                tick: int | None = None, forced: bool = False,
-               stop_after: int | None = None):
+               stop_after: int | None = None, block: int = 1):
     """The shared loop, with one optional overwritten action. Returns final `obtained`.
 
     Mirrors `substrate.contract.run` exactly when `unit` is None; the equivalence
@@ -60,7 +70,7 @@ def forced_run(specimen, cfg, seed: int, *, unit: int | None = None,
         state.tick = t
         specimen.replenish(state, cfg)
         attempted = specimen.decide(state, cfg)
-        if unit is not None and t == tick:
+        if unit is not None and tick <= t < tick + block:
             attempted = attempted.copy()
             # The specimen's own decide() caps a draw at min(draw_cap, remaining).
             # Forcing the full cap asked ~11% of interventions to draw more than the
@@ -75,13 +85,15 @@ def forced_run(specimen, cfg, seed: int, *, unit: int | None = None,
 
 
 def empowerment_channel(cfg, seed: int, arm: str, unit: int, tick: int,
-                        ahead: int, n_buckets: int = 3) -> tuple[int, int]:
+                        ahead: int, n_buckets: int = 3,
+                        block: int = 1) -> tuple[int, int]:
     """Return (bucket | do(act)), (bucket | do(not act)) for one unit's own outcome."""
     base = arm_cfg(cfg, arm, seed)
     out = []
     for forced in (True, False):
         obtained, need = forced_run(SPECIMEN, base, seed, unit=unit, tick=tick,
-                                    forced=forced, stop_after=tick + ahead + 1)
+                                    forced=forced, stop_after=tick + block + ahead,
+                                    block=block)
         remaining = max(float(need[unit] - obtained[unit]), 0.0)
         frac = remaining / max(float(need[unit]), 1e-12)
         out.append(min(n_buckets - 1, int(frac * n_buckets)))

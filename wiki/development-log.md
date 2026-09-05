@@ -29,6 +29,62 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — the two Q1-009 debts paid, and the sibling-repo question closed
+
+**Changed:** the commons specimen gained the matched-independent control it
+lacked, the empowerment intervention was widened until its own coding could
+resolve it, and the eight-month-old question of whether `agent_ecology2` is this
+project under another name was answered.
+
+- **A matched-independent commons arm exists.** Each subunit draws independently
+  at that seed's own live draw rate, so duty cycle is held and only coordination
+  is removed. The three original arms are bit-identical, checked by the
+  port-fidelity tests. It scores **+0.006 above its own null against `live`'s
+  +0.589**, so a matched-independent population sits at its null here as it does
+  on the slot family (+0.024 against `derived_phase`'s +0.167). **The statistic
+  reports structure where coordination is present and essentially nothing where it
+  is absent, on two families, against controls that are not degenerate.** That is
+  the completion condition's clause-2 shape; it is recorded as such and
+  deliberately not claimed as clause 2, since these arms are not its matched pair
+  and this measurement was post-hoc.
+- **Empowerment is now resolvable and still confounded.** Ten forced ticks instead
+  of one and eight buckets instead of three raised capacities 10–30×, and the
+  validity gate passes at 0.690 against 0.05. The ordering nonetheless still
+  tracks channel idle fraction arm for arm, `constant_phase` saturates the one-bit
+  ceiling at 90% idle, and on the commons the *matched-independent* arm scores
+  highest. So the measure reads **unused capacity available to a unilateral
+  actor**, and that is now measured rather than suspected. It should be redesigned
+  against a different observable or dropped, not reported as agency.
+- **A correction to this session's own record.** `results/p12-reproduction` was
+  listed as evidence permanently lost. It is not lost: the P12 result names it
+  inside a fenced shell block as the directory a reproduction command *writes to*.
+  Reclassified, and the custody guard now distinguishes a command's output path
+  from missing evidence. **Nothing cited by this repository is lost.**
+- **`agent_ecology2` and `agent_ecology3` are not this project**, and the
+  [cross-repository timeline](cross-repo-timeline.md#resolved-2026-09-05-are-these-the-same-project)
+  now records why rather than leaving the zero-mention gap open. AE2's written
+  thesis is this project's constructive question almost verbatim, but 1,201 of its
+  1,217 commits predate March 2026, its only experiment file is still
+  `status: planned`, and its unique content is already absorbed into AE3's lineage
+  documents. AE3 has retargeted to an operator-workbench product goal. **Neither
+  has ever measured collective capability** — a search of AE3's design surfaces
+  for an isolated baseline returns nothing, and its own failure dossier names that
+  omission. Recorded against the verdict: AE3 independently prescribes this
+  project's exact method, and it holds the literal ingredients of
+  [C1](conjectures.md) — a shared scalar, a shared scarce budget, principals with
+  conflicting objectives — never varied and never measured, which makes it a
+  candidate second family for C1's transfer clause rather than a rival.
+
+**Why:** two of the three debts Q1-009 opened were cheap and both bore on whether
+its central comparison meant anything. The sibling-repo question had been sitting
+open in this repository's own timeline since the timeline was written.
+
+**Does not establish:** the follow-up measurements are post-hoc over the same
+configuration and re-score no frozen gate; Q1-009's recorded verdicts stand as
+frozen. Emergence is unchanged and still negative in every non-degenerate arm,
+including the new one. The third debt — that nine defects were found by review and
+none by the suite written beside the code — is unaddressed.
+
 ## 2026-09-05 — a review of Q1-009 found eight defects in its own implementation
 
 **Changed:** [Q1-009](../goal-discovery/docs/hypotheses/q1_009_information_measures_results.md)

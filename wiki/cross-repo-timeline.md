@@ -118,5 +118,56 @@ AE2's README states its goal as "emergent collective capability - a system where
 agents produce more together than the sum of what they could produce alone",
 for LLM agents. collective-competence's original ladder ended at "07 LLM agents,
 only once the measurables hold up without them". AE2 is the destination that
-ladder was climbing toward. collective-competence references AE2 and AE3
-nowhere - zero mentions in the entire repository.
+ladder was climbing toward. collective-competence referenced AE2 and AE3
+nowhere - zero mentions in the entire repository until the survey below.
+
+## Resolved 2026-09-05: are these the same project?
+
+Surveyed because this repository's own timeline recorded the zero-mention gap and
+nobody had closed it. **Adjacent questions, not the same one — and AE2 is the
+duplicate, not this repository.**
+
+**AE2 is dormant and already absorbed.** Its written thesis is this repository's
+constructive question almost verbatim — `THESIS.md`: "emergent collective
+capability can arise from LLM agents operating under real resource constraints",
+and behaviours that "exceed what any single agent could achieve." But 1,201 of its
+1,217 commits predate March 2026, its last substantive commit was 2026-07-10, and
+everything since is dependency migration and governance. Its one experiment file
+is `status: planned` with its observations section reading "(To be filled after
+running)". Its unique content — the thesis, its simulation learnings, its
+discourse-run negative result, its V1-acceptance failure analysis — has already
+been extracted into `agent_ecology3/docs/LINEAGE_AND_RESTARTS.md` and
+`FAILURE_MODE_DOSSIER.md`. Parking it loses nothing not already captured.
+
+**AE3 has retargeted away from the research question.** Its canonical direction
+doc states a product outcome — "a repeatable local workbench where he can launch
+bounded ecologies… without editing source code" — and the phrase "collective
+capability" survives in AE3 only inside failure-mode entries naming what the
+evidence does *not* establish. Five evaluations exist; four are null or
+inconclusive on instrument grounds rather than on the science, and one behavioural
+candidate remains explicitly "not a general emergence claim."
+
+**Neither has ever measured collective capability.** A search of AE3's source,
+evaluations and plans for an isolated or solo baseline returns zero design hits.
+Its nearest metrics are within-system flow and concentration measures with no
+comparison against agents working alone.
+
+**Why they are nevertheless different objects of study.** This repository removes
+cognition by construction and studies mechanism → competence on ~10 numeric
+subunits over 120 ticks. AE2/AE3 place LLM cognition inside a mechanism and ask
+whether it discovers coordination, at wall-clock speed and real provider cost.
+The cost structure decides what is askable: this repository can afford matched
+controls and measured nulls — Q1-008 needed many runs of pure noise to establish
+the statistic's floor — while AE3's evaluations carry frozen no-rerun rules and
+one died mid-run, permanently invalid, at USD 0.24.
+
+**Two findings that cut the other way**, recorded because they are the strongest
+case against the verdict. AE3's own FM-10 prescribes this repository's exact
+method — "complementary capabilities/information and an isolated baseline" —
+derived independently from the opposite substrate; two lines converging on one
+method is evidence of one question. And AE3 has scrip, a shared budget, and
+discrete principals with conflicting objectives: the literal ingredients of
+[C1](conjectures.md), never varied and never measured. On the letter of C1's
+transfer clause, AE3 is not a rival project but an untested second family for it.
+
+Neither observation is acted on here. Recorded so the question stops being open.

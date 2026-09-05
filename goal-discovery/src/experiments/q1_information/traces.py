@@ -98,7 +98,8 @@ def shuffle_null(actions: np.ndarray, rng: np.random.Generator) -> np.ndarray:
 
 
 def forced_action_outcome(cfg, seed: int, arm: str, unit: int, tick: int,
-                          forced: bool, horizon_ahead: int) -> float | None:
+                          forced: bool, horizon_ahead: int,
+                          block: int = 1) -> float | None:
     """do(unit acts / does not act at `tick`), then read that unit's own remaining need.
 
     A genuine intervention rather than an observational proxy: the unit's action
@@ -126,8 +127,8 @@ def forced_action_outcome(cfg, seed: int, arm: str, unit: int, tick: int,
             attempts = (remaining > 0) & (act_rng.random(cfg.n_subunits) < duty)
         else:
             attempts = (remaining > 0) & (phases == (t % period))
-        if t == tick:
-            if remaining[unit] <= 0:
+        if tick <= t < tick + block:
+            if t == tick and remaining[unit] <= 0:
                 return None
             attempts = attempts.copy()
             attempts[unit] = bool(forced)
@@ -138,7 +139,8 @@ def forced_action_outcome(cfg, seed: int, arm: str, unit: int, tick: int,
 
 
 def forced_action_outcome_pair(cfg, seed: int, arm: str, unit: int, tick: int,
-                               horizon_ahead: int, n_buckets: int = 3):
+                               horizon_ahead: int, n_buckets: int = 3,
+                               block: int = 1):
     """Both arms of the intervention, bucketed against the unit's OWN need.
 
     Absolute bucketing, matching `commons.empowerment_channel`, so slot and commons
@@ -147,7 +149,8 @@ def forced_action_outcome_pair(cfg, seed: int, arm: str, unit: int, tick: int,
     needs = needs_for(cfg, seed)
     out = []
     for forced in (True, False):
-        rem = forced_action_outcome(cfg, seed, arm, unit, tick, forced, horizon_ahead)
+        rem = forced_action_outcome(cfg, seed, arm, unit, tick, forced,
+                                    horizon_ahead, block=block)
         if rem is None:
             return None
         frac = rem / max(float(needs[unit]), 1e-12)

@@ -87,14 +87,14 @@ def main() -> int:
             continue
         (known if pkg in baseline else drifted).append((pkg, docs))
 
+    labels = {
+        "on_disk_untracked": ("debt", "authoring checkout only"),
+        "absent_everywhere": ("debt", "NEITHER Git NOR any checkout"),
+        "command_output_path": ("note", "a documented command writes here; not evidence"),
+    }
     for pkg, docs in known:
-        row = baseline[pkg]
-        where = (
-            "authoring checkout only"
-            if row["status"] == "on_disk_untracked"
-            else "NEITHER Git NOR any checkout"
-        )
-        print(f"debt: results/{pkg} -- {where} -- cited by {', '.join(sorted(docs))}")
+        kind, where = labels.get(baseline[pkg]["status"], ("debt", "unclassified"))
+        print(f"{kind}: results/{pkg} -- {where} -- cited by {', '.join(sorted(docs))}")
 
     for pkg, docs in drifted:
         print(
@@ -113,7 +113,7 @@ def main() -> int:
         return 1
     print(
         f"PASS: {tracked_count} cited result packages tracked; "
-        f"{len(known)} known evidence debt (see {baseline_path.relative_to(root)}); "
+        f"{len(known)} listed exception(s) (see {baseline_path.relative_to(root)}); "
         f"0 new drift"
     )
     return 0

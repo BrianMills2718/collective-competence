@@ -26,7 +26,12 @@ NULL_REPLICATES = 5
 EMP_SEEDS = 200
 EMP_SAMPLES = 40
 EMP_AHEAD = 5
-EMP_BUCKETS = 3
+# A single forced tick moved a commons subunit's own need by at most
+# draw_cap/quota = 1.9%, which three buckets could not resolve, so the measured
+# capacity was ~0 for reasons of instrumentation rather than of the system. A
+# contiguous block and finer buckets put the intervention above the resolution.
+EMP_BLOCK = 10
+EMP_BUCKETS = 8
 G1_MIN, G2_MIN, G3_MIN = 0.10, 0.05, 0.05
 
 
@@ -63,7 +68,7 @@ def empowerment(kind: str, cfg, arm: str) -> dict:
     for seed in range(EMP_SEEDS):
         for _ in range(EMP_SAMPLES):
             unit = int(rng.integers(n_units))
-            tick = int(rng.integers(0, cfg.horizon - EMP_AHEAD - 1))
+            tick = int(rng.integers(0, cfg.horizon - EMP_BLOCK - EMP_AHEAD - 1))
             if kind == "slot":
                 # Bucket against the unit's OWN need, absolutely. The original code
                 # divided by the larger of the counterfactual pair, which made the
@@ -72,18 +77,23 @@ def empowerment(kind: str, cfg, arm: str) -> dict:
                 # bucket | do not act) was structurally 0.000 in all three arms. It
                 # also put the slot on a different scale from the commons, so the two
                 # could not be compared. Same absolute rule as commons.empowerment_channel.
-                pair = forced_action_outcome_pair(cfg, seed, arm, unit, tick, EMP_AHEAD)
+                pair = forced_action_outcome_pair(cfg, seed, arm, unit, tick, EMP_AHEAD,
+                                                  n_buckets=EMP_BUCKETS, block=EMP_BLOCK)
                 if pair is None:
                     inadmissible += 1
                     continue
                 on, off = pair
             else:
                 on, off = cm.empowerment_channel(cfg, seed, arm, unit, tick,
-                                                 EMP_AHEAD, EMP_BUCKETS)
+                                                 EMP_AHEAD, EMP_BUCKETS,
+                                                 block=EMP_BLOCK)
             counts[0, on] += 1
             counts[1, off] += 1
     totals = counts.sum(axis=1, keepdims=True)
     channel = np.divide(counts, totals, out=np.zeros_like(counts), where=totals > 0)
+    used = (channel > 0).any(axis=1)
+    if not used.all():
+        raise ValueError(f"{kind}/{arm}: an action was never sampled; cannot take capacity")
     return {"capacity_bits": blahut_arimoto(channel),
             "channel": channel.tolist(),
             "samples": int(counts.sum()),

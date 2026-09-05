@@ -88,15 +88,23 @@ shape, on a statistic whose null is measured rather than assumed — so the re-r
 should carry the null-subtracted form rather than an absolute ceiling, and it now
 has a second statistic to cross-check against.
 
-**Three debts Q1-009 opened**, all cheap and none blocking the Q1-006 re-run.
+**Three debts Q1-009 opened. Two are paid; the third is not.**
 
-1. **The commons arms have no matched-independent control.** Every commons
-   comparison until one exists is measured against `frozen` or against a
-   degenerate `none`. Roughly an hour to add.
-2. **Empowerment needs an intervention its measurement can resolve** — a
-   contiguous block of forced ticks rather than one, and buckets finer than the
-   intervention's maximum effect — before "confounded with idleness" can be
-   separated from "inapplicable to this family." Roughly an hour.
+1. ~~The commons arms have no matched-independent control.~~ **Paid 2026-09-05.**
+   The commons specimen now carries a `random` arm matched to each seed's own
+   live draw rate, and it scores **+0.006 above its null against `live`'s
+   +0.589** — so a matched-independent population sits at its null on the commons
+   as it does on the slot. The statistic now discriminates coordination from
+   matched independence **on two families against real controls**, which is the
+   strongest thing in this lane. Post-hoc, not a re-scored gate.
+2. ~~Empowerment needs an intervention its measurement can resolve.~~ **Paid
+   2026-09-05, and the answer is negative.** A ten-tick block with eight buckets
+   raised capacities 10–30× and the gate now passes at 0.690, but the ordering
+   still tracks channel idle fraction arm for arm and the top slot arm saturates
+   the one-bit ceiling. Empowerment as operationalized **measures unused capacity
+   available to a unilateral actor, not agency** — now measured rather than
+   suspected. Either redesign it against a different observable or drop it; do not
+   report it as an agency measure on this substrate.
 3. **The nine defects were found by review, not by the suite.** Fifty-eight tests
    written alongside that code caught none of them, because they asserted the
    failures their author had already imagined: analytic fixed points for the

@@ -223,3 +223,79 @@ for the measures and equivalence for the arms — the things their author had
 already thought about. That is the more durable finding here, and it is the same
 shape as this repository's standing problem with controls: a check written by the
 person who wrote the code tests the failures they anticipated.
+
+---
+
+## Follow-up of 2026-09-05: the two debts, paid — post-hoc, not a re-scoring
+
+Both are **post-hoc measurements over the same configuration**, run after the
+frozen gates were evaluated. They do not restate any frozen gate and the frozen
+verdicts above stand as recorded. Evidence:
+[`results/q1-009-information/followup.json`](../../results/q1-009-information/followup.json).
+
+### 1. The commons finally has a matched-independent control, and it changes the reading for the better
+
+G2 as frozen compared `live` against a degenerate `none`. The commons specimen
+now carries a `random` arm: each subunit draws independently at a probability
+matched to that seed's own live draw rate, so duty cycle is held and only
+coordination is removed — the counterpart of the slot family's `random_attempt`.
+The three original arms are bit-identical, which the port-fidelity tests check.
+
+| commons arm | EI micro | shuffle null | **above null** |
+|---|---|---|---|
+| `live` | 0.593 | 0.004 | **+0.589** |
+| `frozen` | 1.006 | 0.807 | **+0.198** |
+| **`random` (matched-independent)** | 0.010 | 0.004 | **+0.006** |
+| `none` (degenerate) | 0.000 | 0.000 | +0.000 |
+
+**A matched-independent population sits at its own null on the commons too.**
+That is the same shape the slot family showed, now on a second family and against
+a control that is not degenerate:
+
+| family | coordinated, above null | matched-independent, above null |
+|---|---|---|
+| commons | `live` **+0.589** | `random` **+0.006** |
+| slot | `derived_phase` **+0.167** | `random_attempt` **+0.024** |
+
+So the statistic reports structure where coordination is present and reports
+essentially nothing where it is absent, on two families. **This is the clause-2
+shape and it is now supported by a real control rather than by a floor.** It is
+still not a clause-2 claim: these arms are not the completion condition's matched
+pair, and this measurement was not frozen.
+
+### 2. Empowerment is now resolvable, and the confound survives anyway
+
+The intervention was widened from one forced tick to a contiguous block of ten,
+and the outcome coding from three buckets to eight, after the original coding was
+found to sit below the intervention's own effect size. A positive control asserts
+the block moves the outcome further than a single tick.
+
+Capacities rise by roughly ten to thirty times and the validity gate passes
+decisively — spread **0.690** against 0.05, where the original defective run read
+0.028 and the corrected single-tick run read 0.053. **But the ordering still
+tracks idle capacity, arm for arm:**
+
+| slot arm | channel idle | empowerment, single tick | empowerment, block of ten |
+|---|---|---|---|
+| `constant_phase` | 90.0% | 0.0605 | **1.0000** — at the one-bit ceiling |
+| `derived_phase` | 49.2% | 0.0123 | **0.4457** |
+| `random_attempt` | 41.0% | 0.0074 | **0.3100** |
+
+On the commons the same pattern holds from the other side: the matched-independent
+arm has the *highest* empowerment (0.1143) and the coordinating arm less (0.0663),
+which is what "available slack" predicts and not what "agency" would.
+
+**The resolution fix worked and did not rescue the measure.** What it establishes
+is stronger than the earlier "unmeasured": with an intervention its coding can
+resolve, empowerment as operationalized here measures **unused capacity available
+to a unilateral actor**, monotonically, on both families — and the best-scoring
+slot arm saturates the one-bit ceiling, so the measure cannot discriminate above
+that point either. Reporting it as an agency measure on this substrate would be
+wrong, and that is now a measured claim rather than a suspicion.
+
+### What is still not done
+
+Nothing here revisits the emergence result, which is unchanged: the coarse-grained
+description carries less effective information than the micro one in every
+non-degenerate arm, on both specimens, including the new `random` arm (−0.000
+above null). One coarse-graining, still not searched, still not retuned.

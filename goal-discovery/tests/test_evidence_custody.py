@@ -69,12 +69,16 @@ def test_the_checker_actually_fails_when_a_package_drifts():
         assert "results/kept" not in r.stdout, "a tracked package must not be reported"
 
 
-def test_baseline_records_the_one_package_lost_everywhere():
-    """p12-reproduction is cited by a tracked result and exists nowhere.
+def test_nothing_cited_is_actually_lost():
+    """The baseline's only exception is a command's output path, not missing evidence.
 
-    Recorded rather than quietly dropped, per the repository rule against
-    revising historical outcomes to make the current picture look stronger.
+    An earlier version of this test asserted that results/p12-reproduction was
+    permanently lost. That was wrong: p12_reference_inference_results.md names it
+    inside a fenced shell block as the --directory a reproduction command writes
+    to, so it was never a stored package. Any entry that IS a loss must say so
+    with status absent_everywhere, and there are none.
     """
     packages = json.loads(BASELINE.read_text())["packages"]
-    lost = [k for k, v in packages.items() if v["status"] == "absent_everywhere"]
-    assert lost == ["p12-reproduction"], lost
+    lost = {k: v for k, v in packages.items() if v["status"] == "absent_everywhere"}
+    assert not lost, f"evidence recorded as lost: {sorted(lost)}"
+    assert all(v["status"] == "command_output_path" for v in packages.values()), packages

@@ -35,13 +35,18 @@ def initialize(cfg: Any, seed: int) -> State:
     # Draw order is the bit-identity contract: quotas first, then stock.
     quotas = cfg.quota * rng.uniform(0.85, 1.15, size=cfg.n_subunits)
     stock = float(cfg.initial_stock * rng.uniform(0.9, 1.1))
+    condition = getattr(cfg, "condition", "live")
     return State(
         tick=0, horizon=cfg.horizon,
         need=quotas, obtained=np.zeros(cfg.n_subunits),
         signal=0.0, resource=stock,
-        extra={"p_live": 0.0, "condition": getattr(cfg, "condition", "live"),
+        extra={"p_live": 0.0, "condition": condition,
                "frozen_level": getattr(cfg, "frozen_level", None),
-               "alpha": getattr(cfg, "alpha", 1.0)},
+               "alpha": getattr(cfg, "alpha", 1.0),
+               "draw_prob": getattr(cfg, "draw_prob", None),
+               # Its own stream, drawn after the bit-identity draws above, so the
+               # three original conditions consume exactly what they always did.
+               "rng": np.random.default_rng(seed + 4242) if condition == "random" else None},
     )
 
 
@@ -54,6 +59,16 @@ def decide(state: State, cfg: Any) -> np.ndarray:
     remaining = state.remaining
     urgency = remaining / state.remaining_ticks
     cond, frozen_level, alpha = state.extra["condition"], state.extra["frozen_level"], state.extra["alpha"]
+    if cond == "random":
+        # The matched-independent control the commons arms lacked. Each subunit
+        # draws independently at a probability matched to the live arm's observed
+        # draw rate for the same seed, so duty cycle is held and coordination is
+        # removed -- the counterpart of the slot family's random_attempt arm, whose
+        # absence here let Q1-009's G2 pass against a degenerate `none`.
+        state.signal = 0.0
+        wants = (remaining > 0.0) & (state.extra["rng"].random(remaining.size)
+                                     < float(state.extra["draw_prob"]))
+        return np.where(wants, np.minimum(cfg.draw_cap, remaining), 0.0)
     if cond == "none":
         p_eff = 0.0
     elif cond == "frozen":
