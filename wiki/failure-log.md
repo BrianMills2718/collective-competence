@@ -225,6 +225,37 @@ a claim. This one had been true of nothing for as long as it was written down,
 and the cost was 1,135 lines held in the active tree plus an instruction telling
 every agent not to touch them.
 
+## F14 — 5,496 lines of cited narrative existed in one untracked copy — `CLOSED 2026-09-05`
+
+**What was found.** `~/code/algorithmic_ingress*.md` — six documents, 5,496
+lines — sat untracked on a directory that is not a repository, with no second
+copy anywhere on the machine. They are the narrative for the platonic-ingression
+thread whose data is quarantined in `misc/`, they are **cited by a tracked
+document in this repository**, and today's substrate discussion drew its
+drive/capacity-boundary reasoning from them.
+
+**Why nothing caught it.** `check_evidence_custody.py` scans for cited *result
+packages* under `results/`. A cited document outside the repository is outside
+its model entirely — the guard cannot see a class of citation it was not built
+for, and reported `0 new drift` throughout.
+
+**Closed** by copying them to
+`misc/platonic-ingress-toy-automata/narrative/`, bytes verified identical by
+checksum, with the originals left in place. Evidentiary status is unchanged:
+**design input, not evidence** — no runnable source here, the generating agent's
+own warning that its headline figures are not benchmark-grade, and positive
+controls never run.
+
+**Open consequence, deliberately not closed here.** Where this thread lives is a
+structural question — its own repository, `levin-wiki` beside the
+platonic-space-and-ingression page, or here. Copying was reversible; deciding is
+not, and it is the owner's. The copy exists so that decision has no deadline.
+
+**The general form:** a custody guard that models one kind of citation reports
+clean while another kind is unprotected. This repository's guard checks result
+packages; nothing checks cited documents, cited external repositories, or cited
+loose files.
+
 ## F3 — A gate frozen below its own statistic's null, three times — `CLOSED`
 
 **What stopped.** Q1-006 froze a clause-2 ceiling at 0.10 when the statistic's
