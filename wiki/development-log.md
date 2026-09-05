@@ -29,6 +29,28 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-05 — the status page was quoting a ratio that contradicted its own reading
+
+**Changed:** the bar tooltips on [`wiki/status.html`](status.html) report the
+effect and the null spread as two numbers instead of dividing them.
+
+**What was wrong.** Each bar's tooltip read `value / null_sd` as "N null sd".
+That sd is the spread of an eight-replicate estimate, and on arms whose shuffle
+null is near-deterministic it collapses toward zero: the commons `live` sd is
+0.0001 and `random` is 0.0003. So the tooltips said **"+4101 null sd"** for
+`live` and **"+20.1 null sd"** for `random` — and the second flatly contradicts
+the sentence printed directly beneath it, which says the matched-independent arm
+sits *at* its null. A reader hovering the bar would have been told the opposite
+of the page's own reading.
+
+**Found by serving the page and reading what it emitted**, not by looking at the
+picture — the ratios live in `<title>` elements that only appear on hover. The
+rendered screenshots were inspected in both modes and showed nothing.
+
+The ratios still quoted in prose are the ones a result package computed and
+froze — Q1-010's +6.3 and +1.7 — plus `frozen`'s 5.3, which is defensible
+because that arm's null has real spread (0.037) and the note now says so.
+
 ## 2026-09-05 — a visual status page, generated from the evidence it describes
 
 **Changed:** [`wiki/status.html`](status.html) and its generator
