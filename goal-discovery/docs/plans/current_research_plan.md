@@ -60,12 +60,24 @@ The first move against this is a candidate family carrying a latent shared
 regressor, plus an adequacy test that reports failure-to-explain rather than only
 relative improvement over persistence.
 
-**Next action — one thing: [goal D2](../../../wiki/goals.md)'s damage-delivery
-run.** Hold total damage fixed at eight faults and vary only delivery — all at
-once versus one per episode — on the sorting lineage. It discriminates a passive
-attractor from something that actually restores performance after loss, which is
-the question the 2026-09-06 repeated-perturbation run answered in the negative
-for *transient* disturbance only.
+**Next action — one thing: the two-agent boundary on the sorting lineage.**
+One agent running the opposing rule presumably parks somewhere the majority
+contains; two can hand a defect back and forth indefinitely. Nothing in
+[experiment 01](../../../experiments/01-self-sorting/README.md) tests it, it has
+been that experiment's own first open question throughout, it is on the sorting
+lineage this phase works, and it is cheap. It is also the first question here
+whose answer is not already constrained by the attractor result below: a standoff
+between two opposing rules is a property of the interaction, not of the basin.
+
+**The previous next action is done.** [Goal D2](../../../wiki/goals.md)'s
+damage-delivery run was executed 2026-09-06: total damage held at eight faults,
+only delivery varied. **Answered in the negative** — delivery carries no
+information beyond displacement, a zero-parameter passive-attractor model
+predicts the eight-episode total to +2.4%, and the one apparent history effect
+was isolated to a scan cursor and vanishes when only scan order is randomised.
+That is the second independent negative answer for D2. Written up in the
+experiment README with `experiments/01-self-sorting/results/delivery.csv` and
+`experiments/01-self-sorting/results/delivery_cursor_probe.py`.
 
 **Why this plan's own previous next action moved, 2026-09-06.** Re-running
 [Q1-006](../hypotheses/q1_006_pairwise_relation_results.md)'s comparison with a

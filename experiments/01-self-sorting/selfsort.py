@@ -269,6 +269,29 @@ PERTURBATIONS = {
     "dead_member": _compound(perturb_dead_one),
 }
 
+# Perturbations that are meaningfully divisible into equal units. `swap2` and
+# `teleport` damage state only, so k of them is k times the same kind of damage
+# and "eight faults" means the same thing however they are delivered. The
+# member-damage perturbations are NOT on this list: freezing eight agents at
+# once and freezing one agent eight times over are different experiments, and
+# the second is not even well defined once the same agent can be chosen twice.
+# A delivery comparison that mixed them in would be varying two things.
+DIVISIBLE_PERTURBATIONS = ("swap2", "teleport")
+
+
+def _deliver(perturbation: str, w: World, magnitude: int) -> str:
+    """Apply one perturbation `magnitude` times as a single delivery.
+
+    magnitude=1 calls the perturbation function exactly once and draws exactly
+    the same random numbers as the pre-2026-09-06 code did, which is what lets
+    `check_single_shot_baseline` still reproduce the recorded trials.
+    """
+    if magnitude < 1:
+        raise ValueError("perturb_magnitude must be at least 1")
+    fn = PERTURBATIONS[perturbation]
+    descs = [fn(w) for _ in range(magnitude)]
+    return descs[0] if magnitude == 1 else f"{magnitude}x [" + "; ".join(descs) + "]"
+
 
 # ----------------------------------------------------------------------------
 # Trial runner
@@ -320,6 +343,9 @@ class Trial:
     # five fields above. Empty when nothing fired.
     episodes: list["Episode"] = field(default_factory=list)
     episodes_requested: int = 1
+    # Faults applied per delivery. Total damage in a run is
+    # perturb_magnitude * (episodes actually delivered).
+    perturb_magnitude: int = 1
     # Why the episode sequence ended: "completed" (all requested delivered),
     # "budget" (ops ran out), "never_sorted" (goal never reached, so nothing to
     # disturb), "no_recovery" (an episode was never recovered from, so the next
@@ -343,6 +369,7 @@ def run_trial(
     perturb_at_op: int | None = None,
     perturb_delay: int = 0,
     perturb_repeats: int = 1,
+    perturb_magnitude: int = 1,
     stop_on_goal: bool = False,
     sample_every: int = 5,
     record_trajectory: bool = False,
@@ -376,7 +403,10 @@ def run_trial(
 
     if perturb_repeats < 1:
         raise ValueError("perturb_repeats must be at least 1")
+    if perturb_magnitude < 1:
+        raise ValueError("perturb_magnitude must be at least 1")
     t.episodes_requested = perturb_repeats
+    t.perturb_magnitude = perturb_magnitude
 
     # `armed` means a perturbation is pending and will fire at the next trigger.
     # `delivered` counts episodes already fired. The pre-2026-09-06 behaviour is
@@ -418,7 +448,7 @@ def run_trial(
                 else (w.ops >= (perturb_at_op or 0))
             )
             if trigger:
-                desc = PERTURBATIONS[perturbation](w)
+                desc = _deliver(perturbation, w, perturb_magnitude)
                 w.resync()
                 armed = False
                 episode = Episode(
@@ -467,7 +497,7 @@ def run_trial(
             # The controller halted or the budget ran out while a perturbation
             # was still pending. Deliver it anyway, so a controller cannot dodge
             # the disturbance by stopping first.
-            desc = PERTURBATIONS[perturbation](w)
+            desc = _deliver(perturbation, w, perturb_magnitude)
             w.resync()
             armed = False
             episode = Episode(
@@ -818,6 +848,184 @@ def exp_repeat(n: int = 10, trials: int = 200, budget: int = 20_000) -> list[dic
 DELAY_GRID = [0, 5, 20, 60, 200]
 
 
+DELIVERY_TOTAL_DAMAGE = 8
+
+
+def exp_delivery(n: int = 10, trials: int = 200, budget: int = 20_000) -> list[dict]:
+    """Hold total damage fixed; vary only how it is delivered.
+
+    D2's second half. `exp_repeat` established that the cost of recovery is
+    stationary across eight episodes with no attrition, which is a passive
+    attractor's signature -- but it only ever delivered one fault at a time, so
+    it could not separate "delivery does not matter" from "this much damage does
+    not matter". This experiment fixes total damage at
+    DELIVERY_TOTAL_DAMAGE=8 faults and changes nothing but their arrival:
+
+      * **burst** -- one episode carrying all 8 faults at once.
+      * **drip**  -- 8 episodes carrying 1 fault each.
+
+    What each answer would mean.
+
+    **If total recovery cost is about the same either way**, the system is
+    paying for displacement and not for disturbance events. That is the passive
+    attractor reading, and it is the second, independent piece of evidence for
+    it: a basin does not care whether you push it once or eight times, only how
+    far.
+
+    **If drip costs materially more**, there is a fixed per-episode price -- a
+    re-approach, a re-detection -- that a goal-directed controller would be
+    paying and a pure attractor would not.
+
+    **If burst costs disproportionately more than 8x a single fault**, the
+    damage is not linear in the number of faults: eight swaps can interact,
+    creating a configuration no single swap reaches. That would be a fact about
+    the substrate, not about the controllers, and it is why the single-fault
+    reference arm below is measured rather than assumed.
+
+    Three arms, not two, for exactly that reason: `single` (one episode, one
+    fault) is the unit of account. Without it, "burst costs 340 ops" is a number
+    with nothing to divide by.
+
+    Only `swap2` and `teleport` are used. Member damage is not divisible into
+    equal units -- freezing eight agents at once and freezing one agent eight
+    times are different experiments, and the second is ill-defined once the same
+    agent can be drawn twice. See DIVISIBLE_PERTURBATIONS.
+
+    **Eight faults is not eight times the displacement, and this is measured.**
+    Swaps partially cancel and inversions saturate (45 is the maximum at n=10),
+    so a single swap leaves a mean 5.63 inversions while eight at once leave
+    19.0, not 45. Fixing the *fault count* fixes the intervention, not the
+    distance from the goal. The drip arm therefore delivers materially more
+    cumulative displacement (8 x 5.63) than the burst arm (19.0) for the same
+    eight faults, and any reading of the cost comparison has to divide by
+    `mean_total_damage_inv`, which is recorded per row for exactly that reason.
+    A version of this experiment that compared raw ops and called the difference
+    a delivery effect would be reading a displacement difference instead.
+
+    **The comparison metric is total ops spent recovering across the whole run**,
+    summed over every episode that was recovered from, plus an explicit count of
+    trials that did not recover everything delivered. Reading mean cost alone
+    would let an arm look cheap by failing early, which is the survivorship trap
+    `exp_repeat` already had to disclose.
+    """
+    print("\n=== delivery: eight faults at once, or one per episode? ===")
+    rows: list[dict] = []
+    controllers = ["decentralized", "central_closed", "central_watchdog"]
+    arms = (
+        ("single", 1, 1),
+        ("burst", 1, DELIVERY_TOTAL_DAMAGE),
+        ("drip", DELIVERY_TOTAL_DAMAGE, 1),
+    )
+    for pert in DIVISIBLE_PERTURBATIONS:
+        for name in controllers:
+            for p in (0.0, 0.30):
+                for arm, repeats, magnitude in arms:
+                    ts = [
+                        run_trial(
+                            name, n=n, seed=1000 * k + 71, faults=Faults(p_fail=p),
+                            budget=budget, perturbation=pert, perturb_on_sorted=True,
+                            perturb_delay=20, perturb_repeats=repeats,
+                            perturb_magnitude=magnitude, stop_on_goal=False,
+                        )
+                        for k in range(trials)
+                    ]
+                    # Only trials that reached the goal were ever disturbed.
+                    faced = [x for x in ts if x.episodes]
+                    # A trial "fully recovered" when every episode it was dealt
+                    # came back to zero inversions. Delivering fewer episodes
+                    # than requested is itself a failure to absorb the damage,
+                    # so it is counted here rather than excluded.
+                    full = [
+                        x for x in faced
+                        if len(x.episodes) == repeats
+                        and all(e.recovered for e in x.episodes)
+                    ]
+                    total_ops = [
+                        float(sum(e.ops_to_recover for e in x.episodes
+                                  if e.ops_to_recover is not None))
+                        for x in full
+                    ]
+                    damage = [
+                        float(sum(e.inv_after_perturb for e in x.episodes))
+                        for x in faced
+                    ]
+                    rows.append(dict(
+                        perturbation=pert, controller=name, p_fail=p,
+                        arm=arm, episodes=repeats, faults_per_episode=magnitude,
+                        total_faults=repeats * magnitude,
+                        trials=len(ts),
+                        trials_disturbed=len(faced),
+                        trials_fully_recovered=len(full),
+                        full_recovery_rate=(len(full) / len(faced)) if faced else math.nan,
+                        median_total_ops_to_recover=(
+                            statistics.median(total_ops) if total_ops else math.nan),
+                        mean_total_ops_to_recover=_mean(total_ops),
+                        mean_total_damage_inv=_mean(damage),
+                    ))
+        # The comparison this experiment exists to make, printed per perturbation.
+        for name in controllers:
+            def pick(arm: str) -> dict:
+                return next(r for r in rows if r["perturbation"] == pert
+                            and r["controller"] == name and r["p_fail"] == 0.0
+                            and r["arm"] == arm)
+            one, burst, drip = pick("single"), pick("burst"), pick("drip")
+            unit = one["median_total_ops_to_recover"]
+            print(f"  {pert:<10} {name:<18} "
+                  f"single {unit:7.1f}  "
+                  f"burst {burst['median_total_ops_to_recover']:7.1f} "
+                  f"({burst['median_total_ops_to_recover'] / unit:5.2f}x unit)  "
+                  f"drip {drip['median_total_ops_to_recover']:7.1f} "
+                  f"({drip['median_total_ops_to_recover'] / unit:5.2f}x unit)  "
+                  f"full-recovery burst {burst['full_recovery_rate']:.2f} "
+                  f"drip {drip['full_recovery_rate']:.2f}")
+    write_csv(RESULTS / "delivery.csv", rows)
+
+    # Total cost against delivery mode, with the eight-fault reference line the
+    # passive-attractor reading predicts: 8 x the single-fault cost.
+    plt = _plt()
+    # Only controllers that actually recovered are drawn. A legend entry with no
+    # line reads as missing data; the controllers that never recovered are named
+    # in an annotation instead, with their rate, so their absence is a stated
+    # result and not a gap.
+    drawn = [c for c in controllers
+             if any(r["controller"] == c and r["trials_fully_recovered"] > 0 for r in rows)]
+    absent = [c for c in controllers if c not in drawn]
+    fig, axes = plt.subplots(1, len(DIVISIBLE_PERTURBATIONS),
+                             figsize=(10, 4.4), sharey=True)
+    for col, pert in enumerate(DIVISIBLE_PERTURBATIONS):
+        ax = axes[col]
+        xs = [0, 1]
+        for cname in drawn:
+            def val(arm: str) -> float:
+                return next(r["median_total_ops_to_recover"] for r in rows
+                            if r["perturbation"] == pert and r["controller"] == cname
+                            and r["p_fail"] == 0.0 and r["arm"] == arm)
+            ax.plot(xs, [val("burst"), val("drip")], label=cname, **STYLE[cname])
+            unit = val("single")
+            ax.axhline(DELIVERY_TOTAL_DAMAGE * unit, color=STYLE[cname].get("color", "gray"),
+                       alpha=0.30, linestyle=":", linewidth=1)
+        ax.set(title=pert, xticks=xs)
+        ax.set_xticklabels([f"burst\n({DELIVERY_TOTAL_DAMAGE} at once)",
+                            f"drip\n(1 x {DELIVERY_TOTAL_DAMAGE})"])
+        ax.grid(alpha=0.3)
+    if absent:
+        note = "; ".join(
+            f"{c}: 0 of {next(r['trials'] for r in rows if r['controller'] == c)} "
+            "recovered in any arm (it halts before the disturbance)"
+            for c in absent)
+        fig.text(0.5, 0.015, f"not plotted -- {note}", ha="center", fontsize=8,
+                 color="#555555")
+    axes[0].set_ylabel("median total ops to recover")
+    axes[0].legend(fontsize=8, title="recovered", title_fontsize=8)
+    fig.suptitle(f"Same {DELIVERY_TOTAL_DAMAGE} faults, two deliveries "
+                 f"(dotted line = {DELIVERY_TOTAL_DAMAGE} x the single-fault cost)",
+                 fontsize=10)
+    fig.tight_layout(rect=(0, 0.05, 1, 1))
+    fig.savefig(RESULTS / "delivery.png", dpi=140)
+    plt.close(fig)
+    return rows
+
+
 def exp_window(n: int = 10, trials: int = 300, budget: int = 20_000) -> list[dict]:
     """Disturb the array D operations after the goal is first reached.
 
@@ -1137,7 +1345,8 @@ def main() -> None:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("experiment",
                     choices=["test", "faults", "recovery", "repeat", "window",
-                             "hetero", "scale", "single-point", "all"])
+                             "hetero", "scale", "single-point", "delivery",
+                             "all"])
     ap.add_argument("-n", type=int, default=10, help="number of agents")
     ap.add_argument("--trials", type=int, default=200)
     ap.add_argument("--budget", type=int, default=20_000, help="op budget per trial")
@@ -1152,6 +1361,8 @@ def main() -> None:
         exp_recovery(args.n, args.trials, args.budget)
     if args.experiment in ("repeat", "all"):
         exp_repeat(args.n, args.trials, args.budget)
+    if args.experiment in ("delivery", "all"):
+        exp_delivery(args.n, args.trials, args.budget)
     if args.experiment in ("window", "all"):
         exp_window(args.n, args.trials, args.budget)
     if args.experiment in ("hetero", "all"):

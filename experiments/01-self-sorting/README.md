@@ -183,6 +183,120 @@ for exactly this reason.
 Outputs: `results/repeat.csv` (per-episode), `results/repeat_summary.csv`
 (episodes absorbed and why each sequence ended), `results/07_repeat.png`.
 
+## Delivery (D2, second half): eight faults at once, or one at a time?
+
+Added 2026-09-06, `python selfsort.py delivery`. The previous section left one
+thing unseparated, and [the "Next" list below](#next) named it as the
+discriminating run: rising cost under `unreliable_member` has an obvious
+mechanism — each episode damages one more member — so it measures capacity being
+consumed, not the system responding to repetition. This run holds **total damage
+fixed at eight faults** and changes only their arrival:
+
+| arm | episodes | faults each | what it is |
+|---|---|---|---|
+| `single` | 1 | 1 | the unit of account, so the other two have something to divide by |
+| `burst` | 1 | 8 | all the damage at once |
+| `drip` | 8 | 1 | the same damage one hit at a time |
+
+Only `swap2` and `teleport` are used. Member damage is not divisible into equal
+units — freezing eight agents at once and freezing one agent eight times are
+different experiments, and the second is not even well defined once the same
+agent can be drawn twice.
+
+**Eight faults is not eight times the displacement, and that has to be measured
+before anything else is read.** Swaps partially cancel and inversions saturate
+(45 is the maximum at n=10), so one swap leaves a mean 5.98 inversions while
+eight at once leave 20.03 — not 47.8. Fixing the fault count fixes the
+*intervention*, not the distance from the goal. The drip arm therefore delivers
+**49.3** cumulative inversions against burst's **20.0** for the same eight
+faults. Raw ops differ enormously — 79 versus 304 for `decentralized` — and
+almost all of that is displacement, not delivery. `mean_total_damage_inv` is
+recorded per row so the comparison can be made on the right quantity.
+
+**The passive-attractor model, stated so it can fail.** If cost depends only on
+current displacement, then total cost is the sum over deliveries of `f(damage of
+that delivery)` and there is no cross-episode term. `f` is measured from single
+deliveries, so predicting drip costs **8 × f(1)** with no free parameters:
+
+| controller | perturbation | `8 × f(1)` predicted | observed | error |
+|---|---|---|---|---|
+| `decentralized` | swap2 | 304.0 | 311.3 | **+2.4%** |
+| `decentralized` | teleport | 252.8 | 264.0 | **+4.4%** |
+| `central_watchdog` | swap2 | 177.8 | 199.9 | **+12.4%** |
+| `central_watchdog` | teleport | 111.3 | 133.1 | **+19.6%** |
+
+The decentralized rule fits. The watchdog does not, and the gap is not noise.
+
+**Where the watchdog's excess is, and what it is not.** Per-episode means over
+400 trials, all of which recovered from all eight episodes, so none of this is
+survivorship. Episode 0 reproduces the single-delivery mean to **+0.0%** in all
+four cells, which is the internal control that the harness is not biasing the
+first hit:
+
+```
+swap2     decentralized     40.0 41.3 40.1 39.6 39.9 40.0 38.3 37.8    0->7  -5.5%
+swap2     central_watchdog  23.7 24.7 25.1 26.0 26.3 24.7 26.0 26.2    0->7 +10.5%
+teleport  decentralized     32.5 35.6 33.7 33.0 32.3 31.6 33.2 33.9    0->7  +4.4%
+teleport  central_watchdog  14.2 16.2 17.1 16.6 18.1 17.7 17.1 17.3    0->7 +21.1%
+```
+
+The watchdog gets steadily *worse* under repetition while the decentralized rule
+is flat. Under the ontology that is not adaptation — adaptation restores or
+improves performance after loss — but it is history dependence, and history
+dependence is the thing a passive attractor is not supposed to have. So it was
+isolated rather than explained away.
+
+**It is the scan cursor, and this is measured, not inferred.**
+`central_watchdog` sweeps `i = 0 .. n-2` forever, so its phase when damage
+arrives is state that survives a disturbance; `decentralized` picks pairs at
+random and has no phase. `results/delivery_cursor_probe.py` runs a watchdog
+identical in every respect except that each sweep starts at a random offset —
+the same n−1 positions scanned, the same work, only the order changed:
+
+| perturbation | watchdog, episode 0→7 | same, cursor phase randomised |
+|---|---|---|
+| swap2 | **+10.5%** | **−0.6%** |
+| teleport | **+21.1%** | **−1.2%** |
+
+The whole effect disappears. And the direction matters: the phase-randomised
+watchdog is *more expensive at episode 0* (27.4 against 23.7 on swap2; 19.0
+against 14.2 on teleport) and the ordinary watchdog's cost at episode 7 (26.2,
+17.3) converges on it. So the watchdog is not degrading. It begins with its
+cursor favourably correlated with the array it has just finished sorting, and
+repetition destroys that correlation. **The rise is the decay of an initial
+condition, not damage accumulating.**
+
+### What this answers
+
+**Delivery carries no information beyond displacement.** For the controller
+without internal state the zero-parameter attractor model predicts the
+eight-episode total to within 2.4%, and the one apparent history effect in the
+other controller is a decaying initial-condition correlation that vanishes when
+scan order is randomised. Nothing here is stronger than a passive attractor.
+
+This is the **second independent** negative answer for D2. The first was cost
+stationarity across eight episodes; this one holds total damage fixed and varies
+delivery, which the first could not do.
+
+**Read the preregistered criterion honestly.** The "Next" list said: *"A passive
+attractor cannot tell those apart. If they differ, that is the first thing here
+stronger than an attractor."* The arms **did** differ in raw cost, by a factor of
+about four. As written, that criterion is met. It should not have been written
+that way: it compared totals without dividing by the displacement each delivery
+creates, and eight faults at once are not eight faults' worth of displacement.
+Once the comparison is made on the quantity the model is about, the difference is
+accounted for with no free parameters. The criterion was underspecified, and it
+is left above as written rather than edited to match the outcome.
+
+**What it does not establish.** Two perturbations, both pure state damage, one
+substrate, n=10. `central_closed` is absent from every cost figure because it
+halts before the disturbance arrives and recovered in **0 of 200** trials in all
+three arms — its own documented design ceiling, and the reason it is annotated on
+the figure rather than left as an empty legend entry. Nothing here bears on
+member damage, where capacity really is consumed.
+
+![delivery](results/delivery.png)
+
 ## Three things I had to fix before believing any of it
 
 Each of these made the decentralized controller look better than it is.
@@ -205,6 +319,7 @@ python selfsort.py test           # substrate self-checks, ~1s
 python selfsort.py all            # every experiment + four figures, ~2min
 python selfsort.py window         # the goal-directedness window on its own
 python selfsort.py repeat         # the repeated-disturbance profile (D2), ~1min
+python selfsort.py delivery       # same damage, two deliveries (D2), ~2min
 python selfsort.py scale          # headcount vs fraction, N up to 50, ~3min
 ```
 
@@ -227,13 +342,22 @@ What this experiment actually opens, in order of what a result would change:
 1. **The two-agent boundary.** Still the first open question, and untouched: one
    opposing agent presumably parks somewhere the majority contains, two can hand
    a defect back and forth, but nothing here tests that. Cheap to run.
-2. **Separate the two things the repeat profile conflates.** Rising cost under
+2. ~~**Separate the two things the repeat profile conflates.**~~ **Done
+   2026-09-06** — [the delivery section above](#delivery-d2-second-half-eight-faults-at-once-or-one-at-a-time).
+   Answered in the negative: delivery carries no information beyond displacement.
+   The original wording is kept below because its criterion turned out to be
+   underspecified and the section above says why. *"Rising cost under
    `unreliable_member` has an obvious mechanism — each episode damages one more
    member — so it measures capacity being consumed, not the system responding to
    repetition. The discriminating run holds total damage fixed and varies only
-   how it is *delivered*: eight faults applied at once versus one per episode. A
+   how it is delivered: eight faults applied at once versus one per episode. A
    passive attractor cannot tell those apart. If they differ, that is the first
-   thing here stronger than an attractor.
+   thing here stronger than an attractor."*
+
+   What it opened instead: the scan cursor is real internal state that a
+   coordinator carries across disturbances, and it buys a measurable advantage on
+   the **first** disturbance only. Whether any controller here can hold that
+   advantage across repetition is a question this run did not have to ask.
 3. **Coarse-graining.** Feed the transition system to causal-emergence tooling now
    that the state space is small and well defined. Enabling work; name the
    question it unlocks before running it.

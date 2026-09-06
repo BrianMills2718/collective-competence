@@ -150,11 +150,31 @@ Three results, one of which answers this goal in the negative:
   every one of eight episodes with zero attrition, while median cost rises 52 →
   153. The measure previously reported could not see that.
 
-**Still open.** The rising cost has a mechanical explanation — each episode
-damages one more member — so it measures capacity being consumed, not a response
-to repetition. The discriminating run holds total damage fixed and varies only
-its delivery: eight faults at once versus one per episode. A passive attractor
-cannot separate those. That is the next step for D2, and it is cheap.
+**Done 2026-09-06, second run — delivery.** The step named here was run the
+same day: `python selfsort.py delivery` holds total damage fixed at eight faults
+and varies only their arrival. `experiments/01-self-sorting/results/delivery.csv`,
+`experiments/01-self-sorting/results/delivery.png` and the supporting
+`experiments/01-self-sorting/results/delivery_cursor_probe.py`.
+
+- **Delivery carries no information beyond displacement.** Eight faults at once
+  produce 20.03 inversions, not eight times one fault's 5.98, so raw totals
+  differ fourfold for reasons that are pure displacement. Fitting cost against
+  damage from single deliveries and predicting the eight-episode total as
+  `8 x f(1)` — no free parameters — lands within **+2.4%** for `decentralized`.
+- **The one history effect is an initial condition decaying, not adaptation.**
+  `central_watchdog`'s per-episode cost rises +10.5% (swap2) and +21.1%
+  (teleport) across eight episodes. Randomising only its scan *order*, same work
+  per sweep, takes that to −0.6% and −1.2%: the watchdog begins with its cursor
+  favourably correlated with the array it just finished sorting, and repetition
+  destroys the correlation. Its episode-7 cost converges on the phase-randomised
+  controller's, which is *higher* at episode 0.
+
+**So D2 is answered in the negative twice, independently.** Nothing measured on
+`swap2` or `teleport` is stronger than a passive attractor.
+
+**Still open on D2.** Only member damage, where capacity really is consumed and
+the divisibility argument does not apply, and substrates other than sorting.
+Neither is cheap, and neither is queued.
 
 ### D3 — Which profile dimensions are measurable from observation alone?
 
