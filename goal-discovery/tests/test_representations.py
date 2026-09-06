@@ -65,16 +65,38 @@ def test_a_sorted_array_is_the_zero_of_every_distance_measure():
     assert sortedness_value(o) == 1.0
 
 
-def test_empty_and_singleton_do_not_raise():
-    for values in ([], [4]):
-        for fn in (
-            boundary_length,
-            unlike_neighbor_fraction,
-            largest_cluster_fraction,
-            sortedness_value,
-            inversions,
-        ):
-            fn(obs(values))
+def test_empty_and_singleton_return_their_pinned_degenerate_values():
+    """The degenerate cases have conventions, and the conventions are the claim.
+
+    This was written as `..._do_not_raise`: it called each function and discarded
+    the result, so it passed for any return value at all, including one that
+    silently changed. What matters about the empty and singleton cases is not
+    that they survive but *what they decide* -- an empty observation has no
+    cluster and no order, so both fractions are 0.0, while a single element is
+    trivially one whole cluster and trivially sorted. Those two rows differ, and
+    a change to either would have gone unnoticed.
+    """
+    expected = {
+        (): {
+            boundary_length: 0.0,
+            unlike_neighbor_fraction: 0.0,
+            largest_cluster_fraction: 0.0,
+            sortedness_value: 0.0,
+            inversions: 0.0,
+        },
+        (4,): {
+            boundary_length: 0.0,
+            unlike_neighbor_fraction: 0.0,
+            largest_cluster_fraction: 1.0,
+            sortedness_value: 1.0,
+            inversions: 0.0,
+        },
+    }
+    for values, wanted in expected.items():
+        for fn, value in wanted.items():
+            assert fn(obs(list(values))) == value, (
+                f"{fn.__name__} on {list(values)!r}"
+            )
 
 
 def test_sorted_prefix_fraction_measures_only_the_run_from_position_zero():
