@@ -42,7 +42,7 @@ something stopped and the surrounding assumptions did not change with it.
 
 ## The open entries, in one place
 
-Entries are numbered in the order they were written; the 10 still open are scattered through that sequence, so they are listed here. This block is the answer to *"what is still costing us?"* — the question this log exists for.
+Entries are numbered in the order they were written; the 9 still open are scattered through that sequence, so they are listed here. This block is the answer to *"what is still costing us?"* — the question this log exists for.
 
 | Entry | Still open because |
 |---|---|
@@ -52,12 +52,11 @@ Entries are numbered in the order they were written; the 10 still open are scatt
 | **[F10](#f10--the-minimality-rule-existed-and-was-not-followed--open)** — The minimality rule existed and was not followed | the minimality rule is written down and nothing enforces it |
 | **[F12](#f12--the-narrative-layer-grew-faster-than-the-science--open)** — The narrative layer grew faster than the science | narrative still outgrows the science it describes |
 | **[F23](#f23--the-headlines-counterevidence-is-stated-in-two-different-units--open)** — The headline's counterevidence is stated in two different units | the headline's counterevidence mixes units, so its commons half fails for a second, independent reason |
-| **[F24](#f24--a-cited-experiment-has-results-and-no-code--open)** — A cited experiment has results and no code | a cited experiment has results and no code, and the plan's queued next action depends on it |
 | **[F4](#f4--measures-that-turned-out-to-read-something-else--open)** — Measures that turned out to read something else | the commons arm of the headline statistic has no explanation, and the programme's headline rests on it |
 | **[F7](#f7--the-cockpit-stopped-tracking-the-work--open)** — The cockpit stopped tracking the work | the cockpit has not tracked the work since 2026-08-31 |
 | **[F8](#f8--green-checks-that-could-not-see-the-defect--open)** — Green checks that could not see the defect | no check verifies that code does what the prose beside it claims |
 
-16 further entries are closed and kept for the record.
+17 further entries are closed and kept for the record.
 
 ---
 ## F1 — The seven-rung ladder was superseded on day one — `OPEN`
@@ -670,7 +669,7 @@ enough null replicates for the spread to mean something, or the clause is
 withdrawn on the commons. Not fixed by editing prose alone: the honest number
 depends on a null the current 5 replicates cannot resolve.
 
-## F24 — A cited experiment has results and no code — `OPEN`
+## F24 — A cited experiment has results and no code — `CLOSED 2026-09-06`
 
 Found 2026-09-06 by a zero-context agent asked to get ready to run the next
 action, and verified here.
@@ -703,10 +702,27 @@ registered experiments have packages but no code has not been checked, and the
 sweep is the obvious next step — checking the instance without checking the class
 is a failure this log already records twice.
 
-**Retires when** the class has been swept, every experiment whose result the live
-argument depends on either has runnable code or says in its own record that it
-does not, and the custody guard reports reproducibility as a distinct property
-from tracking.
+**Closed 2026-09-06.** The class was swept rather than extrapolated from the
+Q1-008 instance. All **15 current-contract experiments** were traced against the
+current tree and the commits that introduced their result code: **14 retain
+tracked Python entrypoints with structural `main` guards; two corrected results
+also retain tracked post-run diagnostic scripts; Q1-008 is the only one whose
+procedure is not preserved.** Its own result record now says so explicitly
+and warns against rebuilding the run from prose and calling that a reproduction.
+
+`roadmap/experiments.json` now carries a `procedure_custody` disposition on every
+current-contract record, and `scripts/check_experiment_reproducibility.py` fails
+when one is missing, when a claimed entrypoint is absent/untracked/non-runnable,
+or when a `not_preserved` record does not disclose the loss in its own result.
+The maintenance loop runs it separately from `check_evidence_custody.py`, so
+output custody and procedure custody can no longer collapse into one green word.
+Negative controls exercise the missing-metadata, missing-entrypoint, dead-entrypoint
+and missing-disclosure paths.
+
+**What this does not establish.** A preserved runner is not an independent
+reproduction, and the new check says so in its PASS line. Q1-008 remains
+non-reproducible from the preserved checkout; no procedure was reconstructed and
+no scientific number or disposition was changed.
 
 ## F25 — The documented verification command was red in the checkout it documents — `CLOSED 2026-09-06`
 

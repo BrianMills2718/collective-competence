@@ -10,6 +10,12 @@ lifecycle: completed
 [Result package](../../results/q1-008-null-coupling/) ·
 [Completion condition](../PROJECT.md)
 
+> **Procedure custody: not preserved.** The result package and this result record
+> are tracked, but no dedicated Q1-008 runner or test was committed. The current
+> checkout therefore cannot reproduce this experiment from preserved code. Do not
+> rebuild the procedure from this narrative and then treat that reconstruction as
+> a reproduction.
+
 ## Decision
 
 **`DIAGNOSIS_WRONG`** — the third disposition, the one this was run for. And the

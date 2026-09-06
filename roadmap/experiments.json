@@ -65,7 +65,8 @@
     "outcomes": "Native result or decision records own verdicts. outcome_source identifies the classification source; synthesis and corrections belong to the linked wiki.",
     "cost": "No comparable effort measures extracted. Unknown is not zero. Protocol time caps are not actual elapsed effort.",
     "dispositions": "Historical experiment-scoped dispositions, not current assignments. Current plan alone owns priorities.",
-    "ontology": "The explicit legacy_unversioned_record_ids inventory preserves historical records without speculative backfill. Every record outside that closed inventory must declare the required ontology contract version in its native protocol. Native results and run metadata own observed values and provenance. Historical records are not classified from filenames; absent ontology metadata means unclassified, not a negative scientific result. Structural validation does not certify scientific adequacy."
+    "ontology": "The explicit legacy_unversioned_record_ids inventory preserves historical records without speculative backfill. Every record outside that closed inventory must declare the required ontology contract version in its native protocol. Native results and run metadata own observed values and provenance. Historical records are not classified from filenames; absent ontology metadata means unclassified, not a negative scientific result. Structural validation does not certify scientific adequacy.",
+    "procedure_custody": "For records using the current ontology contract, procedure_custody is mandatory. runnable_python means the tracked Python entrypoint(s) survive with structural main guards; supporting_scripts may name tracked post-run Python diagnostics that are part of the retained procedure but are not primary entrypoints; not_preserved means the outcome record explicitly discloses that the procedure is absent. This is structural procedure custody, not independent reproduction or scientific validation."
   },
   "families": [
     "sorting",
@@ -95,7 +96,14 @@
         "effort_minutes": null
       },
       "headline": "The suspicion that the headline statistic reads determinism rather than coordination was tested on the slot family and FAILED its own frozen gate: coordinated +6.3 null sd, deterministic-but-independent +1.65, independent draw ~0. That suspicion is not resolved on the commons, where an uncoordinated arm sits 5.3 null sd up and no experiment explains it; the clause holds on the slot family only.",
-      "outcome_class": "corrected"
+      "outcome_class": "corrected",
+      "procedure_custody": {
+        "status": "runnable_python",
+        "entrypoints": [
+          "goal-discovery/src/experiments/q1_010_control/calibrate.py",
+          "goal-discovery/src/experiments/q1_010_control/run.py"
+        ]
+      }
     },
     {
       "id": "001",
@@ -909,7 +917,14 @@
         "effort_minutes": null
       },
       "headline": "No causal emergence on either specimen: the coarse-grained description carries strictly LESS effective information than the micro one it was built from, in every non-degenerate arm. A later review found eight defects in this experiment's own code; every effective-information value survived, every empowerment value moved.",
-      "outcome_class": "negative"
+      "outcome_class": "negative",
+      "procedure_custody": {
+        "status": "runnable_python",
+        "entrypoints": [
+          "goal-discovery/src/experiments/q1_information/calibrate.py",
+          "goal-discovery/src/experiments/q1_information/run.py"
+        ]
+      }
     },
     {
       "id": "Q1-008",
@@ -930,7 +945,12 @@
         "effort_minutes": null
       },
       "headline": "The statistic's floor is its own finite-sample null, about 0.12 at this horizon and entity count — not any property of the substrate. This experiment then committed the same below-null gate error it was written to catch.",
-      "outcome_class": "corrected"
+      "outcome_class": "corrected",
+      "procedure_custody": {
+        "status": "not_preserved",
+        "reason": "The result package and result record survive, but no dedicated Q1-008 runner or test was committed; the current checkout cannot reproduce this experiment from preserved code.",
+        "disclosure_artifact": "goal-discovery/docs/hypotheses/q1_008_null_coupling_control_results.md"
+      }
     },
     {
       "id": "Q1-007",
@@ -951,7 +971,13 @@
         "effort_minutes": null
       },
       "headline": "The congestion explanation this experiment was built on is refuted: removing the coupling entirely RAISES the statistic instead of lowering it. Lane stopped.",
-      "outcome_class": "corrected"
+      "outcome_class": "corrected",
+      "procedure_custody": {
+        "status": "runnable_python",
+        "entrypoints": [
+          "goal-discovery/src/experiments/q1_qualification/relation_corrected.py"
+        ]
+      }
     },
     {
       "id": "Q1-006",
@@ -972,7 +998,13 @@
         "effort_minutes": null
       },
       "headline": "Coordinated scored 0.284 against matched-random 0.108. The clause-2 gate was frozen at 0.10 — BELOW the statistic's own finite-sample null — so no independent process could ever have passed it, and the recorded failure measured an unachievable gate.",
-      "outcome_class": "corrected"
+      "outcome_class": "corrected",
+      "procedure_custody": {
+        "status": "runnable_python",
+        "entrypoints": [
+          "goal-discovery/src/experiments/q1_qualification/relation.py"
+        ]
+      }
     },
     {
       "id": "Q1-005",
@@ -993,7 +1025,13 @@
         "effort_minutes": null
       },
       "headline": "The advantage over matched randomness is about 17% relative, not the total effect an earlier comparison implied: matched random reaches 0.375 against derived phase's 0.438. Most of the benefit is desynchronization, which randomness supplies free.",
-      "outcome_class": "narrowed"
+      "outcome_class": "narrowed",
+      "procedure_custody": {
+        "status": "runnable_python",
+        "entrypoints": [
+          "goal-discovery/src/experiments/q1_qualification/idiosyncratic.py"
+        ]
+      }
     },
     {
       "id": "Q1-004",
@@ -1014,7 +1052,13 @@
         "effort_minutes": null
       },
       "headline": "The instrument recovered an authored coordination on a second family it was not built for — a directional pass, carrying a caveat about the statistic it leans on.",
-      "outcome_class": "supported"
+      "outcome_class": "supported",
+      "procedure_custody": {
+        "status": "runnable_python",
+        "entrypoints": [
+          "goal-discovery/src/experiments/q1_qualification/second_family.py"
+        ]
+      }
     },
     {
       "id": "C2-002",
@@ -1035,7 +1079,13 @@
         "effort_minutes": null
       },
       "headline": "The derivation rule matters only through how many distinct phases it preserves, which is one line of algebra about gcd(a, P) rather than an empirical discovery.",
-      "outcome_class": "narrowed"
+      "outcome_class": "narrowed",
+      "procedure_custody": {
+        "status": "runnable_python",
+        "entrypoints": [
+          "goal-discovery/src/experiments/contended_channel/rule_sweep.py"
+        ]
+      }
     },
     {
       "id": "C2-001",
@@ -1056,7 +1106,13 @@
         "effort_minutes": null
       },
       "headline": "Environmental heterogeneity can substitute for designer-assigned identity: satisfaction rises 0.000 to 0.438 as need spread widens, tracking distinct phases 1.0 to 6.6. Both the derivation rule and the period, which equals the population size, are still authored.",
-      "outcome_class": "supported"
+      "outcome_class": "supported",
+      "procedure_custody": {
+        "status": "runnable_python",
+        "entrypoints": [
+          "goal-discovery/src/experiments/contended_channel/run_phase.py"
+        ]
+      }
     },
     {
       "id": "C1-002",
@@ -1077,7 +1133,13 @@
         "effort_minutes": null
       },
       "headline": "The same mechanism could not coordinate an indivisible slot at all. A shared scalar every subunit reads identically is common-mode by construction: it can gate a population together but never stagger it, so C1 is a price mechanism and needs a divisible good.",
-      "outcome_class": "negative"
+      "outcome_class": "negative",
+      "procedure_custody": {
+        "status": "runnable_python",
+        "entrypoints": [
+          "goal-discovery/src/experiments/contended_channel/run.py"
+        ]
+      }
     },
     {
       "id": "Q1-003",
@@ -1098,7 +1160,13 @@
         "effort_minutes": null
       },
       "headline": "A candidate family carrying a latent shared regressor closes the gap — but the record says plainly it does not qualify the instrument, because its author wrote it knowing the answer.",
-      "outcome_class": "negative"
+      "outcome_class": "negative",
+      "procedure_custody": {
+        "status": "runnable_python",
+        "entrypoints": [
+          "goal-discovery/src/experiments/q1_qualification/run_latent.py"
+        ]
+      }
     },
     {
       "id": "Q1-002",
@@ -1119,7 +1187,13 @@
         "effort_minutes": null
       },
       "headline": "The gap is not how the cases are packaged; it is what the model family can say. Repackaging changes nothing.",
-      "outcome_class": "negative"
+      "outcome_class": "negative",
+      "procedure_custody": {
+        "status": "runnable_python",
+        "entrypoints": [
+          "goal-discovery/src/experiments/q1_qualification/vary_contract.py"
+        ]
+      }
     },
     {
       "id": "Q1-001",
@@ -1140,7 +1214,13 @@
         "effort_minutes": null
       },
       "headline": "Handed a matched pair differing only in whether a coordinating signal was present, the instrument returned the SAME disposition for both. The candidate family has no way to express dependence on a shared quantity, so coordination is unrepresentable rather than merely undetected.",
-      "outcome_class": "negative"
+      "outcome_class": "negative",
+      "procedure_custody": {
+        "status": "runnable_python",
+        "entrypoints": [
+          "goal-discovery/src/experiments/q1_qualification/run.py"
+        ]
+      }
     },
     {
       "id": "C1-001",
@@ -1161,7 +1241,16 @@
         "effort_minutes": null
       },
       "headline": "A shared scarcity signal beat the best fixed threshold on a renewable commons, 1.000 against 0.500 over 8 seeds — but the pre-registered control was weaker than claimed, and the effect size was revised down in the record.",
-      "outcome_class": "supported"
+      "outcome_class": "supported",
+      "procedure_custody": {
+        "status": "runnable_python",
+        "entrypoints": [
+          "goal-discovery/src/experiments/shared_scarcity/run.py"
+        ],
+        "supporting_scripts": [
+          "goal-discovery/results/c1-001-shared-scarcity/best-constant-probe/probe.py"
+        ]
+      }
     },
     {
       "id": "P15",
@@ -1182,7 +1271,18 @@
         "effort_minutes": null
       },
       "headline": "The freeze/reveal/audit machinery works end to end, but the capability it was meant to reward does not exist: applying all four proposers to all four cases gives an empty off-diagonal, so proposal generality measured zero.",
-      "outcome_class": "narrowed"
+      "outcome_class": "narrowed",
+      "procedure_custody": {
+        "status": "runnable_python",
+        "entrypoints": [
+          "goal-discovery/src/experiments/proposal_layer/pack.py",
+          "goal-discovery/src/experiments/proposal_layer/propose.py",
+          "goal-discovery/src/experiments/proposal_layer/evaluate.py"
+        ],
+        "supporting_scripts": [
+          "goal-discovery/results/p15-proposal-layer/generality-probe/probe.py"
+        ]
+      }
     }
   ]
 }
