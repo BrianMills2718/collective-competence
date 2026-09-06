@@ -29,6 +29,59 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-06 — a bench you can configure and run, and the gate that makes a second implementation safe
+
+**Changed:** [`wiki/bench.html`](bench.html) is an interactive laboratory bench:
+choose a system, set its size, seed, controller, contrarian count, fault rate or
+cellular-automaton rule, then play, pause and step it. Injure it mid-run and
+watch what recovers. Snapshot the exact state, branch two arms from it, compare.
+
+**Why the previous page was not this.** The owner's verdict on
+[the viewer](lattice.html): *"it still seems designed to our specific experiments
+rather than like a true ui that allows configuration and running etc."* Correct.
+That page replayed three canned runs because of a constraint this session
+imposed — refuse a second implementation of the substrate in JavaScript, on the
+grounds that two simulators drift and the one people watch stops being the one
+that produced the results. The constraint was sound and the consequence was a
+page that could show nothing the owner had not already been shown. The fix was
+not to relax it but to retire it properly.
+
+**What makes the second implementation safe.**
+`scripts/bench/pyrandom.js` reproduces CPython's `random.Random` exactly —
+MT19937 with Python's seeding, and its `random()`, `randrange()`, `shuffle()` and
+`sample()` semantics — verified against CPython 3.11. Because the two share a
+random stream they can be compared for **equality** rather than resemblance.
+`tests/test_bench_matches_python.py` runs both over **83 configurations** — three
+controllers × five fault conditions × five seeds, plus heterogeneous rules and
+three cellular-automaton rules — and requires identical trajectories: operation
+count and full configuration after every step. Drift is a red test.
+
+**It caught a real divergence on its first execution.** Porting Python's `closed`
+controller from a generator to a polled step function shifted every `closed` run
+one interaction early: a generator's exhaustion is observed on the call *after*
+its last yield, so Python records the final site of the halting pass and
+JavaScript did not. Twenty-five of eighty-three cells failed and nothing else
+did. That defect is invisible to a screenshot, to a comparison of final states —
+sorting ends in an absorbing state, so both finish sorted — and to any summary
+statistic, because one step in a hundred moves a median less than its own noise.
+
+**A second gate, because the page ships a copy.** `render_bench.py` inlines the
+engine into the HTML, so an engine change without a regeneration would leave the
+page running code the conformance test never saw: green tests, stale instrument.
+`TheShippedPageCarriesTheGatedEngine` compares the embedded copy byte for byte
+against `scripts/bench/`, and was checked to go red on a one-line change and
+green again when it was reverted.
+
+**References:** [bench](bench.html), `scripts/render_bench.py`,
+`scripts/bench/lattice.js`, `scripts/bench/pyrandom.js`,
+`goal-discovery/tests/test_bench_matches_python.py`.
+
+**Does not establish:** no new science, and no result on this page has been
+recorded as evidence. The bench runs the same substrate the laboratory runs; it
+does not make anything it displays a finding. A run driven by hand is an
+exploration, not an experiment, and has no protocol, no preregistration and no
+replicates.
+
 ## 2026-09-06 — one substrate, and it reproduces the founding experiment exactly
 
 **Changed:** `goal-discovery/src/lattice/` is the substrate for this phase. The
