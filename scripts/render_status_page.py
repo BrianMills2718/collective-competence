@@ -221,7 +221,7 @@ def render() -> str:
         f"goal-discovery/results/q1-009-information/followup.json · {q9['seeds']} seeds",
         "<strong>frozen</strong> coordinates nothing — C1-001 measures its "
         "satisfaction at 0.000 — yet it sits <strong>+0.198 above its null</strong>, "
-        "thirty-five times the matched-independent arm and 5.3 times its own null "
+        "34.5 times the matched-independent arm and 5.3 times its own null "
         "spread of 0.037. That ratio is quoted because this arm's null has real "
         "spread; the near-deterministic arms' do not, which is why the bars carry "
         "raw numbers rather than ratios. No experiment explains this. It is the open "

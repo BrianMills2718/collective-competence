@@ -7,6 +7,7 @@ lifecycle: completed
 
 [Wiki](../../../wiki/index.md) · [Frozen protocol](q1_008_null_coupling_control.md) ·
 [Q1-006](q1_006_pairwise_relation_results.md) · [Q1-007](q1_007_congestion_corrected_relation_results.md) ·
+[Result package](../../results/q1-008-null-coupling/) ·
 [Completion condition](../PROJECT.md)
 
 ## Decision

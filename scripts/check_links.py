@@ -40,8 +40,15 @@ def tracked_markdown() -> list[str]:
     return [line for line in out.splitlines() if line]
 
 
-def check(paths: list[str]) -> list[tuple[str, int, str]]:
+def check(paths: list[str]) -> tuple[list[tuple[str, int, str]], int]:
+    """Return (broken links, number of relative links actually inspected).
+
+    The count is returned because the vacuity guard used to floor the *file*
+    count, so a regex that matched no links at all reported "231 Markdown files,
+    no dead relative links" -- a clean sweep of nothing. Recorded as F22.
+    """
     broken: list[tuple[str, int, str]] = []
+    inspected = 0
     for rel in paths:
         source = ROOT / rel
         for lineno, line in enumerate(source.read_text(encoding="utf-8", errors="ignore").splitlines(), 1):
@@ -53,13 +60,22 @@ def check(paths: list[str]) -> list[tuple[str, int, str]]:
                 if not target or target.startswith("~"):
                     continue
                 resolved = (source.parent / target).resolve()
+                inspected += 1
                 try:
                     resolved.relative_to(ROOT)
                 except ValueError:
-                    continue          # outside the repository; not ours to check
+                    # A relative link that escapes the repository resolves only
+                    # on a machine that happens to have the sibling checkout in
+                    # the right place. For every reader of the published wiki it
+                    # is dead. This used to `continue` silently; five links to
+                    # `../../levin-wiki/` sat unverified behind that for days.
+                    broken.append((rel, lineno,
+                                   f"{target} (escapes the repository; dead for "
+                                   "any reader without that sibling checkout)"))
+                    continue
                 if not resolved.exists():
                     broken.append((rel, lineno, target))
-    return broken
+    return broken, inspected
 
 
 def main() -> int:
@@ -70,13 +86,19 @@ def main() -> int:
     if not paths:
         print("FAIL: no Markdown files found; a check that inspects nothing passes vacuously")
         return 1
-    broken = check(paths)
+    broken, inspected = check(paths)
     if broken:
         print(f"FAIL: {len(broken)} dead link(s):")
         for rel, lineno, target in broken:
             print(f"  {rel}:{lineno} -> {target}")
         return 1
-    print(f"PASS: {len(paths)} Markdown file(s), no dead relative links")
+    if not inspected:
+        print(f"FAIL: {len(paths)} Markdown file(s) scanned but zero relative "
+              "links inspected; a link check that resolves no links passes "
+              "vacuously")
+        return 1
+    print(f"PASS: {len(paths)} Markdown file(s), {inspected} relative link(s) "
+          "inspected, none dead")
     return 0
 
 

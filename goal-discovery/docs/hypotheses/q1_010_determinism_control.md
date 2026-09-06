@@ -109,7 +109,7 @@ experiment_declaration:
     review_status: result_reviewed
     result_source: goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md
     abstention: G-B failing means private_period is not an uncoordinated control; the correct output is then invalid rather than a refutation, and no reading of G-A is taken.
-    counterevidence: Q1-009's commons frozen arm at +0.198 above null, 5.4 null sd, with coordination absent -- not addressed by this experiment and explicitly out of its scope.
+    counterevidence: Q1-009's commons frozen arm at +0.198 above null, 5.3 null sd, with coordination absent -- not addressed by this experiment and explicitly out of its scope.
     limitations:
       - One specimen family, one coarse-graining, one observation contract, 1593 seeds.
       - Not a clause-2 test; these arms are not the completion condition's matched pair and nothing here is blind.

@@ -1,7 +1,7 @@
 ---
-doc-role: architecture-decision-record
-authority: decision
-lifecycle: proposed
+doc-role: adr-template
+authority: canonical
+lifecycle: active
 ---
 # ADR-NNNN: Title
 

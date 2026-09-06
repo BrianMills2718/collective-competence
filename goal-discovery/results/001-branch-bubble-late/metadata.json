@@ -1,0 +1,23 @@
+{
+  "branch_tick": 33,
+  "command": "branch",
+  "experiment_id": "001_sorting",
+  "final_tick": 82,
+  "git_commit": "0795072b9f9af6f9e04c7dec842b7437ea2c1f32",
+  "intervention": "block_swap(fraction=0.2)",
+  "phase": "discovery",
+  "python_version": "3.11.16",
+  "recovered": true,
+  "representation_set_version": "sorting-reps-v1",
+  "rule_version": "sorting-v1",
+  "run_id": "001-branch-bubble-late",
+  "seed": 1,
+  "snapshot_id": "5415fcc34dc830c6",
+  "source_replicated": "arXiv:2401.05375 (Zhang, Goldstein & Levin)",
+  "system": {
+    "algotype": "bubble",
+    "max_ticks": 4000,
+    "n": 40,
+    "order": "shuffled"
+  }
+}

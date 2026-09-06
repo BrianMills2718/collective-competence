@@ -246,6 +246,14 @@ becoming current instructions.
 
 - [report.md](../goal-discovery/results/003b-blind-target/analysis/report.md)
 
+## goal-discovery/results/004-compensation/analysis
+
+- [report.md](../goal-discovery/results/004-compensation/analysis/report.md)
+
+## goal-discovery/results/005-adaptation/analysis
+
+- [report.md](../goal-discovery/results/005-adaptation/analysis/report.md)
+
 ## goal-discovery/results/p14-ants-relational-coupling-invalid-39a-working-tree
 
 - [INVALID.md](../goal-discovery/results/p14-ants-relational-coupling-invalid-39a-working-tree/INVALID.md)

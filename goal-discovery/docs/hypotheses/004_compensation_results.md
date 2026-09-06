@@ -1,5 +1,10 @@
 # Experiment 004 — redundant-route compensation results
 
+[Result package](../../results/004-compensation/) — the raw output behind 28 preregistered runs.
+Committed 2026-09-06; until then this record's pass table was the only
+surviving trace of the run, because `results/*` is ignored by default and
+the package was never added to the allowlist. See [F22](../../../wiki/failure-log.md).
+
 ## Decision
 
 **PASS: C1–C6 all passed on all 28 preregistered runs.**

@@ -112,7 +112,8 @@ structure that a bounded party could not have derived on its own, and which
 therefore looks like it arrived from outside.
 
 That framing is independently developed at length in
-[`levin-wiki`'s platonic-space-and-ingression page](../../levin-wiki/wiki/concepts/platonic-space-and-ingression.md),
+`levin-wiki`'s platonic-space-and-ingression page
+(`wiki/concepts/platonic-space-and-ingression.md` in that separate repository),
 a `type: Living` document whose current verdict states the operational,
 resource-bounded account "is real and useful — it explains competence that looks
 free as representational reuse, computational subsidy, or genuine informational

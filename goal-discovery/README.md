@@ -35,12 +35,15 @@ Run the complete project test suite, including the optional components exercised
 by unconditional tests, from the `goal-discovery` directory:
 
 ```bash
-uv run --frozen --extra visual-workbench --extra composition-exploration --extra network-analysis pytest -q
+uv run --frozen --all-extras pytest -q
 ```
 
 Tests for other optional research spikes may still report explicit skips. The
-command above is the handoff verification contract; `uv run pytest` without
-these extras is not a complete environment for this repository's test suite.
+command above is the handoff verification contract; `uv run pytest` without the
+extras is not a complete environment for this repository's test suite. Naming
+extras individually is not equivalent: the earlier three-extra form documented
+here ran 456 of 467 tests, silently omitting every `test_mesa_spike` case, which
+is why `make sync` and `make test` also use `--all-extras`.
 
 This revision combines the sorting and experiment-selection views with the optional composition preview. The
 [current plan](docs/plans/current_research_plan.md) owns the active next decision

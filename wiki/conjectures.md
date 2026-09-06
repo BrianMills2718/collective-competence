@@ -84,7 +84,8 @@ and rationally; and changes as a direct consequence of plan changes — are
 adopted here as five checkable conditions, not as aspirations. See
 [the ontology's Levin section](ontology.md#levins-definitions-alongside-ours)
 and `levin-wiki`'s
-[cognitive glues page](../../levin-wiki/wiki/concepts/cognitive-glues-and-shared-scarcity-models.md).
+cognitive glues page
+(`wiki/concepts/cognitive-glues-and-shared-scarcity-models.md` in that separate repository).
 
 This is the only import from that corpus that is a **specification for what to
 build** rather than a vocabulary for describing what was built.
@@ -101,9 +102,9 @@ Note what this control does *not* do, deliberately: it does not delete the
 parameter or change any subunit's inputs, because removing a symbol tests
 whether the symbol was read, not whether the mechanism operated.
 
-**What it licenses.** One constructive experiment — the first for the Collective
-Competence arm, which has run none since `experiments/01-self-sorting` on
-2026-08-26. Minimum shape: subunits with conflicting objectives over one shared
+**What it licenses.** One constructive experiment. When this was written the
+Collective Competence arm had run none since `experiments/01-self-sorting` on
+2026-08-26; C1-001 and C1-002 have since been run against it. Minimum shape: subunits with conflicting objectives over one shared
 resource on a discrete lattice; a scalar derived from contention; matched runs
 across live signal, frozen signal, and no signal; goal-relative performance
 measured per the [competence profile](ontology.md), with reachability accounted
@@ -112,6 +113,14 @@ so an unreachable target is not scored as a coordination failure.
 It does **not** license adding a substrate, a simulator, or a UI. If the
 experiment cannot be built on the existing discrete apparatus, that is a finding
 about the apparatus and belongs in the plan, not a licence to expand it.
+
+**Two later boundaries bear on this licence and neither is recorded above.** The
+charter's [pre-biological scope boundary](../goal-discovery/docs/PROJECT.md),
+set by the owner 2026-09-05, puts price-and-commons framings out of scope rather
+than deferred — and this register's own reading, three paragraphs down, is that
+the C1 mechanism *is* adaptive-versus-fixed pricing on a commons. [The draft goal
+register](goals.md) would separately defer the constructive arm entirely. Treat
+this licence as suspended pending those, not as standing authorisation.
 
 **Evidence bearing on it.** [C1-001](../goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal_results.md),
 the first constructive experiment in this repository since 2026-08-26 — supporting,
@@ -241,10 +250,15 @@ rather than being handed down.
 
 **What it licenses.** One experiment testing refuter 2, on the existing
 contended-channel substrate, with refuter 1 present only as a precondition check.
+Suspended on the same two boundaries as C1's licence above — the charter's
+pre-biological scope and the draft goal register's one-arm narrowing.
 It does **not** license building a new substrate, and it does not license
 re-running C1-002 with a better signal in the hope of rescuing C1.
 
-**Evidence bearing on it.** None yet.
+**Evidence bearing on it.** [C2-001](../goal-discovery/docs/hypotheses/c2_001_derived_phase_results.md)
+and [C2-002](../goal-discovery/docs/hypotheses/c2_002_rule_load_bearing_results.md),
+which is what narrowed this conjecture on 2026-09-04 — see the status paragraph
+above. The sharper half is supported on one family only.
 [C1-002](../goal-discovery/docs/hypotheses/c1_002_contended_channel_results.md)
 motivates it and constrains it — it establishes that level-only fails here, which
 is a precondition for C2 being interesting, not evidence for C2.

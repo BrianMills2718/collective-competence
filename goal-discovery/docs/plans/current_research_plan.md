@@ -50,8 +50,12 @@ expressing dependence on a shared quantity outside the entities**, so coordinati
 mediated by one is unrepresentable rather than merely undetected, and the fit
 degrades into a worse local law instead of signalling a missing variable.
 
-Per [the charter's completion condition](../PROJECT.md), clause 1 fails, so **no
-construction claim in this programme is currently verified**, including C1-001's.
+Per [the charter's completion condition](../PROJECT.md), clause 1 fails **on this
+specimen**, so **no construction claim in this programme is currently verified**,
+including C1-001's. Read that narrowly: clause 1 is met on two other families
+(see the clause tally below); it is the latent-shared-regressor case that the
+instrument cannot recover, and one unrecovered case is enough to leave the
+condition unmet.
 The first move against this is a candidate family carrying a latent shared
 regressor, plus an adequacy test that reports failure-to-explain rather than only
 relative improvement over persistence.
@@ -61,6 +65,13 @@ relative improvement over persistence.
 **null-calibrated threshold**, in the null-subtracted form Q1-009 established.
 Nothing else is queued. Item 1 below is finished and is kept for what it changed;
 item 2 is the action.
+
+**Scope caveat, 2026-09-06.** [The draft goal register](../../../wiki/goals.md)
+narrows active work to the sorting lineage and would put this re-run out of scope,
+since Q1-006 sits on the commons and slot families. That register is a draft with
+no authority until reviewed, so this action stands; but every route in the
+repository points a reader here for the next action, and the conflict should be
+settled rather than discovered. Out of scope on that reading, not wrong.
 
 **This action was challenged on 2026-09-05 and survives.** A
 [prose-vs-code audit](../audits/2026-09-05b_prose_vs_code_audit.md) argued that
@@ -143,7 +154,7 @@ has a second statistic to cross-check against.
    deterministic-independent arm still reaches **39%** of the coordinated arm's
    effect, so "essentially nothing where it is absent" overstates it. The
    **commons is untouched**: Q1-009's own table puts the uncoordinated `frozen`
-   arm at +0.198, which is 5.4 null sd, against `random`'s +0.006, and no
+   arm at +0.198, which is 5.3 null sd, against `random`'s +0.006, and no
    experiment explains that — so the "on two families" clause in Q1-009's
    correction section is unsupported on the commons and should be narrowed. And
    two deterministic arms (`constant_phase` −0.118, `private_period_primes`
@@ -180,9 +191,14 @@ requires a stated refuter before admission:
 **The instrument.** [The charter](../PROJECT.md) now carries a completion
 condition — four clauses, on a specimen the instrument was not built for. Clause
 1 (recovery) is met on two families. Clause 4 (path not authored against the
-case) is met by construction for
-[Q1-004](../hypotheses/q1_004_second_family_qualification_results.md). Clause 2
-is the open one, per above.
+case) is scored met by construction for
+[Q1-004](../hypotheses/q1_004_second_family_qualification_results.md) — **disputed**:
+[the external assessment](../audits/2026-09-05_external_assessment.md) finding 4
+argues that scoring is unearned, because the detector and the specimen were
+written by the same agent twenty-five minutes apart, which is true of the code and
+false of the mind that wrote both. On that reading the condition is not merely
+unmet but unsatisfiable as staffed, and no clause-2 result closes it without the
+information barrier that does not yet exist. Clause 2 is the open one, per above.
 
 **The apparatus.** `src/substrate/` is a shared specimen contract with five
 dials, each derived from a reproduced failure rather than guessed. It is

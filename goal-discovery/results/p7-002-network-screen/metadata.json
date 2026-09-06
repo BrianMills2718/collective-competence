@@ -1,0 +1,15 @@
+{
+  "arms": {
+    "baseline": "p7-002-screen-baseline",
+    "degree-10": "p7-002-screen-degree-10",
+    "degree-20": "p7-002-screen-degree-20",
+    "random-10": "p7-002-screen-random-10",
+    "random-20": "p7-002-screen-random-20"
+  },
+  "behaviorspace_setup": "src/experiments/prospective_network_selector/screen.xml",
+  "behaviorspace_setup_sha256": "3f83d3d903c0790f6c7d7231ddd5e36b158ab37c0e50047ff966dcb607bc1a12",
+  "evidence_level": 0,
+  "experiment_id": "P7-002-level-0-screen",
+  "source_model_modified": false,
+  "source_model_sha256": "3ebb041175d22c6a1b32279dc25af14b4f76c06f2eb18e62539ca84f1f8dd5d1"
+}
