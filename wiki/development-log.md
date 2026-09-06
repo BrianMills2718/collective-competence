@@ -29,6 +29,32 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-06 — procedure custody is now explicit, and Q1-008 is the one known hole
+
+**Changed:** [F24](failure-log.md) was closed by sweeping all 15 experiments that
+use the current ontology contract rather than fixing Q1-008 in isolation. Fourteen
+retain tracked Python entrypoints with structural `main` guards; two corrected
+results also retain tracked post-run diagnostic scripts. Q1-008 alone has results
+without a preserved runner or test, and its native result now says that
+explicitly. `roadmap/experiments.json` carries the disposition per record and
+`scripts/check_experiment_reproducibility.py` makes a missing or false disposition
+red; the handoff suite includes negative controls for the guard.
+
+**Why:** result-package custody and procedure custody had been conflated. The
+existing evidence guard correctly proved that bytes cited as results survive in
+Git, while saying nothing about whether the procedure that produced them still
+exists. Q1-008 is load-bearing for the queued null-calibrated comparison, so that
+difference must be visible before someone tries to reproduce it.
+
+**References:** [Q1-008 result](../goal-discovery/docs/hypotheses/q1_008_null_coupling_control_results.md),
+[experiment register](../roadmap/experiments.json), [maintenance loop](../roadmap/workflow.md),
+and [F24](failure-log.md#f24--a-cited-experiment-has-results-and-no-code--closed-2026-09-06).
+
+**Does not establish:** no experiment was independently reproduced, Q1-008 was
+not reconstructed, and no scientific result or priority changed. A preserved
+entrypoint means an attempted reproduction remains possible; it is not evidence
+that one has succeeded.
+
 ## 2026-09-06 — three zero-context agents were sent in, and one found a defect in the headline
 
 **Method, and why it was used.** The [bootstrap](../CLAUDE.md) has always
