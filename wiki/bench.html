@@ -65,6 +65,32 @@ section { margin: 0 0 34px; }
 .lede p + p { margin-top: 12px; }
 .lede strong { font-weight: 640; }
 
+/* ---- explainer: present, reachable in one click, never in the way ---- */
+details.explainer {
+  margin: 2rem 0 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.75rem;
+}
+details.explainer > summary {
+  cursor: pointer;
+  font-weight: 640;
+  font-size: 0.95rem;
+  padding: 0.4rem 0;
+  color: var(--ink);
+  list-style: none;
+}
+details.explainer > summary::-webkit-details-marker { display: none; }
+details.explainer > summary::before {
+  content: "\2192";
+  display: inline-block;
+  width: 1.2em;
+  color: var(--muted);
+  transition: transform 0.15s ease;
+}
+details.explainer[open] > summary::before { transform: rotate(90deg); }
+details.explainer > summary:hover { color: var(--accent, var(--ink)); }
+.explainer-body { padding-top: 0.5rem; }
+
 /* ---- legend ---- */
 dl.legend { margin: 0; display: grid; gap: 0; }
 dl.legend > div {
@@ -201,92 +227,33 @@ footer p { max-width: 82ch; }
 </style>
 <main>
 <header><h1>Substrate bench</h1>
-<p class="prov">generated 2026-09-06 18:31 UTC &middot; revision <code>f1c163b</code> (working tree had uncommitted changes) &middot; assembled by <code>scripts/render_bench.py</code> &middot; substrate <code>scripts/bench/lattice.js</code> sha256:0569d1d0d56a &middot; rng <code>scripts/bench/pyrandom.js</code> sha256:9a8cd0eb7d54</p></header>
-
-<section class="lede">
-<p><strong>What you are looking at.</strong> A <em>lattice</em> is a line of sites. Each site
-is empty or holds one <em>entity</em>. An entity carries an identity, a rule it follows, and
-any defects it has; when it moves, all three move with it. Nothing in the lattice knows what
-the system is for. There is no goal variable, no target, no fitness, no plan &mdash; only
-entities, their local rules, and a schedule saying who acts next.</p>
-
-<p><strong>Why that matters.</strong> Order can still appear. Run the sorting system and the
-line arranges itself into ascending order, even though no entity can see the line and nothing
-is coordinating them. Everything you might call the system's <em>purpose</em> is something
-<em>you</em> impose from outside, by measuring. That is the whole point of this laboratory:
-if a goal were stored inside the machine, discovering it would be reading a label rather than
-doing science.</p>
-
-<p><strong>What the bench is for.</strong> Configure a system, run it, damage it while it
-runs, and watch what happens next. Then do the scientifically hard thing: take a snapshot,
-run one way, restore, run a <em>different</em> way, and compare the two arms that started from
-the identical state. Two runs from states that merely <em>look</em> similar differ by noise as
-well as by what you did; two runs from the same snapshot differ only by what you did.</p>
-</section>
-
-<section>
-<h2>Legend &mdash; what everything on this page means</h2>
-<dl class="legend">
-  <div><dt>A row</dt><dd>One recorded sample of the whole lattice: the contents of every
-    site at one moment. The current-state row at the top of the bench is the live one, drawn
-    large; the space-time diagram below is a stack of past rows.</dd></div>
-  <div><dt>A column</dt><dd>One <em>site</em> &mdash; a fixed position on the line. Site 0 is
-    at the left. Entities move between sites; sites do not move.</dd></div>
-  <div><dt>Downward</dt><dd>Time. The diagram grows downward as the run proceeds. When the
-    recording outgrows the diagram, every other row is dropped and the number of steps each
-    row represents doubles, so the whole run always stays in view. Each diagram prints its
-    current steps-per-row underneath.</dd></div>
-  <div><dt>Colour (sorting)</dt><dd>The entity's identity, which is also its sort value. Low
-    values are blue, high values are magenta:
-    <span class="swatches" id="ramp"></span>
-    <span class="swatch-ends"><span>lowest value</span><span>highest value</span></span>
-    A fully sorted line is one smooth left-to-right sweep. A jumbled one is speckle.</dd></div>
-  <div><dt>Colour (cellular automaton)</dt><dd>Cell state only: dark is 1, pale is 0. Cells
-    here never move, which is the special case a classic cellular automaton occupies inside
-    this more general substrate.</dd></div>
-  <div><dt>An operation</dt><dd>One rule evaluation, charged to the system that asked for it.
-    <em>Looking costs the same as acting</em>: a coordinator that scans the line without
-    changing anything still pays for every site it reads. This is the single currency that
-    makes &ldquo;robustness is bought, not free&rdquo; a measurement rather than an opinion.</dd></div>
-  <div><dt>Inversions</dt><dd>The number of pairs of entities anywhere on the line that are in
-    the wrong order relative to each other. Zero means fully sorted.</dd></div>
-  <div><dt>Local disorder</dt><dd>The number of <em>adjacent</em> pairs in the wrong order.
-    This is what a purely local observer could count; it can reach zero only when inversions do.</dd></div>
-  <div><dt>The narrow band beside each diagram</dt><dd>The tracked measurement over the same
-    downward time axis, growing rightward: inversions for sorting, live-cell count for the
-    cellular automaton. A wide band is a disordered line.</dd></div>
-  <div><dt>Red horizontal line, red arrow</dt><dd>An intervention you injected, drawn at the
-    row where it happened, so recovery afterwards is visible as a shape rather than a claim.</dd></div>
-  <div><dt>Grey dashed line</dt><dd>The row a counterfactual arm branched from. Everything
-    above it is shared history, copied from the parent arm; everything below it is this arm's
-    own.</dd></div>
-  <div><dt>Red bar across an entity</dt><dd>A <em>contrarian</em>: an entity running the
-    opposite rule. Ordinary entities want the larger of a pair on the right; contrarians want
-    it on the left.</dd></div>
-  <div><dt>Hatching / &times; / dotted underline</dt><dd>Defects. Hatched is <em>frozen</em>
-    (never acts on its own initiative, but can still be acted upon). Crossed out is
-    <em>dead</em> (blocks any interaction touching it, including one it did not start).
-    Dotted underline is <em>unreliable</em> (acts, but fails with a set probability).</dd></div>
-</dl>
-</section>
-
-<script>
-(function(){
-  var RAMP=[[59,95,191],[47,143,168],[63,154,95],[176,144,48],[201,106,58],[182,69,107]];
-  var host=document.getElementById("ramp");
-  for(var i=0;i<24;i++){
-    var pos=(i/23)*(RAMP.length-1), lo=Math.min(Math.floor(pos),RAMP.length-2), f=pos-lo;
-    var c=[0,1,2].map(function(k){return Math.round(RAMP[lo][k]+(RAMP[lo+1][k]-RAMP[lo][k])*f);});
-    var s=document.createElement("i");
-    s.style.background="rgb("+c[0]+","+c[1]+","+c[2]+")";
-    host.appendChild(s);
-  }
-})();
-</script>
+<p class="prov">generated 2026-09-06 19:04 UTC &middot; revision <code>f15ede4</code> (working tree had uncommitted changes) &middot; assembled by <code>scripts/render_bench.py</code> &middot; substrate <code>scripts/bench/lattice.js</code> sha256:0569d1d0d56a &middot; rng <code>scripts/bench/pyrandom.js</code> sha256:9a8cd0eb7d54</p></header>
 <div class="bench">
 
 <aside class="rack">
 
+  <!-- The run controls lead the rack. Play was 1262px down the page,
+       below the fold on a normal laptop, behind presets and three
+       configuration cards -- the primary action of an instrument should
+       not be something you scroll to find. -->
+  <div class="card">
+    <h2>Run</h2>
+    <div class="btnrow">
+      <button type="button" id="btn-play" class="primary">Play</button>
+      <button type="button" id="btn-step">Single step</button>
+      <button type="button" id="btn-reset">Reset</button>
+    </div>
+    <p class="hint">Reset rebuilds from the current configuration, including any defects you
+    have inflicted. <b>Clear all defects</b> below is the way back to an undamaged run.</p>
+    <div class="field" style="margin-top:11px">
+      <label for="speed">Speed &mdash; substrate steps per animation frame</label>
+      <select id="speed">
+        <option value="1">1</option><option value="2">2</option><option value="4">4</option>
+        <option value="8" selected>8</option><option value="16">16</option>
+        <option value="32">32</option><option value="64">64</option><option value="128">128</option>
+      </select>
+    </div>
+  </div>
   <div class="card">
     <h2>Presets</h2>
     <p class="hint">Starting points, not special cases: every one of these is a setting the
@@ -368,24 +335,6 @@ well as by what you did; two runs from the same snapshot differ only by what you
     </div>
   </div>
 
-  <div class="card">
-    <h2>Run</h2>
-    <div class="btnrow">
-      <button type="button" id="btn-play" class="primary">Play</button>
-      <button type="button" id="btn-step">Single step</button>
-      <button type="button" id="btn-reset">Reset</button>
-    </div>
-    <p class="hint">Reset rebuilds from the current configuration, including any defects you
-    have inflicted. <b>Clear all defects</b> below is the way back to an undamaged run.</p>
-    <div class="field" style="margin-top:11px">
-      <label for="speed">Speed &mdash; substrate steps per animation frame</label>
-      <select id="speed">
-        <option value="1">1</option><option value="2">2</option><option value="4">4</option>
-        <option value="8" selected>8</option><option value="16">16</option>
-        <option value="32">32</option><option value="64">64</option><option value="128">128</option>
-      </select>
-    </div>
-  </div>
 
   <div class="card" data-only="sorting">
     <h2>Faults &mdash; applied live</h2>
@@ -478,6 +427,92 @@ well as by what you did; two runs from the same snapshot differ only by what you
 
 </div>
 </div>
+<details class="explainer" id="explainer">
+<summary>What am I looking at? &mdash; the idea, and how to read every mark on this page</summary>
+<div class="explainer-body">
+
+<section class="lede">
+<p><strong>What you are looking at.</strong> A <em>lattice</em> is a line of sites. Each site
+is empty or holds one <em>entity</em>. An entity carries an identity, a rule it follows, and
+any defects it has; when it moves, all three move with it. Nothing in the lattice knows what
+the system is for. There is no goal variable, no target, no fitness, no plan &mdash; only
+entities, their local rules, and a schedule saying who acts next.</p>
+
+<p><strong>Why that matters.</strong> Order can still appear. Run the sorting system and the
+line arranges itself into ascending order, even though no entity can see the line and nothing
+is coordinating them. Everything you might call the system's <em>purpose</em> is something
+<em>you</em> impose from outside, by measuring. That is the whole point of this laboratory:
+if a goal were stored inside the machine, discovering it would be reading a label rather than
+doing science.</p>
+
+<p><strong>What the bench is for.</strong> Configure a system, run it, damage it while it
+runs, and watch what happens next. Then do the scientifically hard thing: take a snapshot,
+run one way, restore, run a <em>different</em> way, and compare the two arms that started from
+the identical state. Two runs from states that merely <em>look</em> similar differ by noise as
+well as by what you did; two runs from the same snapshot differ only by what you did.</p>
+</section>
+
+<section>
+<h2>Legend &mdash; what everything on this page means</h2>
+<dl class="legend">
+  <div><dt>A row</dt><dd>One recorded sample of the whole lattice: the contents of every
+    site at one moment. The current-state row at the top of the bench is the live one, drawn
+    large; the space-time diagram below is a stack of past rows.</dd></div>
+  <div><dt>A column</dt><dd>One <em>site</em> &mdash; a fixed position on the line. Site 0 is
+    at the left. Entities move between sites; sites do not move.</dd></div>
+  <div><dt>Downward</dt><dd>Time. The diagram grows downward as the run proceeds. When the
+    recording outgrows the diagram, every other row is dropped and the number of steps each
+    row represents doubles, so the whole run always stays in view. Each diagram prints its
+    current steps-per-row underneath.</dd></div>
+  <div><dt>Colour (sorting)</dt><dd>The entity's identity, which is also its sort value. Low
+    values are blue, high values are magenta:
+    <span class="swatches" id="ramp"></span>
+    <span class="swatch-ends"><span>lowest value</span><span>highest value</span></span>
+    A fully sorted line is one smooth left-to-right sweep. A jumbled one is speckle.</dd></div>
+  <div><dt>Colour (cellular automaton)</dt><dd>Cell state only: dark is 1, pale is 0. Cells
+    here never move, which is the special case a classic cellular automaton occupies inside
+    this more general substrate.</dd></div>
+  <div><dt>An operation</dt><dd>One rule evaluation, charged to the system that asked for it.
+    <em>Looking costs the same as acting</em>: a coordinator that scans the line without
+    changing anything still pays for every site it reads. This is the single currency that
+    makes &ldquo;robustness is bought, not free&rdquo; a measurement rather than an opinion.</dd></div>
+  <div><dt>Inversions</dt><dd>The number of pairs of entities anywhere on the line that are in
+    the wrong order relative to each other. Zero means fully sorted.</dd></div>
+  <div><dt>Local disorder</dt><dd>The number of <em>adjacent</em> pairs in the wrong order.
+    This is what a purely local observer could count; it can reach zero only when inversions do.</dd></div>
+  <div><dt>The narrow band beside each diagram</dt><dd>The tracked measurement over the same
+    downward time axis, growing rightward: inversions for sorting, live-cell count for the
+    cellular automaton. A wide band is a disordered line.</dd></div>
+  <div><dt>Red horizontal line, red arrow</dt><dd>An intervention you injected, drawn at the
+    row where it happened, so recovery afterwards is visible as a shape rather than a claim.</dd></div>
+  <div><dt>Grey dashed line</dt><dd>The row a counterfactual arm branched from. Everything
+    above it is shared history, copied from the parent arm; everything below it is this arm's
+    own.</dd></div>
+  <div><dt>Red bar across an entity</dt><dd>A <em>contrarian</em>: an entity running the
+    opposite rule. Ordinary entities want the larger of a pair on the right; contrarians want
+    it on the left.</dd></div>
+  <div><dt>Hatching / &times; / dotted underline</dt><dd>Defects. Hatched is <em>frozen</em>
+    (never acts on its own initiative, but can still be acted upon). Crossed out is
+    <em>dead</em> (blocks any interaction touching it, including one it did not start).
+    Dotted underline is <em>unreliable</em> (acts, but fails with a set probability).</dd></div>
+</dl>
+</section>
+</div>
+</details>
+
+<script>
+(function(){
+  var RAMP=[[59,95,191],[47,143,168],[63,154,95],[176,144,48],[201,106,58],[182,69,107]];
+  var host=document.getElementById("ramp");
+  for(var i=0;i<24;i++){
+    var pos=(i/23)*(RAMP.length-1), lo=Math.min(Math.floor(pos),RAMP.length-2), f=pos-lo;
+    var c=[0,1,2].map(function(k){return Math.round(RAMP[lo][k]+(RAMP[lo+1][k]-RAMP[lo][k])*f);});
+    var s=document.createElement("i");
+    s.style.background="rgb("+c[0]+","+c[1]+","+c[2]+")";
+    host.appendChild(s);
+  }
+})();
+</script>
 
 <footer>
 <p>Self-contained and offline. The whole substrate &mdash; rules, schedules, fault model and

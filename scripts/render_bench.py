@@ -119,6 +119,32 @@ section { margin: 0 0 34px; }
 .lede p + p { margin-top: 12px; }
 .lede strong { font-weight: 640; }
 
+/* ---- explainer: present, reachable in one click, never in the way ---- */
+details.explainer {
+  margin: 2rem 0 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.75rem;
+}
+details.explainer > summary {
+  cursor: pointer;
+  font-weight: 640;
+  font-size: 0.95rem;
+  padding: 0.4rem 0;
+  color: var(--ink);
+  list-style: none;
+}
+details.explainer > summary::-webkit-details-marker { display: none; }
+details.explainer > summary::before {
+  content: "\2192";
+  display: inline-block;
+  width: 1.2em;
+  color: var(--muted);
+  transition: transform 0.15s ease;
+}
+details.explainer[open] > summary::before { transform: rotate(90deg); }
+details.explainer > summary:hover { color: var(--accent, var(--ink)); }
+.explainer-body { padding-top: 0.5rem; }
+
 /* ---- legend ---- */
 dl.legend { margin: 0; display: grid; gap: 0; }
 dl.legend > div {
@@ -1147,6 +1173,28 @@ well as by what you did; two runs from the same snapshot differ only by what you
     controls = """
 <aside class="rack">
 
+  <!-- The run controls lead the rack. Play was 1262px down the page,
+       below the fold on a normal laptop, behind presets and three
+       configuration cards -- the primary action of an instrument should
+       not be something you scroll to find. -->
+  <div class="card">
+    <h2>Run</h2>
+    <div class="btnrow">
+      <button type="button" id="btn-play" class="primary">Play</button>
+      <button type="button" id="btn-step">Single step</button>
+      <button type="button" id="btn-reset">Reset</button>
+    </div>
+    <p class="hint">Reset rebuilds from the current configuration, including any defects you
+    have inflicted. <b>Clear all defects</b> below is the way back to an undamaged run.</p>
+    <div class="field" style="margin-top:11px">
+      <label for="speed">Speed &mdash; substrate steps per animation frame</label>
+      <select id="speed">
+        <option value="1">1</option><option value="2">2</option><option value="4">4</option>
+        <option value="8" selected>8</option><option value="16">16</option>
+        <option value="32">32</option><option value="64">64</option><option value="128">128</option>
+      </select>
+    </div>
+  </div>
   <div class="card">
     <h2>Presets</h2>
     <p class="hint">Starting points, not special cases: every one of these is a setting the
@@ -1228,24 +1276,6 @@ well as by what you did; two runs from the same snapshot differ only by what you
     </div>
   </div>
 
-  <div class="card">
-    <h2>Run</h2>
-    <div class="btnrow">
-      <button type="button" id="btn-play" class="primary">Play</button>
-      <button type="button" id="btn-step">Single step</button>
-      <button type="button" id="btn-reset">Reset</button>
-    </div>
-    <p class="hint">Reset rebuilds from the current configuration, including any defects you
-    have inflicted. <b>Clear all defects</b> below is the way back to an undamaged run.</p>
-    <div class="field" style="margin-top:11px">
-      <label for="speed">Speed &mdash; substrate steps per animation frame</label>
-      <select id="speed">
-        <option value="1">1</option><option value="2">2</option><option value="4">4</option>
-        <option value="8" selected>8</option><option value="16">16</option>
-        <option value="32">32</option><option value="64">64</option><option value="128">128</option>
-      </select>
-    </div>
-  </div>
 
   <div class="card" data-only="sorting">
     <h2>Faults &mdash; applied live</h2>
@@ -1379,13 +1409,29 @@ still yours to argue for.</p>
         + "<main>\n"
         + "<header><h1>Substrate bench</h1>\n"
         + f'<p class="prov">{prov_line}</p></header>\n'
-        + lede
-        + legend
-        + ramp_script
+        # The instrument loads first. The explanation is one click away and not
+        # in the way -- the owner's correction, 2026-09-06: "the explanation
+        # text should be separate from the main ui". A first-time reader still
+        # needs it; every visit after that it is an obstacle between the person
+        # and the controls, and the person who built the page is the one who
+        # never notices, because they never arrive as a stranger twice.
         + '<div class="bench">\n'
         + controls
         + arena
         + "</div>\n"
+        + '<details class="explainer" id="explainer">\n'
+        + "<summary>What am I looking at? &mdash; the idea, and how to read "
+        + "every mark on this page</summary>\n"
+        + '<div class="explainer-body">\n'
+        + lede
+        + legend
+        + "</div>\n</details>\n"
+        # After the legend, not before it: this script writes the colour ramp
+        # into an element the legend defines. Moving the legend below the
+        # instrument without moving this left it reaching for a node that did
+        # not exist yet, which is a null appendChild in the console and a
+        # missing swatch on the page.
+        + ramp_script
         + footer
         + "</main>\n"
         + "<script>\n" + pyrandom_js + "\n</script>\n"

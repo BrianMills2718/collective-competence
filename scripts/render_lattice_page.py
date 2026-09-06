@@ -286,6 +286,15 @@ a { color: inherit; }
   margin: 0 0 34px; padding-bottom: 18px; border-bottom: 1px solid var(--line);
 }
 section { margin: 0 0 42px; }
+/* The instrument is the page; the explanation is one click away. Owner's
+   correction 2026-09-06: "the explanation text should be separate from the
+   main ui". It must exist and be reachable, not occupy the surface. */
+details.explainer { margin: 0 0 22px; border-bottom: 1px solid var(--line-soft); padding-bottom: 10px; }
+details.explainer > summary { cursor: pointer; font-weight: 640; padding: 6px 0; list-style: none; }
+details.explainer > summary::-webkit-details-marker { display: none; }
+details.explainer > summary::before { content: "\2192"; display: inline-block; width: 1.2em; color: var(--muted, #666); transition: transform .15s ease; }
+details.explainer[open] > summary::before { transform: rotate(90deg); }
+.explainer-body { padding-top: 6px; }
 .lede { max-width: 68ch; }
 .lede p + p { margin-top: 12px; }
 .lede strong { font-weight: 640; }
@@ -411,6 +420,9 @@ def build_html(data: dict) -> str:
 {prov['script']}{dirty_note}. Self-contained: no server, no network, no fonts or
 scripts from anywhere else. Re-run the script to rebuild it.</p>
 
+<details class="explainer">
+<summary>What am I looking at? &mdash; what this project is doing, and how to read every mark on this page</summary>
+<div class="explainer-body">
 <section class="lede">
 <h2>What we are working on</h2>
 <p>This project is trying to work out, from the outside, what a system is
@@ -468,6 +480,8 @@ It is zero exactly when the line is sorted. No single item could work this
 number out from its own neighbourhood; only an outside observer can.</dd></div>
 </dl>
 </section>
+</div>
+</details>
 
 <section>
 <h2>Sorting, under three different control arrangements</h2>
