@@ -226,7 +226,14 @@ def esc(text: str) -> str:
     return (text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
 
-HEAD = """<title>Lattice Substrate Viewer</title>
+# The charset declaration is not optional. Without it a browser opening a
+# file:// page falls back to a legacy encoding, and every UTF-8 character
+# in the page renders as mojibake -- the middot separators in these
+# captions came out as "\u00c2\u00b7" until this was added. Nothing in the
+# generator or the tests noticed; it was found by reading the rendered page.
+HEAD = """<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lattice Substrate Viewer</title>
 <style>
 :root {
   color-scheme: light dark;
