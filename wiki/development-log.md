@@ -29,6 +29,70 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-06 — one substrate, and it reproduces the founding experiment exactly
+
+**Changed:** `goal-discovery/src/lattice/` is the substrate for this phase. The
+owner decided replace: *"we need one substrate that applies to this phase of
+experiments, presumably like a generalized cellular automata or something so that
+we can do the goal discovery and competence building from the same substrate."*
+This is the same specification the founding briefs already carried — laboratory
+spec §28's *"discrete interacting dynamical system with local state and explicit
+transition rules"* of which *"a standard cellular automaton is a particularly
+constrained case"*, §29 starting it at 1-D — and the same instruction the owner
+had already given on 2026-09-05, recorded verbatim in
+[the design document](substrate-design.md) and not acted on for a day.
+
+**The gate.** Three controllers × six fault and heterogeneity conditions × 40
+seeds = **720 trials, every one identical to `selfsort.py` step for step**:
+operation count and full configuration after each step, not the final answer.
+`tests/test_lattice_reproduces_selfsort.py` carries it with four controls that
+break one thing each — an extra draw from the random stream, a swapped pair, a
+cleared fault rate, a different seed — and require the comparison to go red. The
+previous contract could not express sorting at all; this one cannot express it
+differently.
+
+**The constrained case is instantiated, not asserted.**
+`specimens/elementary_ca.py` runs elementary rules on the same `Lattice`,
+differing in two declared properties: sorting is `conserving=True, centred=False`
+with a 2-site exchange window; a cellular automaton is `conserving=False,
+centred=True` with a 3-site rewrite window. Rule 90 is checked against the
+Sierpinski triangle's binomial coefficients from `math.comb` — ground truth
+computed outside this code, so the test cannot pass by agreeing with itself.
+
+**Five commitments, each one a thing the previous contract broke.** The goal is
+never inside the system (measurements are functions FROM a lattice and a test
+checks the lattice holds no reference to one); one currency prices everything,
+including a coordinator's look; the schedule is supplied by the experiment;
+faults are per-entity and applied in a fixed order; entities are mobile and carry
+identity, which is the one real generalization past a cellular automaton and the
+reason sorting fits at all.
+
+**Also added, from specs the first draft had missed:** `snapshot`/`restore`
+including the random-generator state, because First Wave requires that every arm
+of an intervention comparison restore the same state — *"never approximate a
+counterfactual by starting from a 'similar-looking' state"*; synchronous update
+(§45); and an explicit observation contract (§6, §43) where asking for a hidden
+channel raises rather than returning nothing, so a forbidden reading and an empty
+one cannot look alike.
+
+**Two defects found by the tests during the build, both recorded because they are
+the interesting part.** The first draft made permutation a law of the substrate,
+which silently made the cellular automaton — the case the substrate's whole claim
+rests on — inexpressible; conservation is now a declared property of a system.
+And the snapshot test first compared final configurations, which sorting reaches
+regardless of path because it is an absorbing state; its own control caught that
+and both now compare full trajectories.
+
+**References:** [design document](substrate-design.md),
+`goal-discovery/src/lattice/core.py`, `tests/test_lattice_reproduces_selfsort.py`,
+`tests/test_lattice_expresses_both.py`.
+
+**Does not establish:** no new science. The substrate reproduces existing results
+and expresses one additional family; it has not been used to answer any research
+question. It has one dimension, local coupling only, no entity creation or
+destruction, and no shared scalar — deliberately, and each is addable when a
+concrete experiment needs it.
+
 ## 2026-09-06 — the phase order's first clause was written down and not acted on
 
 **Changed:** the next action, in [the current plan](../goal-discovery/docs/plans/current_research_plan.md)

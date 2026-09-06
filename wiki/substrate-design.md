@@ -14,10 +14,61 @@ sources:
 [Project wiki](index.md) · [Goals](goals.md) · [Failure log](failure-log.md) ·
 [Ontology](ontology.md)
 
-> **Exploratory. Governs nothing.** Where the substrate question currently
-> stands, after a design discussion on 2026-09-05. Reflects the current position
-> rather than the path to it; the owner's corrections are kept verbatim at the
-> bottom because a paraphrased correction is the next round's misunderstanding.
+> **Question 1 is answered and built, 2026-09-06. The rest of this document is
+> still exploratory.** The owner decided: *"we need one substrate that applies to
+> this phase of experiments, presumably like a generalized cellular automata or
+> something so that we can do the goal discovery and competence building from the
+> same substrate."* That is **replace**, and
+> [`goal-discovery/src/lattice/`](../goal-discovery/src/lattice/core.py) is the
+> replacement. The owner's corrections are kept verbatim at the bottom because a
+> paraphrased correction is the next round's misunderstanding — and because this
+> same instruction was recorded there on 2026-09-05 and not acted on for a day.
+
+## What was built, and the gate it passed
+
+`goal-discovery/src/lattice/` is a 1-D lattice of sites holding mobile entities,
+with local transition rules, pluggable schedules, per-entity faults and one
+operation currency. Five commitments, each of which the previous contract broke:
+
+| Commitment | Mechanism |
+|---|---|
+| The goal is never inside the system | Measurements are functions FROM a lattice in `observe.py`; the lattice holds no reference to them, and a test checks that |
+| One currency prices everything | Every rule evaluation costs one op, including a coordinator's look |
+| The schedule is a dial | `decentralized`, `watchdog`, `closed` and synchronous update are supplied by the experiment, not the container |
+| Faults are first-class and per-entity | `dead`, `frozen`, `unreliable`, `p_fail`, applied in a fixed order inside `apply` |
+| Entities are mobile and carry identity | The one real generalization past a cellular automaton, and the reason sorting fits |
+
+**The gate: it reproduces the founding experiment exactly.** Three controllers ×
+six fault and heterogeneity conditions × 40 seeds = **720 trials, all identical
+to `selfsort.py` step for step** — the operation count and the full
+configuration after every step, not just the final answer.
+`tests/test_lattice_reproduces_selfsort.py` carries it, with four controls that
+each break one thing and require the comparison to go red. The previous contract
+could not express sorting at all; this one cannot express it *differently*.
+
+**And the constrained case is actually constrained.** Spec §28 says a standard
+cellular automaton is a special case of this substrate. That is now instantiated
+rather than asserted: `specimens/elementary_ca.py` runs elementary rules on the
+same `Lattice`, differing only in two declared properties —
+
+```text
+sorting        conserving=True,  centred=False   (entities move; 2-site window)
+elementary CA  conserving=False, centred=True    (state rewritten; 3-site window)
+```
+
+Rule 90 is checked against the Sierpinski triangle's binomial coefficients,
+computed from `math.comb` and not from this code, so the test cannot pass by
+agreeing with itself.
+
+**What it deliberately does not have**, because no queued experiment needs it and
+the last contract was generalized backwards from failures: two dimensions,
+non-local coupling, entity creation and destruction, and any shared scalar.
+
+**The old `src/substrate/` is superseded, not deleted.** It is retained only
+because two frozen result packages regenerate from it byte-identically. Nothing
+new should be built on it.
+
+
 
 ## Where it landed
 
@@ -82,15 +133,25 @@ and no single step was ever argued for.
 
 ## Open
 
-1. Does the current `src/substrate/` get repaired, replaced, or set aside while
-   work returns to `selfsort.py`?
-2. Is the run loop worth keeping separately from the `State` shape? Its fixed
-   operation order, seeding discipline, bit-identity guarantee and read-only
-   observer hook are good and independent of the container.
-3. Do the twelve capability dimensions replace the five dials outright, or do the
-   dials survive as declared specimen properties?
-4. Does the one-axis-per-experiment gate get enforced mechanically, like the
-   headline and outcome-class gates, or stay a discipline?
+1. ~~Does the current `src/substrate/` get repaired, replaced, or set aside?~~
+   **Answered 2026-09-06 by the owner: replaced.** See above.
+2. ~~Is the run loop worth keeping separately from the `State` shape?~~
+   **Answered by building it.** The fixed operation order, seeding discipline and
+   exact-reproduction guarantee were kept; the `State` shape was not.
+3. **Still open.** Do Spec §20's twelve capability dimensions — sensing, memory,
+   feedback, internal state, prediction, learning, exploration, generalization,
+   planning, communication, policy adaptation, self-modeling — become declared
+   specimen properties? `Entity.memory` exists and is empty, which is the first
+   of them and currently the only one with a place to live. Note that
+   Addendum 3 §19 gives a *different* list of thirteen; they have never been
+   reconciled and nothing should cite "the twelve dimensions" without saying
+   which document it means.
+4. **Still open.** Does the one-axis-per-experiment gate get enforced
+   mechanically, like the headline and outcome-class gates, or stay a discipline?
+5. **New.** What is the second specimen? The substrate now holds sorting and an
+   elementary cellular automaton. The contrastive systems D4 needs — passive
+   convergence, negative-feedback regulation, compensation, adaptation — have no
+   home yet, and D4 is the goal that most needs one.
 
 ## Positions proposed and superseded
 
