@@ -29,6 +29,72 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-06 — three zero-context agents were sent in, and one found a defect in the headline
+
+**Method, and why it was used.** The [bootstrap](../CLAUDE.md) has always
+specified a fresh-reader review — *"test whether a reader can recover the goal,
+current state, evidence limits, and next action without reconstructing
+history"* — and it had never been run against an actual fresh reader. Three
+agents with no prior context were given real first tasks: orient and answer four
+questions; audit the strongest claim; find the next action. Everything they
+reported was verified here before being acted on, and two of their claims did
+not survive that check.
+
+**The finding that matters is new science, not documentation.** Recorded as
+[F23](failure-log.md). The clause *"reports essentially nothing where it is
+absent, on two families"* is defended by comparing commons `live` +0.589 against
+`random` +0.006, both in bits, while the counterevidence beside it is quoted in
+null sd. The commons null spreads differ by more than two orders of magnitude
+between arms, so those are not comparable numbers: scored the way the slot arms
+are scored, commons `random` is **+20.07 null sd** above its own null. On the
+slot, +1.65 null sd is treated as a real graded response. So the commons half of
+the clause fails for a *second* reason independent of
+[F4](failure-log.md) — even with `frozen` explained, the control is not at its
+null either. Annotated at both sites that assert the claim, and the figure is
+guarded by `scripts/check_quoted_figures.py`.
+
+**What the reading experience cost.** The prescribed entry path was ~26,000
+words with no branch by purpose, and both orientation-style readers needed five
+or more documents before they could state the research question. The bootstrap
+now routes by task: a reviewer reads 9,200 words (index, scoreboard, failure
+log); the charter, plan, ontology and thesis are added only when the task needs
+them. The counts in that table are measured — the first draft of it quoted
+estimates and was wrong, which is the same defect class as F20 and F23.
+
+**Front-door staleness, all verified before fixing.** [The index](index.md) said
+the founding sorting experiment was *"never re-entered"* when it had produced the
+most recent result the previous day; it was dated 2026-09-05 against a 2026-09-06
+HEAD; and it claimed [the scoreboard](scoreboard.md) shows the programme "in one
+pass" while that surface covers neither experiment under `experiments/`. The date
+line now states what a date there does and does not claim.
+
+**A false table, read second.** [The thesis](competence-thesis.md) reported that
+"least action", "free lunch" and "gap junction" appear in **0 files**; measured,
+they appear in 4, 9 and 1 — and [the ontology](ontology.md) now *defines* free
+lunch, in a section the thesis links a hundred lines above the table denying it
+exists. A reader stopping there concluded the programme cannot say where
+competence comes from. Recounted, dated, and the asymmetry restated in the
+narrower form that is still true: the term for composition is the one genuinely
+missing, and no measured instance of any of them exists.
+
+**The contested next action was made visible instead of discoverable.** Three
+documents named three different next things and a fresh agent had to pick by
+judgement. All three are downstream of one unmade decision — whether
+[the goal register](goals.md) becomes canonical — which was missing from the
+plan's own Human Decisions table despite that table instructing agents to add
+such a row. Added with the consequences of each answer; the index now tabulates
+the three candidates.
+
+**Also:** [research synthesis](../roadmap/research.md), the document named first
+for *"what have we learned?"*, stopped at Q1-008 and covered neither experiment
+the headline rests on nor D2 — section 8 added. `experiments/platonic-ingression/`
+(47 files) was reachable only by listing the filesystem — routed. "Nine defects"
+corrected to eight in three places, per the owning result record.
+
+**Not fixed, and deliberately.** The scope question itself is the owner's. F23
+cannot be closed by editing prose: the honest commons figure depends on a null
+that 5 replicates cannot resolve.
+
 ## 2026-09-06 — the sorting perturbation repeats, and answers D2 in the negative
 
 **Changed:** `experiments/01-self-sorting/selfsort.py` gained `perturb_repeats`.
