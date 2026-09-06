@@ -29,6 +29,58 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-06 — same eight faults, two deliveries: D2 answered in the negative a second time
+
+**Changed:** `experiments/01-self-sorting/selfsort.py` gained a
+`perturb_magnitude` parameter and an `exp_delivery` experiment
+(`python selfsort.py delivery`). It holds total damage fixed at eight faults and
+varies only their arrival — `burst` (8 at once), `drip` (1 x 8), and `single` as
+the unit of account. Only `swap2` and `teleport` are used, because member damage
+is not divisible into equal units. `perturb_magnitude=1` draws exactly the
+random numbers the previous code did, checked against the frozen 225-trial
+single-shot baseline.
+
+**What it found.** Delivery carries no information beyond displacement. Eight
+faults at once produce 20.03 inversions, not eight times one fault's 5.98, so
+raw ops differ fourfold (79 against 304) for reasons that are entirely
+displacement. Fitting cost-versus-damage from single deliveries alone and
+predicting the drip total as `8 x f(1)` — no free parameters — lands within
+**+2.4%** for `decentralized`. The watchdog missed by +12.4%/+19.6%, its
+per-episode cost rising +10.5% (swap2) and +21.1% (teleport) from episode 0 to
+7, which is history dependence and therefore not attractor-like.
+
+**That excess was isolated, not explained away.**
+`experiments/01-self-sorting/results/delivery_cursor_probe.py` runs a watchdog identical except that each
+sweep starts at a random offset — same positions, same work, only the order
+changed. The rise goes to **−0.6%** and **−1.2%**. The watchdog's cost at
+episode 7 converges on the phase-randomised controller's, which is *higher* at
+episode 0. So the watchdog was not degrading: it starts with its scan cursor
+favourably correlated with the array it has just finished sorting, and
+repetition destroys the correlation.
+
+**Why this is the second answer and not a restatement.** The repeat profile
+established stationarity but only ever delivered one fault at a time, so it could
+not separate "delivery does not matter" from "this much damage does not matter".
+This run separates them.
+
+**Also recorded: the preregistered criterion was underspecified.** The
+experiment README's "Next" list said *"if they differ, that is the first thing
+here stronger than an attractor."* The arms did differ, fourfold, and as written
+the criterion is met. It compared totals without dividing by the displacement
+each delivery creates. The original wording is kept in place rather than edited
+to match the outcome, with the reason beside it.
+
+**References:** [experiment 01](../experiments/01-self-sorting/README.md) and its
+`experiments/01-self-sorting/results/delivery.csv`,
+`experiments/01-self-sorting/results/delivery.png` and
+`experiments/01-self-sorting/results/delivery_cursor_probe.py`.
+
+**Does not establish:** two perturbations, both pure state damage, one substrate,
+n=10, p_fail 0 and 0.30. Nothing here bears on member damage, where capacity
+really is consumed. `central_closed` recovered in 0 of 200 trials in all three
+arms because it halts before the disturbance arrives — its documented ceiling,
+not a measurement.
+
 ## 2026-09-06 — the discovery arm is a phase, not a narrowing
 
 **Changed:** five documents that described current work as a *scope narrowing to

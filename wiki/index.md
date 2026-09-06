@@ -172,11 +172,18 @@ reason its commons half fails (F23). [F24](failure-log.md#f24--a-cited-experimen
 is closed by an explicit procedure-custody sweep; Q1-008 remains honestly marked
 non-reproducible rather than reconstructed from prose.
 
-**Most recent result, 2026-09-06.** The founding sorting experiment was
-re-entered to answer [goal D2](goals.md): its perturbation schedule now repeats,
-and under transient disturbance the controllers are **indistinguishable from a
-passive attractor** — cost stationary across eight episodes, no attrition. A
-negative answer, and the first work of the discovery phase.
+**Most recent result, 2026-09-06.** [Goal D2](goals.md) is answered in the
+negative **twice, independently**. First: the founding sorting experiment's
+perturbation schedule now repeats, and cost is stationary across eight episodes
+with no attrition. Second, and the stronger test: holding total damage fixed at
+eight faults and varying **only** how they arrive — all at once versus one per
+episode — delivery carries no information beyond displacement. A zero-parameter
+passive-attractor model predicts the eight-episode total to **+2.4%** for the
+controller with no internal state. The one apparent history effect, a
+**+10.5%/+21.1%** rise in the centralized watchdog's cost across episodes, was
+isolated to its scan cursor and vanishes (**−0.6%/−1.2%**) when only the scan
+*order* is randomised — it was an initial-condition correlation decaying, not
+damage accumulating. Nothing measured here is stronger than a passive attractor.
 [Experiment 01](../experiments/01-self-sorting/README.md) owns it. It is not a
 registered live-era experiment, so it does **not** appear on the scoreboard.
 
