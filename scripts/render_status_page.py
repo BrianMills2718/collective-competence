@@ -80,7 +80,8 @@ def load(rel: str) -> dict:
     return json.loads((ROOT / rel).read_text(encoding="utf-8"))
 
 
-def diverging_chart(title: str, source: str, note: str, rows, gate=None) -> str:
+def diverging_chart(title: str, source: str, note: str, rows, replicates: int,
+                    gate=None) -> str:
     """Horizontal diverging bars: effect above each arm's own shuffle null.
 
     Every bar is direct-labelled. That is not decoration: two of the four
@@ -112,15 +113,21 @@ def diverging_chart(title: str, source: str, note: str, rows, gate=None) -> str:
         w = abs(value) * scale
         x = zero_x if value >= 0 else zero_x - w
         cls = "pos" if value >= 0 else "neg"
-        # Deliberately NOT value/sd. The shuffle-null sd is the spread of an
-        # eight-replicate estimate, and on arms whose null is near-deterministic
+        # Deliberately NOT value/sd. The shuffle-null sd is the spread of a
+        # few-replicate estimate, and on arms whose null is near-deterministic
         # it collapses toward zero: the commons `live` sd is 0.0001 and `random`
         # is 0.0003, so the ratio reads "+4101 null sd" and "+20 null sd" --
         # the second of which flatly contradicts this page's own statement that
         # the matched-independent arm sits at its null. Report both numbers and
         # let the reader divide, or not. The ratios that ARE quoted in prose
         # come from result packages that computed and froze them.
-        sds = f"null sd {sd:.4f} over 8 replicates"
+        #
+        # `replicates` is read from the package, not hardcoded. It was a literal
+        # 8 until 2026-09-06, applied to BOTH charts -- but Q1-009 used 5, so
+        # every commons tooltip overstated how well-resolved its null is, in the
+        # direction that makes the unexplained commons arm look like a settled
+        # measurement. That is the exact quantity failure-log F23 turns on.
+        sds = f"null sd {sd:.4f} over {replicates} replicates"
         parts.append(
             f'<text class="rowlab" x="{label_w - 12}" y="{y + row_h * 0.68:.1f}">'
             f'{esc(name)}</text>'
@@ -226,7 +233,7 @@ def render() -> str:
         "spread; the near-deterministic arms' do not, which is why the bars carry "
         "raw numbers rather than ratios. No experiment explains this. It is the open "
         "half of the audit.",
-        commons_rows))
+        commons_rows, replicates=q9["null_replicates"]))
     body.append(diverging_chart(
         "Slot — the statistic behaves",
         f"goal-discovery/results/q1-010-determinism-control/result.json · "
@@ -235,7 +242,8 @@ def render() -> str:
         "and the population lost 27% of its performance. The statistic declined to "
         "report it as structured, below the gate frozen before the run. The auditor "
         "predicted the opposite and was wrong.",
-        slot_rows, gate=q10["frozen_gates"]["G_A_min_above_null"]))
+        slot_rows, replicates=q10["null_replicates"],
+        gate=q10["frozen_gates"]["G_A_min_above_null"]))
     body.append('</div>')
 
     body.append(f'<h2>All {len(live)} live experiments</h2>')

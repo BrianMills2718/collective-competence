@@ -404,6 +404,65 @@ rather than an absolute number.
 experiment entry points run on it and regenerate three frozen result packages
 byte-identically. Its five dials each come from one of the failures above.
 
+## 8. Information measures, the determinism control, and repeated disturbance (2026-09-05/06)
+
+Added 2026-09-06. Section 7 stopped at Q1-008, so this document — the one the
+[bootstrap](../CLAUDE.md) names first for *"what have we learned?"* — did not
+cover the two experiments the programme's headline actually rests on.
+
+**There is no causal emergence on either specimen, and this is the most solid
+result here.** [Q1-009](../goal-discovery/docs/hypotheses/q1_009_information_measures_results.md)
+measured effective information at a coarse-graining against the micro description
+it was built from: the macro description carries strictly *less*, outside null
+noise, in every non-degenerate arm. Nulls were computed and committed before any
+threshold existed, and a later independent review that found **eight** defects in
+the implementation moved zero effective-information values. Scope is narrow and
+stated: one coarse-graining, unsearched over partitions, two constructed
+specimens.
+
+**Empowerment was withdrawn as an agency measure.** Its ordering tracks the
+channel's idle fraction arm for arm — it was reading availability, not agency.
+
+**The headline statistic survives on one family and fails on the other.**
+[Q1-010](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md)
+built the deterministic-but-independent arm the slot family lacked, against a
+gate frozen before the run, and **falsified its own author's recorded
+prediction**. On the slot the ordering is coordinated +6.3 null sd,
+deterministic-independent +1.65, independent draw ~0 — so the statistic is not
+merely reading determinism, but the response is *graded*, not binary: determinism
+without coordination still buys 39% of the coordinated effect, which makes
+"essentially nothing where it is absent" an overstatement.
+
+On the commons the clause fails for **two independent reasons**, and the second
+was only found on 2026-09-06 by a zero-context reader:
+[F4](../wiki/failure-log.md) — the uncoordinated `frozen` arm sits 5.3 null sd
+above its null, unexplained by any experiment; and
+[F23](../wiki/failure-log.md) — the commons arms' null spreads differ by over two
+orders of magnitude, so the matched-independent `random` arm, quoted as +0.006
+*bits* and called "at its null", is **+20.07 null sd** above its own null when
+scored the way the slot arms are scored. **The clause holds on the slot family
+only.** Both nulls rest on 5 replicates, which is why one slot arm changes sign
+between the experiment's own two committed null streams.
+
+**The founding sorting experiment was re-entered, and answered a goal in the
+negative.** [D2](../wiki/goals.md) asked whether sorting shows behaviour stronger
+than a passive attractor under targeted perturbation. The schedule had fired once
+per trial since the experiment was written, so robustness — defined in the
+[ontology](../wiki/ontology.md) as performance *across* perturbations — was not
+expressible. Made to repeat, it gives three profiles
+([experiment 01](../experiments/01-self-sorting/README.md)): under transient
+disturbance the cost is **stationary across eight episodes with no attrition**,
+which is what a passive attractor predicts, so the answer for those perturbations
+is **no**. Two measurement corrections came with it — `central_closed`'s
+long-quoted 0.00 recovery was never a robustness measurement (it had already
+halted in 200/200 trials), and recovery *rate* saturates at 1.00 while median cost
+nearly triples, which the previously reported measure could not see.
+
+**What none of this establishes.** No construction claim in this programme is
+verified. Every experiment above was written and reviewed by the same agent in
+the same session — `result_reviewed` means the prose was read, not that anything
+was reproduced, and no surface tracks reproduction as a separate status.
+
 ## Learning and drift review
 
 These records show useful narrowing and abstention, but they do not establish
@@ -424,5 +483,9 @@ Repeated instrument failures suggest checking observation and intervention
 contracts early. Repeated generic representation failures suggest a concrete
 question before feature expansion. Successful tooling without a new scientific
 decision should remain enabling infrastructure, not discovery progress.
-The [current plan](../goal-discovery/docs/plans/current_research_plan.md) alone
-selects the next action; this landscape is not a second task queue.
+The [current plan](../goal-discovery/docs/plans/current_research_plan.md) is the
+designated selector of the next action, and this landscape is not a second task
+queue — **but as of 2026-09-06 the next action is contested three ways.** A
+reader who stops here and goes to act on the plan is choosing a research scope
+without knowing it. [The wiki index](../wiki/index.md) tabulates the three
+candidates and names the unmade decision underneath them.

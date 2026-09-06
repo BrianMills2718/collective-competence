@@ -18,23 +18,41 @@ the destination.
 
 ## Read before interpreting or changing the project
 
-1. Enter through [the project wiki](wiki/index.md).
-2. Read [the generative thesis](wiki/competence-thesis.md) for what this
-   programme is for and what it is betting on — least action as the reason
-   competence has no floor, composition as the constructive bet, free lunch,
-   and the discrete substrate that follows. It is exploratory, not canonical,
-   and it is the only document that states the motivating idea.
-   Read the canonical [research ontology](wiki/ontology.md) for terminology and
-   the [charter](goal-discovery/docs/PROJECT.md) for purpose and scientific scope;
-   the [current plan](goal-discovery/docs/plans/current_research_plan.md) owns
-   priorities for the active Goal and Competence Discovery lane, not the full
-   agenda and not historical plans or a dashboard's cached status.
-   For the next experiment, use that plan's selected evidence and counterexample
-   links before expanding into the full research history.
+1. Enter through [the project wiki](wiki/index.md). Its **Current position**
+   section is the shortest true account of where things stand, and its
+   **Choose your question** table routes by what you actually need.
+2. **Then read by task, not in full.** The documents below total roughly 32,000
+   words; reading all of them before acting spends most of a working context on
+   orientation. Two zero-context agents measured this on 2026-09-06 and each
+   needed five or more documents before they could state the research question.
+
+   | If you are | Read, in order | ~words (measured 2026-09-06) |
+   |---|---|---|
+   | **Reviewing, auditing, or orienting** | [wiki index](wiki/index.md) → [scoreboard](wiki/scoreboard.md) → [failure log](wiki/failure-log.md) | 10,200 |
+   | **Running or designing an experiment** | the above, then [charter](goal-discovery/docs/PROJECT.md) (scope and the completion condition) → [current plan](goal-discovery/docs/plans/current_research_plan.md) (the queued action and its open debts) | +5,900 |
+   | **Making a claim, or naming anything** | add [research ontology](wiki/ontology.md) — canonical, and the only authority on terms | +7,400 |
+   | **Questioning the programme's direction** | add [the generative thesis](wiki/competence-thesis.md) | +3,500 |
+   | **Deciding what to do next** | add [research synthesis](roadmap/research.md) (what the experiments established) and [the goal register](wiki/goals.md) (draft; one of the three documents naming a next action) | +5,100 |
+
+   Two cautions the reading order used to hide. The **thesis is exploratory and
+   not canonical** — [the conjecture register](wiki/conjectures.md) records that
+   its three central bets were considered and *refused admission*, so a reader
+   who meets it first builds a model the register then contradicts. And the
+   **current plan owns priorities for the active lane only** — not the full
+   agenda, not historical plans, not a dashboard's cached status.
 3. Follow the task's topic to native evidence/code and the applicable subtree
    instructions below. Read mandatory context; do not load the entire archive.
 4. State the checkout/revision and any local changes before claiming what runs.
    Separate an implemented feature, an observed run, and a scientific finding.
+5. **The canonical checkout is read-only on purpose.** `wiki/`, `scripts/`,
+   `goal-discovery/` and `experiments/` are mode `555`; writes go through a
+   claimed worktree at `worktrees/<branch>/`. A `PermissionError` here is the
+   convention working, not a broken checkout. It also means **a run that writes
+   output cannot happen in the root** — `experiments/01-self-sorting/selfsort.py`
+   writes to a hardcoded `results/` directory, so it needs a worktree. And it
+   means a green suite in a worktree is not evidence the suite is green where the
+   README says to run it: that gap produced six red tests nobody saw
+   ([F25](wiki/failure-log.md)). Verify in the checkout the instruction names.
 
 For "what have we learned?", read [research synthesis](roadmap/research.md),
 then its [experiment register](roadmap/experiments.md) and exact result/protocol.

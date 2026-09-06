@@ -29,6 +29,72 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-06 — three zero-context agents were sent in, and one found a defect in the headline
+
+**Method, and why it was used.** The [bootstrap](../CLAUDE.md) has always
+specified a fresh-reader review — *"test whether a reader can recover the goal,
+current state, evidence limits, and next action without reconstructing
+history"* — and it had never been run against an actual fresh reader. Three
+agents with no prior context were given real first tasks: orient and answer four
+questions; audit the strongest claim; find the next action. Everything they
+reported was verified here before being acted on, and two of their claims did
+not survive that check.
+
+**The finding that matters is new science, not documentation.** Recorded as
+[F23](failure-log.md). The clause *"reports essentially nothing where it is
+absent, on two families"* is defended by comparing commons `live` +0.589 against
+`random` +0.006, both in bits, while the counterevidence beside it is quoted in
+null sd. The commons null spreads differ by more than two orders of magnitude
+between arms, so those are not comparable numbers: scored the way the slot arms
+are scored, commons `random` is **+20.07 null sd** above its own null. On the
+slot, +1.65 null sd is treated as a real graded response. So the commons half of
+the clause fails for a *second* reason independent of
+[F4](failure-log.md) — even with `frozen` explained, the control is not at its
+null either. Annotated at both sites that assert the claim, and the figure is
+guarded by `scripts/check_quoted_figures.py`.
+
+**What the reading experience cost.** The prescribed entry path was ~26,000
+words with no branch by purpose, and both orientation-style readers needed five
+or more documents before they could state the research question. The bootstrap
+now routes by task: a reviewer reads 9,200 words (index, scoreboard, failure
+log); the charter, plan, ontology and thesis are added only when the task needs
+them. The counts in that table are measured — the first draft of it quoted
+estimates and was wrong, which is the same defect class as F20 and F23.
+
+**Front-door staleness, all verified before fixing.** [The index](index.md) said
+the founding sorting experiment was *"never re-entered"* when it had produced the
+most recent result the previous day; it was dated 2026-09-05 against a 2026-09-06
+HEAD; and it claimed [the scoreboard](scoreboard.md) shows the programme "in one
+pass" while that surface covers neither experiment under `experiments/`. The date
+line now states what a date there does and does not claim.
+
+**A false table, read second.** [The thesis](competence-thesis.md) reported that
+"least action", "free lunch" and "gap junction" appear in **0 files**; measured,
+they appear in 4, 9 and 1 — and [the ontology](ontology.md) now *defines* free
+lunch, in a section the thesis links a hundred lines above the table denying it
+exists. A reader stopping there concluded the programme cannot say where
+competence comes from. Recounted, dated, and the asymmetry restated in the
+narrower form that is still true: the term for composition is the one genuinely
+missing, and no measured instance of any of them exists.
+
+**The contested next action was made visible instead of discoverable.** Three
+documents named three different next things and a fresh agent had to pick by
+judgement. All three are downstream of one unmade decision — whether
+[the goal register](goals.md) becomes canonical — which was missing from the
+plan's own Human Decisions table despite that table instructing agents to add
+such a row. Added with the consequences of each answer; the index now tabulates
+the three candidates.
+
+**Also:** [research synthesis](../roadmap/research.md), the document named first
+for *"what have we learned?"*, stopped at Q1-008 and covered neither experiment
+the headline rests on nor D2 — section 8 added. `experiments/platonic-ingression/`
+(47 files) was reachable only by listing the filesystem — routed. "Nine defects"
+corrected to eight in three places, per the owning result record.
+
+**Not fixed, and deliberately.** The scope question itself is the owner's. F23
+cannot be closed by editing prose: the honest commons figure depends on a null
+that 5 replicates cannot resolve.
+
 ## 2026-09-06 — the sorting perturbation repeats, and answers D2 in the negative
 
 **Changed:** `experiments/01-self-sorting/selfsort.py` gained `perturb_repeats`.
@@ -266,7 +332,7 @@ one coarse-graining tested.
 capacity rather than agency and should be redesigned against a different
 observable or dropped. The commons specimen's control arm exists now but the
 slot's `constant_phase` remains degenerate for variety-sensitive statistics.
-And nine defects in Q1-009's implementation were found by an independent review
+And eight defects in Q1-009's implementation were found by an independent review
 rather than by the fifty-eight tests written beside that code, which is a
 standing argument for a review pass before a result record counts as evidence.
 
@@ -342,7 +408,7 @@ open in this repository's own timeline since the timeline was written.
 **Does not establish:** the follow-up measurements are post-hoc over the same
 configuration and re-score no frozen gate; Q1-009's recorded verdicts stand as
 frozen. Emergence is unchanged and still negative in every non-degenerate arm,
-including the new one. The third debt — that nine defects were found by review and
+including the new one. The third debt — that eight defects were found by review and
 none by the suite written beside the code — is unaddressed.
 
 ## 2026-09-05 — a review of Q1-009 found eight defects in its own implementation
@@ -1251,3 +1317,12 @@ recovery log. The available low-level helper explicitly lacks the required
 registered-repository integration, so manual deletion or movement is forbidden;
 this is a visible archive-system blocker, not a reason to treat the snapshots as
 current documentation.
+
+> **Resolved 2026-09-05, and the stated blocker was not real.** No mover ever
+> existed to be blocked, and the shared policy asks for an index and a recovery
+> route rather than a move. The three snapshots were archived by deletion plus a
+> checked row in [the archive index](archive-index.md), each recoverable from its
+> recorded commit; `scripts/check_archive_index.py` verifies that and passes. The
+> paragraph above is kept because it stood as a live blocker for days and a fresh
+> reader on 2026-09-06 still read it as one — see
+> [F13](failure-log.md).

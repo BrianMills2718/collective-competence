@@ -44,10 +44,29 @@ class QuotedFigureControls(unittest.TestCase):
         self.repo = Path(self.tmp.name) / "repo"
         for rel in COPIED:
             shutil.copytree(ROOT / rel, self.repo / rel)
+        # `copytree` preserves modes, and the canonical checkout of this
+        # repository is deliberately mode 555 so that writes go through a
+        # worktree. Without this the scratch copy inherits read-only
+        # directories, every rewrite raises PermissionError, and the whole
+        # class fails -- six red tests in the checkout the README calls the
+        # handoff verification contract, while passing in any worktree. That
+        # is exactly what happened between 2026-09-06 and this fix, and it was
+        # invisible because the suite was only ever run from a worktree.
+        for path in self.repo.rglob("*"):
+            path.chmod(path.stat().st_mode | (0o700 if path.is_dir() else 0o600))
         git(self.repo, "init", "-q", ".")
         git(self.repo, "add", "-A", "-f")
         git(self.repo, "commit", "-qm", "base")
-        self.addCleanup(self.tmp.cleanup)
+        self.addCleanup(self._cleanup)
+
+    def _cleanup(self):
+        """Teardown must survive read-only trees too, or it masks the real error."""
+        for path in self.repo.rglob("*"):
+            try:
+                path.chmod(path.stat().st_mode | (0o700 if path.is_dir() else 0o600))
+            except OSError:
+                pass
+        self.tmp.cleanup()
 
     def run_checker(self):
         return subprocess.run(
