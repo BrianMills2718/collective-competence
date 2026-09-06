@@ -60,14 +60,36 @@ The first move against this is a candidate family carrying a latent shared
 regressor, plus an adequacy test that reports failure-to-explain rather than only
 relative improvement over persistence.
 
-**Next action — one thing: the two-agent boundary on the sorting lineage.**
-One agent running the opposing rule presumably parks somewhere the majority
-contains; two can hand a defect back and forth indefinitely. Nothing in
-[experiment 01](../../../experiments/01-self-sorting/README.md) tests it, it has
-been that experiment's own first open question throughout, it is on the sorting
-lineage this phase works, and it is cheap. It is also the first question here
-whose answer is not already constrained by the attractor result below: a standoff
-between two opposing rules is a property of the interaction, not of the basin.
+**Next action — one thing: decide what the substrate is, per
+[the design document's question 1](../../../wiki/substrate-design.md) — repair
+`src/substrate/`, replace it, or set it aside and work from `selfsort.py`.**
+
+**Why this and not another experiment.** The owner's phase order is *"build the
+substrate to work out the discovery so then we can try to build systems based on
+what we learn."* Its first clause is the substrate. The contract that exists
+cannot express the sorting lineage this phase works — its own docstring says
+sorting is deliberately not ported, because sorting has no resource and no shared
+signal ([F2](../../../wiki/failure-log.md)) — and it carries `signal: float` in
+every specimen's state, so a coordination mechanism is part of the container
+rather than something an experiment supplies and tests
+([F2b](../../../wiki/failure-log.md)). Every substrate question below question 1
+is blocked on it, and no experiment queued on `selfsort.py` advances the phase,
+because `selfsort.py` is on no substrate.
+
+**How this next action was wrong until 2026-09-06.** This plan recorded the phase
+order and, in the same commit (`b1b5534`), queued D2's damage-delivery run — an
+experiment on standalone code. The sentence was read as a statement about which
+*arm* comes first rather than about what to *build* first. The D2 run was
+executed and is real evidence, but it was not first, and it did not need the
+substrate, which is exactly why it did not advance the phase.
+
+**The two-agent boundary is the next experiment, not the next action.** One agent
+running the opposing rule presumably parks somewhere the majority contains; two
+can hand a defect back and forth indefinitely. Nothing in
+[experiment 01](../../../experiments/01-self-sorting/README.md) tests it, it is
+cheap, and it is the first question here whose answer is not already constrained
+by the attractor result below. It waits on question 1, because the answer decides
+whether it is written against a contract or against `selfsort.py` directly.
 
 **The previous next action is done.** [Goal D2](../../../wiki/goals.md)'s
 damage-delivery run was executed 2026-09-06: total damage held at eight faults,
@@ -235,14 +257,27 @@ information barrier that does not yet exist. Clause 2 is the open one, per above
 
 **The apparatus.** `src/substrate/` is a shared specimen contract with five
 dials, each derived from a reproduced failure rather than guessed. It is
-**adopted, not merely built**: the real experiment entry points run on it and
-regenerate all three frozen result packages byte-identically. `outcome_independence`
-is the one dial no coordination specimen yet uses.
+**adopted by the specimens it holds** — the commons and slot entry points run on
+it and regenerate all three frozen result packages byte-identically — and it
+holds exactly two, `renewable_commons` and `contended_slot`. Read "adopted" at
+that scope and no wider: the sorting lineage does not run on it and cannot be
+written in it. `outcome_independence` is the one dial no coordination specimen
+yet uses.
 
 **Do not do next:** add another substrate, broaden the fixed family menu, build a
-generic simulator, polish the dashboard, or treat the P15 pass itself as a
-discovery, generalization, or competence claim. Each would spend the earned
-protocol design on apparatus instead.
+generic simulator, or treat the P15 pass itself as a discovery, generalization,
+or competence claim. Each would spend the earned protocol design on apparatus
+instead.
+
+**Two entries were removed from that list on 2026-09-06, because each had frozen
+something the owner needed.** *"Polish the dashboard"* was read correctly by
+every agent that met it, and the cost was fourteen experiments with no view and
+the owner unable to follow his own project ([F7](../../../wiki/failure-log.md)).
+*"Add another substrate"* was read as covering substrate work in general, which
+it does not say: repairing a contract that cannot express the active lineage is
+not adding a second one. A do-not-do entry that is obeyed is invisible, so the
+list needs re-reading against what the owner has asked for since it was written,
+not only against what an agent is about to do.
 
 **Amended 2026-09-05 — "polish the dashboard" never meant "leave the owner
 unable to see the work."** That line was aimed at apparatus drift, and it

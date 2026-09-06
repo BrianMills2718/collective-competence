@@ -516,12 +516,12 @@ class ReadingBudgetGate(unittest.TestCase):
 
     TOLERANCE = 300
     TIERS = {
-        "10,700": ("wiki/index.md", "wiki/scoreboard.md", "wiki/failure-log.md"),
-        "+6,100": ("goal-discovery/docs/PROJECT.md",
+        "10,900": ("wiki/index.md", "wiki/scoreboard.md", "wiki/failure-log.md"),
+        "+6,600": ("goal-discovery/docs/PROJECT.md",
                    "goal-discovery/docs/plans/current_research_plan.md"),
         "+7,400": ("wiki/ontology.md",),
         "+3,500": ("wiki/competence-thesis.md",),
-        "+5,500": ("roadmap/research.md", "wiki/goals.md"),
+        "+5,600": ("roadmap/research.md", "wiki/goals.md"),
     }
 
     def test_every_quoted_reading_budget_matches_the_documents(self):

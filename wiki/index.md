@@ -141,19 +141,35 @@ and LLM agents are out of scope; the founding sequence placed them last and the
 renewable commons was phase-M content run at phase-F time.
 [The charter](../goal-discovery/docs/PROJECT.md) owns the boundary.
 
-**The next action is the damage-delivery run.** Three documents used to name
-three different next things, and the disagreement was downstream of an unmade
-decision about scope. The owner made it on 2026-09-06 and the ordering resolves
-all three:
+**The next action is to decide what the substrate is.** Not an experiment. The
+owner's phase order is *"build the substrate to work out the discovery so then we
+can try to build systems based on what we learn"*, and its first clause has never
+been queued as work. The contract in `goal-discovery/src/substrate/` holds two
+specimens, both resource-allocation, and **cannot express the sorting lineage
+this phase works** — sorting has no resource and no shared signal, and its own
+docstring says it is deliberately not ported ([F2](failure-log.md)). It also
+carries `signal: float` in every specimen's state, making a coordination
+mechanism part of the container rather than something an experiment tests
+([F2b](failure-log.md)).
 
-| Document | Names as next | Where it now sits |
+[The substrate design document](substrate-design.md) asks it directly as its
+question 1 — repair, replace, or set aside and work from `selfsort.py` — and
+records that nothing is decided. That document is marked exploratory and governs
+nothing, which is part of why the question stayed invisible.
+
+| Document | Names as next | Where it sits |
 |---|---|---|
-| [Goal register](goals.md) D2 | The damage-delivery run: eight faults at once versus one per episode | **First.** On the sorting lineage, which is this phase |
-| [Experiment 01](../experiments/01-self-sorting/README.md) | The two-agent boundary first, damage-delivery second | Same phase, same lineage; it disagrees only on which of its own two openings goes first, and D2 is the cheaper discriminator |
-| [Current plan](../goal-discovery/docs/plans/current_research_plan.md) | Re-run Q1-006 with a null-calibrated threshold | **Later, not cancelled.** On the commons/slot families, so it is not first — and it depends on Q1-008, whose procedure is [recorded as not preserved](failure-log.md#f24--a-cited-experiment-has-results-and-no-code--closed-2026-09-06) |
+| [Substrate design](substrate-design.md) q1 | Repair, replace, or set aside `src/substrate/` | **First.** The phase order's own first clause, and everything below is blocked on it |
+| [Goal register](goals.md) D2 | The damage-delivery run | **Done 2026-09-06**, answered in the negative twice |
+| [Experiment 01](../experiments/01-self-sorting/README.md) | The two-agent boundary | The next *experiment*. Waits on q1, which decides whether it is written against a contract or against `selfsort.py` |
+| [Current plan](../goal-discovery/docs/plans/current_research_plan.md) | Re-run Q1-006 with a null-calibrated threshold | **Later, not cancelled.** On the commons/slot families, and it depends on Q1-008, whose procedure is [recorded as not preserved](failure-log.md#f24--a-cited-experiment-has-results-and-no-code--closed-2026-09-06) |
 
-No human decision is outstanding here. An agent picking the next action should
-pick D2.
+**A correction worth keeping.** Until 2026-09-06 this section named the
+damage-delivery run as next. That run was recorded in the same commit that
+recorded the phase order, which means the phase order's first clause was written
+down and not acted on: the sentence was read as saying which *arm* comes first
+rather than what to *build* first. The run itself was real work and its result
+stands; it simply was not first.
 
 **What every experiment found:** [the scoreboard](scoreboard.md), one sentence
 each, generated. **What it looks like:** [the status page](status.html) — same coverage limit as

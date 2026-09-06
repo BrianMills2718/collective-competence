@@ -29,6 +29,48 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-06 — the phase order's first clause was written down and not acted on
+
+**Changed:** the next action, in [the current plan](../goal-discovery/docs/plans/current_research_plan.md)
+and [the wiki index](index.md), is now *decide what the substrate is* —
+[the design document's question 1](substrate-design.md). It was the two-agent
+boundary; before that, D2's damage-delivery run. Two entries were also removed
+from the plan's do-not-do list, and one overstated claim about the substrate was
+narrowed to its real scope.
+
+**Why.** The owner set the phase order as *"we need to build the substrate to
+work out the discovery so then we can try to build systems based on what we
+learn."* Commit `b1b5534` recorded that sentence in the plan and, in the same
+commit, queued D2's damage-delivery run — an experiment on `selfsort.py`, which
+is on no substrate. The sentence was read as a statement about which **arm** comes
+first and acted on as such; it is a statement about what to **build** first, and
+its first clause is the substrate. The D2 run is real evidence and its result
+stands. It was not first, and it did not need the substrate, which is why it did
+not advance the phase.
+
+**The mechanism that hid it, which has now cost twice.** The plan's *"do not do
+next"* list said *"polish the dashboard"* and *"add another substrate."* The
+first is already recorded as having frozen the cockpit for two weeks
+([F7](failure-log.md)) — fourteen experiments with no view and the owner unable
+to follow his own project. The second was read as covering substrate work in
+general, which it does not say: repairing a contract that cannot express the
+active lineage is not adding a second one. **A do-not-do entry that is obeyed
+leaves no trace**, so the list is now marked as needing re-reading against what
+the owner has asked for since it was written, not only against what an agent is
+about to do.
+
+**Also narrowed: "adopted, not merely built."** The plan said `src/substrate/` is
+adopted because the real experiment entry points run on it. True of the two
+specimens it holds, `renewable_commons` and `contended_slot`. The sorting lineage
+does not run on it and cannot be written in it, so the unqualified word invited
+the reading that the substrate serves the active phase. It does not.
+
+**References:** [current plan](../goal-discovery/docs/plans/current_research_plan.md),
+[substrate design](substrate-design.md), [F2 and F2b](failure-log.md).
+
+**Does not establish:** no substrate work was done, no code changed, and question
+1 is still open. This entry moves a queue position and corrects a scope claim.
+
 ## 2026-09-06 — same eight faults, two deliveries: D2 answered in the negative a second time
 
 **Changed:** `experiments/01-self-sorting/selfsort.py` gained a
