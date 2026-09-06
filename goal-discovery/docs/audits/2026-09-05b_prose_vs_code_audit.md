@@ -32,8 +32,8 @@ at `28fa0c0`.
 
 **No finding below was detectable by any of those checks.** That is the point of
 the audit. The check surface tests two things — does it run, and do the documents
-agree with each other. It has no check of the third kind, and all four findings
-live there.
+agree with each other. It has no check of the third kind, and all five findings
+live there. (This sentence said "four" until 2026-09-06; finding 5 was appended after it was written, and `wiki/index.md` had been counting five all along.)
 
 ## Finding 1 — C2's anti-smuggling guard guards dead code, and its stated property is false — `CLOSED 2026-09-05`
 
@@ -110,7 +110,7 @@ which is the strongest thing in this lane." Both controls behind that are
 *stochastic*. Two numbers in
 [Q1-009's own table](../hypotheses/q1_009_information_measures_results.md)
 suggested the statistic reads determinism instead: commons `frozen` coordinates
-nothing yet scores +0.198 above null (5.4 null sd) against `random`'s +0.006, and
+nothing yet scores +0.198 above null (5.3 null sd) against `random`'s +0.006, and
 `constant_phase`, the most synchronised arm measured, scores **−0.118**. Q1-009
 reports `frozen`'s value and calls it "genuinely uncoordinated"; its 2026-09-05
 correction then presents a `live`-against-`random` summary and concludes the
@@ -130,7 +130,7 @@ independent draw (~0), and the arm is a real control: removing the period cost
 
 **What survives, and it is not small.** The response is **graded, not binary** —
 the deterministic-independent arm still reaches 39% of the coordinated arm's
-effect. The **commons counterexample is untouched**: `frozen` at 5.4 null sd is
+effect. The **commons counterexample is untouched**: `frozen` at 5.3 null sd is
 Q1-009's own number and Q1-010 did not re-run the commons, so the "on two
 families" conclusion remains unsupported there. And the response across
 deterministic arms is **non-monotonic** — `constant_phase` at −0.118 and

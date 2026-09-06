@@ -1,5 +1,10 @@
 # Experiment 005 — deterministic adaptation results
 
+[Result package](../../results/005-adaptation/) — the raw output behind the 24-case matrix, run twice.
+Committed 2026-09-06; until then this record's pass table was the only
+surviving trace of the run, because `results/*` is ignored by default and
+the package was never added to the allowlist. See [F22](../../../wiki/failure-log.md).
+
 ## Decision
 
 **PASS: A1–A6 all passed on the 24-case matrix, run twice.**

@@ -1,7 +1,7 @@
 ---
 doc-role: experiment-protocol
 authority: experiment
-lifecycle: frozen-before-execution
+lifecycle: frozen
 ---
 # P11 — reject a redundant selection benchmark before running it
 

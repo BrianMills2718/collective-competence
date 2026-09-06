@@ -121,7 +121,12 @@ def main() -> int:
             print(f"  - {p}")
         return 1
 
-    print(f"PASS: {len(rows)} archived document(s), each recoverable and absent from the tree")
+    # The other direction, which this check still cannot see: a document deleted
+    # with no row added passes here forever. Named so a reader knows the shape of
+    # the remaining hole rather than reading PASS as full coverage.
+    print(f"PASS: {len(rows)} archived document(s), each recoverable and absent "
+          "from the tree. This checks index -> tree only; a document removed "
+          "without an index row is not detectable here.")
     return 0
 
 

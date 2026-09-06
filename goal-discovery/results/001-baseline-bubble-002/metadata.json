@@ -1,0 +1,21 @@
+{
+  "command": "baseline",
+  "experiment_id": "001_sorting",
+  "final_steps": 1747,
+  "final_tick": 35,
+  "git_commit": "95b5099ba2d8d4da37db2f8f72afc755227816ad",
+  "phase": "discovery",
+  "python_version": "3.11.16",
+  "quiescent": true,
+  "representation_set_version": "sorting-reps-v1",
+  "rule_version": "sorting-v1",
+  "run_id": "001-baseline-bubble-002",
+  "seed": 1,
+  "source_replicated": "arXiv:2401.05375 (Zhang, Goldstein & Levin)",
+  "system": {
+    "algotype": "bubble",
+    "max_ticks": 4000,
+    "n": 40,
+    "order": "shuffled"
+  }
+}

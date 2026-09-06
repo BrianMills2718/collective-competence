@@ -62,8 +62,8 @@ Worth keeping, from `selfsort.py`:
 ## The method, and the gate it implies
 
 Constrain the substrate to the simplest configuration that resolves each goal.
-[The current plan](../goal-discovery/docs/plans/current_research_plan.md) line
-347 already says *"add substrate capability only when a concrete,
+[The current plan](../goal-discovery/docs/plans/current_research_plan.md) already says, under its
+minimality heading, *"add substrate capability only when a concrete,
 otherwise-unexpressible experiment requires it"* — and the five dials violated
 it, being generalised backwards from reproduced failures rather than forwards
 from goals ([F10](failure-log.md)).

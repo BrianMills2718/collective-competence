@@ -31,7 +31,7 @@ carry no headline.
 
 ## Q1-010 — Does effective information above its own shuffle null separate coordination, or does it separate determinism?
 
-The suspicion that the headline statistic reads determinism rather than coordination was tested on the slot family and FAILED its own frozen gate: coordinated +6.3 null sd, deterministic-but-independent +1.65, independent draw ~0. It still holds unexplained on the commons, where an uncoordinated arm sits 5.4 null sd up.
+The suspicion that the headline statistic reads determinism rather than coordination was tested on the slot family and FAILED its own frozen gate: coordinated +6.3 null sd, deterministic-but-independent +1.65, independent draw ~0. It still holds unexplained on the commons, where an uncoordinated arm sits 5.3 null sd up.
 
 *result_reviewed* · [q1_010_determinism_control](../goal-discovery/docs/hypotheses/q1_010_determinism_control.md) · [q1_010_determinism_control_results](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md)
 

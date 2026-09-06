@@ -41,6 +41,14 @@ context. A current lane or failed narrow experiment does not replace the
 integrated destination with its own metric.
 
 Success requires both explanatory construction and disciplined discovery.
+
+**Pending narrowing, 2026-09-06.** [A draft goal register](../../wiki/goals.md)
+proposes working only the Goal and Competence Discovery arm, on the sorting
+lineage, until that arm produces something. It is a draft and does not change
+this charter; it is named here because it was previously visible only from
+documents that declare themselves to have no authority, so a reader entering
+through this charter would start constructive work without knowing the question
+was open. Review it before beginning constructive work.
 Constructive studies vary mechanisms and capabilities, challenge the resulting
 systems, and explain what produces competence at different scales. Discovery
 studies propose testable patterns not prescribed as outcomes, choose informative

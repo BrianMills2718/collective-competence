@@ -29,7 +29,12 @@ from pathlib import Path
 DEFAULT_ROOT = Path(__file__).resolve().parents[1]
 LAB = "goal-discovery"
 # Every one of these must yield at least one citation, or the filter is broken.
-SCANNED_EXTENSIONS = (".md", ".py")
+# `.sh` was added 2026-09-06: four packages (004-compensation, 005-adaptation and
+# both p2-001 predictive-goal runs) were named ONLY by committed shell runners, so
+# this guard never saw them while the register called two of them verified. The
+# same argument that added `.py` after `.md` proved insufficient applies to every
+# tracked file type that can name a package -- sweep the class, not the instance.
+SCANNED_EXTENSIONS = (".md", ".py", ".sh")
 
 # Matches `results/<pkg>` and `../../results/<pkg>` in links, code spans and prose.
 CITATION = re.compile(r"(?:\.\./)*results/([A-Za-z0-9][A-Za-z0-9._-]*)")
@@ -142,6 +147,34 @@ def main() -> int:
         print(
             f"\nFAIL: {len(drifted)} cited result package(s) drifted out of Git "
             f"since the baseline was recorded."
+        )
+        return 1
+
+    # The other direction, added 2026-09-06. Everything above walks documents to
+    # packages, so a package that exists on disk and is cited by nothing is
+    # invisible to it -- and because `results/*` is ignored, invisible to
+    # `git status` too. Sixteen packages, 34MB, sat in exactly that state,
+    # including the only raw evidence behind two experiments the register calls
+    # verified. Recorded as F5/F22. An on-disk package must be tracked, or
+    # declared here with a reason; silence is what failed.
+    results_dir = root / LAB / "results"
+    declared_untracked = set(
+        json.loads(baseline_path.read_text()).get("deliberately_untracked", {})
+    )
+    on_disk = {d.name for d in results_dir.iterdir() if d.is_dir()} if results_dir.exists() else set()
+    unaccounted = sorted(on_disk - tracked_dirs - declared_untracked)
+    if unaccounted:
+        print(
+            f"\nFAIL: {len(unaccounted)} result package(s) exist on disk, are not "
+            f"tracked, and are declared nowhere:"
+        )
+        for pkg in unaccounted:
+            print(f"  results/{pkg}")
+        print(
+            f"Ignored files are invisible to `git status`, so nothing else will "
+            f"tell you. Either add `!results/<pkg>/` to {LAB}/.gitignore and commit "
+            f"it, or record it under `deliberately_untracked` in "
+            f"{baseline_path.relative_to(root)} with a reason."
         )
         return 1
     print(

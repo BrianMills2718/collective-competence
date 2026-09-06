@@ -1,7 +1,7 @@
 {
-  "purpose": "Cited result paths that Git does not carry, with why. As of 2026-09-05 every recoverable package has been committed and nothing is lost: the single remaining entry is a command's output directory, not stored evidence. scripts/check_evidence_custody.py reports these and does not fail on them; it DOES fail on any cited package that is untracked and not listed here.",
-  "recorded_at": "2026-09-05",
-  "recorded_from": "checkout /home/brian/code/collective-competence at 55fc885",
+  "purpose": "Cited result paths that Git does not carry, plus on-disk packages deliberately left untracked, each with why. scripts/check_evidence_custody.py reports these and does not fail on them; it DOES fail on any cited package that is untracked and unlisted, and on any package present on disk that is neither tracked nor declared under deliberately_untracked.",
+  "recorded_at": "2026-09-06",
+  "recorded_from": "checkout worktrees/housekeeping-sweep-5 at 162a915",
   "how_to_clear_an_entry": "An entry here can only be cleared by the citing document stating that the raw package was not retained, so the claim carries its own evidence limit. The data itself is gone.",
   "status_meanings": {
     "on_disk_untracked": "Present in the authoring checkout only. Recoverable now, lost with that machine. Sizes are why these were not committed wholesale; the choice of which to keep is a repository-weight decision for the owner.",
@@ -9,11 +9,12 @@
     "command_output_path": "A path a documented command creates, not a package that should exist. Reported separately from evidence debt and never treated as a loss."
   },
   "totals": {
-    "packages": 1,
+    "packages": 2,
     "on_disk_untracked": 0,
     "absent_everywhere": 0,
-    "command_output_paths": 1,
-    "megabytes_on_disk": 0.0
+    "command_output_paths": 2,
+    "deliberately_untracked": 1,
+    "megabytes_on_disk": 28.0
   },
   "packages": {
     "p12-reproduction": {
@@ -21,11 +22,25 @@
       "files": 0,
       "kilobytes": 0,
       "note": "Not evidence and not lost. p12_reference_inference_results.md names this inside a fenced shell block as the --directory a reproduction command WRITES to; it was never a stored package. Recorded here so the guard does not report it as missing evidence, and so the earlier classification of it as permanently lost is not repeated."
+    },
+    "p2-001-predictive-goal": {
+      "status": "command_output_path",
+      "files": 0,
+      "kilobytes": 0,
+      "note": "Not evidence and not lost. run_p2_001.sh creates this with `mkdir -p` as its output directory; no run using this exact id was retained. Found 2026-09-06 when .sh was added to SCANNED_EXTENSIONS -- four packages were named only by shell runners and the guard had never seen any of them. The v2 run WAS retained and is now tracked."
     }
   },
   "citation_sources_floor": {
     ".md": 1,
-    ".py": 1
+    ".py": 1,
+    ".sh": 1
   },
-  "citation_sources_floor_note": "Each source type listed here contributed citations when recorded, so zero from one of them means the scan broke rather than that custody is clean. Measured 2026-09-05: .md 135 citations, .py 46. A total-of-zero floor missed this -- dropping .md left 24 citations, which is not zero, and the guard printed PASS while 31 went unscanned."
+  "citation_sources_floor_note": "Each source type listed here contributed citations when recorded, so zero from one of them means the scan broke rather than that custody is clean. Measured 2026-09-05: .md 135 citations, .py 46. A total-of-zero floor missed this -- dropping .md left 24 citations, which is not zero, and the guard printed PASS while 31 went unscanned. .sh added 2026-09-06 after shell runners were found to be the only citers of four packages; it contributed 5 citations when recorded.",
+  "deliberately_untracked": {
+    "p5-001-slime-mold-network": {
+      "reason": "28MB across two CSVs, and a partial run: it holds the checkpoint and sham arms only, with no relocate arm. The cited, complete package p5-001-slime-mold-network-001 is tracked and is what the result record and p7-001's hash manifest point at. Kept out of Git on weight; present in the authoring checkout only, so it is lost with that machine.",
+      "megabytes": 28
+    }
+  },
+  "deliberately_untracked_note": "Packages that exist on disk and are intentionally not committed. Declaring one here is what stops the reverse check failing; the point is that the decision is written down rather than hidden behind an ignore rule. Sixteen packages sat undeclared and untracked until 2026-09-06 -- 34MB including the only raw evidence behind two experiments the register calls verified -- and neither `git status` nor this guard could see any of them."
 }

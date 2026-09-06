@@ -138,7 +138,12 @@ Four of 51 result records are constructive. Nine competence dimensions are
 defined; the code measures one. `flexibility` — the dimension the thesis maps to
 Levin's *intelligence* — appears in zero source files.
 
-### 7. A sibling repository is running the same bet, unreferenced — `OPEN`
+### 7. A sibling repository is running the same bet, unreferenced — `CLOSED 2026-09-05`
+
+> **Answered by the owner, 2026-09-05: "agent ecology should not be a part of
+> this."** Closed as answered, not as acted upon. The finding below stands as
+> written; its advice does not. See [the charter](../PROJECT.md) and
+> [F15](../../../wiki/failure-log.md).
 
 `agent_ecology2` (1,217 commits) states its goal as *"emergent collective
 capability — a system where agents produce more together than the sum of what
@@ -194,7 +199,7 @@ alongside six candidate formal measures and what each would make decidable.
 | 1 | Commit the live evidence; make the ignore rule fail loudly rather than silently | **done** `984a988` |
 | 2 | Compute the null, and any closed-form prediction, as part of the freeze — before a threshold exists | **adopted for Q1-009**, not yet a standing rule |
 | 3 | Build the information barrier: run the analytic step in a separate agent with only the observation contract | **open** — the highest-value item remaining |
-| 4 | Read `agent_ecology2` / `agent_ecology3` before building more constructive apparatus; record the disposition either way | **open** |
+| 4 | Read `agent_ecology2` / `agent_ecology3` before building more constructive apparatus; record the disposition either way | **closed 2026-09-05** — the owner's answer is that agent ecology is not part of this project; do not read it, cite it, or route work there |
 | 5 | Decide the arm question in favour of the charter: the analytic arm is a *prerequisite with a finish line*, not a co-equal interest | **open** |
 | 6 | Either give the substrate a second scale or stop listing "does composition pay?" as the open question | **partly done** — the question is now reformulated in the ontology; the substrate is unchanged |
 | 7 | Collapse the three status surfaces that must be updated in lockstep | **open** — two of the three were stale when found |

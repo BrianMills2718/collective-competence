@@ -1,0 +1,4 @@
+rule,arm,value,threshold,n,passed
+R1_approach,bubble,1.0,0.95,4,True
+R2_maintenance,bubble,1.0,1.0,4,True
+R3_recovery,bubble,1.0,0.9,21,True

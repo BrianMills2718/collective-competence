@@ -50,7 +50,28 @@ def main() -> int:
     if stale:
         print("FAIL: missing or stale AGENTS.md projections: " + ", ".join(stale))
         return 1
-    print(f"PASS: {len(projections)} AGENTS.md files match their canonical sources")
+    # Orphans. `stale` is computed from discovered sources, so it can only ever
+    # see projections that still have one. Delete a directory's CLAUDE.md and its
+    # generated AGENTS.md stays on disk, still asserting rules no authored source
+    # backs, and an agent that loads it is governed by a deleted file. Added
+    # 2026-09-06; recorded as F22.
+    expected_targets = {target for target, _ in projections}
+    orphans = sorted(
+        str(found.relative_to(ROOT))
+        for found in ROOT.rglob("AGENTS.md")
+        if found not in expected_targets
+        and ".venv" not in found.parts
+        and "worktrees" not in found.parts
+        and found.read_text(encoding="utf-8", errors="replace").startswith(MARKER)
+    )
+    if orphans:
+        print("FAIL: generated AGENTS.md with no canonical CLAUDE.md source: "
+              + ", ".join(orphans)
+              + " -- an agent loading one is governed by a deleted file; remove it "
+                "or restore its source")
+        return 1
+    print(f"PASS: {len(projections)} AGENTS.md files match their canonical sources; "
+          "no orphaned projections")
     return 0
 
 

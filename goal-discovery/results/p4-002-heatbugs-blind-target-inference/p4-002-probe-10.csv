@@ -1,0 +1,7 @@
+"BehaviorSpace results (NetLogo 7.0.4)","Table version 2.0"
+"C:\Program Files\NetLogo 7.0.4\models\Sample Models\Biology\Heatbugs.nlogox"
+"p4-002-probe-10"
+"08/29/2026 14:32:06:859 -0700"
+"min-pxcor","max-pxcor","min-pycor","max-pycor"
+"0","99","0","99"
+"[run number]","bug-count","min-ideal-temp","max-ideal-temp","min-output-heat","max-output-heat","evaporation-rate","diffusion-rate","random-move-chance","[step]","ticks","map [t -> [list who xcor ycor] of t] sort turtles","map [t -> [list who ideal-temp] of t] sort turtles","count turtles"

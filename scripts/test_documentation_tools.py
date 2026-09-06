@@ -315,19 +315,32 @@ class RepositoryNavigationContract(unittest.TestCase):
         self.assertNotIn("installation status", synthesis)
 
     def test_superseded_snapshots_are_outside_active_navigation(self):
+        """Archiving here is deletion plus a checked index row, not a move.
+
+        This test used to assert the three pre-consolidation snapshots existed
+        on disk carrying `lifecycle: superseded`. The archive pass deleted them
+        by design, and `scripts/check_archive_index.py` asserts the opposite --
+        that an indexed document is absent from the tree and recoverable from
+        its recorded commit. Both were left in the maintenance loop asserting
+        contradictory things about the same three files, and because this module
+        sits outside `testpaths` the suite error never surfaced. Recorded as F22.
+        """
         catalog = (knowledge.ROOT / "roadmap/artifacts.md").read_text(encoding="utf-8")
         self.assertNotIn("pre-consolidation-", catalog)
+        index = (knowledge.ROOT / "wiki/archive-index.md").read_text(encoding="utf-8")
         for name in (
             "pre-consolidation-allocation-protocol.md",
             "pre-consolidation-readme.md",
             "pre-consolidation-research-plan.md",
         ):
             path = knowledge.ROOT / "goal-discovery/docs/archive" / name
-            self.assertEqual(knowledge.read_frontmatter(path).get("lifecycle"), "superseded")
+            self.assertFalse(
+                path.exists(),
+                f"{name} is back in the tree; archiving here removes the file "
+                "and records a recovery commit in wiki/archive-index.md",
+            )
+            self.assertIn(name, index, f"{name} was removed without an index row")
 
-
-if __name__ == "__main__":
-    unittest.main()
 
 
 class StatusPageGate(unittest.TestCase):
@@ -426,3 +439,11 @@ class HeadlineLegibilityGate(DocumentationControls):
         record.pop("headline", None)
         with self.assertRaisesRegex(ValueError, "missing required fields: evidence"):
             self.render([record])
+
+
+# Keep this at the very end of the file. It sat two thirds of the way up until
+# 2026-09-06, so `python3 scripts/test_documentation_tools.py` collected 22 of
+# 45 tests and silently skipped every StatusPageGate and HeadlineLegibilityGate
+# control -- the negative controls specifically. Recorded as F22.
+if __name__ == "__main__":
+    unittest.main()

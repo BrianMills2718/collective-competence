@@ -65,7 +65,7 @@ than reconstructing definitions from historical experiment prose.
 | **What did every experiment actually find?** | **[Scoreboard](scoreboard.md)** — one plain sentence per live experiment, generated from the register so it cannot go stale. Start here if you want the state of the programme in one pass. |
 | **What are we actually trying to answer?** | **[Research goals](goals.md)** — draft, for review. The scientific question verbatim from the founding brief, six goals, and the minimal substrate configuration each needs. Mostly recovered rather than invented: the briefs already contained the list. |
 | **What should the substrate be?** | **[Substrate design discussion](substrate-design.md)** — live, exploratory, governs nothing. The owner's corrections verbatim, the diagnosis, and the proposal currently on the table. Read this before proposing apparatus. |
-| **Why did we choose this tool / stop that line?** | [Architecture decision records](../goal-discovery/docs/adr/README.md) — nine accepted ADRs, four of them negative decisions that exist to stop an evaluation being run twice. Immutable; superseded rather than edited. |
+| **Why did we choose this tool / stop that line?** | [Architecture decision records](../goal-discovery/docs/adr/README.md) — eight accepted ADRs, four of them negative decisions that exist to stop an evaluation being run twice. Immutable; superseded rather than edited. |
 | **Where did an archived document go?** | [Archive recovery index](archive-index.md) — what was archived, why, and the commit to `git show` it back from. Archiving is deletion plus an entry; the bytes are not moved. |
 | **What have we tried that did not work, and is it still costing us?** | **[Failure log](failure-log.md)** — stopped routes, measures that read the wrong thing, and decisions that closed something off. Canonical; an entry retires when its *consequence* is dispositioned, not when the route stops. |
 | **Show me, don't tell me.** | **[Visual status page](status.html)** — the two bets, the instrument's four clauses, the contested measurement as charts, and all fifteen experiments. Self-contained HTML: open it straight from disk, no server. Generated from committed result packages. |
@@ -135,9 +135,13 @@ Out of scope rather than wrong; the plan needs updating.
 **What every experiment found:** [the scoreboard](scoreboard.md), one sentence
 each, generated. **What it looks like:** [the status page](status.html).
 **What stopped and what it still costs:** [the failure log](failure-log.md),
-where three entries are open — the ladder superseded on day one, the substrate
-unable to express the founding experiment, and green checks that cannot see
-prose-versus-code defects.
+where eight entries are open: the ladder superseded on day one (F1); the
+substrate unable to express the founding experiment (F2) and making a
+coordination mechanism structural (F2b); the minimality rule that existed and was
+not followed (F10); narrative growing faster than the science (F12); measures
+that turned out to read something else, which qualifies the commons half of the
+headline result (F4); the cockpit no longer tracking the work (F7); and green
+checks that cannot see prose-versus-code defects (F8).
 
 **What is not established.** No construction claim in this programme is
 verified, because the instrument that would verify one has not met the charter's

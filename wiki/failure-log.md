@@ -124,9 +124,12 @@ measured.
 ## F10 — The minimality rule existed and was not followed — `OPEN`
 
 **The rule.** [The current plan](../goal-discovery/docs/plans/current_research_plan.md)
-line 347: *"Add substrate capability only when a concrete, otherwise-unexpressible
-experiment requires it."* Line 349: *"Promote a shared abstraction only after a
-second system uses the same contract."*
+states, under its minimality heading: *"Add substrate capability only when a
+concrete, otherwise-unexpressible experiment requires it."* And: *"Promote a
+shared abstraction only after a second system uses the same contract."*
+(Quoted, not cited by line. This entry originally cited lines 347 and 349; within
+two days line 347 was an unrelated table header. A line number into a living
+document is a citation with a short shelf life.)
 
 **What happened instead.** The shared substrate's five dials were derived from
 **reproduced failures** — what went wrong in experiments that had already run —
@@ -485,6 +488,110 @@ register, `check_evidence_custody.py` validates that packages are tracked,
 and compared it to the package it claimed to come from.** That is the fourth
 distinct guard gap found in two days, after cited packages, cited external
 documents and ordinary links.
+
+## F21 — The guard against rounded figures never opened a document — `CLOSED 2026-09-06`
+
+[F20](#f20--a-rounded-figure-and-an-unnamed-package--closed-2026-09-06) closed by
+adding `scripts/check_quoted_figures.py`. The entry above claims it has a negative
+control that "reproduces the `+1.7` defect exactly". It did not, and could not.
+
+**What the script actually did.** It opened the result package, formatted the
+value, and compared it to a string literal stored *in the same file*. Both sides
+of the comparison were inside the checker. No document was read. If every
+document quoting these figures had been deleted, it passed. If a document
+reverted to `+1.7`, it passed. Emptying its check list printed
+`PASS: 0 load-bearing figures` and exited 0.
+
+**And the defect it was built for was live under it the whole time.**
+`render_status_page.py` hand-typed *"thirty-five times the matched-independent
+arm"* for a measured **34.49** — a round-up, in the direction that makes the
+unexplained commons anomaly look larger, on the repository's public status page,
+while the guard printed `PASS: 7 load-bearing figures`. The two other numbers in
+the same sentence were exact. That is F20's defect, in F20's own flattering
+direction, surviving F20's fix.
+
+**A second figure, and this one I introduced.** Six documents said the
+uncoordinated commons arm sits **5.4 null sd** up; the failure log said 5.3.
+Reading the majority as truth, I "corrected" the failure log to 5.4. The package
+holds 0.198211 / 0.037201 = **5.328**. The minority was right and I made it
+wrong; the rewritten guard caught it on its first real run. Corrected to 5.3 in
+six places plus both generated surfaces.
+
+**The rewrite.** Each check now carries a context pattern matched against tracked
+prose, and every number found must round-trip to the package value at the
+precision it was written to. Two floors: an empty check list fails, and a check
+whose pattern matches *nothing* fails — which is what turns a word form
+("thirty-five" for 34.5) from a silent hole into a red check. It now inspects 21
+real quotations across 9 figures, and `goal-discovery/tests/test_quoted_figures.py`
+holds five controls, each seen to fire.
+
+**The rule.** A guard is not verified by its author's description of it. Stub the
+input and watch it go red, or it is decoration. Both the F18 and F20 entries in
+this log claimed committed controls that did not exist; both claims have been
+corrected in [the development log](development-log.md).
+
+## F22 — Four maintenance checks that could not fail, and one that already had — `CLOSED 2026-09-06`
+
+An audit of the repository's own eight checks, prompted by F21. Every one printed
+PASS. Four could not have done otherwise, and the test suite behind them was red.
+
+**The suite was red and nothing surfaced it.** `test_documentation_tools.py`
+asserted that three `pre-consolidation-*` snapshots existed on disk carrying
+`lifecycle: superseded`. The archive pass deleted them by design, and
+`check_archive_index.py` asserts the exact opposite — that an indexed document is
+*absent* and recoverable from its commit. Two checks in the same maintenance loop
+asserting contradictory things about the same three files, one erroring, and no
+CI: the module sits outside `testpaths`, so `make test` never collected it.
+
+**Twenty-three tests silently did not run.** `unittest.main()` sat two thirds of
+the way up that file, with `StatusPageGate` and `HeadlineLegibilityGate` defined
+below it. `python3 scripts/test_documentation_tools.py` collected **22 of 45** —
+and the missing 23 were the negative controls, including one whose own docstring
+reads *"a gate nobody has seen refuse is a gate nobody knows is wired up."* Under
+the obvious invocation, nobody had. Moved to the end of the file; 45 both ways.
+
+**The link check floored the wrong number.** Its vacuity guard required at least
+one Markdown *file*, never one *link*. A regex matching nothing reported
+`PASS: 231 Markdown file(s), no dead relative links` — a clean sweep of nothing.
+Now floors inspected links: 1309 of them.
+
+**And it silently skipped every link that left the repository.** Five links to
+`../../levin-wiki/` resolved only on the machine that happens to have that
+checkout beside this one; for every reader of the published wiki they were dead.
+The checker hit them, could not resolve them against the root, and `continue`d.
+Now a failure. The five were rewritten as plain text naming the sibling
+repository, which is what they always meant.
+
+**The custody guard could not see shell runners, and only looked one way.**
+`SCANNED_EXTENSIONS` was `(".md", ".py")`. Four packages were named *only* by
+committed `.sh` reproduction scripts — including `004-compensation` and
+`005-adaptation`, whose register records assert `pass_declared_gates`. Adding
+`.sh` immediately found one uncaught. The same argument that added `.py` after
+`.md` applied to `.sh` and had not been swept.
+
+More seriously it walked documents → packages only, so a package on disk that no
+document cites was invisible to it — and because `results/*` is ignored, invisible
+to `git status` too. **Sixteen packages, 93 files, 34MB sat in exactly that state
+in the main checkout**, including the only raw evidence behind those two
+"verified" experiments. Fifteen are now committed; the sixteenth (a 28MB partial
+run whose complete successor is tracked) is declared in the custody baseline. A
+reverse check now fails on any on-disk package that is neither tracked nor
+declared — which is what [F5](#f5--lanes-stopped-on-their-own-frozen-gates--closed)
+asked for and did not get.
+
+**Generated instruction files outlived their sources.** `sync_agent_context.py`
+computed staleness by iterating discovered `CLAUDE.md` sources, so it could only
+ever see projections that still had one. Delete a directory's `CLAUDE.md` and its
+generated `AGENTS.md` stays on disk asserting rules no authored source backs, and
+an agent loading it is governed by a deleted file. Now detected.
+
+**What the class is.** Every one of these passes because it floors the wrong
+quantity, scans the wrong file types, or walks the graph in one direction. None
+is a bug in the sense of doing its stated job wrongly; each does a *narrower*
+job than its output implies. The output is what a reader trusts. So each check
+now names, in its own PASS line or its docstring, the thing it structurally
+cannot see — `check_archive_index.py` says outright that a document removed
+without an index row is not detectable there.
 
 ## F3 — A gate frozen below its own statistic's null, three times — `CLOSED`
 

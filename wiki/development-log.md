@@ -142,8 +142,11 @@ three left by the archive pass in `roadmap/apparatus.md`, and one to
 `experiments/platonic-ingression/README.md` — **a file whose own pull request
 described it in detail and which was never committed**, leaving that directory
 with no top-level explanation. All four repaired, the README written, and
-`scripts/check_links.py` added to the maintenance loop with its negative,
-positive and vacuity controls each checked by making them fire. Recorded as
+`scripts/check_links.py` added to the maintenance loop. **Correction, 2026-09-06:**
+this entry originally claimed its "negative, positive and vacuity controls each
+checked by making them fire"; no such controls were committed, and the vacuity
+guard floored the file count rather than the link count, so a regex matching
+nothing would have reported a clean sweep of 231 files. Both repaired. Recorded as
 [F18](failure-log.md). The shared `archive_lifecycle.py` reporter now runs here
 but reports nothing usable: it reads lifecycle from a `**Status:**` line in the
 document body and wants per-document declarations in `relationships.yaml`, while
@@ -173,9 +176,14 @@ round-up favoured the hypothesis Q1-010 was built to test and falsified. And
 Q1-010's records cited Q1-009 figures without naming which of its two packages,
 one of which — `random_attempt` — **changes sign** between them (−0.0401 against
 +0.0239), both inside null noise. Corrected, with the comparison recorded, and
-closed by `scripts/check_quoted_figures.py` and its two controls. No gate or
+closed by `scripts/check_quoted_figures.py`. No gate or
 disposition changes: Q1-010's gates came from its own run. Recorded as
-[F20](failure-log.md).
+[F20](failure-log.md). **Correction, 2026-09-06:** this entry originally claimed
+"and its two controls". There were none, and the script never opened a document —
+it compared a package value against a string literal stored inside itself, and was
+green while the same defect sat live on the status page. Rewritten to scan prose,
+with five real controls in `goal-discovery/tests/test_quoted_figures.py`. Recorded
+as [F21](failure-log.md).
 
 **What this does not establish.** No scientific claim changed. No result record,
 protocol, or result package was altered by any of it. The goal register is a

@@ -377,7 +377,7 @@ wiki over Michael Levin's bibliography, independently built, and working the
 same questions as this programme's constructive arm rather than an unrelated
 project (see [the generative thesis](competence-thesis.md) for the relationship,
 and that repository's living document,
-[`platonic-space-and-ingression.md`](../../levin-wiki/wiki/concepts/platonic-space-and-ingression.md)),
+`platonic-space-and-ingression.md`, in that separate repository),
 now folded in here as real, independently-checked science rather than left as
 an external pointer. Documented here as a well-specified candidate for this
 project's own Goal and Competence Discovery / Collective Competence arms — not
@@ -473,7 +473,7 @@ does. This ontology stays canonical for terms in use; the parallel column is
 what the corpus says, not an override.
 
 **Provenance, and its limit.** The right-hand column is sourced through
-[`levin-wiki`](../../levin-wiki/wiki/index.md), a corpus wiki over the local
+`levin-wiki` (`wiki/index.md` in that separate repository), a corpus wiki over the local
 bibliography whose pages cite immutable PDFs at page level. Phrases in
 "quotation marks" appear as quoted language on those pages; everything else is
 `levin-wiki`'s own summary of a source, one derivation step from Levin's words.
@@ -578,7 +578,8 @@ design/evolution/training" (`levin-wiki` records this from his solo talks
 Space" and "Inspiration Across Substrates").
 
 The account developed in `levin-wiki`'s
-[platonic-space-and-ingression](../../levin-wiki/wiki/concepts/platonic-space-and-ingression.md)
+platonic-space-and-ingression page (`wiki/concepts/platonic-space-and-ingression.md`
+in that separate repository)
 page is the difference between an external observer with unlimited computation,
 who never needs an abstraction because brute-force simulation is always
 available, and a computationally bounded observer embedded in the system, for

@@ -1,0 +1,3 @@
+# Experiment 004 result
+
+**PASS:** C1=pass, C2=pass, C3=pass, C4=pass, C5=pass, C6=pass
