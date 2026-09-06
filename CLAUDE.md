@@ -28,11 +28,11 @@ the destination.
 
    | If you are | Read, in order | ~words (measured 2026-09-06) |
    |---|---|---|
-   | **Reviewing, auditing, or orienting** | [wiki index](wiki/index.md) → [scoreboard](wiki/scoreboard.md) → [failure log](wiki/failure-log.md) | 10,700 |
-   | **Running or designing an experiment** | the above, then [charter](goal-discovery/docs/PROJECT.md) (scope and the completion condition) → [current plan](goal-discovery/docs/plans/current_research_plan.md) (the queued action and its open debts) | +6,100 |
+   | **Reviewing, auditing, or orienting** | [wiki index](wiki/index.md) → [scoreboard](wiki/scoreboard.md) → [failure log](wiki/failure-log.md) | 10,900 |
+   | **Running or designing an experiment** | the above, then [charter](goal-discovery/docs/PROJECT.md) (scope and the completion condition) → [current plan](goal-discovery/docs/plans/current_research_plan.md) (the queued action and its open debts) | +6,600 |
    | **Making a claim, or naming anything** | add [research ontology](wiki/ontology.md) — canonical, and the only authority on terms | +7,400 |
    | **Questioning the programme's direction** | add [the generative thesis](wiki/competence-thesis.md) | +3,500 |
-   | **Deciding what to do next** | add [research synthesis](roadmap/research.md) (what the experiments established) and [the goal register](wiki/goals.md) (draft; one of the three documents naming a next action) | +5,500 |
+   | **Deciding what to do next** | add [research synthesis](roadmap/research.md) (what the experiments established) and [the goal register](wiki/goals.md) (draft; one of the three documents naming a next action) | +5,600 |
 
    Two cautions the reading order used to hide. The **thesis is exploratory and
    not canonical** — [the conjecture register](wiki/conjectures.md) records that
