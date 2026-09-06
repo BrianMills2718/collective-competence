@@ -22,6 +22,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import pathlib
 import subprocess
 import sys
 from pathlib import Path
@@ -36,8 +37,15 @@ LAB = "goal-discovery"
 # tracked file type that can name a package -- sweep the class, not the instance.
 SCANNED_EXTENSIONS = (".md", ".py", ".sh")
 
-# Matches `results/<pkg>` and `../../results/<pkg>` in links, code spans and prose.
-CITATION = re.compile(r"(?:\.\./)*results/([A-Za-z0-9][A-Za-z0-9._-]*)")
+# Matches `results/<pkg>`, `../../results/<pkg>`, and a fully qualified
+# `experiments/01-self-sorting/results/<pkg>` in links, code spans and prose.
+# Group 1 is the explicit directory prefix when the citation carries one, which
+# is what lets a document in wiki/ name a results root that is not the
+# laboratory's; group 2 is the package or file. `../` segments are excluded from
+# group 1 so a relative citation still resolves against the citing document.
+CITATION = re.compile(
+    r"(?:\.\./)*((?:(?!\.\./)[A-Za-z0-9._-]+/)*)results/([A-Za-z0-9][A-Za-z0-9._-]*)"
+)
 
 
 def tracked_files(root: Path) -> set[str]:
@@ -72,12 +80,46 @@ def main() -> int:
     # scanner that reads itself reports its own examples as missing evidence.
     skip = {"scripts/check_evidence_custody.py", f"{LAB}/tests/test_evidence_custody.py"}
 
+    # `results/` is not a unique path in this repository. The laboratory has
+    # goal-discovery/results/, and experiments/01-self-sorting/ has its own,
+    # which is where the D2 repeated-disturbance packages landed on 2026-09-06.
+    # A guard that reads every `results/<x>` as a laboratory package misreports
+    # the second root's files as laboratory packages that drifted out of Git --
+    # which is what it did, immediately, on the day the second root gained
+    # files. Each citation is therefore resolved against the citing document's
+    # own directory first, and only citations that land under the laboratory's
+    # results directory are judged by the laboratory's baseline.
+    lab_results = f"{LAB}/results"
+    other_roots: dict[str, set[str]] = {}
+
+    def resolve_root(doc: str) -> str:
+        """The results directory a citation in `doc` most plausibly means."""
+        here = pathlib.PurePosixPath(doc).parent
+        while True:
+            candidate = f"{here}/results" if str(here) != "." else "results"
+            if (root / candidate).is_dir():
+                return candidate
+            if str(here) in (".", ""):
+                return lab_results
+            here = here.parent
+
     citations: dict[str, set[str]] = {}
     per_extension: dict[str, int] = {ext: 0 for ext in SCANNED_EXTENSIONS}
     for doc in sorted(p for p in tracked if p.endswith(SCANNED_EXTENSIONS) and p not in skip):
         text = (root / doc).read_text(encoding="utf-8", errors="replace")
-        for pkg in CITATION.findall(text):
+        implied_root = resolve_root(doc)
+        for prefix, pkg in CITATION.findall(text):
             if not pkg or pkg in {"README.md", "LATEST", ".gitkeep"}:
+                continue
+            # Trust an explicit prefix only when it names a real directory.
+            # Shell runners write "$base_dir/results/<pkg>", which otherwise
+            # reads as a prefix of `base_dir/` and silently removes every
+            # shell-sourced citation from the laboratory's count -- caught by
+            # the per-source-type floor the moment it happened.
+            explicit = f"{prefix}results" if prefix else ""
+            doc_root = explicit if explicit and (root / explicit).is_dir() else implied_root
+            if doc_root != lab_results:
+                other_roots.setdefault(f"{doc_root}/{pkg}", set()).add(doc)
                 continue
             citations.setdefault(pkg, set()).add(doc)
             per_extension["." + doc.rsplit(".", 1)[-1]] += 1
@@ -148,6 +190,20 @@ def main() -> int:
             f"\nFAIL: {len(drifted)} cited result package(s) drifted out of Git "
             f"since the baseline was recorded."
         )
+        return 1
+
+    # Other results roots get the same rule: a cited path must be tracked. They
+    # have no baseline of their own, so there is nothing to excuse an absence.
+    stray = sorted(
+        path for path in other_roots
+        if path not in tracked
+        and not any(f.startswith(path + "/") for f in tracked)
+    )
+    if stray:
+        print(f"\nFAIL: {len(stray)} cited result path(s) outside "
+              f"{lab_results} are not tracked:")
+        for path in stray:
+            print(f"  {path}  <- cited by {', '.join(sorted(other_roots[path]))}")
         return 1
 
     # The other direction, added 2026-09-06. Everything above walks documents to

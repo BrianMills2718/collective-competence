@@ -107,6 +107,65 @@ coordinator's share of the units. Freezing any one *agent* is survivable by
 everyone. This is arithmetic from the model, not a discovery, and should be
 reported that way.
 
+## Repeated disturbance (D2): what one shot could not say
+
+Added 2026-09-06. Until now the schedule fired **once** — `fired = perturbation
+is None` — so "recovery rate" was a rate over independent trials, never over
+repeated demands on the same system. The ontology defines robustness as
+performance *across* perturbations, which a single shot cannot express.
+`perturb_repeats` re-arms after each recovery; `python selfsort.py repeat` runs
+the profile. Setting it to 1 reproduces every previously recorded number
+exactly, checked field by field on 225 trials.
+
+Delivered at D=20 operations after the goal is reached, with `stop_on_goal=False`,
+200 trials per cell. Three distinct profiles come out, and none of them is
+visible from one episode.
+
+**A controller that halts can be measured at most once.** `central_closed` stops
+on "no inversion found", so in **200/200** trials it had already halted when the
+disturbance arrived, was perturbed after stopping, never recovered, and never
+reached a second episode. Its old headline — recovery `0.00` at D=20 — reads as
+a poor score on a robustness test. It is not: it is the absence of a test. The
+honest quantity is *episodes absorbed*, and for this controller it is pinned at
+one by its own design, in every condition measured.
+
+**Recovery rate saturates and hides degradation.** Under `unreliable_member`,
+every controller that keeps acting recovers from **all eight** episodes in
+**200/200** trials — recovery rate 1.00 throughout, which single-shot reporting
+would call fully robust. The cost tells a different story:
+
+| episode | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|---|---|
+| `decentralized` median ops to recover | 52 | 58 | 69 | 82 | 100 | 106 | 117 | 153 |
+| `central_watchdog` | 44 | 48 | 62 | 72 | 72 | 86 | 114 | 126 |
+
+Cost nearly triples while the rate stays flat at 1.00. Attrition is zero at every
+episode, so this is measured over the full population and is not a survivorship
+effect. The mechanism is not subtle — each episode makes one more member
+unreliable — but the point is that the measure everyone was reporting could not
+see it.
+
+**Transient disturbance gives a flat profile, which is what a passive attractor
+predicts.** Under `swap2` and `teleport` the cost is stationary across all eight
+episodes (`decentralized` 44–56, `central_watchdog` 31–42) with no attrition. On
+this evidence, repeated transient perturbation does **not** distinguish these
+controllers from a passive attractor. That is a negative result for D2's
+question, and it is the honest one.
+
+**A trap this experiment sets, and how to read past it.** Episode *i* is only
+faced by trials that recovered from episode *i−1*, so where attrition is heavy
+the later cost figures are conditioned on continued success. `frozen_member`
+falls from 200 trials at risk to 13 by episode 7, with per-episode recovery rate
+decaying 1.00 → 0.42 — and its median cost *falls* over the same range. That
+apparent improvement is survivorship, not adaptation. **Read
+`trials_reaching_episode` before reading `median_ops_to_recover`.** The
+per-episode recovery rate is computed over the at-risk population and is
+unbiased in both cases; the figure plots the at-risk count underneath the cost
+for exactly this reason.
+
+Outputs: `results/repeat.csv` (per-episode), `results/repeat_summary.csv`
+(episodes absorbed and why each sequence ended), `results/07_repeat.png`.
+
 ## Three things I had to fix before believing any of it
 
 Each of these made the decentralized controller look better than it is.
@@ -128,17 +187,36 @@ Each of these made the decentralized controller look better than it is.
 python selfsort.py test           # substrate self-checks, ~1s
 python selfsort.py all            # every experiment + four figures, ~2min
 python selfsort.py window         # the goal-directedness window on its own
+python selfsort.py repeat         # the repeated-disturbance profile (D2), ~1min
 python selfsort.py scale          # headcount vs fraction, N up to 50, ~3min
 ```
 
-Outputs land in `results/` as one CSV and one PNG per experiment.
+Outputs land in `results/` as one CSV and one PNG per experiment (`repeat`
+writes two CSVs: the per-episode profile and the per-condition summary).
+Figures need matplotlib; `uv run --with matplotlib python selfsort.py ...` works
+without installing anything.
 
 ## Next
 
-The mechanism behind the two-agent boundary is the first open question: one
-opposing agent presumably ends up parked somewhere the majority can contain, and
-two can hand a defect back and forth, but nothing here tests that. After that,
-feed the transition system to
-coarse-graining / causal-emergence tooling now that the state space is small and
-well defined; then the two-resource production network with specialization,
-which is the smallest bridge from this to an economics question.
+Rewritten 2026-09-06. The previous version ended by proposing "the two-resource
+production network with specialization, which is the smallest bridge from this to
+an economics question". That is out of scope, not merely deferred: the charter's
+pre-biological boundary, set by the owner 2026-09-05, excludes price, market and
+resource-stock framings. It is recorded here rather than deleted because it was
+the stated next action for ten days and a fresh reader would have acted on it.
+
+What this experiment actually opens, in order of what a result would change:
+
+1. **The two-agent boundary.** Still the first open question, and untouched: one
+   opposing agent presumably parks somewhere the majority contains, two can hand
+   a defect back and forth, but nothing here tests that. Cheap to run.
+2. **Separate the two things the repeat profile conflates.** Rising cost under
+   `unreliable_member` has an obvious mechanism — each episode damages one more
+   member — so it measures capacity being consumed, not the system responding to
+   repetition. The discriminating run holds total damage fixed and varies only
+   how it is *delivered*: eight faults applied at once versus one per episode. A
+   passive attractor cannot tell those apart. If they differ, that is the first
+   thing here stronger than an attractor.
+3. **Coarse-graining.** Feed the transition system to causal-emergence tooling now
+   that the state space is small and well defined. Enabling work; name the
+   question it unlocks before running it.

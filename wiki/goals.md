@@ -101,9 +101,33 @@ already forbids conflating.
 `central_closed` recovers **0.00**, `central_watchdog` **1.00**. One perturbation,
 fired once.
 
-**What it needs.** The perturbation schedule currently fires **once** —
-`fired = perturbation is None` in `selfsort.py`. Repeating it is the change that
-turns a single observation into a measurable robustness profile.
+**Done 2026-09-06 — the schedule repeats.** `perturb_repeats` re-arms after each
+recovery; `python selfsort.py repeat` produces the profile. `repeats=1`
+reproduces every prior number exactly, checked field by field on 225 trials.
+Written up in [the experiment README](../experiments/01-self-sorting/README.md),
+with `experiments/01-self-sorting/results/repeat.csv`,
+`repeat_summary.csv` and `07_repeat.png`.
+
+Three results, one of which answers this goal in the negative:
+
+- **Under transient perturbation the profile is flat** — cost stationary across
+  eight episodes, no attrition. On this evidence repeated disturbance does **not**
+  distinguish these controllers from a passive attractor. D2 asked whether
+  sorting shows behaviour stronger than a passive attractor; for `swap2` and
+  `teleport`, the answer measured here is no.
+- **`central_closed`'s 0.00 was never a robustness measurement.** It halts, so in
+  200/200 trials it was already stopped when the disturbance arrived. The
+  quantity it can support is *episodes absorbed*, pinned at one by its own
+  design.
+- **Recovery rate saturates.** Under `unreliable_member` the rate is 1.00 at
+  every one of eight episodes with zero attrition, while median cost rises 52 →
+  153. The measure previously reported could not see that.
+
+**Still open.** The rising cost has a mechanical explanation — each episode
+damages one more member — so it measures capacity being consumed, not a response
+to repetition. The discriminating run holds total damage fixed and varies only
+its delivery: eight faults at once versus one per episode. A passive attractor
+cannot separate those. That is the next step for D2, and it is cheap.
 
 ### D3 — Which profile dimensions are measurable from observation alone?
 

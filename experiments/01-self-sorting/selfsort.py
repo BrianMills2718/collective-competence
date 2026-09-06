@@ -31,6 +31,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 import math
 import random
 import statistics
@@ -38,7 +39,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable, Iterator
 
-RESULTS = Path(__file__).resolve().parent / "results"
+HERE = Path(__file__).resolve().parent
+RESULTS = HERE / "results"
 
 # ----------------------------------------------------------------------------
 # State, goal, distance
@@ -274,6 +276,24 @@ PERTURBATIONS = {
 
 
 @dataclass
+class Episode:
+    """One delivered perturbation and what happened after it.
+
+    `recovered` is inversions returning to zero before the op budget ran out.
+    `ops_to_recover` is measured from the moment of the disturbance, so it is
+    comparable across episodes regardless of when in the run they happened --
+    which is the whole point of repeating: a passive attractor should pay the
+    same cost every time.
+    """
+
+    index: int
+    ops_at_perturb: int
+    inv_after_perturb: int
+    recovered: bool = False
+    ops_to_recover: int | None = None
+
+
+@dataclass
 class Trial:
     controller: str
     n: int
@@ -286,13 +306,26 @@ class Trial:
     ever_sorted: bool
     ops_to_sorted: int | None
     sorted_at_stop: bool
-    # perturbation bookkeeping
+    # perturbation bookkeeping.
+    # These five describe the FIRST perturbation only, and are kept because
+    # every result recorded before 2026-09-06 is expressed in them. With
+    # perturb_repeats=1 they are the whole story; with more, read `episodes`.
     perturbation: str | None = None
     ops_at_perturb: int | None = None
     inv_after_perturb: int | None = None
     recovered: bool = False
     ops_to_recover: int | None = None
     perturbed_after_stop: bool = False
+    # One entry per perturbation actually delivered. episodes[0] mirrors the
+    # five fields above. Empty when nothing fired.
+    episodes: list["Episode"] = field(default_factory=list)
+    episodes_requested: int = 1
+    # Why the episode sequence ended: "completed" (all requested delivered),
+    # "budget" (ops ran out), "never_sorted" (goal never reached, so nothing to
+    # disturb), "no_recovery" (an episode was never recovered from, so the next
+    # one could not be armed). A run that stops at one episode because the
+    # system never came back is the measurement, not a failure of the harness.
+    episode_stop_reason: str = "never_sorted"
     goal_occupancy: float = math.nan  # fraction of the back half of the run spent sorted
     trajectory: list[tuple[int, int]] = field(default_factory=list)
 
@@ -309,6 +342,7 @@ def run_trial(
     perturb_on_sorted: bool = True,
     perturb_at_op: int | None = None,
     perturb_delay: int = 0,
+    perturb_repeats: int = 1,
     stop_on_goal: bool = False,
     sample_every: int = 5,
     record_trajectory: bool = False,
@@ -340,7 +374,17 @@ def run_trial(
         perturbation=perturbation,
     )
 
-    fired = perturbation is None
+    if perturb_repeats < 1:
+        raise ValueError("perturb_repeats must be at least 1")
+    t.episodes_requested = perturb_repeats
+
+    # `armed` means a perturbation is pending and will fire at the next trigger.
+    # `delivered` counts episodes already fired. The pre-2026-09-06 behaviour is
+    # exactly perturb_repeats=1: arm once, fire once, never re-arm.
+    armed = perturbation is not None
+    delivered = 0
+    fired = perturbation is None      # kept: read as "nothing left to deliver"
+    arm_from_op: int | None = None    # first sort, then each recovery
     goal_op: int | None = None
     occ_hits = 0
     occ_samples = 0
@@ -357,6 +401,7 @@ def run_trial(
             t.ever_sorted = True
             t.ops_to_sorted = w.ops
             goal_op = w.ops
+            arm_from_op = w.ops
 
         if w.ops * 2 >= budget:
             occ_samples += 1
@@ -366,42 +411,97 @@ def run_trial(
             t.trajectory.append((w.ops, inv))
             last_sample = w.ops
 
-        if not fired:
+        if armed:
             trigger = (
-                (goal_op is not None and w.ops >= goal_op + perturb_delay)
+                (arm_from_op is not None and w.ops >= arm_from_op + perturb_delay)
                 if perturb_on_sorted
                 else (w.ops >= (perturb_at_op or 0))
             )
             if trigger:
                 desc = PERTURBATIONS[perturbation](w)
                 w.resync()
-                fired = True
-                t.perturbation = f"{perturbation}: {desc}"
-                t.ops_at_perturb = w.ops
-                t.inv_after_perturb = w.inv
+                armed = False
+                episode = Episode(
+                    index=delivered,
+                    ops_at_perturb=w.ops,
+                    inv_after_perturb=w.inv,
+                )
+                t.episodes.append(episode)
+                delivered += 1
+                if delivered >= perturb_repeats:
+                    # Nothing further will be armed; the run is now in its
+                    # final recovery window.
+                    fired = True
+                if episode.index == 0:
+                    t.perturbation = f"{perturbation}: {desc}"
+                    t.ops_at_perturb = episode.ops_at_perturb
+                    t.inv_after_perturb = episode.inv_after_perturb
                 if record_trajectory:
-                    t.trajectory.append((w.ops, t.inv_after_perturb))
-        elif t.ops_at_perturb is not None and not t.recovered and inv == 0:
-            t.recovered = True
-            t.ops_to_recover = w.ops - t.ops_at_perturb
+                    t.trajectory.append((w.ops, episode.inv_after_perturb))
+        elif t.episodes and not t.episodes[-1].recovered and inv == 0:
+            episode = t.episodes[-1]
+            episode.recovered = True
+            episode.ops_to_recover = w.ops - episode.ops_at_perturb
+            if episode.index == 0:
+                t.recovered = True
+                t.ops_to_recover = episode.ops_to_recover
+            if delivered < perturb_repeats:
+                # Re-arm from this recovery, so perturb_delay means the same
+                # thing for every episode: ops of undisturbed goal-holding
+                # before the next disturbance.
+                armed = True
+                arm_from_op = w.ops
 
         # Instrumentation-side stop: an observer halts the clock once the goal
-        # is reached and nothing further is pending. This is not the controller
-        # halting -- `stopped_early` still records that separately.
-        if stop_on_goal and inv == 0 and fired and (
-            t.ops_at_perturb is None or t.recovered
+        # is reached and every requested perturbation has been delivered and
+        # settled. This is not the controller halting -- `stopped_early` still
+        # records that separately.
+        if stop_on_goal and inv == 0 and fired and not armed and (
+            not t.episodes or t.episodes[-1].recovered
         ):
+            t.episode_stop_reason = "completed"
             break
     else:
         t.stopped_early = w.ops < budget
-        if not fired and perturbation is not None and t.ever_sorted:
+        if armed and perturbation is not None and t.ever_sorted:
+            # The controller halted or the budget ran out while a perturbation
+            # was still pending. Deliver it anyway, so a controller cannot dodge
+            # the disturbance by stopping first.
             desc = PERTURBATIONS[perturbation](w)
             w.resync()
-            fired = True
-            t.perturbation = f"{perturbation}: {desc} (after controller stopped)"
-            t.ops_at_perturb = w.ops
-            t.inv_after_perturb = w.inv
-            t.perturbed_after_stop = True
+            armed = False
+            episode = Episode(
+                index=delivered,
+                ops_at_perturb=w.ops,
+                inv_after_perturb=w.inv,
+            )
+            t.episodes.append(episode)
+            delivered += 1
+            if delivered >= perturb_repeats:
+                fired = True
+            if episode.index == 0:
+                t.perturbation = f"{perturbation}: {desc} (after controller stopped)"
+                t.ops_at_perturb = episode.ops_at_perturb
+                t.inv_after_perturb = episode.inv_after_perturb
+                t.perturbed_after_stop = True
+            else:
+                t.perturbation = f"{t.perturbation} (+ episode {episode.index} after controller stopped)"
+
+    # Why the sequence ended, recorded rather than inferred. "no_recovery" and
+    # "budget" are both real measurements about the specimen: a controller that
+    # never comes back cannot be perturbed a second time, and that IS its
+    # robustness profile, not a gap in it.
+    if t.episode_stop_reason != "completed":
+        if not t.episodes:
+            t.episode_stop_reason = "never_sorted" if not t.ever_sorted else "never_armed"
+        elif delivered >= perturb_repeats:
+            t.episode_stop_reason = (
+                "completed" if t.episodes[-1].recovered else "no_recovery"
+            )
+        elif not t.episodes[-1].recovered:
+            t.episode_stop_reason = "no_recovery"
+        else:
+            t.episode_stop_reason = "budget"
 
     inv = w.inv
     if record_trajectory:
@@ -571,6 +671,145 @@ def exp_recovery(n: int = 10, trials: int = 200, budget: int = 20_000) -> list[d
     fig.suptitle("Recovery after a perturbation applied the moment the goal is first reached")
     fig.tight_layout()
     out = RESULTS / "02_recovery.png"
+    fig.savefig(out, dpi=140)
+    print(f"  wrote {out}")
+    return rows
+
+
+REPEAT_EPISODES = 8
+
+
+def exp_repeat(n: int = 10, trials: int = 200, budget: int = 20_000) -> list[dict]:
+    """Disturb repeatedly, and read the profile across episodes rather than one number.
+
+    D2. The ontology defines robustness as performance *across* perturbations and
+    adaptation as change that restores performance *after loss*. A schedule that
+    fires once can express neither: it yields one recovery, so "recovery rate"
+    is a rate over trials, never over repeated demands on the same system.
+
+    Two quantities only a repeated schedule can produce.
+
+    **How many disturbances the system absorbs.** Delivered at D=20 operations
+    after the goal is reached, with `stop_on_goal=False`, a controller that halts
+    on "no inversion found" is not present for the second disturbance -- it is
+    not present for the first either, which is why it is perturbed after
+    stopping. Its episode count is therefore pinned at one *by its own design*,
+    and that ceiling is a robustness measurement, not a gap in the data.
+
+    **Whether the cost of recovery is stationary.** A passive attractor pays the
+    same price every time, because its basin does not change. A rising cost
+    across episodes means something is accumulating; a falling cost would be the
+    adaptation row, and is not expected here.
+
+    The compound perturbations (frozen/unreliable/dead member) damage a member
+    permanently, so their episode sequences terminate early by construction. That
+    is reported as `episode_stop_reason`, not silently dropped.
+
+    **Read `trials_reaching_episode` before reading `median_ops_to_recover`.**
+    Episode i is only faced by trials that recovered from episode i-1, so where
+    attrition is heavy the later cost figures are conditioned on continued
+    success and will trend *down* for that reason alone. Measured here at
+    p_fail=0.30: `swap2`, `teleport` and `unreliable_member` keep all 200 trials
+    through episode 7, so their cost columns are unbiased; `frozen_member` falls
+    to 13 trials with recovery rate decaying 1.00 -> 0.42, so its apparent late
+    cost *improvement* is survivorship and must not be read as adaptation. The
+    per-episode recovery rate is always computed over the at-risk population and
+    is unbiased in both cases.
+    """
+    print("\n=== repeated disturbance: how many, and does the cost hold? ===")
+    rows: list[dict] = []
+    summary: list[dict] = []
+    controllers = ["decentralized", "central_closed", "central_watchdog"]
+    for pert in PERTURBATIONS:
+        for name in controllers:
+            for p in (0.0, 0.10, 0.30):
+                ts = [
+                    run_trial(
+                        name, n=n, seed=1000 * k + 29, faults=Faults(p_fail=p),
+                        budget=budget, perturbation=pert, perturb_on_sorted=True,
+                        perturb_delay=20, perturb_repeats=REPEAT_EPISODES,
+                        stop_on_goal=False,
+                    )
+                    for k in range(trials)
+                ]
+                reached = [t for t in ts if t.ever_sorted]
+                # Per-episode profile. `at_risk` is the number of trials that got
+                # this far, so a recovery rate is always over the population that
+                # actually faced that episode -- never over the whole trial count,
+                # which would silently read "never got here" as "did not recover".
+                for i in range(REPEAT_EPISODES):
+                    at_risk = [t for t in ts if len(t.episodes) > i]
+                    if not at_risk:
+                        continue
+                    rec = [t.episodes[i] for t in at_risk if t.episodes[i].recovered]
+                    rows.append(dict(
+                        perturbation=pert, controller=name, p_fail=p,
+                        episode=i,
+                        trials_reaching_episode=len(at_risk),
+                        recovery_rate=len(rec) / len(at_risk),
+                        median_ops_to_recover=(
+                            statistics.median([e.ops_to_recover for e in rec])
+                            if rec else math.nan),
+                        mean_damage_inv=_mean(
+                            [t.episodes[i].inv_after_perturb for t in at_risk]),
+                    ))
+                summary.append(dict(
+                    perturbation=pert, controller=name, p_fail=p,
+                    trials=len(ts),
+                    trials_reaching_goal=len(reached),
+                    mean_episodes_absorbed=_mean([float(len(t.episodes)) for t in ts]),
+                    max_episodes_absorbed=max((len(t.episodes) for t in ts), default=0),
+                    stop_completed=_mean(
+                        [1.0 if t.episode_stop_reason == "completed" else 0.0 for t in ts]),
+                    stop_no_recovery=_mean(
+                        [1.0 if t.episode_stop_reason == "no_recovery" else 0.0 for t in ts]),
+                    stop_never_sorted=_mean(
+                        [1.0 if t.episode_stop_reason == "never_sorted" else 0.0 for t in ts]),
+                ))
+        for name in controllers:
+            s = next(r for r in summary if r["perturbation"] == pert
+                     and r["controller"] == name and r["p_fail"] == 0.0)
+            print(f"  {pert:<16} {name:<18} episodes absorbed "
+                  f"mean {s['mean_episodes_absorbed']:.2f} max {s['max_episodes_absorbed']}")
+    write_csv(RESULTS / "repeat.csv", rows)
+    write_csv(RESULTS / "repeat_summary.csv", summary)
+
+    # Cost against episode index, with the at-risk population drawn underneath,
+    # because the second is what licenses reading the first.
+    plt = _plt()
+    live = ["swap2", "unreliable_member", "frozen_member"]
+    fig, axes = plt.subplots(2, len(live), figsize=(13, 6.4), sharex=True,
+                             gridspec_kw={"height_ratios": [2, 1]})
+    for col, pert in enumerate(live):
+        top, bot = axes[0][col], axes[1][col]
+        for cname in controllers:
+            sub = sorted(
+                (r for r in rows if r["perturbation"] == pert
+                 and r["controller"] == cname and r["p_fail"] == 0.30
+                 and r["episode"] >= 0),
+                key=lambda r: r["episode"])
+            xs = [r["episode"] for r in sub]
+            top.plot(xs, [r["median_ops_to_recover"] for r in sub],
+                     label=cname, **STYLE[cname])
+            bot.plot(xs, [r["trials_reaching_episode"] for r in sub], **STYLE[cname])
+        top.set(title=pert)
+        top.grid(alpha=0.3)
+        bot.set(xlabel="episode", ylim=(0, trials * 1.05))
+        bot.grid(alpha=0.3)
+    axes[0][0].set_ylabel("median ops to recover")
+    axes[1][0].set_ylabel("trials still at risk")
+    axes[0][0].legend(fontsize=8)
+    # central_closed draws no line anywhere, and the absence is the result:
+    # it halts before the disturbance in 200/200 trials, so it is perturbed
+    # after stopping, never recovers, and has no episode 1 to plot.
+    axes[0][0].text(0.03, 0.06,
+                    "central_closed: no line -- halts before the disturbance in\n"
+                    "200/200 trials, so it never recovers and never reaches episode 1",
+                    transform=axes[0][0].transAxes, fontsize=7.5, color="0.25")
+    fig.suptitle("Repeated disturbance at D=20, p_fail=0.30: cost per episode, "
+                 "over the population that actually faced it")
+    fig.tight_layout()
+    out = RESULTS / "07_repeat.png"
     fig.savefig(out, dpi=140)
     print(f"  wrote {out}")
     return rows
@@ -832,7 +1071,62 @@ def selftest() -> None:
     # Reproducibility.
     assert run_trial("decentralized", n=10, seed=42).ops_to_sorted == \
         run_trial("decentralized", n=10, seed=42).ops_to_sorted
+
+    check_single_shot_baseline()
     print("selftest: all checks passed")
+
+
+BASELINE = HERE / "single_shot_baseline.json"
+BASELINE_FIELDS = [
+    "ops_used", "inv_final", "ever_sorted", "ops_to_sorted", "ops_at_perturb",
+    "inv_after_perturb", "recovered", "ops_to_recover", "perturbed_after_stop",
+    "stopped_early", "goal_occupancy",
+]
+
+
+def _same(got, want) -> bool:
+    if isinstance(got, float) and isinstance(want, float):
+        return (math.isnan(got) and math.isnan(want)) or got == want
+    return got == want
+
+
+def check_single_shot_baseline() -> None:
+    """Replay the 225 trials recorded before `perturb_repeats` existed.
+
+    `single_shot_baseline.json` was captured from this file on 2026-09-06,
+    immediately before the perturbation schedule learned to repeat, across five
+    controllers, five perturbations, three fault rates and three seeds. The
+    claim it defends is narrow and exact: **perturb_repeats=1 is the old
+    behaviour**, not merely similar to it. Every result recorded before that
+    date is expressed in these eleven fields, so if any of them moves, those
+    results stop meaning what they said.
+
+    Regenerate only when the schedule is deliberately redefined, and say so in
+    the development log -- never to make this check pass.
+    """
+    # The comparator is checked before its verdict is trusted. An earlier
+    # version of this replay tested floats only for NaN-ness and reported 60
+    # false mismatches of 0.0 against 0.0.
+    assert _same(0.0, 0.0) and _same(float("nan"), float("nan")) and _same(3, 3)
+    assert not _same(0.0, 1.0) and not _same(float("nan"), 0.0)
+
+    rows = json.loads(BASELINE.read_text())
+    assert rows, "baseline is empty; a replay that compares nothing passes vacuously"
+    bad = []
+    for r in rows:
+        t = run_trial(r["controller"], n=10, seed=r["seed"],
+                      faults=Faults(p_fail=r["p"]), budget=20_000,
+                      perturbation=r["pert"], perturb_on_sorted=True,
+                      stop_on_goal=True)
+        for f in BASELINE_FIELDS:
+            if not _same(getattr(t, f), r[f]):
+                bad.append(f"{r['controller']}/{r['pert']}/p={r['p']}/seed={r['seed']}"
+                           f": {f} was {r[f]!r}, now {getattr(t, f)!r}")
+    assert not bad, (
+        f"perturb_repeats=1 no longer reproduces the pre-repeat behaviour "
+        f"({len(bad)} of {len(rows) * len(BASELINE_FIELDS)} fields):\n  "
+        + "\n  ".join(bad[:10])
+    )
 
 
 # ----------------------------------------------------------------------------
@@ -842,8 +1136,8 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("experiment",
-                    choices=["test", "faults", "recovery", "window", "hetero",
-                             "scale", "single-point", "all"])
+                    choices=["test", "faults", "recovery", "repeat", "window",
+                             "hetero", "scale", "single-point", "all"])
     ap.add_argument("-n", type=int, default=10, help="number of agents")
     ap.add_argument("--trials", type=int, default=200)
     ap.add_argument("--budget", type=int, default=20_000, help="op budget per trial")
@@ -856,6 +1150,8 @@ def main() -> None:
         exp_faults(args.n, args.trials, args.budget)
     if args.experiment in ("recovery", "all"):
         exp_recovery(args.n, args.trials, args.budget)
+    if args.experiment in ("repeat", "all"):
+        exp_repeat(args.n, args.trials, args.budget)
     if args.experiment in ("window", "all"):
         exp_window(args.n, args.trials, args.budget)
     if args.experiment in ("hetero", "all"):

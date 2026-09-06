@@ -24,8 +24,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 CHECKER = "scripts/check_quoted_figures.py"
+# `experiments/` joined this list on 2026-09-06, when the guard began reading a
+# CSV result package there. A fixture that does not carry every package a check
+# names turns a real check into a missing-package failure.
 COPIED = ("scripts", "wiki", "roadmap", "goal-discovery/results",
-          "goal-discovery/docs")
+          "goal-discovery/docs", "experiments")
 
 
 def git(repo: Path, *args: str) -> None:
@@ -97,6 +100,19 @@ class QuotedFigureControls(unittest.TestCase):
         result = self.run_checker()
         self.assertEqual(result.returncode, 1, result.stdout)
         self.assertIn("passes vacuously", result.stdout)
+
+    def test_a_figure_quoted_from_a_csv_package_is_checked_too(self):
+        """Result packages are JSON or CSV depending on which experiment wrote them.
+
+        A guard that reads only JSON stops covering the CSV half without saying
+        so. This drifts the D2 repeated-disturbance cost quoted in the goal
+        register away from `experiments/01-self-sorting/results/repeat.csv`.
+        """
+        self.rewrite("wiki/goals.md", "cost rises 52 →", "cost rises 52 → 999 not")
+        result = self.run_checker()
+        self.assertEqual(result.returncode, 1, result.stdout)
+        self.assertIn("writes 999", result.stdout)
+        self.assertIn("repeat.csv", result.stdout)
 
     def test_a_missing_package_is_a_failure_not_a_skip(self):
         """The measurement is the authority; without it there is nothing to check."""
