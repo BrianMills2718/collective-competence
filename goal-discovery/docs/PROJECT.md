@@ -42,13 +42,19 @@ integrated destination with its own metric.
 
 Success requires both explanatory construction and disciplined discovery.
 
-**Pending narrowing, 2026-09-06.** [A draft goal register](../../wiki/goals.md)
-proposes working only the Goal and Competence Discovery arm, on the sorting
-lineage, until that arm produces something. It is a draft and does not change
-this charter; it is named here because it was previously visible only from
-documents that declare themselves to have no authority, so a reader entering
-through this charter would start constructive work without knowing the question
-was open. Review it before beginning constructive work.
+**Phase order, set by the owner 2026-09-06.** Both arms above remain the
+destination and this charter is unchanged. What *is* fixed is their order:
+**build the substrate, work out discovery on it, then build systems using what
+discovery taught us.** The owner's words: *"the discover arm is a phasing thing.
+like we need to build the substrate to work out the discovery so then we can try
+to build systems based on what we learn."*
+
+So the Goal and Competence Discovery arm, on the sorting lineage, is the current
+phase — and constructive work is **sequenced after it, not descoped**. Do not
+read a document that says the current phase is discovery as evidence that the
+constructive arm was dropped; nothing in this charter's success condition has
+been weakened. [The goal register](../../wiki/goals.md) owns what the current
+phase contains, and this ordering is the one part of it that is settled.
 Constructive studies vary mechanisms and capabilities, challenge the resulting
 systems, and explain what produces competence at different scales. Discovery
 studies propose testable patterns not prescribed as outcomes, choose informative

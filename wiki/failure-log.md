@@ -46,7 +46,7 @@ Entries are numbered in the order they were written; the 9 still open are scatte
 
 | Entry | Still open because |
 |---|---|
-| **[F1](#f1--the-seven-rung-ladder-was-superseded-on-day-one--open)** — The seven-rung ladder was superseded on day one | the choice between resuming the ladder and finishing the detector is undecided |
+| **[F1](#f1--the-seven-rung-ladder-was-superseded-on-day-one--open)** — The seven-rung ladder was superseded on day one | the constructive question still has no queued experiment, and nothing says what finishing the detector means (the ladder-versus-detector *order* was settled 2026-09-06) |
 | **[F2](#f2--the-shared-substrate-cannot-express-the-founding-experiment--open)** — The shared substrate cannot express the founding experiment | the shared substrate still cannot express the founding sorting experiment |
 | **[F2b](#f2b--the-substrate-makes-a-coordination-mechanism-structural--open)** — The substrate makes a coordination mechanism structural | the substrate bakes a coordination mechanism into the container, so a specimen cannot lack one |
 | **[F10](#f10--the-minimality-rule-existed-and-was-not-followed--open)** — The minimality rule existed and was not followed | the minimality rule is written down and nothing enforces it |
@@ -79,9 +79,18 @@ the ladder was built to answer — which as of this backfill still has no
 experiment"* — and nothing acted on it for ten days. Rung 2 has never been
 started. Ten of the fifteen live experiments went to the analytic arm instead.
 
-**Still open because:** the constructive question still has no queued experiment,
-and the choice between resuming the ladder and finishing the detector is
-undecided.
+**Half of this was decided 2026-09-06; the other half is why it stays open.**
+The choice between resuming the ladder and finishing the detector is **no longer
+undecided** — the owner set the phase order: finish the detector first, then
+build systems from what it teaches, with the ladder's constructive question in
+the later phase ([goal register](goals.md), [charter](../goal-discovery/docs/PROJECT.md)).
+
+**Still open because:** ordering the constructive question later is not the same
+as queuing it. It still has **no queued experiment**, rung 2 has still never been
+started, and the phase order names no checkable trigger for when the constructive
+phase begins — only that it follows discovery. Retires when the constructive
+question has an experiment, or when a stated condition says what finishing the
+detector *means*.
 
 ## F2 — The shared substrate cannot express the founding experiment — `OPEN`
 
