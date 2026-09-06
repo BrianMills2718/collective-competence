@@ -15,6 +15,7 @@ exits 1.
 
 from __future__ import annotations
 
+import os
 import shutil
 import subprocess
 import sys
@@ -40,7 +41,7 @@ def git(repo: Path, *args: str) -> None:
 
 class QuotedFigureControls(unittest.TestCase):
     def setUp(self):
-        self.tmp = tempfile.TemporaryDirectory()
+        self.tmp = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
         self.repo = Path(self.tmp.name) / "repo"
         for rel in COPIED:
             shutil.copytree(ROOT / rel, self.repo / rel)
@@ -60,13 +61,31 @@ class QuotedFigureControls(unittest.TestCase):
         self.addCleanup(self._cleanup)
 
     def _cleanup(self):
-        """Teardown must survive read-only trees too, or it masks the real error."""
-        for path in self.repo.rglob("*"):
-            try:
-                path.chmod(path.stat().st_mode | (0o700 if path.is_dir() else 0o600))
-            except OSError:
-                pass
-        self.tmp.cleanup()
+        """Teardown must survive read-only trees, or it fails the test it wraps.
+
+        Two separate read-only sources, and the first fix only handled one.
+        `copytree` inherits the canonical checkout's 555 modes, and `git init`
+        then creates an object store that git deliberately makes read-only --
+        `.git/objects/**` is 444 inside 555 directories. Walking `self.repo`
+        with `rglob` did not clear the second, so `rmtree` reached
+        `OSError: [Errno 39] Directory not empty: '.git'` and every test in the
+        class failed in teardown while its assertions had all passed.
+
+        `os.walk` from the temporary root, bottom-up, reaches everything
+        including dot-directories; `ignore_cleanup_errors` is the backstop so a
+        teardown problem can never again be reported as a test failure.
+        """
+        for parent, dirs, files in os.walk(self.tmp.name, topdown=False):
+            for name in dirs + files:
+                target = Path(parent) / name
+                try:
+                    target.chmod(0o700 if target.is_dir() else 0o600)
+                except OSError:
+                    pass
+        try:
+            self.tmp.cleanup()
+        except OSError:
+            shutil.rmtree(self.tmp.name, ignore_errors=True)
 
     def run_checker(self):
         return subprocess.run(

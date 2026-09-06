@@ -723,10 +723,29 @@ every control raises. It passed everywhere I ran it, because I only ever ran it
 from a worktree, which is 755. A zero-context reader ran it where the README
 says to.
 
-**Fixed** by making the fixture chmod its own copy writable, and its teardown
-tolerant of read-only trees, so the suite no longer depends on the modes of the
-checkout it is run from. Verified failing before (6 failed, 4 errors in the
-canonical checkout) and passing after.
+**Fixed twice, because the first fix was verified in the wrong place.** The
+first attempt chmodded the copied tree and I reported it fixed on the strength of
+a worktree run — the exact mistake this entry is about. Re-run in the canonical
+checkout it still failed: 6 failed, this time entirely in **teardown**, with
+`OSError: [Errno 39] Directory not empty: '.git'`. Every assertion had passed.
+
+There were two read-only sources and the first fix handled one. `copytree`
+inherits the checkout's 555 modes; `git init` then builds an object store that
+**git deliberately makes read-only** — `.git/objects/**` is 444 inside 555
+directories, regardless of the source. `rmtree` cannot unlink a file whose parent
+directory is not writable, so the scratch repository could not be removed and
+`TemporaryDirectory.cleanup()` raised inside teardown, failing tests that had
+already passed.
+
+Teardown now walks the whole temporary root bottom-up with `os.walk` — which
+reaches dot-directories — and `ignore_cleanup_errors` is the backstop, so a
+cleanup problem can never again be reported as a test failure.
+
+**Verified in the canonical 555 checkout, not a worktree**: 6 failed before, 6
+passed after. An attempt to build a 555 replica in a scratch directory did *not*
+reproduce the failure — the pre-fix version passed there — so the replica was
+discarded as unfaithful rather than used as evidence. The only trustworthy test
+of a checkout-specific defect is the checkout.
 
 **The general rule.** A test that copies the repository inherits the
 repository's permissions. More broadly: *verify the documented command in the
