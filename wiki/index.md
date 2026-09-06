@@ -148,17 +148,20 @@ of each answer. Until it is answered, an agent picking a next action is choosing
 a scope, not just a task.
 
 **What every experiment found:** [the scoreboard](scoreboard.md), one sentence
-each, generated. **What it looks like:** [the status page](status.html).
+each, generated. **What it looks like:** [the status page](status.html) — same coverage limit as
+the scoreboard, and generated from the register, so the 2026-09-06 sorting result
+is not on it.
 **What stopped and what it still costs:** [the failure log](failure-log.md),
-where nine entries are open: the ladder superseded on day one (F1); the
+where ten entries are open — [the log opens with all ten listed](failure-log.md) — the ladder superseded on day one (F1); the
 substrate unable to express the founding experiment (F2) and making a
 coordination mechanism structural (F2b); the minimality rule that existed and was
 not followed (F10); narrative growing faster than the science (F12); measures
 that turned out to read something else, which qualifies the commons half of the
 headline result (F4); the cockpit no longer tracking the work (F7); green
-checks that cannot see prose-versus-code defects (F8); and the headline's own
+checks that cannot see prose-versus-code defects (F8); the headline's own
 counterevidence stated in two different units, which is the *second*, independent
-reason its commons half fails (F23).
+reason its commons half fails (F23); and a cited experiment that has results but
+no code, which the plan's queued next action depends on (F24).
 
 **Most recent result, 2026-09-06.** The founding sorting experiment was
 re-entered to answer [goal D2](goals.md): its perturbation schedule now repeats,

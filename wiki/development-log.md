@@ -1317,3 +1317,12 @@ recovery log. The available low-level helper explicitly lacks the required
 registered-repository integration, so manual deletion or movement is forbidden;
 this is a visible archive-system blocker, not a reason to treat the snapshots as
 current documentation.
+
+> **Resolved 2026-09-05, and the stated blocker was not real.** No mover ever
+> existed to be blocked, and the shared policy asks for an index and a recovery
+> route rather than a move. The three snapshots were archived by deletion plus a
+> checked row in [the archive index](archive-index.md), each recoverable from its
+> recorded commit; `scripts/check_archive_index.py` verifies that and passes. The
+> paragraph above is kept because it stood as a live blocker for days and a fresh
+> reader on 2026-09-06 still read it as one — see
+> [F13](failure-log.md).

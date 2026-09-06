@@ -483,5 +483,9 @@ Repeated instrument failures suggest checking observation and intervention
 contracts early. Repeated generic representation failures suggest a concrete
 question before feature expansion. Successful tooling without a new scientific
 decision should remain enabling infrastructure, not discovery progress.
-The [current plan](../goal-discovery/docs/plans/current_research_plan.md) alone
-selects the next action; this landscape is not a second task queue.
+The [current plan](../goal-discovery/docs/plans/current_research_plan.md) is the
+designated selector of the next action, and this landscape is not a second task
+queue — **but as of 2026-09-06 the next action is contested three ways.** A
+reader who stops here and goes to act on the plan is choosing a research scope
+without knowing it. [The wiki index](../wiki/index.md) tabulates the three
+candidates and names the unmade decision underneath them.

@@ -78,7 +78,18 @@ instrument would still assert structure where none exists.
 reason that is small, specific, and mechanically understood rather than
 conceptual.
 
-## The next move, which this result earns
+## The next move, which this result earns — `SUPERSEDED, do not act on this`
+
+> **Both halves of the section below were carried out and the second refuted the
+> first, 2026-09-05.** [Q1-007](q1_007_congestion_corrected_relation_results.md)
+> ran the congestion regression it proposes;
+> [Q1-008](q1_008_null_coupling_control_results.md) then showed the premise was
+> wrong — the floor under the independent arm is the statistic's own
+> finite-sample null (~0.12), and the frozen 0.10 ceiling sat *below* it, so the
+> comparison could not have decided anything either way. The section is kept
+> because it records what this result licensed at the time; it is not a live
+> instruction. The banner at the top of this file marks the result superseded in
+> part but did not name this section, and a fresh reader read it as current.
 
 Model the congestion out before measuring relation: regress each entity's
 residual on the population attempt count first, and take the pairwise correlation

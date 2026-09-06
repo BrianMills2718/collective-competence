@@ -191,12 +191,19 @@ document is read *second* — took it as current and concluded the programme cou
 not say where competence comes from. Recounted 2026-09-06 over tracked Markdown,
 excluding this file:
 
-| Term | Files, when first written | Files, 2026-09-06 | What changed |
+| Term | Files, when first written | Files now | What changed |
 |---|---|---|---|
-| least action | 0 | 4 | `conjectures.md`, `development-log.md`, and the instruction pair |
-| free lunch | 0 | 9 | **`ontology.md` now defines it** — "Free lunch: one quantity, two boundary conventions", with two boundary conventions and a candidate-measure table |
-| gap junction | 0 | 1 | `ontology.md` |
+| least action | 0 | 2 | `conjectures.md` and `development-log.md` |
+| free lunch | 0 | 7 | **`ontology.md` now defines it** — "Free lunch: one quantity, two boundary conventions", with two boundary conventions and a candidate-measure table |
+| gap junction | 0 | 2 | `ontology.md` and `development-log.md` |
 | composition of competence | 0 | 0 | unchanged — still only here |
+
+Counts are over tracked Markdown, excluding this file, and are **checked by
+`FreeLunchVocabularyGate` in `scripts/test_documentation_tools.py`** rather than
+trusted. The first version of this table said 4, 9 and 1: written on 2026-09-06
+and made wrong the same day by an unrelated edit to `CLAUDE.md` that removed one
+of the terms. A count in prose with nothing checking it is a count that drifts,
+which is the whole lesson of the row above.
 
 "Intelligence" now appears in 14 files, including the charter. It is still not
 defined as a measurable quantity, and its relation to the competence profile is

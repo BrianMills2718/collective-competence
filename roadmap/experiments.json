@@ -94,7 +94,7 @@
         "status": "unknown",
         "effort_minutes": null
       },
-      "headline": "The suspicion that the headline statistic reads determinism rather than coordination was tested on the slot family and FAILED its own frozen gate: coordinated +6.3 null sd, deterministic-but-independent +1.65, independent draw ~0. It still holds unexplained on the commons, where an uncoordinated arm sits 5.3 null sd up.",
+      "headline": "The suspicion that the headline statistic reads determinism rather than coordination was tested on the slot family and FAILED its own frozen gate: coordinated +6.3 null sd, deterministic-but-independent +1.65, independent draw ~0. That suspicion is not resolved on the commons, where an uncoordinated arm sits 5.3 null sd up and no experiment explains it; the clause holds on the slot family only.",
       "outcome_class": "corrected"
     },
     {
@@ -966,7 +966,7 @@
       "review_status": "result_reviewed",
       "outcome": "relation_measurable_but_contaminated_by_congestion_coupling",
       "outcome_source": "goal-discovery/docs/hypotheses/q1_006_pairwise_relation_results.md",
-      "disposition": "Mean absolute off-diagonal residual correlation scores coordinated 0.284, matched-random 0.108, uniform 0.000. G1 signal passes and G2 sufficiency passes with a 0.176 margin - the gate every previous statistic failed, so relation IS measurable and the line from Q1-003 is not exhausted. G3 fails by 0.008 (random 0.108 against a frozen ceiling of 0.10), which is exactly the contamination the protocol named in advance: congestion makes independent entities non-independent in outcome, since k simultaneous attempters each receive 1/k squared, and removing the cross-entity mean does not remove a term nonlinear in k. Not rounded away; clause 2 is not claimable and the instrument remains unqualified, for the first time for a reason that is small, specific and mechanically understood. Next step is a correction rather than a new idea: regress out the population attempt count before taking pairwise correlation.",
+      "disposition": "Mean absolute off-diagonal residual correlation scores coordinated 0.284, matched-random 0.108, uniform 0.000. G1 signal passes and G2 sufficiency passes with a 0.176 margin - the gate every previous statistic failed, so relation IS measurable and the line from Q1-003 is not exhausted. G3 fails by 0.008 (random 0.108 against a frozen ceiling of 0.10), which is exactly the contamination the protocol named in advance: congestion makes independent entities non-independent in outcome, since k simultaneous attempters each receive 1/k squared, and removing the cross-entity mean does not remove a term nonlinear in k. Not rounded away; clause 2 is not claimable and the instrument remains unqualified, for the first time for a reason that is small, specific and mechanically understood. SUPERSEDED, do not act on this: the sentence that followed here proposed regressing out the population attempt count before taking pairwise correlation. Q1-007 ran exactly that and Q1-008 then refuted its premise -- the floor under the independent arm is the statistic's own finite-sample null (~0.12) and the frozen 0.10 ceiling sat below it, so the comparison could not have decided anything. Kept as the record of what this result licensed at the time.",
       "cost": {
         "status": "unknown",
         "effort_minutes": null

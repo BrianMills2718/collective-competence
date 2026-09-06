@@ -9,8 +9,10 @@
 # quiet lost coverage, the defect pattern this repository already had to repair.
 #
 # --all-extras rather than the three the README names: measured on this checkout,
-# the README's documented verification command runs 456 tests and the full extra
-# set runs 467. Optional-dependency modules that are genuinely absent still skip
+# the README's then-documented command ran 456 tests and the full extra set 467
+# (measured 2026-09-05; the suite collects 440 as of 2026-09-06 -- these are dated
+# measurements, not current counts).
+# Optional-dependency modules that are genuinely absent still skip
 # with a stated reason, which is the correct behaviour; under-installing turns
 # eleven of them into tests that simply never run.
 EXTRAS := --all-extras

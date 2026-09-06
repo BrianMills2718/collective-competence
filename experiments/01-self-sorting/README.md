@@ -42,12 +42,21 @@ elsewhere, or damage a member *and* the state together.
 Decentralized, `central_closed` and `central_watchdog` all sort 100% of the time
 at p=0.7, where 7 of every 10 attempted actions silently fail. Only the
 open-loop plan degrades — 100% → 54% → 0% across p=0, 0.3, 0.7. The dividing
-line is feedback, not centralization. `null_random` never sorts, so the
-competence comes from the local rule and not from the locality.
+line is feedback, not centralization. `null_random` essentially never sorts —
+its success rate is 0.0% to 1.7% across the noise grid, non-zero in five of seven
+cells (`results/faults.csv`), which is a rate consistent with occasionally
+stumbling into a sorted array rather than with sorting — so the competence comes
+from the local rule and not from the locality.
 
-**The decentralized version is robust but not cheap.** It pays about 1.6× the
-coordinator's operation count to reach the goal, and about 1.7× to recover from
-a disturbance, at every noise level. Robustness here is bought, not free.
+**The decentralized version is robust but not cheap, and the penalty shrinks as
+noise rises.** Against `central_closed` it pays **1.58×** the coordinator's
+operation count to reach the goal at p=0, and that ratio falls monotonically —
+1.58, 1.58, 1.53, 1.49, 1.44, 1.38, **1.17** across p = 0, .05, .1, .2, .3, .5,
+.7. Recovery cost ranges **1.15× to 2.45×** across the five perturbations and
+three noise levels, median 1.44×. Robustness here is bought, not free — but the
+price is not a constant, and an earlier version of this paragraph quoted "about
+1.6× … and about 1.7× … at every noise level", which asserted an invariance the
+data does not show. Computed from `results/faults.csv` and `results/recovery.csv`.
 
 **The sharpest result is about *when*, not *whether*.** Disturb the array
 D operations after it first reaches sorted:
@@ -102,8 +111,11 @@ non-absorbing; two are fatal. Why the boundary sits exactly at two is not
 tested here.
 
 **The single-point-of-failure number is true by construction.** Kill one unit at
-random: decentralized 1.000, centralized 0.913 = exactly 10/11, the
-coordinator's share of the units. Freezing any one *agent* is survivable by
+random: decentralized 1.000, centralized **0.9133**, against the model's closed
+form 10/11 = **0.9091** — the coordinator's share of the units. The measured
+value is a 300-trial estimate of that closed form (26 coordinator kills, not the
+27.3 expected), so it carries sampling error and is not "exactly" anything; an
+earlier version of this line said it was. Freezing any one *agent* is survivable by
 everyone. This is arithmetic from the model, not a discovery, and should be
 reported that way.
 
@@ -147,16 +159,21 @@ see it.
 
 **Transient disturbance gives a flat profile, which is what a passive attractor
 predicts.** Under `swap2` and `teleport` the cost is stationary across all eight
-episodes (`decentralized` 44–56, `central_watchdog` 31–42) with no attrition. On
-this evidence, repeated transient perturbation does **not** distinguish these
+episodes, with no attrition — but the two perturbations differ in level and the
+ranges are not shared: at p_fail=0.3, `swap2` costs `decentralized` 44–56 and
+`central_watchdog` 31–42, while `teleport` costs 32–48 and 21–28. Flat in both
+cases; roughly 30% cheaper under `teleport`. On this evidence, repeated transient perturbation does **not** distinguish these
 controllers from a passive attractor. That is a negative result for D2's
 question, and it is the honest one.
 
 **A trap this experiment sets, and how to read past it.** Episode *i* is only
 faced by trials that recovered from episode *i−1*, so where attrition is heavy
 the later cost figures are conditioned on continued success. `frozen_member`
-falls from 200 trials at risk to 13 by episode 7, with per-episode recovery rate
-decaying 1.00 → 0.42 — and its median cost *falls* over the same range. That
+at p_fail=0.3 falls from 200 trials at risk to **13** for `decentralized` (rate
+decaying 1.00 → **0.46**) and to **12** for `central_watchdog` (1.00 → **0.42**)
+by episode 7 — and median cost *falls* over the same range. Both controllers, one
+noise level; the figures are per-cell and an earlier version of this sentence
+mixed one controller's attrition with the other's rate. That
 apparent improvement is survivorship, not adaptation. **Read
 `trials_reaching_episode` before reading `median_ops_to_recover`.** The
 per-episode recovery rate is computed over the at-risk population and is

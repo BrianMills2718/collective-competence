@@ -19,7 +19,9 @@ noticed.** The [development log](development-log.md) records *changes*, the
 result records hold each experiment's own limits. None of them answers the
 question an owner actually asks: **what have we tried that did not work, and is
 any of it still costing us?** That question had no home, so the answer to it was
-scattered across a 1,000-line log, nineteen audits and fifty result records —
+scattered across a then-1,000-line log, nineteen audits and fifty result
+records (measured when this was written; 1,328 lines, 20 audits and 53 records
+as of 2026-09-06) —
 which is the same as having no answer.
 
 A stopped route is not a failure of the programme. Leaving one stopped without
@@ -38,8 +40,26 @@ something stopped and the surrounding assumptions did not change with it.
 | **Open** | the consequence is unresolved and still shapes current work |
 | **Closed** | the consequence was dispositioned; kept for the record |
 
----
+## The open entries, in one place
 
+Entries are numbered in the order they were written; the 10 still open are scattered through that sequence, so they are listed here. This block is the answer to *"what is still costing us?"* — the question this log exists for.
+
+| Entry | Still open because |
+|---|---|
+| **[F1](#f1--the-seven-rung-ladder-was-superseded-on-day-one--open)** — The seven-rung ladder was superseded on day one | the choice between resuming the ladder and finishing the detector is undecided |
+| **[F2](#f2--the-shared-substrate-cannot-express-the-founding-experiment--open)** — The shared substrate cannot express the founding experiment | the shared substrate still cannot express the founding sorting experiment |
+| **[F2b](#f2b--the-substrate-makes-a-coordination-mechanism-structural--open)** — The substrate makes a coordination mechanism structural | the substrate bakes a coordination mechanism into the container, so a specimen cannot lack one |
+| **[F10](#f10--the-minimality-rule-existed-and-was-not-followed--open)** — The minimality rule existed and was not followed | the minimality rule is written down and nothing enforces it |
+| **[F12](#f12--the-narrative-layer-grew-faster-than-the-science--open)** — The narrative layer grew faster than the science | narrative still outgrows the science it describes |
+| **[F23](#f23--the-headlines-counterevidence-is-stated-in-two-different-units--open)** — The headline's counterevidence is stated in two different units | the headline's counterevidence mixes units, so its commons half fails for a second, independent reason |
+| **[F24](#f24--a-cited-experiment-has-results-and-no-code--open)** — A cited experiment has results and no code | a cited experiment has results and no code, and the plan's queued next action depends on it |
+| **[F4](#f4--measures-that-turned-out-to-read-something-else--open)** — Measures that turned out to read something else | the commons arm of the headline statistic has no explanation, and the programme's headline rests on it |
+| **[F7](#f7--the-cockpit-stopped-tracking-the-work--open)** — The cockpit stopped tracking the work | the cockpit has not tracked the work since 2026-08-31 |
+| **[F8](#f8--green-checks-that-could-not-see-the-defect--open)** — Green checks that could not see the defect | no check verifies that code does what the prose beside it claims |
+
+16 further entries are closed and kept for the record.
+
+---
 ## F1 — The seven-rung ladder was superseded on day one — `OPEN`
 
 **What stopped.** The repository was founded 2026-08-26 on "how does coupling
@@ -191,7 +211,7 @@ Two of the new surfaces — [scoreboard](scoreboard.md) and
 [substrate design](substrate-design.md) and the current plan — and nothing
 enforces their consistency. The generated ones show the shape of the fix.
 
-**Not touched, deliberately:** 104 hypothesis records, 20 audits, 5 founding
+**Not touched, deliberately:** 104 hypothesis records, 20 audits, 4 founding
 briefs, and the 3 pre-consolidation snapshots the plan says *"do not manually
 move or delete."* Evidence and preregistrations are preserved by rule; the
 narrative layer is where the growth was.
@@ -489,63 +509,6 @@ and compared it to the package it claimed to come from.** That is the fourth
 distinct guard gap found in two days, after cited packages, cited external
 documents and ordinary links.
 
-## F23 — The headline's counterevidence is stated in two different units — `OPEN`
-
-Found 2026-09-06 by a zero-context reader asked to audit the strongest claim,
-and verified here against the packages. It is the second reason the *"essentially
-nothing where it is absent, on two families"* clause fails on the commons, and it
-is independent of the first.
-
-**The sentence.** Q1-009's result record and [the current plan](../goal-discovery/docs/plans/current_research_plan.md)
-both defend the clause by comparing, on the commons, coordinated `live` at
-**+0.589** against matched-independent `random` at **+0.006**, and conclude that
-*"a matched-independent population sits at its null on the commons as it does on
-the slot."* Both figures are in bits. The counterevidence beside it — the
-uncoordinated `frozen` arm — is quoted in **null sd**: 5.3.
-
-**In matched units the comparison inverts.** From
-`goal-discovery/results/q1-009-information/followup.json`:
-
-| commons arm | above null (bits) | its null sd | in null-sd units |
-|---|---|---|---|
-| `live` (coordinated) | +0.588795 | 0.000144 | **+4100.93** |
-| `random` (matched independent) | +0.005747 | 0.000286 | **+20.07** |
-| `frozen` (uncoordinated) | +0.198211 | 0.037201 | **+5.33** |
-| `none` (degenerate) | 0.000000 | 0.000000 | **undefined** |
-
-The commons null spreads differ by more than two orders of magnitude between
-arms, so a null-sd figure on one commons arm is not comparable with a null-sd
-figure on another. `random` is **+20.07 null sd** above its own null — nearly
-four times further, in its own units, than the `frozen` arm the programme calls
-anomalous. On the slot, **+1.65 null sd** is treated as a real graded response
-worth 39% of the coordinated effect ([Q1-010](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md));
-+20.07 on the commons is described as sitting *at* its null.
-
-**Why this is not the same as F4.** [F4](#f4--measures-that-turned-out-to-read-something-else--open)
-says the `frozen` arm is unexplained. This says the *control* the clause rests on
-is not at its null either, under the programme's own criterion. Even with `frozen`
-explained away, the commons half of the clause would still not hold as written.
-
-**Aggravating factor, already known and not propagated.** The nulls come from
-**5 replicates** (`null_replicates: 5` in `result.json`), so a null sd carries
-roughly a third of its own value as standard error. `random_attempt` on the slot
-**changes sign** between the two committed null streams of the same experiment
-(−0.040127 → +0.023861, i.e. −0.73 → +1.15 null sd), and `derived_phase`'s
-separation degrades 5.70 → 4.22 sd. Q1-010 recorded this for its own arms; no
-document carries the general consequence, which is that every null-sd figure in
-this programme inherits that instability.
-
-**What is NOT affected.** The slot family's null sds are all of comparable size
-(0.020–0.060), so the slot ordering — coordinated +6.3, deterministic-independent
-+1.65, independent draw ~0 — is a like-for-like comparison and stands. Q1-010's
-frozen gate is stated in bits (0.1217) and was frozen before the run; nothing here
-touches it.
-
-**Retires when** the commons arms are re-reported in one unit throughout, with
-enough null replicates for the spread to mean something, or the clause is
-withdrawn on the commons. Not fixed by editing prose alone: the honest number
-depends on a null the current 5 replicates cannot resolve.
-
 ## F21 — The guard against rounded figures never opened a document — `CLOSED 2026-09-06`
 
 [F20](#f20--a-rounded-figure-and-an-unnamed-package--closed-2026-09-06) closed by
@@ -650,6 +613,127 @@ now names, in its own PASS line or its docstring, the thing it structurally
 cannot see — `check_archive_index.py` says outright that a document removed
 without an index row is not detectable there.
 
+## F23 — The headline's counterevidence is stated in two different units — `OPEN`
+
+Found 2026-09-06 by a zero-context reader asked to audit the strongest claim,
+and verified here against the packages. It is the second reason the *"essentially
+nothing where it is absent, on two families"* clause fails on the commons, and it
+is independent of the first.
+
+**The sentence.** Q1-009's result record and [the current plan](../goal-discovery/docs/plans/current_research_plan.md)
+both defend the clause by comparing, on the commons, coordinated `live` at
+**+0.589** against matched-independent `random` at **+0.006**, and conclude that
+*"a matched-independent population sits at its null on the commons as it does on
+the slot."* Both figures are in bits. The counterevidence beside it — the
+uncoordinated `frozen` arm — is quoted in **null sd**: 5.3.
+
+**In matched units the comparison inverts.** From
+`goal-discovery/results/q1-009-information/followup.json`:
+
+| commons arm | above null (bits) | its null sd | in null-sd units |
+|---|---|---|---|
+| `live` (coordinated) | +0.588795 | 0.000144 | **+4100.93** |
+| `random` (matched independent) | +0.005747 | 0.000286 | **+20.07** |
+| `frozen` (uncoordinated) | +0.198211 | 0.037201 | **+5.33** |
+| `none` (degenerate) | 0.000000 | 0.000000 | **undefined** |
+
+The commons null spreads differ by more than two orders of magnitude between
+arms, so a null-sd figure on one commons arm is not comparable with a null-sd
+figure on another. `random` is **+20.07 null sd** above its own null — nearly
+four times further, in its own units, than the `frozen` arm the programme calls
+anomalous. On the slot, **+1.65 null sd** is treated as a real graded response
+worth 39% of the coordinated effect ([Q1-010](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md));
++20.07 on the commons is described as sitting *at* its null.
+
+**Why this is not the same as F4.** [F4](#f4--measures-that-turned-out-to-read-something-else--open)
+says the `frozen` arm is unexplained. This says the *control* the clause rests on
+is not at its null either, under the programme's own criterion. Even with `frozen`
+explained away, the commons half of the clause would still not hold as written.
+
+**Aggravating factor, already known and not propagated.** The nulls come from
+**5 replicates** (`null_replicates: 5` in `result.json`), so a null sd carries
+roughly a third of its own value as standard error. `random_attempt` on the slot
+**changes sign** between the two committed null streams of the same experiment
+(−0.040127 → +0.023861, i.e. −0.73 → +1.15 null sd), and `derived_phase`'s
+separation degrades 5.70 → 4.22 sd. Q1-010 recorded this for its own arms; no
+document carries the general consequence, which is that every null-sd figure in
+this programme inherits that instability.
+
+**What is NOT affected.** The slot family's null sds are all of comparable size
+(0.020–0.060), so the slot ordering — coordinated +6.3, deterministic-independent
++1.65, independent draw ~0 — is a like-for-like comparison and stands. Q1-010's
+frozen gate is stated in bits (0.1217) and was frozen before the run; nothing here
+touches it.
+
+**Retires when** the commons arms are re-reported in one unit throughout, with
+enough null replicates for the spread to mean something, or the clause is
+withdrawn on the commons. Not fixed by editing prose alone: the honest number
+depends on a null the current 5 replicates cannot resolve.
+
+## F24 — A cited experiment has results and no code — `OPEN`
+
+Found 2026-09-06 by a zero-context agent asked to get ready to run the next
+action, and verified here.
+
+**Q1-008 cannot be re-run.** `goal-discovery/results/q1-008-null-coupling/`
+contains one file, `result.json`, holding four numbers. Searching
+`goal-discovery/src/` and `goal-discovery/tests/` for `q1_008`,
+`rival_random` or `non_rival_random` returns **nothing**. There is no module,
+no runner, no test. The experiment exists as two Markdown documents and four
+numbers.
+
+**Why that matters beyond tidiness.** Q1-008 is the experiment that established
+the statistic's own finite-sample null — the result that voided Q1-006's frozen
+gate and that [the current plan](../goal-discovery/docs/plans/current_research_plan.md)'s
+queued next action is built on. Its closed form survives only as prose inside
+`roadmap/experiments.json`'s disposition text. Doing the plan's next action
+therefore means **rebuilding a calibration from a narrative**, not re-running a
+module — and nothing in the plan says so.
+
+**The guard gap.** `scripts/check_evidence_custody.py` passes on this, correctly
+by its own contract: it verifies that cited result *packages* are tracked in Git.
+It has no notion of whether a cited *run* is reproducible. Custody of the output
+and custody of the procedure are different properties, and only the first is
+checked. This is the same shape as [F21](#f21--the-guard-against-rounded-figures-never-opened-a-document--closed-2026-09-06)
+and [F22](#f22--four-maintenance-checks-that-could-not-fail-and-one-that-already-had--closed-2026-09-06):
+a green check whose scope is narrower than a reader assumes.
+
+**Not yet swept.** Q1-008 was found by someone trying to use it. Whether other
+registered experiments have packages but no code has not been checked, and the
+sweep is the obvious next step — checking the instance without checking the class
+is a failure this log already records twice.
+
+**Retires when** the class has been swept, every experiment whose result the live
+argument depends on either has runnable code or says in its own record that it
+does not, and the custody guard reports reproducibility as a distinct property
+from tracking.
+
+## F25 — The documented verification command was red in the checkout it documents — `CLOSED 2026-09-06`
+
+**The canonical checkout is deliberately mode 555**, so that writes go through a
+worktree. No file in this repository said so. A fresh agent following
+`goal-discovery/README.md`'s "handoff verification contract" got **six failures
+and four errors**, with `PermissionError` and a teardown `OSError: Directory not
+empty: '.git'`, and nothing to tell them it was environmental.
+
+**Cause, and it was mine.** `goal-discovery/tests/test_quoted_figures.py`,
+added 2026-09-06, builds its fixture with `shutil.copytree`, which **preserves
+modes**. From a 555 source the scratch copy is read-only and every rewrite in
+every control raises. It passed everywhere I ran it, because I only ever ran it
+from a worktree, which is 755. A zero-context reader ran it where the README
+says to.
+
+**Fixed** by making the fixture chmod its own copy writable, and its teardown
+tolerant of read-only trees, so the suite no longer depends on the modes of the
+checkout it is run from. Verified failing before (6 failed, 4 errors in the
+canonical checkout) and passing after.
+
+**The general rule.** A test that copies the repository inherits the
+repository's permissions. More broadly: *verify the documented command in the
+checkout it is documented for*, not in the working copy that happens to be
+convenient — they are not the same environment, and the difference is invisible
+until someone follows the instructions.
+
 ## F3 — A gate frozen below its own statistic's null, three times — `CLOSED`
 
 **What stopped.** Q1-006 froze a clause-2 ceiling at 0.10 when the statistic's
@@ -726,5 +810,5 @@ a clean checkout, and an ignore rule that hides new evidence. Three are closed.
 
 **Still open because** the general problem is unaddressed: the check surface
 verifies *that code runs* and *that documents agree with each other*, and
-nothing verifies *that the code does what the prose beside it claims*. Nine
+nothing verifies *that the code does what the prose beside it claims*. Eight
 defects in Q1-009 were found by review and none by its own fifty-eight tests.

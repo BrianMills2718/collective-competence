@@ -42,8 +42,12 @@ Tests for other optional research spikes may still report explicit skips. The
 command above is the handoff verification contract; `uv run pytest` without the
 extras is not a complete environment for this repository's test suite. Naming
 extras individually is not equivalent: the earlier three-extra form documented
-here ran 456 of 467 tests, silently omitting every `test_mesa_spike` case, which
-is why `make sync` and `make test` also use `--all-extras`.
+here ran 456 of 467 tests as measured on 2026-09-05, silently omitting every
+`test_mesa_spike` case, which
+is why `make sync` and `make test` also use `--all-extras`. The suite collects
+**440** tests as of 2026-09-06; the 456/467 pair is the dated measurement that
+motivated the change, not a current count. Any test count written down here is a
+dated measurement — run the command rather than quoting these.
 
 This revision combines the sorting and experiment-selection views with the optional composition preview. The
 [current plan](docs/plans/current_research_plan.md) owns the active next decision

@@ -3,6 +3,8 @@ import contextlib
 import importlib.util
 import io
 import json
+import re
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -439,6 +441,139 @@ class HeadlineLegibilityGate(DocumentationControls):
         record.pop("headline", None)
         with self.assertRaisesRegex(ValueError, "missing required fields: evidence"):
             self.render([record])
+
+
+class FailureLogIndexGate(unittest.TestCase):
+    """The failure log's open-entry index is hand-written; this is what stops it rotting.
+
+    The index was added 2026-09-06 because a zero-context reader could not find
+    the open entries -- they are numbered chronologically and scattered through
+    26 headings. A hand-maintained summary of a growing list is exactly the
+    staleness shape this repository keeps finding, so it is checked rather than
+    trusted.
+    """
+
+    def setUp(self):
+        self.text = (knowledge.ROOT / "wiki/failure-log.md").read_text(encoding="utf-8")
+
+    def open_ids(self):
+        return re.findall(r"^## (F\d+b?) — .+? — `OPEN`$", self.text, re.M)
+
+    def indexed_ids(self):
+        block = self.text.split("## The open entries, in one place", 1)[1]
+        block = block.split("further entries are closed", 1)[0]
+        return re.findall(r"\*\*\[(F\d+b?)\]", block)
+
+    def test_the_index_lists_exactly_the_open_entries(self):
+        """Membership, not count -- a matching total passes on a substituted set."""
+        self.assertEqual(sorted(self.open_ids()), sorted(self.indexed_ids()))
+
+    def test_the_index_states_the_right_totals(self):
+        opened = len(self.open_ids())
+        closed = len(re.findall(r"^## F\d+b? — .+? — `CLOSED", self.text, re.M))
+        self.assertIn(f"the {self._word(opened)} still open", self.text)
+        self.assertIn(f"{closed} further entries are closed", self.text)
+
+    @staticmethod
+    def _word(n):
+        return str(n)
+
+    @staticmethod
+    def github_slug(heading):
+        """GitHub's anchor rule: lowercase, drop punctuation, spaces -> hyphens.
+
+        An em-dash is dropped and its surrounding spaces each become a hyphen,
+        so a heading with " — " anchors on a DOUBLE hyphen. Collapsing them
+        produces a link that silently goes nowhere, which is what the first
+        version of the index above did.
+        """
+        text = re.sub(r"[^a-z0-9 _-]", "", heading.lower())
+        return text.replace(" ", "-")
+
+    def test_every_indexed_anchor_resolves_to_a_heading(self):
+        """An intra-document fragment is a link `check_links.py` cannot see."""
+        block = self.text.split("## The open entries, in one place", 1)[1]
+        block = block.split("further entries are closed", 1)[0]
+        slugs = set(re.findall(r"\]\(#([a-z0-9_-]+)\)", block))
+        headings = {self.github_slug(line[3:])
+                    for line in self.text.splitlines() if line.startswith("## ")}
+        self.assertTrue(slugs, "no anchors found in the index; a vacuous check")
+        self.assertEqual(slugs - headings, set(), "anchors with no matching heading")
+
+
+class ReadingBudgetGate(unittest.TestCase):
+    """CLAUDE.md's task-scoped reading table quotes word counts; they must be true.
+
+    Added 2026-09-06 with the table. The first draft of the table quoted
+    estimates and was wrong by up to 900 words; editing the documents it counts
+    made it wrong again within the hour. A number in an instruction file that
+    nothing checks is a number that drifts -- this repository has recorded that
+    three times (F20, F21, F23), so the table is gated rather than trusted.
+
+    Tolerance is 300 words: the point is that a reader's budget is roughly
+    right, not that every edit forces a documentation commit.
+    """
+
+    TOLERANCE = 300
+    TIERS = {
+        "10,200": ("wiki/index.md", "wiki/scoreboard.md", "wiki/failure-log.md"),
+        "+5,900": ("goal-discovery/docs/PROJECT.md",
+                   "goal-discovery/docs/plans/current_research_plan.md"),
+        "+7,400": ("wiki/ontology.md",),
+        "+3,500": ("wiki/competence-thesis.md",),
+        "+5,100": ("roadmap/research.md", "wiki/goals.md"),
+    }
+
+    def test_every_quoted_reading_budget_matches_the_documents(self):
+        claude = (knowledge.ROOT / "CLAUDE.md").read_text(encoding="utf-8")
+        self.assertIn("~words (measured", claude, "the reading table is gone")
+        for quoted, paths in self.TIERS.items():
+            actual = sum(len((knowledge.ROOT / p).read_text(encoding="utf-8").split())
+                         for p in paths)
+            claimed = int(quoted.lstrip("+").replace(",", ""))
+            self.assertIn(f"| {quoted} |", claude,
+                          f"CLAUDE.md no longer quotes {quoted}; update this gate")
+            self.assertLessEqual(
+                abs(actual - claimed), self.TOLERANCE,
+                f"{paths} is {actual} words, CLAUDE.md says {quoted}. "
+                "Re-measure and update the table.")
+
+
+class FreeLunchVocabularyGate(unittest.TestCase):
+    """The thesis's vocabulary table is a term count; counts must be checked.
+
+    Its first version claimed three terms appeared in **zero** files when one of
+    them had a defined section in the ontology that the same document links. Its
+    second version was made wrong the same day it was written, by an edit to
+    CLAUDE.md that removed a term. Both were flattering to the paragraph they
+    supported. This gate counts.
+    """
+
+    TERMS = {"least action": 2, "free lunch": 7, "gap junction": 2,
+             "composition of competence": 0}
+
+    def test_the_vocabulary_counts_are_true(self):
+        thesis_path = knowledge.ROOT / "wiki/competence-thesis.md"
+        thesis = thesis_path.read_text(encoding="utf-8")
+        tracked = subprocess.run(
+            ["git", "ls-files", "*.md"], cwd=knowledge.ROOT,
+            capture_output=True, text=True, check=True,
+        ).stdout.split()
+        for term, claimed in self.TERMS.items():
+            actual = sum(
+                1 for rel in tracked
+                if rel != "wiki/competence-thesis.md"
+                and term in (knowledge.ROOT / rel).read_text(
+                    encoding="utf-8", errors="replace").lower()
+            )
+            self.assertEqual(
+                actual, claimed,
+                f"'{term}' is in {actual} tracked Markdown files (excluding the "
+                f"thesis); the thesis table says {claimed}. Recount and update "
+                "both the table and this gate.")
+            self.assertIn(f"| {term} | 0 | {claimed} |", thesis,
+                          f"the thesis table no longer quotes {claimed} for "
+                          f"'{term}'; update this gate")
 
 
 # Keep this at the very end of the file. It sat two thirds of the way up until
