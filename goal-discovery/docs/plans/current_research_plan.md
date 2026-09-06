@@ -60,28 +60,27 @@ The first move against this is a candidate family carrying a latent shared
 regressor, plus an adequacy test that reports failure-to-explain rather than only
 relative improvement over persistence.
 
-**Next action — one thing: decide what the substrate is, per
-[the design document's question 1](../../../wiki/substrate-design.md) — repair
-`src/substrate/`, replace it, or set it aside and work from `selfsort.py`.**
+**Next action — one thing: put a second kind of specimen on the substrate,
+for [D4](../../../wiki/goals.md).** The substrate now holds sorting and an
+elementary cellular automaton. D4 asks whether the analysis can separate passive
+convergence, negative-feedback regulation, compensation and adaptation — and
+none of those four has a home yet. It is the goal that most needs a specimen and
+the one the substrate was just built to make possible.
 
-**Why this and not another experiment.** The owner's phase order is *"build the
-substrate to work out the discovery so then we can try to build systems based on
-what we learn."* Its first clause is the substrate. The contract that exists
-cannot express the sorting lineage this phase works — its own docstring says
-sorting is deliberately not ported, because sorting has no resource and no shared
-signal ([F2](../../../wiki/failure-log.md)) — and it carries `signal: float` in
-every specimen's state, so a coordination mechanism is part of the container
-rather than something an experiment supplies and tests
-([F2b](../../../wiki/failure-log.md)). Every substrate question below question 1
-is blocked on it, and no experiment queued on `selfsort.py` advances the phase,
-because `selfsort.py` is on no substrate.
-
-**How this next action was wrong until 2026-09-06.** This plan recorded the phase
-order and, in the same commit (`b1b5534`), queued D2's damage-delivery run — an
-experiment on standalone code. The sentence was read as a statement about which
-*arm* comes first rather than about what to *build* first. The D2 run was
-executed and is real evidence, but it was not first, and it did not need the
-substrate, which is exactly why it did not advance the phase.
+**The substrate decision is done, 2026-09-06.** The owner chose replace: *"we
+need one substrate that applies to this phase of experiments, presumably like a
+generalized cellular automata or something so that we can do the goal discovery
+and competence building from the same substrate."*
+[`goal-discovery/src/lattice/`](../../src/lattice/core.py) is that substrate, and
+it passed the gate that the previous contract could not even attempt: **720
+trials, three controllers × six fault and heterogeneity conditions × 40 seeds,
+all reproducing `selfsort.py` step for step** — operation count and full
+configuration after every step. Spec §28's claim that a standard cellular
+automaton is a constrained case is instantiated rather than asserted, and checked
+against binomial coefficients computed outside this code.
+[The design document](../../../wiki/substrate-design.md) owns the detail; the old
+`src/substrate/` is superseded and retained only because two frozen result
+packages regenerate from it.
 
 **The two-agent boundary is the next experiment, not the next action.** One agent
 running the opposing rule presumably parks somewhere the majority contains; two

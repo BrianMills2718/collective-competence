@@ -68,6 +68,7 @@ than reconstructing definitions from historical experiment prose.
 | **Why did we choose this tool / stop that line?** | [Architecture decision records](../goal-discovery/docs/adr/README.md) — eight accepted ADRs, four of them negative decisions that exist to stop an evaluation being run twice. Immutable; superseded rather than edited. |
 | **Where did an archived document go?** | [Archive recovery index](archive-index.md) — what was archived, why, and the commit to `git show` it back from. Archiving is deletion plus an entry; the bytes are not moved. |
 | **What have we tried that did not work, and is it still costing us?** | **[Failure log](failure-log.md)** — stopped routes, measures that read the wrong thing, and decisions that closed something off. Canonical; an entry retires when its *consequence* is dispositioned, not when the route stops. |
+| **Watch the substrate actually run.** | **[Substrate viewer](lattice.html)** — space-time diagrams of sorting under three control arrangements, the same substrate running elementary cellular automata, and a damaged run beside a clean one. Play, pause and scrub. Self-contained HTML: open it straight from disk, no server. Every frame is computed by the Python substrate and embedded; the page has no simulator of its own. |
 | **Show me, don't tell me.** | **[Visual status page](status.html)** — the two bets, the instrument's four clauses, the contested measurement as charts, and all fifteen experiments. Self-contained HTML: open it straight from disk, no server. Generated from committed result packages. |
 | Why does this programme exist and what is it building toward? | [The generative thesis](competence-thesis.md) — exploratory, not canonical |
 | What is the programme betting on that could turn out false? | [Standing conjectures](conjectures.md) — canonical; each with a stated refuter |
@@ -141,27 +142,32 @@ and LLM agents are out of scope; the founding sequence placed them last and the
 renewable commons was phase-M content run at phase-F time.
 [The charter](../goal-discovery/docs/PROJECT.md) owns the boundary.
 
-**The next action is to decide what the substrate is.** Not an experiment. The
-owner's phase order is *"build the substrate to work out the discovery so then we
-can try to build systems based on what we learn"*, and its first clause has never
-been queued as work. The contract in `goal-discovery/src/substrate/` holds two
-specimens, both resource-allocation, and **cannot express the sorting lineage
-this phase works** — sorting has no resource and no shared signal, and its own
-docstring says it is deliberately not ported ([F2](failure-log.md)). It also
-carries `signal: float` in every specimen's state, making a coordination
-mechanism part of the container rather than something an experiment tests
-([F2b](failure-log.md)).
+**There is one substrate now, and it runs the founding experiment.** The owner
+decided on 2026-09-06: one substrate for this phase, *"like a generalized
+cellular automata"*, so that goal discovery and competence building happen on the
+same thing. [`goal-discovery/src/lattice/`](../goal-discovery/src/lattice/core.py)
+is it — a 1-D lattice of sites holding mobile entities, with local rules,
+pluggable schedules, per-entity faults and one operation currency.
 
-[The substrate design document](substrate-design.md) asks it directly as its
-question 1 — repair, replace, or set aside and work from `selfsort.py` — and
-records that nothing is decided. That document is marked exploratory and governs
-nothing, which is part of why the question stayed invisible.
+It passed the gate the previous contract could not attempt: **720 trials
+reproducing `selfsort.py` step for step**, across three controllers and six fault
+conditions. And the same lattice runs elementary cellular automata, checked
+against the Sierpinski triangle's binomial coefficients — so *"a standard
+cellular automaton is a particularly constrained case"* is a demonstration here,
+not a docstring. [The design document](substrate-design.md) owns it. The old
+`src/substrate/` is superseded and retained only to regenerate two frozen result
+packages.
+
+**The next action is a second kind of specimen**, for [D4](goals.md): passive
+convergence, negative-feedback regulation, compensation and adaptation have no
+home on the substrate yet, and D4 is the goal that most needs one.
 
 | Document | Names as next | Where it sits |
 |---|---|---|
-| [Substrate design](substrate-design.md) q1 | Repair, replace, or set aside `src/substrate/` | **First.** The phase order's own first clause, and everything below is blocked on it |
+| [Substrate design](substrate-design.md) q1 | Repair, replace, or set aside `src/substrate/` | **Done 2026-09-06.** Replaced by `src/lattice/`. Questions 3, 4 and a new 5 remain open there |
+| [Goal register](goals.md) D4 | A specimen separating passive convergence, regulation, compensation and adaptation | **First.** Nothing on the substrate expresses these four yet, and D4 cannot start without them |
 | [Goal register](goals.md) D2 | The damage-delivery run | **Done 2026-09-06**, answered in the negative twice |
-| [Experiment 01](../experiments/01-self-sorting/README.md) | The two-agent boundary | The next *experiment*. Waits on q1, which decides whether it is written against a contract or against `selfsort.py` |
+| [Experiment 01](../experiments/01-self-sorting/README.md) | The two-agent boundary | Unblocked — q1 is answered, so it is written against `src/lattice/`. Behind D4's specimen, which the substrate was built to enable |
 | [Current plan](../goal-discovery/docs/plans/current_research_plan.md) | Re-run Q1-006 with a null-calibrated threshold | **Later, not cancelled.** On the commons/slot families, and it depends on Q1-008, whose procedure is [recorded as not preserved](failure-log.md#f24--a-cited-experiment-has-results-and-no-code--closed-2026-09-06) |
 
 **A correction worth keeping.** Until 2026-09-06 this section named the
