@@ -124,6 +124,12 @@ has a second statistic to cross-check against.
    as it does on the slot. The statistic now discriminates coordination from
    matched independence **on two families against real controls**, which is the
    strongest thing in this lane. Post-hoc, not a re-scored gate.
+   **Withdrawn on the commons, twice over — read debt 4 and
+   [F23](../../../wiki/failure-log.md) before quoting this sentence.** Q1-010
+   showed the uncoordinated `frozen` arm is unexplained at 5.3 null sd, and the
+   `+0.006` above is in *bits* while `5.3` is in *null sd*: in matched units
+   `random` is **+20.07 null sd** above its own null, so it does not sit at its
+   null either. The claim holds on the slot family only.
 2. ~~Empowerment needs an intervention its measurement can resolve.~~ **Paid
    2026-09-05, and the answer is negative.** A ten-tick block with eight buckets
    raised capacities 10–30× and the gate now passes at 0.690, but the ordering
@@ -132,7 +138,7 @@ has a second statistic to cross-check against.
    available to a unilateral actor, not agency** — now measured rather than
    suspected. Either redesign it against a different observable or drop it; do not
    report it as an agency measure on this substrate.
-3. **The nine defects were found by review, not by the suite.** Fifty-eight tests
+3. **The eight defects were found by review, not by the suite.** Fifty-eight tests
    written alongside that code caught none of them, because they asserted the
    failures their author had already imagined: analytic fixed points for the
    measures, equivalence for the arms. Each defect now has a regression test, but
@@ -244,6 +250,8 @@ in a separate claims/cursor apparatus. Tags: `human_set`, `agent_decided_reversi
 |---|---|---|
 | Which prospective protocol P15's pass earns the design of | `agent_decided_reversible` | Brian delegated after the domain specifics didn't resolve for him ("proceed as you think is best"). Decided: no protocol is designed — P13's held case already ran the only intervention its proposal names, and P14's lane is stopped; see the result record. Reversible: a future session can still design one if a genuinely new intervention is later identified. |
 | Whether to select a new system for the next research slice | `human_required` | Follows from the row above. Checked both `misc/` quarantine candidates against the active lane before leaving this open: `morphogenesis-scaling-law` has real runnable code and honestly-reported findings, but is Collective-Competence-shaped (mechanism -> capability under noise/decay-length, ground truth disclosed) not Goal-Discovery-shaped (black-box candidate-goal inference) — the currently active lane. `experiments/platonic-ingression` has no runnable code here at all and its own source explicitly says its numbers aren't yet benchmark-grade. Neither is a clean drop-in; the real choice is broader than picking from `misc/`. |
+
+| **Whether [the draft goal register](../../../wiki/goals.md) becomes canonical** | `human_required` | **The most consequential open choice, and until it is made the repository points agents at three different next actions.** The register narrows work to the Goal and Competence Discovery arm on the sorting lineage; it declares itself "Authority: none until reviewed" and no document names a reviewer or a date. Consequences either way: **if canonical**, this plan's queued Q1-006 re-run is out of scope (it is on the commons and slot families), the next action becomes D2's damage-delivery run, and [the charter's](../PROJECT.md) two-arm framing needs a reconciliation condition; **if not**, the Q1-006 re-run stands, and `goals.md` should be marked superseded rather than left as a draft that three other documents defer to. Added 2026-09-06 after a zero-context reader could not determine which action to take and had to resolve it by judgement. |
 
 An agent that reaches a new `human_required`-shaped choice adds a row here
 rather than deciding it or inventing a parallel tracker.

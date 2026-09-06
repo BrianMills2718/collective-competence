@@ -184,24 +184,35 @@ competence section defines a nine-dimension performance profile — attainment,
 reliability, reachability, flexibility, efficiency, robustness, recovery,
 adaptation, transfer — with no universal scalar assumed.
 
-It has no vocabulary for competence as something **obtained or composed**. As of
-this writing, in the whole repository:
+It had no vocabulary for competence as something **obtained or composed**. The
+table below was a term count over the repository, written in the present tense
+and never re-measured; a reader reaching it on the prescribed entry path — this
+document is read *second* — took it as current and concluded the programme could
+not say where competence comes from. Recounted 2026-09-06 over tracked Markdown,
+excluding this file:
 
-| Term | Files containing it |
-|---|---|
-| least action | 0 |
-| free lunch | 0 |
-| gap junction | 0 |
-| composition of competence | 0 |
+| Term | Files, when first written | Files, 2026-09-06 | What changed |
+|---|---|---|---|
+| least action | 0 | 4 | `conjectures.md`, `development-log.md`, and the instruction pair |
+| free lunch | 0 | 9 | **`ontology.md` now defines it** — "Free lunch: one quantity, two boundary conventions", with two boundary conventions and a candidate-measure table |
+| gap junction | 0 | 1 | `ontology.md` |
+| composition of competence | 0 | 0 | unchanged — still only here |
 
-"Intelligence" appears once in `ontology.md`, in a row asserting that
-intelligence is not autopoiesis. It is never defined, and its relation to
-competence is never stated.
+"Intelligence" now appears in 14 files, including the charter. It is still not
+defined as a measurable quantity, and its relation to the competence profile is
+still not stated — `flexibility`, the profile dimension this document maps it to,
+appears in no source file.
 
-So the programme can currently say, precisely, how competent a system is once it
-has one, and cannot say where competence comes from, what it costs, or when it
-is free. That asymmetry is the most likely reason the constructive arm has not
-produced an experiment.
+**The asymmetry this section diagnoses is real but narrower than the original
+count implied.** The obtaining half of the vocabulary now exists for *free lunch*
+and is linked from this document's own opening. What remains missing is
+composition — the term is used here and nowhere else — and any measured
+instance: a defined term is not a measurement, and no experiment has produced
+one. That is still the most likely reason the constructive arm has produced
+little, but "the words do not exist" is no longer the accurate form of it.
+
+**Any count in this document is a dated measurement, not a standing fact.**
+Re-measure before quoting one; the row above is what happens otherwise.
 
 ## The missing layer is speculative, not merely generative
 

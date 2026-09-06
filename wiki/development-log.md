@@ -266,7 +266,7 @@ one coarse-graining tested.
 capacity rather than agency and should be redesigned against a different
 observable or dropped. The commons specimen's control arm exists now but the
 slot's `constant_phase` remains degenerate for variety-sensitive statistics.
-And nine defects in Q1-009's implementation were found by an independent review
+And eight defects in Q1-009's implementation were found by an independent review
 rather than by the fifty-eight tests written beside that code, which is a
 standing argument for a review pass before a result record counts as evidence.
 
@@ -342,7 +342,7 @@ open in this repository's own timeline since the timeline was written.
 **Does not establish:** the follow-up measurements are post-hoc over the same
 configuration and re-score no frozen gate; Q1-009's recorded verdicts stand as
 frozen. Emergence is unchanged and still negative in every non-degenerate arm,
-including the new one. The third debt — that nine defects were found by review and
+including the new one. The third debt — that eight defects were found by review and
 none by the suite written beside the code — is unaddressed.
 
 ## 2026-09-05 — a review of Q1-009 found eight defects in its own implementation

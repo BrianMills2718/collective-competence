@@ -62,7 +62,7 @@ than reconstructing definitions from historical experiment prose.
 
 | Question | Read next |
 |---|---|
-| **What did every experiment actually find?** | **[Scoreboard](scoreboard.md)** — one plain sentence per live experiment, generated from the register so it cannot go stale. Start here if you want the state of the programme in one pass. |
+| **What did every experiment actually find?** | **[Scoreboard](scoreboard.md)** — one plain sentence per live experiment, generated from the register so it cannot go stale. Start here if you want the state of the programme in one pass — **with one gap to know about**: it covers registered live-era experiments only, so neither `experiments/01-self-sorting/` (which produced the most recent result, 2026-09-06) nor `experiments/morphogenesis-scaling/` appears on it. Both are routed below. |
 | **What are we actually trying to answer?** | **[Research goals](goals.md)** — draft, for review. The scientific question verbatim from the founding brief, six goals, and the minimal substrate configuration each needs. Mostly recovered rather than invented: the briefs already contained the list. |
 | **What should the substrate be?** | **[Substrate design discussion](substrate-design.md)** — live, exploratory, governs nothing. The owner's corrections verbatim, the diagnosis, and the proposal currently on the table. Read this before proposing apparatus. |
 | **Why did we choose this tool / stop that line?** | [Architecture decision records](../goal-discovery/docs/adr/README.md) — eight accepted ADRs, four of them negative decisions that exist to stop an evaluation being run twice. Immutable; superseded rather than edited. |
@@ -85,10 +85,11 @@ than reconstructing definitions from historical experiment prose.
 | How do I run and interpret the current laboratory? | [Operator guide](../goal-discovery/README.md) and [shared analytic contract](../goal-discovery/docs/plans/dynamic_experiment_artifact_standard.md) |
 | How should documentation and evidence be maintained? | [Workflow and policy routes](../roadmap/workflow.md) |
 | How did the project and its contracts change? | [Development log](development-log.md), with references to the current owners and evidence |
-| Where is the original pilot the repository is named for? | [`experiments/01-self-sorting/`](../experiments/01-self-sorting/README.md) — the founding Levin-style experiment, exploratory, superseded as a route on 2026-08-26 and never re-entered |
+| Where is the original pilot the repository is named for? | [`experiments/01-self-sorting/`](../experiments/01-self-sorting/README.md) — the founding Levin-style experiment, exploratory. Superseded as a route on 2026-08-26; **re-entered 2026-09-06** to answer [goal D2](goals.md), which made its perturbation schedule repeat and found the controllers indistinguishable from a passive attractor under repeated transient disturbance. Not a registered live-era experiment, so it does not appear on the scoreboard |
 | How do this repository and its neighbours relate over time? | [Cross-repository timeline](cross-repo-timeline.md) — dated, derived from commit history |
 | Where is an active or retained non-superseded source? | [Active document catalog](../roadmap/artifacts.md) and [source provenance](../goal-discovery/docs/sources/README.md); use governed archive recovery for superseded snapshots |
 | Where is the Collective Competence arm's evidence? | [`experiments/01-self-sorting/`](../experiments/01-self-sorting/README.md) — the founding pilot — and [`experiments/morphogenesis-scaling/`](../experiments/morphogenesis-scaling/README.md), a retained reference result promoted out of quarantine 2026-09-04, deliberately **not** registered as an experiment |
+| Where is the conceptual thread behind the substrate discussion? | [`experiments/platonic-ingression/`](../experiments/platonic-ingression/README.md) — 47 files: a conceptual discussion for this repository plus **unvalidated toy data**, classified out of quarantine 2026-09-05. Its own README says it is design input, not evidence, and its figures are not benchmark-grade. Listed here because it was previously reachable only by listing the filesystem |
 | Where is quarantined or not-yet-classified material? | [`misc/README.md`](../misc/README.md) — the quarantine, **currently empty**; both former holdings were classified into `experiments/` before their expiry |
 
 ## Shared experimental flow
@@ -114,8 +115,10 @@ failure conditions, and evidence limits.
 
 ## Current position
 
-*Accurate as of 2026-09-05. This section routes; it does not restate. Every
-figure below has an owner that is authoritative over it.*
+*Accurate as of 2026-09-06. This section routes; it does not restate. Every
+figure below has an owner that is authoritative over it. A date here is a claim
+about when someone last checked, not about when the repository last changed —
+if `git log -1` is newer, treat this section as unverified and go to the owners.*
 
 **Scope narrowed to one arm.** Work is the Goal and Competence Discovery arm,
 extending from the sorting algorithm; questions about recovering *authored*
@@ -128,24 +131,48 @@ and LLM agents are out of scope; the founding sequence placed them last and the
 renewable commons was phase-M content run at phase-F time.
 [The charter](../goal-discovery/docs/PROJECT.md) owns the boundary.
 
-**The next action is contested.** [The current plan](../goal-discovery/docs/plans/current_research_plan.md)
-queues a Q1-006 re-run, which advances a lineage the narrowed scope excludes.
-Out of scope rather than wrong; the plan needs updating.
+**The next action is contested, three ways, and the conflict is a scope
+question a human must settle.** Three documents each name a different next thing,
+each aware of the others, none yielding:
+
+| Document | Names as next | Status |
+|---|---|---|
+| [Current plan](../goal-discovery/docs/plans/current_research_plan.md) | Re-run Q1-006 with a null-calibrated threshold | The designated owner of the next action — but on the commons/slot lineage the narrowed scope excludes |
+| [Goal register](goals.md) D2 | The damage-delivery run: eight faults at once versus one per episode | Inside the narrowed scope; the register is a **draft with no authority** |
+| [Experiment 01](../experiments/01-self-sorting/README.md) | The two-agent boundary first, damage-delivery second | Owns its own openings, not the programme's priority |
+
+They cannot be reconciled by reading, because the disagreement is downstream of
+one unmade decision: **whether the goal register becomes canonical.** That is now
+a `human_required` row in the plan's Human Decisions table, with the consequences
+of each answer. Until it is answered, an agent picking a next action is choosing
+a scope, not just a task.
 
 **What every experiment found:** [the scoreboard](scoreboard.md), one sentence
 each, generated. **What it looks like:** [the status page](status.html).
 **What stopped and what it still costs:** [the failure log](failure-log.md),
-where eight entries are open: the ladder superseded on day one (F1); the
+where nine entries are open: the ladder superseded on day one (F1); the
 substrate unable to express the founding experiment (F2) and making a
 coordination mechanism structural (F2b); the minimality rule that existed and was
 not followed (F10); narrative growing faster than the science (F12); measures
 that turned out to read something else, which qualifies the commons half of the
-headline result (F4); the cockpit no longer tracking the work (F7); and green
-checks that cannot see prose-versus-code defects (F8).
+headline result (F4); the cockpit no longer tracking the work (F7); green
+checks that cannot see prose-versus-code defects (F8); and the headline's own
+counterevidence stated in two different units, which is the *second*, independent
+reason its commons half fails (F23).
+
+**Most recent result, 2026-09-06.** The founding sorting experiment was
+re-entered to answer [goal D2](goals.md): its perturbation schedule now repeats,
+and under transient disturbance the controllers are **indistinguishable from a
+passive attractor** — cost stationary across eight episodes, no attrition. A
+negative answer, and the first work under the narrowed scope.
+[Experiment 01](../experiments/01-self-sorting/README.md) owns it. It is not a
+registered live-era experiment, so it does **not** appear on the scoreboard.
 
 **What is not established.** No construction claim in this programme is
 verified, because the instrument that would verify one has not met the charter's
 completion condition. Both conjectures are supported on exactly one family each.
+The headline statistic holds on the **slot family only**; its commons half fails
+for two independent reasons (F4 and F23).
 
 Historical stops close tested routes, not either research purpose or the shared
 laboratory.

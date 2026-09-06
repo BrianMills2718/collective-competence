@@ -266,6 +266,21 @@ shape and it is now supported by a real control rather than by a floor.** It is
 still not a clause-2 claim: these arms are not the completion condition's matched
 pair, and this measurement was not frozen.
 
+> **Withdrawn on the commons, 2026-09-06 — the paragraph above stands as written
+> and is wrong on one of its two families.** Two independent reasons, neither
+> visible in the bits-only table above.
+> [Q1-010](q1_010_determinism_control_results.md) showed the uncoordinated
+> `frozen` arm sits 5.3 null sd above its own null, unexplained
+> ([F4](../../../wiki/failure-log.md)). And the table's own units hide the
+> second: every figure in it is in bits, but the commons arms' null spreads
+> differ by over two orders of magnitude (`live` 0.000144, `random` 0.000286,
+> `frozen` 0.037201, `none` exactly 0). Scored the way the slot arms are scored,
+> commons `random` is **+20.07 null sd** above its null — it is not "essentially
+> nothing", it is a small number divided by a much smaller null
+> ([F23](../../../wiki/failure-log.md)). The clause holds on the **slot family
+> only**. The slot row of the table is unaffected: its null spreads are all
+> 0.020–0.060 and comparable.
+
 ### 2. Empowerment is now resolvable, and the confound survives anyway
 
 The intervention was widened from one forced tick to a contiguous block of ten,

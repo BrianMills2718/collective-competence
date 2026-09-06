@@ -20,19 +20,27 @@ the destination.
 
 ## Read before interpreting or changing the project
 
-1. Enter through [the project wiki](wiki/index.md).
-2. Read [the generative thesis](wiki/competence-thesis.md) for what this
-   programme is for and what it is betting on — least action as the reason
-   competence has no floor, composition as the constructive bet, free lunch,
-   and the discrete substrate that follows. It is exploratory, not canonical,
-   and it is the only document that states the motivating idea.
-   Read the canonical [research ontology](wiki/ontology.md) for terminology and
-   the [charter](goal-discovery/docs/PROJECT.md) for purpose and scientific scope;
-   the [current plan](goal-discovery/docs/plans/current_research_plan.md) owns
-   priorities for the active Goal and Competence Discovery lane, not the full
-   agenda and not historical plans or a dashboard's cached status.
-   For the next experiment, use that plan's selected evidence and counterexample
-   links before expanding into the full research history.
+1. Enter through [the project wiki](wiki/index.md). Its **Current position**
+   section is the shortest true account of where things stand, and its
+   **Choose your question** table routes by what you actually need.
+2. **Then read by task, not in full.** The documents below total roughly 26,000
+   words; reading all of them before acting spends most of a working context on
+   orientation. Two zero-context agents measured this on 2026-09-06 and each
+   needed five or more documents before they could state the research question.
+
+   | If you are | Read, in order | ~words (measured 2026-09-06) |
+   |---|---|---|
+   | **Reviewing, auditing, or orienting** | [wiki index](wiki/index.md) → [scoreboard](wiki/scoreboard.md) → [failure log](wiki/failure-log.md) | 9,200 |
+   | **Running or designing an experiment** | the above, then [charter](goal-discovery/docs/PROJECT.md) (scope and the completion condition) → [current plan](goal-discovery/docs/plans/current_research_plan.md) (the queued action and its open debts) | +5,900 |
+   | **Making a claim, or naming anything** | add [research ontology](wiki/ontology.md) — canonical, and the only authority on terms | +7,400 |
+   | **Questioning the programme's direction** | add [the generative thesis](wiki/competence-thesis.md) | +3,500 |
+
+   Two cautions the reading order used to hide. The **thesis is exploratory and
+   not canonical** — [the conjecture register](wiki/conjectures.md) records that
+   its three central bets were considered and *refused admission*, so a reader
+   who meets it first builds a model the register then contradicts. And the
+   **current plan owns priorities for the active lane only** — not the full
+   agenda, not historical plans, not a dashboard's cached status.
 3. Follow the task's topic to native evidence/code and the applicable subtree
    instructions below. Read mandatory context; do not load the entire archive.
 4. State the checkout/revision and any local changes before claiming what runs.

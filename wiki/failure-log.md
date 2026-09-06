@@ -489,6 +489,63 @@ and compared it to the package it claimed to come from.** That is the fourth
 distinct guard gap found in two days, after cited packages, cited external
 documents and ordinary links.
 
+## F23 — The headline's counterevidence is stated in two different units — `OPEN`
+
+Found 2026-09-06 by a zero-context reader asked to audit the strongest claim,
+and verified here against the packages. It is the second reason the *"essentially
+nothing where it is absent, on two families"* clause fails on the commons, and it
+is independent of the first.
+
+**The sentence.** Q1-009's result record and [the current plan](../goal-discovery/docs/plans/current_research_plan.md)
+both defend the clause by comparing, on the commons, coordinated `live` at
+**+0.589** against matched-independent `random` at **+0.006**, and conclude that
+*"a matched-independent population sits at its null on the commons as it does on
+the slot."* Both figures are in bits. The counterevidence beside it — the
+uncoordinated `frozen` arm — is quoted in **null sd**: 5.3.
+
+**In matched units the comparison inverts.** From
+`goal-discovery/results/q1-009-information/followup.json`:
+
+| commons arm | above null (bits) | its null sd | in null-sd units |
+|---|---|---|---|
+| `live` (coordinated) | +0.588795 | 0.000144 | **+4100.93** |
+| `random` (matched independent) | +0.005747 | 0.000286 | **+20.07** |
+| `frozen` (uncoordinated) | +0.198211 | 0.037201 | **+5.33** |
+| `none` (degenerate) | 0.000000 | 0.000000 | **undefined** |
+
+The commons null spreads differ by more than two orders of magnitude between
+arms, so a null-sd figure on one commons arm is not comparable with a null-sd
+figure on another. `random` is **+20.07 null sd** above its own null — nearly
+four times further, in its own units, than the `frozen` arm the programme calls
+anomalous. On the slot, **+1.65 null sd** is treated as a real graded response
+worth 39% of the coordinated effect ([Q1-010](../goal-discovery/docs/hypotheses/q1_010_determinism_control_results.md));
++20.07 on the commons is described as sitting *at* its null.
+
+**Why this is not the same as F4.** [F4](#f4--measures-that-turned-out-to-read-something-else--open)
+says the `frozen` arm is unexplained. This says the *control* the clause rests on
+is not at its null either, under the programme's own criterion. Even with `frozen`
+explained away, the commons half of the clause would still not hold as written.
+
+**Aggravating factor, already known and not propagated.** The nulls come from
+**5 replicates** (`null_replicates: 5` in `result.json`), so a null sd carries
+roughly a third of its own value as standard error. `random_attempt` on the slot
+**changes sign** between the two committed null streams of the same experiment
+(−0.040127 → +0.023861, i.e. −0.73 → +1.15 null sd), and `derived_phase`'s
+separation degrades 5.70 → 4.22 sd. Q1-010 recorded this for its own arms; no
+document carries the general consequence, which is that every null-sd figure in
+this programme inherits that instability.
+
+**What is NOT affected.** The slot family's null sds are all of comparable size
+(0.020–0.060), so the slot ordering — coordinated +6.3, deterministic-independent
++1.65, independent draw ~0 — is a like-for-like comparison and stands. Q1-010's
+frozen gate is stated in bits (0.1217) and was frozen before the run; nothing here
+touches it.
+
+**Retires when** the commons arms are re-reported in one unit throughout, with
+enough null replicates for the spread to mean something, or the clause is
+withdrawn on the commons. Not fixed by editing prose alone: the honest number
+depends on a null the current 5 replicates cannot resolve.
+
 ## F21 — The guard against rounded figures never opened a document — `CLOSED 2026-09-06`
 
 [F20](#f20--a-rounded-figure-and-an-unnamed-package--closed-2026-09-06) closed by
