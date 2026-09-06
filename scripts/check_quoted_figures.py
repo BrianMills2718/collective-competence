@@ -50,6 +50,7 @@ implying coverage it does not have.
 
 from __future__ import annotations
 
+import csv
 import json
 import re
 import subprocess
@@ -68,6 +69,7 @@ SCANNED_EXTRA = ()
 
 Q10 = "goal-discovery/results/q1-010-determinism-control/result.json"
 Q9 = "goal-discovery/results/q1-009-information/followup.json"
+REPEAT = "experiments/01-self-sorting/results/repeat.csv"
 
 
 def ratio(numerator, denominator):
@@ -77,6 +79,27 @@ def ratio(numerator, denominator):
 
 def field(*path):
     return lambda blob: dig(blob, path)
+
+
+def csv_cell(column, **where):
+    """Pick one cell from a CSV result package by matching the other columns.
+
+    Result packages here are JSON or CSV depending on which experiment wrote
+    them; a guard that only reads JSON silently stops covering the CSV half.
+    """
+
+    def get(rows):
+        matched = [
+            r for r in rows
+            if all(str(r[k]).strip() == str(v) for k, v in where.items())
+        ]
+        if len(matched) != 1:
+            raise ValueError(
+                f"{where} selects {len(matched)} rows, expected exactly 1"
+            )
+        return float(matched[0][column])
+
+    return get
 
 
 # (label, package, value-getter, context regex with ONE group capturing the
@@ -108,6 +131,14 @@ CHECKS = [
      Q9, ratio(("commons", "frozen", "ei_micro_above_null"),
                ("commons", "frozen", "null_ei_micro_sd")),
      r"uncoordinated arm sits (\d+(?:\.\d+)?) null sd up"),
+    ("D2 unreliable_member, decentralized, episode 0 cost",
+     REPEAT, csv_cell("median_ops_to_recover", perturbation="unreliable_member",
+                      controller="decentralized", p_fail="0.3", episode="0"),
+     r"median ops to recover \| (\d+) \| \d+ \| \d+ \| \d+ \| \d+ \| \d+ \| \d+ \| \d+"),
+    ("D2 unreliable_member, decentralized, episode 7 cost",
+     REPEAT, csv_cell("median_ops_to_recover", perturbation="unreliable_member",
+                      controller="decentralized", p_fail="0.3", episode="7"),
+     r"cost rises 52\s*→\s*\n?\s*(\d+)"),
     ("Q1-009 commons frozen null spread",
      Q9, field("commons", "frozen", "null_ei_micro_sd"),
      r"own null spread of (\d+(?:\.\d+)?)"),
@@ -160,7 +191,11 @@ def main() -> int:
             problems.append(f"{label}: {rel} is missing; a figure check cannot "
                             "pass without its package")
             continue
-        measured = getter(json.loads(package.read_text()))
+        if package.suffix == ".csv":
+            blob = list(csv.DictReader(package.read_text().splitlines()))
+        else:
+            blob = json.loads(package.read_text())
+        measured = getter(blob)
         pattern = re.compile(context)
 
         hits = 0

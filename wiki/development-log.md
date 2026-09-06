@@ -29,6 +29,59 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-06 — the sorting perturbation repeats, and answers D2 in the negative
+
+**Changed:** `experiments/01-self-sorting/selfsort.py` gained `perturb_repeats`.
+The schedule had fired once since the experiment was written — `fired =
+perturbation is None` — so "recovery" was one observation per trial and the
+ontology's definition of robustness as performance *across* perturbations was
+not expressible. It now re-arms after each recovery and records one `Episode`
+per delivered disturbance, with `episode_stop_reason` saying why a sequence
+ended. New experiment `python selfsort.py repeat`; outputs
+`experiments/01-self-sorting/results/repeat.csv`, `repeat_summary.csv` and
+`07_repeat.png`.
+
+**Backward compatibility, checked rather than asserted:** `perturb_repeats=1`
+reproduces the prior behaviour on 225 trials across 5 controllers, 5
+perturbations and 3 fault rates — 2,475 field comparisons, zero mismatches. The
+baseline was captured from the unmodified file before any edit.
+
+**What it found.** At D=20 with `stop_on_goal=False`, 200 trials per cell:
+
+- **`central_closed`'s recovery of `0.00` was never a robustness measurement.**
+  It halts on "no inversion found", so in 200/200 trials it had already stopped
+  when the disturbance arrived and was perturbed after stopping. Episodes
+  absorbed is pinned at one by its own design, in every condition.
+- **Recovery rate saturates and hides degradation.** Under `unreliable_member`
+  the rate is 1.00 at all eight episodes with zero attrition, while median cost
+  rises 52 → 153 for `decentralized` and 44 → 126 for `central_watchdog`.
+- **Transient disturbance gives a flat profile.** Under `swap2` and `teleport`
+  cost is stationary across eight episodes with no attrition. **This answers D2
+  in the negative for those perturbations:** repeated transient disturbance does
+  not distinguish these controllers from a passive attractor.
+
+**A trap the experiment sets, recorded in its own docstring and README.** Episode
+*i* is faced only by trials that recovered from *i−1*. `frozen_member` drops from
+200 trials at risk to 13 with recovery rate decaying 1.00 → 0.42, and its median
+cost *falls* — survivorship, not adaptation. `trials_reaching_episode` is plotted
+underneath the cost so the two are read together.
+
+**Not claimed.** The rising cost has a mechanical explanation — each episode
+damages one more member — so it measures capacity being consumed, not a response
+to repetition. Separating those requires holding total damage fixed and varying
+only its delivery; recorded as the next step in D2 and in the experiment README.
+
+**Also:** the experiment README's "Next" section, unchanged for ten days, ended
+by proposing a production network as "the smallest bridge from this to an
+economics question" — excluded by the charter's pre-biological boundary since
+2026-09-05. Rewritten, with the superseded proposal kept visible rather than
+deleted. `scripts/check_quoted_figures.py` learned to read CSV result packages,
+because the D2 figures live in one and a JSON-only guard would have stopped
+covering half the argument without saying so; two controls added.
+
+Owner: [the goal register](goals.md) D2 · evidence
+[experiment 01](../experiments/01-self-sorting/README.md).
+
 ## 2026-09-05 — an outside audit, a falsified prediction, and the scope narrowed to one arm
 
 **Changed:** an audit of code against the prose beside it; one experiment;
