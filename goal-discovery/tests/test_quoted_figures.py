@@ -89,7 +89,7 @@ class QuotedFigureControls(unittest.TestCase):
 
     def run_checker(self):
         return subprocess.run(
-            [sys.executable, CHECKER], cwd=self.repo, capture_output=True, text=True
+            [sys.executable, CHECKER], cwd=self.repo, capture_output=True, text=True, check=False
         )
 
     def rewrite(self, rel: str, old: str, new: str) -> None:
