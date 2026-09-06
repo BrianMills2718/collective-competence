@@ -114,13 +114,20 @@ It does **not** license adding a substrate, a simulator, or a UI. If the
 experiment cannot be built on the existing discrete apparatus, that is a finding
 about the apparatus and belongs in the plan, not a licence to expand it.
 
-**Two later boundaries bear on this licence and neither is recorded above.** The
-charter's [pre-biological scope boundary](../goal-discovery/docs/PROJECT.md),
-set by the owner 2026-09-05, puts price-and-commons framings out of scope rather
-than deferred — and this register's own reading, three paragraphs down, is that
-the C1 mechanism *is* adaptive-versus-fixed pricing on a commons. [The draft goal
-register](goals.md) would separately defer the constructive arm entirely. Treat
-this licence as suspended pending those, not as standing authorisation.
+**Two later boundaries bear on this licence, and they are different in kind.**
+The charter's [pre-biological scope boundary](../goal-discovery/docs/PROJECT.md),
+set by the owner 2026-09-05, puts price-and-commons framings **out of scope**
+rather than deferred — and this register's own reading, three paragraphs down, is
+that the C1 mechanism *is* adaptive-versus-fixed pricing on a commons. That one
+is a boundary, and it does not expire. Separately, [the goal
+register](goals.md) places constructive work in the **later phase**: the owner
+set the order on 2026-09-06 — substrate, then discovery, then systems built on
+what discovery taught — so the constructive arm is sequenced after this phase,
+not abandoned. That one is a schedule, and it does expire.
+
+So this licence is **not standing authorisation now**: the scope boundary is the
+binding one, and the phase order means constructive experiments are not what this
+phase runs. It is not "suspended pending a decision" — the decision was made.
 
 **Evidence bearing on it.** [C1-001](../goal-discovery/docs/hypotheses/c1_001_shared_scarcity_signal_results.md),
 the first constructive experiment in this repository since 2026-08-26 — supporting,
@@ -250,8 +257,10 @@ rather than being handed down.
 
 **What it licenses.** One experiment testing refuter 2, on the existing
 contended-channel substrate, with refuter 1 present only as a precondition check.
-Suspended on the same two boundaries as C1's licence above — the charter's
-pre-biological scope and the draft goal register's one-arm narrowing.
+Held by the same two boundaries as C1's licence above, and for the same two
+different reasons: the charter's pre-biological scope, which is a boundary and
+binding; and the phase order, under which constructive work comes after the
+discovery phase — later, not cancelled.
 It does **not** license building a new substrate, and it does not license
 re-running C1-002 with a better signal in the hope of rescuing C1.
 

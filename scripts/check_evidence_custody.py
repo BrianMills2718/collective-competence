@@ -75,10 +75,34 @@ def main() -> int:
     # untracked: no document cited it, but tests/test_prospective_network_selector.py
     # depends on it and skipped itself when it was absent -- the same silent-skip failure
     # this guard exists to prevent, in the half the guard was not looking at.
-    # This file and its test both contain example package names as string literals
-    # -- the negative control builds a synthetic repository out of them -- so a
-    # scanner that reads itself reports its own examples as missing evidence.
-    skip = {"scripts/check_evidence_custody.py", f"{LAB}/tests/test_evidence_custody.py"}
+    # Some files contain example package names as string literals because their
+    # negative controls build a synthetic repository out of them -- so a scanner
+    # that reads them reports their fixtures as missing evidence. Skipping is
+    # only safe for a file whose results/ strings are all constructed inside a
+    # temporary directory; a file that actually *reads* a package at runtime must
+    # stay scanned, which is why tests/test_prospective_network_selector.py is
+    # deliberately absent from this set (see the paragraph above).
+    skip = {
+        "scripts/check_evidence_custody.py": "builds synthetic package names in its own examples",
+        f"{LAB}/tests/test_evidence_custody.py": "negative controls construct a synthetic repository",
+        f"{LAB}/tests/test_procedure_custody.py": "fixtures write goal-discovery/results/demo/* into tmp_path only",
+    }
+    # A stale entry would silently exempt nothing while looking like protection.
+    # This applies to THIS repository's exemption list only. The negative controls
+    # run the checker against synthetic repositories built in a temporary
+    # directory, where none of these files exist and every entry would look
+    # stale -- an unconditional guard here fired first and masked the three
+    # controls it stood in front of, which is the failure it was written to
+    # prevent, committed by the fix for it.
+    if root.resolve() == DEFAULT_ROOT.resolve():
+        stale = sorted(path for path in skip if path not in tracked)
+        if stale:
+            print(
+                "FAIL: the citation-scan exemption list names file(s) that are no "
+                "longer tracked: " + ", ".join(stale) + ". Remove them, or the list "
+                "is protecting a file that does not exist."
+            )
+            return 1
 
     # `results/` is not a unique path in this repository. The laboratory has
     # goal-discovery/results/, and experiments/01-self-sorting/ has its own,

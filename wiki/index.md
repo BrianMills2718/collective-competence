@@ -120,32 +120,40 @@ figure below has an owner that is authoritative over it. A date here is a claim
 about when someone last checked, not about when the repository last changed —
 if `git log -1` is newer, treat this section as unverified and go to the owners.*
 
-**Scope narrowed to one arm.** Work is the Goal and Competence Discovery arm,
-extending from the sorting algorithm; questions about recovering *authored*
-structure are deferred until that produces something.
-[The goal register](goals.md) owns this and lists six goals, all restating the
-First Wave brief's own closing questions. It is a **draft**.
+**Discovery is the current phase. It is not a narrowing.** Both arms of the
+programme remain the destination; the owner fixed their *order* on 2026-09-06:
+build the substrate, work out discovery on it, then build systems using what
+discovery taught us. So current work is the Goal and Competence Discovery arm
+extending from the sorting algorithm, and questions about recovering *authored*
+structure belong to the later constructive phase — sequenced after, not dropped.
+[The goal register](goals.md) owns what this phase contains and lists six goals,
+all restating the First Wave brief's own closing questions. **The phase order is
+settled; the six goals are still a draft.**
+
+**What the phase order does *not* say.** It fixes the sequence, not a trigger.
+No document states a checkable condition for when discovery is finished enough
+that constructive work begins — "then build systems using what we learn" is an
+ordering, and nobody should read it as a gate that some measurement will trip.
+[F1](failure-log.md) carries that gap as an open cost.
 
 **Pre-biological is a scope boundary**, not a deferred option. Economic framings
 and LLM agents are out of scope; the founding sequence placed them last and the
 renewable commons was phase-M content run at phase-F time.
 [The charter](../goal-discovery/docs/PROJECT.md) owns the boundary.
 
-**The next action is contested, three ways, and the conflict is a scope
-question a human must settle.** Three documents each name a different next thing,
-each aware of the others, none yielding:
+**The next action is the damage-delivery run.** Three documents used to name
+three different next things, and the disagreement was downstream of an unmade
+decision about scope. The owner made it on 2026-09-06 and the ordering resolves
+all three:
 
-| Document | Names as next | Status |
+| Document | Names as next | Where it now sits |
 |---|---|---|
-| [Current plan](../goal-discovery/docs/plans/current_research_plan.md) | Re-run Q1-006 with a null-calibrated threshold | The designated owner of the next action — but on the commons/slot lineage the narrowed scope excludes |
-| [Goal register](goals.md) D2 | The damage-delivery run: eight faults at once versus one per episode | Inside the narrowed scope; the register is a **draft with no authority** |
-| [Experiment 01](../experiments/01-self-sorting/README.md) | The two-agent boundary first, damage-delivery second | Owns its own openings, not the programme's priority |
+| [Goal register](goals.md) D2 | The damage-delivery run: eight faults at once versus one per episode | **First.** On the sorting lineage, which is this phase |
+| [Experiment 01](../experiments/01-self-sorting/README.md) | The two-agent boundary first, damage-delivery second | Same phase, same lineage; it disagrees only on which of its own two openings goes first, and D2 is the cheaper discriminator |
+| [Current plan](../goal-discovery/docs/plans/current_research_plan.md) | Re-run Q1-006 with a null-calibrated threshold | **Later, not cancelled.** On the commons/slot families, so it is not first — and it depends on Q1-008, whose procedure is [recorded as not preserved](failure-log.md#f24--a-cited-experiment-has-results-and-no-code--closed-2026-09-06) |
 
-They cannot be reconciled by reading, because the disagreement is downstream of
-one unmade decision: **whether the goal register becomes canonical.** That is now
-a `human_required` row in the plan's Human Decisions table, with the consequences
-of each answer. Until it is answered, an agent picking a next action is choosing
-a scope, not just a task.
+No human decision is outstanding here. An agent picking the next action should
+pick D2.
 
 **What every experiment found:** [the scoreboard](scoreboard.md), one sentence
 each, generated. **What it looks like:** [the status page](status.html) — same coverage limit as
@@ -168,7 +176,7 @@ non-reproducible rather than reconstructed from prose.
 re-entered to answer [goal D2](goals.md): its perturbation schedule now repeats,
 and under transient disturbance the controllers are **indistinguishable from a
 passive attractor** — cost stationary across eight episodes, no attrition. A
-negative answer, and the first work under the narrowed scope.
+negative answer, and the first work of the discovery phase.
 [Experiment 01](../experiments/01-self-sorting/README.md) owns it. It is not a
 registered live-era experiment, so it does **not** appear on the scoreboard.
 

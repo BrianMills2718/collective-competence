@@ -29,6 +29,42 @@ establish. Do not preserve a superseded current-state narrative merely to explai
 the transition: promote its durable content, record the change here, and archive
 the obsolete artifact through the shared lifecycle procedure.
 
+## 2026-09-06 — the discovery arm is a phase, not a narrowing
+
+**Changed:** five documents that described current work as a *scope narrowing to
+one arm* now describe it as a *phase order*. [The goal register](goals.md),
+[the wiki index](index.md), [the charter](../goal-discovery/docs/PROJECT.md),
+[the current plan](../goal-discovery/docs/plans/current_research_plan.md) and
+[the conjecture register](conjectures.md). The plan's `human_required` row asking
+whether the goal register becomes canonical is answered and kept for the record;
+the index's "next action is contested three ways" table is replaced by the
+ordering that resolves it. The next action is now D2's damage-delivery run, with
+the Q1-006 re-run sequenced behind it rather than out of scope.
+
+**Why:** the owner rejected the framing, not the content — *"the discover arm is
+a phasing thing. like we need to build the substrate to work out the discovery so
+then we can try to build systems based on what we learn."* The framing was
+introduced by an agent (this one) and then put to the owner as a decision to
+approve, which is [failure mode B2](../wiki/failure-log.md): a frame that arrived
+with the task and was never questioned. Its cost was concrete — every route in
+the repository pointed a reader at a scope question they could not answer, and a
+zero-context reader had to resolve the next action by judgement.
+
+**The distinction that matters.** A narrowing says the constructive arm was
+dropped. A phase says it is second. Under a narrowing, the charter's completion
+condition needs a reconciliation clause and C1/C2's licences are suspended
+pending an undecided question. Under a phase order, the charter is unchanged and
+those licences are simply *later*. Nothing about the science changed; what
+changed is what an agent reading these documents concludes the programme is for.
+
+**References:** [goal register](goals.md), [charter](../goal-discovery/docs/PROJECT.md),
+[current plan](../goal-discovery/docs/plans/current_research_plan.md),
+[conjecture register](conjectures.md).
+
+**Does not establish:** no experiment was run, no result changed, and the six
+goals D1–D6 remain an unreviewed draft. Only their ordering relative to the
+constructive arm is settled.
+
 ## 2026-09-06 — procedure custody is now explicit, and Q1-008 is the one known hole
 
 **Changed:** [F24](failure-log.md) was closed by sweeping all 15 experiments that

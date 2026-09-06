@@ -60,18 +60,33 @@ The first move against this is a candidate family carrying a latent shared
 regressor, plus an adequacy test that reports failure-to-explain rather than only
 relative improvement over persistence.
 
-**Next action — one thing.** Re-run
-[Q1-006](../hypotheses/q1_006_pairwise_relation_results.md)'s comparison with a
-**null-calibrated threshold**, in the null-subtracted form Q1-009 established.
-Nothing else is queued. Item 1 below is finished and is kept for what it changed;
-item 2 is the action.
+**Next action — one thing: [goal D2](../../../wiki/goals.md)'s damage-delivery
+run.** Hold total damage fixed at eight faults and vary only delivery — all at
+once versus one per episode — on the sorting lineage. It discriminates a passive
+attractor from something that actually restores performance after loss, which is
+the question the 2026-09-06 repeated-perturbation run answered in the negative
+for *transient* disturbance only.
 
-**Scope caveat, 2026-09-06.** [The draft goal register](../../../wiki/goals.md)
-narrows active work to the sorting lineage and would put this re-run out of scope,
-since Q1-006 sits on the commons and slot families. That register is a draft with
-no authority until reviewed, so this action stands; but every route in the
-repository points a reader here for the next action, and the conflict should be
-settled rather than discovered. Out of scope on that reading, not wrong.
+**Why this plan's own previous next action moved, 2026-09-06.** Re-running
+[Q1-006](../hypotheses/q1_006_pairwise_relation_results.md)'s comparison with a
+**null-calibrated threshold**, in the null-subtracted form Q1-009 established,
+was queued here and is **still wanted — it is no longer first**. Two reasons,
+both settled rather than contested:
+
+1. **Phase order.** The owner fixed it on 2026-09-06: build the substrate, work
+   out discovery on it, then build systems from what discovery teaches. Q1-006
+   sits on the commons and slot families; D2 sits on the sorting lineage this
+   phase works. That is a sequencing fact, not a judgement that Q1-006 is wrong
+   or out of bounds — and it is **not** a narrowing of the programme, which keeps
+   both arms as its destination.
+2. **An unmet dependency.** The re-run leans on
+   [Q1-008](../hypotheses/q1_008_null_coupling_control_results.md), whose
+   procedure is recorded as **not preserved** — results and a result record
+   survive, no runner does. Reconstructing it from prose and calling that a
+   reproduction is explicitly warned against in its own record.
+
+Item 1 below is finished and is kept for what it changed; item 2 is the Q1-006
+re-run, now queued behind D2 rather than ahead of it.
 
 **This action was challenged on 2026-09-05 and survives.** A
 [prose-vs-code audit](../audits/2026-09-05b_prose_vs_code_audit.md) argued that
@@ -250,7 +265,7 @@ in a separate claims/cursor apparatus. Tags: `human_set`, `agent_decided_reversi
 |---|---|---|
 | Which prospective protocol P15's pass earns the design of | `agent_decided_reversible` | Brian delegated after the domain specifics didn't resolve for him ("proceed as you think is best"). Decided: no protocol is designed — P13's held case already ran the only intervention its proposal names, and P14's lane is stopped; see the result record. Reversible: a future session can still design one if a genuinely new intervention is later identified. |
 | Whether to select a new system for the next research slice | `human_required` | Follows from the row above. Checked both `misc/` quarantine candidates against the active lane before leaving this open: `morphogenesis-scaling-law` has real runnable code and honestly-reported findings, but is Collective-Competence-shaped (mechanism -> capability under noise/decay-length, ground truth disclosed) not Goal-Discovery-shaped (black-box candidate-goal inference) — the currently active lane. `experiments/platonic-ingression` has no runnable code here at all and its own source explicitly says its numbers aren't yet benchmark-grade. Neither is a clean drop-in; the real choice is broader than picking from `misc/`. |
-| **Whether [the draft goal register](../../../wiki/goals.md) becomes canonical** | `human_required` | **The most consequential open choice, and until it is made the repository points agents at three different next actions.** The register narrows work to the Goal and Competence Discovery arm on the sorting lineage; it declares itself "Authority: none until reviewed" and no document names a reviewer or a date. Consequences either way: **if canonical**, this plan's queued Q1-006 re-run is out of scope (it is on the commons and slot families), the next action becomes D2's damage-delivery run, and [the charter's](../PROJECT.md) two-arm framing needs a reconciliation condition; **if not**, the Q1-006 re-run stands, and `goals.md` should be marked superseded rather than left as a draft that three other documents defer to. Added 2026-09-06 after a zero-context reader could not determine which action to take and had to resolve it by judgement. |
+| **Whether the discovery arm narrows the programme to one arm** | `human_set`, **answered 2026-09-06** | Asked as "does [the goal register](../../../wiki/goals.md) become canonical", which was the wrong question — it offered a choice between narrowing the programme and abandoning the register. The owner rejected the framing: *"the discover arm is a phasing thing. like we need to build the substrate to work out the discovery so then we can try to build systems based on what we learn."* So: **both arms remain the destination; discovery is first in time.** What follows — the phase order in `goals.md` is canonical, its six goals stay a draft, this plan's next action becomes D2, and the Q1-006 re-run is sequenced later rather than descoped. [The charter](../PROJECT.md) needs no reconciliation condition, because nothing was narrowed. Kept here rather than deleted so the next reader can see the question was asked badly and how it was answered. |
 
 An agent that reaches a new `human_required`-shaped choice adds a row here
 rather than deciding it or inventing a parallel tracker.

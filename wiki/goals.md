@@ -1,6 +1,6 @@
 ---
 doc-role: research-goal-register
-authority: draft
+authority: canonical-for-phase-order; draft for the goals themselves
 lifecycle: active
 sources:
   - ontology.md
@@ -9,25 +9,51 @@ sources:
   - ../experiments/01-self-sorting/README.md
   - substrate-design.md
 ---
-# Research goals — draft for review
+# Research goals — the current phase, and what is in it
 
 [Project wiki](index.md) · [Ontology](ontology.md) ·
 [Substrate design](substrate-design.md) · [Failure log](failure-log.md)
 
-> **DRAFT. Authority: none until reviewed.** Revised 2026-09-05 after the owner
-> narrowed the scope: *"we should only really be working on the discovery arm
-> extending the work that starts with the sorting algorithm. and then we will
-> learn things from that before going onto these other questions about authoring
-> etc."*
+> **Two things in this file have different standing, and conflating them was the
+> mistake this revision corrects.**
+>
+> **The phase order is settled.** The owner set it on 2026-09-05 — *"we should
+> only really be working on the discovery arm extending the work that starts
+> with the sorting algorithm. and then we will learn things from that before
+> going onto these other questions about authoring etc."* — and confirmed on
+> 2026-09-06 what that means: *"the discover arm is a phasing thing. like we
+> need to build the substrate to work out the discovery so then we can try to
+> build systems based on what we learn."* That is canonical. No document should
+> ask for it to be decided again.
+>
+> **The six goals below are still a draft.** D1–D6 are this file's proposal for
+> what the current phase contains. Nobody has reviewed them. Treat them as the
+> best available list, not as an authority.
 
-## Scope, as narrowed
+## Scope: this is a phase, not a narrowing
 
-**One arm.** Goal and Competence Discovery only. The constructive arm is not
-worked on, and questions about recovering *authored* structure are deferred —
-they presuppose a construction arm producing specimens to recover.
+**Both arms remain the destination.** [The charter](../goal-discovery/docs/PROJECT.md)
+is unchanged: the programme is one agenda with a **Collective Competence** arm
+that constructs and explains, and a **Goal and Competence Discovery** arm that
+infers goals and competence from behaviour. Neither has been dropped, cancelled,
+or descoped. An agent reading this file should not conclude that constructive
+work was abandoned — it was *sequenced second*.
 
-**One lineage.** The sorting system and the contrastive toy systems beside it.
-Not the commons, not the contended slot, not a new substrate.
+**Discovery is first in time, because the substrate has to support it.** The
+order is: **build the substrate → work out discovery on it → then build systems
+using what discovery taught us.** Constructive work is not deferred because it is
+less interesting. It is deferred because it would be built on an instrument
+nobody has yet shown can measure anything — and this repository already has a
+[failure log](failure-log.md) full of what that costs. The discovery arm is how
+the instrument gets qualified; the constructive arm is what the qualified
+instrument is *for*.
+
+**What follows from that, concretely.** Work in this phase is on the sorting
+system and the contrastive toy systems beside it — not the commons, not the
+contended slot, not a new substrate. Questions about recovering *authored*
+structure wait for the later phase, because they presuppose a construction arm
+producing specimens to recover. That is a sequencing fact about those questions,
+not a judgement that they are out of bounds.
 
 **One output.** [The ontology](ontology.md#goal-and-competence-may-be-jointly-assessed-from-behavior)
 already specifies what the analytic arm returns:
@@ -63,8 +89,9 @@ than this project's. Two specific faults, both corrected here:
   names the rival explanation: *"Goal = attractor or invariant. Passive dynamics
   can converge or preserve structure without active goal-directed performance."*
   The question is D2 below, under its proper name.
-- **Recovering authored structure was too far.** It was drafted as G2 and is now
-  deferred entirely.
+- **Recovering authored structure was too far for *this phase*.** It was drafted
+  as G2 and belongs to the later constructive phase, which needs specimens this
+  phase does not yet produce.
 
 ## The goals
 
@@ -195,17 +222,29 @@ for their own sake.
 | Free lunch, cost accounting, who-paid | The thesis's central missing vocabulary, and still missing. Not resolvable on sorting alone. |
 | Economics, markets, LLM agents, richer environments | Phases L and M. Out of scope by the pre-biological boundary. |
 
-## What this narrowing supersedes
+## What the phase order changes about the queued work
 
-**The current plan's queued next action.** Re-running Q1-006's comparison with a
-null-calibrated threshold advances the Q1 instrument-qualification sequence on
-the commons and slot families — a lineage this scope excludes. It is not wrong;
-it is out of scope. The plan should be updated rather than the action quietly
-dropped.
+**The current plan's queued next action moves, it does not die.** Re-running
+Q1-006's comparison with a null-calibrated threshold advances the Q1
+instrument-qualification sequence on the commons and slot families — not the
+sorting lineage this phase works. It is not wrong and it is not cancelled; it is
+**not first**. The plan owns saying so.
 
-## Open for review
+**Nothing here retires a result, a conjecture, or an arm.** A licence marked
+"later phase" elsewhere in the wiki means exactly that: the work is sequenced
+after discovery has taught us something, and it comes back with whatever
+discovery taught us built into it. Where a document previously said work was
+*suspended pending a decision*, the decision has been made and the correct word
+is *later*.
+
+## Still open for review
+
+These are questions about the **contents** of the phase. The phase order itself
+is settled and is not one of them.
 
 1. Are D1–D6 the right set, and is the First Wave brief's list the right spine?
 2. D2 is the only one with a cheap next step. Is it the first?
-3. Does this register become canonical, and does the charter's two-arm framing
-   stay as the destination while only one arm is worked?
+
+**Answered 2026-09-06, and no longer open:** whether the discovery arm is a
+narrowing of the programme. It is not. It is the first phase of it, and the
+charter's two-arm destination stands unchanged.
