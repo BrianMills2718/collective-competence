@@ -15,23 +15,24 @@ This is the only hot page that owns **current priority and next action**.
 
 ## Where we are
 
-The programme now has several different small phenomena rather than only one lineage: the simple self-sorting example, a retained morphogenesis scaling result, and a passive-relaxation / negative-feedback regulation calibration.
+The programme now has several distinct small phenomena: the self-sorting worked example, a retained morphogenesis scaling result, negative-feedback regulation, and a topology-different redundant-route compensation case.
 
-The regulation case also passed a bounded blind Goal Discovery check. The unchanged P15 scalar proposer, given anonymous trajectories and an anonymous channel-disabling intervention, inferred a stable reference near the withheld authored value of 100 and did not promote a goal/competence claim. A separate zero-context reader independently described the intact behavior as regulation-like, identified a reference near 100, and retained passive and alternative-target explanations as rivals.
+The compensation case adds a useful boundary rather than another infrastructure layer. At low input an anonymous system visibly substitutes the surviving channel after either single failure; at higher input the same behavior hits the survivor's capacity ceiling and fails. A zero-context reader recovered that bounded substitution without semantic field names or implementation access, and correctly did not call it learning.
 
 ## Next action
 
-**Move to the smallest compensation/repair specimen.**
+**Move to the smallest genuine adaptation specimen.**
 
-The next system should add one causal ingredient beyond regulation: at least two routes capable of supporting the same macro condition, so damage to one route can be compensated by another. Keep it inspectable and use the existing laboratory contracts where they fit naturally.
+The next system must differ from the regulation and compensation cases in one essential way: some behavior, policy, memory, or organization must **change because of prior experience**. Mere return to an attractor, fixed feedback, or pre-authored rerouting does not qualify.
 
 The immediate questions are:
 
-1. Can the system preserve or restore the same criterion after one route is disabled?
-2. Is the successful response genuinely an alternate route rather than ordinary robustness of the original route?
-3. What can a black-box analyst infer from the behavior and targeted intervention without being told the authored mechanism?
+1. Can repeated experience change later performance under the same challenge?
+2. Does freezing or resetting the learned/changed state remove that improvement?
+3. Can a black-box analyst distinguish genuine history dependence from hidden initial state, survivorship, cursor/scheduler state, or ordinary transient dynamics?
+4. What does the system retain, and how long does that retained change matter?
 
-Do **not** add more thermostat polish or redesign Goal Discovery before this specimen exists.
+Do not build a general learning framework first. Start with one minimal causal memory variable or plastic interaction and a matched frozen-policy null.
 
 ## Working rules
 

@@ -1,0 +1,171 @@
+{
+  "cases": [
+    {
+      "criterion_zero_backlog": true,
+      "demand": 2,
+      "failure": "none",
+      "final_backlog": 0,
+      "policy": "reroute",
+      "post_fault_delivery_rate": 2.0,
+      "post_fault_mean_flow_a": 1.0,
+      "post_fault_mean_flow_b": 1.0
+    },
+    {
+      "criterion_zero_backlog": true,
+      "demand": 2,
+      "failure": "a",
+      "final_backlog": 0,
+      "policy": "reroute",
+      "post_fault_delivery_rate": 2.0,
+      "post_fault_mean_flow_a": 0.0,
+      "post_fault_mean_flow_b": 2.0
+    },
+    {
+      "criterion_zero_backlog": true,
+      "demand": 2,
+      "failure": "b",
+      "final_backlog": 0,
+      "policy": "reroute",
+      "post_fault_delivery_rate": 2.0,
+      "post_fault_mean_flow_a": 2.0,
+      "post_fault_mean_flow_b": 0.0
+    },
+    {
+      "criterion_zero_backlog": false,
+      "demand": 2,
+      "failure": "both",
+      "final_backlog": 80,
+      "policy": "reroute",
+      "post_fault_delivery_rate": 0.0,
+      "post_fault_mean_flow_a": 0.0,
+      "post_fault_mean_flow_b": 0.0
+    },
+    {
+      "criterion_zero_backlog": true,
+      "demand": 2,
+      "failure": "none",
+      "final_backlog": 0,
+      "policy": "fixed",
+      "post_fault_delivery_rate": 2.0,
+      "post_fault_mean_flow_a": 1.0,
+      "post_fault_mean_flow_b": 1.0
+    },
+    {
+      "criterion_zero_backlog": false,
+      "demand": 2,
+      "failure": "a",
+      "final_backlog": 40,
+      "policy": "fixed",
+      "post_fault_delivery_rate": 1.0,
+      "post_fault_mean_flow_a": 0.0,
+      "post_fault_mean_flow_b": 1.0
+    },
+    {
+      "criterion_zero_backlog": false,
+      "demand": 2,
+      "failure": "b",
+      "final_backlog": 40,
+      "policy": "fixed",
+      "post_fault_delivery_rate": 1.0,
+      "post_fault_mean_flow_a": 1.0,
+      "post_fault_mean_flow_b": 0.0
+    },
+    {
+      "criterion_zero_backlog": false,
+      "demand": 2,
+      "failure": "both",
+      "final_backlog": 80,
+      "policy": "fixed",
+      "post_fault_delivery_rate": 0.0,
+      "post_fault_mean_flow_a": 0.0,
+      "post_fault_mean_flow_b": 0.0
+    },
+    {
+      "criterion_zero_backlog": true,
+      "demand": 4,
+      "failure": "none",
+      "final_backlog": 0,
+      "policy": "reroute",
+      "post_fault_delivery_rate": 4.0,
+      "post_fault_mean_flow_a": 2.0,
+      "post_fault_mean_flow_b": 2.0
+    },
+    {
+      "criterion_zero_backlog": false,
+      "demand": 4,
+      "failure": "a",
+      "final_backlog": 80,
+      "policy": "reroute",
+      "post_fault_delivery_rate": 2.0,
+      "post_fault_mean_flow_a": 0.0,
+      "post_fault_mean_flow_b": 2.0
+    },
+    {
+      "criterion_zero_backlog": false,
+      "demand": 4,
+      "failure": "b",
+      "final_backlog": 80,
+      "policy": "reroute",
+      "post_fault_delivery_rate": 2.0,
+      "post_fault_mean_flow_a": 2.0,
+      "post_fault_mean_flow_b": 0.0
+    },
+    {
+      "criterion_zero_backlog": false,
+      "demand": 4,
+      "failure": "both",
+      "final_backlog": 160,
+      "policy": "reroute",
+      "post_fault_delivery_rate": 0.0,
+      "post_fault_mean_flow_a": 0.0,
+      "post_fault_mean_flow_b": 0.0
+    },
+    {
+      "criterion_zero_backlog": true,
+      "demand": 4,
+      "failure": "none",
+      "final_backlog": 0,
+      "policy": "fixed",
+      "post_fault_delivery_rate": 4.0,
+      "post_fault_mean_flow_a": 2.0,
+      "post_fault_mean_flow_b": 2.0
+    },
+    {
+      "criterion_zero_backlog": false,
+      "demand": 4,
+      "failure": "a",
+      "final_backlog": 80,
+      "policy": "fixed",
+      "post_fault_delivery_rate": 2.0,
+      "post_fault_mean_flow_a": 0.0,
+      "post_fault_mean_flow_b": 2.0
+    },
+    {
+      "criterion_zero_backlog": false,
+      "demand": 4,
+      "failure": "b",
+      "final_backlog": 80,
+      "policy": "fixed",
+      "post_fault_delivery_rate": 2.0,
+      "post_fault_mean_flow_a": 2.0,
+      "post_fault_mean_flow_b": 0.0
+    },
+    {
+      "criterion_zero_backlog": false,
+      "demand": 4,
+      "failure": "both",
+      "final_backlog": 160,
+      "policy": "fixed",
+      "post_fault_delivery_rate": 0.0,
+      "post_fault_mean_flow_a": 0.0,
+      "post_fault_mean_flow_b": 0.0
+    }
+  ],
+  "criterion": "zero backlog",
+  "system": {
+    "capacity_each": 2,
+    "fault_tick": 20,
+    "horizon": 60,
+    "routes": 2
+  }
+}
