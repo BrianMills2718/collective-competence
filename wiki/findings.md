@@ -5,6 +5,8 @@ lifecycle: active
 sources:
   - ../experiments/01-self-sorting/README.md
   - ../experiments/02-regulation/README.md
+  - ../experiments/03-redundant-transport/README.md
+  - ../experiments/04-route-learning/README.md
   - ../experiments/morphogenesis-scaling/README.md
   - scoreboard.md
   - ../roadmap/research.md
@@ -75,6 +77,23 @@ A zero-context reader given only anonymous trajectories, known input, and anonym
 
 **Evidence:** [`experiments/03-redundant-transport/README.md`](../experiments/03-redundant-transport/README.md).
 
+
+## Retained experience produces behaviorally recognizable adaptation
+
+A repeated route-allocation specimen isolates one persistent preference variable. There is no within-episode feedback: an episode uses a fixed allocation, observes the two route qualities, and only then may the next episode's allocation change. In stationary environments the adaptive arm improves delivered work from **75 → 87.5 → 95**, while frozen and reset-between controls remain at 75. After the environment reverses, retained experience is initially harmful — performance falls from 95 to **55** — and then recovers through **67.5 → 80 → 92.5 → 95** as the allocation changes.
+
+The strongest test holds current inputs and block number fixed while changing only prior history. Under the same current `(0.5, 1.0)` environment at block 4, the adaptive system allocates 90 units to the first channel after one history and 10 after the opposite history. A zero-context reader identified this as evidence that current inputs alone do not determine behavior. Holding the changing component fixed or restoring it before each block removes the history-dependent change.
+
+**Scope:** this supports retained history-dependent adaptation in a behavioral/causal sense. It does not identify a unique learning rule, objective, memory mechanism, or agency; a fixed stateful dynamical controller remains a possible mechanistic description.
+
+**Evidence:** [`experiments/04-route-learning/README.md`](../experiments/04-route-learning/README.md).
+
+## The four calibration signatures are not four exclusive mechanism labels
+
+A one-off mixed zero-context read compared compact opaque evidence from passive attraction, feedback regulation, compensation, and adaptation together. It cleanly separated attraction, bounded substitution, and history dependence. It described the feedback specimen as a stronger regulation-like signature but correctly noted that faster restoration and smaller steady offsets alone do not uniquely distinguish active feedback from a different passive restoring law.
+
+This is a reason to **stop polishing the calibration ladder**, not a reason to weaken the concepts. Intervention choice determines what can be inferred: the regulation experiment's sensor/actuator ablations provide causal evidence that the compressed mixed package omitted. Future work should use these distinctions on new systems rather than optimizing toy classifiers.
+
 ## Measurement choices can hide important differences
 
 Across the work, several attractive headline measures have turned out to read less than their names suggest. In sorting, recovery rate can stay at 1.0 while recovery cost deteriorates; a halted controller can receive a nominal recovery score despite no longer participating; and survivorship can make later episodes appear cheaper. Earlier Goal Discovery work similarly found measures that tracked determinism, unused capacity, or omitted mechanism variables rather than the richer interpretation initially attached to them.
@@ -89,4 +108,4 @@ See [the generated scoreboard](scoreboard.md), [research synthesis](../roadmap/r
 
 ## What would count as progress from here
 
-Progress means accumulating **different small phenomena** and seeing which distinctions survive: sorting is one unusually transparent example; morphogenesis is a retained scaling result; regulation is a control calibration with one bounded blind-discovery success. The current work page owns the next concrete action. This page should change only when the programme has learned something worth retaining beyond the current task.
+Progress now means using these distinctions on **genuinely new phenomena**, not adding more calibration categories. Sorting is one transparent worked example; morphogenesis contributes a retained scaling result; regulation, compensation, and adaptation now provide small contrastive calibrations with bounded blind-analysis successes. The current work page owns the next concrete action.

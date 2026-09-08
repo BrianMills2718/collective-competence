@@ -1,0 +1,17 @@
+{
+  "exposed": [
+    "three anonymous arms",
+    "two known exogenous inputs per block",
+    "three anonymous outputs",
+    "generic hold/restore interventions"
+  ],
+  "sha256": "45957776f855ffc4c30de7d9fa52e9171abce08e578a9e62188a5c095bc18bd1",
+  "withheld": [
+    "policy meanings",
+    "field semantics",
+    "route/foraging semantics",
+    "objective",
+    "learning rule",
+    "implementation"
+  ]
+}
