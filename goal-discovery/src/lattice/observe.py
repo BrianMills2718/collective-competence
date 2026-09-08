@@ -1,15 +1,15 @@
-"""Measurements. Everything an analyst is allowed to compute, and nothing else.
+"""Measurements and analyst-visible channels over the shared lattice.
 
 These are functions FROM a lattice. The lattice cannot call them and holds no
 reference to them, which is the mechanical form of *"the target lives only in
-the measurement"*. A specimen that needed to read its own score would have to
-change the substrate to do it, and that change would be visible in a diff.
+the measurement"*.
 
-Keeping them here also fixes what an analyst is permitted to see. `inversions`
-is a global order statistic no single entity could compute from its own
-neighbourhood; `local_disorder` is what an entity could see. An experiment that
-grants the analyst the first is making a stronger observability assumption than
-one that grants only the second, and it has to say so.
+`occupants` is deliberately the raw site-payload channel. In conserving/entity
+mode those integers are stable entity identities. In non-conserving/local-state
+mode they are rewritable site-state values. The observation contract exposes the
+values, not their hidden mechanism or intended interpretation. Sorting-specific
+measurements such as `inversions` are separate functions and should only be used
+when the experiment declares that representation meaningful.
 """
 
 from __future__ import annotations
@@ -18,14 +18,14 @@ from .core import Lattice
 
 
 def occupant_values(lat: Lattice) -> list[int]:
-    """The lattice as a list of identities, empty sites dropped."""
+    """Raw non-empty site payloads under the lattice's declared payload mode."""
     return [o for o in lat.occupants if o is not None]
 
 
 def inversions(lat: Lattice) -> int:
     """Pairs out of ascending order. Zero exactly when sorted.
 
-    A global statistic: no entity can compute this from its own neighbourhood.
+    This is a sorting representation, not a generic lattice property.
     """
     vals = occupant_values(lat)
     return sum(1 for i in range(len(vals)) for j in range(i + 1, len(vals))
@@ -33,7 +33,7 @@ def inversions(lat: Lattice) -> int:
 
 
 def local_disorder(lat: Lattice) -> int:
-    """Adjacent pairs out of order -- what an entity could see for itself."""
+    """Adjacent pairs out of order in the sorting representation."""
     vals = occupant_values(lat)
     return sum(1 for i in range(len(vals) - 1) if vals[i] > vals[i + 1])
 
@@ -46,11 +46,9 @@ def is_sorted(lat: Lattice) -> bool:
 #
 # Spec §6 is the load-bearing sentence: *"The analyst must not receive: hidden
 # rules; hidden parameters; hidden state; hidden scheduler state; labels saying
-# what mechanism/goal was intended."* Goal discovery is only meaningful if that
-# holds mechanically. A contract that an analyst could quietly read around is
-# not a contract, so asking for a channel that was not exposed RAISES rather
-# than returning nothing -- an empty reading and a forbidden reading must never
-# look alike.
+# what mechanism/goal was intended."* Asking for a channel that was not exposed
+# raises rather than returning nothing: an empty reading and a forbidden reading
+# must never look alike.
 
 CHANNELS = {
     "occupants": occupant_values,
@@ -60,8 +58,7 @@ CHANNELS = {
     "size": lambda lat: lat.size,
 }
 
-# Named so that a future channel cannot be added to CHANNELS and silently become
-# analyst-visible: anything here is white-box and may never be exposed.
+# Anything here is white-box and may never be exposed through Observation.
 NEVER_EXPOSED = frozenset({"rule", "schedule", "faults", "rng", "memory", "entities"})
 
 
