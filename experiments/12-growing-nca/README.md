@@ -56,11 +56,31 @@ It also gives a stronger version of a distinction seen earlier in sorting: **att
 - This is an NCA reproduction, not biological evidence.
 - The CPU adapter mirrors the public quantized WebGL inference route, not the authors' TensorFlow training pipeline.
 - The lesion geometry, timing, target-MSE representation, and fixed RNG seed are ours.
-- One target morphology and one declared lesion are insufficient to characterize the regeneration basin.
+- The mapped basin is still limited to one target morphology and central circular lesions; geometry, location, timing, and formation-state variation remain open.
 - Low RGB error does not identify the internal mechanism, desired-state representation, or causal role of hidden channels.
 - No Goal Discovery claim is made here.
 
 The next scientific value comes from interventions whose outcomes are not already specified by the paper: lesion size/geometry/timing boundaries and selective perturbation of visible versus hidden cell state.
+
+## Phase-2 intervention map
+
+The fixed upstream models were then challenged without retraining. Central circular lesions were swept on the published 96x96 grid using exact state/RNG branches. At a 96-update horizon, the growing model fails even for a radius-2 lesion; the persistent model tolerates radius 2 but degrades sharply by radius 4; the regenerating model repairs through substantially larger lesions.
+
+For the regeneration-trained `ex3` model, target MSE after 96 recovery updates is **0.000482** at radius 8, **0.003410** at radius 16, **0.014094** at radius 18, and **0.016404** at radius 20. The radius-18/20 cases are not merely slow versions of radius 16: through 512 updates, radius 16 remains in a low-error regime (0.00344), radius 18 stalls near 0.0149, and radius 20 eventually diverges to **0.03543**, while the matched undamaged trajectory remains near the target (**0.000318** at +512).
+
+This is a bounded basin result for one morphology, lesion geometry, formed state, and stochastic stream. It does not define a universal maximum lesion size.
+
+### Visible versus hidden state
+
+The 16 NCA channels permit a more diagnostic intervention. In the same spatial region we can erase only visible RGBA channels, erase only the 12 hidden channels, or erase all 16 channels.
+
+At radius 8 all three perturbations are largely absorbed. At radius 16, however, erasing **only hidden state while leaving the visible morphology present** is more disruptive than deleting the entire local state: in the exact matched branch, 96-step target MSE is **0.01064** for hidden-only corruption versus **0.00341** for a full lesion and **0.00426** for visible-only damage.
+
+That ordering survives four independently seeded future update streams from the same formed state. Hidden-only corruption is worse than full deletion in **4/4** streams; mean 96-step target MSE is **0.00875** hidden-only versus **0.00316** full deletion (undamaged mean **0.000679**).
+
+The conservative interpretation is that latent cell state is causally load-bearing and that compatibility between visible and hidden state matters. This does **not** establish that hidden channels are an explicit target, memory map, or semantic goal representation. A full lesion may be easier to repair precisely because it removes mutually inconsistent local state rather than preserving a visible cell with corrupted latent variables.
+
+Evidence: [`results/lesion_basin.json`](results/lesion_basin.json) and [`results/hidden_state_probe.json`](results/hidden_state_probe.json).
 
 ## Reproduce
 
@@ -69,6 +89,8 @@ Use the project environment, which already provides NumPy, Matplotlib, and pytes
 ```bash
 python3 experiments/12-growing-nca/fetch_upstream.py
 python3 experiments/12-growing-nca/run.py
+python3 experiments/12-growing-nca/lesion_basin.py
+python3 experiments/12-growing-nca/hidden_state_probe.py
 python3 -m pytest -q experiments/12-growing-nca/test_model.py
 ```
 
@@ -76,4 +98,4 @@ The first command verifies the pinned upstream assets before any model is execut
 
 ## Next
 
-Do **not** retrain the NCA yet. Use the three published models as fixed external systems and characterize the intervention basin. First priorities are lesion size, geometry, location, and timing, followed by carefully matched perturbations of visible RGBA versus hidden state channels. Only after the white-box boundaries are understood should an opaque Goal Discovery package be attempted.
+Do **not** retrain the NCA yet. Radius and channel-state interventions now justify the next two tests: vary **lesion geometry/location/timing** to determine what the radius boundary actually depends on, then restrict local updates spatially/temporally to separate missing state information from insufficient action/reachability. Only after those white-box boundaries are understood should an opaque Goal Discovery package be attempted.

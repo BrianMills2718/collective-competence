@@ -5,12 +5,14 @@ import json
 from pathlib import Path
 
 import numpy as np
-
 from fetch_upstream import MANIFEST, ensure_assets, sha256
+from hidden_state_probe import apply
 from nca_numpy import NCA, load_model
 
 HERE = Path(__file__).resolve().parent
 RESULT = HERE / "results" / "characterization.json"
+LESION_RESULT = HERE / "results" / "lesion_basin.json"
+HIDDEN_RESULT = HERE / "results" / "hidden_state_probe.json"
 
 
 def test_upstream_assets_match_pinned_hashes():
@@ -59,3 +61,26 @@ def test_committed_characterization_reproduces_published_hierarchy():
     assert rows["regenerating"]["damaged_vs_undamaged_rgb_mse_after_follow"] < 0.01
     assert rows["growing"]["damaged_vs_undamaged_rgb_mse_after_follow"] > 0.01
     assert rows["persistent"]["damaged_vs_undamaged_rgb_mse_after_follow"] > 0.01
+
+
+def test_channel_selective_intervention_preserves_declared_channels():
+    state = np.ones((96, 96, 16), dtype=np.float32)
+    visible = apply(state, 8, "visible_only")
+    hidden = apply(state, 8, "hidden_only")
+    center = (48, 48)
+    assert np.all(visible[center][:4] == 0.0)
+    assert np.all(visible[center][4:] == 1.0)
+    assert np.all(hidden[center][:4] == 1.0)
+    assert np.all(hidden[center][4:] == 0.0)
+
+
+def test_committed_intervention_results_preserve_declared_boundaries():
+    lesion = json.loads(LESION_RESULT.read_text())
+    rows = {(r["model"], r["radius"]): r for r in lesion["fixed_horizon"]}
+    assert rows[("regenerating", 16)]["target_mse_after_96"] < 0.005
+    assert rows[("regenerating", 18)]["target_mse_after_96"] > 0.01
+
+    hidden = json.loads(HIDDEN_RESULT.read_text())
+    assert hidden["summary"]["hidden_worse_than_full_count"] == 4
+    assert hidden["summary"]["replication_count"] == 4
+    assert hidden["summary"]["mean_hidden_target_mse"] > hidden["summary"]["mean_full_target_mse"]

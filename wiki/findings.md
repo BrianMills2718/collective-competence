@@ -11,6 +11,7 @@ sources:
   - ../experiments/09-composition-lineage/README.md
   - ../experiments/10-endogenous-composition/README.md
   - ../experiments/11-learned-composition-memory/README.md
+  - ../experiments/12-growing-nca/README.md
   - ../experiments/03-redundant-transport/README.md
   - ../experiments/04-route-learning/README.md
   - ../experiments/05-pattern-repair/README.md
@@ -183,6 +184,19 @@ The wound state disambiguates one reporter fault but not all of them. If A secre
 **Scope:** the memory update, persistence law, 99% matching tolerance, wound bits, signal identities, and fate plasticity are authored. The retention sweep is a deterministic memory-capacity illustration, not a biological lifetime estimate. The useful distinction is that desired-state memory can survive structural loss while current-state measurement remains a separate, fallible information problem.
 
 **Evidence:** [`experiments/11-learned-composition-memory/README.md`](../experiments/11-learned-composition-memory/README.md).
+
+
+## External NCA shows a finite regeneration basin and load-bearing latent state
+
+The published Growing Neural Cellular Automata lizard models provide the first phase-2 specimen whose learned local rule was not authored by this project. A pinned NumPy reproduction recovers the published qualitative hierarchy: growth, persistence of an intact morphology, and regeneration after a severe lesion are distinct capabilities.
+
+On the fixed regeneration-trained model, a matched central-lesion sweep exposes a bounded recovery regime. After 96 recovery updates, radius-8 and radius-16 lesions return to target MSE **0.000482** and **0.003410**, while radius-18 and radius-20 lesions remain at **0.014094** and **0.016404**. Longer observation does not turn the latter into simple slow recovery: radius 18 stalls near 0.015 and radius 20 later diverges to **0.03543** by +512 updates, while the undamaged branch remains near the target.
+
+Selective channel interventions show that latent state is causally load-bearing. At radius 16, erasing only the 12 hidden channels while leaving visible RGBA present is more damaging than deleting the entire local state. Across four independently seeded future update streams from the same formed state, hidden-only corruption is worse than full deletion in **4/4** comparisons (mean target MSE **0.00875** versus **0.00316**). A smaller radius-8 hidden-state corruption is largely absorbed.
+
+**Scope:** this supports a role for hidden-state magnitude/consistency in one externally specified learned NCA. It does not establish that hidden channels encode a literal goal, target map, or semantic memory. The current basin is also limited to one target and central circular lesions; geometry, location, developmental timing, and action restrictions remain to be tested.
+
+**Evidence:** [`experiments/12-growing-nca/README.md`](../experiments/12-growing-nca/README.md), [`lesion_basin.json`](../experiments/12-growing-nca/results/lesion_basin.json), and [`hidden_state_probe.json`](../experiments/12-growing-nca/results/hidden_state_probe.json).
 
 ## Measurement choices can hide important differences
 
