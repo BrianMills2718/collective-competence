@@ -23,7 +23,7 @@ Experiment 12 pins `distillpub/post--growing-ca` at commit `a12c7efa541b5770043a
 Two phase-2 results are currently promoted:
 
 1. **A finite regeneration basin.** On the 96×96 published demo grid, the regenerating `ex3` model repairs a central radius-16 lesion into a low-error regime, while radius 18 stalls and radius 20 later diverges. At +512 updates, target MSE is about `0.00344`, `0.01490`, and `0.03543` respectively; the matched undamaged arm remains about `0.000318`.
-2. **Latent-state consistency matters.** At radius 16, erasing only the 12 hidden channels while leaving visible RGBA intact is more disruptive than deleting all 16 local channels. The ordering holds in 4/4 independently seeded future update streams from the same formed state; mean 96-step target MSE is `0.00875` hidden-only versus `0.00316` full deletion. This establishes causal load-bearing hidden state, **not** a semantic goal or target map.
+2. **Latent-state consistency matters.** At radius 16, erasing only the 12 hidden channels while leaving visible RGBA intact is more disruptive than deleting all 16 local channels. The ordering holds in 4/4 independently seeded future update streams from the same formed state; the **four-stream mean** 96-step target MSE is `0.00875` hidden-only versus `0.00316` full deletion. The native Experiment 12 record also preserves the single seed-7 matched-branch values separately. This establishes causal load-bearing hidden state, **not** a semantic goal or target map.
 
 Exact evidence, result-file links, and caveats live in [`experiments/12-growing-nca/README.md`](../experiments/12-growing-nca/README.md).
 

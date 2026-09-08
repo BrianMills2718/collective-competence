@@ -11,7 +11,7 @@ sources:
 
 [Project wiki](index.md) ·
 [Scientific charter](../goal-discovery/docs/PROJECT.md) ·
-[Current analytic-arm plan](../goal-discovery/docs/plans/current_research_plan.md)
+[Current work](current.md)
 
 This page is the canonical owner for the project's scientific vocabulary and
 the relationships among its terms. Other current documents should link here
@@ -381,7 +381,7 @@ and that repository's living document,
 now folded in here as real, independently-checked science rather than left as
 an external pointer. Documented here as a well-specified candidate for this
 project's own Goal and Competence Discovery / Collective Competence arms — not
-yet an active priority, since [the current research plan](../goal-discovery/docs/plans/current_research_plan.md)
+yet an active priority, since [the current work page](current.md)
 alone owns that, and its own rules are explicit that no external programme
 becomes the agenda by default.
 

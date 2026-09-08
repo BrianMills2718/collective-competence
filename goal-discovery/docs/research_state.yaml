@@ -1,16 +1,16 @@
 # Historical checkpoint fields are evidence, not the current project agenda.
-# Current priorities and integration checks live in current_plan below.
+# Live priorities and handoff route through ../wiki/current.md.
 documentation_authority: historical
-current_plan: docs/plans/current_research_plan.md
+current_plan: ../wiki/current.md
 current_context:
-  objective: Open-ended laboratory that discovers unexpected goals and competencies across diverse systems.
-  current_plan: docs/plans/current_research_plan.md
-  wiki: ../roadmap/README.md
-  integration_status: P13 evidence and cutoff-safe playback verified on its branch; running checkout and revision shown below
-  knowledge_status: P13 learned the passive bowl's local vector law from restricted observations, predicted state damage, and failed under persistent mechanism loss. This calibrates proposal/falsification, not an unexpected goal or competency.
-  next_scientific_question: Can a less-local grammar propose a relational candidate in an interacting existing system and distinguish it from passive, invariant, and artifact explanations?
+  objective: Open-ended laboratory for constructing competent systems and inferring candidate goals/competence across increasingly rich substrates.
+  current_plan: ../wiki/current.md
+  wiki: ../wiki/index.md
+  integration_status: Live integration state is not duplicated in this historical checkpoint; see ../wiki/current.md and native experiment records.
+  knowledge_status: Live scientific synthesis is not duplicated here; see ../wiki/findings.md and native experiment records.
+  next_scientific_question: See ../wiki/current.md; this historical checkpoint does not own the current question.
 version: 1
-updated: 2026-08-31
+updated: 2026-09-08
 programme_status: p9-blind-calibration-complete-next-held-out-protocol
 delivery:
   status: complete

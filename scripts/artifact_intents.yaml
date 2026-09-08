@@ -51,7 +51,7 @@ intents:
     purpose_source: goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md#p15--blind-proposal-layer-benchmark-on-archived-systems
     separate_file_reason: Freezes the first ontology-consuming experiment protocol separately from mutable priorities and later result evidence.
     review_triggers: [p15_protocol_change, ontology_contract_change, experiment_execution]
-    discoverable_from: [goal-discovery/docs/plans/current_research_plan.md, wiki/index.md]
+    discoverable_from: [wiki/current.md, wiki/index.md]
 
   - id: laboratory-agent-instruction-projection
     path: goal-discovery/AGENTS.md

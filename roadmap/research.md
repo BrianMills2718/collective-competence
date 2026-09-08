@@ -1,17 +1,20 @@
 ---
-doc-role: research-synthesis
-authority: canonical
+doc-role: retained-research-synthesis
+authority: retained
 concern: cross-experiment-interpretation
-lifecycle: active
+lifecycle: retained
 sources:
   - ../wiki/ontology.md
   - ../goal-discovery/docs/PROJECT.md
   - experiments.json
 ---
-# Research landscape: what our experiments have taught us
+# Retained detailed research synthesis
+
+> **Status:** this is a detailed synthesis of earlier registered work and contains dated "current" language from the pre-scaling phase. It is retained for provenance and depth, not as a task queue or live project summary. Use [`../wiki/findings.md`](../wiki/findings.md) for the current cross-cutting synthesis and [`../wiki/current.md`](../wiki/current.md) for the handoff/next action.
+
 
 [Project wiki](../wiki/index.md) · [Research roadmap](README.md) · [Experiment register](experiments.md) ·
-[Current priorities](../goal-discovery/docs/plans/current_research_plan.md) ·
+[Current work](../wiki/current.md) ·
 [Scientific charter](../goal-discovery/docs/PROJECT.md) ·
 [Research ontology](../wiki/ontology.md)
 
@@ -48,7 +51,7 @@ This synthesis reviews selected result/decision prose, not every protocol, raw
 run, or executable. Register entries marked `not_reviewed` have no inferred
 verdict. `result_reviewed` is not an independent reproduction. P8/P9 and the
 optional composition preview are integrated in this revision; their software
-verification does not revalidate archived science. The current plan owns
+verification does not revalidate archived science. The live handoff page owns
 the active decision and repository handoff boundary; the operator guide owns
 local installation and run commands.
 
@@ -483,9 +486,4 @@ Repeated instrument failures suggest checking observation and intervention
 contracts early. Repeated generic representation failures suggest a concrete
 question before feature expansion. Successful tooling without a new scientific
 decision should remain enabling infrastructure, not discovery progress.
-The [current plan](../goal-discovery/docs/plans/current_research_plan.md) is the
-designated selector of the next action, and this landscape is not a second task
-queue — **but as of 2026-09-06 the next action is contested three ways.** A
-reader who stops here and goes to act on the plan is choosing a research scope
-without knowing it. [The wiki index](../wiki/index.md) tabulates the three
-candidates and names the unmade decision underneath them.
+This retained synthesis is not a task queue. The live selector is [`wiki/current.md`](../wiki/current.md); the compact current interpretation is [`wiki/findings.md`](../wiki/findings.md). Dated next-action disputes in this file remain historical evidence of how the programme changed.

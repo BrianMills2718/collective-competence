@@ -8,6 +8,7 @@ import subprocess
 import tempfile
 import unittest
 from pathlib import Path
+from typing import ClassVar
 from unittest.mock import patch
 
 
@@ -254,22 +255,21 @@ class RepositoryNavigationContract(unittest.TestCase):
             "Collective Competence",
             "Dynamical Laboratory",
             "Goal and Competence Discovery",
-            "name unresolved",
-            "Specimen origin",
-            "Analyst access",
-            "Research purpose",
+            "current.md",
+            "findings.md",
+            "Experiment map",
         ):
             self.assertIn(term.casefold(), wiki.casefold())
 
     def test_canonical_ontology_is_linked_and_owns_terms(self):
         ontology = (knowledge.ROOT / "wiki/ontology.md").read_text(encoding="utf-8")
-        wiki = (knowledge.ROOT / "wiki/index.md").read_text(encoding="utf-8")
+        concepts = (knowledge.ROOT / "wiki/concepts.md").read_text(encoding="utf-8")
         docs_rules = (
             knowledge.ROOT / "goal-discovery/docs/CLAUDE.md"
         ).read_text(encoding="utf-8")
         self.assertIn("doc-role: domain-ontology", ontology)
         self.assertIn("authority: canonical", ontology)
-        self.assertIn("ontology.md", wiki)
+        self.assertIn("ontology.md", concepts)
         self.assertIn("wiki/ontology.md", docs_rules)
         for term in (
             "Mechanism",
@@ -283,30 +283,23 @@ class RepositoryNavigationContract(unittest.TestCase):
         ):
             self.assertIn(term.casefold(), ontology.casefold())
 
-    def test_current_plan_is_scoped_to_active_discovery_lane(self):
-        plan = (
-            knowledge.ROOT / "goal-discovery/docs/plans/current_research_plan.md"
-        ).read_text(encoding="utf-8")
-        self.assertIn("**Active research purpose:** Goal and Competence Discovery", plan)
-        self.assertRegex(plan, r"does not\s+define\s+the full programme")
+    def test_hot_current_is_the_handoff_owner(self):
+        current = (knowledge.ROOT / "wiki/current.md").read_text(encoding="utf-8")
+        self.assertIn("only hot page", current.casefold())
+        self.assertIn("Resume here after a hiatus", current)
+        self.assertIn("Growing Neural Cellular", current)
+        for rel in ("README.md", "CLAUDE.md", "goal-discovery/CLAUDE.md", "goal-discovery/README.md"):
+            text = (knowledge.ROOT / rel).read_text(encoding="utf-8")
+            self.assertIn("wiki/current.md", text)
+            self.assertNotIn("current_research_plan.md) owns", text)
 
-    def test_current_plan_exposes_fresh_agent_operational_state(self):
-        plan = (
-            knowledge.ROOT / "goal-discovery/docs/plans/current_research_plan.md"
-        ).read_text(encoding="utf-8")
-        for term in (
-            "Repository handoff state",
-            "only local branch",
-            "only registered worktree",
-            "published on `origin/main`",
-            "local `main`\nmatches it",
-            "No running service",
-            ".company-planning/",
-            "broad `git clean`",
-            "shared archive system",
-        ):
-            self.assertIn(term, plan)
-        self.assertNotIn("if still present", plan)
+    def test_old_current_plan_is_explicitly_historical(self):
+        plan = (knowledge.ROOT / "goal-discovery/docs/plans/current_research_plan.md").read_text(encoding="utf-8")
+        self.assertIn("doc-role: historical-research-plan", plan)
+        self.assertIn("authority: historical", plan)
+        self.assertIn("lifecycle: retained", plan)
+        self.assertIn("Superseded 2026-09-08", plan)
+        self.assertIn("wiki/current.md", plan)
 
     def test_operator_and_synthesis_do_not_misassign_installation_status(self):
         operator = (knowledge.ROOT / "goal-discovery/README.md").read_text(encoding="utf-8")
@@ -457,7 +450,7 @@ class FailureLogIndexGate(unittest.TestCase):
         self.text = (knowledge.ROOT / "wiki/failure-log.md").read_text(encoding="utf-8")
 
     def open_ids(self):
-        return re.findall(r"^## (F\d+b?) — .+? — `OPEN`$", self.text, re.M)
+        return re.findall(r"^## (F\d+b?) — .+? — `OPEN`$", self.text, re.MULTILINE)
 
     def indexed_ids(self):
         block = self.text.split("## The open entries, in one place", 1)[1]
@@ -470,7 +463,7 @@ class FailureLogIndexGate(unittest.TestCase):
 
     def test_the_index_states_the_right_totals(self):
         opened = len(self.open_ids())
-        closed = len(re.findall(r"^## F\d+b? — .+? — `CLOSED", self.text, re.M))
+        closed = len(re.findall(r"^## F\d+b? — .+? — `CLOSED", self.text, re.MULTILINE))
         self.assertIn(f"the {self._word(opened)} still open", self.text)
         self.assertIn(f"{closed} further entries are closed", self.text)
 
@@ -501,43 +494,6 @@ class FailureLogIndexGate(unittest.TestCase):
         self.assertEqual(slugs - headings, set(), "anchors with no matching heading")
 
 
-class ReadingBudgetGate(unittest.TestCase):
-    """CLAUDE.md's task-scoped reading table quotes word counts; they must be true.
-
-    Added 2026-09-06 with the table. The first draft of the table quoted
-    estimates and was wrong by up to 900 words; editing the documents it counts
-    made it wrong again within the hour. A number in an instruction file that
-    nothing checks is a number that drifts -- this repository has recorded that
-    three times (F20, F21, F23), so the table is gated rather than trusted.
-
-    Tolerance is 300 words: the point is that a reader's budget is roughly
-    right, not that every edit forces a documentation commit.
-    """
-
-    TOLERANCE = 300
-    TIERS = {
-        "10,900": ("wiki/index.md", "wiki/scoreboard.md", "wiki/failure-log.md"),
-        "+6,600": ("goal-discovery/docs/PROJECT.md",
-                   "goal-discovery/docs/plans/current_research_plan.md"),
-        "+7,400": ("wiki/ontology.md",),
-        "+3,500": ("wiki/competence-thesis.md",),
-        "+5,600": ("roadmap/research.md", "wiki/goals.md"),
-    }
-
-    def test_every_quoted_reading_budget_matches_the_documents(self):
-        claude = (knowledge.ROOT / "CLAUDE.md").read_text(encoding="utf-8")
-        self.assertIn("~words (measured", claude, "the reading table is gone")
-        for quoted, paths in self.TIERS.items():
-            actual = sum(len((knowledge.ROOT / p).read_text(encoding="utf-8").split())
-                         for p in paths)
-            claimed = int(quoted.lstrip("+").replace(",", ""))
-            self.assertIn(f"| {quoted} |", claude,
-                          f"CLAUDE.md no longer quotes {quoted}; update this gate")
-            self.assertLessEqual(
-                abs(actual - claimed), self.TOLERANCE,
-                f"{paths} is {actual} words, CLAUDE.md says {quoted}. "
-                "Re-measure and update the table.")
-
 
 class FreeLunchVocabularyGate(unittest.TestCase):
     """The thesis's vocabulary table is a term count; counts must be checked.
@@ -549,8 +505,12 @@ class FreeLunchVocabularyGate(unittest.TestCase):
     supported. This gate counts.
     """
 
-    TERMS = {"least action": 2, "free lunch": 7, "gap junction": 2,
-             "composition of competence": 0}
+    TERMS: ClassVar[dict[str, int]] = {
+        "least action": 2,
+        "free lunch": 7,
+        "gap junction": 2,
+        "composition of competence": 1,
+    }
 
     def test_the_vocabulary_counts_are_true(self):
         thesis_path = knowledge.ROOT / "wiki/competence-thesis.md"

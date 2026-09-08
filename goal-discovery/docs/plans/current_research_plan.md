@@ -1,7 +1,7 @@
 ---
-doc-role: current-research-plan
-authority: canonical
-lifecycle: active
+doc-role: historical-research-plan
+authority: historical
+lifecycle: retained
 sources:
   - ../../../wiki/ontology.md
   - ../PROJECT.md
@@ -13,7 +13,10 @@ sources:
   - ../hypotheses/p15_proposal_layer_benchmark.md
   - ../hypotheses/p15_proposal_layer_benchmark_results.md
 ---
-# Current research plan
+# Historical Goal Discovery research plan
+
+> **Superseded 2026-09-08. Do not use this page to choose current work.** The current programme handoff and next action live in [`../../../wiki/current.md`](../../../wiki/current.md). This file preserves the former Goal Discovery lane plan and dated repository/checkpoint material for provenance. Everything below may describe priorities or repository state that no longer applies.
+
 
 [Project wiki](../../../wiki/index.md) · [Ontology](../../../wiki/ontology.md) ·
 [Charter](../PROJECT.md) ·

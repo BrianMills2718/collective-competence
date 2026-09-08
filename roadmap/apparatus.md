@@ -11,7 +11,7 @@ sources:
 
 [Project wiki](../wiki/index.md) · [Ontology](../wiki/ontology.md) ·
 [Roadmap](README.md) · [Research](research.md) ·
-[Current plan](../goal-discovery/docs/plans/current_research_plan.md)
+[Current work](../wiki/current.md)
 
 **Substrate consolidation, started 2026-09-04.** `src/substrate/` now holds a
 shared specimen contract — one loop, one state, one measurement — with five
@@ -97,7 +97,7 @@ declarations rather than deriving one from a directory, engine, or visualization
   substrate supports the same renderer, metric, or interpretation.
 - P8–P13 and optional composition share the cockpit entrypoint in this revision;
   P14 intentionally stopped without adding a view after its pre-intervention gate.
-  The current plan owns integration verification; historical receipts are not
+  The current work/native experiment record owns integration verification; historical receipts are not
   proof that every archived raw artifact is available or independently rechecked.
 
 Read [source instructions](../goal-discovery/src/CLAUDE.md) before changing
