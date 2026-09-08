@@ -314,6 +314,8 @@ class Snapshot:
     ops: int
     radius: int
     ring: bool
+    conserving: bool
+    centred: bool
 
 
 def snapshot(lat: Lattice) -> Snapshot:
@@ -326,6 +328,8 @@ def snapshot(lat: Lattice) -> Snapshot:
         ops=lat.ops,
         radius=lat.radius,
         ring=lat.ring,
+        conserving=lat.conserving,
+        centred=lat.centred,
     )
 
 
@@ -342,4 +346,6 @@ def restore(snap: Snapshot) -> Lattice:
         radius=snap.radius,
         ring=snap.ring,
         ops=snap.ops,
+        conserving=snap.conserving,
+        centred=snap.centred,
     )

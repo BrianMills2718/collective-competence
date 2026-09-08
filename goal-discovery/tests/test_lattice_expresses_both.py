@@ -172,6 +172,16 @@ class CounterfactualsRestoreAnExactState(unittest.TestCase):
         self.assertGreater(lat.ops, spent)
         self.assertEqual(restore(snap).ops, spent)
 
+    def test_restore_preserves_nondefault_system_semantics(self):
+        lat, _ = elementary_ca.make(90, size=9)
+        restored = restore(snapshot(lat))
+        self.assertEqual(
+            (restored.conserving, restored.centred, restored.radius, restored.ring),
+            (lat.conserving, lat.centred, lat.radius, lat.ring),
+            "snapshot restore changed the declared system, so counterfactual arms "
+            "would not be the same specimen",
+        )
+
 
 class AConservingSystemCannotGainOrLoseEntities(unittest.TestCase):
 

@@ -1,0 +1,64 @@
+{
+  "config": {
+    "ambient": 100,
+    "controller_divisor": 2,
+    "relaxation_divisor": 4,
+    "setpoint": 100
+  },
+  "criterion": {
+    "setpoint": 100,
+    "tolerance": 3
+  },
+  "displacement_recovery": [
+    {
+      "amount": -40,
+      "feedback": 2,
+      "passive": 11
+    },
+    {
+      "amount": -20,
+      "feedback": 2,
+      "passive": 8
+    },
+    {
+      "amount": 20,
+      "feedback": 2,
+      "passive": 8
+    },
+    {
+      "amount": 40,
+      "feedback": 2,
+      "passive": 11
+    }
+  ],
+  "persistent_load": [
+    {
+      "actuator_disabled_late_error": 16.0,
+      "feedback_late_error": 6.0,
+      "load": -4,
+      "passive_late_error": 16.0,
+      "sensor_blocked_late_error": 16.0
+    },
+    {
+      "actuator_disabled_late_error": 8.0,
+      "feedback_late_error": 3.5,
+      "load": -2,
+      "passive_late_error": 8.0,
+      "sensor_blocked_late_error": 8.0
+    },
+    {
+      "actuator_disabled_late_error": 8.0,
+      "feedback_late_error": 3.5,
+      "load": 2,
+      "passive_late_error": 8.0,
+      "sensor_blocked_late_error": 8.0
+    },
+    {
+      "actuator_disabled_late_error": 16.0,
+      "feedback_late_error": 6.0,
+      "load": 4,
+      "passive_late_error": 16.0,
+      "sensor_blocked_late_error": 16.0
+    }
+  ]
+}

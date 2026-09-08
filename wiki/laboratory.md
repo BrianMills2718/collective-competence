@@ -7,6 +7,7 @@ sources:
   - ../roadmap/apparatus.md
   - ../goal-discovery/README.md
   - ../goal-discovery/src/lattice/core.py
+  - ../goal-discovery/src/lattice/specimens/regulation.py
 ---
 # Dynamical Laboratory
 
@@ -29,7 +30,7 @@ The active shared substrate lives under [`goal-discovery/src/lattice/`](../goal-
 - a common operation currency for relevant comparisons;
 - an observation contract that can deliberately hide channels from an analyst.
 
-The same substrate reproduces the founding self-sorting implementation trajectory-by-trajectory across the gated comparison suite, and can express elementary cellular automata as a constrained case.
+The same substrate reproduces the founding self-sorting implementation trajectory-by-trajectory across the gated comparison suite, expresses elementary cellular automata as a constrained case, and now carries a minimal passive-relaxation / negative-feedback regulation calibration without adding substrate features.
 
 ## Why one shared substrate
 

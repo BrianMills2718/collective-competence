@@ -29,6 +29,7 @@ The founding self-sorting system is the clearest current specimen.
 - **In this sorting family, feedback matters more than centralization.** Severe local action failure barely affects closed-loop or decentralized attainment while an open-loop central plan degrades sharply.
 - **The competency has informative boundaries.** Some defective members can be routed around; an immobile blocking member partitions the line. One opposing-rule agent damages maintenance before two largely destroy reachability.
 - **Repeated recovery is not automatically adaptation or richer goal-directedness.** Transient sorting disturbances are substantially explained by passive-attractor behavior, and an apparent watchdog history effect was traced to cursor state rather than adaptation.
+- **The shared lattice now carries a second qualitative control phenomenon.** A passive relaxer and an authored negative-feedback regulator can reach the same desirable region, but displacement and persistent load expose the feedback advantage; blocking sensing or actuation removes it. This is a calibration port, not a new claim about agency or collective competence.
 
 These are findings about tested systems, not a general theory. The next job is to find which distinctions survive on meaningfully different small specimens.
 
@@ -38,7 +39,7 @@ See [Findings](findings.md) for the compact evidence-backed synthesis.
 
 The shared one-dimensional lattice now expresses the founding sorting system and ordinary cellular automata. The priority is therefore **not another apparatus redesign**. It is to put additional, qualitatively different phenomena on the existing substrate at roughly the tractability of sorting.
 
-The immediate target is a minimal family covering **passive convergence → negative-feedback regulation → compensation/repair → eventually adaptation**. We want to perturb and understand each system before making the analytic machinery more elaborate.
+The first **passive convergence → negative-feedback regulation** pair is now on the lattice and reproduces the earlier thermostat contrast under displacement and persistent load. The immediate next step is a small blind Goal Discovery pass on that pair; if the existing analysis handles it, move directly to compensation/repair rather than polishing the instrument.
 
 See [Current work](current.md) for the active research direction.
 

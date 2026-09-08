@@ -4,6 +4,7 @@ authority: derived
 lifecycle: active
 sources:
   - ../experiments/01-self-sorting/README.md
+  - ../experiments/02-regulation/README.md
   - scoreboard.md
   - ../roadmap/research.md
 ---
@@ -57,6 +58,14 @@ An apparent history effect in the watchdog controller was traced to its scan cur
 
 This is a useful negative finding: the programme should not treat robustness or repeated recovery as automatic evidence of adaptation or agency.
 
+## Passive convergence and negative-feedback regulation now coexist on the shared lattice
+
+The first non-sorting control pair has been ported onto the shared lattice. Both a passive relaxer and an authored feedback regulator can occupy the same desirable region in the unchallenged case. Under matched state displacements, feedback returns to the criterion in 2 steps while passive relaxation takes 8–11. Under persistent loads, feedback roughly halves or better the late error across the tested range. Blocking sensing or disabling actuation removes that advantage exactly.
+
+**Scope:** this is a deterministic calibration/port of an already-known thermostat contrast, not a new discovery of agency, adaptation, or collective competence. Its value is that a second qualitative phenomenon now lives on the same substrate as sorting, with a clean passive rival and causal ablations.
+
+**Evidence:** [`experiments/02-regulation/README.md`](../experiments/02-regulation/README.md) and its committed characterization result.
+
 ## Measurement choices can hide important differences
 
 Several sorting follow-ups exposed cases where a headline measure was insufficient. Recovery rate can remain at 1.0 while recovery cost deteriorates; a controller that has halted can produce a nominal recovery score even though it is no longer participating in the test; survivorship can make later episodes look cheaper.
@@ -71,4 +80,4 @@ See [the generated scoreboard](scoreboard.md), [research synthesis](../roadmap/r
 
 ## What would count as progress from here
 
-The programme needs more **different phenomena**, not merely more measurements of sorting. A strong next step is to reproduce the same style of small, inspectable science on qualitatively different systems — regulation, compensation/repair, and eventually adaptation — and ask which distinctions above survive.
+The programme still needs more **different phenomena**, not merely more measurements of sorting. Regulation is now present as the second qualitative control family. The next useful test is whether Goal Discovery can distinguish it from passive convergence without privileged implementation knowledge; after that, move to compensation/repair and eventually adaptation.

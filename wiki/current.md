@@ -5,6 +5,7 @@ lifecycle: active
 sources:
   - questions.md
   - findings.md
+  - ../experiments/02-regulation/README.md
   - ../goal-discovery/docs/plans/current_research_plan.md
 ---
 # Current work
@@ -26,24 +27,19 @@ Current work emphasizes discovery first as a sequencing choice, not because cons
 
 ## Immediate scientific objective
 
-**Build the next distinct specimen at approximately the tractability of the sorting experiment.**
+**Use the new passive-relaxation / negative-feedback pair as the first non-sorting discovery test, then move on.**
 
-The first useful family should give concrete examples of:
+The pair now runs on the shared lattice and reproduces the earlier thermostat calibration qualitatively: feedback recovers faster from displacement and holds closer to the criterion under persistent load, while blocking sensing or actuation removes the advantage. See [`experiments/02-regulation/`](../experiments/02-regulation/README.md).
 
-1. passive convergence;
-2. negative-feedback regulation;
-3. compensation or repair;
-4. later, genuine adaptation involving a change in behavior or organization.
-
-The purpose is not initially to make a sophisticated benchmark. The purpose is to create different phenomena, perturb them, understand their mechanisms, and see where the current language of goals and competence is useful or breaks.
+This is not itself a new goal-discovery result: the setpoint and mechanism were authored and known during construction. The next question is whether the existing analytic machinery, given only the allowed behavior/interventions, recognizes the passive-versus-regulating distinction without being told the answer.
 
 ## What to do next
 
-1. **Implement the smallest negative-feedback regulation specimen on the lattice.** Keep the mechanism transparent and the goal criterion external to the system where practical.
-2. **Pair it with a passive comparison** that can reach or occupy a similar desirable region without feedback.
-3. **Perturb both** and record attainment, maintenance/recovery, and cost without prematurely forcing them into one competence score.
-4. **Add compensation/repair only after the first pair is understood.** Prefer one new causal ingredient at a time.
-5. Use the discovery machinery on these specimens, but do not expand that machinery unless a concrete failure on the new specimen requires it.
+1. **Run one blind Goal Discovery pass on the regulation pair.** Give the analyst the declared observation/intervention interface, not the arm label, authored setpoint, or implementation.
+2. **Ask for bounded claims, not a forced label.** It is acceptable to return multiple candidate goals or `underdetermined`; the key test is whether interventions support a regulation claim over passive convergence.
+3. **If the existing analysis succeeds, move directly to compensation/repair.** Do not add more thermostat polish.
+4. **If it fails, repair only the concrete failure the specimen exposes**, then repeat once. Do not launch another general instrument-redesign cycle.
+5. Add genuine adaptation only after compensation/repair is understood, preferably one new causal ingredient at a time.
 
 ## Cheap follow-ups, not the main line
 
