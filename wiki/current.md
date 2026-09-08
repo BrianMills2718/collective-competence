@@ -5,7 +5,7 @@ lifecycle: active
 sources:
   - questions.md
   - findings.md
-  - ../experiments/08-boundary-memory/README.md
+  - ../experiments/09-composition-lineage/README.md
 ---
 # Current work
 
@@ -15,45 +15,43 @@ This is the only hot page that owns **current priority and next action**.
 
 ## Where we are
 
-The regeneration sequence now separates several information requirements instead of treating “regeneration” as one scalar ability. Experiment 06 supplies external positional information; Experiment 07 shows that a tissue-generated field can restore total size; Experiment 08 adds a local sealed/unsealed state at each boundary and composes wound identity with the endogenous size cue.
+The regeneration sequence now separates several requirements that were easy to conflate. Experiments 06–08 separated external position, endogenous amount/size, and wound-boundary state. A correction to Experiment 08 also removed an artificial target: in a homogeneous interval, different size-24 translations are the same modeled morphology unless an external frame is declared.
 
-For unilateral end damage, size plus boundary integrity restores the pre-damage interval in every declared trial, and the repaired boundary reseals for later damage. Ablating either channel separates their jobs cleanly: the size signal supplies whether/how long structural change is needed, while the boundary state marks which exposed edge may act.
+Experiment 09 therefore makes morphology intrinsically non-translation-equivalent by giving the tissue two ordered compartments, `A^8 B^16`. It then uses perfect A/B target counts as an **oracle control**, not a proposed biological mechanism, so information can be separated from generative capability.
 
-The bilateral trials initially looked like a further “allocation” failure: size returned, but births were not always divided between the two edges in the same proportions as the cells previously removed. On review, that interpretation over-constrained the goal. This tissue is internally homogeneous and contiguous, so **every 24-cell interval is the same modeled morphology up to translation**. The bilateral controller restores that translation-equivalence class in every declared trial. What it sometimes fails to recover is only the historical arena position.
+With both lineages still present, perfect composition information plus lineage-preserving local growth restores all **6/6** declared partial-loss cases. When one compartment is completely removed, the same controller repairs **0/4** declared extinction cases even though it knows exactly which type is missing. Adding daughter-fate plasticity repairs **4/4**. Removing every cell still prevents repair because the system has no surviving parent from which local proliferation can start.
 
-That correction is important. A missing allocation statistic is scientifically meaningful only after the target criterion distinguishes the alternative allocations.
+So the current result is sharper than “another allocation signal is needed”: **goal information and reachable action repertoire are separate requirements.** A system can know what state would satisfy the criterion and still be unable to generate it.
 
 ## Next action
 
-**Make multi-wound allocation matter intrinsically before adding another repair mechanism.**
+**Replace the composition oracle with the smallest tissue-generated information channel that can support composition repair.**
 
-Do not add side-specific deficit memory merely to recover a privileged historical translation. First construct the smallest morphology in which a wrong left/right repair split changes an internal relation or function even after allowing translation.
+Do not add a blind-analysis layer to the oracle toy. The next constructive experiment should ask how surviving cells could estimate compartment amount/proportion themselves, while preserving the lineage-extinction challenge as a capability control.
 
-The leading minimal candidate is a **two-compartment one-dimensional tissue**: left and right regions have distinct identities and declared target amounts/proportions. Bilateral end damage then removes different compartment types. Restoring total size with the wrong birth allocation changes composition, so the failure is no longer removable by translating the whole tissue.
+A leading candidate is a compartment-specific endogenous signal analogous to Experiment 07's size inhibitor: A and B cells contribute distinguishable local/global signals, and wounded boundaries use those signals to determine whether their compartment is deficient. The mechanism should be kept minimal enough to expose whether it actually carries composition information rather than hiding target counts in controller code.
 
-Before implementation, keep the question explicit:
+The questions to resolve are:
 
-1. What is the weakest non-translation-equivalent morphology that makes per-wound allocation observable as a real criterion failure?
-2. Does the existing size + boundary-memory controller restore total size while systematically failing compartment amount/proportion under asymmetric bilateral damage?
-3. Once that failure is demonstrated, what additional information is actually necessary—one composition/asymmetry statistic, compartment-specific local signals, inherited positional state, or something else?
-4. Can the needed information be generated and maintained by the tissue, rather than handed in as the missing answer?
-5. Which ablation distinguishes a genuine composition/allocation cue from a disguised absolute coordinate map?
-
-A useful analytic constraint is already clear: if total missing amount is `D` and exact historical left/right allocation is required, then `D` alone leaves multiple possible splits. An extra independent allocation statistic is necessary. But a real-valued “one scalar” is not automatically minimal information—it can encode arbitrarily many bits. Minimality must be stated relative to the finite challenge set and the precision available.
+1. Can tissue-generated signals restore A/B composition after partial asymmetric bilateral damage without an external coordinate map?
+2. Is one independent composition statistic, together with total-size information, sufficient for the declared two-compartment target?
+3. What happens as signal range/noise makes adjacent compartment amounts hard to distinguish?
+4. When a lineage is extinct, does information remain available, and what additional plasticity or persistent source is required to recreate the missing type?
+5. Can the same information support repair after internal compartment damage, or only end amputation?
 
 ## Working rules
 
 - Optimize for **different phenomena learned per unit effort**.
 - Prefer minimal, inspectable biological analogues over realism for its own sake.
 - Construction and mechanism first; discovery analysis second.
-- Keep pattern, size, location, composition, per-wound allocation, function, and exact microstate distinct.
+- Keep pattern, size, location, composition, information, plasticity, and exact microstate distinct.
 - Treat translations or other symmetries as equivalent unless the experiment explicitly supplies a reason not to.
-- State which information is external, tissue-generated, inherited, local, shared, or historical.
+- State which information is external, tissue-generated, inherited, local, shared, historical, or supplied by oracle.
 - Treat successful composition as a statement about specific challenges, not a scalar competence ranking.
-- Do not simulate a claim whose decisive content is already derivable on paper.
+- Do not simulate a claim whose decisive content is already derivable on paper; use analytic controls where possible.
 - Add apparatus only when a concrete experiment requires it.
 - Negative results, corrections, and information/feasibility boundaries count as progress.
 
 ## Secondary follow-ups
 
-If absolute location relative to an environment becomes biologically or functionally meaningful, the bilateral historical-position problem can be reopened with that external frame declared. The present priority is stronger: create an internally distinguishable morphology so that allocation has consequences independent of arena coordinates.
+The historical-position problem from Experiment 08 remains available if a future specimen introduces a meaningful external landmark. Experiment 09's oracle composition controller should remain a calibration/control surface rather than becoming a benchmark; its role is to make the next endogenous-information question clean.
