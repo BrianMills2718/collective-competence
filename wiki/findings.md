@@ -8,6 +8,7 @@ sources:
   - ../experiments/06-structural-regeneration/README.md
   - ../experiments/07-endogenous-size-control/README.md
   - ../experiments/08-boundary-memory/README.md
+  - ../experiments/09-composition-lineage/README.md
   - ../experiments/03-redundant-transport/README.md
   - ../experiments/04-route-learning/README.md
   - ../experiments/05-pattern-repair/README.md
@@ -145,6 +146,18 @@ A subsequent interpretation called this a multi-wound anatomical allocation fail
 
 **Evidence:** [`experiments/08-boundary-memory/README.md`](../experiments/08-boundary-memory/README.md).
 
+## Goal information is not sufficient when the missing state is outside the action repertoire
+
+A two-compartment tissue makes regeneration intrinsically non-translation-equivalent: the criterion is `A^8 B^16` modulo translation. Wrong left/right repair now changes composition rather than merely moving a homogeneous interval.
+
+Experiment 09 deliberately supplies **perfect A/B target counts as an oracle control** to remove uncertainty about what is missing. When both lineages survive, lineage-preserving local proliferation restores all **6/6** declared partial-loss cases. When one compartment is completely removed, the same controller repairs **0/4** declared lineage-extinction cases despite knowing exactly which type is absent. It can only make daughters of surviving types. Adding daughter-fate plasticity repairs **4/4** extinction cases.
+
+If every cell is removed, even the plastic oracle controller cannot regenerate: parent-dependent local growth has no surviving source. The result therefore separates three challenge regimes—information sufficient while the needed lineage survives; additional fate plasticity required after lineage extinction; and complete tissue extinction outside the declared parent-dependent repertoire.
+
+**Scope:** the composition oracle and plasticity rule are authored positive controls, not proposed biological mechanisms, and the random-allocation probabilities for partial bilateral damage are combinatorial consequences of the policy. The useful result is conceptual and causal: knowing a supported goal criterion does not imply having an action capable of reaching it.
+
+**Evidence:** [`experiments/09-composition-lineage/README.md`](../experiments/09-composition-lineage/README.md).
+
 ## Measurement choices can hide important differences
 
 Across the work, several attractive headline measures have turned out to read less than their names suggest. In sorting, recovery rate can stay at 1.0 while recovery cost deteriorates; a halted controller can receive a nominal recovery score despite no longer participating; and survivorship can make later episodes appear cheaper. Earlier Goal Discovery work similarly found measures that tracked determinism, unused capacity, or omitted mechanism variables rather than the richer interpretation initially attached to them.
@@ -159,4 +172,4 @@ See [the generated scoreboard](scoreboard.md), [research synthesis](../roadmap/r
 
 ## What would count as progress from here
 
-Progress now means making regenerative criteria **intrinsically distinguishable before asking what information repairs them**. Pattern, amount, historical location, composition, and function should not be collapsed into one notion of anatomy. The current work page owns the next concrete action.
+Progress now means replacing privileged oracle information with **tissue-generated composition information** while keeping the capability boundaries visible. Pattern, amount, historical location, composition, information, and generative repertoire should remain separate. The current work page owns the next concrete action.

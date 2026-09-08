@@ -1,0 +1,139 @@
+{
+  "target": {
+    "A": 8,
+    "B": 16,
+    "criterion": "A^8 followed by B^16, modulo translation"
+  },
+  "rows": [
+    {
+      "case": "left_partial",
+      "removed_left": 4,
+      "removed_right": 0,
+      "start_counts": [4, 16],
+      "total_only_exact_probability": 1.0,
+      "oracle_lineage_final_counts": [8, 16],
+      "oracle_lineage_exact": true,
+      "oracle_plastic_final_counts": [8, 16],
+      "oracle_plastic_exact": true
+    },
+    {
+      "case": "right_partial",
+      "removed_left": 0,
+      "removed_right": 8,
+      "start_counts": [8, 8],
+      "total_only_exact_probability": 1.0,
+      "oracle_lineage_final_counts": [8, 16],
+      "oracle_lineage_exact": true,
+      "oracle_plastic_final_counts": [8, 16],
+      "oracle_plastic_exact": true
+    },
+    {
+      "case": "bilateral_2_6",
+      "removed_left": 2,
+      "removed_right": 6,
+      "start_counts": [6, 10],
+      "total_only_exact_probability": 0.109375,
+      "oracle_lineage_final_counts": [8, 16],
+      "oracle_lineage_exact": true,
+      "oracle_plastic_final_counts": [8, 16],
+      "oracle_plastic_exact": true
+    },
+    {
+      "case": "bilateral_4_4",
+      "removed_left": 4,
+      "removed_right": 4,
+      "start_counts": [4, 12],
+      "total_only_exact_probability": 0.2734375,
+      "oracle_lineage_final_counts": [8, 16],
+      "oracle_lineage_exact": true,
+      "oracle_plastic_final_counts": [8, 16],
+      "oracle_plastic_exact": true
+    },
+    {
+      "case": "bilateral_4_8",
+      "removed_left": 4,
+      "removed_right": 8,
+      "start_counts": [4, 8],
+      "total_only_exact_probability": 0.120849609375,
+      "oracle_lineage_final_counts": [8, 16],
+      "oracle_lineage_exact": true,
+      "oracle_plastic_final_counts": [8, 16],
+      "oracle_plastic_exact": true
+    },
+    {
+      "case": "bilateral_7_8",
+      "removed_left": 7,
+      "removed_right": 8,
+      "start_counts": [1, 8],
+      "total_only_exact_probability": 0.196380615234375,
+      "oracle_lineage_final_counts": [8, 16],
+      "oracle_lineage_exact": true,
+      "oracle_plastic_final_counts": [8, 16],
+      "oracle_plastic_exact": true
+    },
+    {
+      "case": "A_extinct",
+      "removed_left": 8,
+      "removed_right": 0,
+      "start_counts": [0, 16],
+      "total_only_exact_probability": 0.0,
+      "oracle_lineage_final_counts": [0, 16],
+      "oracle_lineage_exact": false,
+      "oracle_plastic_final_counts": [8, 16],
+      "oracle_plastic_exact": true
+    },
+    {
+      "case": "B_extinct",
+      "removed_left": 0,
+      "removed_right": 16,
+      "start_counts": [8, 0],
+      "total_only_exact_probability": 0.0,
+      "oracle_lineage_final_counts": [8, 0],
+      "oracle_lineage_exact": false,
+      "oracle_plastic_final_counts": [8, 16],
+      "oracle_plastic_exact": true
+    },
+    {
+      "case": "A_extinct_plus_B_loss",
+      "removed_left": 8,
+      "removed_right": 4,
+      "start_counts": [0, 12],
+      "total_only_exact_probability": 0.0,
+      "oracle_lineage_final_counts": [0, 16],
+      "oracle_lineage_exact": false,
+      "oracle_plastic_final_counts": [8, 16],
+      "oracle_plastic_exact": true
+    },
+    {
+      "case": "B_extinct_plus_A_loss",
+      "removed_left": 4,
+      "removed_right": 16,
+      "start_counts": [4, 0],
+      "total_only_exact_probability": 0.0,
+      "oracle_lineage_final_counts": [8, 0],
+      "oracle_lineage_exact": false,
+      "oracle_plastic_final_counts": [8, 16],
+      "oracle_plastic_exact": true
+    },
+    {
+      "case": "all_cells_lost",
+      "removed_left": 8,
+      "removed_right": 16,
+      "start_counts": [0, 0],
+      "total_only_exact_probability": 0.0,
+      "oracle_lineage_final_counts": [0, 0],
+      "oracle_lineage_exact": false,
+      "oracle_plastic_final_counts": [0, 0],
+      "oracle_plastic_exact": false
+    }
+  ],
+  "summary": {
+    "partial_cases_lineage_exact": 6,
+    "partial_cases": 6,
+    "lineage_extinction_cases_exact": 0,
+    "lineage_extinction_cases": 4,
+    "plastic_extinction_cases_exact": 4,
+    "plastic_extinction_cases": 4,
+    "all_cells_lost_plastic_exact": false
+  }
+}
