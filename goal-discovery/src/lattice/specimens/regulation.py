@@ -5,10 +5,10 @@ but for different reasons. The passive arm relaxes toward an environmental
 ambient; the feedback arm adds an authored setpoint controller. A displacement
 or persistent load exposes the difference.
 
-The one-site lattice is deliberate. This specimen calibrates the distinction
-between passive convergence and regulation; it does not make a collective-
-competence claim. Later specimens can add compensation and genuinely collective
-organization without changing what this control means.
+The one-site lattice is deliberate. It uses the substrate's non-conserving
+local-state mode: the site payload is temperature, not an entity identity, and
+there are no entity records. This specimen calibrates passive convergence versus
+regulation; it does not make a collective-competence claim.
 """
 
 from __future__ import annotations
@@ -32,11 +32,12 @@ class Config:
 
 
 def make(initial_temperature: int = 100) -> Lattice:
-    """One scalar state carried by the same Lattice used by sorting and CA.
+    """One scalar local-state site on the shared Lattice.
 
     `radius=0`, `centred=True`, `conserving=False` means one synchronous rule
-    evaluation rewrites the single site's state. Nothing in the substrate knows
-    the setpoint; it lives only in the feedback rule closure.
+    evaluation rewrites the single site's state. `build` creates no entity
+    records in this mode. Nothing in the substrate knows the setpoint; it lives
+    only in the feedback rule closure.
     """
     return build(
         [initial_temperature], radius=0, ring=True,
