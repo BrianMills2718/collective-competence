@@ -4,6 +4,8 @@ authority: derived
 lifecycle: active
 sources:
   - ../experiments/01-self-sorting/README.md
+  - ../experiments/02-regulation/README.md
+  - ../experiments/morphogenesis-scaling/README.md
   - scoreboard.md
   - ../roadmap/research.md
 ---
@@ -11,64 +13,70 @@ sources:
 
 [Wiki home](index.md) · [Questions](questions.md) · [Current work](current.md) · [Reference](reference/README.md)
 
-This page is organized by **finding**, not by experiment. It is the shortest route to what the programme currently thinks it has learned. Exact protocols, data, caveats, and corrections remain with the native experiment records; those sources win if this summary ever drifts.
+This page is organized by **finding**, not by experiment. Exact protocols, data, caveats, and corrections remain with the native experiment records; those sources win if this summary drifts.
 
-## Sorting can arise without a represented global target
+## Simple worked example: self-sorting
 
-In the founding self-sorting system, agents see only themselves and one adjacent neighbour and can only attempt a local exchange. The global criterion — sorted order — exists in the experimenter's measurement, not as an internal target object held by any agent. Yet decentralized local rules reliably produce the sorted global state while a locality-matched random control essentially does not.
+Sorting is the programme's simplest worked example, not its subject matter. A Levin-style sorting phenomenon was already available to reproduce, and ten locally acting agents make the mechanism and failures unusually easy to inspect.
 
-**Scope:** one one-dimensional sorting family. This shows a useful collective competency without an explicit internal representation of the global target; it does not establish a general theory of collective competence.
+### A global competency can arise without a represented global target
 
-**Evidence:** [`experiments/01-self-sorting/README.md`](../experiments/01-self-sorting/README.md).
+Agents see only themselves and one adjacent neighbour and can only attempt a local exchange. Sorted order exists in the experimenter's measurement, not as an internal target object held by an agent. Yet the local rules reliably produce sorted order while a locality-matched random control essentially does not.
 
-## Reaching a criterion is not the same as continuing to steer toward it
+**Scope:** one one-dimensional sorting family. It demonstrates a useful collective competency without an explicit internal representation of the global target; it does not establish a general theory.
 
-A controller that halts after detecting a sorted state and controllers that continue acting can look equally successful immediately after reaching the goal. Delayed perturbation separates them: once the halting controller has stopped, it no longer restores the state, while continuously active controllers do.
+### Reaching a criterion is not the same as continuing to steer toward it
 
-The important distinction is therefore not just **being at** a desirable state, but whether the system still has an active organization that **steers toward or maintains** it.
+A controller that halts after detecting sorted order and controllers that remain active look alike immediately after success. Delayed perturbation separates them: after halting, the first no longer restores the state while continuously active controllers do.
 
-**Evidence:** self-sorting delayed-perturbation results.
+### Feedback matters more than centralization in this specimen
 
-## Feedback matters more than centralization in the sorting specimen
+Under severe local action failure, decentralized, central closed-loop, and central watchdog controllers still attain sorted order reliably while an open-loop central plan degrades sharply. This is a result about the tested sorting controllers, not a theorem about decentralization.
 
-Under severe local action failure, decentralized, central closed-loop, and central watchdog controllers still reach sorted order reliably. The open-loop central plan degrades sharply. In this specimen, the important contrast is therefore feedback versus open-loop execution rather than central versus decentralized organization.
+### Robustness has structural boundaries
 
-**Scope:** this is a property of the tested sorting controllers, not a general theorem about decentralization.
+Unreliable or frozen members can often be routed around. An immobile blocking member partitions the line and sharply reduces recovery. One opposing-rule agent damages maintenance before two largely destroy reachability; across tested population sizes the transition tracks opposing-agent **headcount** more closely than proportion.
 
-## Robustness has structural boundaries
+Why the contrarian boundary sits where it does remains mechanistically unresolved.
 
-An unreliable or frozen member can often be routed around with little effect on eventual success. A dead immobile member partitions the line and sharply reduces recovery for all controllers. The failure mode therefore depends on what capability is lost, not simply on whether a component is defective.
+### Repeated recovery does not automatically imply adaptation
 
-This is useful because the negative case constrains mechanistic explanations of the competency.
+Repeated transient swap or teleport disturbances produce roughly stationary recovery cost for continuously acting controllers, substantially consistent with a displacement-based passive-attractor account. An apparent watchdog history effect was traced to scan-cursor state rather than adaptation.
 
-## Contrarian disruption scales with headcount more strongly than proportion
+**Evidence for this section:** [`experiments/01-self-sorting/README.md`](../experiments/01-self-sorting/README.md).
 
-Across several population sizes, one opposing-rule agent is often survivable while two largely destroy reachability. The transition tracks the number of opposing agents much more closely than their fraction of the population.
+## Retained reference: morphogenesis has non-trivial scaling limits
 
-A single opposing agent also affects **maintenance** before it destroys **attainment**: the system may still occasionally reach sorted order while no longer holding it as a stable condition.
+A separate reaction-diffusion study asks how accurately cells can classify position from two opposing morphogen fields once finite sensor noise and equilibration time are made explicit. It reports two bounded findings: the largest reliably classifiable tissue size is **non-monotonic in morphogen decay length**, and the equilibration-time curve has a genuine **interior maximum** rather than improving indefinitely with more settling time.
 
-**Open question:** why the boundary sits where it does has not yet been established mechanistically.
+A boundary probe in the same work found that adding mere sensing apparatus to the focal system left the classification unchanged, while including baseline access to the information source shifted the classification smoothly rather than producing a pathological jump.
 
-## Repeated transient recovery does not, by itself, show something richer than passive attraction
+**Limits:** retrospective/imported work, only three usable decay-length points in the reported scaling curve, and no independent reproduction. Treat it as a retained reference result, not benchmark-grade evidence or a registered rung of the current sequence.
 
-When transient swap or teleport disturbances are repeated, recovery cost remains roughly stationary for continuously acting sorting controllers. A simple displacement-based passive-attractor account explains much of the behavior. The experiment therefore weakens any attempt to infer richer adaptation merely from repeated recovery.
+**Evidence:** [`experiments/morphogenesis-scaling/README.md`](../experiments/morphogenesis-scaling/README.md).
 
-An apparent history effect in the watchdog controller was traced to its scan cursor's initial correlation with the just-sorted array rather than adaptation.
+## Passive convergence and regulation can be distinguished without the semantic answer
 
-This is a useful negative finding: the programme should not treat robustness or repeated recovery as automatic evidence of adaptation or agency.
+A passive relaxer and an authored feedback regulator can occupy the same desirable region in the unchallenged case. Matched displacements expose a large recovery difference, persistent loads expose lower late error under feedback, and blocking sensing or disabling actuation removes that advantage.
+
+The more important follow-up withheld the authored setpoint, semantic field name, arm meanings and implementation from the existing P15 scalar proposer. Without any regulation-specific analyzer, it passed its fixed gate on all four load units and inferred candidate references **99.16, 98.81, 99.45 and 98.55** (mean **98.99**) against the hidden authored value 100. It did not promote a goal or competence claim. A separate zero-context reader given only the opaque trajectories independently identified regulation-like behavior and a reference near 100 while retaining passive damping, alternate targets/feedforward and hidden dynamics as rivals.
+
+**Scope:** this is a bounded positive Goal Discovery result on one simple deterministic control family. It supports discovery of a useful reference/regulation interpretation from behavior and intervention; it does **not** establish a unique true goal, internal goal representation, agency, adaptation, or general goal discovery.
+
+**Evidence:** [`experiments/02-regulation/README.md`](../experiments/02-regulation/README.md) and its blind-analysis result files.
 
 ## Measurement choices can hide important differences
 
-Several sorting follow-ups exposed cases where a headline measure was insufficient. Recovery rate can remain at 1.0 while recovery cost deteriorates; a controller that has halted can produce a nominal recovery score even though it is no longer participating in the test; survivorship can make later episodes look cheaper.
+Across the work, several attractive headline measures have turned out to read less than their names suggest. In sorting, recovery rate can stay at 1.0 while recovery cost deteriorates; a halted controller can receive a nominal recovery score despite no longer participating; and survivorship can make later episodes appear cheaper. Earlier Goal Discovery work similarly found measures that tracked determinism, unused capacity, or omitted mechanism variables rather than the richer interpretation initially attached to them.
 
-The general lesson is practical rather than bureaucratic: inspect what a metric is actually conditional on before turning it into a scientific interpretation.
+The useful lesson is practical: inspect what a metric is actually conditional on before turning it into a scientific interpretation.
 
-## Findings that remain narrow
+## Other Goal Discovery results remain deliberately narrow
 
-The repository also contains results on shared scarcity signals, symmetry breaking, effective information, and other Goal Discovery calibration work. Several were later narrowed by stronger controls or by showing that the interesting-looking result was partly derivable from the specimen's construction. They remain useful evidence, but they should not currently outrank the sorting line as the programme's conceptual front door.
+The repository contains results on shared scarcity signals, symmetry breaking, effective information, proposal grammars, and related instrument qualification. Several were narrowed by stronger controls or by showing that an interesting-looking result was partly derivable from specimen construction. They remain useful evidence and negative knowledge, but none currently serves as a general account of competence.
 
 See [the generated scoreboard](scoreboard.md), [research synthesis](../roadmap/research.md), and [reference material](reference/README.md) for the full record.
 
 ## What would count as progress from here
 
-The programme needs more **different phenomena**, not merely more measurements of sorting. A strong next step is to reproduce the same style of small, inspectable science on qualitatively different systems — regulation, compensation/repair, and eventually adaptation — and ask which distinctions above survive.
+Progress means accumulating **different small phenomena** and seeing which distinctions survive: sorting is one unusually transparent example; morphogenesis is a retained scaling result; regulation is a control calibration with one bounded blind-discovery success. The current work page owns the next concrete action. This page should change only when the programme has learned something worth retaining beyond the current task.

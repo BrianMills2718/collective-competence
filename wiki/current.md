@@ -5,68 +5,47 @@ lifecycle: active
 sources:
   - questions.md
   - findings.md
-  - ../goal-discovery/docs/plans/current_research_plan.md
+  - ../experiments/02-regulation/README.md
 ---
 # Current work
 
 [Wiki home](index.md) · [Questions](questions.md) · [Findings](findings.md) · [Laboratory](laboratory.md)
 
-This is the single compact page for **what the programme is doing now**. Detailed plans, protocols, and historical sequencing remain in the reference material; they should not be reconstructed into parallel status narratives elsewhere.
+This is the only hot page that owns **current priority and next action**.
 
-## Current phase
+## Where we are
 
-The shared lattice substrate is now capable of expressing the founding self-sorting system and ordinary cellular automata. The immediate research priority is therefore **not another substrate redesign**. It is to use the existing apparatus to add qualitatively different, still-small dynamical specimens and learn which concepts and measurements survive beyond sorting.
+The programme now has several different small phenomena rather than only one lineage: the simple self-sorting example, a retained morphogenesis scaling result, and a passive-relaxation / negative-feedback regulation calibration.
 
-The programme continues to have two complementary arms:
+The regulation case also passed a bounded blind Goal Discovery check. The unchanged P15 scalar proposer, given anonymous trajectories and an anonymous channel-disabling intervention, inferred a stable reference near the withheld authored value of 100 and did not promote a goal/competence claim. A separate zero-context reader independently described the intact behavior as regulation-like, identified a reference near 100, and retained passive and alternative-target explanations as rivals.
 
-- **Collective Competence:** construct and explain competent systems.
-- **Goal and Competence Discovery:** infer supported candidate goals and bounded competence claims from behavior under controlled observation and intervention.
+## Next action
 
-Current work emphasizes discovery first as a sequencing choice, not because constructive questions have been abandoned.
+**Move to the smallest compensation/repair specimen.**
 
-## Immediate scientific objective
+The next system should add one causal ingredient beyond regulation: at least two routes capable of supporting the same macro condition, so damage to one route can be compensated by another. Keep it inspectable and use the existing laboratory contracts where they fit naturally.
 
-**Build the next distinct specimen at approximately the tractability of the sorting experiment.**
+The immediate questions are:
 
-The first useful family should give concrete examples of:
+1. Can the system preserve or restore the same criterion after one route is disabled?
+2. Is the successful response genuinely an alternate route rather than ordinary robustness of the original route?
+3. What can a black-box analyst infer from the behavior and targeted intervention without being told the authored mechanism?
 
-1. passive convergence;
-2. negative-feedback regulation;
-3. compensation or repair;
-4. later, genuine adaptation involving a change in behavior or organization.
+Do **not** add more thermostat polish or redesign Goal Discovery before this specimen exists.
 
-The purpose is not initially to make a sophisticated benchmark. The purpose is to create different phenomena, perturb them, understand their mechanisms, and see where the current language of goals and competence is useful or breaks.
+## Working rules
 
-## What to do next
-
-1. **Implement the smallest negative-feedback regulation specimen on the lattice.** Keep the mechanism transparent and the goal criterion external to the system where practical.
-2. **Pair it with a passive comparison** that can reach or occupy a similar desirable region without feedback.
-3. **Perturb both** and record attainment, maintenance/recovery, and cost without prematurely forcing them into one competence score.
-4. **Add compensation/repair only after the first pair is understood.** Prefer one new causal ingredient at a time.
-5. Use the discovery machinery on these specimens, but do not expand that machinery unless a concrete failure on the new specimen requires it.
-
-## Cheap follow-ups, not the main line
-
-The two-opposing-agent boundary in sorting remains interesting because the current data show a sharp headcount transition whose mechanism is not yet explained. It is a reasonable cheap follow-up when it tests a specific conjecture, but it should not displace the effort to obtain a second kind of phenomenon.
-
-The older Q1-006 null-calibrated re-run remains useful calibration work but is not the current scientific front.
-
-## Working rules for this phase
-
-- Optimize for **phenomena learned per unit effort**, not documentation or metric count.
+- Optimize for **different phenomena learned per unit effort**.
 - Prefer small inspectable systems over premature realism.
-- Distinguish what was observed from what was inferred.
-- Negative results and discovered boundaries are progress.
-- Do not add a new abstraction, metric, governance surface, or substrate feature unless a concrete experiment requires it.
-- For Goal Discovery claims, use a simple information barrier where it matters: the analyst should not receive the hidden authored answer through the same context used to construct the specimen.
-- Preserve raw evidence and material corrections, but do not turn every mistake into a new permanent process.
+- One new causal ingredient at a time where possible.
+- Distinguish observation, inference, and authored structure.
+- Add substrate capability only when a concrete experiment cannot otherwise be expressed naturally.
+- The lattice is useful shared apparatus, not a universal-container requirement.
+- Negative results and cleanly identified limits count as progress.
+- Preserve native evidence and material corrections without creating another status surface.
 
-## What would make us change direction
+## Secondary follow-ups
 
-Reconsider the current approach if several meaningfully different small specimens fail to produce useful, testable distinctions in goal-relative behavior; if the lattice repeatedly prevents otherwise simple experiments; or if Goal Discovery only recovers descriptions supplied implicitly by the specimen designer.
+The two-opposing-agent sorting boundary remains a useful mechanistic follow-up when there is a specific conjecture to test. Older Q1 calibration work remains available in the reference layer but is not the scientific front.
 
-Until then, the best next move is more science on more small systems.
-
-## Detailed sources
-
-For exact historical plans and debts, see [`goal-discovery/docs/plans/current_research_plan.md`](../goal-discovery/docs/plans/current_research_plan.md). For the original discovery-goal register, see [goals.md](goals.md). For detailed historical decisions and audits, use the [reference index](reference/README.md).
+After compensation/repair is understood, add genuine adaptation: a case where behavior or organization changes in response to experience rather than merely recovering through a fixed mechanism.

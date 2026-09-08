@@ -12,44 +12,50 @@ sources:
 
 [Wiki home](index.md) · [Current work](current.md) · [Concepts](concepts.md) · [Substrate bench](bench.html)
 
-The Dynamical Laboratory is the shared experimental apparatus for both research arms. It exists to make small dynamical systems easy to construct or import, run, observe under controlled access, perturb, compare, and inspect.
+The Dynamical Laboratory is shared experimental apparatus for both research arms. It exists to make small dynamical systems easy to construct or import, run, observe under controlled access, perturb, compare, and inspect.
 
 It is **apparatus, not the scientific result**.
 
-## Current substrate
+## Current lattice substrate
 
-The active shared substrate lives under [`goal-discovery/src/lattice/`](../goal-discovery/src/lattice/). It is a generalized one-dimensional discrete interacting system with:
+The active shared lattice lives under [`goal-discovery/src/lattice/`](../goal-discovery/src/lattice/). It provides local transition rules, experiment-supplied schedules, synchronous or local update patterns, operation accounting, snapshot/restore including random state, and a bounded observation contract.
 
-- sites containing mobile entities or local state;
-- local transition rules;
-- experiment-supplied schedules;
-- synchronous or local update patterns where supported;
-- per-entity faults/heterogeneity;
-- snapshot and restore, including random state;
-- a common operation currency for relevant comparisons;
-- an observation contract that can deliberately hide channels from an analyst.
+Its site payload has **two explicit meanings**:
 
-The same substrate reproduces the founding self-sorting implementation trajectory-by-trajectory across the gated comparison suite, and can express elementary cellular automata as a constrained case.
+| Mode | Declaration | Site payload means | Current examples |
+|---|---|---|---|
+| **Entity mode** | `conserving=True` | stable mobile entity identity; every identity has an entity record; per-entity memory/faults apply | self-sorting |
+| **Local-state mode** | `conserving=False` | rewritable site state; no entity identity is implied and `entities` is empty | elementary cellular automata, scalar regulation |
 
-## Why one shared substrate
+The distinction is enforced rather than merely documented: an entity-mode lattice fails if a site names a nonexistent/duplicate identity, and a local-state lattice fails if it carries entity records. Snapshot/restore preserves the mode together with neighbourhood semantics.
 
-The point is not to claim universality. It is to prevent every small experiment from becoming a new simulator while still allowing meaningfully different systems to share experimental controls.
+The purpose of this shared container is convenience and comparability, **not universality**. If a simple scientific experiment repeatedly requires contorting its natural state into this representation, that is evidence to use another substrate behind the same laboratory discipline rather than to keep generalizing `Lattice`.
 
-A substrate feature should be added because a concrete experiment cannot otherwise be expressed, not because it might be useful someday.
+## What is shared even when substrates differ
+
+The more important laboratory contract is methodological:
+
+- declare the focal system and boundary;
+- run a reproducible dynamical system;
+- declare what an analyst may observe;
+- intervene or perturb in a controlled way;
+- compare matched counterfactuals where meaningful;
+- record relevant costs/resources;
+- preserve native evidence and implementation for later audit.
+
+Different internal representations can satisfy that contract.
 
 ## Running and exploring
 
-For an interactive view, open [`wiki/bench.html`](bench.html). It can configure and run the browser-port of the gated lattice engine, inject faults, snapshot state, and branch counterfactual arms from the same state.
+For an interactive view, open [`wiki/bench.html`](bench.html). It configures and runs the browser-port of the lattice engine, injects faults, snapshots state, and branches counterfactual arms from the same state.
 
-For fixed visual examples, [`wiki/lattice.html`](lattice.html) shows sorting, cellular automata, and perturbation runs.
+For fixed examples, [`wiki/lattice.html`](lattice.html) shows sorting, cellular automata, and perturbation runs.
 
 For exact command-line operation and package layout, use [`goal-discovery/README.md`](../goal-discovery/README.md) and the applicable subtree instructions.
 
 ## Designing a new specimen
 
-Prefer the smallest system that can answer the scientific question.
-
-A useful specimen description normally states:
+Prefer the smallest system that can answer the scientific question. A useful specimen description normally states:
 
 1. **System and boundary** — what is being treated as the system?
 2. **Local state and capabilities** — what can each component sense/do?
@@ -63,24 +69,23 @@ Do not add every possible measurement. Record enough to interpret the result and
 
 ## Counterfactual comparisons
 
-When comparing an intervention with a control, restore the same underlying state — including random-generator state where relevant — before branching. Similar-looking initial conditions are not sufficient for clean attribution when stochastic trajectories matter.
+When comparing an intervention with a control, restore the same underlying state — including random-generator state and declared system semantics where relevant — before branching. Similar-looking initial conditions are not sufficient for clean attribution when stochastic trajectories matter.
 
 ## Black-box and white-box use
 
-Analyst access is independent of specimen origin.
+Analyst access is independent of specimen origin. A system built in this repository may be analyzed blind-first by withholding mechanism and authored intent. Conversely, an imported system may be inspected white-box if the research question is mechanistic.
 
-A system built in this repository may be analyzed blind-first by withholding mechanism and authored intent. Conversely, a system imported from elsewhere may be inspected white-box if the research question is mechanistic.
-
-For a strong Goal Discovery demonstration, a simple information barrier is preferable to elaborate governance: construct the specimen in one context, give the analyst only the allowed observation/intervention interface, collect its inference, then reveal the hidden implementation for audit.
+For a strong Goal Discovery demonstration, prefer a simple information barrier: construct the specimen in one context, give the analyst only the permitted observations/interventions, collect its inference, then reveal implementation for audit.
 
 ## What not to do
 
 - Do not build a new substrate for every new specimen.
-- Do not force every system into a resource-allocation framing or any other previous specimen's vocabulary.
+- Do not force every specimen into the existing lattice when its natural state does not fit.
+- Do not force every system into a resource-allocation framing or another previous specimen's vocabulary.
 - Do not place the goal inside the substrate just because the experimenter needs a success criterion.
-- Do not add UI or infrastructure unless it enables an actual experiment or makes an existing instrument materially usable.
+- Do not add UI or infrastructure unless it enables an actual experiment or materially improves an existing instrument.
 - Do not treat a passing implementation test as evidence for the scientific interpretation.
 
 ## Detailed references
 
-Use [substrate design](substrate-design.md) for the design history and unresolved implementation questions, [`roadmap/apparatus.md`](../roadmap/apparatus.md) for the detailed implementation map, and the [reference index](reference/README.md) when investigating why a particular apparatus decision exists.
+Use [substrate design](substrate-design.md) for design history, [`roadmap/apparatus.md`](../roadmap/apparatus.md) for the detailed implementation map, and the [reference index](reference/README.md) when investigating why a particular apparatus decision exists.

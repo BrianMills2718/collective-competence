@@ -3,17 +3,17 @@
 This file exists to make one claim checkable. Laboratory spec §28 says the
 substrate should be *"a discrete interacting dynamical system with local state
 and explicit transition rules"* of which *"a standard cellular automaton is a
-particularly constrained case."* That sentence is easy to write into a docstring
-and never test. Here the constrained case is actually instantiated, on the same
-`Lattice`, `Faults`, operation currency and observation contract that the
-sorting specimen uses -- differing only in three declared properties:
+particularly constrained case."* Here that constrained case is instantiated on
+the same `Lattice`, operation currency and observation contract as sorting, but
+under the substrate's other payload semantics:
 
-    sorting          conserving=True,  centred=False, radius=1  (2-site window)
-    elementary CA    conserving=False, centred=True,  radius=1  (3-site window)
+    sorting          conserving=True   -> mobile entity identities
+    elementary CA    conserving=False  -> rewritable local site state
 
-`tests/test_lattice_expresses_both.py` checks Rule 90 against the Sierpinski
-triangle, whose rows are binomial coefficients mod 2 -- an exact result computed
-independently of this code, so the test cannot pass by agreeing with itself.
+The CA therefore has no entity records: repeated 0/1 values are cell state, not
+identities. `tests/test_lattice_expresses_both.py` checks Rule 90 against the
+Sierpinski triangle, whose rows are binomial coefficients mod 2 -- ground truth
+computed independently of this code.
 """
 
 from __future__ import annotations
@@ -44,7 +44,7 @@ def wolfram(number: int):
 
 def make(number: int, size: int = 65, seed: int | None = None,
          single_seed_cell: bool = True) -> tuple[Lattice, object]:
-    """A ring of `size` binary cells under elementary rule `number`.
+    """A ring of `size` binary local-state cells under elementary rule `number`.
 
     A ring, because a line has no complete neighbourhood at its ends and a
     boundary convention is a modelling choice this does not need to make.
