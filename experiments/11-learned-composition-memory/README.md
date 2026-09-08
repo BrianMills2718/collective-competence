@@ -59,6 +59,35 @@ But if A secretion fails **at the same time as an A wound**, the ambiguity remai
 
 So persistent setpoint memory solves loss of the *target reference* but does not make the current-state reporter self-authenticating.
 
+## Fault-identifiability analysis
+
+The next limitation can be stated without another simulation. Let `N` be current A abundance, `H` indicate whether the A reporter is healthy, and let the observed A signal be
+
+```text
+S = H * f(N)
+```
+
+where `f` is the increasing endogenous-signal function and `f(0)=0`. The controller also observes the wound bit `W` and retains the learned healthy setpoint `M`.
+
+At wound onset, every state with `W=1`, broken reporter `H=0`, and any possible `N` produces the same pair `(W,S) = (1,0)`. Complete A extinction with a healthy reporter also initially produces `(1,0)`.
+
+One **diagnostic A birth** can separate the last case from reporter failure: if the reporter is healthy, a newly created A cell makes `S>0`; if the reporter is broken, `S` remains zero. So reporter health itself is experimentally identifiable with the available plastic action.
+
+But after reporter failure is established, current A abundance is not. Further A births change `N` while the observation remains `S=0`. Different initial wounded abundances therefore generate the same observation history under the same birth sequence, yet require different numbers of births to return to the remembered target. No controller using only `{W, S, M, its own birth history}` can guarantee exact repair for all such initial states.
+
+That gives a precise requirement for any next information channel: it must distinguish the **remaining-current-amount / deficit classes** that require different actions. Merely duplicating “reporter healthy/broken” is insufficient.
+
+For a finite declared challenge set containing `K` reporter-failed deficit classes that require different exact birth counts, a perfect discrete side channel needs enough capacity to distinguish those `K` classes—at least `ceil(log2 K)` bits in the ordinary noiseless counting sense. Calling an analog quantity “one scalar” is not a minimal-information statement unless its precision/range is also specified.
+
+Several mechanisms would be sufficient in principle, but they answer different questions:
+
+- an independent current-abundance reporter not sharing A's failure mode;
+- an exact wound-loss counter that records how many A cells were removed;
+- a persistent structural landmark from which current A extent can be read;
+- repairing/replacing the broken reporter before using it to close the growth loop.
+
+An exact wound-loss counter is especially important as a control: for one-shot end amputations it can solve the declared problem by adding exactly the recorded number of cells, but that simply moves current-state information into the damage sensor. It should be challenged by unobserved loss, pre-existing composition error, internal damage, or ongoing loss if used in future work.
+
 ## Scope
 
 This is a deterministic white-box memory calibration. The memory update rule, wound bits, signal identities, 99% matching tolerance, fate plasticity, and extracellular persistence are authored. It does not show that real tissues store analog setpoints this way, and the retention sweep is not an empirical estimate of biological memory lifetime.
@@ -69,9 +98,10 @@ The durable distinctions are:
 2. that information can persist outside a lineage and support regeneration after the lineage is lost;
 3. memory lifetime limits the amount of repair it can support;
 4. memory and generative plasticity remain independent requirements;
-5. remembering the desired state does not by itself diagnose failure of the sensor reporting the current state.
+5. remembering the desired state does not by itself diagnose failure of the sensor reporting the current state;
+6. once a reporter is known to be broken, exact current amount is unidentifiable without an additional independent observation or historical deficit record.
 
-Do not add another reporter inside this experiment. The next question is a fault-identification problem: what independent evidence, if any, is minimally sufficient to distinguish structural loss from simultaneous failure of the structure's own reporter?
+Do not add another reporter inside this experiment. The next mechanism should be chosen to test which kind of **independent current-state information** is actually useful, with explicit joint-failure challenges.
 
 ## Reproduce
 
