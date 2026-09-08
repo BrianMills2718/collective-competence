@@ -74,10 +74,14 @@ class PersistentLoadExposesRegulation(unittest.TestCase):
 
 class TheSpecimenUsesTheSharedCounterfactualContract(unittest.TestCase):
 
-    def test_regulation_uses_nonconserving_centred_lattice_semantics(self):
+    def test_regulation_uses_local_state_lattice_semantics(self):
         lat = regulation.make()
         self.assertEqual((lat.conserving, lat.centred, lat.radius, lat.ring),
                          (False, True, 0, True))
+        self.assertEqual(
+            lat.entities, {},
+            "temperature values are local state, not synthetic entity identities",
+        )
 
     def test_snapshot_restore_keeps_the_regulation_system_definition(self):
         lat = regulation.make(140)
@@ -86,9 +90,9 @@ class TheSpecimenUsesTheSharedCounterfactualContract(unittest.TestCase):
         restored = restore(snapshot(lat))
         self.assertEqual(
             (restored.occupants, restored.ops, restored.conserving,
-             restored.centred, restored.radius, restored.ring),
+             restored.centred, restored.radius, restored.ring, restored.entities),
             (lat.occupants, lat.ops, lat.conserving,
-             lat.centred, lat.radius, lat.ring),
+             lat.centred, lat.radius, lat.ring, lat.entities),
         )
 
 
