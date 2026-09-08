@@ -10,6 +10,7 @@ sources:
   - ../experiments/08-boundary-memory/README.md
   - ../experiments/09-composition-lineage/README.md
   - ../experiments/10-endogenous-composition/README.md
+  - ../experiments/11-learned-composition-memory/README.md
   - ../experiments/03-redundant-transport/README.md
   - ../experiments/04-route-learning/README.md
   - ../experiments/05-pattern-repair/README.md
@@ -171,6 +172,18 @@ This exposes a new limitation of self-produced measurements: a low signal can me
 
 **Evidence:** [`experiments/10-endogenous-composition/README.md`](../experiments/10-endogenous-composition/README.md).
 
+## Healthy history can supply a regenerative setpoint, but memory and sensing fail differently
+
+Experiment 11 removes the hard-coded A/B target counts from the repair controller. Before damage, an extracellular trace learns the healthy endogenous A and B signal levels by exponential averaging. The same repair rule is then tested on healthy compositions `A^6 B^18`, `A^8 B^16`, and `A^10 B^14`.
+
+With persistent learned memory and fate plasticity, all **12/12** declared partial and lineage-extinction challenges return to their own learned healthy composition. The memory itself starts at zero and converges to each healthy signal without receiving the target counts. Faster memory decay creates a bounded repair horizon: exact success across those 12 challenges is **12, 12, 11, 8, 4** for per-birth retention `1.0, 0.9995, 0.999, 0.998, 0.995` respectively. Without fate plasticity, complete A/B extinction remains unrepaired in **0/6** declared cases.
+
+The wound state disambiguates one reporter fault but not all of them. If A secretion fails in an otherwise intact `A^8 B^16` tissue, no wound is present and the controller performs **0** births. If A secretion fails simultaneously with an A wound, however, the current A signal never approaches the remembered healthy setpoint: the fixed 40-birth window ends at **A=44, B=16** after partial A loss and **A=40, B=16** after complete A extinction.
+
+**Scope:** the memory update, persistence law, 99% matching tolerance, wound bits, signal identities, and fate plasticity are authored. The retention sweep is a deterministic memory-capacity illustration, not a biological lifetime estimate. The useful distinction is that desired-state memory can survive structural loss while current-state measurement remains a separate, fallible information problem.
+
+**Evidence:** [`experiments/11-learned-composition-memory/README.md`](../experiments/11-learned-composition-memory/README.md).
+
 ## Measurement choices can hide important differences
 
 Across the work, several attractive headline measures have turned out to read less than their names suggest. In sorting, recovery rate can stay at 1.0 while recovery cost deteriorates; a halted controller can receive a nominal recovery score despite no longer participating; and survivorship can make later episodes appear cheaper. Earlier Goal Discovery work similarly found measures that tracked determinism, unused capacity, or omitted mechanism variables rather than the richer interpretation initially attached to them.
@@ -185,4 +198,4 @@ See [the generated scoreboard](scoreboard.md), [research synthesis](../roadmap/r
 
 ## What would count as progress from here
 
-Progress now means asking whether regenerative information can remain **available and trustworthy when the structure that normally reports it is damaged or erased**. Pattern, amount, historical location, composition, reporter integrity, memory, and generative repertoire should remain separate. The current work page owns the next concrete action.
+Progress now means separating **remembered desired state from trustworthy observation of current state**. Before adding a redundant reporter, state which hidden structural/reporter states are observationally distinguishable under the available wound and intervention channels. The current work page owns the next concrete action.
