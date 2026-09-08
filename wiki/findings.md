@@ -6,6 +6,7 @@ sources:
   - ../experiments/01-self-sorting/README.md
   - ../experiments/02-regulation/README.md
   - ../experiments/06-structural-regeneration/README.md
+  - ../experiments/07-endogenous-size-control/README.md
   - ../experiments/03-redundant-transport/README.md
   - ../experiments/04-route-learning/README.md
   - ../experiments/05-pattern-repair/README.md
@@ -119,6 +120,18 @@ The relative code has a clear limit: unequal changes in the two organizer source
 
 **Evidence:** [`experiments/06-structural-regeneration/README.md`](../experiments/06-structural-regeneration/README.md).
 
+## A tissue-produced signal can restore size without restoring position
+
+A contiguous tissue can encode its own size in the inhibitor concentration sensed locally at either edge. With thresholds calibrated around size 24, loss lowers the self-produced signal and opens proliferation; excess raises it and triggers edge removal. Across right-side loss and addition challenges of 1, 2, 4, 8, 12 and 18 cells, **all 24,000 declared trials return to size 24**.
+
+That does not imply positional regeneration. Because either edge can act, exact return to the original interval after an 8-cell one-sided challenge occurs in only **12/2000** trials; at widths 12 and 18 it occurs in **0/2000**, despite perfect size recovery. Clamping the pre-damage signal prevents regrowth after loss, while removing inhibitor secretion removes the stopping condition and produces continued growth.
+
+The self-generated size cue also has a signal-range boundary. With additive sensing noise sigma 0.02 and thresholds re-tuned to the same target size, the fraction of scored steps at size 24 rises from **0.190** at decay length 4 to **0.834** at 8, **0.999** at 12 and **1.000** at 18 as adjacent tissue sizes become more distinguishable at the edge.
+
+**Scope:** this is an engineered steady-state exponential signaling model with an authored target threshold, not a biological mechanism. Its useful result is a decomposition: endogenous collective information can support size homeostasis while leaving position underdetermined.
+
+**Evidence:** [`experiments/07-endogenous-size-control/README.md`](../experiments/07-endogenous-size-control/README.md).
+
 ## Measurement choices can hide important differences
 
 Across the work, several attractive headline measures have turned out to read less than their names suggest. In sorting, recovery rate can stay at 1.0 while recovery cost deteriorates; a halted controller can receive a nominal recovery score despite no longer participating; and survivorship can make later episodes appear cheaper. Earlier Goal Discovery work similarly found measures that tracked determinism, unused capacity, or omitted mechanism variables rather than the richer interpretation initially attached to them.
@@ -133,4 +146,4 @@ See [the generated scoreboard](scoreboard.md), [research synthesis](../roadmap/r
 
 ## What would count as progress from here
 
-Progress now means using these distinctions on **genuinely new phenomena**, not adding more calibration categories. Structural repair and regrowth have now exposed two different questions: recovering a many-state relation and knowing where/when to replace missing components. The current work page owns the next concrete action.
+Progress now means using these distinctions on **genuinely new phenomena**, not adding more calibration categories. Structural regeneration has now separated at least three questions that should not be collapsed: what state/relation is acceptable, how much structure should exist, and where that structure belongs. The current work page owns the next concrete action.
