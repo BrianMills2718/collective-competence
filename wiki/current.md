@@ -24,32 +24,34 @@ On the published 96×96 demo grid, all three variants form the lizard after 96 u
 
 This is an **external reproduction**, not a new NCA finding. Its value is that the laboratory now has a richer system we did not design to validate our conceptual decomposition.
 
+**Phase-2 gate 2 is now partly complete.** A central-lesion sweep shows a real recovery boundary in the fixed regeneration-trained model: radius 16 enters a low-error repaired regime, radius 18 improves only partially and stalls, and radius 20 initially improves then diverges at long horizon while the matched undamaged model stays near target.
+
+Selective state corruption also produced the first genuinely non-obvious result on the external specimen. At radius 16, erasing only the 12 hidden channels while leaving visible RGBA intact is more damaging than deleting the entire local 16-channel state. The ordering survives **4/4** independently seeded future update streams from the same formed state (mean target MSE **0.00875** hidden-only versus **0.00316** full deletion). This supports a causal role for latent state and state consistency; it does not identify a semantic target representation.
+
 ## Next action
 
-**Map the regeneration basin and information/capability boundaries of the fixed published NCA models before retraining or blind analysis.**
+**Determine what the NCA recovery boundary depends on, then test action/reachability directly.**
 
-The first intervention series should keep the upstream models frozen and branch from matched states/RNG streams. Start with perturbations whose interpretation does not require guessing what hidden channels mean.
+The next intervention series should keep upstream weights frozen and preserve matched stochastic comparisons.
 
-### 1. Lesion basin
+### 1. Geometry, location, and timing
 
-Vary lesion **size, geometry, location, and timing**. Record at least:
+The radius sweep varies removed area and topology together. Separate them:
 
-- target RGB error before damage, immediately after, and through recovery;
-- damaged-versus-matched-undamaged branch divergence;
-- first return to a declared target-error band where return occurs;
-- failure/non-recovery within a fixed observation horizon.
+- equal-area compact versus elongated/slit lesions;
+- central versus peripheral/anatomically distinct locations;
+- damage during formation versus after mature morphology;
+- repeated lesions where useful.
 
-Compare the published growing, persistent, and regenerating variants rather than characterizing `ex3` in isolation. The goal is to discover where the qualitative training-regime distinction holds, weakens, or reverses.
+The aim is to learn whether failure tracks amount removed, shape/connectivity, anatomical region, developmental state, or a combination. Do not summarize this as one universal "maximum lesion size."
 
-### 2. Visible versus hidden state
+### 2. Hidden-state consistency
 
-Only after the ordinary lesion basin is understood, perturb cell-state channels selectively. The NCA has visible RGBA channels plus hidden channels, so matched interventions can ask whether morphology can be repaired when visible structure is damaged but latent state is retained, versus when latent state is erased or corrupted with similar visible damage.
-
-Do **not** assume that hidden channels are a literal target representation. The experiment should establish only what information is causally load-bearing for the tested recovery.
+Replicate the hidden-only/full ordering under a small number of new geometries/locations. If it survives, compare additional controlled corruptions (reset, noise, spatial shuffle) before interpreting hidden channels as memory or representation. The current result establishes causal load-bearing latent state, not semantics.
 
 ### 3. Action/reachability interventions
 
-If the previous steps expose a clear recovery regime, restrict or disable local updates spatially or temporally to test whether failure is due to missing state information versus inability of the remaining local dynamics to reach the morphology. Keep this downstream of the simpler lesion/state tests.
+Spatially or temporally restrict updates in a regime that ordinarily repairs. This should separate two broad failure classes: the required state information is absent/corrupted versus the remaining local dynamics cannot execute a path back to the morphology.
 
 ## Phase-2 gate 3 — discovery later
 

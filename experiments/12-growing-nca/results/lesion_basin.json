@@ -1,0 +1,312 @@
+{
+  "fixed_horizon": [
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 0.007586452178657055,
+      "immediate_target_mse": 0.0009081047028303146,
+      "model": "growing",
+      "radius": 2,
+      "target_mse_after_96": 0.007695363834500313,
+      "undamaged_target_mse_after_96": 0.0013444357318803668
+    },
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 0.013789101503789425,
+      "immediate_target_mse": 0.0025572997983545065,
+      "model": "growing",
+      "radius": 4,
+      "target_mse_after_96": 0.013063891790807247,
+      "undamaged_target_mse_after_96": 0.0013444357318803668
+    },
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 0.018648207187652588,
+      "immediate_target_mse": 0.008308971300721169,
+      "model": "growing",
+      "radius": 8,
+      "target_mse_after_96": 0.017586704343557358,
+      "undamaged_target_mse_after_96": 0.0013444357318803668
+    },
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 0.02187664434313774,
+      "immediate_target_mse": 0.014349192380905151,
+      "model": "growing",
+      "radius": 12,
+      "target_mse_after_96": 0.02069328911602497,
+      "undamaged_target_mse_after_96": 0.0013444357318803668
+    },
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 0.0007982588140293956,
+      "immediate_target_mse": 0.000788698613177985,
+      "model": "persistent",
+      "radius": 2,
+      "target_mse_after_96": 0.0010364309418946505,
+      "undamaged_target_mse_after_96": 0.00020238428260199726
+    },
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 0.00922419037669897,
+      "immediate_target_mse": 0.00246883905492723,
+      "model": "persistent",
+      "radius": 4,
+      "target_mse_after_96": 0.009572003968060017,
+      "undamaged_target_mse_after_96": 0.00020238428260199726
+    },
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 0.013932894915342331,
+      "immediate_target_mse": 0.008287948556244373,
+      "model": "persistent",
+      "radius": 8,
+      "target_mse_after_96": 0.014349975623190403,
+      "undamaged_target_mse_after_96": 0.00020238428260199726
+    },
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 0.02560603991150856,
+      "immediate_target_mse": 0.01434947270900011,
+      "model": "persistent",
+      "radius": 12,
+      "target_mse_after_96": 0.025937287136912346,
+      "undamaged_target_mse_after_96": 0.00020238428260199726
+    },
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 8.672410331200808e-05,
+      "immediate_target_mse": 0.001223784638568759,
+      "model": "regenerating",
+      "radius": 2,
+      "target_mse_after_96": 0.0006692756433039904,
+      "undamaged_target_mse_after_96": 0.0005736434832215309
+    },
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 0.00012081975000910461,
+      "immediate_target_mse": 0.002899258164688945,
+      "model": "regenerating",
+      "radius": 4,
+      "target_mse_after_96": 0.0005647098296321929,
+      "undamaged_target_mse_after_96": 0.0005736434832215309
+    },
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 0.0003872636007145047,
+      "immediate_target_mse": 0.008691604249179363,
+      "model": "regenerating",
+      "radius": 8,
+      "target_mse_after_96": 0.00048236025031656027,
+      "undamaged_target_mse_after_96": 0.0005736434832215309
+    },
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 0.0012860017595812678,
+      "immediate_target_mse": 0.014699243940412998,
+      "model": "regenerating",
+      "radius": 12,
+      "target_mse_after_96": 0.0013149502919986844,
+      "undamaged_target_mse_after_96": 0.0005736434832215309
+    },
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 0.00214008754119277,
+      "immediate_target_mse": 0.01852322928607464,
+      "model": "regenerating",
+      "radius": 14,
+      "target_mse_after_96": 0.002464331453666091,
+      "undamaged_target_mse_after_96": 0.0005736434832215309
+    },
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 0.0033542488235980272,
+      "immediate_target_mse": 0.021144293248653412,
+      "model": "regenerating",
+      "radius": 16,
+      "target_mse_after_96": 0.003409863915294409,
+      "undamaged_target_mse_after_96": 0.0005736434832215309
+    },
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 0.01380088459700346,
+      "immediate_target_mse": 0.02274811454117298,
+      "model": "regenerating",
+      "radius": 18,
+      "target_mse_after_96": 0.01409419160336256,
+      "undamaged_target_mse_after_96": 0.0005736434832215309
+    },
+    {
+      "damaged_vs_undamaged_rgb_mse_after_96": 0.01600797474384308,
+      "immediate_target_mse": 0.023724600672721863,
+      "model": "regenerating",
+      "radius": 20,
+      "target_mse_after_96": 0.016404403373599052,
+      "undamaged_target_mse_after_96": 0.0005736434832215309
+    }
+  ],
+  "protocol": {
+    "damage": "central clear circle",
+    "fixed_follow_steps": 96,
+    "formation_steps": 96,
+    "grid": 96,
+    "long_checkpoints": [
+      32,
+      64,
+      96,
+      128,
+      192,
+      256,
+      384,
+      512
+    ],
+    "matched_future_update_stream": true,
+    "radius_sweep": {
+      "growing": [
+        2,
+        4,
+        8,
+        12
+      ],
+      "persistent": [
+        2,
+        4,
+        8,
+        12
+      ],
+      "regenerating": [
+        2,
+        4,
+        8,
+        12,
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "rng_seed": 7
+  },
+  "regenerating_long_horizon": {
+    "radius_16": [
+      {
+        "step": 32,
+        "target_mse": 0.013189194723963737
+      },
+      {
+        "step": 64,
+        "target_mse": 0.005980992689728737
+      },
+      {
+        "step": 96,
+        "target_mse": 0.003409863915294409
+      },
+      {
+        "step": 128,
+        "target_mse": 0.0023472397588193417
+      },
+      {
+        "step": 192,
+        "target_mse": 0.002756547648459673
+      },
+      {
+        "step": 256,
+        "target_mse": 0.0029895161278545856
+      },
+      {
+        "step": 384,
+        "target_mse": 0.003295572241768241
+      },
+      {
+        "step": 512,
+        "target_mse": 0.003435510443523526
+      }
+    ],
+    "radius_18": [
+      {
+        "step": 32,
+        "target_mse": 0.019246526062488556
+      },
+      {
+        "step": 64,
+        "target_mse": 0.016816619783639908
+      },
+      {
+        "step": 96,
+        "target_mse": 0.01409419160336256
+      },
+      {
+        "step": 128,
+        "target_mse": 0.011225800029933453
+      },
+      {
+        "step": 192,
+        "target_mse": 0.01128461118787527
+      },
+      {
+        "step": 256,
+        "target_mse": 0.014482752420008183
+      },
+      {
+        "step": 384,
+        "target_mse": 0.01492985524237156
+      },
+      {
+        "step": 512,
+        "target_mse": 0.014897109940648079
+      }
+    ],
+    "radius_20": [
+      {
+        "step": 32,
+        "target_mse": 0.021399017423391342
+      },
+      {
+        "step": 64,
+        "target_mse": 0.019451288506388664
+      },
+      {
+        "step": 96,
+        "target_mse": 0.016404403373599052
+      },
+      {
+        "step": 128,
+        "target_mse": 0.014748466201126575
+      },
+      {
+        "step": 192,
+        "target_mse": 0.013933639042079449
+      },
+      {
+        "step": 256,
+        "target_mse": 0.017867449671030045
+      },
+      {
+        "step": 384,
+        "target_mse": 0.028722180053591728
+      },
+      {
+        "step": 512,
+        "target_mse": 0.03542567417025566
+      }
+    ],
+    "undamaged": [
+      {
+        "step": 32,
+        "target_mse": 0.000710282358340919
+      },
+      {
+        "step": 64,
+        "target_mse": 0.0006244379910640419
+      },
+      {
+        "step": 96,
+        "target_mse": 0.0005736434832215309
+      },
+      {
+        "step": 128,
+        "target_mse": 0.0005056714289821684
+      },
+      {
+        "step": 192,
+        "target_mse": 0.00044176424853503704
+      },
+      {
+        "step": 256,
+        "target_mse": 0.00033488779445178807
+      },
+      {
+        "step": 384,
+        "target_mse": 0.000270179909421131
+      },
+      {
+        "step": 512,
+        "target_mse": 0.00031813516397960484
+      }
+    ]
+  }
+}

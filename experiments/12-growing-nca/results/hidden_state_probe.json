@@ -1,0 +1,105 @@
+{
+  "matched_curves": [
+    {
+      "radius": 8,
+      "target_mse_after_96": {
+        "full": 0.00048236025031656027,
+        "hidden_only": 0.0005657928995788097,
+        "none": 0.0005736434832215309,
+        "visible_only": 0.0010417228331789374
+      },
+      "vs_undamaged_rgb_mse_after_96": {
+        "full": 0.0003872636007145047,
+        "hidden_only": 0.000494393752887845,
+        "visible_only": 0.0007424454088322818
+      }
+    },
+    {
+      "radius": 16,
+      "target_mse_after_96": {
+        "full": 0.003409863915294409,
+        "hidden_only": 0.010636051185429096,
+        "none": 0.0005736434832215309,
+        "visible_only": 0.004263497423380613
+      },
+      "vs_undamaged_rgb_mse_after_96": {
+        "full": 0.0033542488235980272,
+        "hidden_only": 0.010520104318857193,
+        "visible_only": 0.004062921740114689
+      }
+    }
+  ],
+  "protocol": {
+    "follow_steps": 96,
+    "formation_steps": 96,
+    "formed_state_seed": 7,
+    "grid": 96,
+    "matched_curve_radii": [
+      8,
+      16
+    ],
+    "replication_future_seeds": [
+      100,
+      101,
+      102,
+      103
+    ],
+    "replication_radius": 16
+  },
+  "replications": [
+    {
+      "future_seed": 100,
+      "target_mse_after_96": {
+        "full": 0.002635544165968895,
+        "hidden_only": 0.007855121977627277,
+        "none": 0.0007226222660392523
+      },
+      "vs_undamaged_rgb_mse_after_96": {
+        "full": 0.002858225954696536,
+        "hidden_only": 0.007972071878612041
+      }
+    },
+    {
+      "future_seed": 101,
+      "target_mse_after_96": {
+        "full": 0.0038960452657192945,
+        "hidden_only": 0.008616874925792217,
+        "none": 0.0007101434748619795
+      },
+      "vs_undamaged_rgb_mse_after_96": {
+        "full": 0.003766737412661314,
+        "hidden_only": 0.008512149564921856
+      }
+    },
+    {
+      "future_seed": 102,
+      "target_mse_after_96": {
+        "full": 0.0027078851126134396,
+        "hidden_only": 0.007676242850720882,
+        "none": 0.0005981869180686772
+      },
+      "vs_undamaged_rgb_mse_after_96": {
+        "full": 0.0028766095638275146,
+        "hidden_only": 0.007735907565802336
+      }
+    },
+    {
+      "future_seed": 103,
+      "target_mse_after_96": {
+        "full": 0.003417625557631254,
+        "hidden_only": 0.010863942094147205,
+        "none": 0.0006852764636278152
+      },
+      "vs_undamaged_rgb_mse_after_96": {
+        "full": 0.0036435502115637064,
+        "hidden_only": 0.010764137841761112
+      }
+    }
+  ],
+  "summary": {
+    "hidden_worse_than_full_count": 4,
+    "mean_full_target_mse": 0.003164275025483221,
+    "mean_hidden_target_mse": 0.008753045462071896,
+    "replication_count": 4
+  }
+}

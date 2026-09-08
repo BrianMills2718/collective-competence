@@ -6,9 +6,8 @@ import json
 from pathlib import Path
 
 import numpy as np
-from matplotlib.image import imread
-
 from fetch_upstream import MANIFEST, ensure_assets
+from matplotlib.image import imread
 from nca_numpy import NCA, visible_rgb
 
 HERE = Path(__file__).resolve().parent
