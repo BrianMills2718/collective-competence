@@ -1,0 +1,44 @@
+{
+  "models": [
+    {
+      "damage_target_mse": 0.008308971300721169,
+      "damaged_target_mse_after_follow": 0.017586704343557358,
+      "damaged_vs_undamaged_rgb_mse_after_follow": 0.018648207187652588,
+      "formed_target_mse": 0.0005679220776073635,
+      "model": "growing",
+      "undamaged_target_mse_after_follow": 0.0013444357318803668
+    },
+    {
+      "damage_target_mse": 0.008287948556244373,
+      "damaged_target_mse_after_follow": 0.014349975623190403,
+      "damaged_vs_undamaged_rgb_mse_after_follow": 0.013932894915342331,
+      "formed_target_mse": 0.0004036234167870134,
+      "model": "persistent",
+      "undamaged_target_mse_after_follow": 0.00020238428260199726
+    },
+    {
+      "damage_target_mse": 0.008691604249179363,
+      "damaged_target_mse_after_follow": 0.00048236025031656027,
+      "damaged_vs_undamaged_rgb_mse_after_follow": 0.0003872636007145047,
+      "formed_target_mse": 0.0008389719878323376,
+      "model": "regenerating",
+      "undamaged_target_mse_after_follow": 0.0005736434832215309
+    }
+  ],
+  "protocol": {
+    "damage": {
+      "kind": "central_clear_circle",
+      "radius": 8.0
+    },
+    "follow_steps": 96,
+    "formation_steps": 96,
+    "grid": 96,
+    "matched_future_update_stream": true,
+    "rng_seed": 7
+  },
+  "upstream": {
+    "commit": "a12c7efa541b5770043a8d5470bffeacfd7b0435",
+    "doi": "10.23915/distill.00023",
+    "repository": "distillpub/post--growing-ca"
+  }
+}
