@@ -5,6 +5,7 @@ lifecycle: active
 sources:
   - ../experiments/01-self-sorting/README.md
   - ../experiments/02-regulation/README.md
+  - ../experiments/06-structural-regeneration/README.md
   - ../experiments/03-redundant-transport/README.md
   - ../experiments/04-route-learning/README.md
   - ../experiments/05-pattern-repair/README.md
@@ -108,6 +109,16 @@ A zero-context Goal Discovery pass then withheld the criterion, update rule, cat
 
 **Evidence:** [`experiments/05-pattern-repair/README.md`](../experiments/05-pattern-repair/README.md).
 
+## Structural regrowth needs information that distinguishes wound from boundary
+
+A one-dimensional tissue with actual vacancies and local proliferation exposes a simple information problem. With occupancy alone, an intact tissue edge and the surviving edge after end amputation present the same radius-1 pattern `(1, 1, 0)`. A translation-invariant radius-1 rule therefore cannot both stop at the normal boundary and grow at the wound boundary without some additional cue.
+
+In the constructive specimen, two external organizer gradients provide a relative positional coordinate. A ratio-based birth gate forms and regenerates the same 24-site tissue under common source amplitudes 0.75, 1.0 and 1.25, and repairs all 27 declared combinations of left/right/middle amputation, width 4/8/12 and common amplitude. An absolute single-gradient gate calibrated to the identical baseline succeeds exactly only in the nine amplitude-1 cases; ungated local proliferation never stops at the target boundary.
+
+The relative code has a clear limit: unequal changes in the two organizer sources shift the recovered morphology, and loss of either source blocks the declared repair. **Scope:** this is an authored positional-information mechanism with external organizers, not autonomous morphogenesis. The useful result is the wound-versus-boundary information requirement and one concrete way of resolving it.
+
+**Evidence:** [`experiments/06-structural-regeneration/README.md`](../experiments/06-structural-regeneration/README.md).
+
 ## Measurement choices can hide important differences
 
 Across the work, several attractive headline measures have turned out to read less than their names suggest. In sorting, recovery rate can stay at 1.0 while recovery cost deteriorates; a halted controller can receive a nominal recovery score despite no longer participating; and survivorship can make later episodes appear cheaper. Earlier Goal Discovery work similarly found measures that tracked determinism, unused capacity, or omitted mechanism variables rather than the richer interpretation initially attached to them.
@@ -122,4 +133,4 @@ See [the generated scoreboard](scoreboard.md), [research synthesis](../roadmap/r
 
 ## What would count as progress from here
 
-Progress now means using these distinctions on **genuinely new phenomena**, not adding more calibration categories. Sorting is one transparent worked example; morphogenesis contributes a retained scaling result; regulation, compensation, and adaptation now provide small contrastive calibrations with bounded blind-analysis successes. The current work page owns the next concrete action.
+Progress now means using these distinctions on **genuinely new phenomena**, not adding more calibration categories. Structural repair and regrowth have now exposed two different questions: recovering a many-state relation and knowing where/when to replace missing components. The current work page owns the next concrete action.
