@@ -11,9 +11,9 @@ This area is the **cold/warm layer** of the project knowledge system. Use it whe
 - [Detailed discovery goal register](../goals.md) — D1-D6, provenance, and historical phase discussion.
 - [Standing conjectures](../conjectures.md) — falsifiable domain conjectures and their refuters.
 - [Generative thesis](../competence-thesis.md) — exploratory conceptual motivation; not a source of current priority.
-- [Research synthesis](../../roadmap/research.md) — detailed experiment-by-experiment scientific synthesis.
-- [Experiment register](../../roadmap/experiments.md) — registered experiments and links to native protocols/results.
-- [Generated scoreboard](../scoreboard.md) — compact generated summaries of registered live-era experiments.
+- [Retained earlier research synthesis](../../roadmap/research.md) — detailed pre-scaling experiment-by-experiment synthesis; use `wiki/findings.md` for the current cross-cutting synthesis.
+- [Experiment register](../../roadmap/experiments.md) — registered Goal Discovery/instrument experiments and links to native protocols/results.
+- [Generated scoreboard](../scoreboard.md) — generated view of that older registered ledger, not the full native experiment sequence.
 
 ## Apparatus and operation
 
@@ -22,7 +22,7 @@ This area is the **cold/warm layer** of the project knowledge system. Use it whe
 - [Substrate design history](../substrate-design.md)
 - [Interactive substrate bench](../bench.html)
 - [Fixed-run lattice viewer](../lattice.html)
-- [Generated visual status page](../status.html)
+- [Generated registered-lane status page](../status.html)
 
 ## Decisions, audits, and failure history
 
@@ -35,10 +35,11 @@ These are valuable when investigating **why** something was changed or whether a
 - [Prose-vs-code audit, 2026-09-05](../../goal-discovery/docs/audits/2026-09-05b_prose_vs_code_audit.md)
 - [Archive recovery index](../archive-index.md)
 - [Cross-repository timeline](../cross-repo-timeline.md)
+- [Superseded Goal Discovery current plan](../../goal-discovery/docs/plans/current_research_plan.md) — retained historical lane plan; **not** a source of current priority.
 
 ## Native experiment evidence
 
-The native experiment directory is the authority for what a particular experiment actually did and observed.
+The native experiment directory is the authority for what a particular experiment actually did and observed. Start with the compact [native experiment map](../../experiments/README.md).
 
 Important examples:
 
@@ -46,17 +47,18 @@ Important examples:
 - [Many-state spatial repair](../../experiments/05-pattern-repair/README.md)
 - [Structural regeneration](../../experiments/06-structural-regeneration/README.md)
 - [Learned composition memory](../../experiments/11-learned-composition-memory/README.md)
+- [Growing NCA external specimen](../../experiments/12-growing-nca/README.md) — current phase-2 specimen and intervention evidence.
 - [Morphogenesis scaling](../../experiments/morphogenesis-scaling/README.md)
 - [Platonic ingression discussion/toy material](../../experiments/platonic-ingression/README.md) — design input, not benchmark evidence.
 
-For Goal Discovery experiments, follow links from the [experiment register](../../roadmap/experiments.md) to the frozen protocol, runner, result package, and interpretation.
+For older registered Goal Discovery experiments, follow links from the [experiment register](../../roadmap/experiments.md) to the frozen protocol, runner, result package, and interpretation.
 
 ## Documentation policy
 
 The knowledge system has three temperatures:
 
 - **Hot:** `index.md`, `questions.md`, `findings.md`, `concepts.md`, `current.md`, `laboratory.md`. These are the normal navigation layer.
-- **Warm:** experiment READMEs, the research landscape, detailed ontology, apparatus docs, active protocols and plans. Read when the task needs them.
+- **Warm:** experiment READMEs, the native experiment map, research landscape, detailed ontology, apparatus docs, active protocols and plans. Read when the task needs them.
 - **Cold:** audits, development chronology, superseded plans, archived narratives, and closed failure history. Search when reconstructing history.
 
 A historical fact does not belong on a hot page merely because it was once important. Promote information upward only when it affects current scientific understanding or current action.
