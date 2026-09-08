@@ -1,0 +1,30 @@
+{
+  "article": {
+    "doi": "10.23915/distill.00023",
+    "title": "Growing Neural Cellular Automata"
+  },
+  "upstream": {
+    "repository": "distillpub/post--growing-ca",
+    "commit": "a12c7efa541b5770043a8d5470bffeacfd7b0435",
+    "inference_source": "public/ca.js",
+    "inference_source_git_blob": "d88738a487dab46abeedffe559f0d5b846cc11b3"
+  },
+  "assets": {
+    "ex1_lizard.json": {
+      "path": "public/webgl_models8/ex1_🦎.json",
+      "sha256": "23c0b09e9c64d7422044e5a6d769ffd4c20069926b2da94c929f27286ee0bf48"
+    },
+    "ex2_lizard.json": {
+      "path": "public/webgl_models8/ex2_🦎.json",
+      "sha256": "09844f48a2ecb951858dd35eb56f63c798403c0fea729a21f1c87af00ba39704"
+    },
+    "ex3_lizard.json": {
+      "path": "public/webgl_models8/ex3_🦎.json",
+      "sha256": "e4fc6cf03accac43d5f6d96fe3cce4dbef3a25100ebe82252aedc5cc25c2a8c2"
+    },
+    "emoji.png": {
+      "path": "public/images/emoji.png",
+      "sha256": "cdbc8b3359223a610608029d3c26a5c17ee9edbeeb0520acb8d44633ce6a2ea2"
+    }
+  }
+}
