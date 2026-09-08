@@ -1,0 +1,190 @@
+{
+  "causal_controls": {
+    "amputated_start_size": 16,
+    "secretion_ablation": {
+      "final_size_after_50_operations": 66,
+      "interpretation": "without inhibitor production, the growth stop is lost",
+      "operations": 50
+    },
+    "target_signal_clamp": {
+      "final_size": 16,
+      "interpretation": "holding the pre-damage signal prevents loss-triggered regrowth",
+      "operations": 0
+    }
+  },
+  "formation": {
+    "final_interval": [
+      87,
+      110
+    ],
+    "final_size": 24,
+    "operations": 23,
+    "start_size": 1
+  },
+  "noise_sweep": [
+    {
+      "decay_length": 4.0,
+      "discrimination_margin": 0.0012393760883329108,
+      "max_size": 34,
+      "mean_absolute_size_error": 1.7048055555555555,
+      "min_size": 18,
+      "noise_sigma": 0.02,
+      "target_fraction": 0.18975
+    },
+    {
+      "decay_length": 6.0,
+      "discrimination_margin": 0.009157819444367554,
+      "max_size": 27,
+      "mean_absolute_size_error": 0.51925,
+      "min_size": 21,
+      "noise_sigma": 0.02,
+      "target_fraction": 0.5131666666666667
+    },
+    {
+      "decay_length": 8.0,
+      "discrimination_margin": 0.02489353418393314,
+      "max_size": 25,
+      "mean_absolute_size_error": 0.16605555555555557,
+      "min_size": 22,
+      "noise_sigma": 0.02,
+      "target_fraction": 0.8339722222222222
+    },
+    {
+      "decay_length": 12.0,
+      "discrimination_margin": 0.06766764161830707,
+      "max_size": 25,
+      "mean_absolute_size_error": 0.0005833333333333334,
+      "min_size": 23,
+      "noise_sigma": 0.02,
+      "target_fraction": 0.9994166666666666
+    },
+    {
+      "decay_length": 18.0,
+      "discrimination_margin": 0.1317985690578638,
+      "max_size": 24,
+      "mean_absolute_size_error": 0.0,
+      "min_size": 24,
+      "noise_sigma": 0.02,
+      "target_fraction": 1.0
+    }
+  ],
+  "recovery": [
+    {
+      "challenge": "amputation",
+      "exact_reference_position": 999,
+      "expected_exact_position_probability": 0.5,
+      "operations_to_size_recovery": 1,
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 1
+    },
+    {
+      "challenge": "amputation",
+      "exact_reference_position": 513,
+      "expected_exact_position_probability": 0.25,
+      "operations_to_size_recovery": 2,
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 2
+    },
+    {
+      "challenge": "amputation",
+      "exact_reference_position": 124,
+      "expected_exact_position_probability": 0.0625,
+      "operations_to_size_recovery": 4,
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 4
+    },
+    {
+      "challenge": "amputation",
+      "exact_reference_position": 12,
+      "expected_exact_position_probability": 0.00390625,
+      "operations_to_size_recovery": 8,
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 8
+    },
+    {
+      "challenge": "amputation",
+      "exact_reference_position": 0,
+      "expected_exact_position_probability": 0.000244140625,
+      "operations_to_size_recovery": 12,
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 12
+    },
+    {
+      "challenge": "amputation",
+      "exact_reference_position": 0,
+      "expected_exact_position_probability": 3.814697265625e-06,
+      "operations_to_size_recovery": 18,
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 18
+    },
+    {
+      "challenge": "addition",
+      "exact_reference_position": 999,
+      "expected_exact_position_probability": 0.5,
+      "operations_to_size_recovery": 1,
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 1
+    },
+    {
+      "challenge": "addition",
+      "exact_reference_position": 513,
+      "expected_exact_position_probability": 0.25,
+      "operations_to_size_recovery": 2,
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 2
+    },
+    {
+      "challenge": "addition",
+      "exact_reference_position": 124,
+      "expected_exact_position_probability": 0.0625,
+      "operations_to_size_recovery": 4,
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 4
+    },
+    {
+      "challenge": "addition",
+      "exact_reference_position": 12,
+      "expected_exact_position_probability": 0.00390625,
+      "operations_to_size_recovery": 8,
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 8
+    },
+    {
+      "challenge": "addition",
+      "exact_reference_position": 0,
+      "expected_exact_position_probability": 0.000244140625,
+      "operations_to_size_recovery": 12,
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 12
+    },
+    {
+      "challenge": "addition",
+      "exact_reference_position": 0,
+      "expected_exact_position_probability": 3.814697265625e-06,
+      "operations_to_size_recovery": 18,
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 18
+    }
+  ],
+  "system": {
+    "arena_size": 200,
+    "baseline_decay_length": 12.0,
+    "reference_interval": [
+      88,
+      111
+    ],
+    "target_size": 24
+  }
+}
