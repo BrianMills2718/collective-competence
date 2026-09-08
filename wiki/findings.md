@@ -65,6 +65,16 @@ The more important follow-up withheld the authored setpoint, semantic field name
 
 **Evidence:** [`experiments/02-regulation/README.md`](../experiments/02-regulation/README.md) and its blind-analysis result files.
 
+## Compensation is recognizable as bounded route substitution
+
+A topology-different discrete transport specimen gives two physically distinct channels the same task. With identical hardware and spare capacity, an authored rerouting policy preserves zero backlog after either single channel is disabled by shifting the full flow to the survivor; a fixed-assignment control accumulates backlog instead. When input rises to the surviving channel's capacity limit, rerouting can no longer preserve the criterion.
+
+A zero-context reader given only anonymous trajectories, known input, and anonymous channel-disable operations independently identified the substitution pattern and the capacity boundary, while refusing to infer learning, a unique goal, or a hidden mechanism.
+
+**Scope:** the white-box outcome is mostly entailed by the authored routing rules, so it is calibration rather than a surprising constructive discovery. The useful result is that bounded compensation/substitution is behaviorally recognizable in a structurally different system from scalar regulation.
+
+**Evidence:** [`experiments/03-redundant-transport/README.md`](../experiments/03-redundant-transport/README.md).
+
 ## Measurement choices can hide important differences
 
 Across the work, several attractive headline measures have turned out to read less than their names suggest. In sorting, recovery rate can stay at 1.0 while recovery cost deteriorates; a halted controller can receive a nominal recovery score despite no longer participating; and survivorship can make later episodes appear cheaper. Earlier Goal Discovery work similarly found measures that tracked determinism, unused capacity, or omitted mechanism variables rather than the richer interpretation initially attached to them.

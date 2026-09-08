@@ -1,0 +1,18 @@
+{
+  "conditions_per_system": 8,
+  "exposed": [
+    "two anonymous systems",
+    "three anonymous observed integer fields",
+    "known exogenous input u000",
+    "channel-disabling operations and timing"
+  ],
+  "sha256": "bcc5249e4e8002602370ca3742fa77dafbcf19297c723d632c52d2f795a9f408",
+  "systems": 2,
+  "withheld": [
+    "system/policy meanings",
+    "field semantics",
+    "route/transport semantics",
+    "macro criterion",
+    "implementation"
+  ]
+}
