@@ -7,6 +7,7 @@ sources:
   - ../experiments/02-regulation/README.md
   - ../experiments/03-redundant-transport/README.md
   - ../experiments/04-route-learning/README.md
+  - ../experiments/05-pattern-repair/README.md
   - ../experiments/morphogenesis-scaling/README.md
   - scoreboard.md
   - ../roadmap/research.md
@@ -93,6 +94,17 @@ The strongest test holds current inputs and block number fixed while changing on
 A one-off mixed zero-context read compared compact opaque evidence from passive attraction, feedback regulation, compensation, and adaptation together. It cleanly separated attraction, bounded substitution, and history dependence. It described the feedback specimen as a stronger regulation-like signature but correctly noted that faster restoration and smaller steady offsets alone do not uniquely distinguish active feedback from a different passive restoring law.
 
 This is a reason to **stop polishing the calibration ladder**, not a reason to weaken the concepts. Intervention choice determines what can be inferred: the regulation experiment's sensor/actuator ablations provide causal evidence that the compressed mixed package omitted. Future work should use these distinctions on new systems rather than optimizing toy classifiers.
+
+
+## Pattern repair can recover a criterion without recovering the original state
+
+A three-colour ring provides a many-state spatial goal: adjacent cells must differ, but no exact global coloring is privileged. A conflict-aware local rule forms valid patterns rapidly from random states and repairs forced contiguous lesions using only neighbour information. The locality-matched random recoloring control becomes dramatically less effective with size: at 48 cells it reaches a valid pattern in **0/200** trials within 10,000 operations while the conflict-aware rule succeeds **200/200**.
+
+After damage, all 200 trials repair the criterion at every tested lesion width from 1 through 12. But exact microstate restoration rapidly disappears: for width-8 and width-12 lesions, **0/200** runs return to the original pattern even though **200/200** return to some valid pattern. A single permanently frozen conflicting cell can be reorganized around in 200/200 trials; two adjacent frozen same-colour cells make the criterion structurally impossible and repair in 0/200.
+
+**Scope:** this is a hand-authored self-stabilizing one-dimensional coloring rule, not biological regeneration. Its value is a clear Collective Competence phenomenon in which the external criterion defines a large equivalence class rather than one true target state.
+
+**Evidence:** [`experiments/05-pattern-repair/README.md`](../experiments/05-pattern-repair/README.md).
 
 ## Measurement choices can hide important differences
 

@@ -5,7 +5,7 @@ lifecycle: active
 sources:
   - questions.md
   - findings.md
-  - ../experiments/04-route-learning/README.md
+  - ../experiments/05-pattern-repair/README.md
 ---
 # Current work
 
@@ -15,39 +15,39 @@ This is the only hot page that owns **current priority and next action**.
 
 ## Where we are
 
-The project now has several distinct small phenomena and a useful contrastive calibration set: simple self-sorting, retained morphogenesis scaling, passive versus feedback regulation, redundant-route compensation, and retained history-dependent adaptation.
+The calibration ladder is closed for now. The project has moved back to construction and now has a new spatial repair specimen whose success criterion does **not** select one unique target state.
 
-The adaptation case passes the intended causal test. Under identical current exogenous inputs, behavior differs after different histories; holding the changing component fixed or restoring it before each episode removes that history dependence. A zero-context reader recovered the distinction without policy or domain semantics.
+In the three-colour ring, local conflict-aware updates form and restore globally valid patterns. Larger lesions are routinely repaired into a different valid microstate: width-8 and width-12 lesions return to the exact original pattern in 0/200 trials but restore the no-adjacent-equals criterion in 200/200. A single permanently frozen conflict can be reorganized around; an adjacent frozen same-colour pair makes success structurally impossible.
 
-A final mixed blind read gives the appropriate limit: attraction, compensation and history-dependent adaptation are behaviorally distinct in the supplied cases, while **active regulation is not uniquely identifiable from stronger restoration behavior alone**. Causal feedback-path interventions are what make the regulation claim stronger. This is enough calibration. Do not tune the toys into a classification benchmark.
+This is the kind of phenomenon the project needs more of: small enough to explain, different from sorting/scalar control, and capable of exposing conceptual distinctions rather than merely exercising apparatus.
 
 ## Next action
 
-**Leave the calibration ladder and build the smallest spatial pattern-repair specimen.**
+**Run one blind Goal Discovery pass on the many-state repair criterion.**
 
-The target is a new Collective Competence phenomenon: local components should establish a spatial pattern and restore it after part of the pattern is damaged, without a centralized representation of the complete target. Keep the specimen small enough that the mechanism is inspectable.
+The analyst should receive opaque spatial configurations plus formation and lesion/repair trajectories, but not the colour semantics, authored adjacency criterion, local update rule, or original target configuration as a privileged answer. The main question is whether it proposes a **relation or family of acceptable states**, rather than trying to recover one exact target state.
 
-The first questions are:
+Specifically ask:
 
-1. Can local interactions restore the same macro pattern after deletion/displacement of part of the system?
-2. Which local capability is load-bearing for repair rather than initial formation?
-3. Can a passive/self-assembly rival reproduce the same apparent recovery, or does damage reveal active maintenance/repair?
-4. Where does repair fail as damage size, location, or component capability changes?
-5. What can a blind analyst infer about the criterion and repair capability from behavior and interventions without being given the authored pattern?
+1. What regularity characterizes the stable/repaired configurations?
+2. Does the analyst infer that several terminal states can be equally compatible with the same criterion?
+3. Which lesion/repair evidence supports maintenance or repair rather than mere endpoint regularity?
+4. Can it identify the single-frozen versus adjacent-frozen structural boundary without being told why it exists?
+5. What alternative criteria remain compatible with the observations?
 
-This should be a **new phenomenon**, not a port of the retained morphogenesis scaling study. Use the simplest natural substrate; do not force it into the one-dimensional lattice if that makes the model less honest.
+Use the specimen as-is. Do not add a new representation-search framework unless this concrete test fails for a specific reason.
 
 ## Working rules
 
 - Optimize for **different phenomena learned per unit effort**.
 - Prefer small inspectable systems over premature realism.
-- Start constructive/white-box; add blind analysis only after there is a phenomenon worth analyzing.
-- One new causal ingredient at a time where possible.
-- Distinguish observation, inference, and authored structure.
-- Add apparatus only when the experiment cannot otherwise be expressed naturally.
-- Negative results and cleanly identified boundaries count as progress.
-- Preserve native evidence and material corrections without creating another status surface.
+- Construction comes before analysis machinery.
+- A candidate goal may be a relation or equivalence class, not one exact state.
+- Distinguish criterion recovery from microstate recovery.
+- Add apparatus only when a concrete experiment requires it.
+- Negative results and structural impossibility boundaries count as progress.
+- Preserve native evidence without creating parallel status surfaces.
 
 ## Secondary follow-ups
 
-The two-opposing-agent sorting boundary remains a useful mechanistic follow-up when there is a specific conjecture to test. The retained morphogenesis scaling result may inform parameter choices or questions, but it is not itself the repair experiment. Older calibration work remains in the reference layer rather than the active lane.
+The retained morphogenesis scaling work remains a separate reference result. If the many-state repair analysis is informative, the next constructive step should become more biologically suggestive (for example local patterning with growth, cell loss, or positional signaling) rather than adding another abstract calibration category.
