@@ -6,7 +6,7 @@ sources:
   - questions.md
   - findings.md
   - reference/research-landscape.md
-  - ../experiments/11-learned-composition-memory/README.md
+  - ../experiments/12-growing-nca/README.md
 ---
 # Current work
 
@@ -16,65 +16,56 @@ This is the only hot page that owns **current priority and next action**.
 
 ## Where we are
 
-The project has completed enough primitive/calibration work to change phases. Small systems have separated several quantities that are easy to conflate: desired-state information, observation of current state, maintenance/recovery, compensation, retained history, plasticity/reachability, reporter integrity, and memory. The latest analysis also gives an explicit observability limit: after a primary reporter is known to be broken, exact repair requires some independent information about current amount or lost amount.
+The project has moved from primitive/calibration systems into **phase-2 compositional scaling**. The first external specimen is the published Growing Neural Cellular Automata system of Mordvintsev, Randazzo, Niklasson & Levin rather than another hand-authored one-purpose model.
 
-Those distinctions are useful, but most of the individual ingredients have mature neighboring literatures in control, fault diagnosis, self-stabilization, inverse objective inference, and regenerative biology. The scientific burden has therefore moved from **inventing another clean toy** to testing whether the decomposition continues to explain and predict behavior as system complexity increases.
+**Phase-2 gate 1 is complete.** Experiment 12 pins the upstream repository at commit `a12c7efa541b5770043a8d5470bffeacfd7b0435`, fetches the authors' quantized pretrained `ex1`/`ex2`/`ex3` lizard weights by verified SHA-256, and executes them through a thin NumPy translation of the published WebGL inference rule. No upstream weights are vendored and no model is retrained.
 
-This is also the original project strategy. The retained Robinson-Crusoe brief called for one reusable experimental discipline, progressively richer systems, thin slices, and maximum reuse of existing tooling. The custom `Lattice` remains useful apparatus for the systems that naturally fit it, but the more important reusable substrate is the Dynamical Laboratory contract: reproducible trajectories, declared observations, interventions, matched comparisons, evidence custody, and separable black-box/white-box analysis.
+On the published 96×96 demo grid, all three variants form the lizard after 96 updates. An exact matched branch comparison then clears a central radius-8 lesion and gives both arms the same future stochastic update stream. After another 96 updates, target MSE is **0.01759** for the growing model, **0.01435** for the persistent model, and **0.000482** for the regeneration-trained model. The regenerating damaged branch finishes only **0.000387** RGB MSE from its matched undamaged branch.
+
+This is an **external reproduction**, not a new NCA finding. Its value is that the laboratory now has a richer system we did not design to validate our conceptual decomposition.
 
 ## Next action
 
-**Adopt the published Growing Neural Cellular Automata system as the first phase-2 external specimen.**
+**Map the regeneration basin and information/capability boundaries of the fixed published NCA models before retraining or blind analysis.**
 
-Do not rewrite NCA inside the custom lattice and do not begin with a new Goal Discovery analyzer. First reproduce a published trained local-rule system and wrap it as an external laboratory backend.
+The first intervention series should keep the upstream models frozen and branch from matched states/RNG streams. Start with perturbations whose interpretation does not require guessing what hidden channels mean.
 
-The canonical starting point is Mordvintsev, Randazzo, Niklasson & Levin, *Growing Neural Cellular Automata* (Distill, 2020, DOI `10.23915/distill.00023`). Its cells have vector-valued local state, a shared learned local update rule, asynchronous/stochastic updates, development from a seed, persistence, and damage/regeneration. A 2026 review identifies NCA as a current model class for multiscale biological self-organization and highlights interpretability and scaling as major open problems.
+### 1. Lesion basin
 
-### Phase-2 gate 1 — faithful reproduction
+Vary lesion **size, geometry, location, and timing**. Record at least:
 
-Before making project-specific claims:
+- target RGB error before damage, immediately after, and through recovery;
+- damaged-versus-matched-undamaged branch divergence;
+- first return to a declared target-error band where return occurs;
+- failure/non-recovery within a fixed observation horizon.
 
-1. pin the upstream implementation/model provenance and license;
-2. reproduce at least one published growth/persistence/regeneration behavior from an upstream or independently validated implementation;
-3. preserve the upstream model rather than retraining it to make our preferred interpretation easier;
-4. record enough state/seed/update metadata to make intervention arms reproducible;
-5. expose observations/interventions through a thin adapter rather than converting the NCA into `Lattice` semantics.
+Compare the published growing, persistent, and regenerating variants rather than characterizing `ex3` in isolation. The goal is to discover where the qualitative training-regime distinction holds, weakens, or reverses.
 
-### Phase-2 gate 2 — preregistered mechanistic questions
+### 2. Visible versus hidden state
 
-Only after reproduction, test a small set of predictions derived from the existing programme:
+Only after the ordinary lesion basin is understood, perturb cell-state channels selectively. The NCA has visible RGBA channels plus hidden channels, so matched interventions can ask whether morphology can be repaired when visible structure is damaged but latent state is retained, versus when latent state is erased or corrupted with similar visible damage.
 
-1. **Attainment is not maintenance.** Growing, persistent, and regeneration-trained variants should be compared under delayed damage, not only endpoint similarity.
-2. **Repair has a basin/boundary.** Vary lesion size, geometry, location, timing, and update interruption to find where recovery ceases or changes qualitatively.
-3. **Current-state information is distributed.** Visible morphology and hidden channels should be perturbed separately where the model permits it; recovery differences can test whether latent cell state carries load-bearing repair information.
-4. **Desired state and current-state evidence are distinct.** The learned update rule/weights encode training history and target-related structure, while the evolving cell state carries current information. Do not assume either is a literal explicit goal representation.
-5. **Action repertoire matters.** Local update disabling, spatially restricted updates, or channel-specific interventions should be used only when they test whether a failure is informational versus unreachable under the remaining local dynamics.
-6. **Fault diagnosis matters only when observation channels can fail independently.** Do not manufacture a second reporter unless its failure mode is actually distinct.
+Do **not** assume that hidden channels are a literal target representation. The experiment should establish only what information is causally load-bearing for the tested recovery.
 
-These are hypotheses and intervention targets, not conclusions.
+### 3. Action/reachability interventions
 
-### Phase-2 gate 3 — discovery only after construction
+If the previous steps expose a clear recovery regime, restrict or disable local updates spatially or temporally to test whether failure is due to missing state information versus inability of the remaining local dynamics to reach the morphology. Keep this downstream of the simpler lesion/state tests.
 
-After the white-box NCA behavior and intervention boundaries are understood, create an opaque observation/intervention package and ask what candidate morphology/maintenance criterion and competence profile can be inferred without the training target, semantic channel names, or implementation. Existing discovery machinery should be reused first; extend it only for a concrete failure.
+## Phase-2 gate 3 — discovery later
 
-## What not to do next
-
-- Do not create Experiment 12 as another hand-authored one-purpose scalar/1-D controller.
-- Do not generalize `Lattice` to 2-D neural state merely to preserve one-container purity.
-- Do not retrain an NCA until an upstream pretrained/reproducible baseline has been characterized.
-- Do not call familiar observability, controllability, fault-diagnosis, or self-stabilization results novel.
-- Do not treat NCA as biological ground truth; it is the **mesoscopic externally specified rung** between our transparent primitives and richer multicellular/biological models.
+Do not build an opaque Goal Discovery package yet. First establish the white-box intervention landscape on the fixed external models. Only then withhold training target, semantic channel names, and implementation and ask what candidate morphology/maintenance criterion and competence profile can be inferred. Reuse existing discovery machinery before extending it.
 
 ## Working rules
 
-- Optimize for **prediction/explanation gained per unit effort**, not specimen count.
-- Increase complexity by composing/reusing mechanisms and external systems, not by adding infrastructure preemptively.
-- Keep desired-state memory, current-state observation, action repertoire, plasticity, and fault diagnosis distinct until evidence links them.
-- Treat symmetries/equivalence classes as part of the criterion definition.
-- Use analytic arguments when a result is derivable; use experiments where trajectories/interactions make the answer genuinely nontrivial.
-- Preserve negative results and surprises; they are especially valuable in systems we did not design.
-- Keep the hot wiki compact; exact upstream provenance and phase-2 evidence belong with the native external-specimen record.
+- Optimize for **prediction/explanation gained per unit effort**, not experiment count.
+- Increase complexity by composing/reusing mechanisms and external systems, not by rewriting mature simulators.
+- Keep desired-state information, current-state information, hidden state, action repertoire, plasticity, and fault diagnosis conceptually separate until interventions link them.
+- Use exact matched branches, including stochastic update state, for causal comparisons.
+- Treat translations/symmetries and the measurement representation explicitly.
+- Use analytic arguments when results are derivable; use simulation where interacting dynamics make the answer nontrivial.
+- Preserve surprises and negative boundaries; they are especially valuable in an externally specified system.
+- Do not retrain the NCA to make a preferred interpretation easier.
 
 ## Secondary direction
 
-If NCA proves too opaque or operationally brittle for clean intervention work, the next external rung should be an established multicellular platform/model rather than retreating automatically to another hand-authored toy. Morpheus and PhysiCell are candidate platforms; planarian regeneration remains a strong medium-term biological anchor. See [research landscape](reference/research-landscape.md).
+If the published NCA proves operationally unsuitable for selective intervention, move to another externally specified multicellular model/backend rather than returning automatically to serial one-purpose toys. Morpheus and PhysiCell remain candidate platforms; planarian regeneration remains a strong medium-term biological anchor. See [research landscape](reference/research-landscape.md).
