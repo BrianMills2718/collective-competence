@@ -1,16 +1,19 @@
 # Experiment 02 — passive relaxation vs negative-feedback regulation
 
-This is the first qualitatively different control specimen placed on the shared
-lattice after sorting. It is a **calibration/port**, not a new discovery claim:
-the repository's earlier scalar thermostat already established this contrast in
-NetLogo. The question here is whether the current shared substrate can express
-that phenomenon cleanly without adding apparatus.
+This is a qualitatively different control specimen placed on the shared lattice
+after the simple sorting example. It is first a **calibration/port**, not a new
+claim about regulation itself: the repository's earlier scalar thermostat
+already established this contrast in NetLogo. Porting it also forced the shared
+lattice to state honestly when site payloads are mobile entity identities versus
+rewritable local state; no new dynamical capability was added.
 
 ## System
 
 One integer-valued temperature occupies a one-site, non-conserving centred
-lattice. The one-site form is deliberate: this experiment distinguishes passive
-convergence from feedback regulation; it does not claim collective competence.
+lattice in **local-state mode**: the site payload is temperature, not an entity
+identity, and the lattice carries no entity records. The one-site form is
+deliberate: this experiment distinguishes passive convergence from feedback
+regulation; it does not claim collective competence.
 
 Both arms experience passive relaxation toward ambient temperature 100. The
 feedback arm additionally senses error from an authored setpoint of 100 and
@@ -60,9 +63,52 @@ the shared lattice: ordinary convergence to a desirable state and active
 regulation can look similar until displacement/load challenges reveal the
 feedback mechanism.
 
-It does **not** establish goal discovery, adaptation, agency, or collective
-competence. The setpoint and controller were authored, and this result is a
-white-box calibration of a known distinction.
+This **white-box characterization alone** does not establish goal discovery,
+adaptation, agency, or collective competence. The setpoint and controller were
+authored; the separate blind check below asks what survives when those semantics
+are withheld.
+
+## Blind Goal Discovery check
+
+The calibration was then packaged for the **existing P15 proposal grammar** as an
+opaque `branched_scalar_series` case. The proposal process received one anonymous
+continuous field, four known intervention inputs (`-4, -2, +2, +4`), a baseline
+branch and an anonymous `disable_channel_000` branch. It did **not** receive the
+authored setpoint, semantic field name, passive/feedback labels, or implementation.
+No new analyzer was written for this experiment.
+
+The unchanged P15 proposer returned `candidate: branched_affine_drift`, passed its
+fixed qualification gate on all four independent units, and improved predictive
+loss by **90.7%** over persistence. More importantly, it inferred a candidate
+reference independently in every unit: **99.16, 98.81, 99.45, 98.55** (mean
+**98.99**) against the withheld authored setpoint of 100. It retained
+`goal_or_competence_promoted: false`: this is evidence for a reference-like
+dynamical structure, not certification of one unique true goal.
+
+A separate zero-context Codex session was then given only the opaque package,
+outside the repository. It independently described the intact branch as
+**regulation-like**, identified a descriptive symmetry/reference near **100**,
+and explicitly refused to infer a unique objective, sensor/comparator/actuator
+mechanism, or internal goal representation. It retained passive damping,
+input-dependent targets/feedforward, hidden dynamics/quantization, and limited
+initial-condition coverage as rival explanations or limits.
+
+So this is a bounded positive result for Goal Discovery: **the existing analytic
+machinery and a fresh reader can recover a useful reference/regulation
+interpretation from behavior and intervention without the authored semantic
+answer**. It does not establish uniqueness, agency, adaptation, or a general
+solution to goal discovery.
+
+Evidence:
+- [`results/blind_p15_summary.json`](results/blind_p15_summary.json)
+- [`results/blind_case.json.gz`](results/blind_case.json.gz)
+- [`results/blind_reader.md`](results/blind_reader.md)
+
+Reproduce the deterministic P15 portion with:
+
+```bash
+python3 experiments/02-regulation/blind.py
+```
 
 ## Reproduce
 

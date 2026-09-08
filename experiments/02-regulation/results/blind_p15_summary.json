@@ -1,0 +1,52 @@
+{
+  "package": {
+    "case_id": "case-0af42a4929c4",
+    "independent_units": 4,
+    "loads_exposed_as_known_inputs": [
+      -4,
+      -2,
+      2,
+      4
+    ],
+    "shape": "branched_scalar_series"
+  },
+  "proposal": {
+    "candidate_reference_mean": 98.9910904051743,
+    "candidate_references": [
+      99.16361328153806,
+      98.80769733111329,
+      99.44677563619226,
+      98.5462753718536
+    ],
+    "distinguishing_operation": {
+      "operation": "disable_channel_000",
+      "scope": "system",
+      "timing": 0
+    },
+    "family": "branched_affine_drift",
+    "goal_or_competence_promoted": false,
+    "passive_sufficient": false,
+    "qualification": {
+      "baseline_mean_loss": 2.594860945534323,
+      "candidate_mean_loss": 0.24086032948227257,
+      "eligible_units": 4,
+      "leave_one_unit_out_stable": true,
+      "passed": true,
+      "relative_improvement": 0.9071779434282264,
+      "unit_win_fraction": 1.0,
+      "unit_wins": 4
+    },
+    "rivals": [
+      "observed equilibrium",
+      "single drift field",
+      "unidentifiable reference"
+    ],
+    "status": "candidate"
+  },
+  "withheld_from_proposal": [
+    "semantic field name",
+    "authored setpoint",
+    "passive/feedback arm labels",
+    "implementation and mechanism labels"
+  ]
+}

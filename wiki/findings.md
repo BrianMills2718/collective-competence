@@ -55,13 +55,15 @@ A boundary probe in the same work found that adding mere sensing apparatus to th
 
 **Evidence:** [`experiments/morphogenesis-scaling/README.md`](../experiments/morphogenesis-scaling/README.md).
 
-## Calibration: passive convergence and negative-feedback regulation
+## Passive convergence and regulation can be distinguished without the semantic answer
 
-A passive relaxer and an authored feedback regulator can occupy the same desirable region in the unchallenged case. On the shared lattice, matched displacements expose a large recovery difference, and persistent loads expose lower late error under feedback. Blocking sensing or disabling actuation removes that advantage.
+A passive relaxer and an authored feedback regulator can occupy the same desirable region in the unchallenged case. Matched displacements expose a large recovery difference, persistent loads expose lower late error under feedback, and blocking sensing or disabling actuation removes that advantage.
 
-**Scope:** this is a deterministic port of an already-known thermostat contrast, not a new discovery of agency, adaptation, or collective competence. Its value is calibration: interventions distinguish active regulation from a passive mechanism that can otherwise approach the same region.
+The more important follow-up withheld the authored setpoint, semantic field name, arm meanings and implementation from the existing P15 scalar proposer. Without any regulation-specific analyzer, it passed its fixed gate on all four load units and inferred candidate references **99.16, 98.81, 99.45 and 98.55** (mean **98.99**) against the hidden authored value 100. It did not promote a goal or competence claim. A separate zero-context reader given only the opaque trajectories independently identified regulation-like behavior and a reference near 100 while retaining passive damping, alternate targets/feedforward and hidden dynamics as rivals.
 
-**Evidence:** [`experiments/02-regulation/README.md`](../experiments/02-regulation/README.md).
+**Scope:** this is a bounded positive Goal Discovery result on one simple deterministic control family. It supports discovery of a useful reference/regulation interpretation from behavior and intervention; it does **not** establish a unique true goal, internal goal representation, agency, adaptation, or general goal discovery.
+
+**Evidence:** [`experiments/02-regulation/README.md`](../experiments/02-regulation/README.md) and its blind-analysis result files.
 
 ## Measurement choices can hide important differences
 
@@ -77,4 +79,4 @@ See [the generated scoreboard](scoreboard.md), [research synthesis](../roadmap/r
 
 ## What would count as progress from here
 
-Progress means accumulating **different small phenomena** and seeing which distinctions survive: sorting is one unusually transparent example; morphogenesis is a retained scaling result; regulation is a control calibration. The current work page owns the next concrete action. This page should change only when the programme has learned something worth retaining beyond the current task.
+Progress means accumulating **different small phenomena** and seeing which distinctions survive: sorting is one unusually transparent example; morphogenesis is a retained scaling result; regulation is a control calibration with one bounded blind-discovery success. The current work page owns the next concrete action. This page should change only when the programme has learned something worth retaining beyond the current task.
