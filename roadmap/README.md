@@ -5,19 +5,18 @@ lifecycle: active
 sources:
   - ../wiki/ontology.md
   - ../goal-discovery/docs/PROJECT.md
-  - ../goal-discovery/docs/plans/current_research_plan.md
+  - ../wiki/current.md
   - research.md
 ---
 # Research roadmap
 
 [Project wiki](../wiki/index.md) · [Research ontology](../wiki/ontology.md) ·
 [Scientific charter](../goal-discovery/docs/PROJECT.md) ·
-[Current plan](../goal-discovery/docs/plans/current_research_plan.md)
+[Current work](../wiki/current.md)
 
 This roadmap shows how research questions and laboratory capabilities relate
 over time. It is not the generalized project front door and does not own the
-current priority. The project wiki integrates the whole project; the current
-plan selects the active Goal and Competence Discovery decision.
+current priority. The project wiki integrates the whole project; `wiki/current.md` selects the active programme decision.
 
 ## Two complementary research arms
 
@@ -60,8 +59,7 @@ declared observations and analyst prior
 ```
 
 This path asks what can be inferred without importing the system author's
-interpretation. The [current plan](../goal-discovery/docs/plans/current_research_plan.md)
-currently advances this path.
+interpretation. The [current work page](../wiki/current.md) owns the active decision for this lane; this roadmap does not duplicate that volatile state.
 
 ## Shared dependency structure
 
@@ -75,37 +73,20 @@ Both paths depend on the ability to:
 6. synthesize results across experiments without turning historical stops into project-wide prohibitions.
 
 The shared implementation is summarized in [apparatus.md](apparatus.md).
-Cross-experiment conclusions and corrections live in [research.md](research.md).
+Current cross-experiment conclusions and corrections live in [wiki/findings.md](../wiki/findings.md); [research.md](research.md) is retained detailed synthesis of earlier registered work.
 The generated [experiment register](experiments.md) routes to native protocols
 and results; [artifacts.md](artifacts.md) catalogs active and retained
 non-superseded documents, not every recovery object and not a reading list.
 
 ## Current position
 
-Most recent work has tested Goal and Competence Discovery instruments: target-blind proposal,
-freeze-before-challenge, discriminating interventions, and principled abstention.
-The [P15 protocol](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark.md)
-froze a retrospective cross-system test of proposal generation and
-[has a result](../goal-discovery/docs/hypotheses/p15_proposal_layer_benchmark_results.md):
-the freeze/reveal/audit seam passed, and the proposal-capability claim did not —
-cross-case generality measured zero, 12 of 12 applications refusing on a
-field-signature guard. A constructive arm (C1, C2) and an instrument-qualification
-sequence (Q1-001 through Q1-008) also ran on 2026-09-04; the
-[current plan](../goal-discovery/docs/plans/current_research_plan.md) owns their
-status and this page does not restate it. The programme has not established
-open-ended goal discovery. Constructed controller,
-compensation, and adaptation studies provide bounded mechanistic calibrations,
-but the historical register was not organized around the three independent
-dimensions now defined in the [ontology](../wiki/ontology.md).
+This roadmap intentionally does **not** restate the current scientific state. Use [`wiki/current.md`](../wiki/current.md) for the next action and [`wiki/findings.md`](../wiki/findings.md) for the current cross-cutting synthesis.
 
-Do not retrospectively classify unreviewed experiments from filenames. A later
-metadata revision may record research purpose, specimen origin, and analyst
-access after each experiment is reviewed against its native protocol and result.
+The generated experiment register in this roadmap primarily indexes the older registered Goal Discovery/instrument sequence; it is **not a complete index of the native 01–12 specimen sequence**. Use [`experiments/README.md`](../experiments/README.md) for that.
 
 ## How roadmap decisions become work
 
-The [current research plan](../goal-discovery/docs/plans/current_research_plan.md)
-owns the next decision, evidence gate, and stop condition for the active lane.
+The [current work page](../wiki/current.md) owns the next decision, evidence gate, and stop condition for active work.
 The roadmap provides context but does not authorize a backlog. Add apparatus or
 a new specimen only when a concrete experiment requires it, and promote a
 shared abstraction only after a real second consumer demonstrates reuse.

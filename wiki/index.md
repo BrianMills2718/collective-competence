@@ -22,11 +22,11 @@ The **Dynamical Laboratory** is shared apparatus for both. Black-box versus whit
 
 ## What kind of work is here
 
-The self-sorting system is the **simplest worked example**, chosen partly because a Levin-style sorting phenomenon was already known and can be reproduced with very small, inspectable rules. It is not the definition of the programme. It shows, among other things, that local rules can yield a useful global competency without the global criterion being represented inside the agents, and that perturbation separates merely occupying a desirable state from continuing to steer toward it.
+The self-sorting system is the **simplest worked example**, chosen partly because a Levin-style sorting phenomenon was already known and can be reproduced with very small, inspectable rules. It is not the definition of the programme. The first phase then added regulation, compensation, adaptation, many-state repair, and progressively richer regeneration primitives.
 
-Other retained work already points beyond sorting. A morphogenesis scaling study reports non-monotonic limits with morphogen decay length and an interior equilibration-time optimum, though it is retrospective and not independently reproduced. A passive-relaxation / feedback-regulation calibration provides a different control phenomenon in which interventions expose a causal feedback advantage even when both systems can occupy the same desirable region.
+The programme is now deliberately moving beyond serial hand-authored toys. Its first phase-2 specimen is the published **Growing Neural Cellular Automata** system: a two-dimensional learned local rule with hidden cell state, stochastic updates, development, persistence, and regeneration. This gives the project a richer external system in which to test whether distinctions learned in simple models actually predict non-obvious behavior.
 
-These are bounded findings about particular systems, not a general theory. The programme advances by adding meaningfully different small specimens and finding which distinctions survive.
+These remain bounded findings about particular systems, not a general theory. The intended progression is **simple inspectable mechanisms → composed/richer systems → externally specified models → biologically anchored tests**, while keeping the same experimental discipline.
 
 See [Findings](findings.md) for the evidence-backed synthesis and its qualifications.
 
@@ -39,14 +39,15 @@ See [Findings](findings.md) for the evidence-backed synthesis and its qualificat
 | **What do the important terms mean?** | [Concepts](concepts.md) |
 | **What are we doing now?** | [Current work](current.md) |
 | **How does the experimental apparatus work?** | [Dynamical Laboratory](laboratory.md) |
+| **Which native experiments exist?** | [Experiment map](../experiments/README.md) |
 | **Why was something changed, rejected, or archived?** | [Reference and history](reference/README.md) |
 
-`current.md` is the only hot page that owns volatile priority and next-action information. This index should stay a stable explanation and router.
+`current.md` is the only hot page that owns volatile priority and next-action information. After a long hiatus, read this page, `current.md`, and `findings.md`, then follow the native experiment link. This index should stay a stable explanation and router.
 
 ## Working model of the research
 
 ```text
-build or import a small system
+build or import a tractable system
           ↓
 observe what it can do
           ↓
@@ -56,7 +57,7 @@ explain which mechanisms/capabilities matter
           ↓
 ask what goal-relative claims the behavior supports
           ↓
-repeat on a meaningfully different system
+repeat on a richer or meaningfully different system
 ```
 
 For constructive work, an experimenter-supplied goal criterion is legitimate: the question is how the mechanism produces performance toward it. For discovery work, do not smuggle the authored answer into the analyst; candidate goals should earn support from permitted observations and interventions.

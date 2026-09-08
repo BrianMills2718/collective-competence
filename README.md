@@ -1,17 +1,9 @@
 # Competence research / Dynamical Laboratory
 
-An integrated, currently unnamed research programme with a constructive
-**Collective Competence** arm and an analytic **Goal and Competence Discovery**
-arm. The Dynamical Laboratory is their shared experimental apparatus.
+An integrated research programme with a constructive **Collective Competence** arm and an analytic **Goal and Competence Discovery** arm. The Dynamical Laboratory is their shared experimental apparatus.
 
-**Enter through the [project wiki](wiki/index.md).** It connects the agenda,
-ontology, apparatus, roadmap, findings and counterevidence, experiment
-register, current plan, usage, and active documentation catalog.
+**Enter through the [project wiki](wiki/index.md).** For a return after a long hiatus, read [current work](wiki/current.md) and [findings](wiki/findings.md) next; the [native experiment map](experiments/README.md) then routes to exact evidence.
 
-Agents first read [CLAUDE.md](CLAUDE.md), exposed through the generated
-[AGENTS.md](AGENTS.md), then follow the wiki and applicable subtree rules.
-Sorting is one calibration specimen—not the scope of the project. The active
-Goal and Competence Discovery plan is one research lane—not the whole agenda.
+Agents first read [CLAUDE.md](CLAUDE.md), exposed through the generated [AGENTS.md](AGENTS.md), then follow the wiki and applicable subtree rules. Sorting is the simplest worked example, not the scope of the project.
 
-[Current priorities and version boundary](goal-discovery/docs/plans/current_research_plan.md)
-remain at their native owner. This README is a doorway, not a parallel status page.
+`wiki/current.md` is the sole current-priority/handoff surface. Historical plans, roadmaps, scoreboards, and development logs are reference material; native experiment records remain authoritative for what was actually run.

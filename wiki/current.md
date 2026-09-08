@@ -10,64 +10,71 @@ sources:
 ---
 # Current work
 
-[Wiki home](index.md) · [Questions](questions.md) · [Findings](findings.md) · [Laboratory](laboratory.md)
+[Wiki home](index.md) · [Questions](questions.md) · [Findings](findings.md) · [Experiments](../experiments/README.md) · [Laboratory](laboratory.md)
 
-This is the only hot page that owns **current priority and next action**.
+This is the **only hot page that owns current priority and next action**. Start new work from `main`; old branches, historical plans, generated scoreboards, and `research_state.yaml` are not priority authorities.
 
 ## Where we are
 
-The project has moved from primitive/calibration systems into **phase-2 compositional scaling**. The first external specimen is the published Growing Neural Cellular Automata system of Mordvintsev, Randazzo, Niklasson & Levin rather than another hand-authored one-purpose model.
+The project is in **phase 2: compositional scaling**. Experiments 01–11 established simple calibration and constructive primitives. The active specimen is now a richer system we did not design for this programme: the published *Growing Neural Cellular Automata* lizard models.
 
-**Phase-2 gate 1 is complete.** Experiment 12 pins the upstream repository at commit `a12c7efa541b5770043a8d5470bffeacfd7b0435`, fetches the authors' quantized pretrained `ex1`/`ex2`/`ex3` lizard weights by verified SHA-256, and executes them through a thin NumPy translation of the published WebGL inference rule. No upstream weights are vendored and no model is retrained.
+Experiment 12 pins `distillpub/post--growing-ca` at commit `a12c7efa541b5770043a8d5470bffeacfd7b0435`, verifies upstream assets by SHA-256, and executes the fixed pretrained `ex1`/`ex2`/`ex3` models through a thin NumPy translation of the published WebGL rule. No weights are retrained or vendored.
 
-On the published 96×96 demo grid, all three variants form the lizard after 96 updates. An exact matched branch comparison then clears a central radius-8 lesion and gives both arms the same future stochastic update stream. After another 96 updates, target MSE is **0.01759** for the growing model, **0.01435** for the persistent model, and **0.000482** for the regeneration-trained model. The regenerating damaged branch finishes only **0.000387** RGB MSE from its matched undamaged branch.
+Two phase-2 results are currently promoted:
 
-This is an **external reproduction**, not a new NCA finding. Its value is that the laboratory now has a richer system we did not design to validate our conceptual decomposition.
+1. **A finite regeneration basin.** On the 96×96 published demo grid, the regenerating `ex3` model repairs a central radius-16 lesion into a low-error regime, while radius 18 stalls and radius 20 later diverges. At +512 updates, target MSE is about `0.00344`, `0.01490`, and `0.03543` respectively; the matched undamaged arm remains about `0.000318`.
+2. **Latent-state consistency matters.** At radius 16, erasing only the 12 hidden channels while leaving visible RGBA intact is more disruptive than deleting all 16 local channels. The ordering holds in 4/4 independently seeded future update streams from the same formed state; the **four-stream mean** 96-step target MSE is `0.00875` hidden-only versus `0.00316` full deletion. The native Experiment 12 record also preserves the single seed-7 matched-branch values separately. This establishes causal load-bearing hidden state, **not** a semantic goal or target map.
 
-**Phase-2 gate 2 is now partly complete.** A central-lesion sweep shows a real recovery boundary in the fixed regeneration-trained model: radius 16 enters a low-error repaired regime, radius 18 improves only partially and stalls, and radius 20 initially improves then diverges at long horizon while the matched undamaged model stays near target.
+Exact evidence, result-file links, and caveats live in [`experiments/12-growing-nca/README.md`](../experiments/12-growing-nca/README.md).
 
-Selective state corruption also produced the first genuinely non-obvious result on the external specimen. At radius 16, erasing only the 12 hidden channels while leaving visible RGBA intact is more damaging than deleting the entire local 16-channel state. The ordering survives **4/4** independently seeded future update streams from the same formed state (mean target MSE **0.00875** hidden-only versus **0.00316** full deletion). This supports a causal role for latent state and state consistency; it does not identify a semantic target representation.
+## Resume here after a hiatus
+
+A fresh agent should be able to resume with this sequence:
+
+1. Read `wiki/index.md`, this page, and `wiki/findings.md`.
+2. Read `experiments/12-growing-nca/README.md` and the two intervention scripts before changing the NCA work.
+3. Reproduce only what is needed. From `goal-discovery/`, the complete suite is `uv run --frozen --all-extras pytest -q`; Experiment 12 has focused tests at `../experiments/12-growing-nca/test_model.py`.
+4. Keep the upstream NCA weights fixed. Use exact state **and RNG** branching for causal comparisons.
+5. Do not infer current work from `goal-discovery/docs/plans/current_research_plan.md`; that file is retained history.
+
+There is **no committed/promoted geometry, location, or developmental-timing result yet**. Those are the next experiments, not established findings.
 
 ## Next action
 
 **Determine what the NCA recovery boundary depends on, then test action/reachability directly.**
 
-The next intervention series should keep upstream weights frozen and preserve matched stochastic comparisons.
+### A. Separate location, geometry, and timing
 
-### 1. Geometry, location, and timing
+The current radius sweep changes several things at once. The next small study should isolate them while keeping `ex3` fixed:
 
-The radius sweep varies removed area and topology together. Separate them:
+- compare locations using an objective target-derived coordinate/axis rather than hand-labelled anatomy;
+- match initial lesion severity as closely as practical when asking about location;
+- compare compact and elongated/slit-like lesions at matched area or matched immediate visible error;
+- compare the same lesion during formation versus after a mature morphology;
+- preserve matched future stochastic update streams.
 
-- equal-area compact versus elongated/slit lesions;
-- central versus peripheral/anatomically distinct locations;
-- damage during formation versus after mature morphology;
-- repeated lesions where useful.
+The question is whether recovery failure tracks removed amount, lesion shape/connectivity, region, developmental state, or a combination. Do not turn the present radius sweep into a universal "maximum lesion size."
 
-The aim is to learn whether failure tracks amount removed, shape/connectivity, anatomical region, developmental state, or a combination. Do not summarize this as one universal "maximum lesion size."
+### B. Test hidden-state consistency under a second perturbation family
 
-### 2. Hidden-state consistency
+If the hidden-only/full ordering survives at another location or geometry, compare controlled hidden-state reset/noise/shuffle interventions. The purpose is to distinguish generic latent-state importance from **inconsistent visible/hidden state**. Do not call hidden channels memory or a goal representation unless an intervention specifically supports that interpretation.
 
-Replicate the hidden-only/full ordering under a small number of new geometries/locations. If it survives, compare additional controlled corruptions (reset, noise, spatial shuffle) before interpreting hidden channels as memory or representation. The current result establishes causal load-bearing latent state, not semantics.
+### C. Test action/reachability
 
-### 3. Action/reachability interventions
+In a lesion regime that normally repairs, restrict local updates spatially or temporally. This is the next clean way to separate a failure caused by unavailable/corrupted state information from a failure caused by the remaining dynamics being unable to execute a route back to the morphology.
 
-Spatially or temporally restrict updates in a regime that ordinarily repairs. This should separate two broad failure classes: the required state information is absent/corrupted versus the remaining local dynamics cannot execute a path back to the morphology.
+### D. Goal Discovery comes after the white-box map
 
-## Phase-2 gate 3 — discovery later
+Only after the richer system's intervention landscape is understood should semantics be withheld and the existing Goal Discovery machinery asked what morphology/maintenance criterion and competence profile the behavior supports. Extend the analyzer only for a concrete failure.
 
-Do not build an opaque Goal Discovery package yet. First establish the white-box intervention landscape on the fixed external models. Only then withhold training target, semantic channel names, and implementation and ask what candidate morphology/maintenance criterion and competence profile can be inferred. Reuse existing discovery machinery before extending it.
-
-## Working rules
+## Guardrails
 
 - Optimize for **prediction/explanation gained per unit effort**, not experiment count.
-- Increase complexity by composing/reusing mechanisms and external systems, not by rewriting mature simulators.
-- Keep desired-state information, current-state information, hidden state, action repertoire, plasticity, and fault diagnosis conceptually separate until interventions link them.
-- Use exact matched branches, including stochastic update state, for causal comparisons.
-- Treat translations/symmetries and the measurement representation explicitly.
-- Use analytic arguments when results are derivable; use simulation where interacting dynamics make the answer nontrivial.
-- Preserve surprises and negative boundaries; they are especially valuable in an externally specified system.
+- Scale by composing/reusing mechanisms and external systems, not by rewriting mature simulators.
+- Keep desired-state information, current-state evidence, latent state, action repertoire, plasticity, and fault diagnosis distinct until interventions connect them.
+- Prefer analytical arguments when the answer is derivable; simulate when interacting dynamics make the answer nontrivial.
+- Treat symmetries/equivalence classes explicitly; do not privilege one microstate without a reason.
+- Preserve surprises and negative boundaries, especially in externally specified systems.
 - Do not retrain the NCA to make a preferred interpretation easier.
 
-## Secondary direction
-
-If the published NCA proves operationally unsuitable for selective intervention, move to another externally specified multicellular model/backend rather than returning automatically to serial one-purpose toys. Morpheus and PhysiCell remain candidate platforms; planarian regeneration remains a strong medium-term biological anchor. See [research landscape](reference/research-landscape.md).
+If NCA becomes operationally unsuitable for the required interventions, move to another established model/backend rather than retreating automatically to another bespoke toy. Morpheus and PhysiCell are candidate platforms; planarian regeneration remains a strong medium-term biological anchor. See [research landscape](reference/research-landscape.md).

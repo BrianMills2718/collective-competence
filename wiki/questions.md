@@ -7,7 +7,7 @@ sources:
   - goals.md
   - reference/research-landscape.md
   - ../goal-discovery/docs/PROJECT.md
-  - ../goal-discovery/docs/plans/current_research_plan.md
+  - current.md
 ---
 # Research questions
 

@@ -18,8 +18,7 @@ This document holds the motivating idea behind the research programme — why
 the work exists and what it is building toward. It is **exploratory, not
 canonical**: the [ontology](ontology.md) owns terminology, the
 [charter](../goal-discovery/docs/PROJECT.md) owns scope, and the
-[current plan](../goal-discovery/docs/plans/current_research_plan.md) owns next
-actions. Nothing here authorizes work. It exists because the thesis was not
+[current work](current.md) owns next actions. Nothing here authorizes work. It exists because the thesis was not
 written down anywhere, which made the programme's own documents unable to say
 what it was for.
 
@@ -196,7 +195,7 @@ excluding this file:
 | least action | 0 | 2 | `conjectures.md` and `development-log.md` |
 | free lunch | 0 | 7 | **`ontology.md` now defines it** — "Free lunch: one quantity, two boundary conventions", with two boundary conventions and a candidate-measure table |
 | gap junction | 0 | 2 | `ontology.md` and `development-log.md` |
-| composition of competence | 0 | 0 | unchanged — still only here |
+| composition of competence | 0 | 1 | now also appears in Experiment 07 |
 
 Counts are over tracked Markdown, excluding this file, and are **checked by
 `FreeLunchVocabularyGate` in `scripts/test_documentation_tools.py`** rather than

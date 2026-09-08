@@ -9,7 +9,7 @@ sources:
 # Work from the goal, keep knowledge usable
 
 [Project wiki](../wiki/index.md) · [Research roadmap](README.md) ·
-[Current plan](../goal-discovery/docs/plans/current_research_plan.md)
+[Current work](../wiki/current.md)
 
 ## Two entry layers, different jobs
 
@@ -29,7 +29,7 @@ There are no claims of automatically loaded nested instructions.
 
 | Task | Required route, then exact evidence as needed |
 |---|---|
-| Strategy or next experiment | Ontology -> charter -> current plan's selected evidence -> native result/protocol; research topic only when wider context is needed |
+| Strategy or next experiment | Concepts/ontology -> charter -> current work's selected evidence -> native result/protocol; research topic only when wider context is needed |
 | Construct or compare a competent system | Ontology -> charter -> roadmap -> apparatus -> authored mechanism/capability contract -> challenge and ablation evidence |
 | Interpret an experimental result | Research topic -> experiment record -> native result and protocol; examine corrections before quoting a verdict |
 | Modify a simulation/analysis | Apparatus -> source instructions -> model/protocol/observation contract -> relevant tests |
@@ -90,7 +90,7 @@ maps source files to the decisions that govern them. That file is also what
 lifecycle reporter refused to run against this repository at all, which is why
 archiving looked blocked on tooling for weeks. Research-direction decisions are
 **not** ADRs — they belong to the conjecture register, the charter, the failure
-log and the current plan.
+log and the current work page.
 
 The last one is the evidence-custody guard, added 2026-09-05. It fails when a
 result package that a tracked document or module references is not itself

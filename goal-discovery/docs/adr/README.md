@@ -62,7 +62,7 @@ what to stop building.
 | What the programme is betting on | [conjecture register](../../../wiki/conjectures.md) |
 | Scope and scientific boundary | [charter](../PROJECT.md) |
 | What stopped and what it still costs | [failure log](../../../wiki/failure-log.md) |
-| The next action | [current plan](../plans/current_research_plan.md) |
+| The next action | [current work](../../../wiki/current.md) |
 | A live design argument in progress | [substrate design](../../../wiki/substrate-design.md) |
 
 `p2_research_pivot.md` was a candidate and was **rejected on this rule**: pivoting

@@ -13,7 +13,7 @@ Then follow only the task-specific route you need:
 - apparatus / adding a specimen → [`wiki/laboratory.md`](wiki/laboratory.md)
 - audits, old plans, decisions, detailed ontology, chronology → [`wiki/reference/README.md`](wiki/reference/README.md)
 
-Do **not** read the full ontology, failure log, development log, audits, or historical plans as routine orientation. They are reference/history, not working context.
+Do **not** read the full ontology, failure log, development log, audits, or historical plans as routine orientation. They are reference/history, not working context. If resuming after a long hiatus, `wiki/index.md` → `wiki/current.md` → `wiki/findings.md` is the intended three-page handoff.
 
 ## Project model
 

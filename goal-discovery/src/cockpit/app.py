@@ -239,15 +239,15 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
             f"**Laboratory goal:** {html.escape(context['objective'])}  \n"
             f"**Knowledge boundary:** {html.escape(context['knowledge_status'])}  \n"
             f"**Next scientific question:** {html.escape(context['next_scientific_question'])}  \n"
-            f"**Current plan:** `{html.escape(context['current_plan'])}` · "
+            f"**Current work:** `{html.escape(context['current_plan'])}` · "
             f"**Unified wiki:** `{html.escape(context['wiki'])}` · "
             f"**Integration:** {html.escape(context['integration_status'])}  \n"
             f"**Running checkout:** `{html.escape(str(state.root))}` · "
             f"`{revision}` · {working_tree}"
         ) if context else (
             "**Historical evidence snapshot.** Current priorities are owned by "
-            "`docs/plans/current_research_plan.md`; enter project knowledge through "
-            "`../roadmap/README.md`. This snapshot does not establish current completion."
+            "`../wiki/current.md`; enter project knowledge through `../wiki/index.md`. "
+            "This snapshot does not establish current completion."
         )
     )
     template = pn.template.FastListTemplate(

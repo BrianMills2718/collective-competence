@@ -17,9 +17,74 @@ becoming current instructions.
 - [CLAUDE.md](../CLAUDE.md)
 - [README.md](../README.md)
 
+## experiments
+
+- [README.md](../experiments/README.md)
+
 ## experiments/01-self-sorting
 
 - [README.md](../experiments/01-self-sorting/README.md)
+
+## experiments/02-regulation
+
+- [README.md](../experiments/02-regulation/README.md)
+
+## experiments/02-regulation/results
+
+- [blind_reader.md](../experiments/02-regulation/results/blind_reader.md)
+
+## experiments/03-redundant-transport
+
+- [README.md](../experiments/03-redundant-transport/README.md)
+
+## experiments/03-redundant-transport/results
+
+- [blind_reader.md](../experiments/03-redundant-transport/results/blind_reader.md)
+
+## experiments/04-route-learning
+
+- [README.md](../experiments/04-route-learning/README.md)
+
+## experiments/04-route-learning/results
+
+- [blind_reader.md](../experiments/04-route-learning/results/blind_reader.md)
+- [mixed_contrast_reader.md](../experiments/04-route-learning/results/mixed_contrast_reader.md)
+
+## experiments/05-pattern-repair
+
+- [README.md](../experiments/05-pattern-repair/README.md)
+
+## experiments/05-pattern-repair/results
+
+- [blind_reader.md](../experiments/05-pattern-repair/results/blind_reader.md)
+
+## experiments/06-structural-regeneration
+
+- [README.md](../experiments/06-structural-regeneration/README.md)
+
+## experiments/07-endogenous-size-control
+
+- [README.md](../experiments/07-endogenous-size-control/README.md)
+
+## experiments/08-boundary-memory
+
+- [README.md](../experiments/08-boundary-memory/README.md)
+
+## experiments/09-composition-lineage
+
+- [README.md](../experiments/09-composition-lineage/README.md)
+
+## experiments/10-endogenous-composition
+
+- [README.md](../experiments/10-endogenous-composition/README.md)
+
+## experiments/11-learned-composition-memory
+
+- [README.md](../experiments/11-learned-composition-memory/README.md)
+
+## experiments/12-growing-nca
+
+- [README.md](../experiments/12-growing-nca/README.md)
 
 ## experiments/morphogenesis-scaling
 
@@ -369,12 +434,22 @@ becoming current instructions.
 
 - [archive-index.md](../wiki/archive-index.md)
 - [competence-thesis.md](../wiki/competence-thesis.md)
+- [concepts.md](../wiki/concepts.md)
 - [conjectures.md](../wiki/conjectures.md)
 - [cross-repo-timeline.md](../wiki/cross-repo-timeline.md)
+- [current.md](../wiki/current.md)
 - [development-log.md](../wiki/development-log.md)
 - [failure-log.md](../wiki/failure-log.md)
+- [findings.md](../wiki/findings.md)
 - [goals.md](../wiki/goals.md)
 - [index.md](../wiki/index.md)
+- [laboratory.md](../wiki/laboratory.md)
 - [ontology.md](../wiki/ontology.md)
+- [questions.md](../wiki/questions.md)
 - [scoreboard.md](../wiki/scoreboard.md)
 - [substrate-design.md](../wiki/substrate-design.md)
+
+## wiki/reference
+
+- [README.md](../wiki/reference/README.md)
+- [research-landscape.md](../wiki/reference/research-landscape.md)
