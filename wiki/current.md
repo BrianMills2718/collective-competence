@@ -15,39 +15,39 @@ This is the only hot page that owns **current priority and next action**.
 
 ## Where we are
 
-The calibration ladder is closed for now. The project has moved back to construction and now has a new spatial repair specimen whose success criterion does **not** select one unique target state.
+The project has now demonstrated a useful many-state repair phenomenon and a bounded discovery result on it. Local cells restore a spatial neighbor relation after damage without reconstructing the original microstate, and a blind analyst can infer that relational family-level criterion without being told an exact target.
 
-In the three-colour ring, local conflict-aware updates form and restore globally valid patterns. Larger lesions are routinely repaired into a different valid microstate: width-8 and width-12 lesions return to the exact original pattern in 0/200 trials but restore the no-adjacent-equals criterion in 200/200. A single permanently frozen conflict can be reorganized around; an adjacent frozen same-colour pair makes success structurally impossible.
+This resolves an important conceptual concern: Goal Discovery does not need to identify one uniquely privileged state to produce a coherent, testable candidate goal. The evidence can instead support a relation or equivalence class, while leaving stronger or alternative criteria underdetermined.
 
-This is the kind of phenomenon the project needs more of: small enough to explain, different from sorting/scalar control, and capable of exposing conceptual distinctions rather than merely exercising apparatus.
+The abstract calibration space is now sufficiently populated. Further work should become more biologically suggestive rather than adding another toy label.
 
 ## Next action
 
-**Run one blind Goal Discovery pass on the many-state repair criterion.**
+**Build the smallest structural-regeneration specimen with actual cell loss and regrowth.**
 
-The analyst should receive opaque spatial configurations plus formation and lesion/repair trajectories, but not the colour semantics, authored adjacency criterion, local update rule, or original target configuration as a privileged answer. The main question is whether it proposes a **relation or family of acceptable states**, rather than trying to recover one exact target state.
+Move beyond recoloring fixed sites. The new system should have a variable occupancy/size or explicit vacancies, local components capable of filling or reorganizing after removal, and a macro morphology that can be restored after amputation-like damage. Keep it small and white-box first.
 
-Specifically ask:
+The first questions are:
 
-1. What regularity characterizes the stable/repaired configurations?
-2. Does the analyst infer that several terminal states can be equally compatible with the same criterion?
-3. Which lesion/repair evidence supports maintenance or repair rather than mere endpoint regularity?
-4. Can it identify the single-frozen versus adjacent-frozen structural boundary without being told why it exists?
-5. What alternative criteria remain compatible with the observations?
+1. Can local rules restore morphology after components are physically removed rather than merely relabeled?
+2. What information lets the system know when to stop regrowing or reorganizing?
+3. Does recovery restore an exact shape, a relational family, a size/ratio, or some combination?
+4. Which local capability is necessary for regrowth but not ordinary development?
+5. What damage boundary changes repair from feasible to impossible?
 
-Use the specimen as-is. Do not add a new representation-search framework unless this concrete test fails for a specific reason.
+A useful first candidate is a short one-dimensional tissue with vacancies and local proliferation/movement plus minimal positional information. Do not choose a substrate until the mechanism is clear, and do not add blind analysis until the constructive phenomenon is understood.
 
 ## Working rules
 
 - Optimize for **different phenomena learned per unit effort**.
-- Prefer small inspectable systems over premature realism.
-- Construction comes before analysis machinery.
-- A candidate goal may be a relation or equivalence class, not one exact state.
-- Distinguish criterion recovery from microstate recovery.
+- Prefer minimal, inspectable biological analogues over realism for its own sake.
+- Construction and mechanism first; discovery analysis second.
+- A goal may be a state, relation, morphology, viability set, or equivalence class.
+- Distinguish restoration of function/criterion from reconstruction of the original microstate.
 - Add apparatus only when a concrete experiment requires it.
 - Negative results and structural impossibility boundaries count as progress.
 - Preserve native evidence without creating parallel status surfaces.
 
 ## Secondary follow-ups
 
-The retained morphogenesis scaling work remains a separate reference result. If the many-state repair analysis is informative, the next constructive step should become more biologically suggestive (for example local patterning with growth, cell loss, or positional signaling) rather than adding another abstract calibration category.
+The pattern-repair specimen remains available for stronger intervention tests if a later scientific question needs them, but it should not become a benchmark to optimize. The retained morphogenesis scaling work may inform positional-signal choices for structural regeneration, but the new experiment should test actual loss/regrowth rather than another scaling calculation.

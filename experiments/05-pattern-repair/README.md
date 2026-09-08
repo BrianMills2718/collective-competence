@@ -48,11 +48,34 @@ The result is still deliberately narrow. This is a hand-authored self-stabilizin
 
 Now that the constructive phenomenon exists, the useful discovery question is whether a blind analyst can infer a **family-level criterion** such as the adjacency relation from formation and damage/repair behavior without being given an exact target pattern. That test should use this specimen as-is; do not build a new Goal Discovery framework around it.
 
+
+## Blind relational-goal check
+
+`blind.py` exposes the cyclic adjacency structure, opaque categorical configurations, formation endpoints, contiguous overwrite/repair trajectories, and site-freeze interventions. It withholds the authored criterion, update rule, category meanings, global score, and whether one exact target exists.
+
+A separate zero-context reader independently proposed the compact defect count
+
+`D(x) = number of cyclic adjacent pairs with equal state`
+
+and the candidate criterion **`D(x) = 0`**. It observed that all formation and repair terminals satisfy the relation, while initial and damaged configurations violate it. It explicitly treated this as an analyst-proposed descriptive criterion rather than claiming to have recovered a hidden internal score.
+
+Crucially, the reader found **19 distinct endpoint classes among 20 formation/repair endpoints**, even after allowing rotations, reflections, and global category permutations. Every supplied repair terminal differs from its own pre-lesion configuration. It therefore concluded that the evidence strongly favors **a family of states sharing a relation**, not exact microstate reconstruction or one uniquely identified target.
+
+The frozen-site interventions were also recovered correctly from behavior alone: one overwritten frozen site remains compatible with restoration by neighboring changes, while two adjacent equal frozen sites leave exactly their shared edge defective after 500 updates. The reader identified this as a feasibility boundary implied by the candidate relation, while retaining stronger criteria, local versus global optimization, stochastic/multiple-attractor explanations, sampling/stopping effects, and hidden mechanism as live alternatives.
+
+This is a bounded positive Goal Discovery result directly relevant to the programme's conception of goals: **a useful candidate goal can be relational and many-state without requiring one true terminal configuration.** It does not establish that every proper coloring is acceptable, a unique goal, agency, or internal target representation.
+
+Evidence:
+- [`results/blind_case.json.gz`](results/blind_case.json.gz)
+- [`results/blind_manifest.json`](results/blind_manifest.json)
+- [`results/blind_reader.md`](results/blind_reader.md)
+
 ## Reproduce
 
 ```bash
 python3 experiments/05-pattern-repair/run.py
 python3 -m pytest -q experiments/05-pattern-repair/test_model.py
+python3 experiments/05-pattern-repair/blind.py
 ```
 
 Evidence: [`results/characterization.json`](results/characterization.json).
