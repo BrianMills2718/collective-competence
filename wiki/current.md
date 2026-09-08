@@ -15,39 +15,45 @@ This is the only hot page that owns **current priority and next action**.
 
 ## Where we are
 
-The regeneration sequence now separates several information requirements instead of treating “regeneration” as one scalar ability. Experiment 06 supplies external positional information; Experiment 07 shows that a tissue-generated field can restore total size without position; Experiment 08 adds one local sealed/unsealed state per boundary and composes the two.
+The regeneration sequence now separates several information requirements instead of treating “regeneration” as one scalar ability. Experiment 06 supplies external positional information; Experiment 07 shows that a tissue-generated field can restore total size; Experiment 08 adds a local sealed/unsealed state at each boundary and composes wound identity with the endogenous size cue.
 
-For unilateral end damage, endogenous size plus boundary integrity is sufficient in the declared toy: exact position and size return in every tested trial, and the repaired boundary reseals for later damage. Ablating either channel separates their jobs cleanly—size without boundary memory loses location; boundary memory without a changing size signal cannot know when to grow or stop.
+For unilateral end damage, size plus boundary integrity restores the pre-damage interval in every declared trial, and the repaired boundary reseals for later damage. Ablating either channel separates their jobs cleanly: the size signal supplies whether/how long structural change is needed, while the boundary state marks which exposed edge may act.
 
-The remaining failure is now specific. Under simultaneous bilateral damage, both boundaries say “wounded” and the inhibitor says the total amount missing, but neither says how that deficit should be apportioned between the two sides. Size returns; anatomy need not.
+The bilateral trials initially looked like a further “allocation” failure: size returned, but births were not always divided between the two edges in the same proportions as the cells previously removed. On review, that interpretation over-constrained the goal. This tissue is internally homogeneous and contiguous, so **every 24-cell interval is the same modeled morphology up to translation**. The bilateral controller restores that translation-equivalence class in every declared trial. What it sometimes fails to recover is only the historical arena position.
+
+That correction is important. A missing allocation statistic is scientifically meaningful only after the target criterion distinguishes the alternative allocations.
 
 ## Next action
 
-**Do not add another mechanism until we can state the minimal bilateral-allocation question sharply.**
+**Make multi-wound allocation matter intrinsically before adding another repair mechanism.**
 
-The next constructive experiment should ask what additional information is sufficient to divide a known total repair deficit across multiple wounded boundaries **without** restoring a full site-by-site coordinate map. Candidate ideas include side-specific accumulated deficit, persistent boundary-specific history, or a locally propagating wound signal, but none is yet preferred.
+Do not add side-specific deficit memory merely to recover a privileged historical translation. First construct the smallest morphology in which a wrong left/right repair split changes an internal relation or function even after allowing translation.
 
-The questions to resolve before implementation are:
+The leading minimal candidate is a **two-compartment one-dimensional tissue**: left and right regions have distinct identities and declared target amounts/proportions. Bilateral end damage then removes different compartment types. Restoring total size with the wrong birth allocation changes composition, so the failure is no longer removable by translating the whole tissue.
 
-1. What must each wounded boundary know beyond “I am wounded” and “the tissue is undersized”?
-2. Can a purely local history of growth or injury encode the required allocation, or is some longer-range comparison unavoidable?
-3. What is the weakest cue that solves asymmetric bilateral damage as well as symmetric damage?
-4. Does that cue also handle an internal deletion, or does internal repair require a qualitatively different representation?
-5. Which ablation would distinguish true per-wound allocation information from a hidden coordinate map?
+Before implementation, keep the question explicit:
 
-This is a scientific design choice, not an apparatus gap. Keep the current code unchanged until that question is clearer.
+1. What is the weakest non-translation-equivalent morphology that makes per-wound allocation observable as a real criterion failure?
+2. Does the existing size + boundary-memory controller restore total size while systematically failing compartment amount/proportion under asymmetric bilateral damage?
+3. Once that failure is demonstrated, what additional information is actually necessary—one composition/asymmetry statistic, compartment-specific local signals, inherited positional state, or something else?
+4. Can the needed information be generated and maintained by the tissue, rather than handed in as the missing answer?
+5. Which ablation distinguishes a genuine composition/allocation cue from a disguised absolute coordinate map?
+
+A useful analytic constraint is already clear: if total missing amount is `D` and exact historical left/right allocation is required, then `D` alone leaves multiple possible splits. An extra independent allocation statistic is necessary. But a real-valued “one scalar” is not automatically minimal information—it can encode arbitrarily many bits. Minimality must be stated relative to the finite challenge set and the precision available.
 
 ## Working rules
 
 - Optimize for **different phenomena learned per unit effort**.
 - Prefer minimal, inspectable biological analogues over realism for its own sake.
 - Construction and mechanism first; discovery analysis second.
-- Keep pattern, size, location, per-wound allocation, function, and exact microstate distinct.
+- Keep pattern, size, location, composition, per-wound allocation, function, and exact microstate distinct.
+- Treat translations or other symmetries as equivalent unless the experiment explicitly supplies a reason not to.
 - State which information is external, tissue-generated, inherited, local, shared, or historical.
 - Treat successful composition as a statement about specific challenges, not a scalar competence ranking.
+- Do not simulate a claim whose decisive content is already derivable on paper.
 - Add apparatus only when a concrete experiment requires it.
-- Negative results and information/feasibility boundaries count as progress.
+- Negative results, corrections, and information/feasibility boundaries count as progress.
 
 ## Secondary follow-ups
 
-The size and boundary-memory cases could support later blind-analysis tests, but their white-box information structure is currently more scientifically useful than another classifier result. The immediate value is to understand the bilateral allocation gap before adding more discovery machinery or biological detail.
+If absolute location relative to an environment becomes biologically or functionally meaningful, the bilateral historical-position problem can be reopened with that external frame declared. The present priority is stronger: create an internally distinguishable morphology so that allocation has consequences independent of arena coordinates.
