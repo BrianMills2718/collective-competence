@@ -7,6 +7,7 @@ sources:
   - ../roadmap/apparatus.md
   - ../goal-discovery/README.md
   - ../goal-discovery/src/lattice/core.py
+  - ../experiments/12-growing-nca/README.md
 ---
 # Dynamical Laboratory
 
@@ -30,6 +31,12 @@ Its site payload has **two explicit meanings**:
 The distinction is enforced rather than merely documented: an entity-mode lattice fails if a site names a nonexistent/duplicate identity, and a local-state lattice fails if it carries entity records. Snapshot/restore preserves the mode together with neighbourhood semantics.
 
 The purpose of this shared container is convenience and comparability, **not universality**. If a simple scientific experiment repeatedly requires contorting its natural state into this representation, that is evidence to use another substrate behind the same laboratory discipline rather than to keep generalizing `Lattice`.
+
+## External backends
+
+Phase 2 already uses a different backend. [`experiments/12-growing-nca/`](../experiments/12-growing-nca/) pins the published Growing NCA implementation/weights and runs them through a thin NumPy adapter rather than translating a 2-D neural cellular automaton into `Lattice`. The shared scientific contract is the matched trajectory/intervention/evidence workflow, not one internal state container.
+
+When adopting another external model, prefer a **thin adapter around a pinned upstream implementation**. Preserve provenance, expose the minimum observation/intervention seam needed by the experiment, and avoid forking/retraining merely to make the system easier to interpret.
 
 ## What is shared even when substrates differ
 
