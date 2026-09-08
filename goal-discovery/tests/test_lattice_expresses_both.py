@@ -7,11 +7,10 @@ are instantiated on the same `Lattice`, and the cellular automaton is checked
 against binomial coefficients -- ground truth computed from `math.comb`, not
 from this code, so the test cannot pass by agreeing with itself.
 
-The rest of the file checks the three commitments that make goal DISCOVERY
-possible on this substrate rather than merely convenient: an analyst cannot read
-white-box state, a counterfactual restores an exact snapshot rather than a
-similar-looking one, and a conserving system cannot quietly gain or lose
-entities.
+The rest of the file checks the commitments that make goal discovery possible
+on this substrate: an analyst cannot read white-box state, a counterfactual
+restores an exact snapshot, and the declared entity/state payload modes cannot
+silently bleed into one another.
 """
 
 from __future__ import annotations
@@ -36,11 +35,7 @@ from src.lattice.specimens import elementary_ca, sorting  # noqa: E402
 class TheConstrainedCaseIsActuallyAConstrainedCase(unittest.TestCase):
 
     def test_rule_90_is_the_sierpinski_triangle(self):
-        """Row t, offset d from the seed cell, is C(t, (t+d)/2) mod 2.
-
-        Independent ground truth: nothing below consults the substrate to decide
-        what the answer should be.
-        """
+        """Row t, offset d from the seed cell, is C(t, (t+d)/2) mod 2."""
         size, steps = 65, 20
         lat, rule = elementary_ca.make(90, size=size)
         rows = elementary_ca.evolve(lat, rule, steps)
@@ -55,11 +50,6 @@ class TheConstrainedCaseIsActuallyAConstrainedCase(unittest.TestCase):
         self.assertGreater(checked, 400, "too few cells compared to mean anything")
 
     def test_rule_110_is_not_left_right_symmetric(self):
-        """A cheap guard that the neighbourhood is not being read symmetrically.
-
-        Rule 90 is symmetric, so it would pass even if left and right were
-        swapped. Rule 110 is not, so it catches what rule 90 cannot.
-        """
         lat, rule = elementary_ca.make(110, size=41)
         rows = elementary_ca.evolve(lat, rule, 8)
         mid = 41 // 2
@@ -79,6 +69,13 @@ class TheConstrainedCaseIsActuallyAConstrainedCase(unittest.TestCase):
             (ca_lat.conserving, ca_lat.centred),
             "the two specimens differ in no declared property, so nothing has "
             "been demonstrated about generality")
+
+    def test_ca_payloads_are_local_state_not_entity_identities(self):
+        lat, _ = elementary_ca.make(90, size=21)
+        self.assertFalse(lat.conserving)
+        self.assertEqual(lat.entities, {})
+        self.assertLess(len(set(lat.occupants)), len(lat.occupants),
+                        "CA state unexpectedly looks like unique entity identity")
 
 
 class TheAnalystCannotReadWhiteBoxState(unittest.TestCase):
@@ -102,7 +99,6 @@ class TheAnalystCannotReadWhiteBoxState(unittest.TestCase):
                       "contracts do not differ and the distinction is fictional")
 
     def test_the_lattice_holds_no_reference_to_any_measurement(self):
-        """The mechanical form of 'the target lives only in the measurement'."""
         lat, _ = sorting.make(10, seed=0)
         for name, value in vars(lat).items():
             self.assertFalse(
@@ -116,13 +112,6 @@ class CounterfactualsRestoreAnExactState(unittest.TestCase):
 
     @staticmethod
     def _arm(snap, rule, steps, disturb=None):
-        """Restore a snapshot, optionally disturb it, and record the PATH.
-
-        The path, not the endpoint. Sorting ends in an absorbing state, so two
-        arms that took different routes at different cost both finish at
-        [0, 1, ... n-1] and an endpoint comparison reports them identical. The
-        control below caught exactly that in the first version of this file.
-        """
         lat = restore(snap)
         if disturb:
             disturb(lat)
@@ -145,7 +134,6 @@ class CounterfactualsRestoreAnExactState(unittest.TestCase):
                          "intervention comparison would measure noise")
 
     def test_a_snapshot_without_the_random_state_would_not_be_enough(self):
-        """The control for the test above: prove the rng state is load-bearing."""
         snap, rule = self._snapshot_mid_run()
         baseline = self._arm(snap, rule, 300)
         nudged = self._arm(snap, rule, 300, disturb=lambda lat: lat.rng.random())
@@ -154,7 +142,6 @@ class CounterfactualsRestoreAnExactState(unittest.TestCase):
                             "so the previous test would pass without it")
 
     def test_the_paths_compared_above_are_long_enough_to_differ(self):
-        """And that the comparison is not passing on a pair of empty traces."""
         snap, rule = self._snapshot_mid_run()
         trace = self._arm(snap, rule, 300)
         self.assertEqual(len(trace), 300)
@@ -181,9 +168,20 @@ class CounterfactualsRestoreAnExactState(unittest.TestCase):
             "snapshot restore changed the declared system, so counterfactual arms "
             "would not be the same specimen",
         )
+        self.assertEqual(restored.entities, {})
 
 
 class AConservingSystemCannotGainOrLoseEntities(unittest.TestCase):
+
+    def test_duplicate_initial_entity_ids_are_refused(self):
+        with self.assertRaises(ValueError):
+            build([0, 0, 1])
+
+    def test_missing_entity_record_is_refused_before_snapshot(self):
+        lat = build([0, 1, 2])
+        lat.occupants[0] = 99
+        with self.assertRaises(RuleViolation):
+            snapshot(lat)
 
     def test_a_rule_that_duplicates_an_occupant_is_refused(self):
         lat = build([0, 1, 2, 3])
@@ -199,6 +197,7 @@ class AConservingSystemCannotGainOrLoseEntities(unittest.TestCase):
         lat = build([0, 1, 2, 3], conserving=False)
         lat.apply(0, lambda before, initiator: (before[0], before[0]))
         self.assertEqual(lat.occupants[:2], [0, 0])
+        self.assertEqual(lat.entities, {})
 
     def test_sorting_conserves_across_a_whole_run(self):
         lat, rule = sorting.make(12, seed=11, faults=Faults(p_fail=0.3))
