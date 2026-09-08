@@ -5,7 +5,7 @@ lifecycle: active
 sources:
   - questions.md
   - findings.md
-  - ../experiments/07-endogenous-size-control/README.md
+  - ../experiments/08-boundary-memory/README.md
 ---
 # Current work
 
@@ -15,39 +15,39 @@ This is the only hot page that owns **current priority and next action**.
 
 ## Where we are
 
-Structural regeneration has now exposed two different information problems. Experiment 06 shows that local occupancy alone cannot distinguish a wound edge from a normal boundary; an external positional code supplies “where.” Experiment 07 moves the stopping cue into the tissue: a self-produced inhibitor supplies “how much.”
+The regeneration sequence now separates several information requirements instead of treating “regeneration” as one scalar ability. Experiment 06 supplies external positional information; Experiment 07 shows that a tissue-generated field can restore total size without position; Experiment 08 adds one local sealed/unsealed state per boundary and composes the two.
 
-The endogenous size controller is genuinely causal in the declared toy. Cell loss lowers the signal and reopens growth; clamping the pre-loss signal prevents regrowth; eliminating secretion removes the stop. It restores size 24 after every declared loss/excess challenge, but exact position rapidly disappears because either edge can act.
+For unilateral end damage, endogenous size plus boundary integrity is sufficient in the declared toy: exact position and size return in every tested trial, and the repaired boundary reseals for later damage. Ablating either channel separates their jobs cleanly—size without boundary memory loses location; boundary memory without a changing size signal cannot know when to grow or stop.
 
-The noise sweep adds a capacity boundary: short-range signals make adjacent sizes nearly indistinguishable at the edge, so fixed sensing noise destabilizes size control. These results are still engineered analogues, but they now separate size, position, and pattern as experimentally different competencies.
+The remaining failure is now specific. Under simultaneous bilateral damage, both boundaries say “wounded” and the inhibitor says the total amount missing, but neither says how that deficit should be apportioned between the two sides. Size returns; anatomy need not.
 
 ## Next action
 
-**Find the weakest additional cue that lets endogenous size control recover position after one-sided damage.**
+**Do not add another mechanism until we can state the minimal bilateral-allocation question sharply.**
 
-Do not solve this by restoring a complete external coordinate map. The next experiment should ask how little extra information is sufficient to tell the two tissue edges apart or identify which boundary has been damaged, while the endogenous inhibitor continues to determine how much total structure should exist.
+The next constructive experiment should ask what additional information is sufficient to divide a known total repair deficit across multiple wounded boundaries **without** restoring a full site-by-site coordinate map. Candidate ideas include side-specific accumulated deficit, persistent boundary-specific history, or a locally propagating wound signal, but none is yet preferred.
 
-Candidate mechanisms worth comparing before choosing one include a persistent left/right polarity carried by cells, boundary-specific organizer identity, or a wound-history marker. The mechanism should be chosen for the question it makes testable, not because it is easy to code.
+The questions to resolve before implementation are:
 
-The first questions are:
+1. What must each wounded boundary know beyond “I am wounded” and “the tissue is undersized”?
+2. Can a purely local history of growth or injury encode the required allocation, or is some longer-range comparison unavoidable?
+3. What is the weakest cue that solves asymmetric bilateral damage as well as symmetric damage?
+4. Does that cue also handle an internal deletion, or does internal repair require a qualitatively different representation?
+5. Which ablation would distinguish true per-wound allocation information from a hidden coordinate map?
 
-1. Can “how much” and “where” be composed so one-sided amputation restores both size and position?
-2. What is the minimal information needed to break the left/right ambiguity?
-3. Does the added cue generalize to both left and right amputations without encoding every target site?
-4. What happens when size information is intact but polarity/location information is removed, and vice versa?
-5. Does combining the capabilities create new failure modes under internal lesions, noise, or organizer damage?
+This is a scientific design choice, not an apparatus gap. Keep the current code unchanged until that question is clearer.
 
 ## Working rules
 
 - Optimize for **different phenomena learned per unit effort**.
 - Prefer minimal, inspectable biological analogues over realism for its own sake.
 - Construction and mechanism first; discovery analysis second.
-- Keep size, position, pattern, function, and exact microstate restoration separate.
-- State clearly which information is external, tissue-generated, inherited, or locally sensed.
-- Do not call a composed controller “more competent”; report which challenges each capability actually solves.
+- Keep pattern, size, location, per-wound allocation, function, and exact microstate distinct.
+- State which information is external, tissue-generated, inherited, local, shared, or historical.
+- Treat successful composition as a statement about specific challenges, not a scalar competence ranking.
 - Add apparatus only when a concrete experiment requires it.
 - Negative results and information/feasibility boundaries count as progress.
 
 ## Secondary follow-ups
 
-A blind Goal Discovery pass on the size controller may eventually be useful for asking whether size is inferred as a family-level criterion despite positional variation, but that is not the immediate scientific front. The more valuable next result is constructive: determine what extra information is actually required to compose size and position recovery without reintroducing a full target map.
+The size and boundary-memory cases could support later blind-analysis tests, but their white-box information structure is currently more scientifically useful than another classifier result. The immediate value is to understand the bilateral allocation gap before adding more discovery machinery or biological detail.
