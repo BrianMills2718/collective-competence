@@ -2,10 +2,11 @@
 
 [Wiki home](../index.md)
 
-This area is the **cold/warm layer** of the project knowledge system. Use it when a task needs exact provenance, historical decisions, detailed methodology, or the full record. Ordinary orientation should begin with the six working wiki pages instead.
+This area is the **cold/warm layer** of the project knowledge system. Use it when a task needs exact provenance, historical decisions, detailed methodology, external scientific context, or the full record. Ordinary orientation should begin with the six working wiki pages instead.
 
 ## Detailed scientific sources
 
+- [Research landscape, September 2026](research-landscape.md) — neighboring literatures, novelty constraints, and the current complexity ladder from primitives to external NCA/multicellular systems.
 - [Full research ontology](../ontology.md) — detailed definitions, formalization inventory, aliases, and conceptual relationships.
 - [Detailed discovery goal register](../goals.md) — D1-D6, provenance, and historical phase discussion.
 - [Standing conjectures](../conjectures.md) — falsifiable domain conjectures and their refuters.
@@ -39,9 +40,12 @@ These are valuable when investigating **why** something was changed or whether a
 
 The native experiment directory is the authority for what a particular experiment actually did and observed.
 
-Important current examples:
+Important examples:
 
 - [Self-sorting agents](../../experiments/01-self-sorting/README.md)
+- [Many-state spatial repair](../../experiments/05-pattern-repair/README.md)
+- [Structural regeneration](../../experiments/06-structural-regeneration/README.md)
+- [Learned composition memory](../../experiments/11-learned-composition-memory/README.md)
 - [Morphogenesis scaling](../../experiments/morphogenesis-scaling/README.md)
 - [Platonic ingression discussion/toy material](../../experiments/platonic-ingression/README.md) — design input, not benchmark evidence.
 
@@ -52,7 +56,7 @@ For Goal Discovery experiments, follow links from the [experiment register](../.
 The knowledge system has three temperatures:
 
 - **Hot:** `index.md`, `questions.md`, `findings.md`, `concepts.md`, `current.md`, `laboratory.md`. These are the normal navigation layer.
-- **Warm:** experiment READMEs, detailed ontology, apparatus docs, active protocols and plans. Read when the task needs them.
+- **Warm:** experiment READMEs, the research landscape, detailed ontology, apparatus docs, active protocols and plans. Read when the task needs them.
 - **Cold:** audits, development chronology, superseded plans, archived narratives, and closed failure history. Search when reconstructing history.
 
 A historical fact does not belong on a hot page merely because it was once important. Promote information upward only when it affects current scientific understanding or current action.
