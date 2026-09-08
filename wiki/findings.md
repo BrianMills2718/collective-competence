@@ -9,6 +9,7 @@ sources:
   - ../experiments/07-endogenous-size-control/README.md
   - ../experiments/08-boundary-memory/README.md
   - ../experiments/09-composition-lineage/README.md
+  - ../experiments/10-endogenous-composition/README.md
   - ../experiments/03-redundant-transport/README.md
   - ../experiments/04-route-learning/README.md
   - ../experiments/05-pattern-repair/README.md
@@ -158,6 +159,18 @@ If every cell is removed, even the plastic oracle controller cannot regenerate: 
 
 **Evidence:** [`experiments/09-composition-lineage/README.md`](../experiments/09-composition-lineage/README.md).
 
+## Tissue-generated composition information is causal but depends on reporter integrity
+
+Experiment 10 replaces the A/B count oracle with type-specific endogenous inhibitors using the same steady-state field contract as the earlier size controller. With both lineages represented, those signals restore the translation-invariant target `A^8 B^16` in **6/6** declared partial-loss challenges. Complete lineage loss still defeats lineage-conserving repair (**0/4**), while daughter-fate plasticity restores **4/4**.
+
+The signal controls show that the information channel is causal rather than decorative. Clamping the A signal at its healthy target value after removing half the A compartment produces **0** births and leaves A=4, B=16. Eliminating A secretion removes the stop: after the same partial loss, A grows to **44** in the fixed 40-operation window. After complete A extinction, the plastic arm normally restores A=8, but with A secretion disabled it instead reaches **A=40, B=16** in 40 operations.
+
+This exposes a new limitation of self-produced measurements: a low signal can mean genuine structural loss, but a broken source can generate the same “deficit” direction and drive pathological compensation. Information about composition therefore has a reliability problem in addition to a capacity problem.
+
+**Scope:** the two inhibitor identities, target thresholds, polarity, plasticity, and instantaneous field equilibration are authored. The result does not show that real tissues use such reporters or that secretion loss is observationally identical to lineage loss under every other cue. It shows that tissue-generated goal information remains contingent on the mechanism that reports it.
+
+**Evidence:** [`experiments/10-endogenous-composition/README.md`](../experiments/10-endogenous-composition/README.md).
+
 ## Measurement choices can hide important differences
 
 Across the work, several attractive headline measures have turned out to read less than their names suggest. In sorting, recovery rate can stay at 1.0 while recovery cost deteriorates; a halted controller can receive a nominal recovery score despite no longer participating; and survivorship can make later episodes appear cheaper. Earlier Goal Discovery work similarly found measures that tracked determinism, unused capacity, or omitted mechanism variables rather than the richer interpretation initially attached to them.
@@ -172,4 +185,4 @@ See [the generated scoreboard](scoreboard.md), [research synthesis](../roadmap/r
 
 ## What would count as progress from here
 
-Progress now means replacing privileged oracle information with **tissue-generated composition information** while keeping the capability boundaries visible. Pattern, amount, historical location, composition, information, and generative repertoire should remain separate. The current work page owns the next concrete action.
+Progress now means asking whether regenerative information can remain **available and trustworthy when the structure that normally reports it is damaged or erased**. Pattern, amount, historical location, composition, reporter integrity, memory, and generative repertoire should remain separate. The current work page owns the next concrete action.
