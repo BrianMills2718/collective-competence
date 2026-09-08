@@ -1,0 +1,224 @@
+{
+  "bilateral": [
+    {
+      "exact_reference_position": 571,
+      "expected_exact_probability": 0.109375,
+      "left_width": 2,
+      "right_width": 6,
+      "size_recovered": 5000,
+      "trials": 5000
+    },
+    {
+      "exact_reference_position": 1331,
+      "expected_exact_probability": 0.2734375,
+      "left_width": 4,
+      "right_width": 4,
+      "size_recovered": 5000,
+      "trials": 5000
+    },
+    {
+      "exact_reference_position": 619,
+      "expected_exact_probability": 0.120849609375,
+      "left_width": 4,
+      "right_width": 8,
+      "size_recovered": 5000,
+      "trials": 5000
+    },
+    {
+      "exact_reference_position": 981,
+      "expected_exact_probability": 0.196380615234375,
+      "left_width": 8,
+      "right_width": 8,
+      "size_recovered": 5000,
+      "trials": 5000
+    }
+  ],
+  "boundary_memory_ablation": {
+    "challenge": "right_amputation_width_8",
+    "exact_reference_position": 5,
+    "interpretation": "size signal intact; side information removed",
+    "size_recovered": 2000,
+    "trials": 2000
+  },
+  "repeated_unilateral": {
+    "all_exact": true,
+    "trace": [
+      {
+        "exact_reference_position": true,
+        "left_sealed": true,
+        "operations": 8,
+        "right_sealed": true,
+        "side": "right",
+        "width": 8
+      },
+      {
+        "exact_reference_position": true,
+        "left_sealed": true,
+        "operations": 6,
+        "right_sealed": true,
+        "side": "left",
+        "width": 6
+      },
+      {
+        "exact_reference_position": true,
+        "left_sealed": true,
+        "operations": 12,
+        "right_sealed": true,
+        "side": "right",
+        "width": 12
+      },
+      {
+        "exact_reference_position": true,
+        "left_sealed": true,
+        "operations": 4,
+        "right_sealed": true,
+        "side": "left",
+        "width": 4
+      }
+    ]
+  },
+  "size_signal_controls": {
+    "secretion_ablation": {
+      "final_size_after_50_operations": 66,
+      "interval": [
+        88,
+        153
+      ],
+      "operations": 50
+    },
+    "target_signal_clamp": {
+      "final_size": 16,
+      "left_sealed": true,
+      "operations": 0,
+      "right_sealed": true
+    }
+  },
+  "system": {
+    "boundary_memory": "one sealed/unsealed bit at each current tissue edge",
+    "reference_interval": [
+      88,
+      111
+    ],
+    "target_size": 24
+  },
+  "translation_control": [
+    {
+      "exact": 1000,
+      "reference_interval": [
+        40,
+        63
+      ],
+      "side": "left",
+      "trials": 1000
+    },
+    {
+      "exact": 1000,
+      "reference_interval": [
+        40,
+        63
+      ],
+      "side": "right",
+      "trials": 1000
+    },
+    {
+      "exact": 1000,
+      "reference_interval": [
+        120,
+        143
+      ],
+      "side": "left",
+      "trials": 1000
+    },
+    {
+      "exact": 1000,
+      "reference_interval": [
+        120,
+        143
+      ],
+      "side": "right",
+      "trials": 1000
+    }
+  ],
+  "unilateral": [
+    {
+      "exact_reference_position": 2000,
+      "operations": 1,
+      "side": "left",
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 1
+    },
+    {
+      "exact_reference_position": 2000,
+      "operations": 4,
+      "side": "left",
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 4
+    },
+    {
+      "exact_reference_position": 2000,
+      "operations": 8,
+      "side": "left",
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 8
+    },
+    {
+      "exact_reference_position": 2000,
+      "operations": 12,
+      "side": "left",
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 12
+    },
+    {
+      "exact_reference_position": 2000,
+      "operations": 18,
+      "side": "left",
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 18
+    },
+    {
+      "exact_reference_position": 2000,
+      "operations": 1,
+      "side": "right",
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 1
+    },
+    {
+      "exact_reference_position": 2000,
+      "operations": 4,
+      "side": "right",
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 4
+    },
+    {
+      "exact_reference_position": 2000,
+      "operations": 8,
+      "side": "right",
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 8
+    },
+    {
+      "exact_reference_position": 2000,
+      "operations": 12,
+      "side": "right",
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 12
+    },
+    {
+      "exact_reference_position": 2000,
+      "operations": 18,
+      "side": "right",
+      "size_recovered": 2000,
+      "trials": 2000,
+      "width": 18
+    }
+  ]
+}

@@ -7,6 +7,7 @@ sources:
   - ../experiments/02-regulation/README.md
   - ../experiments/06-structural-regeneration/README.md
   - ../experiments/07-endogenous-size-control/README.md
+  - ../experiments/08-boundary-memory/README.md
   - ../experiments/03-redundant-transport/README.md
   - ../experiments/04-route-learning/README.md
   - ../experiments/05-pattern-repair/README.md
@@ -132,6 +133,18 @@ The self-generated size cue also has a signal-range boundary. With additive sens
 
 **Evidence:** [`experiments/07-endogenous-size-control/README.md`](../experiments/07-endogenous-size-control/README.md).
 
+## Size and boundary-state information compose, with a bilateral limit
+
+Adding one local sealed/unsealed state to each tissue edge composes cleanly with the endogenous size signal. After unilateral amputations on either side at widths 1, 4, 8, 12 and 18, the combined controller restores the exact reference interval in **20,000/20,000** declared trials and reseals the repaired edge, supporting repeated opposite-side damage.
+
+The two information channels are experimentally separable. Removing boundary memory while retaining size sensing restores size after an 8-cell cut in **2000/2000** trials but exact position in only **5/2000**. Holding the size signal at its quiet pre-damage value while retaining wound memory yields no regrowth and leaves size 16. Removing inhibitor secretion while retaining wound memory constrains growth to the correct side but loses the stop, reaching size **66** after 50 operations.
+
+Simultaneous bilateral damage exposes what the two channels still do not encode. Both edges are marked wounded and total size deficit is known, but the controller does not know how much belonged to each side. Size recovers in every declared bilateral trial while exact position occurs only at the binomial frequency of randomly assigning the right number of births to each side.
+
+**Scope:** the boundary bit is an authored toy state, not a biological mechanism or proof of minimality. The useful result is compositional: separately ablatable information about amount and wound location solves unilateral regeneration while leaving a specific multi-wound allocation problem.
+
+**Evidence:** [`experiments/08-boundary-memory/README.md`](../experiments/08-boundary-memory/README.md).
+
 ## Measurement choices can hide important differences
 
 Across the work, several attractive headline measures have turned out to read less than their names suggest. In sorting, recovery rate can stay at 1.0 while recovery cost deteriorates; a halted controller can receive a nominal recovery score despite no longer participating; and survivorship can make later episodes appear cheaper. Earlier Goal Discovery work similarly found measures that tracked determinism, unused capacity, or omitted mechanism variables rather than the richer interpretation initially attached to them.
@@ -146,4 +159,4 @@ See [the generated scoreboard](scoreboard.md), [research synthesis](../roadmap/r
 
 ## What would count as progress from here
 
-Progress now means using these distinctions on **genuinely new phenomena**, not adding more calibration categories. Structural regeneration has now separated at least three questions that should not be collapsed: what state/relation is acceptable, how much structure should exist, and where that structure belongs. The current work page owns the next concrete action.
+Progress now means explaining **which information supports which regenerative capability and where composition fails**. Pattern, amount, wound location, and allocation across multiple wounds are now experimentally distinct questions. The current work page owns the next concrete action.
