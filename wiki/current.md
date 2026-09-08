@@ -5,6 +5,7 @@ lifecycle: active
 sources:
   - questions.md
   - findings.md
+  - reference/research-landscape.md
   - ../experiments/11-learned-composition-memory/README.md
 ---
 # Current work
@@ -15,51 +16,65 @@ This is the only hot page that owns **current priority and next action**.
 
 ## Where we are
 
-The regeneration sequence now separates positional cues, amount/size, wound identity, intrinsic composition, generative plasticity, reporter integrity, and desired-state memory.
+The project has completed enough primitive/calibration work to change phases. Small systems have separated several quantities that are easy to conflate: desired-state information, observation of current state, maintenance/recovery, compensation, retained history, plasticity/reachability, reporter integrity, and memory. The latest analysis also gives an explicit observability limit: after a primary reporter is known to be broken, exact repair requires some independent information about current amount or lost amount.
 
-Experiment 11 removes hard-coded A/B target counts from repair. An extracellular trace learns healthy endogenous A/B signal levels from pre-damage history and the same controller then restores healthy compositions `A^6 B^18`, `A^8 B^16`, and `A^10 B^14`. With persistent memory and fate plasticity it repairs all **12/12** declared partial/extinction challenges; decaying memory produces a finite repair horizon. Without plasticity, complete lineage extinction remains unrepaired in **0/6** declared cases.
+Those distinctions are useful, but most of the individual ingredients have mature neighboring literatures in control, fault diagnosis, self-stabilization, inverse objective inference, and regenerative biology. The scientific burden has therefore moved from **inventing another clean toy** to testing whether the decomposition continues to explain and predict behavior as system complexity increases.
 
-The remaining reporter problem has now been analyzed rather than simulated again. With observed wound state `W`, current self-produced signal `S`, and learned healthy setpoint `M`, a diagnostic birth can distinguish complete lineage extinction with a healthy reporter from reporter failure: a healthy reporter begins producing signal after the new cell appears; a broken reporter does not.
-
-But once reporter failure is established, **current compartment amount is not identifiable from that channel**. Every reporter-failed wounded abundance produces `S=0`; further births also leave `S=0`. Different initial amounts therefore generate the same observation history while requiring different remaining birth counts. A controller using only `{W, S, M, its own birth history}` cannot guarantee exact repair across those states.
-
-So the missing information is no longer “is the reporter broken?” It is an independent estimate of **current amount or lost amount**.
+This is also the original project strategy. The retained Robinson-Crusoe brief called for one reusable experimental discipline, progressively richer systems, thin slices, and maximum reuse of existing tooling. The custom `Lattice` remains useful apparatus for the systems that naturally fit it, but the more important reusable substrate is the Dynamical Laboratory contract: reproducible trajectories, declared observations, interventions, matched comparisons, evidence custody, and separable black-box/white-box analysis.
 
 ## Next action
 
-**Compare candidate sources of amount information by the failures they can and cannot resolve—on paper first, then experimentally only where needed.**
+**Adopt the published Growing Neural Cellular Automata system as the first phase-2 external specimen.**
 
-Two useful baselines are already clear:
+Do not rewrite NCA inside the custom lattice and do not begin with a new Goal Discovery analyzer. First reproduce a published trained local-rule system and wrap it as an external laboratory backend.
 
-1. **Historical wound-loss counter.** If every lost A cell is perfectly recorded at damage time, then one-shot repair is trivial: add exactly that many A cells. This is sufficient for the declared end-amputation challenge but simply moves the measurement into the wound sensor.
-2. **Independent current-abundance measurement.** A second observable of current A amount can close the loop even after the primary chemical reporter fails, but it only counts as redundancy if its source and failure mode are genuinely independent.
+The canonical starting point is Mordvintsev, Randazzo, Niklasson & Levin, *Growing Neural Cellular Automata* (Distill, 2020, DOI `10.23915/distill.00023`). Its cells have vector-valued local state, a shared learned local update rule, asynchronous/stochastic updates, development from a seed, persistence, and damage/regeneration. A 2026 review identifies NCA as a current model class for multiscale biological self-organization and highlights interpretability and scaling as major open problems.
 
-The next constructed challenge should be one where these two approaches diverge. Good candidates include unobserved cell loss after the initial wound, pre-existing composition error, internal deletion that does not pass through the counted boundary event, or ongoing loss during repair. An exact wound counter should fail there while a trustworthy current-state measurement can still succeed.
+### Phase-2 gate 1 — faithful reproduction
 
-Before implementation, answer:
+Before making project-specific claims:
 
-1. Which finite set of hidden A abundances must the new channel distinguish after primary-reporter failure?
-2. What is the minimum information capacity over that declared challenge set? For `K` exact-deficit classes requiring different actions, a noiseless discrete side channel needs at least `ceil(log2 K)` distinguishable states; “one analog scalar” is not a minimality claim without precision/range.
-3. What physical/source mechanism could measure current A abundance without sharing A secretion's failure mode?
-4. What intervention will fail the proposed secondary channel while leaving the primary channel intact, and vice versa?
-5. What joint failure remains impossible even with both channels?
+1. pin the upstream implementation/model provenance and license;
+2. reproduce at least one published growth/persistence/regeneration behavior from an upstream or independently validated implementation;
+3. preserve the upstream model rather than retraining it to make our preferred interpretation easier;
+4. record enough state/seed/update metadata to make intervention arms reproducible;
+5. expose observations/interventions through a thin adapter rather than converting the NCA into `Lattice` semantics.
 
-Do **not** add a second chemical reporter merely because it is easy to code. The next positive mechanism should buy a demonstrably new observational distinction.
+### Phase-2 gate 2 — preregistered mechanistic questions
+
+Only after reproduction, test a small set of predictions derived from the existing programme:
+
+1. **Attainment is not maintenance.** Growing, persistent, and regeneration-trained variants should be compared under delayed damage, not only endpoint similarity.
+2. **Repair has a basin/boundary.** Vary lesion size, geometry, location, timing, and update interruption to find where recovery ceases or changes qualitatively.
+3. **Current-state information is distributed.** Visible morphology and hidden channels should be perturbed separately where the model permits it; recovery differences can test whether latent cell state carries load-bearing repair information.
+4. **Desired state and current-state evidence are distinct.** The learned update rule/weights encode training history and target-related structure, while the evolving cell state carries current information. Do not assume either is a literal explicit goal representation.
+5. **Action repertoire matters.** Local update disabling, spatially restricted updates, or channel-specific interventions should be used only when they test whether a failure is informational versus unreachable under the remaining local dynamics.
+6. **Fault diagnosis matters only when observation channels can fail independently.** Do not manufacture a second reporter unless its failure mode is actually distinct.
+
+These are hypotheses and intervention targets, not conclusions.
+
+### Phase-2 gate 3 — discovery only after construction
+
+After the white-box NCA behavior and intervention boundaries are understood, create an opaque observation/intervention package and ask what candidate morphology/maintenance criterion and competence profile can be inferred without the training target, semantic channel names, or implementation. Existing discovery machinery should be reused first; extend it only for a concrete failure.
+
+## What not to do next
+
+- Do not create Experiment 12 as another hand-authored one-purpose scalar/1-D controller.
+- Do not generalize `Lattice` to 2-D neural state merely to preserve one-container purity.
+- Do not retrain an NCA until an upstream pretrained/reproducible baseline has been characterized.
+- Do not call familiar observability, controllability, fault-diagnosis, or self-stabilization results novel.
+- Do not treat NCA as biological ground truth; it is the **mesoscopic externally specified rung** between our transparent primitives and richer multicellular/biological models.
 
 ## Working rules
 
-- Optimize for **different phenomena learned per unit effort**.
-- Prefer minimal, inspectable biological analogues over realism for its own sake.
-- Construction and mechanism first; discovery analysis second.
-- Keep desired-state memory separate from current-state measurement.
-- Keep pattern, size, location, composition, reporter integrity, fault diagnosis, memory, plasticity, and exact microstate distinct.
-- Treat translations or other symmetries as equivalent unless the experiment explicitly supplies a reason not to.
-- State which information is external, tissue-generated, inherited, local, shared, historical, persistent, or supplied by oracle.
-- Do not call duplicated channels redundant unless their failure modes are independently challenged.
-- Do not simulate a claim whose decisive content is already derivable on paper; use analytic identifiability arguments first.
-- Add apparatus only when a concrete experiment requires it.
-- Negative results, corrections, and information/feasibility boundaries count as progress.
+- Optimize for **prediction/explanation gained per unit effort**, not specimen count.
+- Increase complexity by composing/reusing mechanisms and external systems, not by adding infrastructure preemptively.
+- Keep desired-state memory, current-state observation, action repertoire, plasticity, and fault diagnosis distinct until evidence links them.
+- Treat symmetries/equivalence classes as part of the criterion definition.
+- Use analytic arguments when a result is derivable; use experiments where trajectories/interactions make the answer genuinely nontrivial.
+- Preserve negative results and surprises; they are especially valuable in systems we did not design.
+- Keep the hot wiki compact; exact upstream provenance and phase-2 evidence belong with the native external-specimen record.
 
-## Secondary follow-ups
+## Secondary direction
 
-The learned-memory retention sweep can later be extended with noise or delayed repair if a concrete memory-lifetime question requires it. The current front is stricter: determine what *new* current-state information is needed after the primary reporter is known to be broken, and design the challenge before the mechanism.
+If NCA proves too opaque or operationally brittle for clean intervention work, the next external rung should be an established multicellular platform/model rather than retreating automatically to another hand-authored toy. Morpheus and PhysiCell are candidate platforms; planarian regeneration remains a strong medium-term biological anchor. See [research landscape](reference/research-landscape.md).
