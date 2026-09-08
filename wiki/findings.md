@@ -102,7 +102,9 @@ A three-colour ring provides a many-state spatial goal: adjacent cells must diff
 
 After damage, all 200 trials repair the criterion at every tested lesion width from 1 through 12. But exact microstate restoration rapidly disappears: for width-8 and width-12 lesions, **0/200** runs return to the original pattern even though **200/200** return to some valid pattern. A single permanently frozen conflicting cell can be reorganized around in 200/200 trials; two adjacent frozen same-colour cells make the criterion structurally impossible and repair in 0/200.
 
-**Scope:** this is a hand-authored self-stabilizing one-dimensional coloring rule, not biological regeneration. Its value is a clear Collective Competence phenomenon in which the external criterion defines a large equivalence class rather than one true target state.
+A zero-context Goal Discovery pass then withheld the criterion, update rule, category meanings, global score, and whether any exact target existed. The reader independently proposed the cyclic neighbor-inequality relation as the strongest compact candidate criterion, distinguished formation from post-damage restoration, concluded that the diverse repaired endpoints support an equivalence class rather than exact reconstruction, and derived the adjacent-frozen-pair feasibility boundary.
+
+**Scope:** this is a hand-authored self-stabilizing one-dimensional coloring rule, not biological regeneration. The blind result supports relational/many-state candidate-goal inference on this specimen; it does not establish a unique goal, agency, internal target representation, or that every state satisfying the proposed relation is acceptable.
 
 **Evidence:** [`experiments/05-pattern-repair/README.md`](../experiments/05-pattern-repair/README.md).
 
