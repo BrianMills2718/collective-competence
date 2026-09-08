@@ -81,7 +81,6 @@ A zero-context reader given only anonymous trajectories, known input, and anonym
 
 **Evidence:** [`experiments/03-redundant-transport/README.md`](../experiments/03-redundant-transport/README.md).
 
-
 ## Retained experience produces behaviorally recognizable adaptation
 
 A repeated route-allocation specimen isolates one persistent preference variable. There is no within-episode feedback: an episode uses a fixed allocation, observes the two route qualities, and only then may the next episode's allocation change. In stationary environments the adaptive arm improves delivered work from **75 → 87.5 → 95**, while frozen and reset-between controls remain at 75. After the environment reverses, retained experience is initially harmful — performance falls from 95 to **55** — and then recovers through **67.5 → 80 → 92.5 → 95** as the allocation changes.
@@ -97,7 +96,6 @@ The strongest test holds current inputs and block number fixed while changing on
 A one-off mixed zero-context read compared compact opaque evidence from passive attraction, feedback regulation, compensation, and adaptation together. It cleanly separated attraction, bounded substitution, and history dependence. It described the feedback specimen as a stronger regulation-like signature but correctly noted that faster restoration and smaller steady offsets alone do not uniquely distinguish active feedback from a different passive restoring law.
 
 This is a reason to **stop polishing the calibration ladder**, not a reason to weaken the concepts. Intervention choice determines what can be inferred: the regulation experiment's sensor/actuator ablations provide causal evidence that the compressed mixed package omitted. Future work should use these distinctions on new systems rather than optimizing toy classifiers.
-
 
 ## Pattern repair can recover a criterion without recovering the original state
 
@@ -121,27 +119,29 @@ The relative code has a clear limit: unequal changes in the two organizer source
 
 **Evidence:** [`experiments/06-structural-regeneration/README.md`](../experiments/06-structural-regeneration/README.md).
 
-## A tissue-produced signal can restore size without restoring position
+## A tissue-produced signal can restore size without restoring historical position
 
 A contiguous tissue can encode its own size in the inhibitor concentration sensed locally at either edge. With thresholds calibrated around size 24, loss lowers the self-produced signal and opens proliferation; excess raises it and triggers edge removal. Across right-side loss and addition challenges of 1, 2, 4, 8, 12 and 18 cells, **all 24,000 declared trials return to size 24**.
 
-That does not imply positional regeneration. Because either edge can act, exact return to the original interval after an 8-cell one-sided challenge occurs in only **12/2000** trials; at widths 12 and 18 it occurs in **0/2000**, despite perfect size recovery. Clamping the pre-damage signal prevents regrowth after loss, while removing inhibitor secretion removes the stopping condition and produces continued growth.
+That does not imply return to the same arena interval. Because either edge can act, exact return to the pre-damage interval after an 8-cell one-sided challenge occurs in only **12/2000** trials; at widths 12 and 18 it occurs in **0/2000**, despite perfect size recovery. Clamping the pre-damage signal prevents regrowth after loss, while removing inhibitor secretion removes the stopping condition and produces continued growth.
 
 The self-generated size cue also has a signal-range boundary. With additive sensing noise sigma 0.02 and thresholds re-tuned to the same target size, the fraction of scored steps at size 24 rises from **0.190** at decay length 4 to **0.834** at 8, **0.999** at 12 and **1.000** at 18 as adjacent tissue sizes become more distinguishable at the edge.
 
-**Scope:** this is an engineered steady-state exponential signaling model with an authored target threshold, not a biological mechanism. Its useful result is a decomposition: endogenous collective information can support size homeostasis while leaving position underdetermined.
+**Scope:** this is an engineered steady-state exponential signaling model with an authored target threshold, not a biological mechanism. Its useful result is a decomposition: endogenous collective information can support size homeostasis while leaving historical translation underdetermined.
 
 **Evidence:** [`experiments/07-endogenous-size-control/README.md`](../experiments/07-endogenous-size-control/README.md).
 
-## Size and boundary-state information compose, with a bilateral limit
+## Size and boundary-state information compose; bilateral runs expose a criterion ambiguity
 
-Adding one local sealed/unsealed state to each tissue edge composes cleanly with the endogenous size signal. After unilateral amputations on either side at widths 1, 4, 8, 12 and 18, the combined controller restores the exact reference interval in **20,000/20,000** declared trials and reseals the repaired edge, supporting repeated opposite-side damage.
+Adding one local sealed/unsealed state to each tissue edge composes cleanly with the endogenous size signal. After unilateral amputations on either side at widths 1, 4, 8, 12 and 18, the combined controller restores the exact pre-damage interval in **20,000/20,000** declared trials and reseals the repaired edge, supporting repeated opposite-side damage.
 
-The two information channels are experimentally separable. Removing boundary memory while retaining size sensing restores size after an 8-cell cut in **2000/2000** trials but exact position in only **5/2000**. Holding the size signal at its quiet pre-damage value while retaining wound memory yields no regrowth and leaves size 16. Removing inhibitor secretion while retaining wound memory constrains growth to the correct side but loses the stop, reaching size **66** after 50 operations.
+The two information channels are experimentally separable. Removing boundary memory while retaining size sensing restores size after an 8-cell cut in **2000/2000** trials but the exact pre-damage interval in only **5/2000**. Holding the size signal at its quiet pre-damage value while retaining wound memory yields no regrowth and leaves size 16. Removing inhibitor secretion while retaining wound memory constrains growth to the wounded side but loses the stop, reaching size **66** after 50 operations.
 
-Simultaneous bilateral damage exposes what the two channels still do not encode. Both edges are marked wounded and total size deficit is known, but the controller does not know how much belonged to each side. Size recovers in every declared bilateral trial while exact position occurs only at the binomial frequency of randomly assigning the right number of births to each side.
+Under simultaneous bilateral damage, both edges are wounded and total size deficit is known. The authored controller randomly assigns births across the two edges. Size returns in every declared bilateral trial, while return to the historical interval occurs only at the binomial frequency of assigning the same number of births to each side as were removed.
 
-**Scope:** the boundary bit is an authored toy state, not a biological mechanism or proof of minimality. The useful result is compositional: separately ablatable information about amount and wound location solves unilateral regeneration while leaving a specific multi-wound allocation problem.
+A subsequent interpretation called this a multi-wound anatomical allocation failure. **That interpretation was too strong.** In Experiment 08 the tissue has no internal compartments or pattern: it is simply a homogeneous contiguous interval. Every size-24 outcome is therefore a translation of every other size-24 outcome. Under a translation-invariant morphology criterion, bilateral repair succeeds whenever size returns. The unrecovered property is historical arena position, which matters only if an external landmark or remembered frame is explicitly part of the goal.
+
+**Scope:** the boundary bit remains an authored toy state, and neither the positive composition result nor the correction proves minimality. The important methodological result is that an apparent information deficit can be created by silently privileging one representative of an equivalence class. Future multi-wound work should first introduce non-translation-equivalent morphology or an explicit environmental anchor before adding an allocation mechanism.
 
 **Evidence:** [`experiments/08-boundary-memory/README.md`](../experiments/08-boundary-memory/README.md).
 
@@ -159,4 +159,4 @@ See [the generated scoreboard](scoreboard.md), [research synthesis](../roadmap/r
 
 ## What would count as progress from here
 
-Progress now means explaining **which information supports which regenerative capability and where composition fails**. Pattern, amount, wound location, and allocation across multiple wounds are now experimentally distinct questions. The current work page owns the next concrete action.
+Progress now means making regenerative criteria **intrinsically distinguishable before asking what information repairs them**. Pattern, amount, historical location, composition, and function should not be collapsed into one notion of anatomy. The current work page owns the next concrete action.
