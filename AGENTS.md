@@ -2,111 +2,74 @@
 
 # Competence research agenda — agent bootstrap
 
-## Goal: preserve the integrated research agenda
+## Start here
 
-Develop one integrated, currently unnamed research agenda with two arms. The
-**Collective Competence** arm constructs and explains how mechanisms and
-component capabilities produce system- or collective-level competence. The
-**Goal and Competence Discovery** arm infers candidate goals and competence from
-allowed observations, interventions, and challenges. The **Dynamical
-Laboratory** is shared apparatus for both arms.
+Read [`wiki/index.md`](wiki/index.md) before substantial work. It is the project front door and should be enough to orient you without loading the repository's history.
 
-Specimen origin (constructed/imported/empirical), analyst access
-(black-box/white-box/blind-first reveal-later), and research purpose are
-independent. Do not call white-box construction an arm or treat a known authored
-target as a discovery. Sorting, thermostats, flocking, networks, and composition
-are tests or enablers, not alternative project goals. The UI is apparatus, not
-the destination.
+Then follow only the task-specific route you need:
 
-## Read before interpreting or changing the project
+- scientific questions → [`wiki/questions.md`](wiki/questions.md)
+- current findings → [`wiki/findings.md`](wiki/findings.md)
+- terminology → [`wiki/concepts.md`](wiki/concepts.md)
+- current priority → [`wiki/current.md`](wiki/current.md)
+- apparatus / adding a specimen → [`wiki/laboratory.md`](wiki/laboratory.md)
+- audits, old plans, decisions, detailed ontology, chronology → [`wiki/reference/README.md`](wiki/reference/README.md)
 
-1. Enter through [the project wiki](wiki/index.md). Its **Current position**
-   section is the shortest true account of where things stand, and its
-   **Choose your question** table routes by what you actually need.
-2. **Then read by task, not in full.** The documents below total roughly 32,000
-   words; reading all of them before acting spends most of a working context on
-   orientation. Two zero-context agents measured this on 2026-09-06 and each
-   needed five or more documents before they could state the research question.
+Do **not** read the full ontology, failure log, development log, audits, or historical plans as routine orientation. They are reference/history, not working context.
 
-   | If you are | Read, in order | ~words (measured 2026-09-06) |
-   |---|---|---|
-   | **Reviewing, auditing, or orienting** | [wiki index](wiki/index.md) → [scoreboard](wiki/scoreboard.md) → [failure log](wiki/failure-log.md) | 10,900 |
-   | **Running or designing an experiment** | the above, then [charter](goal-discovery/docs/PROJECT.md) (scope and the completion condition) → [current plan](goal-discovery/docs/plans/current_research_plan.md) (the queued action and its open debts) | +6,600 |
-   | **Making a claim, or naming anything** | add [research ontology](wiki/ontology.md) — canonical, and the only authority on terms | +7,400 |
-   | **Questioning the programme's direction** | add [the generative thesis](wiki/competence-thesis.md) | +3,500 |
-   | **Deciding what to do next** | add [research synthesis](roadmap/research.md) (what the experiments established) and [the goal register](wiki/goals.md) (draft; one of the three documents naming a next action) | +5,600 |
+## Project model
 
-   Two cautions the reading order used to hide. The **thesis is exploratory and
-   not canonical** — [the conjecture register](wiki/conjectures.md) records that
-   its three central bets were considered and *refused admission*, so a reader
-   who meets it first builds a model the register then contradicts. And the
-   **current plan owns priorities for the active lane only** — not the full
-   agenda, not historical plans, not a dashboard's cached status.
-3. Follow the task's topic to native evidence/code and the applicable subtree
-   instructions below. Read mandatory context; do not load the entire archive.
-4. State the checkout/revision and any local changes before claiming what runs.
-   Separate an implemented feature, an observed run, and a scientific finding.
-5. **The canonical checkout is read-only on purpose.** `wiki/`, `scripts/`,
-   `goal-discovery/` and `experiments/` are mode `555`; writes go through a
-   claimed worktree at `worktrees/<branch>/`. A `PermissionError` here is the
-   convention working, not a broken checkout. It also means **a run that writes
-   output cannot happen in the root** — `experiments/01-self-sorting/selfsort.py`
-   writes to a hardcoded `results/` directory, so it needs a worktree. And it
-   means a green suite in a worktree is not evidence the suite is green where the
-   README says to run it: that gap produced six red tests nobody saw
-   ([F25](wiki/failure-log.md)). Verify in the checkout the instruction names.
+The project studies how component capabilities and interactions produce robust, goal-relative competencies of systems, and what can be inferred about those competencies and candidate goals from behavior.
 
-For "what have we learned?", read [research synthesis](roadmap/research.md),
-then its [experiment register](roadmap/experiments.md) and exact result/protocol.
-Unreviewed metadata is not a finding. Corrections and failed confirmation constrain
-earlier headlines; a stop applies to its tested route, not the project's goal.
+It has two complementary research arms:
 
-| Work scope | Additional instructions to read explicitly |
+- **Collective Competence** constructs systems and explains how their mechanisms produce system- or collective-level competency.
+- **Goal and Competence Discovery** analyzes systems under declared observation/intervention access and asks which candidate goals and bounded competence claims behavior supports, contradicts, or leaves underdetermined.
+
+The **Dynamical Laboratory** is shared apparatus. Black-box/white-box describes analyst access, not the two arms. A constructed specimen can be analyzed blind-first; an imported specimen can be inspected mechanistically.
+
+## Before modifying code or evidence
+
+1. Read the relevant hot wiki page.
+2. Read the native experiment README/protocol and the code you will change.
+3. Read the applicable subtree instructions:
+
+| Work scope | Additional instructions |
 |---|---|
-| Laboratory work under `goal-discovery/` | [Laboratory rules](goal-discovery/CLAUDE.md) |
-| Documentation or research records | [Documentation rules](goal-discovery/docs/CLAUDE.md) |
-| Simulation, analysis, or UI source | [Source rules](goal-discovery/src/CLAUDE.md) |
-| Tests and validation | [Test rules](goal-discovery/tests/CLAUDE.md) |
+| `goal-discovery/` laboratory work | [`goal-discovery/CLAUDE.md`](goal-discovery/CLAUDE.md) |
+| research records/docs | [`goal-discovery/docs/CLAUDE.md`](goal-discovery/docs/CLAUDE.md) |
+| source/UI/analysis | [`goal-discovery/src/CLAUDE.md`](goal-discovery/src/CLAUDE.md) |
+| tests | [`goal-discovery/tests/CLAUDE.md`](goal-discovery/tests/CLAUDE.md) |
 
-Nested instructions add local rules, not another project narrative. This table
-requires explicit reading; it does not claim any client automatically loads
-nested `CLAUDE.md` files. A task naming an exact source can go directly there
-after orientation; that source must remain discoverable through the wiki.
+The canonical checkout is intentionally read-only; use the repository's worktree convention for writes and runs that produce output.
 
-## Scientific and execution constraints
+## Scientific discipline
 
-- Apply the [canonical ontology](wiki/ontology.md). Distinguish authored targets,
-  mechanisms, and capabilities from inferred
-  candidate goals and measured competence. Convergence, prediction, low disorder,
-  or an attractive animation does not establish a goal.
-- Use *competence* for goal-relative effectiveness and flexibility under a
-  declared challenge family. Treat robustness as performance across perturbations
-  and adaptation as change that restores or improves performance after loss.
-- State the substrate, focal boundary, allowed observations, intervention,
-  comparisons, and evidence limits. Current models do not imply a universal substrate.
-- Prioritize the next decision-changing experiment per unit effort. Enabling
-  work must name the research question it unlocks; useful negative results count.
-- Preserve protocols, original observations, counterevidence, and dirty work.
-  Never revise historical outcomes to make a current interpretation look stronger.
-- Ignored result packages and local execution receipts do not make the tracked
-  checkout dirty. Never use a broad clean command to improve appearances;
-  classify and verify an exact target before removing reproducible material.
-- Update the owning wiki topic and native authority after material work. Avoid
-  separate current narratives, repeated strategy docs, and unindexed evidence.
-- Use [the development log](wiki/development-log.md) for a compact referenced
-  account of material changes. Superseded narratives leave active search through
-  the shared archive procedure; native protocols and observations remain evidence
-  until their active obligations and relationships are explicitly dispositioned.
-- Shared policy lives in Project Meta's Documentation and Context guide and its
-  linked authorities, reachable from [workflow](roadmap/workflow.md#shared-policy-and-evidence-ownership);
-  do not fork it into project-local policy machinery.
+- Separate **what happened**, **what the system can do**, **what counts as success**, **why it happened**, and **how strongly the interpretation is supported**.
+- An authored goal criterion is legitimate in constructive work. Do not relabel it as discovered.
+- Goal Discovery does not require one unique true goal. Multiple candidate criteria or `underdetermined` are valid outcomes.
+- Do not assume a universal scalar notion of "more competent." Report the performance dimensions the experiment actually measures.
+- Convergence, prediction, low disorder, or an attractive visualization do not by themselves establish goal-directed competence.
+- Robustness, recovery, and adaptation are distinct. Adaptation requires a change that restores or improves performance.
+- State important boundaries, observations, interventions, comparators, resources/costs, and evidence limits.
+- Prefer the smallest experiment that can change the scientific conclusion. Useful negative results count.
+- Add substrate capability, metrics, UI, or governance only when a concrete experiment needs them.
 
-## Maintain this bootstrap
+## Evidence discipline
 
-Follow **instructions first -> improve wiki/docs -> fresh-reader review -> revise
-instructions**. Test whether a reader can recover the goal, current state,
-evidence limits, and next action without reconstructing history.
-Keep volatile status in the current plan. Each first-party `CLAUDE.md` is
-authored; its adjacent `AGENTS.md` is generated by
-`python3 scripts/sync_agent_context.py --write`. Check every discovered
-first-party instruction pair with `python3 scripts/sync_agent_context.py --check`.
+- Native protocols, code, raw/result packages, and committed observations are the authority for what was actually done.
+- Preserve counterevidence and material corrections. Never rewrite historical results to fit a newer interpretation.
+- A test passing is evidence about what that test covers, not automatic evidence for the scientific claim.
+- For important Goal Discovery demonstrations, use a simple information barrier where possible: construct the specimen in one context, give the analyst only the permitted interface, record the inference, then reveal implementation for audit.
+
+## Documentation discipline
+
+Documentation should **reduce the amount an agent must read**.
+
+Keep current working knowledge in the six hot wiki pages. Detailed experiment records and technical documents are warm reference. Audits, chronology, closed failures, and superseded plans are cold history.
+
+After material work, update the smallest owning hot page plus the native evidence/record that actually changed. Do not create another status surface when [`wiki/current.md`](wiki/current.md) can be updated.
+
+Historical mistakes belong in current narrative only when they materially constrain the current scientific interpretation. Git and the reference layer preserve the rest.
+
+`AGENTS.md` is generated from this file by `scripts/sync_agent_context.py`; keep the pair synchronized.

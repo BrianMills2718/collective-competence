@@ -1,220 +1,93 @@
 ---
-doc-role: development-wiki-index
+doc-role: project-wiki-index
 authority: derived
 lifecycle: active
 sources:
-  - ontology.md
-  - ../goal-discovery/docs/PROJECT.md
-  - ../goal-discovery/docs/plans/current_research_plan.md
-  - ../roadmap/README.md
-  - ../roadmap/research.md
-  - development-log.md
-  - ../misc/README.md
+  - questions.md
+  - findings.md
+  - concepts.md
+  - current.md
+  - laboratory.md
 ---
-# Competence research — project wiki
+# Competence research
 
-This is the generalized project-knowledge front door. The repository supports
-one integrated research agenda whose proper name remains unresolved. Its
-**Collective Competence** arm constructs and explains competent systems; its
-**Goal and Competence Discovery** arm analyzes systems to infer candidate goals
-and competence. The **Dynamical Laboratory** is shared apparatus for both arms.
+This repository studies **how simple component capabilities and interactions produce robust, goal-relative competencies of a whole, and what can be inferred about those competencies and candidate goals from behavior**.
 
-[Root instructions](../CLAUDE.md) bootstrap agent behavior. The
-[research ontology](ontology.md) owns terminology and conceptual relationships;
-the [scientific charter](../goal-discovery/docs/PROJECT.md) owns purpose, scope,
-and scientific boundaries. This wiki synthesizes and routes project knowledge;
-it does not replace native authorities or require every file to be read.
+It has two complementary research arms:
 
-## The agenda in one view
+- **Collective Competence** — construct systems, vary their mechanisms and component capabilities, and explain the resulting system- or collective-level competency.
+- **Goal and Competence Discovery** — observe and intervene on systems under a declared access contract and ask which candidate goals and competence claims are supported, contradicted, or underdetermined by behavior.
 
-| Name | Role in this project |
+The **Dynamical Laboratory** is shared apparatus for both. Black-box versus white-box is an analyst-access choice, not the definition of either arm.
+
+## What we know so far
+
+The founding self-sorting system is the clearest current specimen.
+
+- **A global competency can arise without the global target being represented inside the agents.** Local agents using only adjacent information reliably sort the whole line; a locality-matched random control essentially does not.
+- **Reaching a desirable state is different from continuing to steer toward it.** A controller that halts after declaring success and controllers that remain active look alike at first; delayed perturbation separates them.
+- **In this sorting family, feedback matters more than centralization.** Severe local action failure barely affects closed-loop or decentralized attainment while an open-loop central plan degrades sharply.
+- **The competency has informative boundaries.** Some defective members can be routed around; an immobile blocking member partitions the line. One opposing-rule agent damages maintenance before two largely destroy reachability.
+- **Repeated recovery is not automatically adaptation or richer goal-directedness.** Transient sorting disturbances are substantially explained by passive-attractor behavior, and an apparent watchdog history effect was traced to cursor state rather than adaptation.
+
+These are findings about tested systems, not a general theory. The next job is to find which distinctions survive on meaningfully different small specimens.
+
+See [Findings](findings.md) for the compact evidence-backed synthesis.
+
+## Where we are now
+
+The shared one-dimensional lattice now expresses the founding sorting system and ordinary cellular automata. The priority is therefore **not another apparatus redesign**. It is to put additional, qualitatively different phenomena on the existing substrate at roughly the tractability of sorting.
+
+The immediate target is a minimal family covering **passive convergence → negative-feedback regulation → compensation/repair → eventually adaptation**. We want to perturb and understand each system before making the analytic machinery more elaborate.
+
+See [Current work](current.md) for the active research direction.
+
+## Navigate the project
+
+| If you want to know… | Read |
 |---|---|
-| **Broader research agenda (name unresolved)** | Integrates the two research arms and their shared apparatus without making either arm the umbrella. |
-| **Collective Competence** | Constructive and mechanistic arm: how mechanisms and capabilities combine into system- or collective-level competence. |
-| **Goal and Competence Discovery** | Analytic and inferential arm: from allowed observations and interventions, what candidate goals are supported and what competence is demonstrated relative to them? **Goal Discovery** is shorthand. |
-| **Dynamical Laboratory** | Shared apparatus for constructing or importing systems, running them, controlling analyst access, perturbing them, measuring behavior, and comparing explanations. |
+| **What questions are we trying to answer?** | [Research questions](questions.md) |
+| **What have the experiments taught us?** | [Findings](findings.md) |
+| **What do the important terms mean?** | [Concepts](concepts.md) |
+| **What are we doing now?** | [Current work](current.md) |
+| **How does the experimental apparatus work?** | [Dynamical Laboratory](laboratory.md) |
+| **Why was something changed, rejected, or archived?** | [Reference and history](reference/README.md) |
 
-The two arms are not directory boundaries or synonyms for white-box and
-black-box work. A constructed system can be studied blindly; an imported system
-can be inspected mechanistically; a blind analysis can later reveal
-implementation for audit.
+That is the normal reading surface. Do **not** read the whole repository before acting.
 
-## Keep these dimensions independent
-
-| Dimension | Values | Question answered |
-|---|---|---|
-| **Specimen origin** | constructed · imported · empirical | Where did the system and its organization come from? |
-| **Analyst access** | black-box · white-box · blind-first/reveal-later | What information may the analysis use at each stage? |
-| **Research purpose** | Collective Competence (constructive/mechanistic) · Goal and Competence Discovery (analytic/inferential) · calibration | What scientific question is the study intended to answer? |
-
-Every experiment should state all three. None determines either of the others.
-
-## Conceptual relationship
-
-The [canonical research ontology](ontology.md) distinguishes system boundary,
-mechanism, capability, observation, representation, goal criterion, challenge
-family, competence profile, robustness, adaptation, and evidence status. It
-also defines non-point goals, collective attribution, aliases, and the
-prospective experiment-declaration vocabulary. Use that one authority rather
-than reconstructing definitions from historical experiment prose.
-
-## Choose your question
-
-| Question | Read next |
-|---|---|
-| **What did every experiment actually find?** | **[Scoreboard](scoreboard.md)** — one plain sentence per live experiment, generated from the register so it cannot go stale. Start here if you want the state of the programme in one pass — **with one gap to know about**: it covers registered live-era experiments only, so neither `experiments/01-self-sorting/` (which produced the most recent result, 2026-09-06) nor `experiments/morphogenesis-scaling/` appears on it. Both are routed below. |
-| **What are we actually trying to answer?** | **[Research goals](goals.md)** — draft, for review. The scientific question verbatim from the founding brief, six goals, and the minimal substrate configuration each needs. Mostly recovered rather than invented: the briefs already contained the list. |
-| **What should the substrate be?** | **[Substrate design discussion](substrate-design.md)** — live, exploratory, governs nothing. The owner's corrections verbatim, the diagnosis, and the proposal currently on the table. Read this before proposing apparatus. |
-| **Why did we choose this tool / stop that line?** | [Architecture decision records](../goal-discovery/docs/adr/README.md) — eight accepted ADRs, four of them negative decisions that exist to stop an evaluation being run twice. Immutable; superseded rather than edited. |
-| **Where did an archived document go?** | [Archive recovery index](archive-index.md) — what was archived, why, and the commit to `git show` it back from. Archiving is deletion plus an entry; the bytes are not moved. |
-| **What have we tried that did not work, and is it still costing us?** | **[Failure log](failure-log.md)** — stopped routes, measures that read the wrong thing, and decisions that closed something off. Canonical; an entry retires when its *consequence* is dispositioned, not when the route stops. |
-| **Drive the substrate yourself.** | **[Substrate bench](bench.html)** — configure a system and run it: lattice size, seed, controller, contrarian entities, fault rate, or an elementary cellular-automaton rule. Play, pause, step. Inject damage mid-run and watch what recovers. Take a snapshot, branch two arms from the identical state, and compare them — which is the only honest way to attribute a difference to an intervention. Self-contained HTML, opens from disk, no server. It runs the real substrate: `scripts/bench/lattice.js` is embedded verbatim and gated bit-identical to the Python one over 83 configurations. |
-| **Watch three fixed runs.** | **[Substrate viewer](lattice.html)** — space-time diagrams of sorting under three control arrangements, the same substrate running elementary cellular automata, and a damaged run beside a clean one. Play, pause and scrub. Self-contained HTML: open it straight from disk, no server. Every frame is computed by the Python substrate and embedded; the page has no simulator of its own. |
-| **Show me, don't tell me.** | **[Visual status page](status.html)** — the two bets, the instrument's four clauses, the contested measurement as charts, and all fifteen experiments. Self-contained HTML: open it straight from disk, no server. Generated from committed result packages. |
-| Why does this programme exist and what is it building toward? | [The generative thesis](competence-thesis.md) — exploratory, not canonical |
-| What is the programme betting on that could turn out false? | [Standing conjectures](conjectures.md) — canonical; each with a stated refuter |
-| Which of these terms are actually decidable, and by what measure? | [What this vocabulary makes decidable](ontology.md#what-this-vocabulary-makes-decidable-and-what-it-does-not) — canonical; the formalization inventory and candidate measures |
-| How does this programme look to someone outside it? | [External assessment, 2026-09-05](../goal-discovery/docs/audits/2026-09-05_external_assessment.md) — a point-in-time judgement by a fresh reader, with each finding marked open or closed |
-| Does the code do what the prose beside it says? | [Prose-vs-code audit, 2026-09-05](../goal-discovery/docs/audits/2026-09-05b_prose_vs_code_audit.md) — five findings the green check surface cannot detect, one of them since tested and partly refuted |
-| What is the terminology and how do the concepts relate? | [Canonical research ontology](ontology.md) |
-| What is the integrated purpose and scientific boundary? | [Scientific charter](../goal-discovery/docs/PROJECT.md) |
-| How can mechanisms and capabilities produce collective competence? | [Research roadmap](../roadmap/README.md), then the [apparatus map](../roadmap/apparatus.md) and relevant experiment evidence |
-| How can candidate goals and competence be inferred? | [Active Goal and Competence Discovery plan](../goal-discovery/docs/plans/current_research_plan.md) and [research synthesis](../roadmap/research.md) |
-| What have experiments established, contradicted, or left unresolved? | [Research synthesis](../roadmap/research.md) |
-| Which experiment supports a claim? | [Experiment register](../roadmap/experiments.md), backed by [structured records](../roadmap/experiments.json) and native protocols/results |
-| What is active now? | [Current research plan](../goal-discovery/docs/plans/current_research_plan.md); it owns priority for the active Goal and Competence Discovery lane |
-| How does the implemented laboratory fit together? | [Apparatus and implementation map](../roadmap/apparatus.md) |
-| How do I run and interpret the current laboratory? | [Operator guide](../goal-discovery/README.md) and [shared analytic contract](../goal-discovery/docs/plans/dynamic_experiment_artifact_standard.md) |
-| How should documentation and evidence be maintained? | [Workflow and policy routes](../roadmap/workflow.md) |
-| How did the project and its contracts change? | [Development log](development-log.md), with references to the current owners and evidence |
-| Where is the original pilot the repository is named for? | [`experiments/01-self-sorting/`](../experiments/01-self-sorting/README.md) — the founding Levin-style experiment, exploratory. Superseded as a route on 2026-08-26; **re-entered 2026-09-06** to answer [goal D2](goals.md), which made its perturbation schedule repeat and found the controllers indistinguishable from a passive attractor under repeated transient disturbance. Not a registered live-era experiment, so it does not appear on the scoreboard |
-| How do this repository and its neighbours relate over time? | [Cross-repository timeline](cross-repo-timeline.md) — dated, derived from commit history |
-| Where is an active or retained non-superseded source? | [Active document catalog](../roadmap/artifacts.md) and [source provenance](../goal-discovery/docs/sources/README.md); use governed archive recovery for superseded snapshots |
-| Where is the Collective Competence arm's evidence? | [`experiments/01-self-sorting/`](../experiments/01-self-sorting/README.md) — the founding pilot — and [`experiments/morphogenesis-scaling/`](../experiments/morphogenesis-scaling/README.md), a retained reference result promoted out of quarantine 2026-09-04, deliberately **not** registered as an experiment |
-| Where is the conceptual thread behind the substrate discussion? | [`experiments/platonic-ingression/`](../experiments/platonic-ingression/README.md) — 47 files: a conceptual discussion for this repository plus **unvalidated toy data**, classified out of quarantine 2026-09-05. Its own README says it is design input, not evidence, and its figures are not benchmark-grade. Listed here because it was previously reachable only by listing the filesystem |
-| Where is quarantined or not-yet-classified material? | [`misc/README.md`](../misc/README.md) — the quarantine, **currently empty**; both former holdings were classified into `experiments/` before their expiry |
-
-## Shared experimental flow
+## Working model of the research
 
 ```text
-construct or import a system
+build or import a small system
           ↓
-declare boundary, observations, access, and authored assumptions
+observe what it can do
           ↓
-run and perturb it in the Dynamical Laboratory
+perturb it and find the boundaries
           ↓
-Collective Competence construction and/or Goal and Competence Discovery
+explain which mechanisms/capabilities matter
           ↓
-measure competence, robustness, and adaptation under challenges
+ask what goal-relative claims the behavior supports
           ↓
-inspect mechanisms where allowed and audit the explanation
+repeat on a meaningfully different system
 ```
 
-Constructive studies must not relabel an authored target as a discovery.
-Discovery studies must not infer a goal from convergence, prediction, or an
-attractive visualization alone. Both require stated alternatives, challenges,
-failure conditions, and evidence limits.
+For constructive work, an experimenter-supplied goal criterion is legitimate: the question is how the mechanism produces performance toward it. For discovery work, do not smuggle the authored answer into the analyst; candidate goals should earn support from permitted observations and interventions.
 
-## Current position
+A goal need not be uniquely identifiable. Multiple candidate descriptions may survive the available evidence. Likewise, competence does not need to collapse into a universal scalar ordering of systems; report the dimensions the experiment actually measures.
 
-*Accurate as of 2026-09-06. This section routes; it does not restate. Every
-figure below has an owner that is authoritative over it. A date here is a claim
-about when someone last checked, not about when the repository last changed —
-if `git log -1` is newer, treat this section as unverified and go to the owners.*
+## Evidence hierarchy
 
-**Discovery is the current phase. It is not a narrowing.** Both arms of the
-programme remain the destination; the owner fixed their *order* on 2026-09-06:
-build the substrate, work out discovery on it, then build systems using what
-discovery taught us. So current work is the Goal and Competence Discovery arm
-extending from the sorting algorithm, and questions about recovering *authored*
-structure belong to the later constructive phase — sequenced after, not dropped.
-[The goal register](goals.md) owns what this phase contains and lists six goals,
-all restating the First Wave brief's own closing questions. **The phase order is
-settled; the six goals are still a draft.**
+Use the hot wiki pages to orient, then go to the native source when precision matters:
 
-**What the phase order does *not* say.** It fixes the sequence, not a trigger.
-No document states a checkable condition for when discovery is finished enough
-that constructive work begins — "then build systems using what we learn" is an
-ordering, and nobody should read it as a gate that some measurement will trip.
-[F1](failure-log.md) carries that gap as an open cost.
+1. **Native protocol, code, raw/result package** — what was actually done and observed.
+2. **Experiment/result record** — interpretation and declared limits.
+3. **Findings/current wiki** — compact synthesis and navigation.
+4. **Historical plans, audits, logs** — why the project changed.
 
-**Pre-biological is a scope boundary**, not a deferred option. Economic framings
-and LLM agents are out of scope; the founding sequence placed them last and the
-renewable commons was phase-M content run at phase-F time.
-[The charter](../goal-discovery/docs/PROJECT.md) owns the boundary.
+If a summary conflicts with native evidence, the native evidence wins and the summary should be corrected.
 
-**There is one substrate now, and it runs the founding experiment.** The owner
-decided on 2026-09-06: one substrate for this phase, *"like a generalized
-cellular automata"*, so that goal discovery and competence building happen on the
-same thing. [`goal-discovery/src/lattice/`](../goal-discovery/src/lattice/core.py)
-is it — a 1-D lattice of sites holding mobile entities, with local rules,
-pluggable schedules, per-entity faults and one operation currency.
+## One documentation rule
 
-It passed the gate the previous contract could not attempt: **720 trials
-reproducing `selfsort.py` step for step**, across three controllers and six fault
-conditions. And the same lattice runs elementary cellular automata, checked
-against the Sierpinski triangle's binomial coefficients — so *"a standard
-cellular automaton is a particularly constrained case"* is a demonstration here,
-not a docstring. [The design document](substrate-design.md) owns it. The old
-`src/substrate/` is superseded and retained only to regenerate two frozen result
-packages.
+**Documentation should reduce the amount an agent must read, not increase it.**
 
-**The next action is a second kind of specimen**, for [D4](goals.md): passive
-convergence, negative-feedback regulation, compensation and adaptation have no
-home on the substrate yet, and D4 is the goal that most needs one.
-
-| Document | Names as next | Where it sits |
-|---|---|---|
-| [Substrate design](substrate-design.md) q1 | Repair, replace, or set aside `src/substrate/` | **Done 2026-09-06.** Replaced by `src/lattice/`. Questions 3, 4 and a new 5 remain open there |
-| [Goal register](goals.md) D4 | A specimen separating passive convergence, regulation, compensation and adaptation | **First.** Nothing on the substrate expresses these four yet, and D4 cannot start without them |
-| [Goal register](goals.md) D2 | The damage-delivery run | **Done 2026-09-06**, answered in the negative twice |
-| [Experiment 01](../experiments/01-self-sorting/README.md) | The two-agent boundary | Unblocked — q1 is answered, so it is written against `src/lattice/`. Behind D4's specimen, which the substrate was built to enable |
-| [Current plan](../goal-discovery/docs/plans/current_research_plan.md) | Re-run Q1-006 with a null-calibrated threshold | **Later, not cancelled.** On the commons/slot families, and it depends on Q1-008, whose procedure is [recorded as not preserved](failure-log.md#f24--a-cited-experiment-has-results-and-no-code--closed-2026-09-06) |
-
-**A correction worth keeping.** Until 2026-09-06 this section named the
-damage-delivery run as next. That run was recorded in the same commit that
-recorded the phase order, which means the phase order's first clause was written
-down and not acted on: the sentence was read as saying which *arm* comes first
-rather than what to *build* first. The run itself was real work and its result
-stands; it simply was not first.
-
-**What every experiment found:** [the scoreboard](scoreboard.md), one sentence
-each, generated. **What it looks like:** [the status page](status.html) — same coverage limit as
-the scoreboard, and generated from the register, so the 2026-09-06 sorting result
-is not on it.
-**What stopped and what it still costs:** [the failure log](failure-log.md),
-where nine entries are open — [the log opens with all nine listed](failure-log.md) — the ladder superseded on day one (F1); the
-substrate unable to express the founding experiment (F2) and making a
-coordination mechanism structural (F2b); the minimality rule that existed and was
-not followed (F10); narrative growing faster than the science (F12); measures
-that turned out to read something else, which qualifies the commons half of the
-headline result (F4); the cockpit no longer tracking the work (F7); green
-checks that cannot see prose-versus-code defects (F8); and the headline's own
-counterevidence stated in two different units, which is the *second*, independent
-reason its commons half fails (F23). [F24](failure-log.md#f24--a-cited-experiment-has-results-and-no-code--closed-2026-09-06)
-is closed by an explicit procedure-custody sweep; Q1-008 remains honestly marked
-non-reproducible rather than reconstructed from prose.
-
-**Most recent result, 2026-09-06.** [Goal D2](goals.md) is answered in the
-negative **twice, independently**. First: the founding sorting experiment's
-perturbation schedule now repeats, and cost is stationary across eight episodes
-with no attrition. Second, and the stronger test: holding total damage fixed at
-eight faults and varying **only** how they arrive — all at once versus one per
-episode — delivery carries no information beyond displacement. A zero-parameter
-passive-attractor model predicts the eight-episode total to **+2.4%** for the
-controller with no internal state. The one apparent history effect, a
-**+10.5%/+21.1%** rise in the centralized watchdog's cost across episodes, was
-isolated to its scan cursor and vanishes (**−0.6%/−1.2%**) when only the scan
-*order* is randomised — it was an initial-condition correlation decaying, not
-damage accumulating. Nothing measured here is stronger than a passive attractor.
-[Experiment 01](../experiments/01-self-sorting/README.md) owns it. It is not a
-registered live-era experiment, so it does **not** appear on the scoreboard.
-
-**What is not established.** No construction claim in this programme is
-verified, because the instrument that would verify one has not met the charter's
-completion condition. Both conjectures are supported on exactly one family each.
-The headline statistic holds on the **slot family only**; its commons half fails
-for two independent reasons (F4 and F23).
-
-Historical stops close tested routes, not either research purpose or the shared
-laboratory.
+Keep current working knowledge compact. Preserve detailed evidence and history, but route to it on demand. Do not turn every mistake, decision, or old priority into permanent front-page context.
