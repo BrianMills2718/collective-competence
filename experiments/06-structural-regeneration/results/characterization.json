@@ -1,0 +1,258 @@
+{
+  "formation": [
+    {
+      "births": 23,
+      "common_amplitude": 0.75,
+      "count": 24,
+      "exact_target": true,
+      "leftmost": 20,
+      "policy": "ratio",
+      "rightmost": 43,
+      "symmetric_difference": 0
+    },
+    {
+      "births": 22,
+      "common_amplitude": 0.75,
+      "count": 23,
+      "exact_target": false,
+      "leftmost": 15,
+      "policy": "single",
+      "rightmost": 37,
+      "symmetric_difference": 11
+    },
+    {
+      "births": 63,
+      "common_amplitude": 0.75,
+      "count": 64,
+      "exact_target": false,
+      "leftmost": 0,
+      "policy": "ungated",
+      "rightmost": 63,
+      "symmetric_difference": 40
+    },
+    {
+      "births": 23,
+      "common_amplitude": 1.0,
+      "count": 24,
+      "exact_target": true,
+      "leftmost": 20,
+      "policy": "ratio",
+      "rightmost": 43,
+      "symmetric_difference": 0
+    },
+    {
+      "births": 23,
+      "common_amplitude": 1.0,
+      "count": 24,
+      "exact_target": true,
+      "leftmost": 20,
+      "policy": "single",
+      "rightmost": 43,
+      "symmetric_difference": 0
+    },
+    {
+      "births": 63,
+      "common_amplitude": 1.0,
+      "count": 64,
+      "exact_target": false,
+      "leftmost": 0,
+      "policy": "ungated",
+      "rightmost": 63,
+      "symmetric_difference": 40
+    },
+    {
+      "births": 23,
+      "common_amplitude": 1.25,
+      "count": 24,
+      "exact_target": true,
+      "leftmost": 20,
+      "policy": "ratio",
+      "rightmost": 43,
+      "symmetric_difference": 0
+    },
+    {
+      "births": 22,
+      "common_amplitude": 1.25,
+      "count": 23,
+      "exact_target": false,
+      "leftmost": 25,
+      "policy": "single",
+      "rightmost": 47,
+      "symmetric_difference": 9
+    },
+    {
+      "births": 63,
+      "common_amplitude": 1.25,
+      "count": 64,
+      "exact_target": false,
+      "leftmost": 0,
+      "policy": "ungated",
+      "rightmost": 63,
+      "symmetric_difference": 40
+    }
+  ],
+  "local_edge_symmetry": {
+    "identical": true,
+    "normal_boundary_signature": [
+      1,
+      1,
+      0
+    ],
+    "wound_boundary_signature": [
+      1,
+      1,
+      0
+    ]
+  },
+  "relative_source_imbalance": [
+    {
+      "births": 15,
+      "count": 31,
+      "exact_target": false,
+      "left_amplitude": 1.0,
+      "leftmost": 20,
+      "right_amplitude": 0.5,
+      "rightmost": 50,
+      "symmetric_difference": 7
+    },
+    {
+      "births": 11,
+      "count": 27,
+      "exact_target": false,
+      "left_amplitude": 1.0,
+      "leftmost": 20,
+      "right_amplitude": 0.75,
+      "rightmost": 46,
+      "symmetric_difference": 3
+    },
+    {
+      "births": 8,
+      "count": 24,
+      "exact_target": true,
+      "left_amplitude": 1.0,
+      "leftmost": 20,
+      "right_amplitude": 1.0,
+      "rightmost": 43,
+      "symmetric_difference": 0
+    },
+    {
+      "births": 9,
+      "count": 25,
+      "exact_target": false,
+      "left_amplitude": 1.0,
+      "leftmost": 16,
+      "right_amplitude": 1.5,
+      "rightmost": 40,
+      "symmetric_difference": 7
+    },
+    {
+      "births": 9,
+      "count": 25,
+      "exact_target": false,
+      "left_amplitude": 1.0,
+      "leftmost": 13,
+      "right_amplitude": 2.0,
+      "rightmost": 37,
+      "symmetric_difference": 13
+    }
+  ],
+  "repair_summary": {
+    "declared_cases_per_policy": 27,
+    "exact_recoveries": {
+      "ratio": 27,
+      "single": 9,
+      "ungated": 0
+    },
+    "examples": [
+      {
+        "births": 7,
+        "common_amplitude": 0.75,
+        "count": 23,
+        "exact_target": false,
+        "kind": "right",
+        "leftmost": 15,
+        "policy": "single",
+        "rightmost": 37,
+        "symmetric_difference": 11,
+        "width": 8
+      },
+      {
+        "births": 48,
+        "common_amplitude": 1.0,
+        "count": 64,
+        "exact_target": false,
+        "kind": "right",
+        "leftmost": 0,
+        "policy": "ungated",
+        "rightmost": 63,
+        "symmetric_difference": 40,
+        "width": 8
+      },
+      {
+        "births": 12,
+        "common_amplitude": 1.25,
+        "count": 28,
+        "exact_target": false,
+        "kind": "right",
+        "leftmost": 20,
+        "policy": "single",
+        "rightmost": 47,
+        "symmetric_difference": 4,
+        "width": 8
+      }
+    ],
+    "ratio_births_equal_removed": true
+  },
+  "source_ablations": [
+    {
+      "births": 0,
+      "condition": "right_source_absent",
+      "count": 16,
+      "exact_target": false,
+      "leftmost": 20,
+      "rightmost": 35,
+      "symmetric_difference": 8
+    },
+    {
+      "births": 0,
+      "condition": "left_source_absent",
+      "count": 16,
+      "exact_target": false,
+      "leftmost": 20,
+      "rightmost": 35,
+      "symmetric_difference": 8
+    }
+  ],
+  "system": {
+    "arena_size": 64,
+    "target_left": 20,
+    "target_right": 43,
+    "target_sites": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43
+    ],
+    "target_size": 24
+  }
+}
