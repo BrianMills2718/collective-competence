@@ -6,125 +6,215 @@ sources:
   - sources/briefs/Automated_Dynamical_Systems_Discovery_Laboratory_Spec.md
   - sources/briefs/Dynamical_Laboratory_Coding_Agent_Spec.md
   - sources/briefs/Addendum_3_Robinson_Crusoe_Dynamical_Laboratory.md
+  - ../../wiki/questions.md
+  - ../../wiki/reference/research-landscape.md
+  - ../../wiki/reference/levin-software-ecosystem-survey.md
+  - ../../wiki/reference/goal-competence-identifiability-landscape.md
 ---
 # Purpose and scientific boundaries
 
 [Development wiki](../../wiki/index.md) ·
-[Generative thesis](../../wiki/competence-thesis.md) ·
+[Current work](../../wiki/current.md) ·
+[Research questions](../../wiki/questions.md) ·
 [Canonical ontology](../../wiki/ontology.md) ·
-[Current plan](plans/current_research_plan.md) ·
+[Reference surveys](../../wiki/reference/README.md) ·
 [Source provenance](sources/README.md)
 
-This charter states purpose, scope and boundaries. It does not state the
-motivating idea behind them — why competence is expected to be buildable at all,
-and what the programme is betting on. That is
-[the generative thesis](../../wiki/competence-thesis.md), which is exploratory
-and governs nothing, but without it this document reads as a method with no
-question behind it.
+This charter states the durable scientific scope and boundaries of the shared
+Dynamical Laboratory. It does **not** own current priority: `wiki/current.md` is
+the sole current handoff surface. Historical phase plans under `docs/plans/` and
+older state ledgers are retained context, not current authority.
 
 ## North star
 
-Develop a reusable **Dynamical Laboratory** for one integrated research agenda,
-whose proper name remains unresolved, with two arms:
+Develop and use a reusable **Dynamical Laboratory** for one integrated research
+agenda with two complementary arms:
 
-1. **Collective Competence** constructs and explains how mechanisms and
-   component capabilities combine into system- or collective-level competence;
+1. **Collective Competence** — determine, by matched intervention and causal
+   analysis, which mechanisms and component capabilities are load-bearing for
+   particular dimensions and ranges of system- or collective-level competence;
    and
-2. **Goal and Competence Discovery** discovers candidate goal criteria and
-   characterizes competence from system behavior without smuggling intended
-   answers into the analysis.
+2. **Goal and Competence Discovery** — under a declared observation/intervention
+   contract, determine which candidate goal criteria and competence profiles are
+   supported, contradicted, or behaviorally equivalent, and which additional
+   intervention would reduce the remaining ambiguity.
 
-This reflects the user's project clarifications on 2026-08-30 and 2026-08-31
-and the two complementary directions already present in the original
-specifications. Those specifications supply conceptual and methodological
-context. A current lane or failed narrow experiment does not replace the
-integrated destination with its own metric.
+The strongest current operational question is:
 
-Success requires both explanatory construction and disciplined discovery.
+> **Given a dynamical system, a family of candidate goal criteria, a family of
+> challenges, and a declared observation/intervention contract, which criteria
+> and competence dimensions are identifiable from behavior, which remain
+> equivalent, and which experimentally separable constraints predict the
+> system's competence and failure boundaries?**
 
-**Phase order, set by the owner 2026-09-06.** Both arms above remain the
-destination and this charter is unchanged. What *is* fixed is their order:
-**build the substrate, work out discovery on it, then build systems using what
-discovery taught us.** The owner's words: *"the discover arm is a phasing thing.
-like we need to build the substrate to work out the discovery so then we can try
-to build systems based on what we learn."*
+The two arms share apparatus but make different claims. Constructive work may
+use an authored criterion without pretending to discover it. Discovery work must
+withhold the semantic answer it claims to infer.
 
-So the Goal and Competence Discovery arm, on the sorting lineage, is the current
-phase — and constructive work is **sequenced after it, not descoped**. Do not
-read a document that says the current phase is discovery as evidence that the
-constructive arm was dropped; nothing in this charter's success condition has
-been weakened. [The goal register](../../wiki/goals.md) owns what the current
-phase contains, and this ordering is the one part of it that is settled.
-Constructive studies vary mechanisms and capabilities, challenge the resulting
-systems, and explain what produces competence at different scales. Discovery
-studies propose testable patterns not prescribed as outcomes, choose informative
-interventions, and support, qualify, reject, or abstain on candidate goals and
-competence. Unexpected means relative to a declared analyst prior/candidate
-family—not novelty established by surprise alone.
+## Strategic interpretation after the 2026 landscape audits
+
+The broad phenomenon space is much more occupied than the early project briefs
+made explicit. Local-to-global morphogenesis, cellular competency, scaling of
+homeostatic goals, regeneration, bioelectric coordination, distributed pattern
+memory, reachability/path dependence, inverse regulatory-network inference,
+behavioral equivalence, active discrimination, reward ambiguity, goal
+recognition, specification mining, and black-box model learning all have
+substantial prior art.
+
+Therefore this programme does **not** claim novelty merely for:
+
+- showing that simple/local components can yield competent global behavior;
+- varying local competency and observing whole-level consequences;
+- identifying an attractor, stable trace property, reward, error signal, or
+  target-like latent variable;
+- preserving an equivalence class or saying an inverse problem is
+  underdetermined;
+- choosing an intervention that separates rival hypotheses;
+- building another developmental, cellular-automaton, tissue, or bioelectric
+  simulator when an established executable system already contains the needed
+  phenomenon.
+
+The project is now explicitly **reuse-first and interrogation-first**. A strong
+result should add at least one of the following beyond the nearest established
+method or prior system:
+
+- a prospective, falsifiable prediction of a non-obvious intervention ordering
+  or failure-boundary shift in an independently authored system;
+- a demonstrated separation between passive specification satisfaction and
+  active maintenance/recovery/compensation/adaptation under challenge;
+- calibrated candidate-goal inference that returns only the resolution supported
+  by the access contract, including equivalence classes or abstention;
+- cross-substrate transfer of an intervention-grounded capability distinction;
+- a white-box causal map and restricted blind analysis on the same external
+  system whose agreement/disagreement teaches something not supplied by the
+  baseline method alone.
+
+If an established neighboring method answers the benchmark under its native
+assumptions and the competence layer adds no validated explanatory, predictive,
+or inferential value, report the work as an **application/comparison**, not a
+new framework.
 
 ## Agenda, apparatus, and research purposes
 
 | Name | Role |
 |---|---|
 | Broader research agenda (name unresolved) | Integrates the two research arms and their shared apparatus without making either arm the umbrella |
-| Collective Competence | Constructive and mechanistic arm: how mechanisms and capabilities compose into competence at system and collective scales |
-| Goal and Competence Discovery | Analytic and inferential arm: what candidate goals and competence profiles are supported by behavior under a declared access contract; Goal Discovery is shorthand |
-| Dynamical Laboratory | Shared apparatus for defining or importing systems, executing dynamics, controlling observations, intervening, measuring, and auditing explanations |
+| Collective Competence | Constructive/mechanistic arm: which capabilities and interactions causally support goal-relative competence and where that competence fails |
+| Goal and Competence Discovery | Analytic/inferential arm: which candidate goals and bounded competence profiles are identifiable under declared access, including underdetermination |
+| Dynamical Laboratory | Shared apparatus for importing/defining systems, executing dynamics, controlling observations, intervening, measuring, comparing baselines, and preserving evidence |
 
-This is one agenda with two research arms and shared apparatus. Goal and
-Competence Discovery can analyze a system constructed inside the laboratory,
-including by withholding the design and revealing it only after inference.
-Collective Competence work can use black-box behavior as evidence and white-box
-access for causal explanation.
+Black-box and white-box are **access contracts**, not research arms. Construction
+is an activity/origin, not evidence that a higher-level competence exists. An
+imported external system can be investigated white-box; a constructed system can
+be analyzed through a frozen blind interface.
 
-## Ontology and study declarations
+## Study declarations
 
-The [canonical research ontology](../../wiki/ontology.md) owns the definitions
-and relationships among world, substrate, boundary, mechanism, capability,
-observation, representation, goal criterion, challenge family, competence,
-robustness, adaptation, viability, collective attribution, and evidence status.
-It also defines the prospective experiment-declaration vocabulary.
+Every serious study should declare, prospectively where possible:
 
-Every study declares specimen origin, analyst-access phases, and research
-purpose independently. Black-box and white-box are access contracts, not
-research arms. Construction is an activity or origin, not proof of constructive
-evidence. Known authored goals are calibration labels or design inputs, not
-discoveries. A blind-first study freezes its interpretation before revealing
-mechanism or intent for audit.
+- specimen origin and exact executable/data revision;
+- system boundary and observation variables;
+- authored/known success criteria, if any;
+- candidate goal family used by a discovery analysis;
+- challenge family and which competence dimensions it can test;
+- analyst-access phases and permitted interventions;
+- rival explanations, including passive convergence, invariants, hard
+  constraints, one-shot control, omitted variables, or no-goal interpretations;
+- nearest established comparator/baseline when its assumptions fit;
+- the predicted intervention ordering or failure-boundary effect;
+- what result would count against the proposed explanation;
+- what remains unidentifiable after the experiment.
 
-## Collective Competence process — constructive arm
+The [canonical research ontology](../../wiki/ontology.md) owns detailed term
+definitions. Do not invent a parallel vocabulary where control theory, fault
+diagnosis, system identification, causal inference, formal methods, or another
+mature field already supplies a precise term.
 
-1. State the target phenomenon, system boundary, authored goals, mechanisms,
-   component capabilities, and proposed composition claim.
-2. Construct or modify the smallest system that can distinguish the claim from
-   simpler explanations.
-3. Challenge components, interactions, routes, and environments under matched
-   controls; measure goal-relative performance and failure.
-4. Compare component- and system-level capability, competence, robustness, and
-   adaptation without assuming that coupling creates a higher-level competency.
-5. Use ablation and white-box inspection to identify which mechanisms are causal.
-6. Retain, narrow, or reject the composition claim and state its transfer limits.
+## Collective Competence process — constructive/mechanistic arm
 
-Authored success criteria make a valid construction study but not a discovery
-claim. The evidence sought is how organization changes what the system can
-reliably achieve and through which mechanisms.
+1. Choose an externally authored system when possible; build a new specimen only
+   when the hypothesis cannot be cleanly tested in an existing system.
+2. State the goal criterion, challenge family, mechanisms/capabilities under
+   test, and proposed causal composition claim.
+3. Make a risky prediction before the intervention whenever feasible.
+4. Challenge components, interactions, information channels, action channels,
+   topology, environment, and resources under matched controls.
+5. Measure the specific competence dimensions warranted by the challenges:
+   attainment, maintenance, restoration, robustness, compensation, adaptation,
+   efficiency, flexibility, transfer, or another explicitly defined dimension.
+6. Use ablation, white-box inspection, reachability/observability analysis, or
+   other established tools as appropriate to distinguish causal explanations.
+7. Retain, narrow, or reject the claim and state the transfer/failure boundary.
 
-## Goal and Competence Discovery process — analytic arm
+Authored success criteria make a valid construction study. They do not constitute
+candidate-goal discovery.
 
-1. Generate or import trajectories under a declared observation contract.
-2. Propose representations and recurring patterns; record what was supplied
-   manually versus generated by the method.
-3. Form competing interpretations, including passive convergence, invariants,
-   incidental correlations, and no-goal explanations.
-4. Choose an intervention that separates those explanations.
-5. Compare matched futures and failures across initial conditions and challenges.
-6. Retain, reject, refine, or abstain; use untouched cases before promotion.
-7. Increase diversity, scale, or substrate complexity only when the next question
-   requires it.
+## Goal and Competence Discovery process — analytic/inferential arm
 
-Open-ended does not mean unbounded search or a universal simulator built
-upfront. A bounded candidate family is legitimate calibration if disclosed;
-renaming hand-authored metrics is not automated discovery.
+1. Declare the observation/intervention contract and candidate family before
+   inspecting withheld mechanism/intent.
+2. Generate/import trajectories and challenges through only the permitted
+   interface.
+3. Keep competing interpretations explicit, including weaker criteria and
+   behaviorally equivalent descriptions.
+4. Separate **criterion/specification satisfaction** from **competence under
+   challenge**. A passive attractor or invariant may satisfy the same criterion
+   as an active controller on ordinary trajectories.
+5. Where possible, compare with an established baseline such as specification
+   mining, goal recognition, reward/objective inference, active diagnosis,
+   system identification, or another method whose assumptions genuinely fit.
+6. Choose an allowed intervention that maximally separates remaining rival
+   criteria or competence explanations.
+7. Freeze the inference before revealing authored semantics or white-box
+   mechanism.
+8. Report the supported resolution, surviving equivalence class, competence
+   dimensions actually tested, and the intervention that would resolve remaining
+   ambiguity.
+
+A discovery method succeeds by being **calibrated**, not by guessing the
+constructor's label. `Underdetermined` is a legitimate result.
+
+## What Goal Discovery is not
+
+Goal Discovery is not automatically:
+
+- system identification;
+- causal discovery;
+- reward recovery;
+- specification mining;
+- attractor detection;
+- goal recognition in a known planning domain;
+- a universal measure of goal-directedness;
+- a semantic interpretation of every latent or error-like variable.
+
+Those are neighboring tasks and may be useful baselines/components. The project
+must demonstrate what additional competence/goal-relative question remains after
+they are applied.
+
+## Reuse-first substrate policy
+
+Before implementing a new dynamical/developmental substrate, check the current
+surveys and ask whether a published executable system already supplies the
+needed mechanism or challenge.
+
+Current high-value external families include:
+
+- Growing Neural Cellular Automata for latent-state, recovery-boundary, and
+  action-availability interventions;
+- Cellnition / Regulatory Network Machine for direct comparison with
+  reachability and intervention-path analysis;
+- MinimalDevelopmentalComputation for regenerative local-controller transfer;
+- LENIA Umwelt for information-access perturbations with rival higher-level
+  interpretations;
+- BioElectricNetwork, NeuralPlatePatterning, or BETSE when a specific
+  bioelectric hypothesis requires them;
+- published SBML/BioModels, Morpheus/PhysiCell systems, and planarian/Lobo/PLIMBO
+  models for mechanistic biological tests;
+- Planform/Limbform or comparable corpora when the discovery machinery is mature
+  enough for heterogeneous real intervention data.
+
+The default is **wrap, intervene, compare**, not "port the phenomenon into our
+own universal simulator."
 
 ## Interventions: independent dimensions
 
@@ -132,30 +222,63 @@ Describe **target, operation, scope, timing, persistence, and counterfactual**.
 Inside/outside is one dimension, not a substitute for the operation type.
 
 Targets may include state, transition rules/capabilities, interaction topology,
-sensing/action channels, environmental dynamics, demands/resources, or noise.
-These are useful categories, not a proven complete ontology. An intervention
-may cross categories; missing substrate support must be explicit.
+sensing/action channels, environmental dynamics, demands/resources, latent
+state, update availability, or noise. These are useful categories, not a proven
+complete ontology. An intervention may cross categories; missing substrate
+support must be explicit.
 
-The current sorting specimen has a fixed line and cell-local state. Its
-scheduler can be treated as external context under the declared boundary.
-It does not yet model a reciprocal evolving environment, energy budget, repair,
-or arbitrary sensing/interface changes.
+Matched causal comparisons should preserve state, random stream, and unaffected
+conditions when the system permits it.
 
-## Entropy and dynamical structure
+## Evidence and qualification
 
-Physical entropy, entropy of a specified observation distribution, and a
-task-specific disorder measure are different quantities. There is no general
-requirement that an arbitrary simulation increase an unspecified entropy.
+- Native protocols, code, raw/result packages, and committed observations are
+  authoritative for what was actually done.
+- Tests validate the code paths they cover; they do not automatically validate
+  the scientific interpretation.
+- Keep positive, negative, boundary, and surprising results. Do not retrain or
+  redesign an external specimen to make a preferred interpretation easier.
+- Do not silently privilege one representative of a symmetry/equivalence class.
+- Do not infer a semantic goal from a latent variable, homeostatic error, stress
+  signal, reward, or target-like state without evidence that distinguishes that
+  interpretation from rivals.
+- Novelty claims require the relevant landscape survey; absence from the survey
+  is not evidence of novelty.
 
-For sorting, the value-frequency distribution can remain constant while
-inversions fall. Across an ensemble, uncertainty about final value arrangements
-may decrease. Neither observation is a thermodynamic claim.
+## When is an analytic instrument good enough to use?
 
-Use distributional concentration, recurrence, information, sensitivity,
-reachability, and recovery as candidate analytical descriptions where their
-assumptions hold. Do not equate low entropy with competence: a frozen ordered
-system need not correct disturbances, and exploration may increase diversity.
-This framing is already present in the original addendum's entropy section.
+The discovery machinery does **not** need to become a universal goal detector
+before constructive/mechanistic work can proceed. Nor is a blind analyst
+required to verify the ordinary statement that a constructed system meets an
+authored criterion under measured challenges.
+
+For a particular class of discovery claims, however, the instrument should be
+qualified on external or held-out specimens before its output is promoted as
+scientific evidence. A useful qualification includes:
+
+1. a frozen access contract and candidate family;
+2. at least one positive and one relevant negative/ambiguous comparator;
+3. inference committed before withheld semantics/mechanism are revealed;
+4. evaluation of calibration, including false positives and unjustified semantic
+   specificity, not only whether the authored label appears;
+5. comparison to a simpler or established baseline when available;
+6. evidence that the proposal path was not authored specifically for the test
+   specimen.
+
+Qualification is **class- and claim-relative**, not a one-time certification of
+a universal instrument.
+
+## Entropy, information, and dynamical structure
+
+Physical entropy, entropy of a specified observation distribution, task-specific
+disorder, transfer entropy, effective information, causal emergence, and related
+measures are different objects. Use them where their assumptions fit; do not
+turn an information-theoretic score into "memory," "goal," "agency," or
+"competence" without a separate argument or intervention.
+
+Likewise, recurrence, attraction, low disorder, prediction, or a persistent
+macro-description can characterize dynamics without establishing active
+corrective competence.
 
 ## Visual analytics are part of the apparatus
 
@@ -166,74 +289,24 @@ activate only when the required data and assumptions are available.
 own the detailed contract. No single renderer, metric, or picture is universally
 meaningful across all substrates.
 
-## When is the instrument finished?
-
-The Goal and Competence Discovery arm is not a parallel research interest. It is
-the **verification instrument** for the Collective Competence claim: there is no
-way to assert that a collective competence was built without a procedure that can
-measure it and that does not smuggle in the answer. That dependency is why the
-analytic work ran first, and it is recorded here because it was not written down
-and its absence made the ordering look like drift.
-
-A prerequisite needs a completion condition, or it expands forever — there is
-always one more calibration. This is that condition.
-
-**The instrument is sufficient to verify a construction claim when, on a
-specimen it was not built for, all four hold:**
-
-1. **Recovery.** Under a frozen observation contract that withholds the design,
-   it proposes a candidate naming the coordinating structure the constructor
-   actually authored.
-2. **No false positive.** On a matched specimen with that structure removed and
-   everything else identical — same seed, same rules, same parameters — it does
-   not propose it. It abstains, or proposes something the constructor can see is
-   different.
-3. **Frozen before reveal.** Both dispositions are committed before the mapping
-   from opaque specimen to native design is revealed.
-4. **Not written for the case.** The proposal path that produced them was not
-   authored against this specimen. A path that dispatches on a signature only
-   this specimen satisfies does not count; see
-   [P15's measured deviation](hypotheses/p15_proposal_layer_benchmark_results.md).
-
-Until all four hold on at least one specimen the analytic arm's author did not
-build, **no construction claim in this programme is verified.** The constructive
-arm may build, measure, and report; "we built a collective competence" stays
-unsupported, because the only thing that could support it has not been qualified.
-
-**What this does not require.** Open-ended discovery across diverse systems,
-a universal substrate, a general grammar, or a proposal layer that works on
-everything. Those are the analytic arm's own long-term research goals and they
-are not prerequisites for verifying a construction claim. One qualified
-specimen class qualifies the instrument for that class, and the constructive arm
-can proceed inside it while the analytic arm widens it.
-
-**Why a paired positive and negative.** A measuring device is qualified against
-a standard whose value is known, in both directions. An instrument that reports
-structure wherever it looks is as useless as one that never does, and the
-existing evidence base cannot separate those, because every case in it was one
-whose ground truth the analyst had already read.
-
 ## Scope guardrails
 
 - Collective Competence and Goal and Competence Discovery are complementary
   research arms; substrate, representations, and UI are shared apparatus.
-- Prefer mature engines and plotting components; keep research-specific seams thin.
-- Distinguish exploratory signals, calibration, prospective tests, and confirmation.
+- Prefer mature engines and plotting components; keep research-specific seams
+  thin.
+- Distinguish exploratory signals, calibration, prospective tests, confirmation,
+  and external replication/transfer.
 - Keep original evidence, uncertainty, negative results, and claim boundaries.
-- Do not infer consciousness, intelligence, or goal-directedness from attractive motion.
+- Do not infer consciousness, intelligence, agency, or goal-directedness from
+  attractive motion or successful pattern formation alone.
 - Do not require a promoted macro-scale description before investigating every
-  elementary competency; that prerequisite belonged to a specific historical route.
-- **Pre-biological is the scope boundary, set by the owner 2026-09-05.** The
-  systems studied here are configurations of simple elements under local rules.
-  Economic framings — prices, quotas, markets, renewable stocks — and LLM agents
-  are **out of scope, not deferred**. They are several strata above where this
-  programme operates, and the one economic specimen that reached the laboratory
-  (C1-001's renewable commons) arrived without that being decided. If this
-  programme's measurables ever warrant LLM work, that is a new repository, not
-  this one. The founding ladder's rung 7 — "LLM agents, only once the measurables
-  hold up without them" — is **retired** rather than pending.
-  **`agent_ecology` is not part of this project** (owner, 2026-09-05): not a
-  member, not a later phase, and not a sibling pursuing the same bet. Do not
-  route work there, cite it as this programme's endpoint, or treat its goals as
-  bearing on these. See
-  [the substrate design discussion](../../wiki/substrate-design.md).
+  elementary competency; that prerequisite belonged to a specific historical
+  route.
+- **Pre-biological remains the practical scope boundary recorded by the owner on
+  2026-09-05.** Economic framings and LLM-agent ecology are out of scope for this
+  repository. If later evidence justifies such a programme, it should be treated
+  as a separate research effort rather than silently expanding this one.
+
+The durable stop rule is simple: **do not add abstraction, substrate complexity,
+or terminology unless a concrete scientific comparison requires it.**
