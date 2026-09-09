@@ -17,11 +17,13 @@ sources:
 
 ## Central question
 
-**How do simple component capabilities and interactions produce robust, goal-relative competencies of a whole, and what can we infer about those competencies and candidate goals from the system's behavior?**
+> **Given a dynamical system, a family of candidate goal criteria, a family of challenges, and a declared observation/intervention contract, which equivalence class of criteria and competence profiles is identifiable from behavior, and which experimentally separable constraints predict the system's competence and failure boundaries?**
 
-The programme approaches that question from two directions. **Collective Competence** constructs systems and varies their mechanisms. **Goal and Competence Discovery** observes and intervenes on systems and asks what goal criteria and competence claims the behavior supports, contradicts, or leaves underdetermined. The same Dynamical Laboratory supports both.
+The programme approaches that question from two directions. **Collective Competence** maps causal constraints on competence through intervention and mechanism analysis. **Goal and Competence Discovery** restricts analyst access and asks which goal criteria and competence claims the resulting behavior actually discriminates. The same Dynamical Laboratory supports both.
 
-Neither arm requires a unique scalar notion of "more competent," and Goal Discovery does not require one uniquely identifiable true goal. A result may support several candidate criteria or remain underdetermined. The scientific burden is to state what the evidence actually discriminates.
+Neither arm requires a unique scalar notion of "more competent," and discovery does not require one uniquely identifiable true goal. A result may support several candidate criteria or remain underdetermined. The scientific burden is to state what the evidence discriminates, what challenge was used to test competence, and what would falsify the proposed explanation.
+
+The project's earlier umbrella question — how component capabilities and interactions produce goal-relative competencies of a whole, and what can be inferred about them from behavior — remains historical motivation. It is no longer precise enough to serve as the test standard because broad local-to-global competence and many generic inference ingredients are already well occupied by prior work.
 
 ### Novelty guardrail
 
@@ -33,20 +35,16 @@ The broader identifiability audit also shows that several ideas previously treat
 
 Accordingly, **the programme does not claim novelty for the existence of those phenomena, for the generic identifiability recipe, or for renaming established control/inference concepts**. The stronger current burden is narrower: determine whether a challenge-relative *competence* layer adds information beyond ordinary property/specification or goal inference, make intervention-grounded predictions that transfer to independently authored systems, and state exactly which claims remain identifiable under a declared contract.
 
-A sharper operational formulation is:
-
-> **Given a dynamical system, a family of candidate goal criteria, a family of challenges, and a declared observation/intervention contract, which equivalence class of criteria and competence profiles is identifiable from behavior, and which allowed intervention most reduces the remaining ambiguity while distinguishing active corrective competence from passive convergence or mere specification satisfaction?**
-
-The original central question remains the umbrella; this sharper version is the current test standard. It is a **synthesis/benchmark hypothesis, not an established novelty claim**.
+The central question is therefore a **synthesis/benchmark hypothesis, not an established novelty claim**. It earns distinctiveness only through results that established neighboring methods do not already provide.
 
 ## Constructive questions
 
-1. **What mechanisms and component capabilities produce a system-level competency?** Begin where mechanisms are inspectable, then test whether the same decomposition survives in richer systems.
-2. **Which capabilities and couplings are load-bearing?** Remove, weaken, replace, or vary them and identify what challenge each one actually solves.
+1. **Which mechanisms and component capabilities are causally load-bearing for a system-level competency?** Begin where mechanisms are inspectable, then test whether the same intervention distinction survives in richer external systems.
+2. **Which capabilities and couplings solve which challenge?** Remove, weaken, replace, or vary them under matched controls rather than assigning semantics from architecture alone.
 3. **What makes successful behavior persist under changed conditions?** Distinguish reaching, maintaining, restoring, compensating, adapting, and learning.
 4. **Where are the boundaries of the competency?** Noise, damage, hidden-state corruption, changed initial conditions, resource limits, altered topology, and sensor/actuator faults constrain explanations.
-5. **How do simple capabilities compose?** Desired-state information, current-state observation, memory, action repertoire, plasticity, communication, and fault diagnosis should be treated as separable until experiments show how they interact.
-6. **Which effects survive increasing complexity?** A relationship demonstrated in a hand-authored toy remains local until it predicts behavior in a richer or externally specified system.
+5. **Which hypothesized capability distinctions transfer?** Desired-state information, current-state observation, memory, action repertoire, plasticity, communication, and fault diagnosis are working intervention axes, not assumed universal natural kinds.
+6. **Which effects survive increasing complexity and substrate change?** A relationship demonstrated in a hand-authored toy remains local until it prospectively predicts behavior in a richer or independently specified system.
 
 For phase 2+, a constructive result is strongest when it makes a **risky prediction before the intervention**: intervention X should shift a recovery/failure boundary relative to Y for a stated causal reason, and an alternative outcome would count against that explanation.
 
