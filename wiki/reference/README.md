@@ -9,6 +9,8 @@ This area is the **cold/warm layer** of the project knowledge system. Use it whe
 - [Research landscape, September 2026](research-landscape.md) — neighboring literatures, novelty constraints, and the current complexity ladder from primitives to external NCA/multicellular systems.
 - [Levin-lab software ecosystem survey, September 2026](levin-software-ecosystem-survey.md) — package-by-package audit of executable prior art, redundancy risk, reusable external substrates, and the narrower identifiability/prediction niche left for this programme.
 - [Goal/competence identifiability landscape, September 2026](goal-competence-identifiability-landscape.md) — broader audit of behavioral systems theory, model discrimination, active diagnosis, causal equivalence, IRL, Goal Recognition Design, specification mining, active automata learning, and goal-directedness measurement; defines the baselines and novelty stop-rules for the discovery arm.
+- [The Crusoe Construction](crusoe-construction-goal.md) — constructive programme goal for one cumulative non-biological world that builds regulation, memory, learning, coordination, specialization and collective competence one necessity at a time.
+- [Crusoe Construction Medium.com article draft](crusoe-construction-medium-draft.md) — public-facing essay draft plus the visual grammar, figure sequence and publication guardrails for the “atoms → Crusoe → Friday → collective competence” story.
 - [Full research ontology](../ontology.md) — detailed definitions, formalization inventory, aliases, and conceptual relationships.
 - [Detailed discovery goal register](../goals.md) — D1-D6, provenance, and historical phase discussion.
 - [Standing conjectures](../conjectures.md) — falsifiable domain conjectures and their refuters.
@@ -60,7 +62,7 @@ For older registered Goal Discovery experiments, follow links from the [experime
 The knowledge system has three temperatures:
 
 - **Hot:** `index.md`, `questions.md`, `findings.md`, `concepts.md`, `current.md`, `laboratory.md`. These are the normal navigation layer.
-- **Warm:** experiment READMEs, the native experiment map, research landscape, Levin software survey, goal/competence identifiability survey, detailed ontology, apparatus docs, active protocols and plans. Read when the task needs them.
+- **Warm:** experiment READMEs, the native experiment map, research landscape, Levin software survey, goal/competence identifiability survey, Crusoe construction goal/article draft, detailed ontology, apparatus docs, active protocols and plans. Read when the task needs them.
 - **Cold:** audits, development chronology, superseded plans, archived narratives, and closed failure history. Search when reconstructing history.
 
 A historical fact does not belong on a hot page merely because it was once important. Promote information upward only when it affects current scientific understanding or current action.
