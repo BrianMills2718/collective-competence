@@ -153,28 +153,28 @@ supported by its own tests, and this programme can use it either way.
 
 ## Competence and Levin's "intelligence"
 
-They are not the same term, and the difference is a containment.
+The vocabularies overlap but should not be forced into a one-to-one translation.
 
-Levin's operational definition, following William James, is that **intelligence
-is the capacity to achieve a goal by different means**; *Self-Improvising
-Memory* states it as "publicly observable competency at reaching a goal by
-different means in a declared problem space." His corpus does not treat the two
-words as synonyms — "multiscale competency architecture", "competent parts" and
-"local competencies" name part-level capacity, while intelligence names the
-goal-by-different-means capacity of the coordinated whole.
+Levin's Jamesian formulation emphasizes **the capacity to achieve a goal by
+different means**; *Self-Improvising Memory* describes publicly observable
+competency at reaching a goal by different means in a declared problem space.
+But Levin uses **competency** broadly across scales — not only for part-level
+functions — and his wider TAME vocabulary of intelligence and goal-directedness
+is graded and context-dependent. Preserve those source terms when describing
+that literature.
 
-Mapped onto [the ontology](ontology.md), Levin's definition of intelligence is
-**one row of the competence profile** — *flexibility*, "can different routes,
-configurations, or means achieve the criterion?" — together with the
-goal-relativity and declared problem space this ontology already requires.
+Mapped onto [the ontology](ontology.md), the *different means to the same end*
+clause corresponds most directly to the **flexibility** row of this project's
+competence profile. That is a useful operational crosswalk, not a claim that all
+of Levin's intelligence or goal-directedness language is exhausted by one row.
 
-Competence as used here is therefore strictly broader: it also carries
-attainment, reliability, reachability, efficiency, robustness, recovery,
-adaptation and transfer. Nothing needs to change for internal consistency; this
-repository uses *competence*, *capability* and *a competency* consistently and
-does not use *intelligence*. The translation is recorded so that a reader moving
-between this work and the Levin literature can convert between them, and so that
-"intelligence" is not silently reintroduced as a synonym for the whole profile.
+The project's **competence** profile is intentionally a broader measurement
+rubric: it also records attainment, reliability, reachability, efficiency,
+robustness, recovery, adaptation and transfer. Likewise, the project's
+**capability** term is a narrower experimental category for a bounded operation;
+it should not be substituted mechanically for Levin's broader *competency*. The
+translation exists to keep the project measurable while staying compatible with
+the source vocabulary, not to redefine Levin's terms.
 
 ## What this repository's vocabulary can and cannot say
 
@@ -385,11 +385,13 @@ that this page exists.
   presupposition) and that `ontology.md` already holds one conjecture, the
   metastability candidate mechanism.
 - **2026-09-04 — resolved the competence/intelligence question; scoped the
-  missing layer.** Checked Levin's definition against the corpus rather than
-  leaving the term undefined: intelligence is the capacity to achieve a goal by
-  different means, which is the flexibility row of this ontology's competence
-  profile, so competence here is strictly broader and the two are not synonyms
-  in his usage either. Recorded that this programme makes no ontological claim
+  missing layer.** Checked Levin's Jamesian definition against the corpus rather
+  than leaving the term undefined: the goal-by-different-means clause maps most
+  directly to the flexibility row of this ontology's competence profile.
+  **Refined 2026-09-09:** that mapping is not an identity; Levin uses competency
+  broadly across scales and uses intelligence/goal-directedness in a wider graded
+  framework, so source terminology should be preserved. Recorded that this
+  programme makes no ontological claim
   and does not need Levin's own position resolved, noting the evidence pulls
   both ways — TAME and a June 2025 X post are operationalist, his solo talks are
   more agentive than the written paper. Added a sketch of the generative

@@ -19,12 +19,14 @@ In particular:
 
 - **Problem space** is a first-class term here. A representation defines the coordinates in which a system can be described as navigating toward, maintaining, or recovering a criterion.
 - Levin uses **competency** broadly across scales. This project subdivides that vocabulary for measurement: **capability** names a bounded operation, while **competence** names graded goal-relative performance across a declared challenge/resource family. This is an operational refinement, not a disagreement with Levin's broader usage.
-- **Intelligence** is used in the William James/Levin sense of reaching the same goal by different means in a declared problem space. In this ontology that corresponds most directly to the **flexibility** dimension of a broader competence profile; do not use intelligence as a synonym for the entire profile.
+- **Intelligence** in our own claims uses the William James/Levin "same goal by different means" criterion in a declared problem space. The closest measurement row is **flexibility**, but this is a crosswalk rather than a reduction of all Levin/TAME uses of intelligence or goal-directedness to one profile dimension. Preserve the source's terminology when discussing that literature.
 - **Goal** and **goal-directedness** do not imply consciousness or an internal symbolic target. For Goal and Competence Discovery, however, the project uses the more explicit term **candidate goal criterion** and requires enough evidence to distinguish the proposed interpretation from passive convergence, invariance, or artifacts before promoting it. That is an evidentiary rule for this programme, not a rejection of Levin's graded treatment of goal-directedness.
 - **Memory** is not defined as one persistent hidden variable. Persistent internal state is one possible memory mechanism; memory may be distributed, structural, physiological, morphological, or otherwise realized. Do not call NCA hidden channels "memory" without an intervention that supports that interpretation.
 - **Collective Competence** is the name of this project's constructive arm/property. When describing Levin's work, prefer his own terms such as **collective intelligence** and **multiscale competency** where those are the terms used by the source.
 
 The detailed crosswalk and any genuine divergences are maintained in [the ontology](ontology.md#levins-definitions-alongside-ours). If a future result appears to require a vocabulary different from Levin's, state the experimental reason rather than silently creating a synonym.
+
+**Writing rule:** source summaries preserve Levin's terms. Project experiment records use the operational terms needed by the measurement contract. In particular, do not mechanically translate *competency* to *capability*, do not call latent state *memory* without a history-dependent test, and do not treat *candidate goal criterion* as a correction to Levin's broader goal-directedness vocabulary.
 
 ## Focal system and boundary
 

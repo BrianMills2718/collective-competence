@@ -58,6 +58,7 @@ The canonical checkout is intentionally read-only; use the repository's worktree
 - State important boundaries, observations, interventions, comparators, resources/costs, and evidence limits.
 - On external systems, prefer **prospective risky predictions**: state the expected intervention/failure-boundary ordering and what outcome would count against the explanation before running the test.
 - When an established neighboring method fits the assumptions, use it as a baseline rather than inventing project-specific vocabulary for the same task. If the competence layer adds no validated value, report an application/comparison, not a new framework.
+- When discussing Levin/TAME, preserve the source vocabulary. Do not mechanically translate *competency* to project *capability*, reduce all *intelligence/goal-directedness* language to the flexibility row, or call persistent latent state *memory* without a history-dependent test. Use the project-specific refinements in experiment records when their evidentiary precision is needed.
 - Prefer the smallest experiment that can change the scientific conclusion. Useful negative results count.
 - Add substrate capability, metrics, UI, or governance only when a concrete experiment needs them.
 - Before implementing a new dynamical/developmental system, check whether an externally authored executable model or corpus already supplies the phenomenon. Default to **wrap, intervene, compare**.

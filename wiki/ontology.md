@@ -226,27 +226,29 @@ The profile can include:
 No universal scalar is assumed. A study may report only the dimensions it
 actually measures, with others marked untested or unknown.
 
-Use **a competency** only as a count noun for a particular operationally
-demonstrated case, such as competence toward one criterion under one declared
-challenge contract. It is not a separate theoretical primitive. Prefer
-*capability* when naming an operation and *competence* when naming graded
-goal-relative performance.
+Within this repository, **capability** names a bounded operation and
+**competence** names graded goal-relative performance across a declared challenge
+and resource family. Use **a competency** sparingly as a count noun for an
+operationally demonstrated case. This split is a project measurement convention,
+not a claim that Levin uses *competency* narrowly: Levin's corpus uses competency
+broadly across molecular, cellular, tissue, organismal, and collective scales.
+When summarizing that literature, preserve the source's word *competency* unless
+there is a reason to translate it into this project's finer operational terms.
 
-**Intelligence** is used here only in Levin's operational sense, following
-William James: *the capacity to achieve a goal by different means*, stated in
-*Self-Improvising Memory* as publicly observable competency at reaching a goal
-by different means in a declared problem space. That is one row of the
-competence profile above — **flexibility** — together with the goal-relativity
-and declared problem space this ontology already requires.
+**Intelligence** is used in our own claims in the William James/Levin sense of
+achieving a goal by different means in a declared problem space. The closest row
+in the competence profile above is **flexibility**, together with the
+goal-relativity and declared problem space the ontology already requires. This
+is a crosswalk, not an assertion that every Levin/TAME use of *intelligence* or
+*goal-directedness* reduces to that one row. Preserve the broader source language
+when discussing Levin's framework.
 
-Competence as defined here is therefore strictly broader than intelligence in
-that sense: it also carries attainment, reliability, reachability, efficiency,
-robustness, recovery, adaptation, and transfer. Do not use *intelligence* as a
-synonym for the whole profile, and do not read a flexibility result as an
-intelligence claim about a system without the goal criterion that makes
-"different means to the same end" meaningful. Levin's corpus keeps the words
-distinct in the same direction, using *competency* for part-level capacity and
-*intelligence* for the goal-by-different-means capacity of a coordinated whole.
+Competence as defined here is a broader measurement profile than the Jamesian
+"different means to the same end" criterion: it also records attainment,
+reliability, reachability, efficiency, robustness, recovery, adaptation, and
+transfer. Do not use *intelligence* as a synonym for the whole profile, and do
+not promote a flexibility result to an intelligence claim without a goal
+criterion and challenge evidence that make "different means" meaningful.
 
 ### Robustness, recovery, adaptation, and viability
 
@@ -480,15 +482,35 @@ bibliography whose pages cite immutable PDFs at page level. Phrases in
 Nothing here was read from the primary PDFs by this repository. Treat a
 divergence as a prompt to open the cited pages, not as a settled reading.
 
-### Where the vocabularies already agree
+### Where the vocabularies align, and where the mapping is only approximate
 
 | This ontology | Levin's language | Source | Relationship |
 |---|---|---|---|
-| **Flexibility** (competence-profile row): "can different routes, configurations, or means achieve the criterion?" | **Intelligence** / **goal-directedness**: "the capacity to achieve a goal by different means"; in *Self-Improvising Memory*, "publicly observable competency at reaching a goal by different means in a declared problem space". Problem-solving occurs in "an action space broader than familiar three-dimensional behavior." | Mind Everywhere Pt 1, pp. 1–18; Pt 2, pp. 1–11 | Containment, not conflict. Levin's *intelligence* is one row of our nine-dimension profile. Our *competence* is strictly broader. Already recorded in the competence section. |
-| **Capability** — a bounded system function under a local contract | **Competency** / **local competencies** — part-level capacity | Machines all the way up, pp. 4–7, 19–26 | Same referent. Levin's corpus keeps *competency* (part-level) distinct from *intelligence* (coordinated whole) in the same direction we do. |
-| **Collective competence** — attribution at a collective boundary, requiring boundary, component, coupling, and matched-control evidence | **Multiscale competency architecture** — "molecular networks, cells, tissues, organs, and organisms can have different degrees of problem-solving capacity, with higher-level organization shaping the action landscape of lower-level agents" | Machines all the way up, pp. 4–7, 19–26 | Compatible. Levin adds a directional claim we do not make: that the higher level *shapes the action landscape* of the lower. That is a mechanism conjecture, not a definition, and belongs in the conjecture layer if adopted. |
-| **Representation / problem space** — derived coordinates in which patterns and criteria are expressed | **Problem space** / **morphospace** — "cellular competencies in physiological, metabolic, or transcriptional space can be coordinated into tissue- and organ-level navigation of anatomical morphospace" | The collective intelligence of evolution and development, pp. 2–4, 9–15 | Same role. Levin's usage carries the additional commitment that non-3D spaces are navigable in the same sense as physical ones. |
-| **Evidence status / perturbational requirement** — a competence claim needs challenges, not convergence | Attribute a capacity "only after perturbational experiments reveal it, and prefer the descriptive level that improves prediction, control, or future discovery" | Mind Everywhere Pt 2, pp. 1–11, 13–15 | Direct agreement, independently reached. |
+| **Flexibility** (competence-profile row): "can different routes, configurations, or means achieve the criterion?" | **Intelligence** in the Jamesian formulation: "the capacity to achieve a goal by different means"; *Self-Improvising Memory* describes publicly observable competency at reaching a goal by different means in a declared problem space. | Mind Everywhere Pt 1, pp. 1–18; Pt 2, pp. 1–11 | Closest operational mapping, not identity. The "different means" clause maps directly to flexibility, while Levin/TAME uses intelligence and goal-directedness in a broader graded framework. Preserve the source's own term when summarizing it. |
+| **Capability** — a bounded system function under a local contract; **competence** — graded performance toward a criterion across challenges | **Competency / competencies** — goal-relevant problem-solving capacities described at multiple scales, including molecular, cellular, tissue, organismal, and collective scales | Machines all the way up, pp. 4–7, 19–26 | Partial overlap. Our capability/competence split is a measurement refinement of Levin's broader competency vocabulary, not a claim that competency means only part-level function. Translate case by case rather than mechanically. |
+| **Collective competence** — attribution at a collective boundary, requiring boundary, component, coupling, and matched-control evidence | **Collective intelligence / multiscale competency architecture** — different levels can have degrees of problem-solving capacity, with higher-level organization shaping the action landscape of lower-level agents | Machines all the way up, pp. 4–7, 19–26 | Compatible. Our term is the name of a project arm/property, not a claim that Levin uses the same canonical label. The directional claim that higher levels shape lower-level action landscapes is a mechanism hypothesis to test when used here. |
+| **Representation / problem space** — derived coordinates in which patterns and criteria are expressed | **Problem space / morphospace** — cellular competencies in physiological, metabolic, or transcriptional spaces can be coordinated into tissue- and organ-level navigation of anatomical morphospace | The collective intelligence of evolution and development, pp. 2–4, 9–15 | Strong alignment. Prefer *problem space* when the source uses it; the project adds an explicit observation-to-representation contract for auditability. |
+| **Evidence status / perturbational requirement** — a competence claim needs challenges, not convergence | Attribute a capacity only after perturbational experiments reveal it, and prefer the descriptive level that improves prediction, control, or future discovery | Mind Everywhere Pt 2, pp. 1–11, 13–15 | Strong alignment. The project adds explicit provenance, access-contract, alternatives, and abstention bookkeeping. |
+
+### Operational refinements this project intentionally keeps
+
+These differences are measurement/evidence conventions, not objections to Levin's
+conceptual vocabulary:
+
+- **Capability versus competence.** Levin's *competency* is deliberately broad and
+  multiscale. This project splits bounded operations from graded goal-relative
+  performance because experiments need to say whether they demonstrated an
+  operation or measured performance across challenges.
+- **Candidate goal criterion.** Levin can discuss graded goal-directedness without
+  requiring a unique internal symbolic target. This project agrees, but its
+  discovery arm requires a candidate criterion to earn support against passive
+  convergence, invariance, and rival criteria under the declared access contract.
+  That is an evidentiary threshold, not a claim that broader TAME usage is wrong.
+- **Memory.** Do not equate persistent hidden state with memory by definition.
+  Hidden/latent state is a possible memory mechanism; call it memory only when a
+  history-dependent function has been demonstrated. This keeps the project
+  compatible with distributed, structural, physiological, morphological, and
+  other memory realizations discussed in Levin's work.
 
 ### Terms Levin defines that this ontology lacked
 
@@ -825,9 +847,23 @@ silently omitting them or replacing them with synthetic values.
   **Goal Discovery** may be used afterward as shorthand.
 - Use **Dynamical Laboratory** for the shared apparatus, not as a third research
   objective or a claim that one universal simulator exists.
-- Prefer **competence** for the graded property and **capability** for a bounded
-  operation. Use **a competency** sparingly for an operationally demonstrated
-  case and preserve the wording inside historical titles or quotations.
+- When discussing Levin/TAME, preserve the source vocabulary — especially
+  **competency**, **intelligence**, **goal-directedness**, **problem space**,
+  **collective intelligence**, and **multiscale competency** — unless explicitly
+  translating it into this project's measurement vocabulary.
+- In project experiment records, prefer **capability** for a bounded operation and
+  **competence** for graded goal-relative performance. Do not mechanically replace
+  Levin's *competency* with *capability*; decide whether the source means an
+  operation, a graded performance claim, or a broader multiscale capacity.
+- In our own empirical claims, use **intelligence** in the James/Levin
+  goal-by-different-means sense when that criterion is actually tested. Do not
+  rewrite every Levin/TAME use of intelligence or goal-directedness as the single
+  flexibility row of our profile.
+- Treat **memory** as realization-neutral. Persistent latent state is evidence of
+  persistent state, not by itself evidence of a memory function.
+- Use **candidate goal criterion** when the provenance/evidence distinction matters
+  in our analytic work. This is a stricter evidence label, not a competing
+  definition of goal-directedness.
 - Qualify every goal, capability, competence, robustness, adaptation, and
   collective-level claim with its boundary, conditions, evidence status, and
   relevant alternatives.
