@@ -13,26 +13,29 @@ Then follow only the task-specific route you need:
 - terminology → [`wiki/concepts.md`](wiki/concepts.md)
 - current priority → [`wiki/current.md`](wiki/current.md)
 - apparatus / adding a specimen → [`wiki/laboratory.md`](wiki/laboratory.md)
-- audits, old plans, decisions, detailed ontology, chronology → [`wiki/reference/README.md`](wiki/reference/README.md)
+- audits, external-system surveys, old plans, decisions, detailed ontology, chronology → [`wiki/reference/README.md`](wiki/reference/README.md)
 
 Do **not** read the full ontology, failure log, development log, audits, or historical plans as routine orientation. They are reference/history, not working context. If resuming after a long hiatus, `wiki/index.md` → `wiki/current.md` → `wiki/findings.md` is the intended three-page handoff.
 
 ## Project model
 
-The project studies how component capabilities and interactions produce robust, goal-relative competencies of systems, and what can be inferred about those competencies and candidate goals from behavior.
+The project asks **which experimentally separable constraints determine goal-relative competencies and failure boundaries of dynamical systems, and which candidate goals and competence claims are identifiable from behavior under a declared observation/intervention contract**.
 
 It has two complementary research arms:
 
-- **Collective Competence** constructs systems and explains how their mechanisms produce system- or collective-level competency.
-- **Goal and Competence Discovery** analyzes systems under declared observation/intervention access and asks which candidate goals and bounded competence claims behavior supports, contradicts, or leaves underdetermined.
+- **Collective Competence** uses intervention and white-box analysis to explain which mechanisms/capabilities are causally load-bearing for particular dimensions and ranges of system- or collective-level competence.
+- **Goal and Competence Discovery** analyzes systems under declared observation/intervention access and asks which candidate goal criteria and competence profiles are supported, contradicted, or behaviorally equivalent, and what further intervention would reduce that ambiguity.
 
 The **Dynamical Laboratory** is shared apparatus. Black-box/white-box describes analyst access, not the two arms. A constructed specimen can be analyzed blind-first; an imported specimen can be inspected mechanistically.
+
+The programme is now **reuse-first and interrogation-first**. Broad demonstrations of local-to-global competence, cellular competency, goal scaling, regeneration, bioelectric coordination, reachability, inverse mechanism inference, behavioral equivalence, and active discrimination have substantial prior art. Prefer independently authored executable systems and real intervention data; do not build another bespoke example merely to re-demonstrate an established primitive.
 
 ## Before modifying code or evidence
 
 1. Read the relevant hot wiki page.
 2. Read the native experiment README/protocol and the code you will change.
-3. Read the applicable subtree instructions:
+3. If the work makes a novelty claim, selects a comparator, or adds a new substrate, inspect the relevant landscape survey under `wiki/reference/` first.
+4. Read the applicable subtree instructions:
 
 | Work scope | Additional instructions |
 |---|---|
@@ -47,26 +50,32 @@ The canonical checkout is intentionally read-only; use the repository's worktree
 
 - Separate **what happened**, **what the system can do**, **what counts as success**, **why it happened**, and **how strongly the interpretation is supported**.
 - An authored goal criterion is legitimate in constructive work. Do not relabel it as discovered.
-- Goal Discovery does not require one unique true goal. Multiple candidate criteria or `underdetermined` are valid outcomes.
-- Do not assume a universal scalar notion of "more competent." Report the performance dimensions the experiment actually measures.
-- Convergence, prediction, low disorder, or an attractive visualization do not by themselves establish goal-directed competence.
-- Robustness, recovery, and adaptation are distinct. Adaptation requires a change that restores or improves performance.
+- Goal Discovery does not require one unique true goal. Multiple candidate criteria, an equivalence class, or `underdetermined` are valid outcomes.
+- Do not assume a universal scalar notion of "more competent." Report only the performance dimensions the challenge family actually measures.
+- **Specification satisfaction is not automatically competence.** A passive attractor, invariant, one-shot controller, and active regulator can satisfy the same nominal criterion on ordinary trajectories; use challenges/interventions to distinguish them.
+- Convergence, prediction, low disorder, a latent variable, an error-like signal, a reward, or an attractive visualization do not by themselves establish a semantic goal or goal-directed competence.
+- Robustness, recovery, compensation, and adaptation are distinct. Adaptation requires a change that restores or improves performance under a relevant challenge.
 - State important boundaries, observations, interventions, comparators, resources/costs, and evidence limits.
+- On external systems, prefer **prospective risky predictions**: state the expected intervention/failure-boundary ordering and what outcome would count against the explanation before running the test.
+- When an established neighboring method fits the assumptions, use it as a baseline rather than inventing project-specific vocabulary for the same task. If the competence layer adds no validated value, report an application/comparison, not a new framework.
 - Prefer the smallest experiment that can change the scientific conclusion. Useful negative results count.
 - Add substrate capability, metrics, UI, or governance only when a concrete experiment needs them.
+- Before implementing a new dynamical/developmental system, check whether an externally authored executable model or corpus already supplies the phenomenon. Default to **wrap, intervene, compare**.
 
 ## Evidence discipline
 
 - Native protocols, code, raw/result packages, and committed observations are the authority for what was actually done.
 - Preserve counterevidence and material corrections. Never rewrite historical results to fit a newer interpretation.
 - A test passing is evidence about what that test covers, not automatic evidence for the scientific claim.
-- For important Goal Discovery demonstrations, use a simple information barrier where possible: construct the specimen in one context, give the analyst only the permitted interface, record the inference, then reveal implementation for audit.
+- For important Goal Discovery demonstrations, use a real information barrier where possible: declare the candidate family and access contract, give the analyst only the permitted interface, freeze the inference, then reveal implementation/intent for audit.
+- For discovery claims, record rival criteria that remain compatible with the evidence and the intervention that would discriminate them.
+- A method's success is not "it guessed the author's label." It should recover only the resolution supported by the evidence and abstain from stronger claims.
 
 ## Documentation discipline
 
 Documentation should **reduce the amount an agent must read**.
 
-Keep current working knowledge in the six hot wiki pages. Detailed experiment records and technical documents are warm reference. Audits, chronology, closed failures, and superseded plans are cold history.
+Keep current working knowledge in the six hot wiki pages. Detailed experiment records, external-system surveys, and technical documents are warm reference. Audits, chronology, closed failures, and superseded plans are cold history.
 
 After material work, update the smallest owning hot page plus the native evidence/record that actually changed. Do not create another status surface when [`wiki/current.md`](wiki/current.md) can be updated.
 
