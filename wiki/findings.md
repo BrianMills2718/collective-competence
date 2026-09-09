@@ -66,13 +66,15 @@ The Levin-software and broader landscape audits show that the ingredients themse
 
 **Evidence:** [06](../experiments/06-structural-regeneration/README.md), [07](../experiments/07-endogenous-size-control/README.md), [08](../experiments/08-boundary-memory/README.md), [09](../experiments/09-composition-lineage/README.md), [10](../experiments/10-endogenous-composition/README.md), [11](../experiments/11-learned-composition-memory/README.md).
 
-## 5. Selected capability distinctions survive the first richer external test—and expose non-obvious hidden-state behavior
+## 5. Selected capability distinctions survive the first richer external test—and expose non-obvious geometry and hidden-state behavior
 
 Experiment 12 is the first phase-2 specimen whose learned local rule was not authored by this project. A pinned CPU reproduction of the published Growing NCA lizard models recovers the intended hierarchy: a growth-trained model forms but does not maintain/repair the severe lesion, a persistence-trained model maintains an intact form but does not repair it, and the regeneration-trained model repairs it.
 
 The fixed regenerating model has a **finite lesion-response basin** on the tested central-circle family. Radius 16 enters a low-error repaired regime, radius 18 stalls at much higher error, and radius 20 eventually diverges over a 512-update horizon while the matched undamaged model remains close to target.
 
-The strongest new mechanistic observation is about latent state. At radius 16, erasing only the 12 hidden channels while leaving visible RGBA intact is **more damaging than deleting the full local 16-channel state**. The ordering holds across 4/4 independently seeded future update streams (mean 96-step target MSE `0.00875` hidden-only versus `0.00316` full deletion). At radius 8, hidden-only corruption is largely absorbed.
+A preregistered fixed-area geometry test shows that **lesion area alone is not sufficient**. A radius-16 circle and a 4:1 PC1-aligned ellipse each remove 793 grid cells and have closely matched immediate target error/live-cell removal, but the ellipse falls into a high-error regime across 4/4 confirmation streams (mean 96-step target MSE `0.01933` versus `0.00316` for the circle). This contradicts the simple prediction that more exposed intact boundary per removed cell should make elongated damage easier to repair. The orthogonal PC2 ellipse recovers better but is substantially less severe at the moment of damage, so the current evidence does **not** isolate a pure orientation/anatomy effect. The warranted result is that geometry/orientation can shift the recovery boundary beyond what lesion pixel count predicts.
+
+The strongest hidden-state observation is about latent state. At radius 16, erasing only the 12 hidden channels while leaving visible RGBA intact is **more damaging than deleting the full local 16-channel state**. The ordering holds across 4/4 independently seeded future update streams (mean 96-step target MSE `0.00875` hidden-only versus `0.00316` full deletion). At radius 8, hidden-only corruption is largely absorbed.
 
 The conservative interpretation is that latent state is causally load-bearing and **visible/hidden consistency may matter**. This does not establish that hidden channels encode a semantic goal, memory map, or explicit target representation. Nor does one NCA result establish a substrate-independent decomposition; transfer requires successful prospective predictions on additional external systems.
 

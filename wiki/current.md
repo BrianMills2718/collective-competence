@@ -22,10 +22,11 @@ The project is in **phase 2: external interrogation and compositional scaling**.
 
 Experiment 12 pins `distillpub/post--growing-ca` at commit `a12c7efa541b5770043a8d5470bffeacfd7b0435`, verifies upstream assets by SHA-256, and executes the fixed pretrained `ex1`/`ex2`/`ex3` models through a thin NumPy translation of the published WebGL rule. No weights are retrained or vendored.
 
-Two phase-2 results are currently promoted:
+Three phase-2 results are currently promoted:
 
 1. **A finite regeneration basin.** On the 96×96 published demo grid, the regenerating `ex3` model repairs a central radius-16 lesion into a low-error regime, while radius 18 stalls and radius 20 later diverges. At +512 updates, target MSE is about `0.00344`, `0.01490`, and `0.03543` respectively; the matched undamaged arm remains about `0.000318`.
 2. **Latent-state consistency matters.** At radius 16, erasing only the 12 hidden channels while leaving visible RGBA intact is more disruptive than deleting all 16 local channels. The ordering holds in 4/4 independently seeded future update streams from the same formed state; the **four-stream mean** 96-step target MSE is `0.00875` hidden-only versus `0.00316` full deletion. The native Experiment 12 record also preserves the single seed-7 matched-branch values separately. This establishes causal load-bearing hidden state, **not** a semantic goal, memory map, or target representation.
+3. **Lesion area alone does not determine recovery.** In the preregistered G1 geometry test, a 4:1 PC1-aligned ellipse and the radius-16 circle each remove 793 grid cells and have similar immediate damage (`0.02006` vs `0.02114` target MSE; 537 vs 522 live cells removed), but the ellipse is worse in 4/4 future streams: mean 96-step target MSE `0.01933` versus `0.00316` for the circle. A PC2-aligned ellipse recovers better but is substantially milder immediately, so the orientation split is not yet a clean anisotropy claim. The promoted conclusion is narrower: geometry/orientation can move the recovery boundary at fixed lesion area, and the simple "more exposed boundary helps" prediction is false as a general rule here.
 
 Exact evidence, result-file links, and caveats live in [`experiments/12-growing-nca/README.md`](../experiments/12-growing-nca/README.md).
 
@@ -54,23 +55,23 @@ A fresh agent should be able to resume with this sequence:
 5. Keep the upstream NCA weights fixed. Use exact state **and RNG** branching for causal comparisons.
 6. Do not infer current work from `goal-discovery/docs/plans/current_research_plan.md`; that file is retained history.
 
-There is **no committed/promoted geometry, location, or developmental-timing result yet**. Those are the next experiments, not established findings.
+G1 geometry is now committed/promoted. There is **no committed/promoted location or developmental-timing result yet**. Those remain prospective experiments.
 
 ## Next action
 
-**Determine what the NCA recovery boundary depends on, then test action/reachability directly. Treat each test as a prediction problem, not another descriptive sweep.**
+**Execute H2 latent-vector shuffle next, then finish location, developmental timing, and action/reachability. Treat each test as a prediction problem, not another descriptive sweep.**
 
-### A. Separate location, geometry, and timing
+### A. Geometry result; location and timing remain open
 
-The current radius sweep changes several things at once. Before running the next comparison, state the predicted ordering and what result would count against the explanation. Then isolate factors while keeping `ex3` fixed:
+G1 held lesion pixel count fixed and falsified the simple prediction that an elongated lesion should recover better because it exposes more intact boundary. The PC1-aligned 4:1 ellipse had nearly the same immediate severity as the repairing radius-16 circle but failed across all four confirmation streams. The PC2 arm was milder immediately, so do not interpret the orientation split as isolated anatomy/anisotropy yet.
 
-- compare locations using an objective target-derived coordinate/axis rather than hand-labelled anatomy;
-- match initial lesion severity as closely as practical when asking about location;
-- compare compact and elongated/slit-like lesions at matched area or matched immediate visible error;
-- compare the same lesion during formation versus after a mature morphology;
-- preserve matched future stochastic update streams.
+Remaining tests should isolate:
 
-The question is whether recovery failure tracks removed amount, lesion shape/connectivity, region, developmental state, or a combination. Do not turn the present radius sweep into a universal "maximum lesion size."
+- location using an objective target-derived coordinate/axis rather than hand-labelled anatomy, with immediate severity matched as closely as practical;
+- the same lesion during formation versus after a mature morphology;
+- matched future stochastic update streams throughout.
+
+The question is now whether the geometry effect tracks shape/connectivity, region, developmental state, or a combination. Do not turn any one mask family into a universal geometric law.
 
 ### B. Test hidden-state consistency under a second perturbation family
 

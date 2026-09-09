@@ -1,0 +1,184 @@
+{
+  "mask_metadata": {
+    "circle": {
+      "boundary_edges_4_neighbor": 124,
+      "immediate_target_mse": 0.021144293248653412,
+      "live_cells_removed": 522,
+      "pixel_count": 793
+    },
+    "ellipse_pc1": {
+      "boundary_edges_4_neighbor": 184,
+      "immediate_target_mse": 0.020059391856193542,
+      "live_cells_removed": 537,
+      "pixel_count": 793
+    },
+    "ellipse_pc2": {
+      "boundary_edges_4_neighbor": 184,
+      "immediate_target_mse": 0.013723365031182766,
+      "live_cells_removed": 318,
+      "pixel_count": 793
+    }
+  },
+  "prediction": "At matched removed pixel count, elongated lesions should recover better than the compact circle because a local CA has more intact boundary per removed cell from which corrective dynamics can propagate.",
+  "protocol": {
+    "circle_radius": 16,
+    "confirmation_future_seeds": [
+      100,
+      101,
+      102,
+      103
+    ],
+    "ellipse_aspect_ratio": 4.0,
+    "follow_steps": 96,
+    "formation_steps": 96,
+    "formed_state_seed": 7,
+    "grid": 96,
+    "matched_future_update_stream": true,
+    "model": "ex3_lizard.json",
+    "target_foreground_centroid_yx": [
+      47.71976744186046,
+      45.538372093023256
+    ],
+    "target_foreground_pixel_count": 860,
+    "target_principal_axes_yx": [
+      [
+        0.7012329833897252,
+        0.7129321868216818
+      ],
+      [
+        -0.7129321868216818,
+        0.7012329833897252
+      ]
+    ]
+  },
+  "refuter": "If both elongated orientations are consistently worse than the circle, reject the simple boundary-to-area explanation and treat shape/topological severing as load-bearing. A strong orientation split is evidence of anisotropy and must not be averaged away.",
+  "replications": [
+    {
+      "future_seed": 100,
+      "outcomes": {
+        "circle": {
+          "target_mse_after_96": 0.002635544165968895,
+          "vs_undamaged_rgb_mse_after_96": 0.002858225954696536
+        },
+        "ellipse_pc1": {
+          "target_mse_after_96": 0.019065652042627335,
+          "vs_undamaged_rgb_mse_after_96": 0.018663909286260605
+        },
+        "ellipse_pc2": {
+          "target_mse_after_96": 0.001116818399168551,
+          "vs_undamaged_rgb_mse_after_96": 0.0008467587758786976
+        },
+        "none": {
+          "target_mse_after_96": 0.0007226222660392523,
+          "vs_undamaged_rgb_mse_after_96": 0.0
+        }
+      }
+    },
+    {
+      "future_seed": 101,
+      "outcomes": {
+        "circle": {
+          "target_mse_after_96": 0.0038960452657192945,
+          "vs_undamaged_rgb_mse_after_96": 0.003766737412661314
+        },
+        "ellipse_pc1": {
+          "target_mse_after_96": 0.019781656563282013,
+          "vs_undamaged_rgb_mse_after_96": 0.019484711810946465
+        },
+        "ellipse_pc2": {
+          "target_mse_after_96": 0.0010834588902071118,
+          "vs_undamaged_rgb_mse_after_96": 0.000718823866918683
+        },
+        "none": {
+          "target_mse_after_96": 0.0007101434748619795,
+          "vs_undamaged_rgb_mse_after_96": 0.0
+        }
+      }
+    },
+    {
+      "future_seed": 102,
+      "outcomes": {
+        "circle": {
+          "target_mse_after_96": 0.0027078851126134396,
+          "vs_undamaged_rgb_mse_after_96": 0.0028766095638275146
+        },
+        "ellipse_pc1": {
+          "target_mse_after_96": 0.018920347094535828,
+          "vs_undamaged_rgb_mse_after_96": 0.018577344715595245
+        },
+        "ellipse_pc2": {
+          "target_mse_after_96": 0.0012942103203386068,
+          "vs_undamaged_rgb_mse_after_96": 0.0009845360182225704
+        },
+        "none": {
+          "target_mse_after_96": 0.0005981869180686772,
+          "vs_undamaged_rgb_mse_after_96": 0.0
+        }
+      }
+    },
+    {
+      "future_seed": 103,
+      "outcomes": {
+        "circle": {
+          "target_mse_after_96": 0.003417625557631254,
+          "vs_undamaged_rgb_mse_after_96": 0.0036435502115637064
+        },
+        "ellipse_pc1": {
+          "target_mse_after_96": 0.019566429778933525,
+          "vs_undamaged_rgb_mse_after_96": 0.019213572144508362
+        },
+        "ellipse_pc2": {
+          "target_mse_after_96": 0.0021255093161016703,
+          "vs_undamaged_rgb_mse_after_96": 0.0017467507859691978
+        },
+        "none": {
+          "target_mse_after_96": 0.0006852764636278152,
+          "vs_undamaged_rgb_mse_after_96": 0.0
+        }
+      }
+    }
+  ],
+  "screening": {
+    "future_stream": "formed_seed_7_continuation",
+    "outcomes": {
+      "circle": {
+        "target_mse_after_96": 0.003409863915294409,
+        "vs_undamaged_rgb_mse_after_96": 0.0033542488235980272
+      },
+      "ellipse_pc1": {
+        "target_mse_after_96": 0.01893635094165802,
+        "vs_undamaged_rgb_mse_after_96": 0.018497375771403313
+      },
+      "ellipse_pc2": {
+        "target_mse_after_96": 0.0011715189320966601,
+        "vs_undamaged_rgb_mse_after_96": 0.0009303778642788529
+      },
+      "none": {
+        "target_mse_after_96": 0.0005736434832215309,
+        "vs_undamaged_rgb_mse_after_96": 0.0
+      }
+    }
+  },
+  "status": "complete",
+  "summary": {
+    "disposition": "mixed",
+    "orientation_comparisons": {
+      "ellipse_pc1": {
+        "better_than_circle_count": 0,
+        "circle_mean_target_mse_after_96": 0.003164275025483221,
+        "mean_target_mse_after_96": 0.019333521369844675,
+        "worse_than_circle_count": 4
+      },
+      "ellipse_pc2": {
+        "better_than_circle_count": 4,
+        "circle_mean_target_mse_after_96": 0.003164275025483221,
+        "mean_target_mse_after_96": 0.001404999231453985,
+        "worse_than_circle_count": 0
+      }
+    }
+  },
+  "upstream": {
+    "commit": "a12c7efa541b5770043a8d5470bffeacfd7b0435",
+    "repository": "distillpub/post--growing-ca"
+  }
+}

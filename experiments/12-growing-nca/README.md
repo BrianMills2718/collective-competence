@@ -56,7 +56,7 @@ It also gives a stronger version of a distinction seen earlier in sorting: **att
 - This is an NCA reproduction, not biological evidence.
 - The CPU adapter mirrors the public quantized WebGL inference route, not the authors' TensorFlow training pipeline.
 - The lesion geometry, timing, target-MSE representation, and fixed RNG seed are ours.
-- The mapped basin is still limited to one target morphology and central circular lesions; geometry, location, timing, and formation-state variation remain open.
+- The mapped basin is still limited to one target morphology. One fixed-area geometry comparison is now available, but location, developmental timing, and broader geometry families remain open.
 - Low RGB error does not identify the internal mechanism, desired-state representation, or causal role of hidden channels.
 - No Goal Discovery claim is made here.
 
@@ -70,6 +70,18 @@ For the regeneration-trained `ex3` model, target MSE after 96 recovery updates i
 
 This is a bounded basin result for one morphology, lesion geometry, formed state, and stochastic stream. It does not define a universal maximum lesion size.
 
+### Geometry/orientation at fixed lesion area
+
+G1 prospectively tested a simple geometric prediction: at the same rasterized lesion area, a 4:1 elongated lesion should recover better than the compact radius-16 circle because it exposes more intact boundary per removed cell. The circle and both ellipses remove exactly **793 grid cells**; the ellipse long axes are derived from the two principal axes of the official target foreground rather than hand-labelled anatomy.
+
+The generic prediction was **not supported**. Across future update seeds 100–103, the compact circle has mean 96-step target MSE **0.00316**. The PC1-aligned ellipse is worse in **4/4** streams with mean MSE **0.01933**, while the PC2-aligned ellipse is better in **4/4** with mean MSE **0.00140**. The seed-7 screening branch shows the same ordering.
+
+The PC1 comparison is the clean causal result: its immediate target MSE (**0.02006**) and number of live cells removed (**537**) are close to the circle (**0.02114**, **522**), yet its recovery falls into the high-error regime. Therefore lesion pixel count alone does not explain the recovery boundary, and the simple "more exposed boundary should help" account is false as a general rule for this specimen.
+
+The PC2 arm is **not** a clean orientation-only contrast because it is milder at the moment of damage (immediate target MSE **0.01372**, **318** live cells removed). Do not promote the PC1-versus-PC2 split as isolated anatomical anisotropy without a severity-matched follow-up. The warranted conclusion is narrower: **geometry/orientation can move the recovery boundary even at fixed lesion area**, and at least one elongated orientation is substantially harder than the compact lesion despite closely matched immediate severity.
+
+Evidence: [`results/geometry_probe.json`](results/geometry_probe.json). The preregistered prediction/refuter and replication-level outcomes are stored in the artifact.
+
 ### Visible versus hidden state
 
 The 16 NCA channels permit a more diagnostic intervention. In the same spatial region we can erase only visible RGBA channels, erase only the 12 hidden channels, or erase all 16 channels.
@@ -80,7 +92,7 @@ That ordering survives four independently seeded future update streams from the 
 
 The conservative interpretation is that latent cell state is causally load-bearing and that compatibility between visible and hidden state matters. This does **not** establish that hidden channels are an explicit target, memory map, or semantic goal representation. A full lesion may be easier to repair precisely because it removes mutually inconsistent local state rather than preserving a visible cell with corrupted latent variables.
 
-Evidence: [`results/lesion_basin.json`](results/lesion_basin.json) and [`results/hidden_state_probe.json`](results/hidden_state_probe.json).
+Evidence: [`results/lesion_basin.json`](results/lesion_basin.json), [`results/geometry_probe.json`](results/geometry_probe.json), and [`results/hidden_state_probe.json`](results/hidden_state_probe.json).
 
 ## Reproduce
 
@@ -90,6 +102,7 @@ Use the project environment, which already provides NumPy, Matplotlib, and pytes
 python3 experiments/12-growing-nca/fetch_upstream.py
 python3 experiments/12-growing-nca/run.py
 python3 experiments/12-growing-nca/lesion_basin.py
+python3 experiments/12-growing-nca/geometry_probe.py
 python3 experiments/12-growing-nca/hidden_state_probe.py
 python3 -m pytest -q experiments/12-growing-nca/test_model.py
 ```
@@ -98,4 +111,4 @@ The first command verifies the pinned upstream assets before any model is execut
 
 ## Next
 
-Do **not** retrain the NCA yet. Radius and channel-state interventions now justify the next two tests: vary **lesion geometry/location/timing** to determine what the radius boundary actually depends on, then restrict local updates spatially/temporally to separate missing state information from insufficient action/reachability. Only after those white-box boundaries are understood should an opaque Goal Discovery package be attempted.
+Do **not** retrain the NCA yet. G1 now shows that fixed lesion area is insufficient: one severity-matched elongated orientation fails where the compact radius-16 lesion repairs. Execute the remaining preregistered matrix in issue #76: first a **latent-vector shuffle** to test visible/hidden consistency without zeroing hidden content, then objective location and developmental-timing comparisons, and finally spatial/temporal update gating to separate state corruption from insufficient action/reachability. Only after those white-box boundaries are understood should an opaque Goal Discovery package be attempted.

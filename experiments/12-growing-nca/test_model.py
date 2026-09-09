@@ -6,6 +6,7 @@ from pathlib import Path
 
 import numpy as np
 from fetch_upstream import MANIFEST, ensure_assets, sha256
+from geometry_probe import circle_mask, ranked_ellipse_mask, target_axes
 from hidden_state_probe import apply
 from nca_numpy import NCA, load_model
 
@@ -13,6 +14,7 @@ HERE = Path(__file__).resolve().parent
 RESULT = HERE / "results" / "characterization.json"
 LESION_RESULT = HERE / "results" / "lesion_basin.json"
 HIDDEN_RESULT = HERE / "results" / "hidden_state_probe.json"
+GEOMETRY_RESULT = HERE / "results" / "geometry_probe.json"
 
 
 def test_upstream_assets_match_pinned_hashes():
@@ -84,3 +86,31 @@ def test_committed_intervention_results_preserve_declared_boundaries():
     assert hidden["summary"]["hidden_worse_than_full_count"] == 4
     assert hidden["summary"]["replication_count"] == 4
     assert hidden["summary"]["mean_hidden_target_mse"] > hidden["summary"]["mean_full_target_mse"]
+
+
+def test_geometry_masks_match_circle_pixel_count():
+    paths = ensure_assets()
+    from run import target_rgb
+    target = target_rgb(paths["emoji.png"])
+    _, _, axes = target_axes(target)
+    circle = circle_mask()
+    count = int(circle.sum())
+    ellipse1 = ranked_ellipse_mask(axes[0], count)
+    ellipse2 = ranked_ellipse_mask(axes[1], count)
+    assert int(ellipse1.sum()) == count
+    assert int(ellipse2.sum()) == count
+    np.testing.assert_allclose(axes @ axes.T, np.eye(2), atol=1e-6)
+
+
+def test_committed_geometry_probe_preserves_preregistered_contract():
+    result = json.loads(GEOMETRY_RESULT.read_text())
+    assert result["status"] == "complete"
+    assert result["protocol"]["circle_radius"] == 16
+    assert result["protocol"]["confirmation_future_seeds"] == [100, 101, 102, 103]
+    counts = {v["pixel_count"] for v in result["mask_metadata"].values()}
+    assert len(counts) == 1
+    assert result["summary"]["disposition"] == "mixed"
+    pc1 = result["summary"]["orientation_comparisons"]["ellipse_pc1"]
+    pc2 = result["summary"]["orientation_comparisons"]["ellipse_pc2"]
+    assert pc1["worse_than_circle_count"] == 4
+    assert pc2["better_than_circle_count"] == 4
