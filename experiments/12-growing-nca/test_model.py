@@ -9,6 +9,7 @@ from fetch_upstream import MANIFEST, ensure_assets, sha256
 from geometry_probe import circle_mask, ranked_ellipse_mask, target_axes
 from hidden_shuffle_probe import apply_hidden_shuffle
 from hidden_state_probe import apply
+from location_probe import candidate_centers
 from nca_numpy import NCA, load_model
 
 HERE = Path(__file__).resolve().parent
@@ -17,6 +18,7 @@ LESION_RESULT = HERE / "results" / "lesion_basin.json"
 HIDDEN_RESULT = HERE / "results" / "hidden_state_probe.json"
 HIDDEN_SHUFFLE_RESULT = HERE / "results" / "hidden_shuffle_probe.json"
 GEOMETRY_RESULT = HERE / "results" / "geometry_probe.json"
+LOCATION_RESULT = HERE / "results" / "location_probe.json"
 
 
 def test_upstream_assets_match_pinned_hashes():
@@ -140,3 +142,26 @@ def test_committed_hidden_shuffle_supports_spatial_consistency_prediction():
     assert result["summary"]["disposition"] == "supported"
     assert result["summary"]["shuffle_worse_than_full_count"] == 4
     assert result["summary"]["mean_target_mse"]["hidden_shuffle"] > result["summary"]["mean_target_mse"]["hidden_zero"]
+
+
+def test_location_candidates_are_target_derived():
+    paths = ensure_assets()
+    from run import target_rgb
+    target = target_rgb(paths["emoji.png"])
+    centers, metadata = candidate_centers(target)
+    assert set(centers) == {"centroid", "pc1_neg", "pc1_pos", "pc2_neg", "pc2_pos"}
+    assert metadata["foreground_pixel_count"] > 0
+    assert len(set(centers.values())) == 5
+
+
+def test_committed_location_probe_supports_preregistered_direction():
+    result = json.loads(LOCATION_RESULT.read_text())
+    assert result["status"] == "complete"
+    assert result["protocol"]["future_seeds"] == [100, 101, 102, 103]
+    assert result["protocol"]["primary_pair_status"] == "matched"
+    assert result["summary"]["disposition"] == "supported"
+    assert result["summary"]["lower_support_worse_count"] == 4
+    low = result["summary"]["lower_support_location"]
+    high = result["summary"]["higher_support_location"]
+    assert result["candidate_locations"][low]["annulus_live_fraction"] < result["candidate_locations"][high]["annulus_live_fraction"]
+    assert result["summary"]["mean_target_mse_after_96"][low] > result["summary"]["mean_target_mse_after_96"][high]

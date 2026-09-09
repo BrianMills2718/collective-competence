@@ -82,6 +82,16 @@ The PC2 arm is **not** a clean orientation-only contrast because it is milder at
 
 Evidence: [`results/geometry_probe.json`](results/geometry_probe.json). The preregistered prediction/refuter and replication-level outcomes are stored in the artifact.
 
+### Location and local support at matched immediate target error
+
+L1 derived five candidate lesion centers from the official target foreground (centroid and ±PC1/±PC2 positions) and chose a radius for each using **only immediate post-lesion target MSE**, before recovery, to match the central radius-16 severity within 5%. The preregistered primary pair was the lowest versus highest 3-pixel annulus live-cell support among severity-matched candidates: `pc1_neg` versus `centroid`.
+
+The prediction was supported in **4/4** matched future streams. `pc1_neg` has annulus live-cell fraction **0.1043** and mean 96-step target MSE **0.00477**; the centroid has support **0.3052** and mean MSE **0.00299**. Immediate target MSE is closely matched (**0.02146** versus **0.02070**).
+
+This is evidence that **where damage occurs can change recovery even when immediate target error is held close**, and that local intact-cell support predicted the direction for this selected pair. It is not yet a general law of annulus support: the severity match required different radii (23 versus 15), mask areas differ, and only the preregistered extreme-support pair was run through recovery. Do not attach anatomical labels to the target-derived positions or treat this as location isolated from every geometric covariate.
+
+Evidence: [`results/location_probe.json`](results/location_probe.json).
+
 ### Visible versus hidden state
 
 The 16 NCA channels permit a more diagnostic intervention. In the same spatial region we can erase only visible RGBA channels, erase only the 12 hidden channels, or erase all 16 channels.
@@ -96,7 +106,7 @@ H2 tested that consistency account without deleting the hidden values. Inside th
 
 The shuffle permutes vectors across all cells inside the mask, including cells with little/no visible occupancy. It therefore establishes that the spatial assignment of latent state relative to visible occupancy matters; it does **not** yet isolate fine-grained latent identity among only live cells, nor does it establish memory or a semantic target representation.
 
-Evidence: [`results/lesion_basin.json`](results/lesion_basin.json), [`results/geometry_probe.json`](results/geometry_probe.json), [`results/hidden_state_probe.json`](results/hidden_state_probe.json), and [`results/hidden_shuffle_probe.json`](results/hidden_shuffle_probe.json).
+Evidence: [`results/lesion_basin.json`](results/lesion_basin.json), [`results/geometry_probe.json`](results/geometry_probe.json), [`results/location_probe.json`](results/location_probe.json), [`results/hidden_state_probe.json`](results/hidden_state_probe.json), and [`results/hidden_shuffle_probe.json`](results/hidden_shuffle_probe.json).
 
 ## Reproduce
 
@@ -107,6 +117,7 @@ python3 experiments/12-growing-nca/fetch_upstream.py
 python3 experiments/12-growing-nca/run.py
 python3 experiments/12-growing-nca/lesion_basin.py
 python3 experiments/12-growing-nca/geometry_probe.py
+python3 experiments/12-growing-nca/location_probe.py
 python3 experiments/12-growing-nca/hidden_state_probe.py
 python3 experiments/12-growing-nca/hidden_shuffle_probe.py
 python3 -m pytest -q experiments/12-growing-nca/test_model.py
@@ -116,4 +127,4 @@ The first command verifies the pinned upstream assets before any model is execut
 
 ## Next
 
-Do **not** retrain the NCA yet. G1 shows that fixed lesion area is insufficient, and H2 shows that spatial visible/latent compatibility is strongly load-bearing even when the hidden-vector multiset is preserved. Execute the remaining preregistered matrix in issue #76: objective **location** next, then developmental timing, and finally spatial/temporal update gating to separate state corruption from insufficient action/reachability. Only after those white-box boundaries are understood should an opaque Goal Discovery package be attempted.
+Do **not** retrain the NCA yet. G1 shows that fixed lesion area is insufficient, H2 shows that spatial visible/latent compatibility is strongly load-bearing even when the hidden-vector multiset is preserved, and L1 shows a location-dependent recovery difference under matched immediate target error. Execute the remaining preregistered matrix in issue #76: **developmental timing next**, then spatial/temporal update gating to separate state corruption from insufficient action/reachability. Only after those white-box boundaries are understood should an opaque Goal Discovery package be attempted.

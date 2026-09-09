@@ -1,0 +1,226 @@
+{
+  "candidate_locations": {
+    "centroid": {
+      "annulus_live_count": 94,
+      "annulus_live_fraction": 0.3051948051948052,
+      "annulus_pixel_count": 308,
+      "annulus_width": 3,
+      "center_yx": [
+        48,
+        46
+      ],
+      "immediate_target_mse": 0.020696794614195824,
+      "live_cells_removed": 499,
+      "mask_pixel_count": 697,
+      "radius": 15,
+      "relative_severity_error": 0.021164038409564125,
+      "within_tolerance": true
+    },
+    "pc1_neg": {
+      "annulus_live_count": 48,
+      "annulus_live_fraction": 0.10434782608695652,
+      "annulus_pixel_count": 460,
+      "annulus_width": 3,
+      "center_yx": [
+        40,
+        37
+      ],
+      "immediate_target_mse": 0.021456042304635048,
+      "live_cells_removed": 577,
+      "mask_pixel_count": 1649,
+      "radius": 23,
+      "relative_severity_error": 0.014743886320319076,
+      "within_tolerance": true
+    },
+    "pc1_pos": {
+      "annulus_live_count": 64,
+      "annulus_live_fraction": 0.1523809523809524,
+      "annulus_pixel_count": 420,
+      "annulus_width": 3,
+      "center_yx": [
+        55,
+        52
+      ],
+      "immediate_target_mse": 0.02113369293510914,
+      "live_cells_removed": 550,
+      "mask_pixel_count": 1369,
+      "radius": 21,
+      "relative_severity_error": 0.0005013321287032597,
+      "within_tolerance": true
+    },
+    "pc2_neg": {
+      "annulus_live_count": 90,
+      "annulus_live_fraction": 0.24725274725274726,
+      "annulus_pixel_count": 364,
+      "annulus_width": 3,
+      "center_yx": [
+        52,
+        41
+      ],
+      "immediate_target_mse": 0.021098503842949867,
+      "live_cells_removed": 521,
+      "mask_pixel_count": 1005,
+      "radius": 18,
+      "relative_severity_error": 0.0021655680407507,
+      "within_tolerance": true
+    },
+    "pc2_pos": {
+      "annulus_live_count": 96,
+      "annulus_live_fraction": 0.26373626373626374,
+      "annulus_pixel_count": 364,
+      "annulus_width": 3,
+      "center_yx": [
+        44,
+        50
+      ],
+      "immediate_target_mse": 0.021517084911465645,
+      "live_cells_removed": 533,
+      "mask_pixel_count": 1005,
+      "radius": 18,
+      "relative_severity_error": 0.017630840550131626,
+      "within_tolerance": true
+    }
+  },
+  "prediction": "Among severity-matched target-derived locations, pc1_neg has lower intact live-cell support in the 3-pixel annulus (0.1043) than centroid (0.3052) and should therefore recover worse at 96 steps.",
+  "protocol": {
+    "annulus_width": 3,
+    "axis_quantile": 0.2,
+    "baseline_center_yx": [
+      48,
+      48
+    ],
+    "baseline_immediate_target_mse": 0.021144293248653412,
+    "baseline_radius": 16,
+    "centroid_yx": [
+      47.71976744186046,
+      45.538372093023256
+    ],
+    "follow_steps": 96,
+    "foreground_pixel_count": 860,
+    "formation_steps": 96,
+    "formed_state_seed": 7,
+    "future_seeds": [
+      100,
+      101,
+      102,
+      103
+    ],
+    "grid": 96,
+    "matched_future_update_stream": true,
+    "model": "ex3_lizard.json",
+    "primary_pair": {
+      "higher_support": "centroid",
+      "lower_support": "pc1_neg"
+    },
+    "primary_pair_status": "matched",
+    "principal_axes_yx": [
+      [
+        0.7012329833897252,
+        0.7129321868216818
+      ],
+      [
+        -0.7129321868216818,
+        0.7012329833897252
+      ]
+    ],
+    "radius_candidates": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "severity_tolerance_relative": 0.05
+  },
+  "refuter": "If pc1_neg is not worse than centroid in most matched future streams, reject local annulus live-cell support as a sufficient directional predictor of location-dependent recovery.",
+  "replications": [
+    {
+      "future_seed": 100,
+      "target_mse_after_96": {
+        "centroid": 0.002670703688636422,
+        "none": 0.0007226222660392523,
+        "pc1_neg": 0.006500819232314825
+      },
+      "vs_undamaged_rgb_mse_after_96": {
+        "centroid": 0.00296147377230227,
+        "pc1_neg": 0.006058151368051767
+      }
+    },
+    {
+      "future_seed": 101,
+      "target_mse_after_96": {
+        "centroid": 0.0024687382392585278,
+        "none": 0.0007101434748619795,
+        "pc1_neg": 0.0033659073524177074
+      },
+      "vs_undamaged_rgb_mse_after_96": {
+        "centroid": 0.0025214061606675386,
+        "pc1_neg": 0.003278914373368025
+      }
+    },
+    {
+      "future_seed": 102,
+      "target_mse_after_96": {
+        "centroid": 0.0031278282403945923,
+        "none": 0.0005981869180686772,
+        "pc1_neg": 0.005495717283338308
+      },
+      "vs_undamaged_rgb_mse_after_96": {
+        "centroid": 0.003344718599691987,
+        "pc1_neg": 0.005087367258965969
+      }
+    },
+    {
+      "future_seed": 103,
+      "target_mse_after_96": {
+        "centroid": 0.0036846818402409554,
+        "none": 0.0006852764636278152,
+        "pc1_neg": 0.0037205470725893974
+      },
+      "vs_undamaged_rgb_mse_after_96": {
+        "centroid": 0.0038149941246956587,
+        "pc1_neg": 0.0033355129417032003
+      }
+    }
+  ],
+  "status": "complete",
+  "summary": {
+    "disposition": "supported",
+    "higher_support_location": "centroid",
+    "lower_support_location": "pc1_neg",
+    "lower_support_worse_count": 4,
+    "mean_target_mse_after_96": {
+      "centroid": 0.0029879880021326244,
+      "pc1_neg": 0.00477074773516506
+    },
+    "replication_count": 4
+  },
+  "upstream": {
+    "commit": "a12c7efa541b5770043a8d5470bffeacfd7b0435",
+    "repository": "distillpub/post--growing-ca"
+  }
+}

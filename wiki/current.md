@@ -22,12 +22,13 @@ The project is in **phase 2: external interrogation and compositional scaling**.
 
 Experiment 12 pins `distillpub/post--growing-ca` at commit `a12c7efa541b5770043a8d5470bffeacfd7b0435`, verifies upstream assets by SHA-256, and executes the fixed pretrained `ex1`/`ex2`/`ex3` models through a thin NumPy translation of the published WebGL rule. No weights are retrained or vendored.
 
-Four phase-2 results are currently promoted:
+Five phase-2 results are currently promoted:
 
 1. **A finite regeneration basin.** On the 96×96 published demo grid, the regenerating `ex3` model repairs a central radius-16 lesion into a low-error regime, while radius 18 stalls and radius 20 later diverges. At +512 updates, target MSE is about `0.00344`, `0.01490`, and `0.03543` respectively; the matched undamaged arm remains about `0.000318`.
 2. **Latent-state consistency matters.** At radius 16, erasing only the 12 hidden channels while leaving visible RGBA intact is more disruptive than deleting all 16 local channels. The ordering holds in 4/4 independently seeded future update streams from the same formed state; the **four-stream mean** 96-step target MSE is `0.00875` hidden-only versus `0.00316` full deletion. The native Experiment 12 record also preserves the single seed-7 matched-branch values separately. This establishes causal load-bearing hidden state, **not** a semantic goal, memory map, or target representation.
 3. **Lesion area alone does not determine recovery.** In the preregistered G1 geometry test, a 4:1 PC1-aligned ellipse and the radius-16 circle each remove 793 grid cells and have similar immediate damage (`0.02006` vs `0.02114` target MSE; 537 vs 522 live cells removed), but the ellipse is worse in 4/4 future streams: mean 96-step target MSE `0.01933` versus `0.00316` for the circle. A PC2-aligned ellipse recovers better but is substantially milder immediately, so the orientation split is not yet a clean anisotropy claim. The promoted conclusion is narrower: geometry/orientation can move the recovery boundary at fixed lesion area, and the simple "more exposed boundary helps" prediction is false as a general rule here.
 4. **Spatial latent assignment is load-bearing.** H2 preserves visible RGBA exactly and preserves the complete multiset of 12-channel hidden vectors inside the radius-16 mask, but spatially permutes those vectors. Across future seeds 100–103, this is worse than full deletion in 4/4 streams: mean 96-step target MSE is `0.06216` for hidden shuffle versus `0.00875` hidden-zero, `0.00316` full deletion, and `0.000679` undamaged. This strongly supports visible/latent spatial compatibility as causal. Because the shuffle also exchanges vectors between visibly occupied and empty cells inside the mask, it does not yet identify fine-grained live-cell latent coding, memory, or a target representation.
+5. **Location matters under matched immediate target error.** L1 derived lesion centers from the target foreground and selected the lowest- versus highest-annulus-support pair among candidates whose immediate target MSE matched the central radius-16 lesion within 5%. The lower-support `pc1_neg` arm (support `0.1043`) is worse than the higher-support centroid arm (`0.3052`) in 4/4 future streams, with mean 96-step target MSE `0.00477` versus `0.00299`; immediate target MSE is `0.02146` versus `0.02070`. This supports location dependence and the local-support predictor for that preregistered pair, but not a universal support law because the matched-severity masks differ in radius/area.
 
 Exact evidence, result-file links, and caveats live in [`experiments/12-growing-nca/README.md`](../experiments/12-growing-nca/README.md).
 
@@ -56,7 +57,7 @@ A fresh agent should be able to resume with this sequence:
 5. Keep the upstream NCA weights fixed. Use exact state **and RNG** branching for causal comparisons.
 6. Do not infer current work from `goal-discovery/docs/plans/current_research_plan.md`; that file is retained history.
 
-G1 geometry is now committed/promoted. There is **no committed/promoted location or developmental-timing result yet**. Those remain prospective experiments.
+G1 geometry, H2 latent shuffle, and L1 location are now committed/promoted. There is **no committed/promoted developmental-timing result yet**; timing and action/reachability remain prospective experiments.
 
 ## Next action
 
@@ -66,13 +67,9 @@ G1 geometry is now committed/promoted. There is **no committed/promoted location
 
 G1 held lesion pixel count fixed and falsified the simple prediction that an elongated lesion should recover better because it exposes more intact boundary. The PC1-aligned 4:1 ellipse had nearly the same immediate severity as the repairing radius-16 circle but failed across all four confirmation streams. The PC2 arm was milder immediately, so do not interpret the orientation split as isolated anatomy/anisotropy yet.
 
-Remaining tests should isolate:
+L1 now adds a target-derived location comparison: after matching immediate target error, the lower-annulus-support location recovers worse than the higher-support centroid in all four confirmation streams. Because the masks required different radii/areas to achieve that severity match, treat this as evidence for location dependence plus one successful local-support predictor, not as a pure location effect or a universal support law.
 
-- location using an objective target-derived coordinate/axis rather than hand-labelled anatomy, with immediate severity matched as closely as practical;
-- the same lesion during formation versus after a mature morphology;
-- matched future stochastic update streams throughout.
-
-The question is now whether the geometry effect tracks shape/connectivity, region, developmental state, or a combination. Do not turn any one mask family into a universal geometric law.
+The remaining structural test is the same damage burden during formation versus after mature morphology, with matched future stochastic streams. The question is now how geometry, region/support, and developmental state jointly delimit the recovery basin. Do not turn any one mask family or support statistic into a universal law.
 
 ### B. Hidden-state consistency result
 
