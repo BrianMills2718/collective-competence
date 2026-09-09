@@ -11,7 +11,7 @@ sources:
 ---
 # The Crusoe Construction — a cumulative non-biological competence ladder
 
-[Research questions](../questions.md) · [Current work](../current.md) · [Research landscape](research-landscape.md) · [Medium article draft](crusoe-construction-medium-draft.md)
+[Research questions](../questions.md) · [Current work](../current.md) · [Research landscape](research-landscape.md) · [Medium.com article draft](crusoe-construction-medium-draft.md)
 
 ## Goal
 
@@ -21,7 +21,7 @@ The motivating device is analogous to Robinson Crusoe in economics: begin with t
 
 This is a **constructive explanatory goal and communication artifact**, not a claim that the individual mechanisms are novel. The September 2026 prior-art surveys show that regulation, memory, adaptation, cellular competency, goal scaling, collective morphogenesis, distributed signaling, regeneration, and related mechanisms already have substantial literatures and executable examples. The value of the Crusoe Construction is the cumulative derivation: one transparent artificial world in which the causal provenance of every added capability remains visible.
 
-It is **not the current experimental priority**. Phase 2 remains external interrogation on Growing NCA and related independently authored systems. The Crusoe Construction is a medium-term deliverable to be built after the relevant intervention distinctions have survived stronger external tests.
+It is **not the current experimental priority**. Phase 2 remains external interrogation on Growing NCA and related independently authored systems. The Crusoe Construction is a future constructive deliverable to be developed when the project is ready to build the cumulative synthetic lineage.
 
 ## Core question
 
@@ -104,11 +104,13 @@ The project now has two complementary evidence routes:
 
 The external route protects against designing systems to validate our vocabulary. The Crusoe route supplies an intelligible, cumulative demonstration and a source of controlled positive/negative cases. Neither substitutes for the other.
 
-## Communication deliverable
+## Medium.com communication deliverable
 
-The construction should culminate in a public-facing illustrated essay provisionally titled **“The Crusoe Construction: Building Non-Biological Competence from the Atoms Up.”** A Medium-ready draft and visual grammar live in [crusoe-construction-medium-draft.md](crusoe-construction-medium-draft.md).
+The construction should also be communicated as a public-facing illustrated **Medium.com essay**, provisionally titled **“The Crusoe Construction: Building Non-Biological Competence from the Atoms Up.”** The article is not merely a technical write-up; it is part of the goal because the cumulative argument depends on making every added capability visually legible.
 
-The public article should make one careful claim:
+The working article draft, publication structure, and reusable visual grammar live in [crusoe-construction-medium-draft.md](crusoe-construction-medium-draft.md).
+
+The article should make one careful claim:
 
 > **Increasingly sophisticated competent behavior can be constructed from simpler dynamical capacities without inserting intelligence as a primitive.**
 
@@ -124,5 +126,5 @@ This goal is complete when there is:
 - at least one analytically or experimentally demonstrated necessity result before a capability is added;
 - explicit cost/failure boundaries;
 - at least one genuine collective transition after the Friday step;
-- a polished visual narrative suitable for a general technical audience;
+- a polished Medium.com article with a coherent visual language suitable for a general technical audience;
 - no novelty claim that conflicts with the project's prior-art surveys.
