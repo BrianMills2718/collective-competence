@@ -22,11 +22,12 @@ The project is in **phase 2: external interrogation and compositional scaling**.
 
 Experiment 12 pins `distillpub/post--growing-ca` at commit `a12c7efa541b5770043a8d5470bffeacfd7b0435`, verifies upstream assets by SHA-256, and executes the fixed pretrained `ex1`/`ex2`/`ex3` models through a thin NumPy translation of the published WebGL rule. No weights are retrained or vendored.
 
-Three phase-2 results are currently promoted:
+Four phase-2 results are currently promoted:
 
 1. **A finite regeneration basin.** On the 96×96 published demo grid, the regenerating `ex3` model repairs a central radius-16 lesion into a low-error regime, while radius 18 stalls and radius 20 later diverges. At +512 updates, target MSE is about `0.00344`, `0.01490`, and `0.03543` respectively; the matched undamaged arm remains about `0.000318`.
 2. **Latent-state consistency matters.** At radius 16, erasing only the 12 hidden channels while leaving visible RGBA intact is more disruptive than deleting all 16 local channels. The ordering holds in 4/4 independently seeded future update streams from the same formed state; the **four-stream mean** 96-step target MSE is `0.00875` hidden-only versus `0.00316` full deletion. The native Experiment 12 record also preserves the single seed-7 matched-branch values separately. This establishes causal load-bearing hidden state, **not** a semantic goal, memory map, or target representation.
 3. **Lesion area alone does not determine recovery.** In the preregistered G1 geometry test, a 4:1 PC1-aligned ellipse and the radius-16 circle each remove 793 grid cells and have similar immediate damage (`0.02006` vs `0.02114` target MSE; 537 vs 522 live cells removed), but the ellipse is worse in 4/4 future streams: mean 96-step target MSE `0.01933` versus `0.00316` for the circle. A PC2-aligned ellipse recovers better but is substantially milder immediately, so the orientation split is not yet a clean anisotropy claim. The promoted conclusion is narrower: geometry/orientation can move the recovery boundary at fixed lesion area, and the simple "more exposed boundary helps" prediction is false as a general rule here.
+4. **Spatial latent assignment is load-bearing.** H2 preserves visible RGBA exactly and preserves the complete multiset of 12-channel hidden vectors inside the radius-16 mask, but spatially permutes those vectors. Across future seeds 100–103, this is worse than full deletion in 4/4 streams: mean 96-step target MSE is `0.06216` for hidden shuffle versus `0.00875` hidden-zero, `0.00316` full deletion, and `0.000679` undamaged. This strongly supports visible/latent spatial compatibility as causal. Because the shuffle also exchanges vectors between visibly occupied and empty cells inside the mask, it does not yet identify fine-grained live-cell latent coding, memory, or a target representation.
 
 Exact evidence, result-file links, and caveats live in [`experiments/12-growing-nca/README.md`](../experiments/12-growing-nca/README.md).
 
@@ -59,7 +60,7 @@ G1 geometry is now committed/promoted. There is **no committed/promoted location
 
 ## Next action
 
-**Execute H2 latent-vector shuffle next, then finish location, developmental timing, and action/reachability. Treat each test as a prediction problem, not another descriptive sweep.**
+**Execute the objective location test next, then developmental timing and action/reachability. Treat each test as a prediction problem, not another descriptive sweep.**
 
 ### A. Geometry result; location and timing remain open
 
@@ -73,9 +74,9 @@ Remaining tests should isolate:
 
 The question is now whether the geometry effect tracks shape/connectivity, region, developmental state, or a combination. Do not turn any one mask family into a universal geometric law.
 
-### B. Test hidden-state consistency under a second perturbation family
+### B. Hidden-state consistency result
 
-If the hidden-only/full ordering survives at another location or geometry, compare controlled hidden-state reset/noise/shuffle interventions. The purpose is to distinguish generic latent-state importance from **inconsistent visible/hidden state**. Do not call hidden channels memory or a goal representation unless an intervention specifically supports that interpretation.
+H2 spatially shuffled intact 12-channel latent vectors within the radius-16 region while preserving visible RGBA and the latent-vector multiset. The intervention is dramatically worse than hidden-zero or full deletion across all four confirmation streams. This supports **inconsistent visible/hidden spatial assignment** as a causal failure mode rather than generic hidden-state absence alone. Because the shuffle includes both visibly occupied and empty cells, do not promote it as fine-grained live-cell coding, memory, or a goal representation.
 
 ### C. Test action/reachability
 

@@ -92,7 +92,11 @@ That ordering survives four independently seeded future update streams from the 
 
 The conservative interpretation is that latent cell state is causally load-bearing and that compatibility between visible and hidden state matters. This does **not** establish that hidden channels are an explicit target, memory map, or semantic goal representation. A full lesion may be easier to repair precisely because it removes mutually inconsistent local state rather than preserving a visible cell with corrupted latent variables.
 
-Evidence: [`results/lesion_basin.json`](results/lesion_basin.json), [`results/geometry_probe.json`](results/geometry_probe.json), and [`results/hidden_state_probe.json`](results/hidden_state_probe.json).
+H2 tested that consistency account without deleting the hidden values. Inside the same radius-16 region, the complete 12-channel hidden vectors were spatially permuted while visible RGBA was left exactly unchanged and the multiset of hidden vectors was exactly preserved. Across future seeds 100–103, hidden-vector shuffle is worse than full deletion in **4/4** streams and produces mean 96-step target MSE **0.06216**, compared with **0.00875** for hidden-zero, **0.00316** for full deletion, and **0.000679** for the undamaged control. This strongly supports spatial visible/latent compatibility as load-bearing rather than the zeroing result being merely generic hidden-state loss.
+
+The shuffle permutes vectors across all cells inside the mask, including cells with little/no visible occupancy. It therefore establishes that the spatial assignment of latent state relative to visible occupancy matters; it does **not** yet isolate fine-grained latent identity among only live cells, nor does it establish memory or a semantic target representation.
+
+Evidence: [`results/lesion_basin.json`](results/lesion_basin.json), [`results/geometry_probe.json`](results/geometry_probe.json), [`results/hidden_state_probe.json`](results/hidden_state_probe.json), and [`results/hidden_shuffle_probe.json`](results/hidden_shuffle_probe.json).
 
 ## Reproduce
 
@@ -104,6 +108,7 @@ python3 experiments/12-growing-nca/run.py
 python3 experiments/12-growing-nca/lesion_basin.py
 python3 experiments/12-growing-nca/geometry_probe.py
 python3 experiments/12-growing-nca/hidden_state_probe.py
+python3 experiments/12-growing-nca/hidden_shuffle_probe.py
 python3 -m pytest -q experiments/12-growing-nca/test_model.py
 ```
 
@@ -111,4 +116,4 @@ The first command verifies the pinned upstream assets before any model is execut
 
 ## Next
 
-Do **not** retrain the NCA yet. G1 now shows that fixed lesion area is insufficient: one severity-matched elongated orientation fails where the compact radius-16 lesion repairs. Execute the remaining preregistered matrix in issue #76: first a **latent-vector shuffle** to test visible/hidden consistency without zeroing hidden content, then objective location and developmental-timing comparisons, and finally spatial/temporal update gating to separate state corruption from insufficient action/reachability. Only after those white-box boundaries are understood should an opaque Goal Discovery package be attempted.
+Do **not** retrain the NCA yet. G1 shows that fixed lesion area is insufficient, and H2 shows that spatial visible/latent compatibility is strongly load-bearing even when the hidden-vector multiset is preserved. Execute the remaining preregistered matrix in issue #76: objective **location** next, then developmental timing, and finally spatial/temporal update gating to separate state corruption from insufficient action/reachability. Only after those white-box boundaries are understood should an opaque Goal Discovery package be attempted.

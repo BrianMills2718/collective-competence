@@ -7,6 +7,7 @@ from pathlib import Path
 import numpy as np
 from fetch_upstream import MANIFEST, ensure_assets, sha256
 from geometry_probe import circle_mask, ranked_ellipse_mask, target_axes
+from hidden_shuffle_probe import apply_hidden_shuffle
 from hidden_state_probe import apply
 from nca_numpy import NCA, load_model
 
@@ -14,6 +15,7 @@ HERE = Path(__file__).resolve().parent
 RESULT = HERE / "results" / "characterization.json"
 LESION_RESULT = HERE / "results" / "lesion_basin.json"
 HIDDEN_RESULT = HERE / "results" / "hidden_state_probe.json"
+HIDDEN_SHUFFLE_RESULT = HERE / "results" / "hidden_shuffle_probe.json"
 GEOMETRY_RESULT = HERE / "results" / "geometry_probe.json"
 
 
@@ -114,3 +116,27 @@ def test_committed_geometry_probe_preserves_preregistered_contract():
     pc2 = result["summary"]["orientation_comparisons"]["ellipse_pc2"]
     assert pc1["worse_than_circle_count"] == 4
     assert pc2["better_than_circle_count"] == 4
+
+
+def test_hidden_shuffle_preserves_visible_and_hidden_vector_multiset():
+    rng = np.random.default_rng(5)
+    state = rng.normal(size=(96, 96, 16)).astype(np.float32)
+    shuffled = apply_hidden_shuffle(state, 16, 20100)
+    np.testing.assert_array_equal(shuffled[..., :4], state[..., :4])
+
+    from hidden_state_probe import mask
+    m = mask(16)
+    before = sorted(row.tobytes() for row in state[m, 4:])
+    after = sorted(row.tobytes() for row in shuffled[m, 4:])
+    assert before == after
+
+
+def test_committed_hidden_shuffle_supports_spatial_consistency_prediction():
+    result = json.loads(HIDDEN_SHUFFLE_RESULT.read_text())
+    assert result["status"] == "complete"
+    assert result["protocol"]["future_seeds"] == [100, 101, 102, 103]
+    assert result["invariants"]["visible_rgba_preserved_exactly"] is True
+    assert result["invariants"]["hidden_vector_multiset_preserved"] is True
+    assert result["summary"]["disposition"] == "supported"
+    assert result["summary"]["shuffle_worse_than_full_count"] == 4
+    assert result["summary"]["mean_target_mse"]["hidden_shuffle"] > result["summary"]["mean_target_mse"]["hidden_zero"]

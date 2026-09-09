@@ -1,0 +1,106 @@
+{
+  "invariants": {
+    "hidden_vector_multiset_preserved": true,
+    "masked_cell_count": 793,
+    "visible_rgba_preserved_exactly": true
+  },
+  "prediction": "If the hidden-zero result is driven by visible/latent inconsistency rather than merely loss of hidden content, spatially shuffling intact 12-channel hidden vectors among radius-16 cells should also be damaging and should be worse than full deletion in most matched streams.",
+  "protocol": {
+    "follow_steps": 96,
+    "formation_steps": 96,
+    "formed_state_seed": 7,
+    "future_seeds": [
+      100,
+      101,
+      102,
+      103
+    ],
+    "grid": 96,
+    "matched_future_update_stream": true,
+    "model": "ex3_lizard.json",
+    "permutation_seed_rule": "20000 + future_seed",
+    "radius": 16,
+    "reused_control_artifact": "hidden_state_probe.json",
+    "shuffle_unit": "whole 12-channel hidden vector within lesion mask"
+  },
+  "refuter": "If hidden-vector shuffle is close to undamaged while hidden-zero remains damaging, weaken the visible/latent inconsistency account and investigate zeroing or loss of specific hidden content instead.",
+  "replications": [
+    {
+      "future_seed": 100,
+      "permutation_seed": 20100,
+      "target_mse_after_96": {
+        "full": 0.002635544165968895,
+        "hidden_shuffle": 0.07042814791202545,
+        "hidden_zero": 0.007855121977627277,
+        "none": 0.0007226222660392523
+      },
+      "vs_undamaged_rgb_mse_after_96": {
+        "full": 0.002858225954696536,
+        "hidden_shuffle": 0.07006880640983582,
+        "hidden_zero": 0.007972071878612041
+      }
+    },
+    {
+      "future_seed": 101,
+      "permutation_seed": 20101,
+      "target_mse_after_96": {
+        "full": 0.0038960452657192945,
+        "hidden_shuffle": 0.05804906412959099,
+        "hidden_zero": 0.008616874925792217,
+        "none": 0.0007101434748619795
+      },
+      "vs_undamaged_rgb_mse_after_96": {
+        "full": 0.003766737412661314,
+        "hidden_shuffle": 0.05758451670408249,
+        "hidden_zero": 0.008512149564921856
+      }
+    },
+    {
+      "future_seed": 102,
+      "permutation_seed": 20102,
+      "target_mse_after_96": {
+        "full": 0.0027078851126134396,
+        "hidden_shuffle": 0.06203170120716095,
+        "hidden_zero": 0.007676242850720882,
+        "none": 0.0005981869180686772
+      },
+      "vs_undamaged_rgb_mse_after_96": {
+        "full": 0.0028766095638275146,
+        "hidden_shuffle": 0.061631377786397934,
+        "hidden_zero": 0.007735907565802336
+      }
+    },
+    {
+      "future_seed": 103,
+      "permutation_seed": 20103,
+      "target_mse_after_96": {
+        "full": 0.003417625557631254,
+        "hidden_shuffle": 0.058137938380241394,
+        "hidden_zero": 0.010863942094147205,
+        "none": 0.0006852764636278152
+      },
+      "vs_undamaged_rgb_mse_after_96": {
+        "full": 0.0036435502115637064,
+        "hidden_shuffle": 0.05773409828543663,
+        "hidden_zero": 0.010764137841761112
+      }
+    }
+  ],
+  "status": "complete",
+  "summary": {
+    "disposition": "supported",
+    "mean_target_mse": {
+      "full": 0.003164275025483221,
+      "hidden_shuffle": 0.062161712907254696,
+      "hidden_zero": 0.008753045462071896,
+      "none": 0.000679057280649431
+    },
+    "replication_count": 4,
+    "shuffle_worse_than_full_count": 4,
+    "shuffle_worse_than_undamaged_count": 4
+  },
+  "upstream": {
+    "commit": "a12c7efa541b5770043a8d5470bffeacfd7b0435",
+    "repository": "distillpub/post--growing-ca"
+  }
+}
