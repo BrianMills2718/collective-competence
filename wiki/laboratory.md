@@ -50,6 +50,41 @@ When adopting another external model:
 
 Current candidate external systems and their overlap risks are catalogued in the [research landscape](reference/research-landscape.md) and [Levin software ecosystem survey](reference/levin-software-ecosystem-survey.md).
 
+## Reuse gate before construction
+
+**Search → reuse → wrap → intervene → compare. Build only when the gap is demonstrated.**
+
+Before implementing a new simulator, dynamical model, analysis algorithm, or substantial visualization primitive, the experiment record must state:
+
+1. **What capability the experiment actually needs.** Name the required dynamics, intervention, observation, or analysis — not a preferred package architecture.
+2. **Which existing implementations were checked.** Start with the project landscape surveys and then the relevant upstream ecosystem. For biological ODE/regulatory models, search published SBML/BioModels before authoring a new model; use SBMLtoODEjax or the model's native simulator when practical.
+3. **Why the closest existing option is insufficient.** Acceptable reasons include a missing required intervention, inability to reproduce/pin the system, incompatible licensing, an implementation whose adaptation would change the scientific object, or a genuinely absent mechanism required by the hypothesis.
+4. **Why an adapter is insufficient.** Prefer a thin wrapper over a fork, translation, retraining, or replacement.
+5. **What will be built, and no more.** If construction is justified, implement the smallest missing seam/control rather than a new general framework.
+
+Convenience, familiarity, or the belief that a local rewrite would be faster are **not** sufficient reasons to replace established software. Integration cost is real, but scientific comparability and externality normally outweigh local implementation convenience.
+
+When several existing systems can answer the question, choose the **smallest sufficient external system**. Current examples:
+
+- reachability/path dependence/intervention routes → **Cellnition / Regulatory Network Machine** before new reachability machinery;
+- regenerative local-controller transfer → **MinimalDevelopmentalComputation** before another bespoke morphogenesis model;
+- non-neural bioelectric computation → **BioElectricNetwork** before full tissue physics;
+- biologically grounded bioelectric patterning → **NeuralPlatePatterning**, escalating to **BETSE** only when electrodiffusion/channel/tissue physics is required;
+- published biochemical/regulatory ODE dynamics → **BioModels/SBML** (with SBMLtoODEjax or native tooling) before authoring a new ODE system;
+- mechanistic/empirical regeneration → Lobo/PLIMBO/Planform/Limbform when the question is mature enough for those data/model semantics.
+
+The preferred integration shape is:
+
+```text
+upstream system or corpus
+    -> pinned/versioned source and licensing record
+    -> thin adapter exposing only required run/observe/intervene/snapshot seams
+    -> experiment-specific interventions and matched comparisons
+    -> native evidence package
+```
+
+Do not normalize every external system into a universal internal state hierarchy. The laboratory contract is methodological, not a requirement that all substrates share one object model.
+
 ## What is shared even when substrates differ
 
 The more important laboratory contract is methodological:

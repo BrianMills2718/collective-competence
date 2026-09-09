@@ -35,7 +35,8 @@ The programme is now **reuse-first and interrogation-first**. Broad demonstratio
 1. Read the relevant hot wiki page.
 2. Read the native experiment README/protocol and the code you will change.
 3. If the work makes a novelty claim, selects a comparator, or adds a new substrate, inspect the relevant landscape survey under `wiki/reference/` first.
-4. Read the applicable subtree instructions:
+4. **Pass the reuse gate before building.** For any proposed new simulator, dynamical model, analysis algorithm, or substantial visualization primitive, identify maintained/published alternatives first. Record which options were checked and why they cannot answer the experiment. "I can implement it faster myself" is not a scientific justification.
+5. Read the applicable subtree instructions:
 
 | Work scope | Additional instructions |
 |---|---|

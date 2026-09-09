@@ -104,6 +104,18 @@ After the NCA white-box work, likely high-value comparators are:
 - **BioElectricNetwork / NeuralPlatePatterning / BETSE** only when a specific bioelectric prediction requires them;
 - **planarian/Lobo/Planform or SBML models** when the method is mature enough for biologically anchored data/model tests.
 
+### F. First three external integrations
+
+Unless a result changes the scientific question, the next integration sequence is intentionally narrow:
+
+1. **Growing NCA — finish, do not replace.** Complete the current geometry/location/timing, latent-consistency, and action-restriction work on the pinned external model. This integration already exists; the goal is to finish the causal competence map rather than add another platform.
+2. **Cellnition / Regulatory Network Machine — comparator integration.** First verify exact licensing and reproducibility, then wrap the smallest interface needed to reproduce an RNM reachability/path-dependence analysis and compare it with our goal/competence questions. Do not copy or reimplement RNM reachability machinery. The decisive question is whether our analysis adds anything beyond the supplied-output-state/control problem RNM already solves.
+3. **MinimalDevelopmentalComputation — transfer specimen.** Pin the upstream model and reproduce one published developmental/regenerative behavior before adding our interventions. Use it to test whether distinctions found in Growing NCA make prospective predictions in a different externally authored developmental architecture. Do not rebuild its local-controller/regeneration phenomena in the project lattice.
+
+After these three, select the next system by the hypothesis: LENIA Umwelt for information-access ambiguity, BioElectricNetwork/NeuralPlatePatterning/BETSE for increasingly physical bioelectric questions, SBML/BioModels for published regulatory dynamics, and planarian/Planform/Limbform for biologically anchored intervention evidence.
+
+**Integration means pinned upstream + thin adapter + experiment-specific seam, not vendoring or rewriting the external project.**
+
 ## Guardrails
 
 - Optimize for **prediction/explanation gained per unit effort**, not experiment count.
