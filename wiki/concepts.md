@@ -11,6 +11,21 @@ sources:
 
 This is the working vocabulary for ordinary research navigation. The full [ontology](ontology.md) remains the detailed authority when a precise definition, formalization, alias, or historical distinction matters.
 
+## Alignment with Levin/TAME vocabulary
+
+The project is deliberately **Levin-compatible by default**. When discussing Levin/TAME work, use that literature's vocabulary rather than inventing parallel labels. Use the project's finer terms only when an experiment needs additional measurement or evidentiary precision.
+
+In particular:
+
+- **Problem space** is a first-class term here. A representation defines the coordinates in which a system can be described as navigating toward, maintaining, or recovering a criterion.
+- Levin uses **competency** broadly across scales. This project subdivides that vocabulary for measurement: **capability** names a bounded operation, while **competence** names graded goal-relative performance across a declared challenge/resource family. This is an operational refinement, not a disagreement with Levin's broader usage.
+- **Intelligence** is used in the William James/Levin sense of reaching the same goal by different means in a declared problem space. In this ontology that corresponds most directly to the **flexibility** dimension of a broader competence profile; do not use intelligence as a synonym for the entire profile.
+- **Goal** and **goal-directedness** do not imply consciousness or an internal symbolic target. For Goal and Competence Discovery, however, the project uses the more explicit term **candidate goal criterion** and requires enough evidence to distinguish the proposed interpretation from passive convergence, invariance, or artifacts before promoting it. That is an evidentiary rule for this programme, not a rejection of Levin's graded treatment of goal-directedness.
+- **Memory** is not defined as one persistent hidden variable. Persistent internal state is one possible memory mechanism; memory may be distributed, structural, physiological, morphological, or otherwise realized. Do not call NCA hidden channels "memory" without an intervention that supports that interpretation.
+- **Collective Competence** is the name of this project's constructive arm/property. When describing Levin's work, prefer his own terms such as **collective intelligence** and **multiscale competency** where those are the terms used by the source.
+
+The detailed crosswalk and any genuine divergences are maintained in [the ontology](ontology.md#levins-definitions-alongside-ours). If a future result appears to require a vocabulary different from Levin's, state the experimental reason rather than silently creating a synonym.
+
 ## Focal system and boundary
 
 A **focal system** is whatever collection of state and components the experiment treats as the system of interest. Its **boundary** states what is inside and outside. The same physical component can be inside one study's boundary and part of the environment in another.
