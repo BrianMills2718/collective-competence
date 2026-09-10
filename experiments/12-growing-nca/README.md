@@ -92,6 +92,16 @@ This is evidence that **where damage occurs can change recovery even when immedi
 
 Evidence: [`results/location_probe.json`](results/location_probe.json).
 
+### Developmental timing at matched live-cell burden
+
+T1 applied centered lesions at steps 48, 72, and 96, choosing lesion size from the pre-recovery state to remove approximately 25% of currently live cells. The same **radius-8** mask was selected independently at all three checkpoints, removing 25.8%, 23.1%, and 24.2% of live cells respectively. This makes the comparison unusually clean with respect to lesion geometry.
+
+The preregistered prediction that earlier damage would recover at least as close to its matched undamaged branch as mature damage was **mixed**. Step 48 is worse than step 96 in **4/4** future streams (mean damaged-vs-undamaged RGB MSE **0.000646** versus **0.000413**). Step 72 is intermediate and not directionally separated from step 96 (mean **0.000432**; 2/4 streams better and 2/4 worse).
+
+The warranted conclusion is that recovery performance depends on **developmental state/timing** in this specimen; the simple monotonic claim that earlier developmental states provide more corrective capacity is not supported. This comparison does not isolate hidden history from visible developmental state, because the checkpoint states themselves differ.
+
+Evidence: [`results/timing_probe.json`](results/timing_probe.json).
+
 ### Visible versus hidden state
 
 The 16 NCA channels permit a more diagnostic intervention. In the same spatial region we can erase only visible RGBA channels, erase only the 12 hidden channels, or erase all 16 channels.
@@ -118,6 +128,7 @@ python3 experiments/12-growing-nca/run.py
 python3 experiments/12-growing-nca/lesion_basin.py
 python3 experiments/12-growing-nca/geometry_probe.py
 python3 experiments/12-growing-nca/location_probe.py
+python3 experiments/12-growing-nca/timing_probe.py
 python3 experiments/12-growing-nca/hidden_state_probe.py
 python3 experiments/12-growing-nca/hidden_shuffle_probe.py
 python3 -m pytest -q experiments/12-growing-nca/test_model.py
@@ -127,4 +138,4 @@ The first command verifies the pinned upstream assets before any model is execut
 
 ## Next
 
-Do **not** retrain the NCA yet. G1 shows that fixed lesion area is insufficient, H2 shows that spatial visible/latent compatibility is strongly load-bearing even when the hidden-vector multiset is preserved, and L1 shows a location-dependent recovery difference under matched immediate target error. Execute the remaining preregistered matrix in issue #76: **developmental timing next**, then spatial/temporal update gating to separate state corruption from insufficient action/reachability. Only after those white-box boundaries are understood should an opaque Goal Discovery package be attempted.
+Do **not** retrain the NCA yet. G1 shows that fixed lesion area is insufficient, H2 shows that spatial visible/latent compatibility is strongly load-bearing even when the hidden-vector multiset is preserved, and L1 shows a location-dependent recovery difference under matched immediate target error. T1 shows developmental-state dependence without the predicted monotonic earlier-is-easier ordering. Execute the final preregistered matrix item in issue #76: **spatial/temporal update gating** to separate state corruption from insufficient action/reachability. Only after those white-box boundaries are understood should an opaque Goal Discovery package be attempted.

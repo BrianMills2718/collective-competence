@@ -19,6 +19,7 @@ HIDDEN_RESULT = HERE / "results" / "hidden_state_probe.json"
 HIDDEN_SHUFFLE_RESULT = HERE / "results" / "hidden_shuffle_probe.json"
 GEOMETRY_RESULT = HERE / "results" / "geometry_probe.json"
 LOCATION_RESULT = HERE / "results" / "location_probe.json"
+TIMING_RESULT = HERE / "results" / "timing_probe.json"
 
 
 def test_upstream_assets_match_pinned_hashes():
@@ -165,3 +166,15 @@ def test_committed_location_probe_supports_preregistered_direction():
     high = result["summary"]["higher_support_location"]
     assert result["candidate_locations"][low]["annulus_live_fraction"] < result["candidate_locations"][high]["annulus_live_fraction"]
     assert result["summary"]["mean_target_mse_after_96"][low] > result["summary"]["mean_target_mse_after_96"][high]
+
+
+def test_committed_timing_probe_records_developmental_state_dependence():
+    result = json.loads(TIMING_RESULT.read_text())
+    assert result["status"] == "complete"
+    assert result["protocol"]["checkpoints"] == [48, 72, 96]
+    assert result["protocol"]["future_seeds"] == [100, 101, 102, 103]
+    assert result["summary"]["disposition"] == "mixed"
+    assert result["summary"]["earlier_vs_mature"]["48"]["worse_than_96_count"] == 4
+    assert result["summary"]["mean_primary_mse_by_checkpoint"]["48"] > result["summary"]["mean_primary_mse_by_checkpoint"]["96"]
+    radii = {row["radius"] for row in result["checkpoint_metadata"].values()}
+    assert radii == {8}

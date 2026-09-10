@@ -1,0 +1,203 @@
+{
+  "checkpoint_metadata": {
+    "48": {
+      "absolute_fraction_error": 0.007971014492753614,
+      "fraction_target": 0.25,
+      "immediate_damaged_target_mse": 0.012079010717570782,
+      "live_cells_removed": 178,
+      "live_cells_total": 690,
+      "live_fraction_removed": 0.2579710144927536,
+      "mask_pixel_count": 193,
+      "radius": 8,
+      "undamaged_target_mse_at_checkpoint": 0.004383923951536417
+    },
+    "72": {
+      "absolute_fraction_error": 0.018924302788844632,
+      "fraction_target": 0.25,
+      "immediate_damaged_target_mse": 0.009139055386185646,
+      "live_cells_removed": 174,
+      "live_cells_total": 753,
+      "live_fraction_removed": 0.23107569721115537,
+      "mask_pixel_count": 193,
+      "radius": 8,
+      "undamaged_target_mse_at_checkpoint": 0.001302235061302781
+    },
+    "96": {
+      "absolute_fraction_error": 0.008041958041958036,
+      "fraction_target": 0.25,
+      "immediate_damaged_target_mse": 0.008691604249179363,
+      "live_cells_removed": 173,
+      "live_cells_total": 715,
+      "live_fraction_removed": 0.24195804195804196,
+      "mask_pixel_count": 193,
+      "radius": 8,
+      "undamaged_target_mse_at_checkpoint": 0.0008389719878323376
+    }
+  },
+  "prediction": "If ongoing developmental dynamics provide additional corrective routes, damage removing approximately 25% of currently live cells at steps 48 and 72 should recover at least as close to each checkpoint's matched undamaged branch as the corresponding mature step-96 damage.",
+  "protocol": {
+    "checkpoints": [
+      48,
+      72,
+      96
+    ],
+    "follow_steps": 96,
+    "formation_history_seed": 7,
+    "future_seeds": [
+      100,
+      101,
+      102,
+      103
+    ],
+    "grid": 96,
+    "live_fraction_to_remove": 0.25,
+    "matched_future_update_stream_within_checkpoint": true,
+    "model": "ex3_lizard.json",
+    "primary_metric": "damaged_vs_undamaged_rgb_mse_after_96",
+    "radius_candidates": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ]
+  },
+  "refuter": "If mature step-96 damage is consistently closer to its matched undamaged branch than both earlier checkpoints, reject the simple earlier-development-is-more-correctable prediction and treat competence as phase/state dependent in the opposite direction.",
+  "replications": [
+    {
+      "checkpoints": {
+        "48": {
+          "damaged_target_mse_after_96": 0.0005885659484192729,
+          "damaged_vs_undamaged_rgb_mse_after_96": 0.0005721171037293971,
+          "undamaged_target_mse_after_96": 0.0006158142350614071
+        },
+        "72": {
+          "damaged_target_mse_after_96": 0.0005834419280290604,
+          "damaged_vs_undamaged_rgb_mse_after_96": 0.0004156695504207164,
+          "undamaged_target_mse_after_96": 0.0006023381720297039
+        },
+        "96": {
+          "damaged_target_mse_after_96": 0.0006287767319008708,
+          "damaged_vs_undamaged_rgb_mse_after_96": 0.0004270362260285765,
+          "undamaged_target_mse_after_96": 0.0007226222660392523
+        }
+      },
+      "future_seed": 100
+    },
+    {
+      "checkpoints": {
+        "48": {
+          "damaged_target_mse_after_96": 0.0008701061015017331,
+          "damaged_vs_undamaged_rgb_mse_after_96": 0.0006074713892303407,
+          "undamaged_target_mse_after_96": 0.0007325868937186897
+        },
+        "72": {
+          "damaged_target_mse_after_96": 0.0007085163961164653,
+          "damaged_vs_undamaged_rgb_mse_after_96": 0.00043153477599844337,
+          "undamaged_target_mse_after_96": 0.0005120201385580003
+        },
+        "96": {
+          "damaged_target_mse_after_96": 0.0008183185127563775,
+          "damaged_vs_undamaged_rgb_mse_after_96": 0.0005613963003270328,
+          "undamaged_target_mse_after_96": 0.0007101434748619795
+        }
+      },
+      "future_seed": 101
+    },
+    {
+      "checkpoints": {
+        "48": {
+          "damaged_target_mse_after_96": 0.0006417136173695326,
+          "damaged_vs_undamaged_rgb_mse_after_96": 0.0005099792615510523,
+          "undamaged_target_mse_after_96": 0.0006114962743595243
+        },
+        "72": {
+          "damaged_target_mse_after_96": 0.0006827462930232286,
+          "damaged_vs_undamaged_rgb_mse_after_96": 0.00046712771290913224,
+          "undamaged_target_mse_after_96": 0.0006438590353354812
+        },
+        "96": {
+          "damaged_target_mse_after_96": 0.000523235707078129,
+          "damaged_vs_undamaged_rgb_mse_after_96": 0.0003808406472671777,
+          "undamaged_target_mse_after_96": 0.0005981869180686772
+        }
+      },
+      "future_seed": 102
+    },
+    {
+      "checkpoints": {
+        "48": {
+          "damaged_target_mse_after_96": 0.0012782546691596508,
+          "damaged_vs_undamaged_rgb_mse_after_96": 0.00089520268375054,
+          "undamaged_target_mse_after_96": 0.0005150171346031129
+        },
+        "72": {
+          "damaged_target_mse_after_96": 0.0008372400770895183,
+          "damaged_vs_undamaged_rgb_mse_after_96": 0.0004123934777453542,
+          "undamaged_target_mse_after_96": 0.0007870300905779004
+        },
+        "96": {
+          "damaged_target_mse_after_96": 0.0006062674219720066,
+          "damaged_vs_undamaged_rgb_mse_after_96": 0.0002810238511301577,
+          "undamaged_target_mse_after_96": 0.0006852764636278152
+        }
+      },
+      "future_seed": 103
+    }
+  ],
+  "status": "complete",
+  "summary": {
+    "disposition": "mixed",
+    "earlier_vs_mature": {
+      "48": {
+        "mature_96_mean_primary_mse": 0.0004125742561882362,
+        "mean_primary_mse": 0.0006461926095653325,
+        "no_worse_than_96_count": 0,
+        "worse_than_96_count": 4
+      },
+      "72": {
+        "mature_96_mean_primary_mse": 0.0004125742561882362,
+        "mean_primary_mse": 0.00043168137926841155,
+        "no_worse_than_96_count": 2,
+        "worse_than_96_count": 2
+      }
+    },
+    "mean_primary_mse_by_checkpoint": {
+      "48": 0.0006461926095653325,
+      "72": 0.00043168137926841155,
+      "96": 0.0004125742561882362
+    },
+    "replication_count": 4
+  },
+  "upstream": {
+    "commit": "a12c7efa541b5770043a8d5470bffeacfd7b0435",
+    "repository": "distillpub/post--growing-ca"
+  }
+}
