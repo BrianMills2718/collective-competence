@@ -20,7 +20,7 @@ This is the **only hot page that owns current priority and next action**. Start 
 
 The project is in **phase 2: external interrogation and compositional scaling**. Experiments 01–11 are calibration surfaces. The active external specimen is the published *Growing Neural Cellular Automata* lizard system, pinned at `distillpub/post--growing-ca` commit `a12c7efa541b5770043a8d5470bffeacfd7b0435` and executed through a thin NumPy translation of the published WebGL inference rule. No weights are retrained or vendored.
 
-The Experiment 12 **white-box intervention map is now frozen**. Seven promoted results delimit what we know:
+The Experiment 12 **white-box intervention map is frozen**. Seven promoted results delimit what we know:
 
 1. **Finite tested regeneration basin.** `ex3` repairs the tested central radius-16 lesion, radius 18 stalls, and radius 20 later diverges; this is not a universal lesion-size threshold.
 2. **Hidden state is causally load-bearing.** Hidden-only zeroing at radius 16 is worse than full local deletion across 4/4 future streams.
@@ -30,7 +30,7 @@ The Experiment 12 **white-box intervention map is now frozen**. Seven promoted r
 6. **Developmental state matters, but not as “earlier is easier.”** With the same radius-8 geometry and roughly one-quarter live-cell burden at steps 48/72/96, step 48 is farther from its matched control than step 96 in 4/4 streams; step 72 is mixed.
 7. **Timely corrective action is load-bearing.** A1 begins from identical radius-16 damage and suppresses updates only inside the original lesion footprint for 0/16/32/64 steps. Every nonzero blackout is worse than normal in every tested stream; the 64-step blackout is clearly worst. The strict monotonic dose prediction is mixed because 16 and 32 steps do not order consistently. Divergence persists and grows on average through step 256 after actions are restored, supporting path dependence over the tested horizon but **not formal unreachability**.
 
-Exact protocols, numbers, evidence files, and the frozen causal map live in [`experiments/12-growing-nca/README.md`](../experiments/12-growing-nca/README.md).
+Exact protocols, numbers, evidence files, and the frozen causal map live in [`experiments/12-growing-nca/README.md`](../experiments/12-growing-nca/README.md). The A1 execution was reproduced in a clean GitHub Actions runner after the original workstation went offline; the pinned upstream hashes and gate-identity control passed before the scientific run, and the existing Experiment 12 tests passed afterward.
 
 ## Strategic constraint from the landscape audits
 
