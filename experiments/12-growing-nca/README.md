@@ -107,7 +107,7 @@ After all actions are restored, the restricted branches do not catch up over the
 
 The warranted conclusion is that **timely local action availability is causally load-bearing for recovery, and a temporary early action restriction can leave persistent history-dependent consequences after the restriction is removed**. This is evidence of path dependence over the tested horizon, **not proof of formal unreachability** or a theorem about all longer futures.
 
-Evidence: [`results/action_gate_probe.json`](results/action_gate_probe.json). The result was independently executed in GitHub Actions after the original workstation went offline; the pinned upstream asset hashes and an all-ones gate identity check passed, followed by the existing Experiment 12 tests (`13 passed`).
+Evidence: [`results/action_gate_probe.json`](results/action_gate_probe.json). The result was executed in a clean GitHub Actions runner after the original workstation went offline. That run independently verified the pinned upstream asset hashes, verified that an all-ones update gate produces exactly the same state and RNG trajectory as the native ungated update, then executed A1 and ran the pre-existing Experiment 12 test file (`13 passed`). A dedicated committed A1 evidence test additionally locks the gate contract and the warranted mixed result for future project runs.
 
 ## Frozen white-box causal map
 
