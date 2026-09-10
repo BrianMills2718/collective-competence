@@ -1,6 +1,6 @@
 # Experiment 12 — external Growing Neural Cellular Automata reproduction
 
-This is the first **phase-2 compositional-scaling specimen**. Unlike Experiments 01–11, the local rule and learned parameters were not authored by this project. The experiment reproduces the published Growing Neural Cellular Automata (NCA) system of Mordvintsev, Randazzo, Niklasson & Levin and establishes a clean external baseline before project-specific intervention analysis.
+This is the first **phase-2 external specimen**. The local rule and learned parameters were not authored by this project. The experiment reproduces the published *Growing Neural Cellular Automata* system of Mordvintsev, Randazzo, Niklasson & Levin and then interrogates the fixed pretrained models with project-specific interventions.
 
 Source publication: *Growing Neural Cellular Automata*, Distill (2020), DOI `10.23915/distill.00023`.
 
@@ -10,117 +10,144 @@ The reproduction pins `distillpub/post--growing-ca` at commit:
 
 `a12c7efa541b5770043a8d5470bffeacfd7b0435`
 
-The official WebGL demo ships quantized pretrained lizard models for three training regimes:
+The official WebGL demo provides quantized pretrained lizard models for three training regimes:
 
 - `ex1` — growing;
 - `ex2` — persistent;
 - `ex3` — regenerating.
 
-`upstream_manifest.json` records the exact upstream paths and SHA-256 digests. `fetch_upstream.py` downloads and verifies them into an ignored local cache. No upstream weight or image asset is vendored into this repository.
+`upstream_manifest.json` records exact upstream paths and SHA-256 digests. `fetch_upstream.py` downloads and verifies them into an ignored cache. No upstream weight or image asset is vendored.
 
-`nca_numpy.py` is a small CPU translation of the pinned `public/ca.js` inference path. It decodes the authors' quantized weights and mirrors the 16-channel state, identity/Sobel perception, shared 48→128→16 local network, 0.5 stochastic update mask, living-cell alpha rule, and toroidal reads. It does **not** train or alter the published model.
+`nca_numpy.py` is a small CPU translation of the pinned `public/ca.js` inference path. It mirrors the 16-channel state, identity/Sobel perception, shared 48→128→16 local network, 0.5 stochastic update mask, living-cell alpha rule, and toroidal reads. It does **not** train or alter the published model. The only later extension is an optional per-cell update gate used by A1; the gate is applied after the native stochastic mask is drawn so matched arms consume the same RNG stream.
 
-## Reproduction protocol
+## External reproduction gate
 
-Use the published **96×96 demo grid**. For each model variant:
+On the published 96×96 demo grid, each model starts from the canonical one-cell seed and grows for 96 updates. From that exact state and RNG state, an undamaged arm and a central radius-8 lesion arm are followed for 96 more updates with matched future stochastic masks.
 
-1. start from the canonical one-cell seed;
-2. evolve for 96 updates;
-3. snapshot the full 16-channel state and random-generator state;
-4. branch exactly into an undamaged continuation and a central clear-circle lesion of radius 8;
-5. evolve both branches for another 96 updates using identical future stochastic update masks;
-6. compare visible RGB morphology to the official 40×40 lizard target and compare damaged versus undamaged matched branches.
-
-The goal is not to obtain a new NCA result. It is to verify that the external backend reproduces the paper's qualitative distinction among **growth, persistence, and regeneration** before we use it to test this project's hypotheses.
-
-## Result
-
-All three pinned models form a recognizable lizard with low target error after 96 updates. Their post-formation behavior separates under the matched lesion test:
-
-| published model | formed target MSE | undamaged target MSE after +96 | damaged target MSE after +96 | damaged vs undamaged RGB MSE |
+| published model | formed target MSE | undamaged +96 | damaged +96 | damaged vs undamaged RGB MSE |
 |---|---:|---:|---:|---:|
 | growing (`ex1`) | 0.000568 | 0.001344 | **0.017587** | 0.018648 |
 | persistent (`ex2`) | 0.000404 | **0.000202** | **0.014350** | 0.013933 |
 | regenerating (`ex3`) | 0.000839 | 0.000574 | **0.000482** | **0.000387** |
 
-The severe central lesion therefore distinguishes the three published training regimes in the expected direction: the growing model does not maintain/repair the morphology, the persistent model maintains an undamaged morphology but does not repair this lesion, and the regeneration-trained model returns close to both the target and its matched undamaged branch.
+The published growth/persistence/regeneration hierarchy is therefore reproduced before project-specific interpretation begins. Attainment, maintenance, and regeneration differ here because the authors trained the three models for different behaviors; reproducing that distinction is a calibration gate, not a novelty claim.
 
-## What this establishes
+## White-box intervention results
 
-This clears the first phase-2 gate: the laboratory can execute a substantially richer, externally specified local dynamical system without converting it into the project's custom lattice or retraining it to fit our story.
+All project-specific comparisons below keep the upstream weights fixed. Important directional tests were stated with a prediction and refuter before recovery outcomes were inspected.
 
-It also gives a stronger version of a distinction seen earlier in sorting: **attainment, maintenance, and regeneration are different capabilities.** Here that distinction was already engineered by the original NCA training regimes; our contribution in this experiment is faithful external reproduction, not discovery of the distinction.
+### Finite regeneration basin
 
-## Scope and limits
+Central circular lesions reveal a bounded recovery basin for `ex3`. At 96 recovery updates, target MSE is **0.000482** at radius 8, **0.003410** at radius 16, **0.014094** at radius 18, and **0.016404** at radius 20. Through 512 updates, radius 16 remains low-error (**0.00344**), radius 18 stalls near **0.0149**, and radius 20 later diverges to **0.03543**, while the matched undamaged trajectory remains near target (**0.000318**).
 
-- This is an NCA reproduction, not biological evidence.
-- The CPU adapter mirrors the public quantized WebGL inference route, not the authors' TensorFlow training pipeline.
-- The lesion geometry, timing, target-MSE representation, and fixed RNG seed are ours.
-- The mapped basin is still limited to one target morphology. One fixed-area geometry comparison is now available, but location, developmental timing, and broader geometry families remain open.
-- Low RGB error does not identify the internal mechanism, desired-state representation, or causal role of hidden channels.
-- No Goal Discovery claim is made here.
+This is a boundary for one morphology, lesion family, state, and stochastic protocol—not a universal maximum lesion size.
 
-The next scientific value comes from interventions whose outcomes are not already specified by the paper: lesion size/geometry/timing boundaries and selective perturbation of visible versus hidden cell state.
+Evidence: [`results/lesion_basin.json`](results/lesion_basin.json).
 
-## Phase-2 intervention map
+### G1 — geometry/orientation at fixed lesion area
 
-The fixed upstream models were then challenged without retraining. Central circular lesions were swept on the published 96x96 grid using exact state/RNG branches. At a 96-update horizon, the growing model fails even for a radius-2 lesion; the persistent model tolerates radius 2 but degrades sharply by radius 4; the regenerating model repairs through substantially larger lesions.
+**Prediction.** At the same rasterized lesion area, a 4:1 elongated lesion should recover better than the compact radius-16 circle because it exposes more intact boundary per removed cell.
 
-For the regeneration-trained `ex3` model, target MSE after 96 recovery updates is **0.000482** at radius 8, **0.003410** at radius 16, **0.014094** at radius 18, and **0.016404** at radius 20. The radius-18/20 cases are not merely slow versions of radius 16: through 512 updates, radius 16 remains in a low-error regime (0.00344), radius 18 stalls near 0.0149, and radius 20 eventually diverges to **0.03543**, while the matched undamaged trajectory remains near the target (**0.000318** at +512).
+The circle and both target-principal-axis ellipses remove exactly **793 grid cells**. The prediction was **mixed/not supported as a general rule**. Across future seeds 100–103, the circle has mean 96-step target MSE **0.00316**. The PC1-aligned ellipse is worse in **4/4** streams with mean **0.01933**, while the PC2-aligned ellipse is better in **4/4** with mean **0.00140**.
 
-This is a bounded basin result for one morphology, lesion geometry, formed state, and stochastic stream. It does not define a universal maximum lesion size.
+The clean comparison is circle versus PC1 ellipse: immediate target MSE is **0.02114** versus **0.02006**, and live cells removed are **522** versus **537**, yet their recovery regimes separate strongly. Thus lesion area and the simple “more exposed boundary helps” explanation are insufficient. The PC2 arm was substantially milder immediately (**0.01372**, 318 live cells removed), so the current evidence does not isolate a pure anatomical anisotropy law.
 
-### Geometry/orientation at fixed lesion area
+Evidence: [`results/geometry_probe.json`](results/geometry_probe.json).
 
-G1 prospectively tested a simple geometric prediction: at the same rasterized lesion area, a 4:1 elongated lesion should recover better than the compact radius-16 circle because it exposes more intact boundary per removed cell. The circle and both ellipses remove exactly **793 grid cells**; the ellipse long axes are derived from the two principal axes of the official target foreground rather than hand-labelled anatomy.
+### L1 — location/local support at matched immediate target error
 
-The generic prediction was **not supported**. Across future update seeds 100–103, the compact circle has mean 96-step target MSE **0.00316**. The PC1-aligned ellipse is worse in **4/4** streams with mean MSE **0.01933**, while the PC2-aligned ellipse is better in **4/4** with mean MSE **0.00140**. The seed-7 screening branch shows the same ordering.
+Five lesion centers were derived from the official target foreground (centroid and ±PC1/±PC2 positions), with radius selected using **only immediate post-lesion target MSE** to match the central radius-16 severity within 5%. The preregistered pair compared the lowest versus highest 3-pixel annulus live-cell support among matched candidates.
 
-The PC1 comparison is the clean causal result: its immediate target MSE (**0.02006**) and number of live cells removed (**537**) are close to the circle (**0.02114**, **522**), yet its recovery falls into the high-error regime. Therefore lesion pixel count alone does not explain the recovery boundary, and the simple "more exposed boundary should help" account is false as a general rule for this specimen.
+The directional prediction was supported in **4/4** future streams. `pc1_neg` has support **0.1043** and mean 96-step target MSE **0.00477**; the centroid has support **0.3052** and mean **0.00299**. Immediate target MSE is closely matched (**0.02146** versus **0.02070**).
 
-The PC2 arm is **not** a clean orientation-only contrast because it is milder at the moment of damage (immediate target MSE **0.01372**, **318** live cells removed). Do not promote the PC1-versus-PC2 split as isolated anatomical anisotropy without a severity-matched follow-up. The warranted conclusion is narrower: **geometry/orientation can move the recovery boundary even at fixed lesion area**, and at least one elongated orientation is substantially harder than the compact lesion despite closely matched immediate severity.
-
-Evidence: [`results/geometry_probe.json`](results/geometry_probe.json). The preregistered prediction/refuter and replication-level outcomes are stored in the artifact.
-
-### Location and local support at matched immediate target error
-
-L1 derived five candidate lesion centers from the official target foreground (centroid and ±PC1/±PC2 positions) and chose a radius for each using **only immediate post-lesion target MSE**, before recovery, to match the central radius-16 severity within 5%. The preregistered primary pair was the lowest versus highest 3-pixel annulus live-cell support among severity-matched candidates: `pc1_neg` versus `centroid`.
-
-The prediction was supported in **4/4** matched future streams. `pc1_neg` has annulus live-cell fraction **0.1043** and mean 96-step target MSE **0.00477**; the centroid has support **0.3052** and mean MSE **0.00299**. Immediate target MSE is closely matched (**0.02146** versus **0.02070**).
-
-This is evidence that **where damage occurs can change recovery even when immediate target error is held close**, and that local intact-cell support predicted the direction for this selected pair. It is not yet a general law of annulus support: the severity match required different radii (23 versus 15), mask areas differ, and only the preregistered extreme-support pair was run through recovery. Do not attach anatomical labels to the target-derived positions or treat this as location isolated from every geometric covariate.
+This establishes location dependence under closely matched immediate target error and supports local support for this selected contrast. It does **not** establish a universal annulus-support law or a pure location effect, because severity matching required different radii and mask areas.
 
 Evidence: [`results/location_probe.json`](results/location_probe.json).
 
-### Developmental timing at matched live-cell burden
+### T1 — developmental timing at matched live-cell burden
 
-T1 applied centered lesions at steps 48, 72, and 96, choosing lesion size from the pre-recovery state to remove approximately 25% of currently live cells. The same **radius-8** mask was selected independently at all three checkpoints, removing 25.8%, 23.1%, and 24.2% of live cells respectively. This makes the comparison unusually clean with respect to lesion geometry.
+Centered lesions were selected independently at steps 48, 72, and 96 to remove about 25% of currently live cells using only pre-recovery state. The same **radius-8** mask happened to be selected at all checkpoints, removing 25.8%, 23.1%, and 24.2% of live cells respectively.
 
-The preregistered prediction that earlier damage would recover at least as close to its matched undamaged branch as mature damage was **mixed**. Step 48 is worse than step 96 in **4/4** future streams (mean damaged-vs-undamaged RGB MSE **0.000646** versus **0.000413**). Step 72 is intermediate and not directionally separated from step 96 (mean **0.000432**; 2/4 streams better and 2/4 worse).
+**Prediction.** Earlier damage should recover at least as close to its matched undamaged branch as mature damage if ongoing development supplies additional corrective routes.
 
-The warranted conclusion is that recovery performance depends on **developmental state/timing** in this specimen; the simple monotonic claim that earlier developmental states provide more corrective capacity is not supported. This comparison does not isolate hidden history from visible developmental state, because the checkpoint states themselves differ.
+The result was **mixed**. Step 48 is worse than step 96 in **4/4** future streams: mean damaged-vs-undamaged RGB MSE **0.000646** versus **0.000413**. Step 72 is intermediate and not directionally separated from step 96 (**0.000432**; 2/4 streams better, 2/4 worse).
+
+Recovery therefore depends on developmental state/timing in this specimen, but the simple monotonic “earlier is more correctable” story is not supported. The comparison does not isolate hidden history from visible developmental state because the checkpoint states themselves differ.
 
 Evidence: [`results/timing_probe.json`](results/timing_probe.json).
 
-### Visible versus hidden state
+### H1/H2 — visible versus latent state and spatial consistency
 
-The 16 NCA channels permit a more diagnostic intervention. In the same spatial region we can erase only visible RGBA channels, erase only the 12 hidden channels, or erase all 16 channels.
+At radius 16, erasing only the 12 hidden channels while leaving visible RGBA intact is more disruptive than deleting the full local 16-channel state. Across four future streams, mean 96-step target MSE is **0.00875** hidden-zero versus **0.00316** full deletion. This establishes load-bearing latent state but does not identify a semantic goal, target map, or memory.
 
-At radius 8 all three perturbations are largely absorbed. At radius 16, however, erasing **only hidden state while leaving the visible morphology present** is more disruptive than deleting the entire local state: in the exact matched branch, 96-step target MSE is **0.01064** for hidden-only corruption versus **0.00341** for a full lesion and **0.00426** for visible-only damage.
+H2 tested the stronger consistency hypothesis without deleting hidden values. Complete 12-channel hidden vectors were spatially permuted inside the radius-16 mask while visible RGBA was left exactly unchanged and the multiset of hidden vectors was exactly preserved.
 
-That ordering survives four independently seeded future update streams from the same formed state. Hidden-only corruption is worse than full deletion in **4/4** streams; mean 96-step target MSE is **0.00875** hidden-only versus **0.00316** full deletion (undamaged mean **0.000679**).
+The prediction was strongly supported: hidden-vector shuffle is worse than full deletion in **4/4** streams and produces mean 96-step target MSE **0.06216**, compared with **0.00875** hidden-zero, **0.00316** full deletion, and **0.000679** undamaged. Spatial assignment/compatibility of latent state relative to visible occupancy is therefore causally load-bearing. Because the shuffle includes visibly occupied and empty cells, it does not isolate fine-grained live-cell latent identity, memory, or an explicit target representation.
 
-The conservative interpretation is that latent cell state is causally load-bearing and that compatibility between visible and hidden state matters. This does **not** establish that hidden channels are an explicit target, memory map, or semantic goal representation. A full lesion may be easier to repair precisely because it removes mutually inconsistent local state rather than preserving a visible cell with corrupted latent variables.
+Evidence: [`results/hidden_state_probe.json`](results/hidden_state_probe.json) and [`results/hidden_shuffle_probe.json`](results/hidden_shuffle_probe.json).
 
-H2 tested that consistency account without deleting the hidden values. Inside the same radius-16 region, the complete 12-channel hidden vectors were spatially permuted while visible RGBA was left exactly unchanged and the multiset of hidden vectors was exactly preserved. Across future seeds 100–103, hidden-vector shuffle is worse than full deletion in **4/4** streams and produces mean 96-step target MSE **0.06216**, compared with **0.00875** for hidden-zero, **0.00316** for full deletion, and **0.000679** for the undamaged control. This strongly supports spatial visible/latent compatibility as load-bearing rather than the zeroing result being merely generic hidden-state loss.
+### A1 — action availability and persistent post-blackout divergence
 
-The shuffle permutes vectors across all cells inside the mask, including cells with little/no visible occupancy. It therefore establishes that the spatial assignment of latent state relative to visible occupancy matters; it does **not** yet isolate fine-grained latent identity among only live cells, nor does it establish memory or a semantic target representation.
+A1 separates state corruption from temporary restriction of corrective action. All damaged arms begin from the **same radius-16 lesion**. For the first 0, 16, 32, or 64 recovery steps, updates inside the original lesion footprint are either allowed normally or suppressed by a per-cell update gate. The gate does not overwrite state and is applied after the native stochastic mask draw, preserving matched RNG use.
 
-Evidence: [`results/lesion_basin.json`](results/lesion_basin.json), [`results/geometry_probe.json`](results/geometry_probe.json), [`results/location_probe.json`](results/location_probe.json), [`results/hidden_state_probe.json`](results/hidden_state_probe.json), and [`results/hidden_shuffle_probe.json`](results/hidden_shuffle_probe.json).
+**Prediction.** Target error at 96 steps should worsen monotonically with blackout duration.
+
+The strict dose-order prediction is **mixed**: only 2/4 individual streams are monotonically ordered, and the mean 16- and 32-step arms are effectively tied/inverted. Mean 96-step target MSE is:
+
+| blackout | mean target MSE at +96 |
+|---:|---:|
+| 0 | **0.00316** |
+| 16 | **0.00739** |
+| 32 | **0.00735** |
+| 64 | **0.01401** |
+
+The more robust result is that **every nonzero blackout is worse than the normal damaged branch in every tested future stream**, and the 64-step blackout is clearly the most damaging regime.
+
+After all actions are restored, the restricted branches do not catch up over the tested 256-step horizon. Mean RGB divergence from the normal damaged branch changes from **0.00487 → 0.00953** for the 32-step blackout and **0.01134 → 0.01396** for the 64-step blackout between +96 and +256. At +256, both restricted arms also retain higher target MSE than the normal damaged arm in every tested seed.
+
+The warranted conclusion is that **timely local action availability is causally load-bearing for recovery, and a temporary early action restriction can leave persistent history-dependent consequences after the restriction is removed**. This is evidence of path dependence over the tested horizon, **not proof of formal unreachability** or a theorem about all longer futures.
+
+Evidence: [`results/action_gate_probe.json`](results/action_gate_probe.json). The result was independently executed in GitHub Actions after the original workstation went offline; the pinned upstream asset hashes and an all-ones gate identity check passed, followed by the existing Experiment 12 tests (`13 passed`).
+
+## Frozen white-box causal map
+
+This map is the completion product of issue #76. It freezes what the current external specimen supports before any blind Goal Discovery analysis or next-platform integration.
+
+| factor | prospective test/result | warranted causal conclusion | not established |
+|---|---|---|---|
+| challenge amount | central-radius basin | recovery has a finite tested basin | universal lesion-size threshold |
+| geometry/orientation | G1 simple boundary-length prediction mixed; PC1 ellipse fails despite matched immediate severity | lesion geometry/orientation can move the recovery boundary beyond pixel count | pure anatomical anisotropy or a universal shape law |
+| region/local support | L1 support prediction succeeds for the preregistered matched pair | where damage occurs and local intact support can matter | universal annulus-support law or geometry-free location effect |
+| developmental state | T1 earlier-is-easier prediction mixed; step 48 worse than step 96 | regenerative performance depends on developmental state/timing | monotonic youth/plasticity rule or isolated hidden-history effect |
+| latent-state consistency | H2 shuffle strongly worse than deletion while preserving hidden-vector multiset | visible/latent spatial compatibility is load-bearing | memory, semantic goal, explicit target map |
+| corrective action availability | A1 strict monotonic dose prediction mixed; all blackouts hurt and divergence persists after release | timely local action availability is load-bearing; temporary restriction can induce persistent path-dependent consequences | formal reachability/unreachability theorem |
+
+The important synthesis is not that any one ingredient is novel. It is that **the same externally authored regenerative system has experimentally separable failure determinants in challenge geometry, region/support, developmental state, latent-state consistency, and available corrective dynamics, and simple one-dimensional proxies repeatedly fail to capture the whole competence boundary**.
+
+## Transfer predictions
+
+The next independently authored developmental system should be used to test, prospectively rather than retrospectively, whether at least one of these relations transfers:
+
+1. matched nominal/visible damage can have different recovery outcomes because geometry or regional context differs;
+2. internally inconsistent state can be more damaging than complete local deletion;
+3. temporary restriction of corrective actions can leave lasting divergence after the action repertoire is restored.
+
+Failure to transfer is scientifically useful and should narrow the framework rather than trigger tuning of the external model.
+
+## Scope and limits
+
+- This is an NCA result, not biological evidence.
+- The CPU adapter mirrors the published quantized WebGL inference path, not the TensorFlow training pipeline.
+- The challenge families, metrics, lesion definitions, and action gate are project-authored.
+- Target MSE is one representation-dependent performance measure, not a semantic goal detector.
+- No experiment identifies hidden channels as memory, an explicit desired-state map, or a semantic goal representation.
+- No formal controllability/reachability theorem is claimed.
+- No Goal Discovery claim is made in the white-box phase.
+- No NCA weights were retrained.
 
 ## Reproduce
 
-Use the project environment, which already provides NumPy, Matplotlib, and pytest:
+Use the project environment:
 
 ```bash
 python3 experiments/12-growing-nca/fetch_upstream.py
@@ -131,11 +158,10 @@ python3 experiments/12-growing-nca/location_probe.py
 python3 experiments/12-growing-nca/timing_probe.py
 python3 experiments/12-growing-nca/hidden_state_probe.py
 python3 experiments/12-growing-nca/hidden_shuffle_probe.py
-python3 -m pytest -q experiments/12-growing-nca/test_model.py
+python3 experiments/12-growing-nca/action_gate_probe.py
+python3 -m pytest -q experiments/12-growing-nca/test_model.py experiments/12-growing-nca/test_action_gate.py
 ```
-
-The first command verifies the pinned upstream assets before any model is executed. The deterministic summary for RNG seed 7 is committed at [`results/characterization.json`](results/characterization.json).
 
 ## Next
 
-Do **not** retrain the NCA yet. G1 shows that fixed lesion area is insufficient, H2 shows that spatial visible/latent compatibility is strongly load-bearing even when the hidden-vector multiset is preserved, and L1 shows a location-dependent recovery difference under matched immediate target error. T1 shows developmental-state dependence without the predicted monotonic earlier-is-easier ordering. Execute the final preregistered matrix item in issue #76: **spatial/temporal update gating** to separate state corruption from insufficient action/reachability. Only after those white-box boundaries are understood should an opaque Goal Discovery package be attempted.
+The Experiment 12 white-box map is now frozen. **Do not add another NCA parameter sweep by default.** The next project step is issue #77: build the saved-evidence NCA workbench using the already accepted Panel/HoloViews/Bokeh stack and have the project owner review it. Only after that review should the project begin the post-NCA comparator/integration sequence or a blinded Goal Discovery benchmark.
