@@ -25,6 +25,7 @@ from src.cockpit.blind_calibration import (
 )
 from src.cockpit.candidate_relations import build_candidate_relations
 from src.cockpit.experiment_story import build_experiment_story, unavailable_story
+from src.cockpit.growing_nca import NCA_CSS, build_growing_nca_evidence
 from src.cockpit.laboratory import build_laboratory
 from src.cockpit.outcome_map import build_outcome_map
 from src.cockpit.probe_selection import build_probe_selection
@@ -236,13 +237,8 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
     )
     current_summary = pn.pane.Markdown(
         (
-            f"**Laboratory goal:** {html.escape(context['objective'])}  \n"
-            f"**Knowledge boundary:** {html.escape(context['knowledge_status'])}  \n"
-            f"**Next scientific question:** {html.escape(context['next_scientific_question'])}  \n"
-            f"**Current work:** `{html.escape(context['current_plan'])}` · "
-            f"**Unified wiki:** `{html.escape(context['wiki'])}` · "
-            f"**Integration:** {html.escape(context['integration_status'])}  \n"
-            f"**Running checkout:** `{html.escape(str(state.root))}` · "
+            f"**Current laboratory:** {html.escape(context['objective'])}  \n"
+            f"**Current work:** [`wiki/current.md`]({html.escape(context['current_plan'])}) · "
             f"`{revision}` · {working_tree}"
         ) if context else (
             "**Historical evidence snapshot.** Current priorities are owned by "
@@ -254,7 +250,7 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
         title="Goal Discovery Cockpit",
         accent_base_color="#d35400",
         header_background="#263238",
-        raw_css=[css, LAB_CSS],
+        raw_css=[css, LAB_CSS, NCA_CSS],
         sidebar=[
             "## Evidence filters",
             phase,
@@ -266,6 +262,9 @@ def build_app(state_path: Path | str = DEFAULT_STATE_PATH) -> pn.template.FastLi
         main=[
             current_summary,
             pn.Tabs(
+                ("Current · Growing NCA", build_growing_nca_evidence(
+                    state.root.parent / "experiments/12-growing-nca"
+                )),
                 ("Blind vector dynamics · P13", build_vector_dynamics(
                     state.root / "results/p13-vector-dynamics"
                 )),

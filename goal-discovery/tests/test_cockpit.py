@@ -161,8 +161,9 @@ def test_panel_cockpit_builds() -> None:
 
     app = build_app()
     assert app.title == "Goal Discovery Cockpit"
-    assert "Laboratory goal:" in app.main[0].object
+    assert "Current laboratory:" in app.main[0].object
     tabs = app.main[1]
+    assert tabs._names[0] == "Current · Growing NCA"
     assert "Prediction vs restoration · P10" in tabs._names
     assert "Blind sorting calibration · P9" in tabs._names
     assert "Composition · exploratory" in tabs._names

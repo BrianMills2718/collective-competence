@@ -162,6 +162,18 @@ python3 experiments/12-growing-nca/action_gate_probe.py
 python3 -m pytest -q experiments/12-growing-nca/test_model.py experiments/12-growing-nca/test_action_gate.py
 ```
 
+## Inspect the evidence workbench
+
+The owner-review UI consumes the committed Experiment 12 evidence package; it does not rerun the NCA or expose a generic parameter editor. From the repository root:
+
+```bash
+cd goal-discovery
+uv sync --extra visual-workbench
+uv run --extra visual-workbench panel serve src/cockpit/growing_nca_app.py --show --port 5011
+```
+
+The standalone page opens directly on the default H2 matched morphology comparison; use the narrow rail to switch among the frozen lesion-basin, geometry, location, developmental-timing, latent-consistency, and action-availability evidence families. If the committed source artifacts change, regenerate the validated visual replay package with `python experiments/12-growing-nca/workbench_evidence.py` from the repository root before serving the UI.
+
 ## Next
 
 The Experiment 12 white-box map is now frozen. **Do not add another NCA parameter sweep by default.** The next project step is issue #77: build the saved-evidence NCA workbench using the already accepted Panel/HoloViews/Bokeh stack and have the project owner review it. Only after that review should the project begin the post-NCA comparator/integration sequence or a blinded Goal Discovery benchmark.

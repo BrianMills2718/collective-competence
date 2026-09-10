@@ -1,0 +1,505 @@
+{
+  "default_family": "h2",
+  "evidence_mode": "saved replay for owner review; no new scientific inference",
+  "families": [
+    {
+      "artifact": "lesion_basin.json",
+      "baseline_label": "radius 16 \u00b7 repairing",
+      "changed": "Increase a central circular lesion from radius 16 to radius 18.",
+      "disposition": "descriptive baseline",
+      "id": "basin",
+      "intervention_label": "radius 18 \u00b7 stalled",
+      "label": "Lesion basin",
+      "match_note": "Same formed state and native seed-7 continuation stream; challenge amount differs by design.",
+      "not_established": "A universal maximum lesion size.",
+      "observed": "Radius 16 returns to the low-error regime; radius 18 stalls at substantially higher error.",
+      "plot": {
+        "kind": "line",
+        "points": [
+          {
+            "x": 2,
+            "y": 0.0006692756433039904
+          },
+          {
+            "x": 4,
+            "y": 0.0005647098296321929
+          },
+          {
+            "x": 8,
+            "y": 0.00048236025031656027
+          },
+          {
+            "x": 12,
+            "y": 0.0013149502919986844
+          },
+          {
+            "x": 14,
+            "y": 0.002464331453666091
+          },
+          {
+            "x": 16,
+            "y": 0.003409863915294409
+          },
+          {
+            "x": 18,
+            "y": 0.01409419160336256
+          },
+          {
+            "x": 20,
+            "y": 0.016404403373599052
+          }
+        ],
+        "title": "Central lesion response",
+        "x_label": "lesion radius",
+        "y_label": "target MSE after 96"
+      },
+      "prediction": "Calibration map: characterize the tested central-lesion recovery boundary.",
+      "prospective": false,
+      "refuter": "Not a directional preregistration; interpret only within the tested radii, state, geometry, and stochastic stream.",
+      "replications": [
+        {
+          "radius": 2,
+          "target_mse_after_96": 0.0006692756433039904,
+          "vs_undamaged_rgb_mse": 8.672410331200808e-05
+        },
+        {
+          "radius": 4,
+          "target_mse_after_96": 0.0005647098296321929,
+          "vs_undamaged_rgb_mse": 0.00012081975000910461
+        },
+        {
+          "radius": 8,
+          "target_mse_after_96": 0.00048236025031656027,
+          "vs_undamaged_rgb_mse": 0.0003872636007145047
+        },
+        {
+          "radius": 12,
+          "target_mse_after_96": 0.0013149502919986844,
+          "vs_undamaged_rgb_mse": 0.0012860017595812678
+        },
+        {
+          "radius": 14,
+          "target_mse_after_96": 0.002464331453666091,
+          "vs_undamaged_rgb_mse": 0.00214008754119277
+        },
+        {
+          "radius": 16,
+          "target_mse_after_96": 0.003409863915294409,
+          "vs_undamaged_rgb_mse": 0.0033542488235980272
+        },
+        {
+          "radius": 18,
+          "target_mse_after_96": 0.01409419160336256,
+          "vs_undamaged_rgb_mse": 0.01380088459700346
+        },
+        {
+          "radius": 20,
+          "target_mse_after_96": 0.016404403373599052,
+          "vs_undamaged_rgb_mse": 0.01600797474384308
+        }
+      ],
+      "visual": {
+        "after_96": {
+          "baseline": "basin-baseline-after96.png",
+          "intervention": "basin-intervention-after96.png"
+        },
+        "immediate": {
+          "baseline": "basin-baseline-immediate.png",
+          "intervention": "basin-intervention-immediate.png"
+        }
+      },
+      "visual_stream": "formed seed 7 continuation",
+      "warranted": "Recovery has a finite tested basin for this central-circle challenge family."
+    },
+    {
+      "artifact": "geometry_probe.json",
+      "baseline_label": "circle \u00b7 r16",
+      "changed": "Replace the 793-pixel radius-16 circle with an equal-area 4:1 ellipse aligned to target PC1.",
+      "disposition": "mixed",
+      "id": "g1",
+      "intervention_label": "PC1 ellipse \u00b7 4:1",
+      "label": "G1 \u00b7 Geometry",
+      "match_note": "Equal 793-pixel masks; immediate target error and live-cell removal are closely matched.",
+      "not_established": "Pure anatomical anisotropy or a universal shape law.",
+      "observed": "The PC1 ellipse is worse than the circle in 4/4 confirmation streams despite closely matched immediate severity.",
+      "plot": {
+        "kind": "bar",
+        "points": [
+          {
+            "x": "circle",
+            "y": 0.003164275025483221
+          },
+          {
+            "x": "PC1 ellipse",
+            "y": 0.019333521369844675
+          },
+          {
+            "x": "PC2 ellipse",
+            "y": 0.001404999231453985
+          }
+        ],
+        "title": "Mean target error by geometry",
+        "x_label": "geometry",
+        "y_label": "mean target MSE after 96"
+      },
+      "prediction": "At matched removed pixel count, elongated lesions should recover better than the compact circle because a local CA has more intact boundary per removed cell from which corrective dynamics can propagate.",
+      "prospective": true,
+      "refuter": "If both elongated orientations are consistently worse than the circle, reject the simple boundary-to-area explanation and treat shape/topological severing as load-bearing. A strong orientation split is evidence of anisotropy and must not be averaged away.",
+      "replications": [
+        {
+          "circle": 0.002635544165968895,
+          "ellipse_pc1": 0.019065652042627335,
+          "ellipse_pc2": 0.001116818399168551,
+          "seed": 100
+        },
+        {
+          "circle": 0.0038960452657192945,
+          "ellipse_pc1": 0.019781656563282013,
+          "ellipse_pc2": 0.0010834588902071118,
+          "seed": 101
+        },
+        {
+          "circle": 0.0027078851126134396,
+          "ellipse_pc1": 0.018920347094535828,
+          "ellipse_pc2": 0.0012942103203386068,
+          "seed": 102
+        },
+        {
+          "circle": 0.003417625557631254,
+          "ellipse_pc1": 0.019566429778933525,
+          "ellipse_pc2": 0.0021255093161016703,
+          "seed": 103
+        }
+      ],
+      "visual": {
+        "after_96": {
+          "baseline": "g1-baseline-after96.png",
+          "intervention": "g1-intervention-after96.png"
+        },
+        "immediate": {
+          "baseline": "g1-baseline-immediate.png",
+          "intervention": "g1-intervention-immediate.png"
+        }
+      },
+      "visual_stream": "future seed 100",
+      "warranted": "Geometry/orientation can move the recovery boundary beyond lesion pixel count; exposed boundary length alone is insufficient."
+    },
+    {
+      "artifact": "location_probe.json",
+      "baseline_label": "centroid \u00b7 higher support",
+      "changed": "Move the lesion from the target-derived centroid to the preregistered lower-annulus-support PC1-negative location while matching immediate target error.",
+      "disposition": "supported",
+      "id": "l1",
+      "intervention_label": "pc1_neg \u00b7 lower support",
+      "label": "L1 \u00b7 Location / support",
+      "match_note": "Immediate target error is matched within 5%; radii/areas differ, so geometry remains a caveat.",
+      "not_established": "A universal annulus-support law or a geometry-free pure location effect.",
+      "observed": "The lower-support location is worse in 4/4 future streams (mean target MSE 0.00477 vs 0.00299).",
+      "plot": {
+        "kind": "bar",
+        "points": [
+          {
+            "x": "centroid",
+            "y": 0.0029879880021326244
+          },
+          {
+            "x": "pc1_neg",
+            "y": 0.00477074773516506
+          }
+        ],
+        "title": "Matched-severity location outcome",
+        "x_label": "location",
+        "y_label": "mean target MSE after 96"
+      },
+      "prediction": "Among severity-matched target-derived locations, pc1_neg has lower intact live-cell support in the 3-pixel annulus (0.1043) than centroid (0.3052) and should therefore recover worse at 96 steps.",
+      "prospective": true,
+      "refuter": "If pc1_neg is not worse than centroid in most matched future streams, reject local annulus live-cell support as a sufficient directional predictor of location-dependent recovery.",
+      "replications": [
+        {
+          "centroid": 0.002670703688636422,
+          "pc1_neg": 0.006500819232314825,
+          "seed": 100
+        },
+        {
+          "centroid": 0.0024687382392585278,
+          "pc1_neg": 0.0033659073524177074,
+          "seed": 101
+        },
+        {
+          "centroid": 0.0031278282403945923,
+          "pc1_neg": 0.005495717283338308,
+          "seed": 102
+        },
+        {
+          "centroid": 0.0036846818402409554,
+          "pc1_neg": 0.0037205470725893974,
+          "seed": 103
+        }
+      ],
+      "visual": {
+        "after_96": {
+          "baseline": "l1-baseline-after96.png",
+          "intervention": "l1-intervention-after96.png"
+        },
+        "immediate": {
+          "baseline": "l1-baseline-immediate.png",
+          "intervention": "l1-intervention-immediate.png"
+        }
+      },
+      "visual_stream": "future seed 100",
+      "warranted": "Where damage occurs and local intact-cell support can matter for recovery in this specimen."
+    },
+    {
+      "artifact": "timing_probe.json",
+      "baseline_label": "step 48 \u00b7 undamaged control",
+      "changed": "Apply the same radius-8 challenge at developmental step 48 rather than only after the mature step-96 state.",
+      "disposition": "mixed",
+      "id": "t1",
+      "intervention_label": "step 48 \u00b7 radius-8 damage",
+      "label": "T1 \u00b7 Developmental timing",
+      "match_note": "Visual pair is same checkpoint/state history; cross-checkpoint summary uses the same radius-8 geometry and ~25% live-cell burden.",
+      "not_established": "A monotonic younger-is-more-plastic rule or an isolated hidden-history effect.",
+      "observed": "Step 48 is farther from its same-checkpoint control than step 96 in 4/4 streams; step 72 is mixed.",
+      "plot": {
+        "kind": "line",
+        "points": [
+          {
+            "x": 48,
+            "y": 0.0006461926095653325
+          },
+          {
+            "x": 72,
+            "y": 0.00043168137926841155
+          },
+          {
+            "x": 96,
+            "y": 0.0004125742561882362
+          }
+        ],
+        "title": "Damage/control divergence by checkpoint",
+        "x_label": "developmental checkpoint",
+        "y_label": "mean RGB MSE vs matched control after 96"
+      },
+      "prediction": "If ongoing developmental dynamics provide additional corrective routes, damage removing approximately 25% of currently live cells at steps 48 and 72 should recover at least as close to each checkpoint's matched undamaged branch as the corresponding mature step-96 damage.",
+      "prospective": true,
+      "refuter": "If mature step-96 damage is consistently closer to its matched undamaged branch than both earlier checkpoints, reject the simple earlier-development-is-more-correctable prediction and treat competence as phase/state dependent in the opposite direction.",
+      "replications": [
+        {
+          "seed": 100,
+          "t48": 0.0005721171037293971,
+          "t72": 0.0004156695504207164,
+          "t96": 0.0004270362260285765
+        },
+        {
+          "seed": 101,
+          "t48": 0.0006074713892303407,
+          "t72": 0.00043153477599844337,
+          "t96": 0.0005613963003270328
+        },
+        {
+          "seed": 102,
+          "t48": 0.0005099792615510523,
+          "t72": 0.00046712771290913224,
+          "t96": 0.0003808406472671777
+        },
+        {
+          "seed": 103,
+          "t48": 0.00089520268375054,
+          "t72": 0.0004123934777453542,
+          "t96": 0.0002810238511301577
+        }
+      ],
+      "visual": {
+        "after_96": {
+          "baseline": "t1-baseline-after96.png",
+          "intervention": "t1-intervention-after96.png"
+        },
+        "immediate": {
+          "baseline": "t1-baseline-immediate.png",
+          "intervention": "t1-intervention-immediate.png"
+        }
+      },
+      "visual_stream": "future seed 100",
+      "warranted": "Regenerative performance depends on developmental state/timing."
+    },
+    {
+      "artifact": "hidden_shuffle_probe.json",
+      "baseline_label": "full local deletion",
+      "changed": "Preserve visible RGBA and the full multiset of 12-channel hidden vectors, but spatially reassign those hidden vectors inside the radius-16 region.",
+      "disposition": "supported",
+      "id": "h2",
+      "intervention_label": "hidden-vector shuffle",
+      "label": "H2 \u00b7 Latent consistency",
+      "match_note": "Same formed state and future update stream; shuffle preserves visible RGBA and the hidden-vector multiset.",
+      "not_established": "Memory, a semantic goal, or an explicit target map in the hidden channels.",
+      "observed": "Hidden-vector shuffle is worse than full deletion in 4/4 streams (mean target MSE 0.06216 vs 0.00316).",
+      "plot": {
+        "kind": "bar",
+        "points": [
+          {
+            "x": "full",
+            "y": 0.003164275025483221
+          },
+          {
+            "x": "hidden shuffle",
+            "y": 0.062161712907254696
+          },
+          {
+            "x": "hidden zero",
+            "y": 0.008753045462071896
+          },
+          {
+            "x": "none",
+            "y": 0.000679057280649431
+          }
+        ],
+        "title": "Latent-state intervention outcome",
+        "x_label": "intervention",
+        "y_label": "mean target MSE after 96"
+      },
+      "prediction": "If the hidden-zero result is driven by visible/latent inconsistency rather than merely loss of hidden content, spatially shuffling intact 12-channel hidden vectors among radius-16 cells should also be damaging and should be worse than full deletion in most matched streams.",
+      "prospective": true,
+      "refuter": "If hidden-vector shuffle is close to undamaged while hidden-zero remains damaging, weaken the visible/latent inconsistency account and investigate zeroing or loss of specific hidden content instead.",
+      "replications": [
+        {
+          "full": 0.002635544165968895,
+          "hidden_shuffle": 0.07042814791202545,
+          "hidden_zero": 0.007855121977627277,
+          "none": 0.0007226222660392523,
+          "seed": 100
+        },
+        {
+          "full": 0.0038960452657192945,
+          "hidden_shuffle": 0.05804906412959099,
+          "hidden_zero": 0.008616874925792217,
+          "none": 0.0007101434748619795,
+          "seed": 101
+        },
+        {
+          "full": 0.0027078851126134396,
+          "hidden_shuffle": 0.06203170120716095,
+          "hidden_zero": 0.007676242850720882,
+          "none": 0.0005981869180686772,
+          "seed": 102
+        },
+        {
+          "full": 0.003417625557631254,
+          "hidden_shuffle": 0.058137938380241394,
+          "hidden_zero": 0.010863942094147205,
+          "none": 0.0006852764636278152,
+          "seed": 103
+        }
+      ],
+      "visual": {
+        "after_96": {
+          "baseline": "h2-baseline-after96.png",
+          "intervention": "h2-intervention-after96.png"
+        },
+        "immediate": {
+          "baseline": "h2-baseline-immediate.png",
+          "intervention": "h2-intervention-immediate.png"
+        }
+      },
+      "visual_stream": "future seed 100",
+      "warranted": "Visible/latent spatial compatibility is causally load-bearing, not merely the presence of hidden values."
+    },
+    {
+      "artifact": "action_gate_probe.json",
+      "baseline_label": "normal damaged recovery",
+      "changed": "Begin from identical radius-16 damage, then suppress updates only inside the original lesion footprint for the first 64 recovery steps.",
+      "disposition": "mixed",
+      "id": "a1",
+      "intervention_label": "64-step update blackout",
+      "label": "A1 \u00b7 Action availability",
+      "match_note": "Initial damaged state and future RNG are identical; the gate changes action availability without overwriting state.",
+      "not_established": "Formal unreachability or a theorem about all longer futures.",
+      "observed": "Every blackout hurts; 64 steps is clearly worst. The strict 0<16<32<64 dose ordering is mixed, and divergence persists after release through +256.",
+      "plot": {
+        "kind": "line",
+        "points": [
+          {
+            "x": 0,
+            "y": 0.003161657601594925
+          },
+          {
+            "x": 16,
+            "y": 0.007388805388472974
+          },
+          {
+            "x": 32,
+            "y": 0.007354866596870124
+          },
+          {
+            "x": 64,
+            "y": 0.01400775695219636
+          }
+        ],
+        "title": "Recovery versus action blackout",
+        "x_label": "blackout steps",
+        "y_label": "mean target MSE after 96"
+      },
+      "prediction": "With identical radius-16 damage, 96-step recovery error should worsen monotonically as updates inside the original lesion footprint are withheld for 0, 16, 32, or 64 steps.",
+      "prospective": true,
+      "refuter": "If longer action blackouts do not produce a monotonic worsening in most matched future streams, reject blackout duration as a simple directional predictor in this regime. If 96-step differences substantially shrink after all actions are restored through step 256, interpret them primarily as time-budget/delay costs; persistent divergence motivates path-dependence analysis, not an automatic claim of formal unreachability.",
+      "replications": [
+        {
+          "blackout_0": 0.002635544165968895,
+          "blackout_16": 0.005906566511839628,
+          "blackout_32": 0.00606895936653018,
+          "blackout_64": 0.0124288285151124,
+          "seed": 100
+        },
+        {
+          "blackout_0": 0.0038960452657192945,
+          "blackout_16": 0.009622639045119286,
+          "blackout_32": 0.008813316933810711,
+          "blackout_64": 0.014947573654353619,
+          "seed": 101
+        },
+        {
+          "blackout_0": 0.0027531986124813557,
+          "blackout_16": 0.005192971788346767,
+          "blackout_32": 0.007519958075135946,
+          "blackout_64": 0.013223625719547272,
+          "seed": 102
+        },
+        {
+          "blackout_0": 0.0033618423622101545,
+          "blackout_16": 0.008833044208586216,
+          "blackout_32": 0.00701723201200366,
+          "blackout_64": 0.015430999919772148,
+          "seed": 103
+        }
+      ],
+      "visual": {
+        "after_96": {
+          "baseline": "a1-baseline-after96.png",
+          "intervention": "a1-intervention-after96.png"
+        },
+        "immediate": {
+          "baseline": "a1-baseline-immediate.png",
+          "intervention": "a1-intervention-immediate.png"
+        }
+      },
+      "visual_stream": "future seed 100",
+      "warranted": "Timely local action availability is load-bearing; temporary restriction can leave persistent path-dependent consequences over the tested horizon."
+    }
+  ],
+  "representative_seed": 100,
+  "schema_version": 1,
+  "source_hashes": {
+    "action_gate_probe.json": "5d7538d82cb8a0cc423dc6a9aa6120bbc5643a1ddd924b18126dbe443e36780a",
+    "geometry_probe.json": "6f0ca7a2a67769c43df43df5b1b960d8184befa758c16af79e9e0e2b297391de",
+    "hidden_shuffle_probe.json": "359b7ebf271a50b7a99047057ab130b9146fdf8b425738862ee4ab4d32c4e0a4",
+    "lesion_basin.json": "8bef6472b4c3b64c79d45990a5bd033dfda94c98b8eb7e0ba30c6ed823ce6860",
+    "location_probe.json": "d6000b41c626e3e4ddca001c6d4338ded6f186169299352fc87cdb853cbb6fcb",
+    "timing_probe.json": "f1647c84450bf2f9099cf8c09878e9c31794114baceb6c717fe6744e4315fb07"
+  },
+  "target_reference": "authored-target-reference.png",
+  "upstream": {
+    "commit": "a12c7efa541b5770043a8d5470bffeacfd7b0435",
+    "inference_source": "public/ca.js",
+    "inference_source_git_blob": "d88738a487dab46abeedffe559f0d5b846cc11b3",
+    "repository": "distillpub/post--growing-ca"
+  }
+}
