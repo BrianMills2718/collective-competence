@@ -47,9 +47,9 @@ These distinctions are useful operationally, but regulation, observability, reac
 
 **Evidence:** [02 regulation](../experiments/02-regulation/README.md), [03 compensation](../experiments/03-redundant-transport/README.md), [04 adaptation](../experiments/04-route-learning/README.md).
 
-## 4. Regenerative competence separates desired-state information, current-state evidence, memory, and reachable action repertoire
+## 4. Regenerative competence separates desired-state information, current-state evidence, latent/developmental state, and reachable action repertoire
 
-Experiments 06–11 progressively isolate these roles rather than treating "regeneration" as one property:
+Experiments 06–11 progressively isolated several roles rather than treating "regeneration" as one property:
 
 | Distinction | What the constructed systems show |
 |---|---|
@@ -60,33 +60,37 @@ Experiments 06–11 progressively isolate these roles rather than treating "rege
 | **Current-state sensing vs reporter integrity** | Endogenous composition signals are causal, but false-healthy clamps block needed repair and secretion failure can drive overgrowth. |
 | **Desired-state memory vs current sensing** | Learned healthy signal levels can replace hard-coded target counts across several baseline compositions, but decaying memory creates a repair horizon and does not authenticate a failed current-state reporter. |
 
-The accompanying identifiability argument makes the last point formal: once a self-produced reporter is known to be broken, different hidden abundances can generate the same observation history while requiring different remaining repair actions. Exact repair therefore needs some additional information about current amount/lost amount; more control logic cannot manufacture an unobserved distinction.
+The accompanying identifiability argument makes the last point formal: once a self-produced reporter is known to be broken, different hidden abundances can generate the same observation history while requiring different remaining repair actions. Exact repair therefore needs some additional information about current/lost amount; more control logic cannot manufacture an unobserved distinction.
 
-The Levin-software and broader landscape audits show that the ingredients themselves — positional information, plasticity, pattern memory, cellular competency, reachability, reporter/diagnostic limitations, regenerative local controllers — have extensive prior art. The surviving scientific use of this decomposition is as a **set of falsifiable intervention hypotheses** to be tested across independently authored systems, not as a claim to have discovered the natural universal parts of competence.
+The Levin-software and broader landscape audits show that the ingredients themselves—positional information, plasticity, pattern memory, cellular competency, reachability, reporter/diagnostic limitations, regenerative local controllers—have extensive prior art. The surviving scientific use of this decomposition is as a **set of falsifiable intervention hypotheses** to test across independently authored systems, not a claim to have discovered universal natural parts of competence.
 
 **Evidence:** [06](../experiments/06-structural-regeneration/README.md), [07](../experiments/07-endogenous-size-control/README.md), [08](../experiments/08-boundary-memory/README.md), [09](../experiments/09-composition-lineage/README.md), [10](../experiments/10-endogenous-composition/README.md), [11](../experiments/11-learned-composition-memory/README.md).
 
-## 5. Selected capability distinctions survive the first richer external test—and expose non-obvious geometry and hidden-state behavior
+## 5. The first richer external system has a multidimensional recovery boundary, and simple scalar explanations repeatedly fail
 
-Experiment 12 is the first phase-2 specimen whose learned local rule was not authored by this project. A pinned CPU reproduction of the published Growing NCA lizard models recovers the intended hierarchy: a growth-trained model forms but does not maintain/repair the severe lesion, a persistence-trained model maintains an intact form but does not repair it, and the regeneration-trained model repairs it.
+Experiment 12 is the first phase-2 specimen whose learned local rule was not authored by this project. A pinned CPU reproduction of the published Growing NCA lizard models recovers the intended growth/persistence/regeneration hierarchy before project-specific interventions are applied.
 
-The fixed regenerating model has a **finite lesion-response basin** on the tested central-circle family. Radius 16 enters a low-error repaired regime, radius 18 stalls at much higher error, and radius 20 eventually diverges over a 512-update horizon while the matched undamaged model remains close to target.
+The fixed regenerating model has a **finite tested lesion-response basin**. Radius 16 enters a low-error repaired regime, radius 18 stalls, and radius 20 later diverges over 512 updates while the matched undamaged model remains close to target. This establishes a bounded response family, not a universal lesion-size threshold.
 
-A preregistered fixed-area geometry test shows that **lesion area alone is not sufficient**. A radius-16 circle and a 4:1 PC1-aligned ellipse each remove 793 grid cells and have closely matched immediate target error/live-cell removal, but the ellipse falls into a high-error regime across 4/4 confirmation streams (mean 96-step target MSE `0.01933` versus `0.00316` for the circle). This contradicts the simple prediction that more exposed intact boundary per removed cell should make elongated damage easier to repair. The orthogonal PC2 ellipse recovers better but is substantially less severe at the moment of damage, so the current evidence does **not** isolate a pure orientation/anatomy effect. The warranted result is that geometry/orientation can shift the recovery boundary beyond what lesion pixel count predicts.
+A preregistered fixed-area geometry test shows that **lesion area alone is insufficient**. A radius-16 circle and 4:1 PC1-aligned ellipse each remove 793 grid cells and have closely matched immediate error/live-cell removal, but the ellipse falls into a high-error regime in 4/4 future streams (mean target MSE `0.01933` versus `0.00316`). This contradicts the simple prediction that more exposed intact boundary should make elongated damage easier. The orthogonal ellipse was milder immediately, so the evidence does not isolate a pure orientation/anatomy law.
 
-A preregistered target-derived location test then matched candidate lesions by **immediate target error** rather than radius. The lowest-annulus-support location (`pc1_neg`, support `0.1043`) recovers worse than the highest-support centroid (`0.3052`) in 4/4 matched future streams, with mean 96-step target MSE `0.00477` versus `0.00299`; their immediate errors are `0.02146` and `0.02070`. This is evidence that recovery is location-dependent even at closely matched immediate target error and that local intact-cell support predicted this selected contrast. Because the matching procedure required different lesion radii/areas, it does not isolate a pure location effect or establish annulus support as a general predictor.
+A target-derived location test matched candidate lesions by immediate target error. The lowest-annulus-support location (`0.1043`) recovers worse than the highest-support centroid (`0.3052`) in 4/4 future streams (`0.00477` versus `0.00299` mean target MSE). This supports location dependence and one successful local-support prediction, not a universal support law because the matching procedure required different lesion radii/areas.
 
-A developmental-timing test used the same radius-8 geometry at steps 48, 72, and 96 while removing approximately one quarter of currently live cells at each checkpoint. Step 48 leaves greater residual divergence from its matched undamaged branch than step 96 in 4/4 future streams (mean RGB MSE `0.000646` versus `0.000413`), while step 72 is mixed (`0.000432`). This supports developmental-state dependence but not the preregistered monotonic prediction that earlier developmental states should be more correctable.
+A developmental-timing test used the same radius-8 geometry at steps 48, 72, and 96 while removing about one quarter of live cells. Step 48 leaves greater residual divergence from its matched undamaged branch than step 96 in 4/4 streams (`0.000646` versus `0.000413` mean RGB MSE); step 72 is mixed (`0.000432`). Developmental state matters, but the preregistered “earlier is more correctable” rule does not hold monotonically.
 
-The hidden-state result is stronger than simple latent-state importance. At radius 16, erasing only the 12 hidden channels while leaving visible RGBA intact is **more damaging than deleting the full local 16-channel state**. The ordering holds across 4/4 independently seeded future update streams (mean 96-step target MSE `0.00875` hidden-only versus `0.00316` full deletion). At radius 8, hidden-only corruption is largely absorbed.
+The latent-state evidence is stronger than generic hidden-state importance. At radius 16, hidden-only zeroing while leaving visible RGBA intact is worse than full local deletion (`0.00875` versus `0.00316` mean target MSE). H2 then preserves visible RGBA **and the full multiset of 12-channel hidden vectors** but spatially permutes those vectors. The result is much worse than full deletion in 4/4 streams (`0.06216` mean target MSE). The warranted conclusion is that **visible/latent spatial compatibility is causally load-bearing**. This does not identify memory, a semantic goal, or an explicit target map.
 
-H2 then preserves the hidden content but breaks its spatial assignment: complete 12-channel hidden vectors are shuffled inside the radius-16 mask while visible RGBA and the hidden-vector multiset remain unchanged. This is worse than full deletion in 4/4 streams, with mean 96-step target MSE `0.06216` (`0.00875` hidden-zero, `0.00316` full deletion, `0.000679` undamaged). The conservative conclusion is now that **visible/latent spatial compatibility is causally load-bearing**, not merely that hidden channels matter. The shuffle includes both visibly occupied and empty cells, so it does not yet isolate fine-grained live-cell latent identity. It also does not establish a semantic goal, memory map, or explicit target representation. Nor does one NCA result establish a substrate-independent decomposition; transfer requires successful prospective predictions on additional external systems.
+A1 isolates **action availability** without overwriting state. All arms begin from the same radius-16 lesion; updates inside the original lesion footprint are withheld for 0, 16, 32, or 64 recovery steps and then restored. The strict preregistered monotonic dose prediction is mixed—16 and 32 do not consistently order—but every nonzero blackout is worse than the normal damaged branch in every tested future stream, and the 64-step blackout is clearly worst. Mean 96-step target MSE is `0.00316`, `0.00739`, `0.00735`, and `0.01401` for 0/16/32/64 steps respectively.
 
-**Evidence:** [Experiment 12](../experiments/12-growing-nca/README.md), which owns the lesion-basin and hidden-state result-file links.
+The action effect is not merely an observation-time delay over the tested horizon. After all actions are restored, mean RGB divergence from the normal damaged branch increases from `0.00487` to `0.00953` for the 32-step arm and from `0.01134` to `0.01396` for the 64-step arm between +96 and +256. Both restricted arms retain higher target error than normal in every seed at +256. Thus **timely corrective action is causally load-bearing and temporary restriction can produce persistent path-dependent consequences**. This is not a proof of formal unreachability.
+
+Taken together, the frozen white-box map supports experimentally separable dependence on **challenge geometry, regional context/support, developmental state, latent-state consistency, and corrective action availability**. The scientific point is not that these ingredients are individually novel; it is that one independently authored system exposes a multidimensional competence/failure boundary that repeatedly defeats one-dimensional proxies.
+
+**Evidence:** [Experiment 12](../experiments/12-growing-nca/README.md), which owns exact result-file links, prospective predictions/refuters, and limits.
 
 ## 6. Morphogenesis reference work already shows non-trivial information/scaling limits
 
-The retained reaction-diffusion study reports a non-monotonic maximum reliably classifiable tissue size as morphogen decay length changes and an interior optimum in equilibration time. It is scientifically relevant to the current positional-information questions, but it is retrospective, based on only three usable decay-length points in the reported scaling curve, and has not been independently reproduced.
+The retained reaction-diffusion study reports a non-monotonic maximum reliably classifiable tissue size as morphogen decay length changes and an interior optimum in equilibration time. It is scientifically relevant to positional-information questions, but it is retrospective, based on only three usable decay-length points in the reported scaling curve, and has not been independently reproduced.
 
 **Evidence:** [morphogenesis scaling](../experiments/morphogenesis-scaling/README.md).
 
@@ -94,35 +98,29 @@ The retained reaction-diffusion study reports a non-monotonic maximum reliably c
 
 Several attractive metrics have proven narrower than their names. In sorting, binary recovery can remain perfect while recovery cost worsens; survivorship can make later episodes look cheaper; and an apparent watchdog history effect was a scan-cursor initial-condition effect. Repeated transient recovery also did not establish adaptation beyond a passive-attractor account.
 
-Earlier Goal Discovery work similarly found statistics that partly tracked determinism, unused capacity, or omitted variables rather than the richer interpretation initially attached to them. The durable rule is simple: **inspect what a measurement is conditional on before converting it into a competence or mechanism claim.**
+Earlier Goal Discovery work similarly found statistics that partly tracked determinism, unused capacity, or omitted variables rather than the richer interpretation initially attached to them. The durable rule is: **inspect what a measurement is conditional on before converting it into a competence or mechanism claim.**
 
-The external identifiability audit adds a second rule: recovering a stable trace property or likely specification is not by itself evidence of active competence. A passive attractor, invariant, one-shot controller, and active regulator can satisfy the same nominal criterion on ordinary trajectories; challenge/intervention data are needed to distinguish them.
+The external identifiability audit adds a second rule: recovering a stable trace property or likely specification is not by itself evidence of active competence. Challenge/intervention data are required to distinguish passive satisfaction from active maintenance, recovery, compensation, or adaptation.
 
-## 8. The prior-art audits narrow the contribution from phenomenon-building to predictive and inferential discipline
+## 8. Prior-art audits narrow the contribution from phenomenon-building to predictive and inferential discipline
 
-Two September 2026 audits changed the strategic interpretation of the programme:
+The September 2026 Levin-software and broader identifiability audits show that developmental/morphogenetic systems and many conceptual/inferential primitives we might otherwise build already exist.
 
-- the [Levin software ecosystem survey](reference/levin-software-ecosystem-survey.md) shows that many of the developmental/morphogenetic systems and conceptual primitives we might otherwise build already exist as executable prior work;
-- the [goal/competence identifiability survey](reference/goal-competence-identifiability-landscape.md) shows that underdetermination, behavioral equivalence, active discrimination, goal recognition, reward ambiguity, specification mining, and black-box model inference are also established ideas in adjacent fields.
+Therefore **"observe behavior, retain ambiguity, then intervene" is not itself a novelty claim**. The programme is only distinctive if its integrated competence framing adds validated value: predicting failure-boundary changes, producing calibrated abstention/equivalence classes, separating active correction from nominal satisfaction, or transferring an intervention decomposition across independently authored substrates where a simpler established method does not already answer the question.
 
-Therefore, **"observe behavior, retain ambiguity, then intervene" is not itself a novelty claim.** The programme is only distinctive if the competence framing adds validated value: for example, predicting failure-boundary changes, separating specification satisfaction from active correction, producing calibrated abstention on an external system, or transferring an intervention decomposition across substrates where a simpler established baseline does not already answer the question.
-
-This is a research-landscape conclusion rather than a native experimental result, but it now constrains how all experimental findings should be interpreted and presented.
+This landscape conclusion now constrains all experimental interpretation and implementation. Default engineering remains **Search → reuse → wrap → intervene → compare.**
 
 ## Evidence map
 
-For a one-line map of every native specimen, use [`experiments/README.md`](../experiments/README.md). For exact evidence, follow its links to the experiment README/code/results. Novelty constraints and reusable external systems live in the [reference index](reference/README.md). Older instrument-qualification work, audits, conjectures, and corrections remain searchable there and through the generated [scoreboard](scoreboard.md).
+For a one-line map of every native specimen, use [`experiments/README.md`](../experiments/README.md). For exact evidence, follow its links to experiment README/code/results. Novelty constraints and reusable external systems live in the [reference index](reference/README.md).
 
 ## What would count as progress now
 
-The next progress criterion is **prospective prediction plus calibrated inference in external systems**, not another isolated demonstration of a primitive already understood.
+The NCA white-box map is frozen. The immediate next progress criterion is **making that evidence inspectable without changing its semantics**, via issue #77's saved-evidence workbench and owner review.
 
-On the fixed external NCA:
+After review, progress should come from one of two tightly controlled paths:
 
-1. state predictions before testing whether recovery boundaries depend on lesion amount, geometry, region, developmental timing, latent-state consistency, or available update actions;
-2. use matched causal comparisons and preserve negative/falsifying outcomes;
-3. after the white-box map is understood, define rival candidate criteria and competence dimensions before withholding semantics;
-4. compare against a nearest-method baseline where its assumptions fit, including a passive-convergence/specification-satisfaction alternative;
-5. promote Goal Discovery only if it recovers the supported resolution, preserves surviving equivalence classes, and adds something that the baseline does not.
+1. **predictive transfer** — predeclare selected NCA-derived relations and test them in another independently authored developmental system; or
+2. **calibrated blind inference** — freeze a candidate criterion family and observation/intervention contract, then ask which goal/competence equivalence class is identifiable without semantic labels, compared with the nearest established baseline.
 
-A stronger later result would reproduce this pattern on another independently authored system selected for a different mechanism or substrate, rather than tuning the framework to the NCA alone.
+The external integration order remains reuse-first: Cellnition/RNM is the nearest reachability/path-dependence comparator if its licensing gate is explicitly passed; MinimalDevelopmentalComputation is the next high-priority independent developmental transfer specimen. A stronger result will survive such external comparison rather than accumulating more bespoke NCA sweeps.
