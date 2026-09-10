@@ -96,7 +96,13 @@ class NCA:
         self.rng = np.random.default_rng(seed)
         self.steps = 0
 
-    def step(self) -> None:
+    def step(self, update_gate: np.ndarray | None = None) -> None:
+        """Advance once, optionally suppressing updates without changing RNG use.
+
+        ``update_gate`` is a per-cell multiplier applied only after the native
+        stochastic update mask has been drawn. This is an intervention seam for
+        matched action-availability tests; it does not overwrite cell state.
+        """
         w1, b1 = self.layer1
         w2, b2 = self.layer2
         state = self.state
@@ -111,6 +117,15 @@ class NCA:
         update = hidden.reshape(-1, 128) @ w2 + b2
         update = _quantize(update.reshape(state.shape))
         mask = (self.rng.random((*state.shape[:2], 1)) <= 0.5).astype(np.float32)
+        if update_gate is not None:
+            gate = np.asarray(update_gate, dtype=np.float32)
+            if gate.shape == state.shape[:2]:
+                gate = gate[..., None]
+            if gate.shape != (*state.shape[:2], 1):
+                raise ValueError("update_gate must match the NCA grid")
+            if np.any((gate < 0.0) | (gate > 1.0)):
+                raise ValueError("update_gate values must lie in [0, 1]")
+            mask = mask * gate
         masked = _quantize(update * mask)
         pre = _max3(state[..., 3])
         post = _max3(state[..., 3] + masked[..., 3])
