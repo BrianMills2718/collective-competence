@@ -23,6 +23,7 @@ on:
       - 'scripts/audit_kernel_ablation.py'
       - 'scripts/probe_semantic_participant_types.py'
       - 'scripts/probe_graph_native_typing.py'
+      - 'scripts/probe_semantic_role_schema.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
@@ -57,6 +58,7 @@ on:
       - 'scripts/audit_kernel_ablation.py'
       - 'scripts/probe_semantic_participant_types.py'
       - 'scripts/probe_graph_native_typing.py'
+      - 'scripts/probe_semantic_role_schema.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
@@ -127,6 +129,8 @@ jobs:
         run: python scripts/probe_semantic_participant_types.py
       - name: Probe graph-native semantic typing and query invariance
         run: python scripts/probe_graph_native_typing.py
+      - name: Probe self-hosted semantic participant-type role schema
+        run: python scripts/probe_semantic_role_schema.py
 
   browser-smoke:
     runs-on: ubuntu-latest
