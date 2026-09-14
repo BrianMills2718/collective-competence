@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Validate scientific-hypergraph-v1 typed role bindings.
 
-This checks structural and schema validity, not scientific truth.
+This checks structural and schema validity, not scientific truth. Scientific role
+contracts are derived from the committed self-hosted role-schema hypergraph.
 """
 
 from __future__ import annotations
@@ -12,8 +13,8 @@ from collections import Counter, defaultdict, deque
 from pathlib import Path
 from typing import Any
 
-ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_CONTRACTS = ROOT / "wiki/reference/metamodel/scientific-role-contracts.json"
+from migrate_hypergraph_v0_to_v1 import DEFAULT_ROLE_SCHEMA, load_contracts
+
 ALLOWED_LAYERS = {"metamodel", "schema", "theory", "study", "evidence"}
 
 
@@ -32,9 +33,9 @@ def contract_indexes(contracts: dict[str, Any]) -> tuple[dict[str, str], dict[st
     return aliases, specs
 
 
-def validate(path: Path, contracts_path: Path = DEFAULT_CONTRACTS) -> tuple[int, int, int]:
+def validate(path: Path, role_schema_path: Path = DEFAULT_ROLE_SCHEMA) -> tuple[int, int, int]:
     doc = load_json(path)
-    contracts = load_json(contracts_path)
+    contracts = load_contracts(role_schema_path)
     aliases, specs = contract_indexes(contracts)
     if doc.get("model") != "scientific-hypergraph-v1":
         raise ValueError("model must be 'scientific-hypergraph-v1'")
@@ -72,7 +73,7 @@ def validate(path: Path, contracts_path: Path = DEFAULT_CONTRACTS) -> tuple[int,
         relation_type = edge.get("type")
         canonical = aliases.get(relation_type)
         if not canonical:
-            raise ValueError(f"{eid}: relation type {relation_type!r} has no role contract")
+            raise ValueError(f"{eid}: relation type {relation_type!r} has no role contract in {role_schema_path}")
         contract = specs[canonical]
         declared_roles = contract.get("roles", {})
         bindings = edge.get("bindings")
@@ -119,7 +120,6 @@ def validate(path: Path, contracts_path: Path = DEFAULT_CONTRACTS) -> tuple[int,
             if maximum is not None and count > int(maximum):
                 raise ValueError(f"{eid}: role {role_id!r} count {count} exceeds maximum {maximum}")
 
-        # Type links are part of the incidence model when the relation-type node is local.
         if relation_type in node_map:
             adjacency[eid].add(relation_type)
             adjacency[relation_type].add(eid)
@@ -143,9 +143,16 @@ def validate(path: Path, contracts_path: Path = DEFAULT_CONTRACTS) -> tuple[int,
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("fixture", type=Path)
-    parser.add_argument("--contracts", type=Path, default=DEFAULT_CONTRACTS)
+    parser.add_argument(
+        "--role-schema",
+        "--contracts",
+        dest="role_schema",
+        type=Path,
+        default=DEFAULT_ROLE_SCHEMA,
+        help="Authoritative committed role-schema hypergraph; legacy generated contract JSON is accepted explicitly.",
+    )
     args = parser.parse_args()
-    nodes, edges, bindings = validate(args.fixture, args.contracts)
+    nodes, edges, bindings = validate(args.fixture, args.role_schema)
     print(
         f"valid typed scientific hypergraph: 1 connected incidence component; "
         f"{nodes} nodes, {edges} hyperrelations, {bindings} typed role bindings"
