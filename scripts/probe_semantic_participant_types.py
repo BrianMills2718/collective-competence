@@ -3,8 +3,9 @@
 
 The current v1 role contracts constrain some participants with serialization-level
 `kind` labels such as `expression`, `value`, or `instrument`. This probe compiles
-those labels into semantic type identities, removes every node's `kind` field, and
-revalidates the same role/cardinality constraints using semantic participant types.
+those labels into semantic type identities defined in the shared semantic-type
+probe graph, removes every node's `kind` field, and revalidates the same
+role/cardinality constraints using semantic participant types.
 
 This is deliberately a normalization probe, not a v2 migration.
 """
@@ -22,6 +23,7 @@ from validate_typed_hypergraph_fixture import contracts_with_local_declarations,
 
 ROOT = Path(__file__).resolve().parents[1]
 DIR = ROOT / "wiki/reference/metamodel"
+SEMANTIC_TYPE_PROFILE = DIR / "scientific-semantic-types-v2-probe.json"
 FIXTURES = [
     DIR / "c2-q1-hypergraph-v1.json",
     DIR / "classical-mechanics-hypergraph-v1.json",
@@ -38,51 +40,42 @@ FIXTURES = [
     DIR / "uncertain-lineage-hypergraph-v1.json",
 ]
 
-# Preferred semantic names for recurring scientific/profile categories. Unknown
-# authoring categories are still compiled deterministically rather than becoming a
-# new carrier feature. This makes the probe total over current/future v1 fixtures.
-KIND_TO_SEMANTIC_TYPE = {
-    # `element` is the authoring-level top/wildcard category. In semantic form it
-    # means ModelElement, which every addressable node/relation/binding also is.
-    "element": "sci:ModelElement",
-    "type": "sci:ElementType",
-    "relationType": "sci:RelationType",
-    "roleType": "sci:RoleType",
-    "relationInstance": "sci:RelationInstance",
-    "roleBinding": "sci:RoleBinding",
-    "expression": "sci:Expression",
-    "constraint": "sci:Constraint",
-    "value": "sci:Value",
-    "uncertainty": "sci:Uncertainty",
-    "data": "sci:DataArtifact",
-    "instrument": "sci:Instrument",
-    "method": "sci:Method",
-    "operator": "sci:Operator",
-    "procedure": "sci:Procedure",
-    "status": "sci:Status",
-    "unit": "sci:Unit",
-    "assumption": "sci:Assumption",
-    "regime": "sci:Regime",
-    "condition": "sci:Condition",
-    "intervention": "sci:Intervention",
-    "observation": "sci:Observation",
-    "model": "sci:Model",
-    "policy": "sci:Policy",
-    "target": "sci:Target",
-}
+
+def read(path: Path) -> dict[str, Any]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_kind_map(path: Path = SEMANTIC_TYPE_PROFILE) -> dict[str, str]:
+    profile = read(path)
+    out: dict[str, str] = {}
+    for node in profile.get("nodes", []):
+        kind = node.get("authoringKind")
+        node_id = node.get("id")
+        if not isinstance(kind, str) or not isinstance(node_id, str):
+            continue
+        if kind in out and out[kind] != node_id:
+            raise ValueError(f"semantic type profile maps authoringKind {kind!r} ambiguously")
+        out[kind] = node_id
+    if out.get("element") != "sci:ModelElement":
+        raise ValueError("semantic type profile must map authoringKind 'element' to sci:ModelElement")
+    return out
+
+
+KIND_TO_SEMANTIC_TYPE = load_kind_map()
 
 
 def semantic_type_for_kind(kind: str) -> str:
-    """Map any authoring kind to a stable semantic type identity."""
+    """Map any authoring kind to a stable semantic type identity.
+
+    Shared mappings come from the graph-native semantic type profile. Unknown
+    theory-specific categories are canonicalized deterministically; this fallback
+    is syntax, not central ontology vocabulary.
+    """
     known = KIND_TO_SEMANTIC_TYPE.get(kind)
     if known is not None:
         return known
     token = re.sub(r"[^A-Za-z0-9]+", "_", kind).strip("_") or "Unknown"
     return f"sci:AuthoringCategory_{token}"
-
-
-def read(path: Path) -> dict[str, Any]:
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def type_list(value: Any) -> list[str]:
@@ -227,6 +220,7 @@ def main() -> int:
         f"{total_nodes} nodes / {total_edges} relations / {total_bindings} bindings / "
         f"{total_constrained} semantically type-constrained bindings"
     )
+    print(f"Semantic type profile supplies {len(KIND_TO_SEMANTIC_TYPE)} authoring-kind mappings")
     print(f"Observed authoring kinds ({len(observed_kinds)}): {', '.join(sorted(observed_kinds))}")
     if fallback_kinds:
         print(
