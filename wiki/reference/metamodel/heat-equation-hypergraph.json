@@ -1,0 +1,70 @@
+{
+  "model": "scientific-hypergraph-v0",
+  "nodes": [
+    {"id":"meta:RelationType","label":"Relation Type","layer":"metamodel","kind":"type"},
+    {"id":"meta:instanceOf","label":"instanceOf","layer":"metamodel","kind":"relationType"},
+    {"id":"schema:Equation","label":"Equation Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Measurement","label":"Measurement Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Analysis","label":"Analysis Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:QuantityValue","label":"Quantity Value Relation","layer":"schema","kind":"relationType"},
+
+    {"id":"heat:HeatEquation","label":"Heat Equation Model","layer":"theory","kind":"type"},
+    {"id":"heat:TemperatureField","label":"Temperature Field","layer":"theory","kind":"type"},
+    {"id":"heat:SpatialDomain","label":"Spatial Domain","layer":"theory","kind":"type"},
+    {"id":"heat:Time","label":"Time","layer":"theory","kind":"type"},
+    {"id":"heat:ThermalDiffusivity","label":"Thermal Diffusivity","layer":"theory","kind":"type"},
+    {"id":"heat:BoundaryCondition","label":"Boundary Condition","layer":"theory","kind":"type"},
+    {"id":"heat:InitialField","label":"Initial Field","layer":"theory","kind":"type"},
+    {"id":"heat:FieldTrajectory","label":"Field Trajectory","layer":"theory","kind":"type"},
+    {"id":"heat:SpatialPointSet","label":"Spatial Point Set","layer":"theory","kind":"type"},
+
+    {"id":"study:HeatSpecimen","label":"1-D conducting rod","layer":"study","kind":"element"},
+    {"id":"study:XDomain","label":"x in [0,L]","layer":"study","kind":"element"},
+    {"id":"study:Time","label":"time","layer":"study","kind":"element"},
+    {"id":"study:TemperatureField","label":"T(x,t)","layer":"study","kind":"element"},
+    {"id":"study:LeftBoundary","label":"T(0,t)=0","layer":"study","kind":"constraint"},
+    {"id":"study:RightBoundary","label":"T(L,t)=0","layer":"study","kind":"constraint"},
+    {"id":"study:InitialProfile","label":"T(x,0)=sin(pi x/L)","layer":"study","kind":"constraint"},
+    {"id":"study:Laplacian1D","label":"second spatial derivative","layer":"study","kind":"operator"},
+    {"id":"study:PDEExpression","label":"dT/dt = alpha d2T/dx2","layer":"study","kind":"expression"},
+    {"id":"study:FiniteDifferenceSolver","label":"finite-difference PDE solver","layer":"study","kind":"method"},
+    {"id":"study:InverseDiffusivityFit","label":"diffusivity inverse fit","layer":"study","kind":"method"},
+    {"id":"study:SensorArray","label":"temperature sensor array","layer":"study","kind":"instrument"},
+    {"id":"study:SamplingProcedure","label":"fixed-location time sampling","layer":"study","kind":"procedure"},
+    {"id":"study:SensorLocations","label":"sensor locations","layer":"study","kind":"element"},
+    {"id":"study:ModelFieldTrajectory","label":"simulated field trajectory","layer":"evidence","kind":"data"},
+    {"id":"study:ObservedSensorSeries","label":"sensor time series","layer":"evidence","kind":"data"},
+
+    {"id":"value:alpha","label":"1.00e-4","layer":"evidence","kind":"value"},
+    {"id":"value:alphaFit","label":"1.03e-4","layer":"evidence","kind":"value"},
+    {"id":"value:dAlpha","label":"+/-0.05e-4","layer":"evidence","kind":"uncertainty"},
+    {"id":"value:L","label":"1.00","layer":"evidence","kind":"value"},
+    {"id":"unit:m2s","label":"m^2/s","layer":"schema","kind":"unit"},
+    {"id":"unit:m","label":"m","layer":"schema","kind":"unit"}
+  ],
+  "hyperedges": [
+    {"id":"h:eq-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Equation","type":"meta:RelationType"}},
+    {"id":"h:measurement-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Measurement","type":"meta:RelationType"}},
+    {"id":"h:analysis-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Analysis","type":"meta:RelationType"}},
+    {"id":"h:qvalue-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:QuantityValue","type":"meta:RelationType"}},
+
+    {"id":"h:specimen-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:HeatSpecimen","type":"heat:HeatEquation"}},
+    {"id":"h:domain-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:XDomain","type":"heat:SpatialDomain"}},
+    {"id":"h:time-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:Time","type":"heat:Time"}},
+    {"id":"h:field-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:TemperatureField","type":"heat:TemperatureField"}},
+    {"id":"h:left-bc-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:LeftBoundary","type":"heat:BoundaryCondition"}},
+    {"id":"h:right-bc-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:RightBoundary","type":"heat:BoundaryCondition"}},
+    {"id":"h:initial-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:InitialProfile","type":"heat:InitialField"}},
+    {"id":"h:sensor-location-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:SensorLocations","type":"heat:SpatialPointSet"}},
+    {"id":"h:trajectory-type","type":"meta:instanceOf","layer":"evidence","roles":{"instance":"study:ModelFieldTrajectory","type":"heat:FieldTrajectory"}},
+
+    {"id":"h:alpha","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"heat:ThermalDiffusivity","subject":"study:HeatSpecimen","numericalValue":"value:alpha","unit":"unit:m2s"}},
+    {"id":"h:length","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"heat:SpatialDomain","subject":"study:HeatSpecimen","numericalValue":"value:L","unit":"unit:m"}},
+
+    {"id":"h:pde","type":"schema:Equation","layer":"study","roles":{"input:field":"study:TemperatureField","parameter:diffusivity":"h:alpha","parameter:length":"h:length","output":"study:TemperatureField","expression":"study:PDEExpression","independentVariable:space":"study:XDomain","independentVariable:time":"study:Time","domain":"study:XDomain","boundaryCondition:left":"study:LeftBoundary","boundaryCondition:right":"study:RightBoundary","initialCondition":"study:InitialProfile","operator":"study:Laplacian1D"}},
+    {"id":"h:solve","type":"schema:Analysis","layer":"study","roles":{"model":"h:pde","method":"study:FiniteDifferenceSolver","context:domain":"study:XDomain","output":"study:ModelFieldTrajectory"}},
+    {"id":"h:measurement","type":"schema:Measurement","layer":"study","roles":{"subject":"study:HeatSpecimen","measurand":"study:TemperatureField","procedure":"study:SamplingProcedure","instrument":"study:SensorArray","observation":"study:ObservedSensorSeries","result":"study:ObservedSensorSeries","context:locations":"study:SensorLocations"}},
+    {"id":"h:alpha-fit-value","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"heat:ThermalDiffusivity","subject":"study:HeatSpecimen","numericalValue":"value:alphaFit","unit":"unit:m2s","uncertainty":"value:dAlpha"}},
+    {"id":"h:inverse-fit","type":"schema:Analysis","layer":"study","roles":{"input":"study:ObservedSensorSeries","model":"h:pde","method":"study:InverseDiffusivityFit","context:sensors":"study:SensorLocations","output":"h:alpha-fit-value","uncertainty":"value:dAlpha"}}
+  ]
+}
