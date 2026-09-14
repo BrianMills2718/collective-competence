@@ -1,0 +1,76 @@
+{
+  "model": "scientific-hypergraph-v0",
+  "nodes": [
+    {"id":"meta:ModelElement","label":"Model Element","layer":"metamodel","kind":"type"},
+    {"id":"meta:RelationType","label":"Relation Type","layer":"metamodel","kind":"type"},
+    {"id":"meta:instanceOf","label":"instanceOf","layer":"metamodel","kind":"relationType"},
+    {"id":"schema:Equation","label":"Equation Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Measurement","label":"Measurement Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Analysis","label":"Analysis Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:QuantityValue","label":"Quantity Value Relation","layer":"schema","kind":"relationType"},
+
+    {"id":"osc:HarmonicOscillator","label":"Harmonic Oscillator","layer":"theory","kind":"type"},
+    {"id":"osc:Displacement","label":"Displacement","layer":"theory","kind":"type"},
+    {"id":"osc:Velocity","label":"Velocity","layer":"theory","kind":"type"},
+    {"id":"osc:Acceleration","label":"Acceleration","layer":"theory","kind":"type"},
+    {"id":"osc:Mass","label":"Mass","layer":"theory","kind":"type"},
+    {"id":"osc:SpringConstant","label":"Spring Constant","layer":"theory","kind":"type"},
+    {"id":"osc:AngularFrequency","label":"Angular Frequency","layer":"theory","kind":"type"},
+    {"id":"osc:ReferenceFrame","label":"Reference Frame","layer":"theory","kind":"type"},
+    {"id":"osc:Trajectory","label":"State Trajectory","layer":"theory","kind":"type"},
+    {"id":"osc:NoDamping","label":"No damping","layer":"theory","kind":"assumption"},
+    {"id":"osc:LinearSpring","label":"Linear Hooke-law spring","layer":"theory","kind":"assumption"},
+
+    {"id":"study:Oscillator1","label":"mass-spring oscillator","layer":"study","kind":"element"},
+    {"id":"study:LabFrame","label":"laboratory frame","layer":"study","kind":"element"},
+    {"id":"study:Time","label":"time","layer":"study","kind":"element"},
+    {"id":"study:dxdt","label":"dx/dt","layer":"study","kind":"element"},
+    {"id":"study:dvdt","label":"dv/dt","layer":"study","kind":"element"},
+    {"id":"study:ExprX","label":"dx/dt = v","layer":"study","kind":"expression"},
+    {"id":"study:ExprV","label":"dv/dt = -(k/m)x","layer":"study","kind":"expression"},
+    {"id":"study:ExprOmega","label":"omega = sqrt(k/m)","layer":"study","kind":"expression"},
+    {"id":"study:NumericalIntegrator","label":"ODE integrator","layer":"study","kind":"method"},
+    {"id":"study:HarmonicFit","label":"harmonic frequency fit","layer":"study","kind":"method"},
+    {"id":"study:CameraClock","label":"camera + clock","layer":"study","kind":"instrument"},
+    {"id":"study:TrackingProcedure","label":"tracking procedure","layer":"study","kind":"procedure"},
+    {"id":"study:ModelTrajectory","label":"model trajectory","layer":"evidence","kind":"data"},
+    {"id":"study:ObservedTrajectory","label":"observed position-time trajectory","layer":"evidence","kind":"data"},
+
+    {"id":"value:m1","label":"1.00","layer":"evidence","kind":"value"},
+    {"id":"unit:kg","label":"kg","layer":"schema","kind":"unit"},
+    {"id":"value:k4","label":"4.00","layer":"evidence","kind":"value"},
+    {"id":"unit:Npm","label":"N/m","layer":"schema","kind":"unit"},
+    {"id":"value:x0","label":"0.10","layer":"evidence","kind":"value"},
+    {"id":"unit:m","label":"m","layer":"schema","kind":"unit"},
+    {"id":"value:v0","label":"0.00","layer":"evidence","kind":"value"},
+    {"id":"unit:mps","label":"m/s","layer":"schema","kind":"unit"},
+    {"id":"value:omegaTheory","label":"2.00","layer":"evidence","kind":"value"},
+    {"id":"value:omegaFit","label":"2.01","layer":"evidence","kind":"value"},
+    {"id":"value:dOmega","label":"+/-0.03","layer":"evidence","kind":"uncertainty"},
+    {"id":"unit:rps","label":"rad/s","layer":"schema","kind":"unit"}
+  ],
+  "hyperedges": [
+    {"id":"h:eq-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Equation","type":"meta:RelationType"}},
+    {"id":"h:measurement-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Measurement","type":"meta:RelationType"}},
+    {"id":"h:analysis-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Analysis","type":"meta:RelationType"}},
+    {"id":"h:qvalue-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:QuantityValue","type":"meta:RelationType"}},
+
+    {"id":"h:osc-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:Oscillator1","type":"osc:HarmonicOscillator"}},
+    {"id":"h:frame-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:LabFrame","type":"osc:ReferenceFrame"}},
+
+    {"id":"h:m-value","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"osc:Mass","subject":"study:Oscillator1","numericalValue":"value:m1","unit":"unit:kg"}},
+    {"id":"h:k-value","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"osc:SpringConstant","subject":"study:Oscillator1","numericalValue":"value:k4","unit":"unit:Npm"}},
+    {"id":"h:x0-value","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"osc:Displacement","subject":"study:Oscillator1","numericalValue":"value:x0","unit":"unit:m","context":"study:LabFrame"}},
+    {"id":"h:v0-value","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"osc:Velocity","subject":"study:Oscillator1","numericalValue":"value:v0","unit":"unit:mps","context":"study:LabFrame"}},
+
+    {"id":"h:dxdt-law","type":"schema:Equation","layer":"study","roles":{"input":"osc:Velocity","output":"study:dxdt","expression":"study:ExprX","independentVariable":"study:Time","initialCondition":"h:x0-value","context":"study:LabFrame"}},
+    {"id":"h:dvdt-law","type":"schema:Equation","layer":"study","roles":{"input:state":"osc:Displacement","parameter:k":"h:k-value","parameter:m":"h:m-value","output":"study:dvdt","expression":"study:ExprV","independentVariable":"study:Time","initialCondition":"h:v0-value","assumption:noDamping":"osc:NoDamping","assumption:linearSpring":"osc:LinearSpring","context":"study:LabFrame"}},
+    {"id":"h:omega-law","type":"schema:Equation","layer":"study","roles":{"input:k":"h:k-value","input:m":"h:m-value","output":"h:omega-theory","expression":"study:ExprOmega"}},
+    {"id":"h:omega-theory","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"osc:AngularFrequency","subject":"study:Oscillator1","numericalValue":"value:omegaTheory","unit":"unit:rps"}},
+
+    {"id":"h:trajectory-solve","type":"schema:Analysis","layer":"study","roles":{"model:x":"h:dxdt-law","model:v":"h:dvdt-law","input:x0":"h:x0-value","input:v0":"h:v0-value","method":"study:NumericalIntegrator","context":"study:LabFrame","output":"study:ModelTrajectory"}},
+    {"id":"h:position-measurement","type":"schema:Measurement","layer":"study","roles":{"subject":"study:Oscillator1","measurand":"osc:Displacement","procedure":"study:TrackingProcedure","instrument":"study:CameraClock","observation":"study:ObservedTrajectory","result":"study:ObservedTrajectory","context":"study:LabFrame"}},
+    {"id":"h:omega-fit","type":"schema:Analysis","layer":"study","roles":{"input":"study:ObservedTrajectory","model":"h:trajectory-solve","method":"study:HarmonicFit","context":"study:LabFrame","output":"h:omega-fit-value","uncertainty":"value:dOmega"}},
+    {"id":"h:omega-fit-value","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"osc:AngularFrequency","subject":"study:Oscillator1","numericalValue":"value:omegaFit","unit":"unit:rps","uncertainty":"value:dOmega","context":"study:LabFrame"}}
+  ]
+}
