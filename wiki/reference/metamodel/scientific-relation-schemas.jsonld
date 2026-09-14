@@ -27,6 +27,15 @@
     {"@id":"sci:distributionModel","@type":"sci:RoleType","rdfs:label":"model"},
     {"@id":"sci:distributionContext","@type":"sci:RoleType","rdfs:label":"context"},
 
+    {"@id":"sci:RepresentationRelation","@type":"sci:RelationType","rdfs:label":"Representation Relation"},
+    {"@id":"sci:representationSource","@type":"sci:RoleType","rdfs:label":"source"},
+    {"@id":"sci:representationTransform","@type":"sci:RoleType","rdfs:label":"transform"},
+    {"@id":"sci:representationOutput","@type":"sci:RoleType","rdfs:label":"output"},
+    {"@id":"sci:representationScale","@type":"sci:RoleType","rdfs:label":"scale"},
+    {"@id":"sci:representationAssumption","@type":"sci:RoleType","rdfs:label":"assumption"},
+    {"@id":"sci:representationLoss","@type":"sci:RoleType","rdfs:label":"information loss / error"},
+    {"@id":"sci:representationContext","@type":"sci:RoleType","rdfs:label":"context"},
+
     {"@id":"sci:ProcessRelation","@type":"sci:RelationType","rdfs:label":"Process Relation"},
     {"@id":"sci:processParticipant","@type":"sci:RoleType","rdfs:label":"participant"},
     {"@id":"sci:processInput","@type":"sci:RoleType","rdfs:label":"input"},
