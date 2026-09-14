@@ -16,6 +16,7 @@ on:
       - 'scripts/check_local_relation_schema.py'
       - 'scripts/check_gauge_equivalence.py'
       - 'scripts/check_stochastic_pde.py'
+      - 'scripts/check_uncertain_lineage.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
@@ -42,6 +43,7 @@ on:
       - 'scripts/check_local_relation_schema.py'
       - 'scripts/check_gauge_equivalence.py'
       - 'scripts/check_stochastic_pde.py'
+      - 'scripts/check_uncertain_lineage.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
@@ -95,6 +97,8 @@ jobs:
         run: python scripts/check_gauge_equivalence.py
       - name: Check stochastic PDE random-field composition
         run: python scripts/check_stochastic_pde.py
+      - name: Check uncertain lineage and identity semantics
+        run: python scripts/check_uncertain_lineage.py
 
   browser-smoke:
     runs-on: ubuntu-latest
