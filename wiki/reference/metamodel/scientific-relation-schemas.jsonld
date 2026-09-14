@@ -18,6 +18,13 @@
     {"@id":"sci:processPrecondition","@type":"sci:RoleType","rdfs:label":"precondition"},
     {"@id":"sci:processEffect","@type":"sci:RoleType","rdfs:label":"effect"},
 
+    {"@id":"sci:AnalysisRelation","@type":"sci:RelationType","rdfs:label":"Analysis Relation"},
+    {"@id":"sci:analysisInput","@type":"sci:RoleType","rdfs:label":"input"},
+    {"@id":"sci:analysisMethod","@type":"sci:RoleType","rdfs:label":"method"},
+    {"@id":"sci:analysisAssumption","@type":"sci:RoleType","rdfs:label":"assumption"},
+    {"@id":"sci:analysisOutput","@type":"sci:RoleType","rdfs:label":"output"},
+    {"@id":"sci:analysisAccess","@type":"sci:RoleType","rdfs:label":"access relation"},
+
     {"@id":"sci:MeasurementRelation","@type":"sci:RelationType","rdfs:label":"Measurement Relation"},
     {"@id":"sci:measurementSubject","@type":"sci:RoleType","rdfs:label":"subject"},
     {"@id":"sci:measurementMeasurand","@type":"sci:RoleType","rdfs:label":"measurand"},
