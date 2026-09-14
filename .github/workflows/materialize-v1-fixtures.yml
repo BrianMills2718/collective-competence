@@ -1,0 +1,52 @@
+name: Materialize Typed Hypergraph Fixtures
+
+on:
+  push:
+    branches:
+      - docs/scientific-metamodel
+    paths:
+      - 'wiki/reference/metamodel/*-hypergraph.json'
+      - 'wiki/reference/metamodel/*-hypergraph-v0.json'
+      - 'wiki/reference/metamodel/scientific-role-schema-v1.json'
+      - 'scripts/migrate_hypergraph_v0_to_v1.py'
+      - 'scripts/materialize_v1_fixtures.py'
+      - '.github/workflows/materialize-v1-fixtures.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: docs/scientific-metamodel
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Materialize all typed-role v1 fixtures
+        run: python scripts/materialize_v1_fixtures.py
+      - name: Commit generated v1 fixtures when changed
+        run: |
+          paths=(
+            wiki/reference/metamodel/c2-q1-hypergraph-v1.json
+            wiki/reference/metamodel/classical-mechanics-hypergraph-v1.json
+            wiki/reference/metamodel/harmonic-oscillator-hypergraph-v1.json
+            wiki/reference/metamodel/first-order-reaction-hypergraph-v1.json
+            wiki/reference/metamodel/ornstein-uhlenbeck-hypergraph-v1.json
+            wiki/reference/metamodel/heat-equation-hypergraph-v1.json
+            wiki/reference/metamodel/random-walk-diffusion-multiscale-hypergraph-v1.json
+            wiki/reference/metamodel/calibration-covariance-hypergraph-v1.json
+          )
+          if [ -z "$(git status --porcelain -- "${paths[@]}")" ]; then
+            echo 'Typed-role v1 fixtures already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "${paths[@]}"
+          git commit -m 'Materialize typed-role v1 scientific fixtures'
+          git push origin HEAD:docs/scientific-metamodel
