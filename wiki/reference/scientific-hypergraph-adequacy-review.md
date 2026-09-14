@@ -5,21 +5,44 @@ lifecycle: active
 ---
 # Scientific hypergraph adequacy review
 
-[Hypergraph kernel](scientific-hypergraph-kernel.md) · [Generated viewer](scientific-hypergraph-viewer.md) · [Prior-art audit](scientific-model-metamodel-prior-art.md)
+[Hypergraph kernel](scientific-hypergraph-kernel.md) · [v2 normalization probe](scientific-hypergraph-normalization-v2-probe.md) · [Generated viewer](scientific-hypergraph-viewer.md) · [Prior-art audit](scientific-model-metamodel-prior-art.md)
 
 ## Why this review exists
 
-The current stress-test record is encouraging, but it is also easy to overinterpret.
-
 A typed n-ary hypergraph is an extremely general representation substrate. With sufficiently unconstrained local `RelationType` and `RoleType` declarations, it can encode almost arbitrary structured data. Therefore:
 
-> **“A domain can be encoded without adding a kernel primitive” is necessary evidence of expressive adequacy, but it is weak evidence that the scientific metamodel is good.**
+> **“A domain can be encoded without adding a kernel primitive” is necessary evidence of expressive adequacy, but weak evidence that the scientific metamodel is good.**
 
-The evaluation standard must move from *representability* to *semantic economy, reuse, validation power, compositionality, interoperability, scientific queryability, and minimality*.
+The evaluation standard has therefore moved from mere representability to:
 
-## What the current tests do establish
+- semantic economy and cross-domain reuse;
+- mechanical validation power;
+- higher-order compositionality;
+- query invariance;
+- representation independence;
+- interoperability with established standards;
+- authoring economy; and
+- kernel minimality.
 
-The v1 fixtures demonstrate that one representation can carry, without duplicating the semantic substrate:
+## Current architecture
+
+The project now distinguishes four levels without splitting them into separate semantic stores:
+
+```text
+Hypergraph carrier/kernel
+    ↓
+Shared scientific schema/profile
+    ↓
+Theory/domain schema
+    ↓
+Study/evidence instances
+```
+
+The carrier is a meta-representation substrate. The reusable scientific profile is where Equation, Measurement, Analysis, Distribution, Representation, Access, Claim, Identifiability, Experiment, QuantityValue, and similar scientific semantics live.
+
+## What the current tests establish
+
+The current v1 scientific fixtures carry, in one representation:
 
 - deterministic equations and continuous dynamics;
 - stochastic processes and random fields;
@@ -32,48 +55,20 @@ The v1 fixtures demonstrate that one representation can carry, without duplicati
 - dynamic topology and entity creation;
 - gauge-equivalent representations with preserved invariants;
 - uncertain/model-dependent lineage identity;
-- higher-order composition in which relation instances participate in other relations;
-- evidence/claims that target one specific role assignment through an addressable `RoleBinding`.
+- higher-order composition in which relation instances participate in other relations; and
+- evidence/claims targeting one specific role assignment through an addressable `RoleBinding`.
 
-The validator rejects malformed models, including violations of shared and theory-local role cardinalities, unresolved binding targets, duplicate binding IDs, and node/relation/binding identity collisions. The viewer derives multiple projections from the same graph and keeps fixture-local identities isolated.
+The validator rejects malformed models including shared/local role-cardinality violations, unresolved participants, unresolved binding targets, duplicate binding IDs, and node/relation/binding identity collisions.
 
-These are real results.
-
-## Carrier versus scientific semantics
-
-`ModelElement + typed n-ary relation + roles` is closer to a **meta-representation substrate** than a complete scientific metamodel. Scientific value comes from the stable reusable schemas, constraints, queries, and alignments layered over it.
-
-The project should therefore distinguish explicitly:
-
-```text
-Hypergraph carrier/kernel
-    ↓
-Scientific schema/profile
-    ↓
-Theory/domain schema
-    ↓
-Study/evidence instance
-```
-
-Calling the carrier general does not make its scientific semantics general. The shared schema/profile is what must demonstrate scientific reuse.
+These are real results, but they do not by themselves prove that the carrier is minimal or the profile complete.
 
 ## Local schemas: extensibility versus escape hatch
 
-Theory-local `RelationType` declarations are necessary for extensibility. But if every difficult distinction were solved by inventing a local relation, the shared scientific schema would become vacuous.
+Theory-local RelationTypes are necessary for extensibility, but would make the shared profile vacuous if most difficult distinctions were solved locally.
 
-A local schema is justified when the relation is genuinely theory-specific. A relation should be considered for promotion into the shared scientific schema when it:
+The measured result does **not** show that failure mode.
 
-1. recurs across independent domains;
-2. supports the same scientific queries in those domains;
-3. has stable role semantics and constraints;
-4. maps coherently to established standards; and
-5. reduces authoring/query complexity rather than merely centralizing vocabulary.
-
-No promotion should occur merely because a relation is interesting.
-
-### Measured result: local schemas are not dominating
-
-`audit_scientific_hypergraph_adequacy.py` currently reports across the 13 scientific fixtures:
+Across the 13 scientific fixtures:
 
 ```text
 scientific relation instances: 128
@@ -85,7 +80,7 @@ scientific typed bindings: 691
   local-schema:   51 =  7.4%
 ```
 
-The local relations are concentrated in the deliberately theory-specific tests:
+The local relations are concentrated in intentionally theory-specific cases:
 
 ```text
 topo:DivisionRelation
@@ -95,7 +90,7 @@ lin:LineageAssignmentRelation
 lin:LineageLinkRelation
 ```
 
-Meanwhile the reusable scientific relations show broad cross-domain reuse:
+Shared relation reuse is broad:
 
 ```text
 EquationRelation       23 instances / 11 domains
@@ -110,157 +105,197 @@ IdentifiabilityRelation 5 / 3
 ExperimentRelation      2 / 2
 ```
 
-This does **not** prove the schema is optimal, but it materially weakens the concern that representability is being purchased mainly through bespoke local relations.
+This does not prove optimality, but it is evidence that the shared scientific profile is doing substantial semantic work rather than merely delegating difficult cases to bespoke local schemas.
+
+A local relation should be considered for promotion only when it recurs across independent domains, supports the same queries, has stable role semantics, maps coherently to standards, and reduces modeling/query complexity.
 
 ## Resolved design decision: RoleBinding is first-class when addressable
 
-The earlier implementation contradicted the kernel prose: `RoleBinding` was described as a first-class `ModelElement`, while v1 serialized bindings only as nested objects and did not allow other relations to target a binding ID.
+The earlier implementation described RoleBinding as first-class while serializing it only as nested structure. That inconsistency is now resolved.
 
-We chose the first-class design and implemented it.
+A binding may remain anonymous when no external reference is needed. When it has an `id`:
 
-A binding may remain anonymous when no scientific object needs to refer to it. When a binding has an `id`:
+- the ID shares the global namespace with nodes and relation instances;
+- another relation may target that binding directly;
+- validator connectivity includes it;
+- unresolved binding references fail;
+- duplicate/colliding binding IDs fail;
+- the viewer materializes it as a `roleBinding` element; and
+- the inspector exposes parent relation, canonical RoleType, qualifier, participant, and inbound relations.
 
-- the ID shares the global identity namespace with nodes and relation instances;
-- another relation may use the binding ID as a participant;
-- validator connectivity includes the binding as incidence structure;
-- missing binding references fail validation;
-- duplicate binding IDs fail validation;
-- node/relation/binding identity collisions fail validation;
-- the viewer materializes the binding as a `roleBinding` element;
-- the inspector exposes parent relation, canonical `RoleType`, qualifier, participant, and inbound relations targeting the binding.
+The structural fixture demonstrates a ClaimRelation scoped to one specific `analysisModel` assignment rather than to the whole AnalysisRelation or model.
 
-The structural fixture `role-binding-epistemics-hypergraph-v1.json` demonstrates:
+This gives RoleBinding a concrete carrier-level capability: the epistemic object can be one participant-to-role assignment.
+
+## Kernel ablation result
+
+Ablation now gives evidence about the proposed kernel list rather than relying on names.
+
+Current measured result:
 
 ```text
-AnalysisRelation
-  analysisModel -> ModelA
-      ^
-      |
-  addressable RoleBinding
-      ^
-      |
-ClaimRelation.scope
+RelationType node-kind markers demoted:  8  -> fixtures still validate
+RoleType node-kind markers demoted:     21  -> fixtures still validate
+ElementType/type markers demoted:       89  -> fixtures still validate
+
+Expression/Constraint/Value kind markers erased: 85
 ```
 
-This is scientifically useful when the epistemic object is not a whole relation or participant, but one assignment of a participant to a role—for example a disputed causal-role assignment, uncertain entity-to-track association, parameter-to-model correspondence, or provenance for one calculation input.
+Erasing Expression/Constraint/Value kinds initially breaks only scientific-schema participant-kind checks. If those checks are relaxed to generic model elements, all 13 scientific fixtures validate.
 
-The prose and implementation now agree on `RoleBinding`.
+Interpretation:
 
-## What the current tests still do **not** establish
+- **relation-schema identity remains necessary**, but `kind: relationType` is not an irreducible carrier feature;
+- **role identity/declaration remains necessary**, but `kind: roleType` is not an irreducible carrier feature;
+- `ElementType` as a dedicated serialization/node-kind category is not currently structurally necessary;
+- Expression, Constraint, Value, Instrument, Method, Procedure, etc. behave like shared scientific/profile types, not incidence machinery;
+- first-class RoleBinding has stronger evidence for retention because direct epistemic reference to one assignment is both useful and mechanically tested.
 
-### Kernel minimality has not been demonstrated
+### Reduced-carrier candidate
 
-The current claimed list is:
+The evidence now motivates a smaller carrier candidate:
 
 ```text
-ModelElement
-ElementType
-RelationType
-RoleType
+ModelElement identity
 RelationInstance
 RoleBinding
-Constraint
-Expression
-Value
+
+plus graph/bootstrap semantics for:
+  type assignment / specialization
+  relation-schema identity
+  role identity / declaration
 ```
 
-Some items may be reducible to schemas/types over a smaller carrier.
+`RelationInstance.type` and `RoleBinding.role` remain structural pointers in the current proposal because they are needed to interpret incidence records without an infinite bootstrap regress.
 
-In particular:
+v1 has **not** been rewritten to this candidate. Its explicit kind markers remain useful authoring/diagnostic annotations while semantic normalization is tested.
 
-- `RelationType` may be a specialization/pattern of `ElementType` plus role declarations rather than an independent irreducible category;
-- `Constraint`, `Expression`, and `Value` may belong in reusable libraries or payload semantics rather than the irreducible carrier;
-- `ElementType` may itself be representable through a more uniform typing relation, depending on what metamodel-level guarantees we actually require.
+## Cross-domain query acceptance
 
-`RoleBinding` now has stronger evidence for retention because direct epistemic reference to one role assignment is both implemented and tested.
+Queryability is now machine-tested rather than inferred from diagrams.
 
-The next minimality test should be **ablation**, not another domain fixture: remove or demote a proposed primitive and determine exactly which required semantics become impossible or materially worse.
+The current query suite finds:
 
-## Stronger adequacy gates
+```text
+analyses consuming direct measurement results: 9 domains
+inferred QuantityValue outputs:                 7 domains
+fixed equation-parameter QuantityValues:        6 domains
+intervention-breakable equivalence:             2 domains
+restricted-access-scoped claims:                causal observational case
+addressable-RoleBinding-scoped claims:          structural binding fixture
+```
 
-### A. Expressive adequacy
+The intervention/equivalence query exposed an important modeling rule:
 
-Can the model state the required scientific distinction without lossy hacks?
+> observational and interventional identifiability should remain separate access-relative assertions.
+
+The generic query joins them by common `(target, candidate family)` rather than forcing observational equivalence and a distinguishing intervention into one overloaded IdentifiabilityRelation.
+
+This is a useful acceptance invariant for future normalization or serialization changes.
+
+## Graph-native semantic typing probe
+
+Ablation shows that authoring `kind` categories should not automatically be carrier primitives. The next probe therefore asks whether they can compile into graph-native semantic types.
+
+The target transformation is:
+
+```text
+v1 authoring:
+  node.kind = expression
+  node.type = phys:Velocity
+
+normalized semantic graph:
+  instanceOf(node, sci:Expression)
+  instanceOf(node, phys:Velocity)
+```
+
+The branch now contains an exploratory semantic type profile graph whose nodes include:
+
+```text
+sci:ModelElement
+sci:Expression
+sci:Constraint
+sci:Value
+sci:Uncertainty
+sci:DataArtifact
+sci:Instrument
+sci:Method
+sci:Procedure
+sci:Operator
+sci:Assumption
+...
+```
+
+These are explicitly **profile/schema types, not carrier primitives**.
+
+Two executable probes are staged:
+
+1. `probe_semantic_participant_types.py` removes node `kind` from an in-memory form and validates participant constraints against semantic type identities.
+2. `probe_graph_native_typing.py` goes further: it removes both node `kind` and node-level `type`, materializes them as ordinary `sci:instanceOf` relations, and requires selected scientific query outputs to remain identical before/after normalization.
+
+The old authoring category `element` is interpreted as the carrier top `sci:ModelElement`, which every node, RelationInstance, and addressable RoleBinding inhabits structurally.
+
+### Current execution status
+
+The first semantic-index run correctly exposed a missing authoring-category mapping (`assumption`), which led to moving the canonical mapping into the graph-native semantic type profile rather than maintaining a brittle Python enumeration.
+
+Subsequent GitHub Actions runs have been unable to execute because GitHub is creating both jobs with zero steps and `runner_id: 0`; this is runner allocation failure, not a semantic-test result. v1 therefore remains authoritative until the executable normalization gates run successfully.
+
+## Adequacy dimensions
+
+### Expressive adequacy
 
 Current evidence: strong across the current domain set.
 
-### B. Constraint power
+### Constraint power
 
-Can malformed/invalid instances be rejected mechanically rather than by prose convention?
+Current evidence: meaningful role/cardinality/reference/type enforcement; many domain assumptions are still declarative expressions rather than executable checks.
 
-Current evidence: meaningful role/cardinality/type/reference enforcement exists; many domain assumptions still remain expressions or assertions rather than executable checks.
+### Semantic compression
 
-### C. Semantic compression
+Current evidence: encouraging; about 93% of scientific relations and bindings use shared schemas.
 
-Do heterogeneous domains reuse stable scientific schemas rather than inventing equivalent local relations?
+### Compositionality
 
-Current evidence: encouraging. About 93% of scientific relations and bindings in the current fixture set use shared schemas.
+Current evidence: strong. Relations and addressable RoleBindings can participate directly in higher-order scientific relations.
 
-### D. Compositionality
+### Query invariance
 
-Can outputs/results/relations/bindings become inputs, evidence, models, drivers, or claim targets without wrapper-specific machinery?
+Current evidence: now meaningful. Several cross-domain scientific queries are executable and will serve as normalization invariants.
 
-Current evidence: strong. Relation instances and now addressable RoleBindings participate directly in higher-order relations.
+### Representation independence
 
-### E. Query invariance
+Current evidence: improving. Exact v0→v1 migration is tested, viewer projections are derived, and graph-native v2 normalization probes are staged. Full normalized equivalence is not yet green.
 
-Can important scientific questions be asked generically across domains?
+### Interoperability
 
-Examples:
+Current evidence: conceptual crosswalks exist; executable external-standard mappings remain limited.
 
-```text
-Which analyses consumed measured rather than authored quantities?
-Which claims rely on a restricted access regime?
-Which parameters were inferred rather than fixed?
-Which equivalence classes can be broken by an intervention?
-Which measurements contribute to this derived quantity?
-Which claims target a particular role assignment rather than a whole relation?
-```
+### Authoring economy
 
-Current evidence: partial. Named viewer projections are useful, but a machine-tested cross-domain query API is still needed.
+Current evidence: weak. v1 is intentionally explicit and likely too verbose as an authoring surface. A higher-level syntax should be considered separately from normalized semantics.
 
-### F. Representation independence
+### Minimality
 
-Can equivalent serialization/layout choices preserve semantic identity and query results?
-
-Current evidence: partial. Exact v0→v1 migration regression and derived viewer projections help, but canonical semantic normalization is not yet formally specified.
-
-### G. Interoperability
-
-Can the scientific schemas map to mature external standards without semantic distortion?
-
-Current evidence: conceptual prior-art mappings exist; executable mappings remain limited.
-
-### H. Authoring economy
-
-Can a scientist/modeler express a normal study without excessive relation boilerplate?
-
-Current evidence: weak. The fixtures are intentionally explicit and are probably too verbose as an authoring format. A higher-level authoring syntax may be desirable while retaining v1 as normalized form.
-
-### I. Minimality
-
-Does each claimed kernel primitive enable something that cannot be cleanly reduced to the others?
-
-Current evidence: unresolved. `RoleBinding` now has a concrete retained capability; the other questionable primitives need ablation tests.
+Current evidence: substantially improved. Ablation argues against treating ElementType/RelationType/RoleType markers and Expression/Constraint/Value categories as irreducible carrier syntax. The graph-native normalization probe is the next decisive test.
 
 ## Recommended next work
 
-Stop expanding the domain catalogue temporarily.
-
-1. Perform kernel **ablation tests** for `Constraint`, `Expression`, `Value`, `ElementType`, and the independent status of `RelationType`.
-2. Define a small cross-domain **query acceptance suite** and run it against multiple fixtures.
-3. Use the query suite to judge whether a local relation should be promoted to shared schema.
-4. Add executable external-standard mappings only where they improve interoperability or validation.
-5. Revisit authoring syntax separately from normalized representation.
+1. Get both semantic-typing probes green once CI runner allocation recovers.
+2. Require graph-native normalization to preserve the cross-domain query signatures.
+3. If green, define a concrete reduced-carrier v2 normalized form while keeping v1 as authoring/backward-compatibility input.
+4. Make the viewer consume normalized form through the same projection API.
+5. Add executable external-standard mappings only where they improve interoperability or validation.
+6. Design a higher-level authoring syntax separately; do not pollute the normalized carrier for convenience.
 
 ## Current conclusion
 
-The evidence supports:
+The evidence now supports a stronger but still bounded claim:
 
-> A typed n-ary hypergraph is a promising normalized carrier for the scientific metamodel, and the current shared scientific schema is doing substantial cross-domain work rather than merely delegating semantics to local extensions.
+> Typed n-ary incidence with first-class relation and binding identity is a promising normalized carrier, and the current shared scientific profile demonstrates substantial cross-domain reuse, validation, compositionality, and queryability.
 
-The evidence still does **not** support:
+The evidence does **not yet** support:
 
-> The current list of kernel primitives is proven minimal, or the current schema layer is proven scientifically complete.
+> The reduced carrier has completed executable graph-native normalization, or the scientific profile is complete/optimal.
 
-That distinction remains a deliberate design constraint for PR #79.
+That remaining distinction is the current design gate for PR #79.
