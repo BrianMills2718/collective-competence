@@ -16,6 +16,7 @@ HV.FIXTURES = {
   gauge:'gauge-equivalence-hypergraph-v1.json',
   spde:'stochastic-heat-equation-hypergraph-v1.json',
   lineage:'uncertain-lineage-hypergraph-v1.json',
+  binding:'role-binding-epistemics-hypergraph-v1.json',
 };
 HV.AGGREGATE_FIXTURES = ['cc','mechanics','oscillator','reaction','stochastic','heat','multiscale','calibration','causal','topology','gauge','spde','lineage'];
 HV.SOURCE_LABEL = {
@@ -33,5 +34,6 @@ HV.SOURCE_LABEL = {
   gauge:'Gauge-equivalent representations (local schema v1)',
   spde:'Stochastic heat equation + random field (v1)',
   lineage:'Uncertain lineage + model-dependent identity (local schema v1)',
+  binding:'First-class RoleBinding epistemics (structural v1)',
 };
 })();
