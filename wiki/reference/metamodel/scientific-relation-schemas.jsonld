@@ -14,6 +14,18 @@
     {"@id":"sci:eqIndependentVariable","@type":"sci:RoleType","rdfs:label":"independent variable"},
     {"@id":"sci:eqInitialCondition","@type":"sci:RoleType","rdfs:label":"initial condition"},
     {"@id":"sci:eqContext","@type":"sci:RoleType","rdfs:label":"context"},
+    {"@id":"sci:eqDriver","@type":"sci:RoleType","rdfs:label":"driver"},
+    {"@id":"sci:eqDomain","@type":"sci:RoleType","rdfs:label":"domain"},
+    {"@id":"sci:eqBoundaryCondition","@type":"sci:RoleType","rdfs:label":"boundary condition"},
+    {"@id":"sci:eqOperator","@type":"sci:RoleType","rdfs:label":"operator"},
+
+    {"@id":"sci:DistributionRelation","@type":"sci:RelationType","rdfs:label":"Distribution Relation"},
+    {"@id":"sci:distributionRandomObject","@type":"sci:RoleType","rdfs:label":"random object"},
+    {"@id":"sci:distributionFamily","@type":"sci:RoleType","rdfs:label":"distribution family"},
+    {"@id":"sci:distributionParameter","@type":"sci:RoleType","rdfs:label":"parameter"},
+    {"@id":"sci:distributionCondition","@type":"sci:RoleType","rdfs:label":"condition"},
+    {"@id":"sci:distributionModel","@type":"sci:RoleType","rdfs:label":"model"},
+    {"@id":"sci:distributionContext","@type":"sci:RoleType","rdfs:label":"context"},
 
     {"@id":"sci:ProcessRelation","@type":"sci:RelationType","rdfs:label":"Process Relation"},
     {"@id":"sci:processParticipant","@type":"sci:RoleType","rdfs:label":"participant"},
