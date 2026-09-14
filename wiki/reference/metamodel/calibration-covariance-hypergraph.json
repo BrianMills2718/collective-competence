@@ -1,0 +1,68 @@
+{
+  "model": "scientific-hypergraph-v0",
+  "nodes": [
+    {"id":"meta:RelationType","label":"Relation Type","layer":"metamodel","kind":"type"},
+    {"id":"meta:instanceOf","label":"instanceOf","layer":"metamodel","kind":"relationType"},
+    {"id":"schema:Equation","label":"Equation Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Distribution","label":"Distribution Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Measurement","label":"Measurement Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Analysis","label":"Analysis Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:QuantityValue","label":"Quantity Value Relation","layer":"schema","kind":"relationType"},
+
+    {"id":"cal:Temperature","label":"Temperature","layer":"theory","kind":"type"},
+    {"id":"cal:Voltage","label":"Voltage","layer":"theory","kind":"type"},
+    {"id":"cal:CalibrationSlope","label":"Calibration Slope","layer":"theory","kind":"type"},
+    {"id":"cal:CalibrationOffset","label":"Calibration Offset","layer":"theory","kind":"type"},
+    {"id":"cal:CovarianceMatrix","label":"Covariance Matrix","layer":"theory","kind":"type"},
+    {"id":"cal:MultivariateGaussian","label":"Multivariate Gaussian","layer":"theory","kind":"type"},
+    {"id":"cal:Thermocouple","label":"Thermocouple","layer":"theory","kind":"type"},
+    {"id":"cal:ReferenceTemperatureSet","label":"Reference Temperature Set","layer":"theory","kind":"type"},
+
+    {"id":"study:Thermocouple1","label":"thermocouple #1","layer":"study","kind":"instrument"},
+    {"id":"study:ReferenceBath","label":"reference bath","layer":"study","kind":"element"},
+    {"id":"study:UnknownSample","label":"unknown-temperature sample","layer":"study","kind":"element"},
+    {"id":"study:ReferenceTemperatures","label":"reference temperatures","layer":"study","kind":"element"},
+    {"id":"study:CalibrationProcedure","label":"reference calibration procedure","layer":"study","kind":"procedure"},
+    {"id":"study:LinearCalibrationFit","label":"joint linear calibration fit","layer":"study","kind":"method"},
+    {"id":"study:VoltageProcedure","label":"sample voltage measurement","layer":"study","kind":"procedure"},
+    {"id":"study:MeasurementExpression","label":"T = a V + b","layer":"study","kind":"expression"},
+    {"id":"study:UncertaintyPropagation","label":"covariance-aware uncertainty propagation","layer":"study","kind":"method"},
+    {"id":"study:CalibrationDataset","label":"reference voltage-temperature pairs","layer":"evidence","kind":"data"},
+    {"id":"study:CoefficientCovariance","label":"cov(a,b)","layer":"evidence","kind":"data"},
+
+    {"id":"value:slope","label":"25.0","layer":"evidence","kind":"value"},
+    {"id":"value:offset","label":"273.0","layer":"evidence","kind":"value"},
+    {"id":"value:voltage","label":"1.20","layer":"evidence","kind":"value"},
+    {"id":"value:dVoltage","label":"+/-0.01","layer":"evidence","kind":"uncertainty"},
+    {"id":"value:temperature","label":"303.0","layer":"evidence","kind":"value"},
+    {"id":"value:dTemperature","label":"+/-0.8","layer":"evidence","kind":"uncertainty"},
+    {"id":"unit:K","label":"K","layer":"schema","kind":"unit"},
+    {"id":"unit:mV","label":"mV","layer":"schema","kind":"unit"},
+    {"id":"unit:KpermV","label":"K/mV","layer":"schema","kind":"unit"}
+  ],
+  "hyperedges": [
+    {"id":"h:eq-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Equation","type":"meta:RelationType"}},
+    {"id":"h:dist-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Distribution","type":"meta:RelationType"}},
+    {"id":"h:measurement-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Measurement","type":"meta:RelationType"}},
+    {"id":"h:analysis-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Analysis","type":"meta:RelationType"}},
+    {"id":"h:qvalue-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:QuantityValue","type":"meta:RelationType"}},
+
+    {"id":"h:instrument-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:Thermocouple1","type":"cal:Thermocouple"}},
+    {"id":"h:reference-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:ReferenceTemperatures","type":"cal:ReferenceTemperatureSet"}},
+    {"id":"h:covariance-type","type":"meta:instanceOf","layer":"evidence","roles":{"instance":"study:CoefficientCovariance","type":"cal:CovarianceMatrix"}},
+
+    {"id":"h:slope","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"cal:CalibrationSlope","subject":"study:Thermocouple1","numericalValue":"value:slope","unit":"unit:KpermV"}},
+    {"id":"h:offset","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"cal:CalibrationOffset","subject":"study:Thermocouple1","numericalValue":"value:offset","unit":"unit:K"}},
+
+    {"id":"h:calibration-measurement","type":"schema:Measurement","layer":"study","roles":{"subject":"study:ReferenceBath","measurand":"cal:Voltage","procedure":"study:CalibrationProcedure","instrument":"study:Thermocouple1","observation":"study:CalibrationDataset","result":"study:CalibrationDataset","context:referenceTemperatures":"study:ReferenceTemperatures"}},
+    {"id":"h:calibration-fit","type":"schema:Analysis","layer":"study","roles":{"input:dataset":"study:CalibrationDataset","input:reference":"study:ReferenceTemperatures","method":"study:LinearCalibrationFit","output:slope":"h:slope","output:offset":"h:offset","output:covariance":"study:CoefficientCovariance"}},
+    {"id":"h:coefficient-joint-law","type":"schema:Distribution","layer":"evidence","roles":{"randomObject:slope":"h:slope","randomObject:offset":"h:offset","family":"cal:MultivariateGaussian","parameter:covariance":"study:CoefficientCovariance","model":"h:calibration-fit"}},
+
+    {"id":"h:voltage","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"cal:Voltage","subject":"study:UnknownSample","numericalValue":"value:voltage","unit":"unit:mV","uncertainty":"value:dVoltage"}},
+    {"id":"h:sample-measurement","type":"schema:Measurement","layer":"study","roles":{"subject":"study:UnknownSample","measurand":"cal:Voltage","procedure":"study:VoltageProcedure","instrument":"study:Thermocouple1","result":"h:voltage","uncertainty":"value:dVoltage"}},
+
+    {"id":"h:temperature","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"cal:Temperature","subject":"study:UnknownSample","numericalValue":"value:temperature","unit":"unit:K","uncertainty":"value:dTemperature"}},
+    {"id":"h:measurement-model","type":"schema:Equation","layer":"study","roles":{"input:voltage":"h:voltage","parameter:slope":"h:slope","parameter:offset":"h:offset","output":"h:temperature","expression":"study:MeasurementExpression"}},
+    {"id":"h:uncertainty-propagation","type":"schema:Analysis","layer":"study","roles":{"input:measurement":"h:voltage","input:calibrationDistribution":"h:coefficient-joint-law","model":"h:measurement-model","method":"study:UncertaintyPropagation","output":"h:temperature","uncertainty":"value:dTemperature"}}
+  ]
+}
