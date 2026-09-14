@@ -17,11 +17,11 @@ const browser=await chromium.launch({headless:true});const page=await browser.ne
 try{
   await page.goto(`http://127.0.0.1:${PORT}${VIEWER}`,{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>/elements/.test(document.querySelector('#status')?.textContent||''),null,{timeout:20000});
-  const options=await page.locator('#projection option').count();assert(options===7,`expected 7 projection options, found ${options}`);
-  const overviewCount=await page.locator('#viewport .node,#viewport .relation').count();assert(overviewCount>180,`unexpectedly small six-fixture overview: ${overviewCount}`);
+  const options=await page.locator('#projection option').count();assert(options===8,`expected 8 projection options, found ${options}`);
+  const overviewCount=await page.locator('#viewport .node,#viewport .relation').count();assert(overviewCount>250,`unexpectedly small eight-fixture overview: ${overviewCount}`);
   const bundles=await page.locator('#viewport .bundle-junction').count();assert(bundles>0,'type-edge bundling inactive in overview');
 
-  for(const mode of ['theory','measurement','probability','access','evidence','identifiability']){
+  for(const mode of ['theory','measurement','probability','representation','access','evidence','identifiability']){
     await page.selectOption('#projection',mode);
     await page.waitForFunction(m=>(document.querySelector('#status')?.textContent||'').includes(m),mode,{timeout:12000});
     const count=await page.locator('#viewport .node,#viewport .relation').count();
@@ -31,6 +31,7 @@ try{
     assert(disabled.layer&&disabled.type,`${mode} projection should disable manual layer/type filters`);
     if(mode==='measurement') assert(await page.locator('[data-id="schema:Measurement"]').count()===1,'measurement projection missing Measurement relation type');
     if(mode==='probability') assert(await page.locator('[data-id="schema:Distribution"]').count()===1,'probability projection missing Distribution relation type');
+    if(mode==='representation') assert(await page.locator('[data-id="schema:Representation"]').count()===1,'representation projection missing Representation relation type');
     if(mode==='access') assert(await page.locator('[data-id="schema:StudyView"]').count()===1,'access projection missing StudyView relation type');
     if(mode==='identifiability') assert(await page.locator('[data-id="schema:Identifiability"]').count()===1,'identifiability projection missing Identifiability relation type');
     console.log(`PASS projection ${mode}: ${count} rendered items`);
