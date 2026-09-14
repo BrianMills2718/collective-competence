@@ -8,17 +8,21 @@ HV.FIXTURES = {
   reaction:'first-order-reaction-hypergraph.json',
   stochastic:'ornstein-uhlenbeck-hypergraph.json',
   heat:'heat-equation-hypergraph.json',
+  multiscale:'random-walk-diffusion-multiscale-hypergraph.json',
+  calibration:'calibration-covariance-hypergraph.json',
 };
 HV.SOURCE_LABEL = {
   cc:'Collective Competence', mechanics:'Classical mechanics', oscillator:'Harmonic oscillator', reaction:'Reaction kinetics',
-  stochastic:'Ornstein-Uhlenbeck stochastic process', heat:'Heat-equation PDE'
+  stochastic:'Ornstein-Uhlenbeck stochastic process', heat:'Heat-equation PDE',
+  multiscale:'Random walk -> diffusion multiscale', calibration:'Correlated calibration uncertainty'
 };
 HV.COLORS = {metamodel:'#58a6ff',schema:'#c297ff',theory:'#66d48f',study:'#f1a65a',evidence:'#ff7b72',edge:'#758395'};
-HV.DOMAIN_COLORS = ['#64d58f','#54c7ec','#f1a65a','#f778ba','#a78bfa','#2dd4bf','#fb7185','#facc15'];
+HV.DOMAIN_COLORS = ['#64d58f','#54c7ec','#f1a65a','#f778ba','#a78bfa','#2dd4bf','#fb7185','#facc15','#60a5fa','#34d399'];
 HV.NS = 'http://www.w3.org/2000/svg';
 HV.RELATION_PROJECTIONS = {
   measurement:new Set(['schema:Measurement','schema:QuantityValue','schema:Analysis']),
   probability:new Set(['schema:Distribution']),
+  representation:new Set(['schema:Representation']),
   access:new Set(['schema:StudyView']),
   identifiability:new Set(['schema:Identifiability']),
 };
