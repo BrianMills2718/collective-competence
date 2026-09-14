@@ -17,6 +17,7 @@ on:
       - 'scripts/check_gauge_equivalence.py'
       - 'scripts/check_stochastic_pde.py'
       - 'scripts/check_uncertain_lineage.py'
+      - 'scripts/check_first_class_role_binding.py'
       - 'scripts/audit_scientific_hypergraph_adequacy.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
@@ -27,6 +28,7 @@ on:
       - 'scripts/smoke_dynamic_topology.mjs'
       - 'scripts/smoke_gauge_equivalence.mjs'
       - 'scripts/smoke_stochastic_pde.mjs'
+      - 'scripts/smoke_first_class_role_binding.mjs'
       - '.github/workflows/scientific-hypergraph.yml'
   push:
     branches:
@@ -45,6 +47,7 @@ on:
       - 'scripts/check_gauge_equivalence.py'
       - 'scripts/check_stochastic_pde.py'
       - 'scripts/check_uncertain_lineage.py'
+      - 'scripts/check_first_class_role_binding.py'
       - 'scripts/audit_scientific_hypergraph_adequacy.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
@@ -55,6 +58,7 @@ on:
       - 'scripts/smoke_dynamic_topology.mjs'
       - 'scripts/smoke_gauge_equivalence.mjs'
       - 'scripts/smoke_stochastic_pde.mjs'
+      - 'scripts/smoke_first_class_role_binding.mjs'
       - '.github/workflows/scientific-hypergraph.yml'
 
 permissions:
@@ -101,6 +105,8 @@ jobs:
         run: python scripts/check_stochastic_pde.py
       - name: Check uncertain lineage and identity semantics
         run: python scripts/check_uncertain_lineage.py
+      - name: Check first-class RoleBinding semantics
+        run: python scripts/check_first_class_role_binding.py
       - name: Audit shared-schema reuse and local-schema pressure
         run: python scripts/audit_scientific_hypergraph_adequacy.py
 
@@ -129,6 +135,8 @@ jobs:
         run: node scripts/smoke_gauge_equivalence.mjs
       - name: Smoke-test stochastic PDE random-field composition
         run: node scripts/smoke_stochastic_pde.mjs
+      - name: Smoke-test first-class RoleBinding inspection
+        run: node scripts/smoke_first_class_role_binding.mjs
       - name: Upload viewer screenshot
         if: always()
         uses: actions/upload-artifact@v4
