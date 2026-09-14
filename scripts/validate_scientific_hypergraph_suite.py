@@ -15,6 +15,8 @@ FIXTURES = [
     ROOT / "wiki/reference/metamodel/first-order-reaction-hypergraph.json",
     ROOT / "wiki/reference/metamodel/ornstein-uhlenbeck-hypergraph.json",
     ROOT / "wiki/reference/metamodel/heat-equation-hypergraph.json",
+    ROOT / "wiki/reference/metamodel/random-walk-diffusion-multiscale-hypergraph.json",
+    ROOT / "wiki/reference/metamodel/calibration-covariance-hypergraph.json",
 ]
 
 
