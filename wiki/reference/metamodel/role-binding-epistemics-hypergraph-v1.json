@@ -1,0 +1,59 @@
+{
+  "model": "scientific-hypergraph-v1",
+  "imports": ["hypergraph-kernel", "scientific-role-schema-v1"],
+  "nodes": [
+    {"id": "meta:RelationType", "label": "Relation Type", "layer": "metamodel", "kind": "type"},
+    {"id": "meta:instanceOf", "label": "instanceOf", "layer": "metamodel", "kind": "relationType"},
+    {"id": "schema:Analysis", "label": "Analysis Relation", "layer": "schema", "kind": "relationType"},
+    {"id": "schema:Claim", "label": "Claim Relation", "layer": "schema", "kind": "relationType"},
+    {"id": "study:ObservedData", "label": "observed data", "layer": "evidence", "kind": "data"},
+    {"id": "study:ModelA", "label": "candidate model A", "layer": "theory", "kind": "element"},
+    {"id": "study:FitMethod", "label": "model-fitting procedure", "layer": "study", "kind": "method"},
+    {"id": "study:FitResult", "label": "fit result", "layer": "evidence", "kind": "data"},
+    {"id": "claim:ModelAssignment", "label": "model A is the model correspondence used by this analysis", "layer": "theory", "kind": "expression"},
+    {"id": "study:AssignmentEvidence", "label": "model-assignment evidence", "layer": "evidence", "kind": "data"},
+    {"id": "status:Supported", "label": "supported", "layer": "evidence", "kind": "status"}
+  ],
+  "hyperedges": [
+    {
+      "id": "h:type-analysis",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {"role": "sci:instance", "participant": "schema:Analysis"},
+        {"role": "sci:type", "participant": "meta:RelationType"}
+      ]
+    },
+    {
+      "id": "h:type-claim",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {"role": "sci:instance", "participant": "schema:Claim"},
+        {"role": "sci:type", "participant": "meta:RelationType"}
+      ]
+    },
+    {
+      "id": "h:analysis",
+      "type": "schema:Analysis",
+      "layer": "study",
+      "bindings": [
+        {"role": "sci:analysisInput", "participant": "study:ObservedData"},
+        {"role": "sci:analysisMethod", "participant": "study:FitMethod"},
+        {"id": "binding:analysis-model", "role": "sci:analysisModel", "participant": "study:ModelA"},
+        {"role": "sci:analysisOutput", "participant": "study:FitResult"}
+      ]
+    },
+    {
+      "id": "h:model-assignment-claim",
+      "type": "schema:Claim",
+      "layer": "evidence",
+      "bindings": [
+        {"role": "sci:claimProposition", "participant": "claim:ModelAssignment"},
+        {"role": "sci:claimEvidence", "participant": "study:AssignmentEvidence"},
+        {"role": "sci:claimScope", "participant": "binding:analysis-model"},
+        {"role": "sci:claimStatus", "participant": "status:Supported"}
+      ]
+    }
+  ]
+}
