@@ -1,0 +1,93 @@
+{
+  "model": "scientific-hypergraph-v1",
+  "imports": ["hypergraph-kernel", "scientific-role-schema-v1"],
+  "nodes": [
+    {"id":"sci:RelationType","label":"Relation Type","layer":"metamodel","kind":"type"},
+    {"id":"sci:RoleType","label":"Role Type","layer":"metamodel","kind":"type"},
+    {"id":"sci:declaresRole","label":"declares role","layer":"metamodel","kind":"relationType","type":"sci:RelationType"},
+
+    {"id":"lin:LineageLinkRelation","label":"Lineage Link Relation","layer":"theory","kind":"relationType","type":"sci:RelationType"},
+    {"id":"lin:LineageAssignmentRelation","label":"Lineage Assignment Relation","layer":"theory","kind":"relationType","type":"sci:RelationType"},
+    {"id":"lin:ancestor","label":"earlier entity","layer":"theory","kind":"roleType","type":"sci:RoleType"},
+    {"id":"lin:descendant","label":"later entity","layer":"theory","kind":"roleType","type":"sci:RoleType"},
+    {"id":"lin:criterion","label":"identity criterion","layer":"theory","kind":"roleType","type":"sci:RoleType"},
+    {"id":"lin:evidence","label":"evidence","layer":"theory","kind":"roleType","type":"sci:RoleType"},
+    {"id":"lin:confidence","label":"confidence","layer":"theory","kind":"roleType","type":"sci:RoleType"},
+    {"id":"lin:status","label":"status","layer":"theory","kind":"roleType","type":"sci:RoleType"},
+    {"id":"lin:assignmentLink","label":"lineage link","layer":"theory","kind":"roleType","type":"sci:RoleType"},
+    {"id":"lin:assignmentCriterion","label":"assignment criterion","layer":"theory","kind":"roleType","type":"sci:RoleType"},
+    {"id":"lin:assignmentScore","label":"assignment score","layer":"theory","kind":"roleType","type":"sci:RoleType"},
+    {"id":"lin:assignmentStatus","label":"assignment status","layer":"theory","kind":"roleType","type":"sci:RoleType"},
+
+    {"id":"lin:value:zero","label":"0","value":0,"layer":"theory","kind":"value"},
+    {"id":"lin:value:one","label":"1","value":1,"layer":"theory","kind":"value"},
+    {"id":"lin:value:two","label":"2","value":2,"layer":"theory","kind":"value"},
+    {"id":"lin:value:false","label":"false","value":false,"layer":"theory","kind":"value"},
+
+    {"id":"lin:System","label":"tracked dividing-cell system","layer":"study","kind":"element"},
+    {"id":"lin:A","label":"cell A at t1","layer":"study","kind":"element"},
+    {"id":"lin:B","label":"cell B at t1","layer":"study","kind":"element"},
+    {"id":"lin:U","label":"detection U at t2","layer":"study","kind":"element"},
+    {"id":"lin:V","label":"detection V at t2","layer":"study","kind":"element"},
+    {"id":"lin:TrackingMeasurand","label":"cell position + morphology","layer":"theory","kind":"element"},
+    {"id":"lin:TrackingProcedure","label":"image tracking procedure","layer":"study","kind":"procedure"},
+    {"id":"lin:Camera","label":"time-lapse microscope","layer":"study","kind":"instrument"},
+    {"id":"lin:TrackingData","label":"unlabeled tracking dataset","layer":"evidence","kind":"data"},
+    {"id":"lin:NearestCriterion","label":"nearest-motion identity criterion","layer":"theory","kind":"element"},
+    {"id":"lin:MorphCriterion","label":"morphology-continuity identity criterion","layer":"theory","kind":"element"},
+    {"id":"lin:ScoreHalf","label":"0.50","layer":"evidence","kind":"value"},
+    {"id":"lin:Plausible","label":"plausible","layer":"evidence","kind":"status"},
+    {"id":"lin:CandidateFamily","label":"candidate lineage assignments {nearest,morphology}","layer":"theory","kind":"element"},
+    {"id":"lin:ObsEquivalence","label":"observational lineage-equivalence class","layer":"theory","kind":"element"},
+    {"id":"lin:TargetMapping","label":"A/B to U/V lineage mapping","layer":"theory","kind":"element"},
+    {"id":"lin:ObsPhase","label":"unlabeled observation phase","layer":"study","kind":"element"},
+    {"id":"lin:CompareAssignments","label":"compare lineage assignments","layer":"study","kind":"method"},
+    {"id":"lin:AmbiguousResult","label":"two assignments remain equally plausible","layer":"evidence","kind":"data"},
+    {"id":"lin:Underdetermined","label":"lineage underdetermined","layer":"evidence","kind":"status"},
+    {"id":"lin:CandidateSetTransform","label":"lineage candidate-set construction","layer":"study","kind":"method"},
+
+    {"id":"lin:TagA","label":"lineage-tag cell A","layer":"study","kind":"element"},
+    {"id":"lin:TagPhase","label":"tagged intervention phase","layer":"study","kind":"element"},
+    {"id":"lin:TagObserver","label":"lineage-tag readout procedure","layer":"study","kind":"procedure"},
+    {"id":"lin:TagMeasurand","label":"inherited lineage tag","layer":"theory","kind":"element"},
+    {"id":"lin:TaggedData","label":"tag observed on U, absent on V","layer":"evidence","kind":"data"},
+    {"id":"lin:ResolveAssignment","label":"lineage-tag assignment resolver","layer":"study","kind":"method"},
+    {"id":"lin:ResolvedResult","label":"nearest assignment selected by tag","layer":"evidence","kind":"data"},
+    {"id":"lin:Identified","label":"lineage identified by intervention","layer":"evidence","kind":"status"}
+  ],
+  "hyperedges": [
+    {"id":"decl:link:ancestor","type":"sci:declaresRole","layer":"theory","bindings":[{"role":"sci:declaredRelationType","participant":"lin:LineageLinkRelation"},{"role":"sci:declaredRoleType","participant":"lin:ancestor"},{"role":"sci:roleMinimum","participant":"lin:value:one"},{"role":"sci:roleMaximum","participant":"lin:value:one"},{"role":"sci:roleQualifiable","participant":"lin:value:false"}]},
+    {"id":"decl:link:descendant","type":"sci:declaresRole","layer":"theory","bindings":[{"role":"sci:declaredRelationType","participant":"lin:LineageLinkRelation"},{"role":"sci:declaredRoleType","participant":"lin:descendant"},{"role":"sci:roleMinimum","participant":"lin:value:one"},{"role":"sci:roleMaximum","participant":"lin:value:one"},{"role":"sci:roleQualifiable","participant":"lin:value:false"}]},
+    {"id":"decl:link:criterion","type":"sci:declaresRole","layer":"theory","bindings":[{"role":"sci:declaredRelationType","participant":"lin:LineageLinkRelation"},{"role":"sci:declaredRoleType","participant":"lin:criterion"},{"role":"sci:roleMinimum","participant":"lin:value:one"},{"role":"sci:roleMaximum","participant":"lin:value:one"},{"role":"sci:roleQualifiable","participant":"lin:value:false"}]},
+    {"id":"decl:link:evidence","type":"sci:declaresRole","layer":"theory","bindings":[{"role":"sci:declaredRelationType","participant":"lin:LineageLinkRelation"},{"role":"sci:declaredRoleType","participant":"lin:evidence"},{"role":"sci:roleMinimum","participant":"lin:value:one"},{"role":"sci:roleQualifiable","participant":"lin:value:false"}]},
+    {"id":"decl:link:confidence","type":"sci:declaresRole","layer":"theory","bindings":[{"role":"sci:declaredRelationType","participant":"lin:LineageLinkRelation"},{"role":"sci:declaredRoleType","participant":"lin:confidence"},{"role":"sci:roleMinimum","participant":"lin:value:zero"},{"role":"sci:roleMaximum","participant":"lin:value:one"},{"role":"sci:roleQualifiable","participant":"lin:value:false"}]},
+    {"id":"decl:link:status","type":"sci:declaresRole","layer":"theory","bindings":[{"role":"sci:declaredRelationType","participant":"lin:LineageLinkRelation"},{"role":"sci:declaredRoleType","participant":"lin:status"},{"role":"sci:roleMinimum","participant":"lin:value:one"},{"role":"sci:roleMaximum","participant":"lin:value:one"},{"role":"sci:roleQualifiable","participant":"lin:value:false"}]},
+
+    {"id":"decl:assignment:link","type":"sci:declaresRole","layer":"theory","bindings":[{"role":"sci:declaredRelationType","participant":"lin:LineageAssignmentRelation"},{"role":"sci:declaredRoleType","participant":"lin:assignmentLink"},{"role":"sci:roleMinimum","participant":"lin:value:two"},{"role":"sci:roleMaximum","participant":"lin:value:two"},{"role":"sci:roleQualifiable","participant":"lin:value:false"}]},
+    {"id":"decl:assignment:criterion","type":"sci:declaresRole","layer":"theory","bindings":[{"role":"sci:declaredRelationType","participant":"lin:LineageAssignmentRelation"},{"role":"sci:declaredRoleType","participant":"lin:assignmentCriterion"},{"role":"sci:roleMinimum","participant":"lin:value:one"},{"role":"sci:roleMaximum","participant":"lin:value:one"},{"role":"sci:roleQualifiable","participant":"lin:value:false"}]},
+    {"id":"decl:assignment:score","type":"sci:declaresRole","layer":"theory","bindings":[{"role":"sci:declaredRelationType","participant":"lin:LineageAssignmentRelation"},{"role":"sci:declaredRoleType","participant":"lin:assignmentScore"},{"role":"sci:roleMinimum","participant":"lin:value:one"},{"role":"sci:roleMaximum","participant":"lin:value:one"},{"role":"sci:roleQualifiable","participant":"lin:value:false"}]},
+    {"id":"decl:assignment:status","type":"sci:declaresRole","layer":"theory","bindings":[{"role":"sci:declaredRelationType","participant":"lin:LineageAssignmentRelation"},{"role":"sci:declaredRoleType","participant":"lin:assignmentStatus"},{"role":"sci:roleMinimum","participant":"lin:value:one"},{"role":"sci:roleMaximum","participant":"lin:value:one"},{"role":"sci:roleQualifiable","participant":"lin:value:false"}]},
+
+    {"id":"lin:tracking-measurement","type":"schema:Measurement","layer":"study","bindings":[{"role":"sci:measurementSubject","participant":"lin:System"},{"role":"sci:measurementMeasurand","participant":"lin:TrackingMeasurand"},{"role":"sci:measurementProcedure","participant":"lin:TrackingProcedure"},{"role":"sci:measurementInstrument","participant":"lin:Camera"},{"role":"sci:measurementResult","participant":"lin:TrackingData"}]},
+
+    {"id":"lin:nearest-AU","type":"lin:LineageLinkRelation","layer":"study","bindings":[{"role":"lin:ancestor","participant":"lin:A"},{"role":"lin:descendant","participant":"lin:U"},{"role":"lin:criterion","participant":"lin:NearestCriterion"},{"role":"lin:evidence","participant":"lin:TrackingData"},{"role":"lin:confidence","participant":"lin:ScoreHalf"},{"role":"lin:status","participant":"lin:Plausible"}]},
+    {"id":"lin:nearest-BV","type":"lin:LineageLinkRelation","layer":"study","bindings":[{"role":"lin:ancestor","participant":"lin:B"},{"role":"lin:descendant","participant":"lin:V"},{"role":"lin:criterion","participant":"lin:NearestCriterion"},{"role":"lin:evidence","participant":"lin:TrackingData"},{"role":"lin:confidence","participant":"lin:ScoreHalf"},{"role":"lin:status","participant":"lin:Plausible"}]},
+    {"id":"lin:morph-AV","type":"lin:LineageLinkRelation","layer":"study","bindings":[{"role":"lin:ancestor","participant":"lin:A"},{"role":"lin:descendant","participant":"lin:V"},{"role":"lin:criterion","participant":"lin:MorphCriterion"},{"role":"lin:evidence","participant":"lin:TrackingData"},{"role":"lin:confidence","participant":"lin:ScoreHalf"},{"role":"lin:status","participant":"lin:Plausible"}]},
+    {"id":"lin:morph-BU","type":"lin:LineageLinkRelation","layer":"study","bindings":[{"role":"lin:ancestor","participant":"lin:B"},{"role":"lin:descendant","participant":"lin:U"},{"role":"lin:criterion","participant":"lin:MorphCriterion"},{"role":"lin:evidence","participant":"lin:TrackingData"},{"role":"lin:confidence","participant":"lin:ScoreHalf"},{"role":"lin:status","participant":"lin:Plausible"}]},
+
+    {"id":"lin:assignment-nearest","type":"lin:LineageAssignmentRelation","layer":"study","bindings":[{"role":"lin:assignmentLink","participant":"lin:nearest-AU"},{"role":"lin:assignmentLink","participant":"lin:nearest-BV"},{"role":"lin:assignmentCriterion","participant":"lin:NearestCriterion"},{"role":"lin:assignmentScore","participant":"lin:ScoreHalf"},{"role":"lin:assignmentStatus","participant":"lin:Plausible"}]},
+    {"id":"lin:assignment-morph","type":"lin:LineageAssignmentRelation","layer":"study","bindings":[{"role":"lin:assignmentLink","participant":"lin:morph-AV"},{"role":"lin:assignmentLink","participant":"lin:morph-BU"},{"role":"lin:assignmentCriterion","participant":"lin:MorphCriterion"},{"role":"lin:assignmentScore","participant":"lin:ScoreHalf"},{"role":"lin:assignmentStatus","participant":"lin:Plausible"}]},
+
+    {"id":"lin:candidate-family","type":"schema:Representation","layer":"theory","bindings":[{"role":"sci:representationSource","participant":"lin:assignment-nearest","qualifier":"nearest"},{"role":"sci:representationSource","participant":"lin:assignment-morph","qualifier":"morphology"},{"role":"sci:representationTransform","participant":"lin:CandidateSetTransform"},{"role":"sci:representationOutput","participant":"lin:CandidateFamily"}]},
+
+    {"id":"lin:obs-access","type":"schema:StudyView","layer":"study","bindings":[{"role":"sci:accessor","participant":"lin:obs-analysis"},{"role":"sci:accessPhase","participant":"lin:ObsPhase"},{"role":"sci:accessAllowed","participant":"lin:TrackingData"},{"role":"sci:accessAllowed","participant":"lin:assignment-nearest","qualifier":"candidate"},{"role":"sci:accessAllowed","participant":"lin:assignment-morph","qualifier":"candidate"},{"role":"sci:accessRestricted","participant":"lin:TagA"},{"role":"sci:accessRestricted","participant":"lin:TaggedData"}]},
+    {"id":"lin:obs-analysis","type":"schema:Analysis","layer":"study","bindings":[{"role":"sci:analysisInput","participant":"lin:TrackingData"},{"role":"sci:analysisModel","participant":"lin:assignment-nearest","qualifier":"nearest"},{"role":"sci:analysisModel","participant":"lin:assignment-morph","qualifier":"morphology"},{"role":"sci:analysisMethod","participant":"lin:CompareAssignments"},{"role":"sci:analysisAccess","participant":"lin:obs-access"},{"role":"sci:analysisOutput","participant":"lin:AmbiguousResult"}]},
+    {"id":"lin:obs-identifiability","type":"schema:Identifiability","layer":"evidence","bindings":[{"role":"sci:idTarget","participant":"lin:TargetMapping"},{"role":"sci:idCandidateFamily","participant":"lin:CandidateFamily"},{"role":"sci:idAccess","participant":"lin:obs-access"},{"role":"sci:idObservationModel","participant":"lin:tracking-measurement"},{"role":"sci:idEquivalenceClass","participant":"lin:ObsEquivalence"},{"role":"sci:idStatus","participant":"lin:Underdetermined"},{"role":"sci:idEvidence","participant":"lin:AmbiguousResult"}]},
+
+    {"id":"lin:tag-measurement","type":"schema:Measurement","layer":"study","bindings":[{"role":"sci:measurementSubject","participant":"lin:System"},{"role":"sci:measurementMeasurand","participant":"lin:TagMeasurand"},{"role":"sci:measurementProcedure","participant":"lin:TagObserver"},{"role":"sci:measurementResult","participant":"lin:TaggedData"}]},
+    {"id":"lin:tag-access","type":"schema:StudyView","layer":"study","bindings":[{"role":"sci:accessor","participant":"lin:tag-analysis"},{"role":"sci:accessPhase","participant":"lin:TagPhase"},{"role":"sci:accessAllowed","participant":"lin:TrackingData"},{"role":"sci:accessAllowed","participant":"lin:TaggedData"},{"role":"sci:accessAllowedAction","participant":"lin:TagA"}]},
+    {"id":"lin:tag-analysis","type":"schema:Analysis","layer":"study","bindings":[{"role":"sci:analysisInput","participant":"lin:TrackingData"},{"role":"sci:analysisInput","participant":"lin:TaggedData"},{"role":"sci:analysisModel","participant":"lin:assignment-nearest","qualifier":"candidate"},{"role":"sci:analysisModel","participant":"lin:assignment-morph","qualifier":"candidate"},{"role":"sci:analysisMethod","participant":"lin:ResolveAssignment"},{"role":"sci:analysisAccess","participant":"lin:tag-access"},{"role":"sci:analysisOutput","participant":"lin:ResolvedResult"}]},
+    {"id":"lin:tag-experiment","type":"schema:Experiment","layer":"study","bindings":[{"role":"sci:experimentSubject","participant":"lin:System"},{"role":"sci:experimentIntervention","participant":"lin:TagA"},{"role":"sci:experimentCondition","participant":"lin:TagPhase"},{"role":"sci:experimentObservation","participant":"lin:tag-measurement"},{"role":"sci:experimentAnalysis","participant":"lin:tag-analysis"},{"role":"sci:experimentResult","participant":"lin:ResolvedResult"}]},
+    {"id":"lin:tag-identifiability","type":"schema:Identifiability","layer":"evidence","bindings":[{"role":"sci:idTarget","participant":"lin:TargetMapping"},{"role":"sci:idCandidateFamily","participant":"lin:CandidateFamily"},{"role":"sci:idAccess","participant":"lin:tag-access"},{"role":"sci:idObservationModel","participant":"lin:tag-measurement"},{"role":"sci:idInterventionFamily","participant":"lin:TagA"},{"role":"sci:idStatus","participant":"lin:Identified"},{"role":"sci:idEvidence","participant":"lin:ResolvedResult"}]}
+  ]
+}
