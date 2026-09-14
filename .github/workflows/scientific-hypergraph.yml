@@ -64,8 +64,17 @@ jobs:
         run: python scripts/bootstrap_role_schema_hypergraph.py -o artifacts/scientific-role-schema-v1.json
       - name: Re-generate contract index from schema graph artifact
         run: python scripts/generate_role_contracts_from_schema_graph.py artifacts/scientific-role-schema-v1.json -o artifacts/scientific-role-contracts.generated.json
-      - name: Compare regenerated contract index
-        run: diff -u wiki/reference/metamodel/scientific-role-contracts.json artifacts/scientific-role-contracts.generated.json
+      - name: Compare regenerated contract index semantically
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          expected = json.loads(Path('wiki/reference/metamodel/scientific-role-contracts.json').read_text())
+          actual = json.loads(Path('artifacts/scientific-role-contracts.generated.json').read_text())
+          if actual != expected:
+              raise SystemExit('generated role-contract index differs semantically from committed index')
+          print('PASS generated role-contract index is semantically identical to committed index')
+          PY
       - name: Upload role schema graph bootstrap artifact
         uses: actions/upload-artifact@v4
         with:
