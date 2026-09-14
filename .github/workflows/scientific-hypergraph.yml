@@ -13,12 +13,14 @@ on:
       - 'scripts/migrate_hypergraph_v0_to_v1.py'
       - 'scripts/check_hypergraph_v1_migration.py'
       - 'scripts/check_hypergraph_v0_role_coverage.py'
+      - 'scripts/check_local_relation_schema.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
       - 'scripts/smoke_hypergraph_projections.mjs'
       - 'scripts/smoke_typed_roles.mjs'
       - 'scripts/smoke_causal_identifiability.mjs'
+      - 'scripts/smoke_dynamic_topology.mjs'
       - '.github/workflows/scientific-hypergraph.yml'
   push:
     branches:
@@ -33,12 +35,14 @@ on:
       - 'scripts/migrate_hypergraph_v0_to_v1.py'
       - 'scripts/check_hypergraph_v1_migration.py'
       - 'scripts/check_hypergraph_v0_role_coverage.py'
+      - 'scripts/check_local_relation_schema.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
       - 'scripts/smoke_hypergraph_projections.mjs'
       - 'scripts/smoke_typed_roles.mjs'
       - 'scripts/smoke_causal_identifiability.mjs'
+      - 'scripts/smoke_dynamic_topology.mjs'
       - '.github/workflows/scientific-hypergraph.yml'
 
 permissions:
@@ -77,6 +81,8 @@ jobs:
         run: python scripts/validate_typed_hypergraph_suite.py
       - name: Verify generic v0 to v1 migration from committed schema graph
         run: python scripts/check_hypergraph_v1_migration.py
+      - name: Enforce fixture-local RelationType contracts
+        run: python scripts/check_local_relation_schema.py
 
   browser-smoke:
     runs-on: ubuntu-latest
@@ -97,6 +103,8 @@ jobs:
         run: node scripts/smoke_typed_roles.mjs
       - name: Smoke-test causal observational/interventional identifiability
         run: node scripts/smoke_causal_identifiability.mjs
+      - name: Smoke-test fixture-local dynamic topology schema
+        run: node scripts/smoke_dynamic_topology.mjs
       - name: Upload viewer screenshot
         if: always()
         uses: actions/upload-artifact@v4
