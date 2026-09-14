@@ -21,6 +21,7 @@ on:
       - 'scripts/check_scientific_hypergraph_queries.py'
       - 'scripts/audit_scientific_hypergraph_adequacy.py'
       - 'scripts/audit_kernel_ablation.py'
+      - 'scripts/probe_semantic_participant_types.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
@@ -53,6 +54,7 @@ on:
       - 'scripts/check_scientific_hypergraph_queries.py'
       - 'scripts/audit_scientific_hypergraph_adequacy.py'
       - 'scripts/audit_kernel_ablation.py'
+      - 'scripts/probe_semantic_participant_types.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
@@ -117,6 +119,8 @@ jobs:
         run: python scripts/audit_scientific_hypergraph_adequacy.py
       - name: Audit candidate kernel primitive ablations
         run: python scripts/audit_kernel_ablation.py
+      - name: Probe kind-free semantic participant types
+        run: python scripts/probe_semantic_participant_types.py
 
   browser-smoke:
     runs-on: ubuntu-latest
