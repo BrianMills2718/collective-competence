@@ -122,15 +122,36 @@ def fixed_equation_parameters(doc: dict[str, Any]) -> list[tuple[str, str, str |
     return hits
 
 
-def intervention_breakable_equivalence(doc: dict[str, Any]) -> list[tuple[str, list[str], list[str], str | None]]:
-    hits=[]
+def intervention_breakable_equivalence(doc: dict[str, Any]) -> list[tuple[str, str, list[str], list[str], str | None]]:
+    """Join access-relative identifiability assertions by target + candidate family.
+
+    Observational and interventional identifiability are intentionally separate
+    assertions. The first may expose an equivalence class; the second may expose a
+    distinguishing intervention. They describe the same inferential target when
+    `(target, candidate family)` agrees.
+    """
+    grouped: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
     for edge in doc.get("hyperedges", []):
         if canonical(edge) != "sci:IdentifiabilityRelation":
             continue
-        eq = participants(edge, "sci:idEquivalenceClass")
-        interventions = participants(edge, "sci:idInterventionFamily")
-        if eq and interventions:
-            hits.append((edge["id"], eq, interventions, one(edge, "sci:idStatus")))
+        target = one(edge, "sci:idTarget")
+        family = one(edge, "sci:idCandidateFamily")
+        if target and family:
+            grouped[(target, family)].append(edge)
+
+    hits=[]
+    for _, assertions in grouped.items():
+        observational = [e for e in assertions if participants(e, "sci:idEquivalenceClass")]
+        interventional = [e for e in assertions if participants(e, "sci:idInterventionFamily")]
+        for obs in observational:
+            for inter in interventional:
+                hits.append((
+                    obs["id"],
+                    inter["id"],
+                    participants(obs, "sci:idEquivalenceClass"),
+                    participants(inter, "sci:idInterventionFamily"),
+                    one(inter, "sci:idStatus"),
+                ))
     return hits
 
 
