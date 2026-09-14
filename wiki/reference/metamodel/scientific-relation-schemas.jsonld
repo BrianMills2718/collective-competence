@@ -1,0 +1,64 @@
+{
+  "@context": {
+    "sci": "urn:scientific-hypergraph:",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {"@id":"sci:EquationRelation","@type":"sci:RelationType","rdfs:label":"Equation Relation"},
+    {"@id":"sci:eqInput","@type":"sci:RoleType","rdfs:label":"input"},
+    {"@id":"sci:eqOutput","@type":"sci:RoleType","rdfs:label":"output"},
+    {"@id":"sci:eqExpression","@type":"sci:RoleType","rdfs:label":"expression"},
+    {"@id":"sci:eqAssumption","@type":"sci:RoleType","rdfs:label":"assumption"},
+    {"@id":"sci:eqRegime","@type":"sci:RoleType","rdfs:label":"regime"},
+
+    {"@id":"sci:ProcessRelation","@type":"sci:RelationType","rdfs:label":"Process Relation"},
+    {"@id":"sci:processParticipant","@type":"sci:RoleType","rdfs:label":"participant"},
+    {"@id":"sci:processInput","@type":"sci:RoleType","rdfs:label":"input"},
+    {"@id":"sci:processOutput","@type":"sci:RoleType","rdfs:label":"output"},
+    {"@id":"sci:processPrecondition","@type":"sci:RoleType","rdfs:label":"precondition"},
+    {"@id":"sci:processEffect","@type":"sci:RoleType","rdfs:label":"effect"},
+
+    {"@id":"sci:MeasurementRelation","@type":"sci:RelationType","rdfs:label":"Measurement Relation"},
+    {"@id":"sci:measurementSubject","@type":"sci:RoleType","rdfs:label":"subject"},
+    {"@id":"sci:measurementMeasurand","@type":"sci:RoleType","rdfs:label":"measurand"},
+    {"@id":"sci:measurementProcedure","@type":"sci:RoleType","rdfs:label":"procedure"},
+    {"@id":"sci:measurementInstrument","@type":"sci:RoleType","rdfs:label":"instrument"},
+    {"@id":"sci:measurementObservation","@type":"sci:RoleType","rdfs:label":"observation"},
+    {"@id":"sci:measurementResult","@type":"sci:RoleType","rdfs:label":"result"},
+    {"@id":"sci:measurementUncertainty","@type":"sci:RoleType","rdfs:label":"uncertainty"},
+
+    {"@id":"sci:ExperimentRelation","@type":"sci:RelationType","rdfs:label":"Experiment Relation"},
+    {"@id":"sci:experimentSubject","@type":"sci:RoleType","rdfs:label":"subject"},
+    {"@id":"sci:experimentIntervention","@type":"sci:RoleType","rdfs:label":"intervention"},
+    {"@id":"sci:experimentCondition","@type":"sci:RoleType","rdfs:label":"condition"},
+    {"@id":"sci:experimentComparator","@type":"sci:RoleType","rdfs:label":"comparator"},
+    {"@id":"sci:experimentObservation","@type":"sci:RoleType","rdfs:label":"observation"},
+    {"@id":"sci:experimentAnalysis","@type":"sci:RoleType","rdfs:label":"analysis"},
+    {"@id":"sci:experimentValidity","@type":"sci:RoleType","rdfs:label":"validity gate"},
+    {"@id":"sci:experimentResult","@type":"sci:RoleType","rdfs:label":"result"},
+
+    {"@id":"sci:AccessRelation","@type":"sci:RelationType","rdfs:label":"Access Relation"},
+    {"@id":"sci:accessor","@type":"sci:RoleType","rdfs:label":"accessor"},
+    {"@id":"sci:accessPhase","@type":"sci:RoleType","rdfs:label":"phase"},
+    {"@id":"sci:accessAllowed","@type":"sci:RoleType","rdfs:label":"allowed"},
+    {"@id":"sci:accessRestricted","@type":"sci:RoleType","rdfs:label":"restricted"},
+    {"@id":"sci:accessAllowedAction","@type":"sci:RoleType","rdfs:label":"allowed action"},
+
+    {"@id":"sci:ClaimRelation","@type":"sci:RelationType","rdfs:label":"Claim Relation"},
+    {"@id":"sci:claimProposition","@type":"sci:RoleType","rdfs:label":"proposition"},
+    {"@id":"sci:claimEvidence","@type":"sci:RoleType","rdfs:label":"evidence"},
+    {"@id":"sci:claimCounterevidence","@type":"sci:RoleType","rdfs:label":"counterevidence"},
+    {"@id":"sci:claimScope","@type":"sci:RoleType","rdfs:label":"scope"},
+    {"@id":"sci:claimStatus","@type":"sci:RoleType","rdfs:label":"status"},
+
+    {"@id":"sci:IdentifiabilityRelation","@type":"sci:RelationType","rdfs:label":"Identifiability Relation"},
+    {"@id":"sci:idTarget","@type":"sci:RoleType","rdfs:label":"target"},
+    {"@id":"sci:idCandidateFamily","@type":"sci:RoleType","rdfs:label":"candidate family"},
+    {"@id":"sci:idAccess","@type":"sci:RoleType","rdfs:label":"access"},
+    {"@id":"sci:idObservationModel","@type":"sci:RoleType","rdfs:label":"observation model"},
+    {"@id":"sci:idInterventionFamily","@type":"sci:RoleType","rdfs:label":"intervention family"},
+    {"@id":"sci:idEquivalenceClass","@type":"sci:RoleType","rdfs:label":"equivalence class"},
+    {"@id":"sci:idStatus","@type":"sci:RoleType","rdfs:label":"status"},
+    {"@id":"sci:idEvidence","@type":"sci:RoleType","rdfs:label":"evidence"}
+  ]
+}
