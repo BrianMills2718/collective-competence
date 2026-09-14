@@ -30,7 +30,7 @@ jobs:
         run: bash scripts/materialize_role_schema_graph.sh
       - name: Commit generated role schema graph when changed
         run: |
-          if git diff --quiet -- wiki/reference/metamodel/scientific-role-schema-v1.json; then
+          if [ -z "$(git status --porcelain -- wiki/reference/metamodel/scientific-role-schema-v1.json)" ]; then
             echo 'Role schema graph already materialized and current.'
             exit 0
           fi
