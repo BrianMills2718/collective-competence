@@ -6,7 +6,7 @@ The generated viewer lives at [`metamodel/hypergraph-viewer.html`](metamodel/hyp
 
 ## Run locally
 
-From the repository root, serve the repository over HTTP, for example:
+From the repository root:
 
 ```bash
 python -m http.server 8000
@@ -18,8 +18,6 @@ Then open:
 http://localhost:8000/wiki/reference/metamodel/hypergraph-viewer.html
 ```
 
-Opening the HTML directly with `file://` may block relative fixture loading; the viewer also has an **Open JSON** control for local fixture files.
-
 Validate all built-in fixtures with:
 
 ```bash
@@ -28,20 +26,20 @@ python scripts/validate_scientific_hypergraph_suite.py
 
 ## Inputs
 
-The built-in fixture selector can load or merge:
+The built-in selector can load or merge:
 
 - `c2-q1-hypergraph-v0.json`
 - `classical-mechanics-hypergraph.json`
 - `harmonic-oscillator-hypergraph.json`
 - `first-order-reaction-hypergraph.json`
 
-### Merge identity rule
+## Merge identity rule
 
-Only metamodel/schema nodes are shared automatically across fixtures. Theory, study, and evidence identities are fixture-local unless explicitly modeled otherwise. The viewer prefixes those local IDs by fixture when it constructs the merged projection.
+Only metamodel/schema nodes are shared automatically across fixtures. Theory, study, and evidence identities are fixture-local unless explicitly modeled otherwise. A lexical ID such as `study:LabFrame` appearing in two independent studies does **not** imply identity.
 
-This matters because a lexical ID such as `study:LabFrame` appearing in two independent studies does **not** imply those are the same study instance.
+The viewer prefixes local node/relation IDs by fixture during merge. Higher-order role bindings are rewritten to the merged relation IDs.
 
-Hyperrelation IDs are similarly namespaced unless the relation itself is a shared metamodel/schema declaration. Higher-order role bindings are rewritten to the merged relation-instance IDs.
+Semantically equivalent shared schema/metamodel hyperrelations are deduplicated by relation type plus role bindings rather than by local fixture ID alone. This reduced the authoritative four-fixture merged graph from 64 to 61 relation instances without collapsing domain-specific scientific relations.
 
 ## Representation
 
@@ -49,118 +47,87 @@ The viewer renders the **incidence graph** of the n-ary hypergraph:
 
 - ordinary model elements are rounded nodes;
 - relation instances are diamonds;
-- each role binding is a spoke;
-- each relation instance has a dashed connection to its relation type;
-- relation instances may themselves be role participants in other relation instances.
+- role bindings are spokes;
+- relation instance -> relation type links are dashed;
+- relation instances may themselves participate in other relation instances.
 
-Role labels are deliberately suppressed at overview zoom because showing every label simultaneously recreates the hairball problem. They appear when the graph is zoomed in, and all roles remain visible in the inspector when a relation is selected.
+Role labels are suppressed at overview scale and become visible when zoomed or when the corresponding relation is selected. The inspector always exposes the complete role map.
 
-The viewer does not treat metamodel, schema, theory, study, and evidence as independent semantic stores. They are graph annotations used for filtering and layout.
+The graph is the model. Layer/domain groupings are projections/layout annotations, not independent semantic stores.
 
-## Default layout — semantic radial
+## Canonical layout — hub-and-lobes Sugiyama
 
-The default projection is now a deterministic **semantic radial layout** designed for this hypergraph rather than a generic force layout.
+The radial prototype failed the exact four-fixture browser test with severe node collisions. It was replaced rather than tuned.
 
-Its rules are:
+The accepted overview uses a deterministic **hub-and-lobes Sugiyama-style layout**:
 
-1. metamodel/kernel elements occupy the inner ring;
-2. reusable scientific schema elements occupy the next ring;
-3. each loaded scientific fixture receives a stable angular sector;
-4. relation instances sit inward of their ordinary participants;
-5. theory, study, and evidence use progressively more external radial bands;
-6. participant ordering follows the barycenter of incident relation angles;
-7. dense bands spill onto several radial tracks so long labels do not all compete for one circumference;
-8. type edges curve from shared schema nodes to relation instances while participant-role edges remain within their scientific sector where possible.
+### Shared hub
 
-The intent is to make the conceptual structure visible in the first frame:
+- metamodel/kernel nodes occupy a compact central grid;
+- shared schema relation types surround the kernel;
+- shared support schema such as units use an outer hub ring;
+- shared type/specialization relation instances occupy a separate intermediate ring.
 
-```text
-shared kernel / schema
-        -> domain relation instances
-        -> domain theory / study / evidence participants
-```
+### Scientific lobes
 
-The layout is deterministic for the same graph and stable source ordering.
+Each scientific fixture receives a layout-only lobe. The graph remains one connected component through its shared schema/type relations.
 
-## Alternate layout — ELK layered
-
-The toolbar also exposes **ELK Layered** as an alternate deterministic projection. This remains useful when a reviewer wants a conventional left-to-right hierarchy.
-
-The ELK mode uses:
+Within a lobe, semantic columns are:
 
 ```text
-algorithm                         layered
-direction                         RIGHT
-edge routing                      ORTHOGONAL
-partitioning                      enabled
-crossing minimization             LAYER_SWEEP
-greedy crossing switch            TWO_SIDED
-node placement                    BRANDES_KOEPF
-favor straight edges              true
+theory relation -> theory element
+study relation  -> study element
+evidence relation -> evidence element
 ```
 
-Semantic ranks are passed as layout partitions:
+Ordering within columns is refined by repeated barycentric sweeps over the incidence graph, following the crossing-reduction idea used in Sugiyama-style layered graph drawing. Columns are packed using actual rendered node/relation heights rather than equal row slots.
+
+The four current fixtures are placed in a deterministic 2x2 lobe arrangement around the shared hub. Domain lobes are layout only; they do not create domain silos in the semantic model.
+
+## Exact-fixture acceptance result
+
+The GitHub Actions browser smoke job serves the branch, loads the authoritative four fixtures, renders the merged graph in headless Chromium, and uploads a screenshot artifact.
+
+Accepted result for the hub layout:
 
 ```text
-0  metamodel
-1  schema
-2  theory
-3  study
-4  evidence
+128 model elements
+61 hyperrelations
+4 scientific domain lobes
+189 total incidence items
+0 significant shape overlaps
+0 severe shape overlaps
+0.0% worst shape overlap
 ```
 
-Force-directed layout is intentionally **not** the canonical/default view.
+The smoke job also verifies:
+
+- globally unique rendered IDs;
+- `mechanics::study:LabFrame` and `oscillator::study:LabFrame` both survive merge;
+- relation inspector exposes role bindings;
+- focus-neighborhood projection reduces `189 -> 4` items for the sampled relation;
+- search dims nonmatches without changing the source model;
+- no browser console/page errors.
+
+The validator job independently confirms every fixture is structurally valid and one connected incidence component.
 
 ## Projection behavior
 
-Layer and relation-type controls create **views** of the source graph rather than severing the selected layer from its context. When a relation is retained, the projection also retains its relation type and immediate role participants. Higher-order relation participants remain relation nodes.
+Layer and relation-type controls produce views over the same source graph. Retained relation instances bring along their relation type and required participant context. Higher-order relations remain relation nodes.
 
-The **Focus neighborhood** command creates a one-hop semantic neighborhood around the selected item and reruns the current deterministic layout.
+`Focus neighborhood` creates a one-hop semantic neighborhood around the selected item and reruns the deterministic hub layout.
 
-Search dims non-matching elements without changing layout.
+Search dims nonmatching SVG elements without relayout.
 
-## Inspector
+## Layout review status
 
-Selecting a relation instance shows:
+The first layout gate is now met: the authoritative four-domain graph is rendered without node-shape collisions and with correct fixture identity isolation.
 
-- stable merged relation ID;
-- original fixture-local relation ID;
-- relation type;
-- layer/source fixture;
-- every role -> participant binding.
+The next viewer improvements should target **edge readability**, not node packing:
 
-Selecting an ordinary model element shows the relation instances in which it participates or which it types.
+1. reduce long shared-schema/type edge clutter in the center;
+2. consider edge bundling or type-edge aggregation as a view option while preserving exact relations in the source model;
+3. add explicit named projections for theory, measurement, access, evidence, dependency conformance, and identifiability;
+4. retain role details in the inspector rather than printing all labels at overview scale.
 
-## Browser smoke test
-
-The semantic-radial implementation was exercised in a headless Chromium harness using four merged fixture-shaped documents. The smoke pass verified:
-
-- four-fixture merge;
-- node/relation rendering;
-- search dimming;
-- relation selection/inspection;
-- focus-neighborhood relayout;
-- clearing focus and fitting the graph;
-- no browser console errors.
-
-The smoke harness used the same merge, projection, radial-layout, SVG-rendering, and interaction code as the branch viewer, but a simplified four-domain fixture snapshot. The authoritative repository fixtures must still be exercised in a normally served checkout during productization.
-
-## External runtime dependency
-
-Only the optional ELK projection depends on browser `elkjs`, pinned in the HTML to `elkjs@0.12.0`. The default semantic-radial algorithm, graph representation, projections, SVG renderer, merge semantics, and interaction logic are repository-owned JavaScript.
-
-A later productization pass can vendor ELK locally if offline/reproducible delivery is required.
-
-## Acceptance checkpoint
-
-Before adding harder scientific fixtures or changing the kernel, review whether this generated viewer makes the current four-domain model legible:
-
-1. Is kernel -> schema -> theory -> study/evidence understandable?
-2. Are the four scientific domains visually separable without becoming semantic silos?
-3. Are n-ary roles discoverable without printing every role label at overview scale?
-4. Are higher-order relations understandable?
-5. Do filtered views clarify the graph rather than merely hide clutter?
-6. Does identity remain correct when fixtures reuse local names?
-7. Are both radial and layered layouts stable enough to support review and diffing?
-
-If those fail, improve projection/layout/view semantics before expanding the metamodel.
+Do not add harder stochastic/PDE/multiscale fixtures merely to exercise the viewer until these projection semantics are reviewed.
