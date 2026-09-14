@@ -22,6 +22,7 @@ try{
   assert(await page.locator('[data-id="spde::h:noise-distribution"]').count()===1,'random-field DistributionRelation is not rendered');
   assert(await page.locator('[data-id="spde::h:spde"]').count()===1,'stochastic PDE EquationRelation is not rendered');
   assert(await page.locator('[data-id="spde::h:infer-kappa"]').count()===1,'SPDE parameter inference relation is not rendered');
+  assert(await page.locator('[data-id="spde::h:kappa-fit"]').count()===1,'fitted diffusivity QuantityValueRelation is not rendered');
 
   await page.locator('[data-id="spde::h:spde"]').click();
   let text=await page.locator('#roles').textContent();
@@ -35,8 +36,15 @@ try{
   assert(text?.includes('sci:analysisInput')||text?.includes('input'),'inference inspector missing analysis-input RoleType');
   assert(text?.includes('observed field samples'),'inference inspector missing measured field input');
   assert(text?.includes('sci:analysisOutput')||text?.includes('output'),'inference inspector missing analysis-output RoleType');
-  assert(text?.includes('0.207'),'inference inspector missing fitted diffusivity value');
+  assert(text?.includes('schema:QuantityValue')||text?.includes('Quantity Value'),'inference inspector does not expose a QuantityValue relation as output');
   assert(text?.includes('sci:analysisUncertainty')||text?.includes('uncertainty'),'inference inspector missing uncertainty RoleType');
+
+  await page.locator('[data-id="spde::h:kappa-fit"]').click();
+  text=await page.locator('#roles').textContent();
+  assert(text?.includes('sci:numericalValue')||text?.includes('numerical value'),'fitted diffusivity relation missing numerical-value RoleType');
+  assert(text?.includes('0.207'),'fitted diffusivity relation missing value 0.207');
+  assert(text?.includes('±0.012'),'fitted diffusivity relation missing uncertainty value');
+
   assert(errors.length===0,`browser errors: ${errors.join('\n')}`);
   console.log('PASS stochastic PDE: random-field driver, PDE structure, measurement and diffusivity inference render compositionally');
 } finally {await browser.close();server.close();}
