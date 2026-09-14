@@ -7,6 +7,7 @@ on:
       - 'wiki/reference/scientific-hypergraph-*.md'
       - 'scripts/validate_hypergraph_fixture.py'
       - 'scripts/validate_scientific_hypergraph_suite.py'
+      - 'scripts/smoke_hypergraph_viewer.mjs'
       - '.github/workflows/scientific-hypergraph.yml'
   push:
     branches:
@@ -15,6 +16,7 @@ on:
       - 'wiki/reference/metamodel/**'
       - 'scripts/validate_hypergraph_fixture.py'
       - 'scripts/validate_scientific_hypergraph_suite.py'
+      - 'scripts/smoke_hypergraph_viewer.mjs'
       - '.github/workflows/scientific-hypergraph.yml'
 
 permissions:
@@ -30,3 +32,24 @@ jobs:
           python-version: '3.12'
       - name: Validate all scientific-hypergraph fixtures
         run: python scripts/validate_scientific_hypergraph_suite.py
+
+  browser-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Smoke-test exact hypergraph fixtures and layouts
+        run: node scripts/smoke_hypergraph_viewer.mjs
+      - name: Upload viewer screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scientific-hypergraph-viewer
+          path: artifacts/scientific-hypergraph-viewer.png
+          if-no-files-found: ignore
