@@ -10,6 +10,7 @@ This area is the **cold/warm layer** of the project knowledge system. Use it whe
 - [Levin-lab software ecosystem survey, September 2026](levin-software-ecosystem-survey.md) — package-by-package audit of executable prior art, redundancy risk, reusable external substrates, and the narrower identifiability/prediction niche left for this programme.
 - [Goal/competence identifiability landscape, September 2026](goal-competence-identifiability-landscape.md) — broader audit of behavioral systems theory, model discrimination, active diagnosis, causal equivalence, IRL, Goal Recognition Design, specification mining, active automata learning, and goal-directedness measurement; defines the baselines and novelty stop-rules for the discovery arm.
 - [Full research ontology](../ontology.md) — detailed definitions, formalization inventory, aliases, and conceptual relationships.
+- [Scientific model metamodel direction](scientific-model-metamodel.md) — exploratory design for a general scientific/empirical metamodel, with Collective Competence as the first white-box/black-box proving ground.
 - [Detailed discovery goal register](../goals.md) — D1-D6, provenance, and historical phase discussion.
 - [Standing conjectures](../conjectures.md) — falsifiable domain conjectures and their refuters.
 - [Generative thesis](../competence-thesis.md) — exploratory conceptual motivation; not a source of current priority.
