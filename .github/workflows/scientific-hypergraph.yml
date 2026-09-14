@@ -18,6 +18,7 @@ on:
       - 'scripts/smoke_hypergraph_viewer.mjs'
       - 'scripts/smoke_hypergraph_projections.mjs'
       - 'scripts/smoke_typed_roles.mjs'
+      - 'scripts/smoke_causal_identifiability.mjs'
       - '.github/workflows/scientific-hypergraph.yml'
   push:
     branches:
@@ -37,6 +38,7 @@ on:
       - 'scripts/smoke_hypergraph_viewer.mjs'
       - 'scripts/smoke_hypergraph_projections.mjs'
       - 'scripts/smoke_typed_roles.mjs'
+      - 'scripts/smoke_causal_identifiability.mjs'
       - '.github/workflows/scientific-hypergraph.yml'
 
 permissions:
@@ -93,6 +95,8 @@ jobs:
         run: node scripts/smoke_hypergraph_projections.mjs
       - name: Smoke-test typed RoleType bindings
         run: node scripts/smoke_typed_roles.mjs
+      - name: Smoke-test causal observational/interventional identifiability
+        run: node scripts/smoke_causal_identifiability.mjs
       - name: Upload viewer screenshot
         if: always()
         uses: actions/upload-artifact@v4
