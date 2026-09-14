@@ -9,10 +9,10 @@ on:
       - 'scripts/validate_scientific_hypergraph_suite.py'
       - 'scripts/validate_typed_hypergraph_fixture.py'
       - 'scripts/validate_typed_hypergraph_suite.py'
+      - 'scripts/validate_role_schema_graph.py'
       - 'scripts/migrate_hypergraph_v0_to_v1.py'
       - 'scripts/check_hypergraph_v1_migration.py'
       - 'scripts/check_hypergraph_v0_role_coverage.py'
-      - 'scripts/bootstrap_role_schema_hypergraph.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
@@ -28,10 +28,10 @@ on:
       - 'scripts/validate_scientific_hypergraph_suite.py'
       - 'scripts/validate_typed_hypergraph_fixture.py'
       - 'scripts/validate_typed_hypergraph_suite.py'
+      - 'scripts/validate_role_schema_graph.py'
       - 'scripts/migrate_hypergraph_v0_to_v1.py'
       - 'scripts/check_hypergraph_v1_migration.py'
       - 'scripts/check_hypergraph_v0_role_coverage.py'
-      - 'scripts/bootstrap_role_schema_hypergraph.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
@@ -50,36 +50,31 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validate v0 scientific-hypergraph fixtures
-        run: python scripts/validate_scientific_hypergraph_suite.py
-      - name: Check v0 role-contract coverage
-        run: python scripts/check_hypergraph_v0_role_coverage.py
-      - name: Validate typed-role v1 fixtures
-        run: python scripts/validate_typed_hypergraph_suite.py
-      - name: Verify generic v0 to v1 migration
-        run: python scripts/check_hypergraph_v1_migration.py
-      - name: Round-trip role contracts through self-hosted schema graph
+      - name: Validate committed self-hosted role schema graph
+        run: python scripts/validate_role_schema_graph.py
+      - name: Require generated contract cache to match role schema graph
         run: python scripts/check_role_schema_roundtrip.py
-      - name: Bootstrap self-hosted role schema graph
-        run: python scripts/bootstrap_role_schema_hypergraph.py -o artifacts/scientific-role-schema-v1.json
-      - name: Re-generate contract index from schema graph artifact
-        run: python scripts/generate_role_contracts_from_schema_graph.py artifacts/scientific-role-schema-v1.json -o artifacts/scientific-role-contracts.generated.json
-      - name: Compare regenerated contract index semantically
+      - name: Generate role-contract cache from committed role schema graph
+        run: python scripts/generate_role_contracts_from_schema_graph.py wiki/reference/metamodel/scientific-role-schema-v1.json -o artifacts/scientific-role-contracts.generated.json
+      - name: Compare generated role-contract cache semantically
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          expected = json.loads(Path('wiki/reference/metamodel/scientific-role-contracts.json').read_text())
-          actual = json.loads(Path('artifacts/scientific-role-contracts.generated.json').read_text())
-          if actual != expected:
-              raise SystemExit('generated role-contract index differs semantically from committed index')
-          print('PASS generated role-contract index is semantically identical to committed index')
+          graph_cache = json.loads(Path('artifacts/scientific-role-contracts.generated.json').read_text())
+          committed_cache = json.loads(Path('wiki/reference/metamodel/scientific-role-contracts.json').read_text())
+          if graph_cache != committed_cache:
+              raise SystemExit('scientific-role-contracts.json is stale; regenerate it from scientific-role-schema-v1.json')
+          print('PASS role-contract cache is derived exactly from committed role schema graph')
           PY
-      - name: Upload role schema graph bootstrap artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: scientific-role-schema-v1
-          path: artifacts/scientific-role-schema-v1.json
+      - name: Validate v0 scientific-hypergraph fixtures
+        run: python scripts/validate_scientific_hypergraph_suite.py
+      - name: Check v0 role coverage from committed schema graph
+        run: python scripts/check_hypergraph_v0_role_coverage.py
+      - name: Validate typed-role v1 fixtures from committed schema graph
+        run: python scripts/validate_typed_hypergraph_suite.py
+      - name: Verify generic v0 to v1 migration from committed schema graph
+        run: python scripts/check_hypergraph_v1_migration.py
 
   browser-smoke:
     runs-on: ubuntu-latest
