@@ -12,8 +12,9 @@ HV.FIXTURES = {
   multiscale:'random-walk-diffusion-multiscale-hypergraph-v1.json',
   calibration:'calibration-covariance-hypergraph-v1.json',
   causal:'causal-markov-equivalence-hypergraph-v1.json',
+  topology:'dynamic-topology-hypergraph-v1.json',
 };
-HV.AGGREGATE_FIXTURES = ['cc','mechanics','oscillator','reaction','stochastic','heat','multiscale','calibration','causal'];
+HV.AGGREGATE_FIXTURES = ['cc','mechanics','oscillator','reaction','stochastic','heat','multiscale','calibration','causal','topology'];
 HV.SOURCE_LABEL = {
   roleSchema:'Scientific relation / role metamodel',
   cc:'Collective Competence C2/Q1 (v1)',
@@ -25,5 +26,6 @@ HV.SOURCE_LABEL = {
   multiscale:'Random walk → diffusion multiscale (v1)',
   calibration:'Correlated calibration uncertainty (v1)',
   causal:'Causal Markov equivalence + intervention (v1)',
+  topology:'Dynamic topology + entity creation (local schema v1)',
 };
 })();
