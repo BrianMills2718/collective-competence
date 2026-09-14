@@ -76,11 +76,35 @@ def existing_instance_pairs(doc: dict[str, Any]) -> set[tuple[str, str]]:
     return pairs
 
 
+def all_declared_ids(doc: dict[str, Any]) -> list[str]:
+    ids = [n["id"] for n in doc.get("nodes", [])] + [e["id"] for e in doc.get("hyperedges", [])]
+    ids.extend(
+        b["id"]
+        for edge in doc.get("hyperedges", [])
+        for b in edge.get("bindings", [])
+        if isinstance(b.get("id"), str)
+    )
+    return ids
+
+
+def assert_unique_ids(doc: dict[str, Any], label: str) -> None:
+    ids = all_declared_ids(doc)
+    counts = Counter(ids)
+    duplicates = sorted(x for x, n in counts.items() if n > 1)
+    if duplicates:
+        raise AssertionError(f"{label}: normalization introduced duplicate IDs: {duplicates}")
+
+
+def canonical_json(doc: dict[str, Any]) -> str:
+    return json.dumps(doc, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+
+
 def normalize(doc: dict[str, Any]) -> dict[str, Any]:
     out = deepcopy(doc)
     out["normalizationProbe"] = "graph-native-typing-v2"
+    assert_unique_ids(out, "input")
     node_ids = {n["id"] for n in out.get("nodes", [])}
-    all_existing_ids = node_ids | {e["id"] for e in out.get("hyperedges", [])}
+    all_existing_ids = set(all_declared_ids(out))
     pairs = existing_instance_pairs(out)
     generated_nodes: list[dict[str, Any]] = []
     generated_edges: list[dict[str, Any]] = []
@@ -100,6 +124,10 @@ def normalize(doc: dict[str, Any]) -> dict[str, Any]:
 
         for type_id in sorted(set(semantic_types)):
             if type_id not in node_ids:
+                if type_id in all_existing_ids:
+                    raise AssertionError(
+                        f"cannot materialize semantic type node {type_id!r}: ID is already used by a non-node graph item"
+                    )
                 generated_nodes.append({
                     "id": type_id,
                     "label": type_id.split(":", 1)[-1],
@@ -107,6 +135,7 @@ def normalize(doc: dict[str, Any]) -> dict[str, Any]:
                     "generatedBy": "graph-native-typing-v2",
                 })
                 node_ids.add(type_id)
+                all_existing_ids.add(type_id)
             if (node["id"], type_id) in pairs:
                 continue
             base = f"norm:instanceOf:{slug(node['id'])}:{slug(type_id)}"
@@ -130,6 +159,7 @@ def normalize(doc: dict[str, Any]) -> dict[str, Any]:
 
     out["nodes"].extend(generated_nodes)
     out["hyperedges"].extend(generated_edges)
+    assert_unique_ids(out, "output")
     return out
 
 
@@ -181,6 +211,7 @@ def type_index(doc: dict[str, Any]) -> dict[str, set[str]]:
 def validate_normalized(original_doc: dict[str, Any], normalized: dict[str, Any]) -> tuple[int, int, int, int]:
     if any("kind" in n or "type" in n for n in normalized.get("nodes", [])):
         raise AssertionError("graph-native normalization retained node.kind or node.type")
+    assert_unique_ids(normalized, "validated normalized graph")
 
     contracts = translated_contracts(original_doc)
     aliases, specs = contract_indexes(contracts)
@@ -299,6 +330,9 @@ def main() -> int:
     for path in ALL_FIXTURES:
         original = read(path)
         normalized = normalize(original)
+        renormalized = normalize(normalized)
+        if canonical_json(normalized) != canonical_json(renormalized):
+            raise AssertionError(f"{path.name}: graph-native normalization is not idempotent")
         before = query_signature(original)
         after = query_signature(normalized)
         if before != after:
@@ -309,7 +343,7 @@ def main() -> int:
         total_generated_types += generated_types
         total_generated_instanceof += generated_instanceof
         print(
-            f"PASS {path.name}: no node.kind/type; graph-native instanceOf typing validates; "
+            f"PASS {path.name}: deterministic/idempotent; no node.kind/type; graph-native instanceOf typing validates; "
             f"queries invariant; +{generated_types} type nodes / +{generated_instanceof} instanceOf relations; "
             f"{constrained} type-constrained bindings"
         )
