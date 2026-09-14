@@ -16,8 +16,8 @@ aside{min-height:0;overflow:auto;background:var(--panel);border-left:1px solid v
 <body>
 <header>
 <h1>Scientific hypergraph</h1>
-<select id="fixture" class="control"><option value="all">All stress tests</option><option value="cc">Collective Competence C2/Q1</option><option value="mechanics">Classical mechanics</option><option value="oscillator">Harmonic oscillator</option><option value="reaction">Reaction kinetics</option></select>
-<select id="projection" class="control"><option value="all">Overview</option><option value="theory">Theory</option><option value="measurement">Measurement / analysis</option><option value="access">Access</option><option value="evidence">Evidence</option><option value="identifiability">Identifiability</option></select>
+<select id="fixture" class="control"><option value="all">All stress tests</option><option value="cc">Collective Competence C2/Q1</option><option value="mechanics">Classical mechanics</option><option value="oscillator">Harmonic oscillator</option><option value="reaction">Reaction kinetics</option><option value="stochastic">OU stochastic process</option><option value="heat">Heat-equation PDE</option></select>
+<select id="projection" class="control"><option value="all">Overview</option><option value="theory">Theory</option><option value="measurement">Measurement / analysis</option><option value="probability">Probability</option><option value="access">Access</option><option value="evidence">Evidence</option><option value="identifiability">Identifiability</option></select>
 <select id="layer" class="control"><option value="all">All layers</option><option value="metamodel">Metamodel</option><option value="schema">Schema</option><option value="theory">Theory</option><option value="study">Study</option><option value="evidence">Evidence</option></select>
 <select id="relationType" class="control"><option value="all">All relation types</option></select>
 <input id="search" class="control grow" placeholder="Search node, relation, role…">
@@ -27,10 +27,11 @@ aside{min-height:0;overflow:auto;background:var(--panel);border-left:1px solid v
 <section id="stage"><svg id="graph" aria-label="Scientific hypergraph"></svg><div id="loading">Laying out graph…</div></section>
 <aside><div class="kicker">Inspector</div><div id="selTitle">Scientific hypergraph</div><div id="selMeta" class="small">No selection</div><div id="selDesc">Rounded nodes are model elements. Diamonds are first-class n-ary relation instances. Spokes are role bindings. Dashed links connect relation instances to reusable relation types.</div><div id="roles" class="roles"></div>
 <div class="legend"><div><span class="sw" style="background:var(--meta)"></span>Metamodel</div><div><span class="sw" style="background:var(--schema)"></span>Schema</div><div><span class="sw" style="background:var(--theory)"></span>Theory</div><div><span class="sw" style="background:var(--study)"></span>Study</div><div><span class="sw" style="background:var(--evidence)"></span>Evidence</div><div><span class="diamond"></span>Hyperrelation</div></div>
-<div class="hint"><b>Layout:</b> deterministic hub-and-lobes Sugiyama. The shared kernel/schema stays central; each scientific fixture occupies a layout-only lobe with theory → study → evidence columns and barycentric crossing reduction. Repeated relation-type links are bundled through view-only trunks; the underlying hypergraph is unchanged. Named projections are graph queries over the same model.</div></aside>
+<div class="hint"><b>Layout:</b> deterministic hub-and-lobes Sugiyama. The shared kernel/schema stays central; scientific fixtures occupy layout-only lobes with theory → study → evidence columns and barycentric crossing reduction. Extra fixtures spill into farther top/bottom lobe bands rather than overlapping existing quadrants. Repeated relation-type links are bundled through view-only trunks. Named projections are graph queries over the same source model.</div></aside>
 </main>
 <script src="hypergraph-viewer-core.js"></script>
 <script src="hypergraph-viewer-layout.js"></script>
+<script src="hypergraph-viewer-multidomain.js"></script>
 <script src="hypergraph-viewer-render.js"></script>
 <script src="hypergraph-viewer-status.js"></script>
 <script src="hypergraph-viewer-main.js"></script>
