@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "sci": "urn:scientific-hypergraph:",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {"@id":"sci:ModelElement","@type":"sci:ElementType","rdfs:label":"Model Element"},
+    {"@id":"sci:ElementType","@type":"sci:ElementType","rdfs:label":"Element Type"},
+    {"@id":"sci:RelationType","@type":"sci:ElementType","rdfs:label":"Relation Type"},
+    {"@id":"sci:RoleType","@type":"sci:ElementType","rdfs:label":"Role Type"},
+    {"@id":"sci:RelationInstance","@type":"sci:ElementType","rdfs:label":"Relation Instance"},
+    {"@id":"sci:RoleBinding","@type":"sci:RelationType","rdfs:label":"Role Binding"},
+    {"@id":"sci:Constraint","@type":"sci:ElementType","rdfs:label":"Constraint"},
+    {"@id":"sci:Expression","@type":"sci:ElementType","rdfs:label":"Expression"},
+    {"@id":"sci:Value","@type":"sci:ElementType","rdfs:label":"Value"},
+
+    {"@id":"sci:instanceOf","@type":"sci:RelationType","rdfs:label":"instance of"},
+    {"@id":"sci:specializes","@type":"sci:RelationType","rdfs:label":"specializes"},
+    {"@id":"sci:declaresRole","@type":"sci:RelationType","rdfs:label":"declares role"},
+    {"@id":"sci:constrainedBy","@type":"sci:RelationType","rdfs:label":"constrained by"},
+    {"@id":"sci:expressedBy","@type":"sci:RelationType","rdfs:label":"expressed by"},
+
+    {"@id":"sci:bindingRelation","@type":"sci:RoleType","rdfs:label":"relation instance"},
+    {"@id":"sci:bindingRole","@type":"sci:RoleType","rdfs:label":"role"},
+    {"@id":"sci:bindingParticipant","@type":"sci:RoleType","rdfs:label":"participant"},
+
+    {"@id":"sci:rbDeclaresRelation","@type":"sci:RelationInstance","sci:relationType":{"@id":"sci:declaresRole"}},
+    {"@id":"sci:rb1","@type":"sci:RoleBinding","sci:relation":{"@id":"sci:rbDeclaresRelation"},"sci:role":{"@id":"sci:bindingParticipant"},"sci:participant":{"@id":"sci:bindingRelation"}},
+    {"@id":"sci:rb2","@type":"sci:RoleBinding","sci:relation":{"@id":"sci:rbDeclaresRelation"},"sci:role":{"@id":"sci:bindingParticipant"},"sci:participant":{"@id":"sci:bindingRole"}},
+    {"@id":"sci:rb3","@type":"sci:RoleBinding","sci:relation":{"@id":"sci:rbDeclaresRelation"},"sci:role":{"@id":"sci:bindingParticipant"},"sci:participant":{"@id":"sci:bindingParticipant"}}
+  ]
+}
