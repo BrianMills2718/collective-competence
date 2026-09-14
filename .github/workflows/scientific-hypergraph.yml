@@ -11,6 +11,7 @@ on:
       - 'scripts/validate_typed_hypergraph_suite.py'
       - 'scripts/migrate_hypergraph_v0_to_v1.py'
       - 'scripts/check_hypergraph_v1_migration.py'
+      - 'scripts/check_hypergraph_v0_role_coverage.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
       - 'scripts/smoke_hypergraph_projections.mjs'
       - 'scripts/smoke_typed_roles.mjs'
@@ -26,6 +27,7 @@ on:
       - 'scripts/validate_typed_hypergraph_suite.py'
       - 'scripts/migrate_hypergraph_v0_to_v1.py'
       - 'scripts/check_hypergraph_v1_migration.py'
+      - 'scripts/check_hypergraph_v0_role_coverage.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
       - 'scripts/smoke_hypergraph_projections.mjs'
       - 'scripts/smoke_typed_roles.mjs'
@@ -44,6 +46,8 @@ jobs:
           python-version: '3.12'
       - name: Validate v0 scientific-hypergraph fixtures
         run: python scripts/validate_scientific_hypergraph_suite.py
+      - name: Check v0 role-contract coverage
+        run: python scripts/check_hypergraph_v0_role_coverage.py
       - name: Validate typed-role v1 fixtures
         run: python scripts/validate_typed_hypergraph_suite.py
       - name: Verify generic v0 to v1 migration
