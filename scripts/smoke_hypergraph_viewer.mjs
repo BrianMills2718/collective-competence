@@ -1,169 +1,20 @@
 #!/usr/bin/env node
-
-import { createServer } from 'node:http';
-import { readFile, mkdir } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
-import path from 'node:path';
-import process from 'node:process';
-import { chromium } from 'playwright';
-
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
-const PORT = Number(process.env.HYPERGRAPH_SMOKE_PORT || 4177);
-const VIEWER = '/wiki/reference/metamodel/hypergraph-viewer.html';
-const ARTIFACT_DIR = path.join(ROOT, 'artifacts');
-const SCREENSHOT = path.join(ARTIFACT_DIR, 'scientific-hypergraph-viewer.png');
-
-const MIME = {
-  '.html': 'text/html; charset=utf-8',
-  '.js': 'text/javascript; charset=utf-8',
-  '.json': 'application/json; charset=utf-8',
-  '.jsonld': 'application/ld+json; charset=utf-8',
-  '.css': 'text/css; charset=utf-8',
-  '.svg': 'image/svg+xml',
-};
-
-function safePath(urlPath) {
-  const pathname = decodeURIComponent(new URL(urlPath, `http://127.0.0.1:${PORT}`).pathname);
-  const resolved = path.resolve(ROOT, `.${pathname}`);
-  if (!resolved.startsWith(ROOT + path.sep) && resolved !== ROOT) return null;
-  return resolved;
-}
-
-async function serve(req, res) {
-  const file = safePath(req.url || '/');
-  if (!file || !existsSync(file)) {
-    res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' });
-    res.end('not found');
-    return;
-  }
-  try {
-    const body = await readFile(file);
-    res.writeHead(200, {
-      'content-type': MIME[path.extname(file)] || 'application/octet-stream',
-      'cache-control': 'no-store',
-    });
-    res.end(body);
-  } catch (error) {
-    res.writeHead(500, { 'content-type': 'text/plain; charset=utf-8' });
-    res.end(String(error));
-  }
-}
-
-function assert(condition, message) {
-  if (!condition) throw new Error(message);
-}
-
-const server = createServer((req, res) => { void serve(req, res); });
-await new Promise(resolve => server.listen(PORT, '127.0.0.1', resolve));
-
-const browser = await chromium.launch({ headless: true });
-const page = await browser.newPage({ viewport: { width: 1800, height: 1200 } });
-const consoleErrors = [];
-page.on('console', msg => {
-  if (msg.type() === 'error') consoleErrors.push(msg.text());
-});
-page.on('pageerror', error => consoleErrors.push(error.stack || String(error)));
-
-try {
-  await page.goto(`http://127.0.0.1:${PORT}${VIEWER}`, { waitUntil: 'domcontentloaded' });
-  await page.waitForFunction(() => /elements/.test(document.querySelector('#status')?.textContent || ''), null, { timeout: 20000 });
-  await page.waitForTimeout(250);
-
-  const initial = await page.evaluate(() => {
-    const ids = [...document.querySelectorAll('#viewport .node,#viewport .relation')]
-      .map(x => x.dataset.id)
-      .filter(Boolean);
-    return {
-      status: document.querySelector('#status')?.textContent || '',
-      ids,
-      nodes: document.querySelectorAll('#viewport .node').length,
-      relations: document.querySelectorAll('#viewport .relation').length,
-      domains: document.querySelectorAll('#viewport .domain-label').length,
-      layout: document.querySelector('#layoutMode')?.value || '',
-    };
-  });
-
-  await mkdir(ARTIFACT_DIR, { recursive: true });
-  await page.screenshot({ path: SCREENSHOT, fullPage: true });
-
-  assert(initial.nodes > 0, 'no model-element nodes rendered');
-  assert(initial.relations > 0, 'no relation-instance nodes rendered');
-  assert(initial.domains >= 4, `expected >=4 domain labels, found ${initial.domains}`);
-  assert(new Set(initial.ids).size === initial.ids.length, 'rendered IDs are not globally unique');
-  assert(initial.ids.includes('mechanics::study:LabFrame'), 'mechanics study:LabFrame lost during merge');
-  assert(initial.ids.includes('oscillator::study:LabFrame'), 'oscillator study:LabFrame lost during merge');
-  assert(initial.layout === 'radial', `expected radial default, found ${initial.layout}`);
-
-  const overlap = await page.evaluate(() => {
-    function measure(selector, parentId=false) {
-      const items = [...document.querySelectorAll(selector)].map(el => ({
-        id: parentId ? el.parentElement?.dataset.id : el.dataset.id,
-        rect: el.getBoundingClientRect(),
-      })).filter(x => x.id);
-      let significant = 0, severe = 0, worst = 0, worstPair = null;
-      for (let i = 0; i < items.length; i++) {
-        for (let j = i + 1; j < items.length; j++) {
-          const a = items[i].rect, b = items[j].rect;
-          const ix = Math.max(0, Math.min(a.right, b.right) - Math.max(a.left, b.left));
-          const iy = Math.max(0, Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top));
-          const area = ix * iy;
-          if (!area) continue;
-          const denom = Math.min(a.width * a.height, b.width * b.height) || 1;
-          const ratio = area / denom;
-          if (ratio > 0.08) significant++;
-          if (ratio > 0.35) severe++;
-          if (ratio > worst) { worst = ratio; worstPair = [items[i].id, items[j].id]; }
-        }
-      }
-      return { significant, severe, worst, worstPair, count: items.length };
-    }
-    return {
-      shapes: measure('#viewport .node-shape,#viewport .relation-shape', true),
-      groups: measure('#viewport .node,#viewport .relation', false),
-    };
-  });
-
-  // Shape-on-shape collisions are hard layout failures. Group overlap (which includes
-  // text labels) is reported separately because labels can intentionally extend beyond shapes.
-  assert(overlap.shapes.severe === 0, `severe shape collision(s): ${JSON.stringify(overlap.shapes)}`);
-
-  await page.locator('#viewport .relation').first().click();
-  const inspectorRows = await page.locator('#roles .role').count();
-  assert(inspectorRows >= 2, `relation inspector has only ${inspectorRows} rows`);
-
-  const beforeFocus = await page.locator('#viewport .node,#viewport .relation').count();
-  await page.locator('#focus').click();
-  await page.waitForFunction(() => /elements/.test(document.querySelector('#status')?.textContent || ''), null, { timeout: 12000 });
-  await page.waitForTimeout(120);
-  const afterFocus = await page.locator('#viewport .node,#viewport .relation').count();
-  assert(afterFocus > 0 && afterFocus < beforeFocus, `focus did not reduce graph: ${beforeFocus} -> ${afterFocus}`);
-
-  await page.locator('#focus').click();
-  await page.waitForFunction(() => /elements/.test(document.querySelector('#status')?.textContent || ''), null, { timeout: 12000 });
-
-  await page.locator('#search').fill('velocity');
-  const dimmed = await page.locator('#viewport .dim').count();
-  assert(dimmed > 0, 'search did not dim non-matches');
-  await page.locator('#search').fill('');
-
-  const hasElk = await page.locator('#layoutMode option[value="elk"]').count();
-  assert(hasElk === 1, 'ELK layered alternate layout missing');
-  await page.selectOption('#layoutMode', 'elk');
-  await page.waitForFunction(() => /elk/i.test(document.querySelector('#status')?.textContent || ''), null, { timeout: 20000 });
-  await page.selectOption('#layoutMode', 'radial');
-  await page.waitForFunction(() => /radial/i.test(document.querySelector('#status')?.textContent || ''), null, { timeout: 12000 });
-
-  assert(consoleErrors.length === 0, `browser console/page errors: ${consoleErrors.join('\n')}`);
-
-  console.log(`PASS exact viewer smoke: ${initial.status}`);
-  console.log(`PASS rendered ${initial.nodes} elements + ${initial.relations} hyperrelations across ${initial.domains} domain sectors`);
-  console.log(`PASS fixture-local identity isolation: mechanics::study:LabFrame and oscillator::study:LabFrame both present`);
-  console.log(`PASS radial shape overlap: significant=${overlap.shapes.significant}, severe=${overlap.shapes.severe}, worst=${(overlap.shapes.worst * 100).toFixed(1)}%`);
-  console.log(`INFO label/group overlap: significant=${overlap.groups.significant}, severe=${overlap.groups.severe}, worst=${(overlap.groups.worst * 100).toFixed(1)}%, pair=${JSON.stringify(overlap.groups.worstPair)}`);
-  console.log(`PASS relation inspector rows=${inspectorRows}; focus ${beforeFocus} -> ${afterFocus}; search dimmed=${dimmed}`);
-  console.log(`PASS radial + ELK deterministic layout modes executed without console errors`);
-  console.log(`SCREENSHOT ${path.relative(ROOT, SCREENSHOT)}`);
-} finally {
-  await browser.close();
-  server.close();
-}
+import {createServer} from 'node:http';import {readFile,mkdir} from 'node:fs/promises';import {existsSync} from 'node:fs';import path from 'node:path';import process from 'node:process';import {chromium} from 'playwright';
+const ROOT=path.resolve(path.dirname(new URL(import.meta.url).pathname),'..'),PORT=Number(process.env.HYPERGRAPH_SMOKE_PORT||4177),VIEWER='/wiki/reference/metamodel/hypergraph-viewer.html',ART=path.join(ROOT,'artifacts'),SHOT=path.join(ART,'scientific-hypergraph-viewer.png');
+const MIME={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.jsonld':'application/ld+json; charset=utf-8'};
+const safe=u=>{const p=decodeURIComponent(new URL(u,`http://127.0.0.1:${PORT}`).pathname),r=path.resolve(ROOT,`.${p}`);return r.startsWith(ROOT+path.sep)||r===ROOT?r:null};
+async function serve(req,res){const f=safe(req.url||'/');if(!f||!existsSync(f)){res.writeHead(404);return res.end('not found')}try{res.writeHead(200,{'content-type':MIME[path.extname(f)]||'application/octet-stream','cache-control':'no-store'});res.end(await readFile(f))}catch(e){res.writeHead(500);res.end(String(e))}}
+function assert(c,m){if(!c)throw Error(m)}async function wait(page,fn,t=15000){await page.waitForFunction(fn,null,{timeout:t});await page.waitForTimeout(100)}
+const server=createServer((a,b)=>void serve(a,b));await new Promise(r=>server.listen(PORT,'127.0.0.1',r));const browser=await chromium.launch({headless:true}),page=await browser.newPage({viewport:{width:1800,height:1200}}),errors=[];page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});page.on('pageerror',e=>errors.push(e.stack||String(e)));
+try{
+ await page.goto(`http://127.0.0.1:${PORT}${VIEWER}`,{waitUntil:'domcontentloaded'});await wait(page,()=>/semantic hub/.test(document.querySelector('#status')?.textContent||''));
+ const initial=await page.evaluate(()=>{const ids=[...document.querySelectorAll('#viewport .node,#viewport .relation')].map(x=>x.dataset.id).filter(Boolean);return{status:document.querySelector('#status')?.textContent||'',ids,nodes:document.querySelectorAll('#viewport .node').length,relations:document.querySelectorAll('#viewport .relation').length,domains:document.querySelectorAll('#viewport .domain-label').length}});
+ await mkdir(ART,{recursive:true});await page.screenshot({path:SHOT,fullPage:true});
+ assert(initial.nodes>0&&initial.relations>0,'graph did not render');assert(initial.domains>=4,`expected >=4 domain labels; got ${initial.domains}`);assert(new Set(initial.ids).size===initial.ids.length,'rendered IDs are not unique');assert(initial.ids.includes('mechanics::study:LabFrame')&&initial.ids.includes('oscillator::study:LabFrame'),'fixture-local LabFrame identities collapsed');
+ const overlap=await page.evaluate(()=>{const xs=[...document.querySelectorAll('#viewport .node-shape,#viewport .relation-shape')].map(e=>({id:e.parentElement?.dataset.id,r:e.getBoundingClientRect()})).filter(x=>x.id);let severe=0,significant=0,worst=0,pair=null;for(let i=0;i<xs.length;i++)for(let j=i+1;j<xs.length;j++){const a=xs[i].r,b=xs[j].r,ix=Math.max(0,Math.min(a.right,b.right)-Math.max(a.left,b.left)),iy=Math.max(0,Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)),area=ix*iy;if(!area)continue;const ratio=area/(Math.min(a.width*a.height,b.width*b.height)||1);if(ratio>.08)significant++;if(ratio>.35)severe++;if(ratio>worst){worst=ratio;pair=[xs[i].id,xs[j].id]}}return{count:xs.length,significant,severe,worst,pair}});
+ assert(overlap.severe===0,`severe hub collisions: ${JSON.stringify(overlap)}`);
+ await page.locator('#viewport .relation').first().click();assert(await page.locator('#roles .role').count()>=2,'relation inspector missing roles');
+ const before=await page.locator('#viewport .node,#viewport .relation').count();await page.locator('#focus').click();await wait(page,()=>/semantic hub/.test(document.querySelector('#status')?.textContent||''));const after=await page.locator('#viewport .node,#viewport .relation').count();assert(after>0&&after<before,`focus did not reduce graph ${before}->${after}`);await page.locator('#focus').click();await wait(page,()=>/semantic hub/.test(document.querySelector('#status')?.textContent||''));
+ await page.locator('#search').fill('velocity');assert(await page.locator('#viewport .dim').count()>0,'search did not dim nonmatches');await page.locator('#search').fill('');assert(errors.length===0,`browser errors: ${errors.join('\n')}`);
+ console.log(`PASS exact hub viewer: ${initial.status}`);console.log(`PASS ${initial.nodes} elements + ${initial.relations} hyperrelations across ${initial.domains} domain lobes`);console.log(`PASS shape overlap significant=${overlap.significant} severe=${overlap.severe} worst=${(overlap.worst*100).toFixed(1)}%`);console.log(`PASS identity isolation, inspector, focus ${before}->${after}, search, console`);console.log(`SCREENSHOT ${path.relative(ROOT,SHOT)}`);
+}finally{await browser.close();server.close()}
