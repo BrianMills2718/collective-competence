@@ -24,6 +24,7 @@ on:
       - 'scripts/probe_semantic_participant_types.py'
       - 'scripts/probe_graph_native_typing.py'
       - 'scripts/probe_semantic_role_schema.py'
+      - 'scripts/measure_graph_native_normalization.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
@@ -59,6 +60,7 @@ on:
       - 'scripts/probe_semantic_participant_types.py'
       - 'scripts/probe_graph_native_typing.py'
       - 'scripts/probe_semantic_role_schema.py'
+      - 'scripts/measure_graph_native_normalization.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
@@ -131,6 +133,8 @@ jobs:
         run: python scripts/probe_graph_native_typing.py
       - name: Probe self-hosted semantic participant-type role schema
         run: python scripts/probe_semantic_role_schema.py
+      - name: Measure graph-native normalization expansion
+        run: python scripts/measure_graph_native_normalization.py
 
   browser-smoke:
     runs-on: ubuntu-latest
