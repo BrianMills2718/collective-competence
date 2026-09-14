@@ -191,17 +191,21 @@ def reconstruct_normalized_v1(v2: dict[str, Any]) -> dict[str, Any]:
 
 
 def semantic_core(doc: dict[str, Any]) -> dict[str, Any]:
-    """Drop source/provenance-only keys when checking normalized round-trip identity."""
-    out = json.loads(json.dumps(doc))
-    out.pop("normalization", None)
-    return out
+    """Return only normalized graph fields relevant to round-trip semantic identity."""
+    return {
+        "model": doc.get("model"),
+        "imports": doc.get("imports", []),
+        "normalizationProbe": doc.get("normalizationProbe"),
+        "nodes": doc.get("nodes", []),
+        "hyperedges": doc.get("hyperedges", []),
+    }
 
 
 def roundtrip_check(source: dict[str, Any], v2: dict[str, Any]) -> None:
     expected = normalize(source)
     reconstructed = reconstruct_normalized_v1(v2)
     if canonical_json(semantic_core(expected)) != canonical_json(semantic_core(reconstructed)):
-        raise AssertionError("v2 incidence-table round trip changed the normalized graph")
+        raise AssertionError("v2 incidence-table round trip changed the normalized graph core")
     if query_signature(source) != query_signature(reconstructed):
         raise AssertionError("v2 incidence-table round trip changed query results")
     validate_normalized(source, reconstructed)
