@@ -21,6 +21,7 @@ This area is the **cold/warm layer** of the project knowledge system. Use it whe
 - [Dynamical systems metamodel pilot](scientific-model-metamodel-dynamics-pilot.md) — continuous-time stress tests using a harmonic oscillator and first-order reaction kinetics; both fit without a new kernel primitive.
 - [Causal identifiability metamodel pilot](scientific-model-metamodel-causal-pilot.md) — two observationally Markov-equivalent SCMs separated by `do(X=x)`; tests claims, access, observational equivalence, intervention, and identifiability without a causal-specific kernel primitive.
 - [Dynamic topology and entity-creation pilot](scientific-model-metamodel-dynamic-topology-pilot.md) — cell division plus later bond formation; tests changing participants/topology and demonstrates theory-local `RelationType`/`RoleType` declarations without growing the shared scientific schema.
+- [Gauge-equivalent representation pilot](scientific-model-metamodel-gauge-equivalence-pilot.md) — distinguishes identity from equivalence using `A' = A + ∇χ` with invariant `B`; exercises local equivalence schema, higher-order transformations, differential operators, and invariant claims without growing the kernel/shared schema.
 - [Detailed discovery goal register](../goals.md) — D1-D6, provenance, and historical phase discussion.
 - [Standing conjectures](../conjectures.md) — falsifiable domain conjectures and their refuters.
 - [Generative thesis](../competence-thesis.md) — exploratory conceptual motivation; not a source of current priority.
