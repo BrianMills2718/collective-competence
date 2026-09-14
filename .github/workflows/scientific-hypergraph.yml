@@ -97,6 +97,8 @@ jobs:
               raise SystemExit('scientific-role-contracts.json is stale; regenerate it from scientific-role-schema-v1.json')
           print('PASS role-contract cache is derived exactly from committed role schema graph')
           PY
+      - name: Validate graph-native semantic type profile probe
+        run: python scripts/validate_typed_hypergraph_fixture.py wiki/reference/metamodel/scientific-semantic-types-v2-probe.json
       - name: Validate v0 scientific-hypergraph fixtures
         run: python scripts/validate_scientific_hypergraph_suite.py
       - name: Check v0 role coverage from committed schema graph
