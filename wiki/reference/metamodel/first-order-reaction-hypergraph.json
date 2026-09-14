@@ -1,0 +1,68 @@
+{
+  "model": "scientific-hypergraph-v0",
+  "nodes": [
+    {"id":"meta:ModelElement","label":"Model Element","layer":"metamodel","kind":"type"},
+    {"id":"meta:RelationType","label":"Relation Type","layer":"metamodel","kind":"type"},
+    {"id":"meta:instanceOf","label":"instanceOf","layer":"metamodel","kind":"relationType"},
+    {"id":"schema:Equation","label":"Equation Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Measurement","label":"Measurement Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Analysis","label":"Analysis Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:QuantityValue","label":"Quantity Value Relation","layer":"schema","kind":"relationType"},
+
+    {"id":"rxn:ReactionSystem","label":"First-order reaction system","layer":"theory","kind":"type"},
+    {"id":"rxn:Concentration","label":"Concentration","layer":"theory","kind":"type"},
+    {"id":"rxn:RateConstant","label":"Rate Constant","layer":"theory","kind":"type"},
+    {"id":"rxn:Absorbance","label":"Absorbance","layer":"theory","kind":"type"},
+    {"id":"rxn:ExtinctionCoefficient","label":"Extinction Coefficient","layer":"theory","kind":"type"},
+    {"id":"rxn:PathLength","label":"Optical Path Length","layer":"theory","kind":"type"},
+    {"id":"rxn:Time","label":"Time","layer":"theory","kind":"type"},
+    {"id":"rxn:Trajectory","label":"Concentration Trajectory","layer":"theory","kind":"type"},
+    {"id":"rxn:WellMixed","label":"Well-mixed assumption","layer":"theory","kind":"assumption"},
+    {"id":"rxn:ConstantTemperature","label":"Constant temperature","layer":"theory","kind":"assumption"},
+
+    {"id":"study:Vessel","label":"reaction vessel","layer":"study","kind":"element"},
+    {"id":"study:SpeciesA","label":"species A","layer":"study","kind":"element"},
+    {"id":"study:Clock","label":"time","layer":"study","kind":"element"},
+    {"id":"study:dCdt","label":"d[A]/dt","layer":"study","kind":"element"},
+    {"id":"study:RateExpr","label":"d[A]/dt = -k[A]","layer":"study","kind":"expression"},
+    {"id":"study:BeerExpr","label":"Abs = epsilon*l*[A]","layer":"study","kind":"expression"},
+    {"id":"study:Spectrophotometer","label":"spectrophotometer","layer":"study","kind":"instrument"},
+    {"id":"study:AbsorbanceProcedure","label":"absorbance time-series procedure","layer":"study","kind":"procedure"},
+    {"id":"study:BeerLambertInverse","label":"Beer-Lambert inversion","layer":"study","kind":"method"},
+    {"id":"study:ExponentialFit","label":"first-order rate fit","layer":"study","kind":"method"},
+    {"id":"study:AbsorbanceTrace","label":"absorbance observations","layer":"evidence","kind":"data"},
+    {"id":"study:ConcentrationTrace","label":"derived concentration trajectory","layer":"evidence","kind":"data"},
+
+    {"id":"value:c0","label":"1.00","layer":"evidence","kind":"value"},
+    {"id":"unit:molL","label":"mol/L","layer":"schema","kind":"unit"},
+    {"id":"value:kTheory","label":"0.200","layer":"evidence","kind":"value"},
+    {"id":"value:kFit","label":"0.203","layer":"evidence","kind":"value"},
+    {"id":"value:dK","label":"+/-0.006","layer":"evidence","kind":"uncertainty"},
+    {"id":"unit:s-1","label":"s^-1","layer":"schema","kind":"unit"},
+    {"id":"value:epsilon","label":"1.50","layer":"evidence","kind":"value"},
+    {"id":"unit:Lmolcm","label":"L/(mol*cm)","layer":"schema","kind":"unit"},
+    {"id":"value:path","label":"1.00","layer":"evidence","kind":"value"},
+    {"id":"unit:cm","label":"cm","layer":"schema","kind":"unit"}
+  ],
+  "hyperedges": [
+    {"id":"h:eq-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Equation","type":"meta:RelationType"}},
+    {"id":"h:measurement-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Measurement","type":"meta:RelationType"}},
+    {"id":"h:analysis-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Analysis","type":"meta:RelationType"}},
+    {"id":"h:qvalue-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:QuantityValue","type":"meta:RelationType"}},
+
+    {"id":"h:vessel-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:Vessel","type":"rxn:ReactionSystem"}},
+
+    {"id":"h:c0-value","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"rxn:Concentration","subject":"study:SpeciesA","numericalValue":"value:c0","unit":"unit:molL"}},
+    {"id":"h:k-theory","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"rxn:RateConstant","subject":"study:Vessel","numericalValue":"value:kTheory","unit":"unit:s-1"}},
+    {"id":"h:epsilon-value","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"rxn:ExtinctionCoefficient","subject":"study:SpeciesA","numericalValue":"value:epsilon","unit":"unit:Lmolcm"}},
+    {"id":"h:path-value","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"rxn:PathLength","subject":"study:Vessel","numericalValue":"value:path","unit":"unit:cm"}},
+
+    {"id":"h:rate-law","type":"schema:Equation","layer":"study","roles":{"input:concentration":"rxn:Concentration","parameter:k":"h:k-theory","output":"study:dCdt","expression":"study:RateExpr","independentVariable":"study:Clock","initialCondition":"h:c0-value","assumption:mixing":"rxn:WellMixed","assumption:temperature":"rxn:ConstantTemperature"}},
+    {"id":"h:beer-lambert","type":"schema:Equation","layer":"study","roles":{"input:concentration":"rxn:Concentration","parameter:epsilon":"h:epsilon-value","parameter:pathLength":"h:path-value","output":"rxn:Absorbance","expression":"study:BeerExpr"}},
+
+    {"id":"h:abs-measurement","type":"schema:Measurement","layer":"study","roles":{"subject":"study:Vessel","measurand":"rxn:Absorbance","procedure":"study:AbsorbanceProcedure","instrument":"study:Spectrophotometer","observation":"study:AbsorbanceTrace","result":"study:AbsorbanceTrace"}},
+    {"id":"h:concentration-recovery","type":"schema:Analysis","layer":"study","roles":{"input":"study:AbsorbanceTrace","model":"h:beer-lambert","method":"study:BeerLambertInverse","output":"study:ConcentrationTrace"}},
+    {"id":"h:k-fit","type":"schema:Analysis","layer":"study","roles":{"input":"study:ConcentrationTrace","model":"h:rate-law","method":"study:ExponentialFit","output":"h:k-fit-value","uncertainty":"value:dK"}},
+    {"id":"h:k-fit-value","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"rxn:RateConstant","subject":"study:Vessel","numericalValue":"value:kFit","unit":"unit:s-1","uncertainty":"value:dK"}}
+  ]
+}
