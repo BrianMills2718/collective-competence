@@ -1,0 +1,3452 @@
+{
+  "model": "scientific-hypergraph-v1",
+  "imports": [
+    "hypergraph-kernel"
+  ],
+  "authority": "scientific-schema-role-declarations",
+  "bootstrap": {
+    "relationType": "sci:declaresRole",
+    "trustedRoles": [
+      "sci:declaredRelationType",
+      "sci:declaredRoleType",
+      "sci:roleMinimum",
+      "sci:roleMaximum",
+      "sci:roleQualifiable",
+      "sci:roleParticipantKind"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "kind:constraint",
+      "label": "constraint",
+      "value": "constraint",
+      "layer": "schema",
+      "kind": "value"
+    },
+    {
+      "id": "kind:data",
+      "label": "data",
+      "value": "data",
+      "layer": "schema",
+      "kind": "value"
+    },
+    {
+      "id": "kind:element",
+      "label": "element",
+      "value": "element",
+      "layer": "schema",
+      "kind": "value"
+    },
+    {
+      "id": "kind:expression",
+      "label": "expression",
+      "value": "expression",
+      "layer": "schema",
+      "kind": "value"
+    },
+    {
+      "id": "kind:instrument",
+      "label": "instrument",
+      "value": "instrument",
+      "layer": "schema",
+      "kind": "value"
+    },
+    {
+      "id": "kind:method",
+      "label": "method",
+      "value": "method",
+      "layer": "schema",
+      "kind": "value"
+    },
+    {
+      "id": "kind:operator",
+      "label": "operator",
+      "value": "operator",
+      "layer": "schema",
+      "kind": "value"
+    },
+    {
+      "id": "kind:procedure",
+      "label": "procedure",
+      "value": "procedure",
+      "layer": "schema",
+      "kind": "value"
+    },
+    {
+      "id": "kind:uncertainty",
+      "label": "uncertainty",
+      "value": "uncertainty",
+      "layer": "schema",
+      "kind": "value"
+    },
+    {
+      "id": "kind:unit",
+      "label": "unit",
+      "value": "unit",
+      "layer": "schema",
+      "kind": "value"
+    },
+    {
+      "id": "kind:value",
+      "label": "value",
+      "value": "value",
+      "layer": "schema",
+      "kind": "value"
+    },
+    {
+      "id": "sci:AccessRelation",
+      "label": "Access Relation",
+      "layer": "schema",
+      "kind": "relationType",
+      "type": "sci:RelationType",
+      "aliases": [
+        "schema:Access",
+        "schema:StudyView"
+      ]
+    },
+    {
+      "id": "sci:AnalysisRelation",
+      "label": "Analysis Relation",
+      "layer": "schema",
+      "kind": "relationType",
+      "type": "sci:RelationType",
+      "aliases": [
+        "schema:Analysis"
+      ]
+    },
+    {
+      "id": "sci:ClaimRelation",
+      "label": "Claim Relation",
+      "layer": "schema",
+      "kind": "relationType",
+      "type": "sci:RelationType",
+      "aliases": [
+        "schema:Claim"
+      ]
+    },
+    {
+      "id": "sci:DistributionRelation",
+      "label": "Distribution Relation",
+      "layer": "schema",
+      "kind": "relationType",
+      "type": "sci:RelationType",
+      "aliases": [
+        "schema:Distribution"
+      ]
+    },
+    {
+      "id": "sci:EquationRelation",
+      "label": "Equation Relation",
+      "layer": "schema",
+      "kind": "relationType",
+      "type": "sci:RelationType",
+      "aliases": [
+        "schema:Equation"
+      ]
+    },
+    {
+      "id": "sci:ExperimentRelation",
+      "label": "Experiment Relation",
+      "layer": "schema",
+      "kind": "relationType",
+      "type": "sci:RelationType",
+      "aliases": [
+        "schema:Experiment"
+      ]
+    },
+    {
+      "id": "sci:IdentifiabilityRelation",
+      "label": "Identifiability Relation",
+      "layer": "schema",
+      "kind": "relationType",
+      "type": "sci:RelationType",
+      "aliases": [
+        "schema:Identifiability"
+      ]
+    },
+    {
+      "id": "sci:MeasurementRelation",
+      "label": "Measurement Relation",
+      "layer": "schema",
+      "kind": "relationType",
+      "type": "sci:RelationType",
+      "aliases": [
+        "schema:Measurement"
+      ]
+    },
+    {
+      "id": "sci:ProcessRelation",
+      "label": "Process Relation",
+      "layer": "schema",
+      "kind": "relationType",
+      "type": "sci:RelationType",
+      "aliases": [
+        "schema:Process"
+      ]
+    },
+    {
+      "id": "sci:QuantityValueRelation",
+      "label": "QuantityValue Relation",
+      "layer": "schema",
+      "kind": "relationType",
+      "type": "sci:RelationType",
+      "aliases": [
+        "schema:QuantityValue"
+      ]
+    },
+    {
+      "id": "sci:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel",
+      "kind": "type"
+    },
+    {
+      "id": "sci:RepresentationRelation",
+      "label": "Representation Relation",
+      "layer": "schema",
+      "kind": "relationType",
+      "type": "sci:RelationType",
+      "aliases": [
+        "schema:Representation"
+      ]
+    },
+    {
+      "id": "sci:RoleType",
+      "label": "Role Type",
+      "layer": "metamodel",
+      "kind": "type"
+    },
+    {
+      "id": "sci:accessAllowed",
+      "label": "allowed",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "allowed",
+        "included"
+      ]
+    },
+    {
+      "id": "sci:accessAllowedAction",
+      "label": "allowed action",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "allowedAction"
+      ]
+    },
+    {
+      "id": "sci:accessPhase",
+      "label": "phase",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "phase"
+      ]
+    },
+    {
+      "id": "sci:accessRestricted",
+      "label": "restricted",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "restricted",
+        "excluded"
+      ]
+    },
+    {
+      "id": "sci:accessor",
+      "label": "accessor",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "accessor",
+        "consumer"
+      ]
+    },
+    {
+      "id": "sci:analysisAccess",
+      "label": "access relation",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "access",
+        "view"
+      ]
+    },
+    {
+      "id": "sci:analysisAssumption",
+      "label": "assumption",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "assumption"
+      ]
+    },
+    {
+      "id": "sci:analysisContext",
+      "label": "context",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "context"
+      ]
+    },
+    {
+      "id": "sci:analysisInput",
+      "label": "input",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "input"
+      ]
+    },
+    {
+      "id": "sci:analysisMethod",
+      "label": "method",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "method"
+      ]
+    },
+    {
+      "id": "sci:analysisModel",
+      "label": "model",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "model"
+      ]
+    },
+    {
+      "id": "sci:analysisOutput",
+      "label": "output",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "output"
+      ]
+    },
+    {
+      "id": "sci:analysisUncertainty",
+      "label": "uncertainty",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "sci:claimCounterevidence",
+      "label": "counterevidence",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "counterevidence"
+      ]
+    },
+    {
+      "id": "sci:claimEvidence",
+      "label": "evidence",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "evidence"
+      ]
+    },
+    {
+      "id": "sci:claimProposition",
+      "label": "proposition",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "proposition"
+      ]
+    },
+    {
+      "id": "sci:claimScope",
+      "label": "scope",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "scope"
+      ]
+    },
+    {
+      "id": "sci:claimStatus",
+      "label": "status",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "status"
+      ]
+    },
+    {
+      "id": "sci:declaredRelationType",
+      "label": "relation type",
+      "layer": "metamodel",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "bootstrap": true
+    },
+    {
+      "id": "sci:declaredRoleType",
+      "label": "role type",
+      "layer": "metamodel",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "bootstrap": true
+    },
+    {
+      "id": "sci:declaresRole",
+      "label": "declares role",
+      "layer": "metamodel",
+      "kind": "relationType",
+      "type": "sci:RelationType",
+      "bootstrap": true
+    },
+    {
+      "id": "sci:distributionCondition",
+      "label": "condition",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "condition"
+      ]
+    },
+    {
+      "id": "sci:distributionContext",
+      "label": "context",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "context"
+      ]
+    },
+    {
+      "id": "sci:distributionFamily",
+      "label": "distribution family",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "family"
+      ]
+    },
+    {
+      "id": "sci:distributionModel",
+      "label": "model",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "model"
+      ]
+    },
+    {
+      "id": "sci:distributionParameter",
+      "label": "parameter",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "parameter"
+      ]
+    },
+    {
+      "id": "sci:distributionRandomObject",
+      "label": "random object",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "randomObject"
+      ]
+    },
+    {
+      "id": "sci:eqAssumption",
+      "label": "assumption",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "assumption"
+      ]
+    },
+    {
+      "id": "sci:eqBoundaryCondition",
+      "label": "boundary condition",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "boundaryCondition"
+      ]
+    },
+    {
+      "id": "sci:eqConstraint",
+      "label": "constraint",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "constraint"
+      ]
+    },
+    {
+      "id": "sci:eqContext",
+      "label": "context",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "context"
+      ]
+    },
+    {
+      "id": "sci:eqDomain",
+      "label": "domain",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "domain"
+      ]
+    },
+    {
+      "id": "sci:eqDriver",
+      "label": "driver",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "driver"
+      ]
+    },
+    {
+      "id": "sci:eqExpression",
+      "label": "expression",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "expression"
+      ]
+    },
+    {
+      "id": "sci:eqIndependentVariable",
+      "label": "independent variable",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "independentVariable"
+      ]
+    },
+    {
+      "id": "sci:eqInitialCondition",
+      "label": "initial condition",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "initialCondition"
+      ]
+    },
+    {
+      "id": "sci:eqInput",
+      "label": "input",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "input"
+      ]
+    },
+    {
+      "id": "sci:eqOperator",
+      "label": "operator",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "operator"
+      ]
+    },
+    {
+      "id": "sci:eqOutput",
+      "label": "output",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "output"
+      ]
+    },
+    {
+      "id": "sci:eqParameter",
+      "label": "parameter",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "parameter"
+      ]
+    },
+    {
+      "id": "sci:eqRegime",
+      "label": "regime",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "regime"
+      ]
+    },
+    {
+      "id": "sci:experimentAnalysis",
+      "label": "analysis",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "analysis"
+      ]
+    },
+    {
+      "id": "sci:experimentComparator",
+      "label": "comparator",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "comparator"
+      ]
+    },
+    {
+      "id": "sci:experimentCondition",
+      "label": "condition",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "condition"
+      ]
+    },
+    {
+      "id": "sci:experimentIntervention",
+      "label": "intervention",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "intervention"
+      ]
+    },
+    {
+      "id": "sci:experimentObservation",
+      "label": "observation",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "observation"
+      ]
+    },
+    {
+      "id": "sci:experimentResult",
+      "label": "result",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "result"
+      ]
+    },
+    {
+      "id": "sci:experimentSubject",
+      "label": "subject",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "subject"
+      ]
+    },
+    {
+      "id": "sci:experimentValidity",
+      "label": "validity gate",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "validity",
+        "validityGate"
+      ]
+    },
+    {
+      "id": "sci:idAccess",
+      "label": "access",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "access",
+        "studyView"
+      ]
+    },
+    {
+      "id": "sci:idCandidateFamily",
+      "label": "candidate family",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "candidateFamily"
+      ]
+    },
+    {
+      "id": "sci:idEquivalenceClass",
+      "label": "equivalence class",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "equivalenceClass"
+      ]
+    },
+    {
+      "id": "sci:idEvidence",
+      "label": "evidence",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "evidence"
+      ]
+    },
+    {
+      "id": "sci:idInterventionFamily",
+      "label": "intervention family",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "interventionFamily"
+      ]
+    },
+    {
+      "id": "sci:idObservationModel",
+      "label": "observation model",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "observationModel",
+        "observation"
+      ]
+    },
+    {
+      "id": "sci:idStatus",
+      "label": "status",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "status"
+      ]
+    },
+    {
+      "id": "sci:idTarget",
+      "label": "target",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "target"
+      ]
+    },
+    {
+      "id": "sci:instance",
+      "label": "instance",
+      "layer": "metamodel",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "instance"
+      ]
+    },
+    {
+      "id": "sci:instanceOf",
+      "label": "instanceOf",
+      "layer": "metamodel",
+      "kind": "relationType",
+      "type": "sci:RelationType",
+      "aliases": [
+        "meta:instanceOf"
+      ]
+    },
+    {
+      "id": "sci:measurementContext",
+      "label": "context",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "context"
+      ]
+    },
+    {
+      "id": "sci:measurementInstrument",
+      "label": "instrument",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "instrument"
+      ]
+    },
+    {
+      "id": "sci:measurementMeasurand",
+      "label": "measurand",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "measurand"
+      ]
+    },
+    {
+      "id": "sci:measurementObservation",
+      "label": "observation",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "observation"
+      ]
+    },
+    {
+      "id": "sci:measurementProcedure",
+      "label": "procedure",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "sci:measurementResult",
+      "label": "result",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "result"
+      ]
+    },
+    {
+      "id": "sci:measurementSubject",
+      "label": "subject",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "subject"
+      ]
+    },
+    {
+      "id": "sci:measurementUncertainty",
+      "label": "uncertainty",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "sci:numericalValue",
+      "label": "numerical value",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "numericalValue"
+      ]
+    },
+    {
+      "id": "sci:processEffect",
+      "label": "effect",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "effect"
+      ]
+    },
+    {
+      "id": "sci:processInput",
+      "label": "input",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "input"
+      ]
+    },
+    {
+      "id": "sci:processOutput",
+      "label": "output",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "output"
+      ]
+    },
+    {
+      "id": "sci:processParticipant",
+      "label": "participant",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "participant"
+      ]
+    },
+    {
+      "id": "sci:processPrecondition",
+      "label": "precondition",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "precondition"
+      ]
+    },
+    {
+      "id": "sci:quantityContext",
+      "label": "context",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "context"
+      ]
+    },
+    {
+      "id": "sci:quantityKind",
+      "label": "quantity kind",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "quantityKind"
+      ]
+    },
+    {
+      "id": "sci:quantitySubject",
+      "label": "subject",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "subject"
+      ]
+    },
+    {
+      "id": "sci:quantityUncertainty",
+      "label": "uncertainty",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "sci:quantityUnit",
+      "label": "unit",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "unit"
+      ]
+    },
+    {
+      "id": "sci:representationAssumption",
+      "label": "assumption",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "assumption"
+      ]
+    },
+    {
+      "id": "sci:representationContext",
+      "label": "context",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "context"
+      ]
+    },
+    {
+      "id": "sci:representationLoss",
+      "label": "information loss / error",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "informationLoss",
+        "error"
+      ]
+    },
+    {
+      "id": "sci:representationOutput",
+      "label": "output",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "output"
+      ]
+    },
+    {
+      "id": "sci:representationScale",
+      "label": "scale",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "scale"
+      ]
+    },
+    {
+      "id": "sci:representationSource",
+      "label": "source",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "source"
+      ]
+    },
+    {
+      "id": "sci:representationTransform",
+      "label": "transform",
+      "layer": "schema",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "transform"
+      ]
+    },
+    {
+      "id": "sci:roleMaximum",
+      "label": "maximum cardinality",
+      "layer": "metamodel",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "bootstrap": true
+    },
+    {
+      "id": "sci:roleMinimum",
+      "label": "minimum cardinality",
+      "layer": "metamodel",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "bootstrap": true
+    },
+    {
+      "id": "sci:roleParticipantKind",
+      "label": "participant kind",
+      "layer": "metamodel",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "bootstrap": true
+    },
+    {
+      "id": "sci:roleQualifiable",
+      "label": "qualifiable",
+      "layer": "metamodel",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "bootstrap": true
+    },
+    {
+      "id": "sci:specializes",
+      "label": "specializes",
+      "layer": "metamodel",
+      "kind": "relationType",
+      "type": "sci:RelationType",
+      "aliases": [
+        "meta:specializes"
+      ]
+    },
+    {
+      "id": "sci:subtype",
+      "label": "subtype",
+      "layer": "metamodel",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "subtype"
+      ]
+    },
+    {
+      "id": "sci:supertype",
+      "label": "supertype",
+      "layer": "metamodel",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "supertype"
+      ]
+    },
+    {
+      "id": "sci:type",
+      "label": "type",
+      "layer": "metamodel",
+      "kind": "roleType",
+      "type": "sci:RoleType",
+      "aliases": [
+        "type"
+      ]
+    },
+    {
+      "id": "value:boolean:false",
+      "label": "false",
+      "value": false,
+      "layer": "metamodel",
+      "kind": "value"
+    },
+    {
+      "id": "value:boolean:true",
+      "label": "true",
+      "value": true,
+      "layer": "metamodel",
+      "kind": "value"
+    },
+    {
+      "id": "value:cardinality:0",
+      "label": "0",
+      "value": 0,
+      "layer": "metamodel",
+      "kind": "value"
+    },
+    {
+      "id": "value:cardinality:1",
+      "label": "1",
+      "value": 1,
+      "layer": "metamodel",
+      "kind": "value"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "decl:sci-AccessRelation:sci-accessAllowed",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:AccessRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:accessAllowed"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-AccessRelation:sci-accessAllowedAction",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:AccessRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:accessAllowedAction"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-AccessRelation:sci-accessPhase",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:AccessRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:accessPhase"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-AccessRelation:sci-accessRestricted",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:AccessRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:accessRestricted"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-AccessRelation:sci-accessor",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:AccessRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:accessor"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-AnalysisRelation:sci-analysisAccess",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:AnalysisRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:analysisAccess"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-AnalysisRelation:sci-analysisAssumption",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:AnalysisRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:analysisAssumption"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-AnalysisRelation:sci-analysisContext",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:AnalysisRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:analysisContext"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-AnalysisRelation:sci-analysisInput",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:AnalysisRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:analysisInput"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-AnalysisRelation:sci-analysisMethod",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:AnalysisRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:analysisMethod"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:method"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:element"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-AnalysisRelation:sci-analysisModel",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:AnalysisRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:analysisModel"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-AnalysisRelation:sci-analysisOutput",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:AnalysisRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:analysisOutput"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-AnalysisRelation:sci-analysisUncertainty",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:AnalysisRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:analysisUncertainty"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:uncertainty"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:data"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:element"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ClaimRelation:sci-claimCounterevidence",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ClaimRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:claimCounterevidence"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ClaimRelation:sci-claimEvidence",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ClaimRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:claimEvidence"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ClaimRelation:sci-claimProposition",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ClaimRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:claimProposition"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ClaimRelation:sci-claimScope",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ClaimRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:claimScope"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ClaimRelation:sci-claimStatus",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ClaimRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:claimStatus"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-DistributionRelation:sci-distributionCondition",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:DistributionRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:distributionCondition"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-DistributionRelation:sci-distributionContext",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:DistributionRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:distributionContext"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-DistributionRelation:sci-distributionFamily",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:DistributionRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:distributionFamily"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-DistributionRelation:sci-distributionModel",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:DistributionRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:distributionModel"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-DistributionRelation:sci-distributionParameter",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:DistributionRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:distributionParameter"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-DistributionRelation:sci-distributionRandomObject",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:DistributionRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:distributionRandomObject"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-EquationRelation:sci-eqAssumption",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:EquationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:eqAssumption"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-EquationRelation:sci-eqBoundaryCondition",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:EquationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:eqBoundaryCondition"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:constraint"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:element"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-EquationRelation:sci-eqConstraint",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:EquationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:eqConstraint"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:constraint"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:element"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-EquationRelation:sci-eqContext",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:EquationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:eqContext"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-EquationRelation:sci-eqDomain",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:EquationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:eqDomain"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-EquationRelation:sci-eqDriver",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:EquationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:eqDriver"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-EquationRelation:sci-eqExpression",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:EquationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:eqExpression"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:expression"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-EquationRelation:sci-eqIndependentVariable",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:EquationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:eqIndependentVariable"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-EquationRelation:sci-eqInitialCondition",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:EquationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:eqInitialCondition"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-EquationRelation:sci-eqInput",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:EquationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:eqInput"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-EquationRelation:sci-eqOperator",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:EquationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:eqOperator"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:operator"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:element"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-EquationRelation:sci-eqOutput",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:EquationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:eqOutput"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-EquationRelation:sci-eqParameter",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:EquationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:eqParameter"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-EquationRelation:sci-eqRegime",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:EquationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:eqRegime"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ExperimentRelation:sci-experimentAnalysis",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ExperimentRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:experimentAnalysis"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ExperimentRelation:sci-experimentComparator",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ExperimentRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:experimentComparator"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ExperimentRelation:sci-experimentCondition",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ExperimentRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:experimentCondition"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ExperimentRelation:sci-experimentIntervention",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ExperimentRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:experimentIntervention"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ExperimentRelation:sci-experimentObservation",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ExperimentRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:experimentObservation"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ExperimentRelation:sci-experimentResult",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ExperimentRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:experimentResult"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ExperimentRelation:sci-experimentSubject",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ExperimentRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:experimentSubject"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ExperimentRelation:sci-experimentValidity",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ExperimentRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:experimentValidity"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-IdentifiabilityRelation:sci-idAccess",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:IdentifiabilityRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:idAccess"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-IdentifiabilityRelation:sci-idCandidateFamily",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:IdentifiabilityRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:idCandidateFamily"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-IdentifiabilityRelation:sci-idEquivalenceClass",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:IdentifiabilityRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:idEquivalenceClass"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-IdentifiabilityRelation:sci-idEvidence",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:IdentifiabilityRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:idEvidence"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-IdentifiabilityRelation:sci-idInterventionFamily",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:IdentifiabilityRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:idInterventionFamily"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-IdentifiabilityRelation:sci-idObservationModel",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:IdentifiabilityRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:idObservationModel"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-IdentifiabilityRelation:sci-idStatus",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:IdentifiabilityRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:idStatus"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-IdentifiabilityRelation:sci-idTarget",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:IdentifiabilityRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:idTarget"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-MeasurementRelation:sci-measurementContext",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:MeasurementRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:measurementContext"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-MeasurementRelation:sci-measurementInstrument",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:MeasurementRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:measurementInstrument"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:instrument"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:element"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-MeasurementRelation:sci-measurementMeasurand",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:MeasurementRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:measurementMeasurand"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-MeasurementRelation:sci-measurementObservation",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:MeasurementRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:measurementObservation"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-MeasurementRelation:sci-measurementProcedure",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:MeasurementRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:measurementProcedure"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:procedure"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:element"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-MeasurementRelation:sci-measurementResult",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:MeasurementRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:measurementResult"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-MeasurementRelation:sci-measurementSubject",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:MeasurementRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:measurementSubject"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-MeasurementRelation:sci-measurementUncertainty",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:MeasurementRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:measurementUncertainty"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:uncertainty"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:data"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:element"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ProcessRelation:sci-processEffect",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ProcessRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:processEffect"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ProcessRelation:sci-processInput",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ProcessRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:processInput"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ProcessRelation:sci-processOutput",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ProcessRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:processOutput"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ProcessRelation:sci-processParticipant",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ProcessRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:processParticipant"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-ProcessRelation:sci-processPrecondition",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:ProcessRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:processPrecondition"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-QuantityValueRelation:sci-numericalValue",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:QuantityValueRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:numericalValue"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:value"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-QuantityValueRelation:sci-quantityContext",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:QuantityValueRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:quantityContext"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-QuantityValueRelation:sci-quantityKind",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:QuantityValueRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:quantityKind"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-QuantityValueRelation:sci-quantitySubject",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:QuantityValueRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:quantitySubject"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-QuantityValueRelation:sci-quantityUncertainty",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:QuantityValueRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:quantityUncertainty"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:uncertainty"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:data"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:element"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-QuantityValueRelation:sci-quantityUnit",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:QuantityValueRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:quantityUnit"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleParticipantKind",
+          "participant": "kind:unit"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-RepresentationRelation:sci-representationAssumption",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:RepresentationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:representationAssumption"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-RepresentationRelation:sci-representationContext",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:RepresentationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:representationContext"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-RepresentationRelation:sci-representationLoss",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:RepresentationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:representationLoss"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-RepresentationRelation:sci-representationOutput",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:RepresentationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:representationOutput"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-RepresentationRelation:sci-representationScale",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:RepresentationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:representationScale"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-RepresentationRelation:sci-representationSource",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:RepresentationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:representationSource"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:true"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-RepresentationRelation:sci-representationTransform",
+      "type": "sci:declaresRole",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:RepresentationRelation"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:representationTransform"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-declaresRole:sci-declaredRelationType",
+      "type": "sci:declaresRole",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:declaresRole"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:declaredRelationType"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-declaresRole:sci-declaredRoleType",
+      "type": "sci:declaresRole",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:declaresRole"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:declaredRoleType"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-declaresRole:sci-roleMaximum",
+      "type": "sci:declaresRole",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:declaresRole"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:roleMaximum"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-declaresRole:sci-roleMinimum",
+      "type": "sci:declaresRole",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:declaresRole"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:roleMinimum"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-declaresRole:sci-roleParticipantKind",
+      "type": "sci:declaresRole",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:declaresRole"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:roleParticipantKind"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:0"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-declaresRole:sci-roleQualifiable",
+      "type": "sci:declaresRole",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:declaresRole"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:roleQualifiable"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-instanceOf:sci-instance",
+      "type": "sci:declaresRole",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:instanceOf"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:instance"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-instanceOf:sci-type",
+      "type": "sci:declaresRole",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:instanceOf"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:type"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-specializes:sci-subtype",
+      "type": "sci:declaresRole",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:specializes"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:subtype"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    },
+    {
+      "id": "decl:sci-specializes:sci-supertype",
+      "type": "sci:declaresRole",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:declaredRelationType",
+          "participant": "sci:specializes"
+        },
+        {
+          "role": "sci:declaredRoleType",
+          "participant": "sci:supertype"
+        },
+        {
+          "role": "sci:roleMinimum",
+          "participant": "value:cardinality:1"
+        },
+        {
+          "role": "sci:roleQualifiable",
+          "participant": "value:boolean:false"
+        },
+        {
+          "role": "sci:roleMaximum",
+          "participant": "value:cardinality:1"
+        }
+      ]
+    }
+  ]
+}
