@@ -20,6 +20,7 @@ FIXTURES = [
     DIR / "calibration-covariance-hypergraph-v1.json",
     DIR / "causal-markov-equivalence-hypergraph-v1.json",
     DIR / "dynamic-topology-hypergraph-v1.json",
+    DIR / "gauge-equivalence-hypergraph-v1.json",
 ]
 
 
