@@ -8,6 +8,7 @@ on:
       - 'scripts/validate_hypergraph_fixture.py'
       - 'scripts/validate_scientific_hypergraph_suite.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
+      - 'scripts/smoke_hypergraph_projections.mjs'
       - '.github/workflows/scientific-hypergraph.yml'
   push:
     branches:
@@ -17,6 +18,7 @@ on:
       - 'scripts/validate_hypergraph_fixture.py'
       - 'scripts/validate_scientific_hypergraph_suite.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
+      - 'scripts/smoke_hypergraph_projections.mjs'
       - '.github/workflows/scientific-hypergraph.yml'
 
 permissions:
@@ -44,8 +46,10 @@ jobs:
         run: |
           npm install --no-save playwright@1.55.0
           npx playwright install --with-deps chromium
-      - name: Smoke-test exact hypergraph fixtures and layouts
+      - name: Smoke-test exact hypergraph fixtures and layout
         run: node scripts/smoke_hypergraph_viewer.mjs
+      - name: Smoke-test named projections and type bundling
+        run: node scripts/smoke_hypergraph_projections.mjs
       - name: Upload viewer screenshot
         if: always()
         uses: actions/upload-artifact@v4
