@@ -25,15 +25,18 @@ try{
 
   await page.locator('[data-id="spde::h:spde"]').click();
   let text=await page.locator('#roles').textContent();
-  assert(text?.includes('driver'),'SPDE inspector missing stochastic driver role');
+  assert(text?.includes('sci:eqDriver')||text?.includes('driver'),'SPDE inspector missing stochastic driver RoleType');
   assert(text?.includes('noise-distribution')||text?.includes('Distribution'),'SPDE inspector does not expose the random-field distribution as driver');
   assert(text?.includes('boundary condition')||text?.includes('Boundary'),'SPDE inspector missing boundary conditions');
   assert(text?.includes('operator'),'SPDE inspector missing differential operator');
 
   await page.locator('[data-id="spde::h:infer-kappa"]').click();
   text=await page.locator('#roles').textContent();
-  assert(text?.includes('ObservedField')||text?.includes('observed field samples'),'inference inspector missing measured field input');
-  assert(text?.includes('kappa-fit')||text?.includes('Quantity Value'),'inference inspector missing fitted diffusivity output');
+  assert(text?.includes('sci:analysisInput')||text?.includes('input'),'inference inspector missing analysis-input RoleType');
+  assert(text?.includes('observed field samples'),'inference inspector missing measured field input');
+  assert(text?.includes('sci:analysisOutput')||text?.includes('output'),'inference inspector missing analysis-output RoleType');
+  assert(text?.includes('0.207'),'inference inspector missing fitted diffusivity value');
+  assert(text?.includes('sci:analysisUncertainty')||text?.includes('uncertainty'),'inference inspector missing uncertainty RoleType');
   assert(errors.length===0,`browser errors: ${errors.join('\n')}`);
   console.log('PASS stochastic PDE: random-field driver, PDE structure, measurement and diffusivity inference render compositionally');
 } finally {await browser.close();server.close();}
