@@ -22,6 +22,7 @@ FIXTURES = [
     DIR / "dynamic-topology-hypergraph-v1.json",
     DIR / "gauge-equivalence-hypergraph-v1.json",
     DIR / "stochastic-heat-equation-hypergraph-v1.json",
+    DIR / "uncertain-lineage-hypergraph-v1.json",
 ]
 
 
