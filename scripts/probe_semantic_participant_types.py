@@ -12,6 +12,7 @@ This is deliberately a normalization probe, not a v2 migration.
 from __future__ import annotations
 
 import json
+import re
 from collections import Counter
 from pathlib import Path
 from typing import Any
@@ -37,6 +38,9 @@ FIXTURES = [
     DIR / "uncertain-lineage-hypergraph-v1.json",
 ]
 
+# Preferred semantic names for recurring scientific/profile categories. Unknown
+# authoring categories are still compiled deterministically rather than becoming a
+# new carrier feature. This makes the probe total over current/future v1 fixtures.
 KIND_TO_SEMANTIC_TYPE = {
     "element": "sci:GenericElement",
     "type": "sci:ElementType",
@@ -55,7 +59,30 @@ KIND_TO_SEMANTIC_TYPE = {
     "procedure": "sci:Procedure",
     "status": "sci:Status",
     "unit": "sci:Unit",
+    "assumption": "sci:Assumption",
+    "regime": "sci:Regime",
+    "condition": "sci:Condition",
+    "intervention": "sci:Intervention",
+    "observation": "sci:Observation",
+    "model": "sci:Model",
+    "policy": "sci:Policy",
+    "target": "sci:Target",
 }
+
+
+def semantic_type_for_kind(kind: str) -> str:
+    """Map any authoring kind to a stable semantic type identity.
+
+    Known categories receive readable shared names. Any other identifier is
+    canonicalized mechanically under `sci:AuthoringCategory_*`. The important
+    property of the probe is that validation consumes semantic type identities,
+    not the JSON `kind` field itself.
+    """
+    known = KIND_TO_SEMANTIC_TYPE.get(kind)
+    if known is not None:
+        return known
+    token = re.sub(r"[^A-Za-z0-9]+", "_", kind).strip("_") or "Unknown"
+    return f"sci:AuthoringCategory_{token}"
 
 
 def read(path: Path) -> dict[str, Any]:
@@ -76,10 +103,7 @@ def semantic_types_for_node(node: dict[str, Any]) -> set[str]:
     out = set(type_list(node.get("type")))
     kind = node.get("kind")
     if kind is not None:
-        mapped = KIND_TO_SEMANTIC_TYPE.get(kind)
-        if mapped is None:
-            raise ValueError(f"no semantic type mapping for node kind {kind!r} ({node.get('id')})")
-        out.add(mapped)
+        out.add(semantic_type_for_kind(kind))
     return out
 
 
@@ -106,22 +130,12 @@ def compile_fixture(doc: dict[str, Any]) -> tuple[dict[str, Any], dict[str, set[
 def semantic_contracts(doc: dict[str, Any]) -> dict[str, Any]:
     contracts = contracts_with_local_declarations(doc, load_contracts(DEFAULT_ROLE_SCHEMA))
     translated = json.loads(json.dumps(contracts))
-    unknown: set[str] = set()
     for spec in translated.get("relationTypes", {}).values():
         for role_spec in spec.get("roles", {}).values():
             kinds = role_spec.pop("participantKinds", None)
             if not kinds:
                 continue
-            participant_types=[]
-            for kind in kinds:
-                mapped=KIND_TO_SEMANTIC_TYPE.get(kind)
-                if mapped is None:
-                    unknown.add(kind)
-                else:
-                    participant_types.append(mapped)
-            role_spec["participantTypes"] = sorted(set(participant_types))
-    if unknown:
-        raise ValueError("unmapped participantKinds: " + ", ".join(sorted(unknown)))
+            role_spec["participantTypes"] = sorted({semantic_type_for_kind(kind) for kind in kinds})
     return translated
 
 
@@ -139,8 +153,8 @@ def validate_semantically(doc: dict[str, Any]) -> tuple[int, int, int, int]:
         if b.get("id")
     }
     all_ids = set(nodes) | set(edges) | binding_ids
-    constrained_bindings=0
-    total_bindings=0
+    constrained_bindings = 0
+    total_bindings = 0
 
     # Prove this validator is independent of serialization kinds.
     if any("kind" in n for n in normalized.get("nodes", [])):
@@ -176,9 +190,9 @@ def validate_semantically(doc: dict[str, Any]) -> tuple[int, int, int, int]:
             counts[role] += 1
 
         for role, role_spec in declared.items():
-            count=counts[role]
-            minimum=int(role_spec.get("min",0))
-            maximum=role_spec.get("max")
+            count = counts[role]
+            minimum = int(role_spec.get("min", 0))
+            maximum = role_spec.get("max")
             if count < minimum:
                 raise ValueError(f"{edge['id']}: role {role!r} count {count} below {minimum}")
             if maximum is not None and count > int(maximum):
@@ -188,11 +202,22 @@ def validate_semantically(doc: dict[str, Any]) -> tuple[int, int, int, int]:
 
 
 def main() -> int:
-    total_nodes=total_edges=total_bindings=total_constrained=0
+    total_nodes = total_edges = total_bindings = total_constrained = 0
+    observed_kinds: set[str] = set()
+    fallback_kinds: set[str] = set()
     for path in FIXTURES:
-        doc=read(path)
-        nodes,edges,bindings,constrained=validate_semantically(doc)
-        total_nodes+=nodes;total_edges+=edges;total_bindings+=bindings;total_constrained+=constrained
+        doc = read(path)
+        for node in doc.get("nodes", []):
+            kind = node.get("kind")
+            if isinstance(kind, str):
+                observed_kinds.add(kind)
+                if kind not in KIND_TO_SEMANTIC_TYPE:
+                    fallback_kinds.add(kind)
+        nodes, edges, bindings, constrained = validate_semantically(doc)
+        total_nodes += nodes
+        total_edges += edges
+        total_bindings += bindings
+        total_constrained += constrained
         print(
             f"PASS {path.name}: kind-free semantic participant typing validates "
             f"{nodes} nodes / {edges} relations / {bindings} bindings ({constrained} type-constrained bindings)"
@@ -203,6 +228,12 @@ def main() -> int:
         f"{total_nodes} nodes / {total_edges} relations / {total_bindings} bindings / "
         f"{total_constrained} semantically type-constrained bindings"
     )
+    print(f"Observed authoring kinds ({len(observed_kinds)}): {', '.join(sorted(observed_kinds))}")
+    if fallback_kinds:
+        print(
+            "NOTE generic semantic type compilation handled non-profile authoring categories: "
+            + ", ".join(sorted(fallback_kinds))
+        )
     print("NOTE v1 kind fields were used only as compilation input for this probe; the normalized validation pass contains no node.kind fields")
     return 0
 
