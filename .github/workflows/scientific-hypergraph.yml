@@ -13,6 +13,8 @@ on:
       - 'scripts/check_hypergraph_v1_migration.py'
       - 'scripts/check_hypergraph_v0_role_coverage.py'
       - 'scripts/bootstrap_role_schema_hypergraph.py'
+      - 'scripts/generate_role_contracts_from_schema_graph.py'
+      - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
       - 'scripts/smoke_hypergraph_projections.mjs'
       - 'scripts/smoke_typed_roles.mjs'
@@ -30,6 +32,8 @@ on:
       - 'scripts/check_hypergraph_v1_migration.py'
       - 'scripts/check_hypergraph_v0_role_coverage.py'
       - 'scripts/bootstrap_role_schema_hypergraph.py'
+      - 'scripts/generate_role_contracts_from_schema_graph.py'
+      - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
       - 'scripts/smoke_hypergraph_projections.mjs'
       - 'scripts/smoke_typed_roles.mjs'
@@ -54,8 +58,14 @@ jobs:
         run: python scripts/validate_typed_hypergraph_suite.py
       - name: Verify generic v0 to v1 migration
         run: python scripts/check_hypergraph_v1_migration.py
+      - name: Round-trip role contracts through self-hosted schema graph
+        run: python scripts/check_role_schema_roundtrip.py
       - name: Bootstrap self-hosted role schema graph
         run: python scripts/bootstrap_role_schema_hypergraph.py -o artifacts/scientific-role-schema-v1.json
+      - name: Re-generate contract index from schema graph artifact
+        run: python scripts/generate_role_contracts_from_schema_graph.py artifacts/scientific-role-schema-v1.json -o artifacts/scientific-role-contracts.generated.json
+      - name: Compare regenerated contract index
+        run: diff -u wiki/reference/metamodel/scientific-role-contracts.json artifacts/scientific-role-contracts.generated.json
       - name: Upload role schema graph bootstrap artifact
         uses: actions/upload-artifact@v4
         with:
