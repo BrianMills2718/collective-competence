@@ -1,0 +1,75 @@
+{
+  "model": "scientific-hypergraph-v0",
+  "nodes": [
+    {"id":"meta:RelationType","label":"Relation Type","layer":"metamodel","kind":"type"},
+    {"id":"meta:instanceOf","label":"instanceOf","layer":"metamodel","kind":"relationType"},
+    {"id":"schema:Equation","label":"Equation Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Distribution","label":"Distribution Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Measurement","label":"Measurement Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Analysis","label":"Analysis Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:QuantityValue","label":"Quantity Value Relation","layer":"schema","kind":"relationType"},
+
+    {"id":"sto:OrnsteinUhlenbeckProcess","label":"Ornstein-Uhlenbeck Process","layer":"theory","kind":"type"},
+    {"id":"sto:StateVariable","label":"Stochastic State Variable","layer":"theory","kind":"type"},
+    {"id":"sto:MeanReversionRate","label":"Mean Reversion Rate","layer":"theory","kind":"type"},
+    {"id":"sto:LongRunMean","label":"Long-Run Mean","layer":"theory","kind":"type"},
+    {"id":"sto:DiffusionScale","label":"Diffusion Scale","layer":"theory","kind":"type"},
+    {"id":"sto:WienerProcess","label":"Wiener Process","layer":"theory","kind":"type"},
+    {"id":"sto:GaussianDistribution","label":"Gaussian Distribution","layer":"theory","kind":"type"},
+    {"id":"sto:SamplePath","label":"Sample Path","layer":"theory","kind":"type"},
+    {"id":"sto:Time","label":"Time","layer":"theory","kind":"type"},
+
+    {"id":"study:OU1","label":"OU specimen","layer":"study","kind":"element"},
+    {"id":"study:Time","label":"time","layer":"study","kind":"element"},
+    {"id":"study:State","label":"X(t)","layer":"study","kind":"element"},
+    {"id":"study:WienerDriver","label":"W(t)","layer":"study","kind":"element"},
+    {"id":"study:SDEExpression","label":"dX = theta(mu-X)dt + sigma dW","layer":"study","kind":"expression"},
+    {"id":"study:StationaryVariance","label":"sigma^2 / (2 theta)","layer":"study","kind":"expression"},
+    {"id":"study:EulerMaruyama","label":"Euler-Maruyama simulator","layer":"study","kind":"method"},
+    {"id":"study:LikelihoodFit","label":"OU likelihood fit","layer":"study","kind":"method"},
+    {"id":"study:Observer","label":"state logger","layer":"study","kind":"instrument"},
+    {"id":"study:ObservationProcedure","label":"regular-time sampling","layer":"study","kind":"procedure"},
+    {"id":"study:SimulatedPath","label":"simulated sample path","layer":"evidence","kind":"data"},
+    {"id":"study:ObservedPath","label":"observed sample path","layer":"evidence","kind":"data"},
+
+    {"id":"value:theta","label":"0.70","layer":"evidence","kind":"value"},
+    {"id":"value:mu","label":"1.20","layer":"evidence","kind":"value"},
+    {"id":"value:sigma","label":"0.40","layer":"evidence","kind":"value"},
+    {"id":"value:x0","label":"0.30","layer":"evidence","kind":"value"},
+    {"id":"value:zero","label":"0","layer":"evidence","kind":"value"},
+    {"id":"value:dt","label":"dt","layer":"evidence","kind":"value"},
+    {"id":"value:thetaFit","label":"0.72","layer":"evidence","kind":"value"},
+    {"id":"value:dTheta","label":"+/-0.05","layer":"evidence","kind":"uncertainty"},
+    {"id":"unit:s-1","label":"s^-1","layer":"schema","kind":"unit"},
+    {"id":"unit:state","label":"state unit","layer":"schema","kind":"unit"},
+    {"id":"unit:stateSqrtS","label":"state/sqrt(s)","layer":"schema","kind":"unit"}
+  ],
+  "hyperedges": [
+    {"id":"h:eq-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Equation","type":"meta:RelationType"}},
+    {"id":"h:dist-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Distribution","type":"meta:RelationType"}},
+    {"id":"h:measurement-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Measurement","type":"meta:RelationType"}},
+    {"id":"h:analysis-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Analysis","type":"meta:RelationType"}},
+    {"id":"h:qvalue-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:QuantityValue","type":"meta:RelationType"}},
+
+    {"id":"h:ou-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:OU1","type":"sto:OrnsteinUhlenbeckProcess"}},
+    {"id":"h:time-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:Time","type":"sto:Time"}},
+    {"id":"h:state-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:State","type":"sto:StateVariable"}},
+    {"id":"h:driver-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:WienerDriver","type":"sto:WienerProcess"}},
+    {"id":"h:sim-path-type","type":"meta:instanceOf","layer":"evidence","roles":{"instance":"study:SimulatedPath","type":"sto:SamplePath"}},
+    {"id":"h:obs-path-type","type":"meta:instanceOf","layer":"evidence","roles":{"instance":"study:ObservedPath","type":"sto:SamplePath"}},
+
+    {"id":"h:theta","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"sto:MeanReversionRate","subject":"study:OU1","numericalValue":"value:theta","unit":"unit:s-1"}},
+    {"id":"h:mu","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"sto:LongRunMean","subject":"study:OU1","numericalValue":"value:mu","unit":"unit:state"}},
+    {"id":"h:sigma","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"sto:DiffusionScale","subject":"study:OU1","numericalValue":"value:sigma","unit":"unit:stateSqrtS"}},
+    {"id":"h:x0","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"sto:StateVariable","subject":"study:OU1","numericalValue":"value:x0","unit":"unit:state"}},
+
+    {"id":"h:wiener-increment-law","type":"schema:Distribution","layer":"theory","roles":{"randomObject":"study:WienerDriver","family":"sto:GaussianDistribution","parameter:mean":"value:zero","parameter:variance":"value:dt","context":"study:Time"}},
+    {"id":"h:sde","type":"schema:Equation","layer":"study","roles":{"input:state":"study:State","parameter:theta":"h:theta","parameter:mu":"h:mu","parameter:sigma":"h:sigma","driver":"study:WienerDriver","output":"study:State","expression":"study:SDEExpression","independentVariable":"study:Time","initialCondition":"h:x0"}},
+    {"id":"h:stationary-law","type":"schema:Distribution","layer":"theory","roles":{"randomObject":"study:State","family":"sto:GaussianDistribution","parameter:mean":"h:mu","parameter:variance":"study:StationaryVariance","model":"h:sde"}},
+
+    {"id":"h:simulate","type":"schema:Analysis","layer":"study","roles":{"model":"h:sde","method":"study:EulerMaruyama","input:initial":"h:x0","context:noiseLaw":"h:wiener-increment-law","output":"study:SimulatedPath"}},
+    {"id":"h:measurement","type":"schema:Measurement","layer":"study","roles":{"subject":"study:OU1","measurand":"study:State","procedure":"study:ObservationProcedure","instrument":"study:Observer","observation":"study:ObservedPath","result":"study:ObservedPath"}},
+    {"id":"h:theta-fit-value","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"sto:MeanReversionRate","subject":"study:OU1","numericalValue":"value:thetaFit","unit":"unit:s-1","uncertainty":"value:dTheta"}},
+    {"id":"h:fit","type":"schema:Analysis","layer":"study","roles":{"input":"study:ObservedPath","model":"h:sde","method":"study:LikelihoodFit","assumption:transitionLaw":"h:stationary-law","output":"h:theta-fit-value","uncertainty":"value:dTheta"}}
+  ]
+}
