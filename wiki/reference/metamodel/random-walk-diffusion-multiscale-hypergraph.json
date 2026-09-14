@@ -1,0 +1,78 @@
+{
+  "model": "scientific-hypergraph-v0",
+  "nodes": [
+    {"id":"meta:RelationType","label":"Relation Type","layer":"metamodel","kind":"type"},
+    {"id":"meta:instanceOf","label":"instanceOf","layer":"metamodel","kind":"relationType"},
+    {"id":"schema:Equation","label":"Equation Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Distribution","label":"Distribution Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Analysis","label":"Analysis Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Representation","label":"Representation Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Claim","label":"Claim Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:QuantityValue","label":"Quantity Value Relation","layer":"schema","kind":"relationType"},
+
+    {"id":"ms:RandomWalkModel","label":"Microscopic Random Walk","layer":"theory","kind":"type"},
+    {"id":"ms:DiffusionModel","label":"Macroscopic Diffusion Model","layer":"theory","kind":"type"},
+    {"id":"ms:Position","label":"Particle Position","layer":"theory","kind":"type"},
+    {"id":"ms:DensityField","label":"Probability Density Field","layer":"theory","kind":"type"},
+    {"id":"ms:StepLength","label":"Step Length","layer":"theory","kind":"type"},
+    {"id":"ms:TimeStep","label":"Time Step","layer":"theory","kind":"type"},
+    {"id":"ms:DiffusionCoefficient","label":"Diffusion Coefficient","layer":"theory","kind":"type"},
+    {"id":"ms:RademacherDistribution","label":"Symmetric +/- Step Distribution","layer":"theory","kind":"type"},
+    {"id":"ms:MicroScale","label":"Microscopic Scale","layer":"theory","kind":"type"},
+    {"id":"ms:MacroScale","label":"Macroscopic Scale","layer":"theory","kind":"type"},
+    {"id":"ms:EffectiveLimit","label":"Diffusive Scaling Limit","layer":"theory","kind":"assumption"},
+
+    {"id":"study:MicroWalk","label":"random-walk specimen","layer":"study","kind":"element"},
+    {"id":"study:MacroDiffusion","label":"effective diffusion model","layer":"study","kind":"element"},
+    {"id":"study:MicroPosition","label":"X_n","layer":"study","kind":"element"},
+    {"id":"study:StepNoise","label":"xi_n","layer":"study","kind":"element"},
+    {"id":"study:DensityField","label":"p(x,t)","layer":"study","kind":"element"},
+    {"id":"study:MicroExpression","label":"X_(n+1) = X_n + xi_n","layer":"study","kind":"expression"},
+    {"id":"study:MacroExpression","label":"dp/dt = D d2p/dx2","layer":"study","kind":"expression"},
+    {"id":"study:DExpression","label":"D = dx^2/(2 dt)","layer":"study","kind":"expression"},
+    {"id":"study:EnsembleSimulator","label":"random-walk ensemble simulator","layer":"study","kind":"method"},
+    {"id":"study:CoarseGrain","label":"histogram / density coarse-graining","layer":"study","kind":"transform"},
+    {"id":"study:PDESolver","label":"diffusion PDE solver","layer":"study","kind":"method"},
+    {"id":"study:MicroEnsemble","label":"microscopic trajectory ensemble","layer":"evidence","kind":"data"},
+    {"id":"study:CoarseDensity","label":"coarse-grained density","layer":"evidence","kind":"data"},
+    {"id":"study:MacroTrajectory","label":"macroscopic density trajectory","layer":"evidence","kind":"data"},
+    {"id":"study:EffectiveProposition","label":"coarse random walk is represented by diffusion model at macro scale","layer":"evidence","kind":"proposition"},
+    {"id":"study:Supported","label":"supported in stated scaling regime","layer":"evidence","kind":"status"},
+
+    {"id":"value:dx","label":"0.01","layer":"evidence","kind":"value"},
+    {"id":"value:dt","label":"0.00005","layer":"evidence","kind":"value"},
+    {"id":"value:D","label":"1.0","layer":"evidence","kind":"value"},
+    {"id":"value:macroScale","label":"many steps / coarse cells","layer":"evidence","kind":"value"},
+    {"id":"value:representationError","label":"finite-scale approximation error","layer":"evidence","kind":"uncertainty"},
+    {"id":"unit:m","label":"m","layer":"schema","kind":"unit"},
+    {"id":"unit:s","label":"s","layer":"schema","kind":"unit"},
+    {"id":"unit:m2s","label":"m^2/s","layer":"schema","kind":"unit"}
+  ],
+  "hyperedges": [
+    {"id":"h:eq-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Equation","type":"meta:RelationType"}},
+    {"id":"h:dist-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Distribution","type":"meta:RelationType"}},
+    {"id":"h:analysis-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Analysis","type":"meta:RelationType"}},
+    {"id":"h:representation-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Representation","type":"meta:RelationType"}},
+    {"id":"h:claim-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:Claim","type":"meta:RelationType"}},
+    {"id":"h:qvalue-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:QuantityValue","type":"meta:RelationType"}},
+
+    {"id":"h:micro-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:MicroWalk","type":"ms:RandomWalkModel"}},
+    {"id":"h:macro-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:MacroDiffusion","type":"ms:DiffusionModel"}},
+    {"id":"h:position-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:MicroPosition","type":"ms:Position"}},
+    {"id":"h:density-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:DensityField","type":"ms:DensityField"}},
+
+    {"id":"h:dx","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"ms:StepLength","subject":"study:MicroWalk","numericalValue":"value:dx","unit":"unit:m","context:scale":"ms:MicroScale"}},
+    {"id":"h:dt","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"ms:TimeStep","subject":"study:MicroWalk","numericalValue":"value:dt","unit":"unit:s","context:scale":"ms:MicroScale"}},
+    {"id":"h:D","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"ms:DiffusionCoefficient","subject":"study:MacroDiffusion","numericalValue":"value:D","unit":"unit:m2s","context:scale":"ms:MacroScale"}},
+
+    {"id":"h:step-law","type":"schema:Distribution","layer":"theory","roles":{"randomObject":"study:StepNoise","family":"ms:RademacherDistribution","parameter:stepLength":"h:dx"}},
+    {"id":"h:micro-law","type":"schema:Equation","layer":"study","roles":{"input:position":"study:MicroPosition","driver":"study:StepNoise","output":"study:MicroPosition","expression":"study:MicroExpression","parameter:timeStep":"h:dt"}},
+    {"id":"h:D-law","type":"schema:Equation","layer":"theory","roles":{"input:stepLength":"h:dx","input:timeStep":"h:dt","output":"h:D","expression":"study:DExpression","assumption":"ms:EffectiveLimit"}},
+    {"id":"h:micro-sim","type":"schema:Analysis","layer":"study","roles":{"model":"h:micro-law","method":"study:EnsembleSimulator","context:noiseLaw":"h:step-law","output":"study:MicroEnsemble"}},
+
+    {"id":"h:coarse-representation","type":"schema:Representation","layer":"study","roles":{"source":"study:MicroEnsemble","transform":"study:CoarseGrain","output":"study:CoarseDensity","scale":"value:macroScale","assumption":"ms:EffectiveLimit","informationLoss":"value:representationError","context:microModel":"h:micro-law"}},
+    {"id":"h:macro-law","type":"schema:Equation","layer":"study","roles":{"input:field":"study:DensityField","parameter:D":"h:D","output":"study:DensityField","expression":"study:MacroExpression","assumption":"ms:EffectiveLimit"}},
+    {"id":"h:macro-solve","type":"schema:Analysis","layer":"study","roles":{"model":"h:macro-law","method":"study:PDESolver","input:initial":"study:CoarseDensity","output":"study:MacroTrajectory"}},
+    {"id":"h:effective-claim","type":"schema:Claim","layer":"evidence","roles":{"proposition":"study:EffectiveProposition","evidence:coarseRepresentation":"h:coarse-representation","evidence:macroPrediction":"h:macro-solve","scope":"value:macroScale","status":"study:Supported"}}
+  ]
+}
