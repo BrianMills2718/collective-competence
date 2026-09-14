@@ -1,7 +1,6 @@
 {
   "model": "scientific-hypergraph-v0",
   "nodes": [
-    {"id":"meta:ModelElement","label":"Model Element","layer":"metamodel","kind":"type"},
     {"id":"meta:RelationType","label":"Relation Type","layer":"metamodel","kind":"type"},
     {"id":"meta:instanceOf","label":"instanceOf","layer":"metamodel","kind":"relationType"},
     {"id":"schema:Equation","label":"Equation Relation","layer":"schema","kind":"relationType"},
@@ -51,6 +50,8 @@
     {"id":"h:qvalue-type","type":"meta:instanceOf","layer":"schema","roles":{"instance":"schema:QuantityValue","type":"meta:RelationType"}},
 
     {"id":"h:vessel-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:Vessel","type":"rxn:ReactionSystem"}},
+    {"id":"h:clock-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:Clock","type":"rxn:Time"}},
+    {"id":"h:concentration-trace-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:ConcentrationTrace","type":"rxn:Trajectory"}},
 
     {"id":"h:c0-value","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"rxn:Concentration","subject":"study:SpeciesA","numericalValue":"value:c0","unit":"unit:molL"}},
     {"id":"h:k-theory","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"rxn:RateConstant","subject":"study:Vessel","numericalValue":"value:kTheory","unit":"unit:s-1"}},
