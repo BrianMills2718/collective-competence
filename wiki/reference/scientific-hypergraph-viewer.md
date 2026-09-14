@@ -36,11 +36,11 @@ relation instance
 
 The inspector displays canonical RoleType identity and qualifier.
 
-A fixture may also declare **theory-local RelationTypes and RoleTypes** using the same `sci:declaresRole` machinery. Local declarations extend but cannot override conflicting shared scientific contracts. The dynamic-topology fixture exercises this directly.
+A fixture may also declare **theory-local RelationTypes and RoleTypes** using the same `sci:declaresRole` machinery. Local declarations extend but cannot override conflicting shared scientific contracts. Dynamic topology and gauge equivalence both exercise this directly.
 
 ## Built-in v1 proving grounds
 
-The aggregate viewer currently loads ten scientific fixtures:
+The aggregate viewer currently loads eleven scientific fixtures:
 
 1. Collective Competence C2/Q1;
 2. classical kinetic-energy mechanics;
@@ -51,7 +51,8 @@ The aggregate viewer currently loads ten scientific fixtures:
 7. random-walk -> diffusion coarse-graining;
 8. correlated calibration uncertainty;
 9. causal Markov equivalence + intervention;
-10. dynamic topology + entity creation.
+10. dynamic topology + entity creation;
+11. gauge-equivalent representations.
 
 The role-schema metamodel itself is selectable separately.
 
@@ -109,17 +110,17 @@ Search dims nonmatches without changing layout. **Focus neighborhood** creates a
 
 ## Current exact CI checkpoint
 
-The accepted ten-domain Chromium regression reports:
+The accepted eleven-domain Chromium regression reports:
 
 ```text
-322 ordinary elements
-161 hyperrelations
-483 rendered incidence items
-10 domain lobes
+344 ordinary elements
+170 hyperrelations
+514 rendered incidence items
+11 domain lobes
 4 significant shape overlaps
 0 severe shape overlaps
 14.9% worst shape overlap
-36 type-bundle junctions
+37 type-bundle junctions
 ```
 
 The significant-overlap count is monitored rather than treated as zero-only; the hard regression remains **zero severe node/relation-shape collisions**.
@@ -127,14 +128,14 @@ The significant-overlap count is monitored rather than treated as zero-only; the
 Current projection counts are regression indicators:
 
 ```text
-Theory                   408 rendered items
+Theory                   439 rendered items
 Measurement / analysis   294
 Probability                61
 Representation             46
 Access                     42
-Evidence                  354
+Evidence                  373
 Identifiability            61
-Overview                  483
+Overview                  514
 ```
 
 The browser suite also verifies:
@@ -144,9 +145,11 @@ The browser suite also verifies:
 - focus and search behavior;
 - causal observational underdetermination vs `do(X=x)` identification;
 - dynamic-topology local RelationTypes/RoleTypes remaining outside the shared schema;
+- gauge-equivalence local schema and higher-order transformation inspection;
+- invariant magnetic field `B` exposed through both gauge-related representations;
 - clean browser console.
 
-## Dynamic topology / local schema checkpoint
+## Local-schema checkpoints
 
 `dynamic-topology-hypergraph-v1.json` declares its own:
 
@@ -157,7 +160,9 @@ topo:BondChangeRelation
 
 plus local RoleTypes/cardinalities. They are absent from the shared scientific role schema. The generic validator derives those local contracts from the fixture, enforces them, and rejects a negative test in which a bond occurrence has only one endpoint despite local `min=2, max=2`.
 
-This removes pressure to turn the shared scientific schema into a registry of every relation used by every science.
+`gauge-equivalence-hypergraph-v1.json` similarly declares a local `gauge:GaugeEquivalenceRelation` whose two representation participants are related by a transformation relation instance while preserving invariant `B`. The fixture distinguishes equivalence from identity without promoting gauge semantics to the shared kernel/schema.
+
+Together these tests remove pressure to turn the shared scientific schema into a registry of every relation used by every science.
 
 ## Implementation
 
@@ -178,9 +183,10 @@ Regression scripts include:
 - `scripts/smoke_typed_roles.mjs`
 - `scripts/smoke_causal_identifiability.mjs`
 - `scripts/smoke_dynamic_topology.mjs`
+- `scripts/smoke_gauge_equivalence.mjs`
 
 ## Review result
 
-The viewer is no longer the main architectural risk. It now renders the shared metamodel, ten heterogeneous v1 scientific models, higher-order relations, causal/access projections, and theory-local relation schemas without severe shape collisions.
+The viewer is no longer the main architectural risk. It renders the shared metamodel, eleven heterogeneous v1 scientific models, higher-order relations, causal/access projections, equivalent representations, and theory-local relation schemas without severe shape collisions.
 
-Further work should use the viewer as an acceptance instrument while attacking scientific semantics that may genuinely pressure the kernel, such as gauge/equivalent representations, stochastic fields, uncertain lineage, or identity criteria that vary by model.
+Further work should use the viewer as an acceptance instrument while attacking scientific semantics that may genuinely pressure the kernel. The next high-value combination test is stochastic PDE/random-field modeling, followed by uncertain lineage or model-dependent identity criteria.
