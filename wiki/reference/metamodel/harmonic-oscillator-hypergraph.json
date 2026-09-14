@@ -1,7 +1,6 @@
 {
   "model": "scientific-hypergraph-v0",
   "nodes": [
-    {"id":"meta:ModelElement","label":"Model Element","layer":"metamodel","kind":"type"},
     {"id":"meta:RelationType","label":"Relation Type","layer":"metamodel","kind":"type"},
     {"id":"meta:instanceOf","label":"instanceOf","layer":"metamodel","kind":"relationType"},
     {"id":"schema:Equation","label":"Equation Relation","layer":"schema","kind":"relationType"},
@@ -57,6 +56,9 @@
 
     {"id":"h:osc-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:Oscillator1","type":"osc:HarmonicOscillator"}},
     {"id":"h:frame-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:LabFrame","type":"osc:ReferenceFrame"}},
+    {"id":"h:dxdt-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:dxdt","type":"osc:Velocity"}},
+    {"id":"h:dvdt-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:dvdt","type":"osc:Acceleration"}},
+    {"id":"h:model-trajectory-type","type":"meta:instanceOf","layer":"study","roles":{"instance":"study:ModelTrajectory","type":"osc:Trajectory"}},
 
     {"id":"h:m-value","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"osc:Mass","subject":"study:Oscillator1","numericalValue":"value:m1","unit":"unit:kg"}},
     {"id":"h:k-value","type":"schema:QuantityValue","layer":"evidence","roles":{"quantityKind":"osc:SpringConstant","subject":"study:Oscillator1","numericalValue":"value:k4","unit":"unit:Npm"}},
