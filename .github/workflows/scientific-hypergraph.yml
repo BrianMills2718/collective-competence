@@ -7,8 +7,13 @@ on:
       - 'wiki/reference/scientific-hypergraph-*.md'
       - 'scripts/validate_hypergraph_fixture.py'
       - 'scripts/validate_scientific_hypergraph_suite.py'
+      - 'scripts/validate_typed_hypergraph_fixture.py'
+      - 'scripts/validate_typed_hypergraph_suite.py'
+      - 'scripts/migrate_hypergraph_v0_to_v1.py'
+      - 'scripts/check_hypergraph_v1_migration.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
       - 'scripts/smoke_hypergraph_projections.mjs'
+      - 'scripts/smoke_typed_roles.mjs'
       - '.github/workflows/scientific-hypergraph.yml'
   push:
     branches:
@@ -17,8 +22,13 @@ on:
       - 'wiki/reference/metamodel/**'
       - 'scripts/validate_hypergraph_fixture.py'
       - 'scripts/validate_scientific_hypergraph_suite.py'
+      - 'scripts/validate_typed_hypergraph_fixture.py'
+      - 'scripts/validate_typed_hypergraph_suite.py'
+      - 'scripts/migrate_hypergraph_v0_to_v1.py'
+      - 'scripts/check_hypergraph_v1_migration.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
       - 'scripts/smoke_hypergraph_projections.mjs'
+      - 'scripts/smoke_typed_roles.mjs'
       - '.github/workflows/scientific-hypergraph.yml'
 
 permissions:
@@ -32,8 +42,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validate all scientific-hypergraph fixtures
+      - name: Validate v0 scientific-hypergraph fixtures
         run: python scripts/validate_scientific_hypergraph_suite.py
+      - name: Validate typed-role v1 fixtures
+        run: python scripts/validate_typed_hypergraph_suite.py
+      - name: Verify generic v0 to v1 migration
+        run: python scripts/check_hypergraph_v1_migration.py
 
   browser-smoke:
     runs-on: ubuntu-latest
@@ -50,6 +64,8 @@ jobs:
         run: node scripts/smoke_hypergraph_viewer.mjs
       - name: Smoke-test named projections and type bundling
         run: node scripts/smoke_hypergraph_projections.mjs
+      - name: Smoke-test typed RoleType bindings
+        run: node scripts/smoke_typed_roles.mjs
       - name: Upload viewer screenshot
         if: always()
         uses: actions/upload-artifact@v4
