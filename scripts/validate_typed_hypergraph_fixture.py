@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """Validate scientific-hypergraph-v1 typed role bindings.
 
-This checks structural and schema validity, not scientific truth. Scientific role
-contracts are derived from the committed self-hosted role-schema hypergraph.
+This checks structural and schema validity, not scientific truth. Shared scientific
+role contracts come from the committed self-hosted role-schema hypergraph. A v1
+fixture may additionally declare theory/domain RelationTypes and RoleTypes locally
+with the same `sci:declaresRole` bootstrap relation; local declarations extend but
+may not override the shared scientific schema.
 """
 
 from __future__ import annotations
@@ -10,9 +13,20 @@ from __future__ import annotations
 import argparse
 import json
 from collections import Counter, defaultdict, deque
+from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
+from generate_role_contracts_from_schema_graph import (
+    BOOTSTRAP_RELATION,
+    DECLARED_RELATION,
+    DECLARED_ROLE,
+    ROLE_MAX,
+    ROLE_MIN,
+    ROLE_PARTICIPANT_KIND,
+    ROLE_QUALIFIABLE,
+    contracts_from_graph,
+)
 from migrate_hypergraph_v0_to_v1 import DEFAULT_ROLE_SCHEMA, load_contracts
 
 ALLOWED_LAYERS = {"metamodel", "schema", "theory", "study", "evidence"}
@@ -22,12 +36,46 @@ def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def bootstrap_contract() -> dict[str, Any]:
+    return {
+        "aliases": [],
+        "roles": {
+            DECLARED_RELATION: {"label": "relation type", "aliases": [], "min": 1, "max": 1, "qualifiable": False},
+            DECLARED_ROLE: {"label": "role type", "aliases": [], "min": 1, "max": 1, "qualifiable": False},
+            ROLE_MIN: {"label": "minimum cardinality", "aliases": [], "min": 1, "max": 1, "qualifiable": False},
+            ROLE_MAX: {"label": "maximum cardinality", "aliases": [], "min": 0, "max": 1, "qualifiable": False},
+            ROLE_QUALIFIABLE: {"label": "qualifiable", "aliases": [], "min": 1, "max": 1, "qualifiable": False},
+            ROLE_PARTICIPANT_KIND: {"label": "participant kind", "aliases": [], "min": 0, "max": None, "qualifiable": False},
+        },
+    }
+
+
+def contracts_with_local_declarations(doc: dict[str, Any], base: dict[str, Any]) -> dict[str, Any]:
+    """Merge local declaresRole contracts into the shared schema without overrides."""
+    merged = deepcopy(base)
+    relation_types = merged.setdefault("relationTypes", {})
+    relation_types.setdefault(BOOTSTRAP_RELATION, bootstrap_contract())
+    if not any(e.get("type") == BOOTSTRAP_RELATION for e in doc.get("hyperedges", [])):
+        return merged
+
+    local = contracts_from_graph(doc)
+    for relation_id, spec in local.get("relationTypes", {}).items():
+        existing = relation_types.get(relation_id)
+        if existing is not None and existing != spec:
+            raise ValueError(f"local RelationType {relation_id!r} attempts to override shared schema contract")
+        relation_types[relation_id] = spec
+    return merged
+
+
 def contract_indexes(contracts: dict[str, Any]) -> tuple[dict[str, str], dict[str, dict[str, Any]]]:
     aliases: dict[str, str] = {}
     specs: dict[str, dict[str, Any]] = {}
     for canonical, spec in contracts["relationTypes"].items():
         aliases[canonical] = canonical
         for alias in spec.get("aliases", []):
+            previous = aliases.get(alias)
+            if previous is not None and previous != canonical:
+                raise ValueError(f"relation alias {alias!r} is ambiguous between {previous!r} and {canonical!r}")
             aliases[alias] = canonical
         specs[canonical] = spec
     return aliases, specs
@@ -35,7 +83,7 @@ def contract_indexes(contracts: dict[str, Any]) -> tuple[dict[str, str], dict[st
 
 def validate(path: Path, role_schema_path: Path = DEFAULT_ROLE_SCHEMA) -> tuple[int, int, int]:
     doc = load_json(path)
-    contracts = load_contracts(role_schema_path)
+    contracts = contracts_with_local_declarations(doc, load_contracts(role_schema_path))
     aliases, specs = contract_indexes(contracts)
     if doc.get("model") != "scientific-hypergraph-v1":
         raise ValueError("model must be 'scientific-hypergraph-v1'")
@@ -73,7 +121,7 @@ def validate(path: Path, role_schema_path: Path = DEFAULT_ROLE_SCHEMA) -> tuple[
         relation_type = edge.get("type")
         canonical = aliases.get(relation_type)
         if not canonical:
-            raise ValueError(f"{eid}: relation type {relation_type!r} has no role contract in {role_schema_path}")
+            raise ValueError(f"{eid}: relation type {relation_type!r} has no shared or local role contract")
         contract = specs[canonical]
         declared_roles = contract.get("roles", {})
         bindings = edge.get("bindings")
@@ -120,9 +168,20 @@ def validate(path: Path, role_schema_path: Path = DEFAULT_ROLE_SCHEMA) -> tuple[
             if maximum is not None and count > int(maximum):
                 raise ValueError(f"{eid}: role {role_id!r} count {count} exceeds maximum {maximum}")
 
+        # Type links are part of the incidence model when the relation-type node is local.
         if relation_type in node_map:
             adjacency[eid].add(relation_type)
             adjacency[relation_type].add(eid)
+
+    # Node-level `type` is compact serialization sugar for instanceOf(node,type).
+    for node in nodes:
+        type_id = node.get("type")
+        if type_id is None:
+            continue
+        if type_id not in all_ids:
+            raise ValueError(f"{node['id']}: node type {type_id!r} does not resolve locally")
+        adjacency[node["id"]].add(type_id)
+        adjacency[type_id].add(node["id"])
 
     start = next(iter(all_ids))
     seen = {start}
@@ -143,14 +202,7 @@ def validate(path: Path, role_schema_path: Path = DEFAULT_ROLE_SCHEMA) -> tuple[
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("fixture", type=Path)
-    parser.add_argument(
-        "--role-schema",
-        "--contracts",
-        dest="role_schema",
-        type=Path,
-        default=DEFAULT_ROLE_SCHEMA,
-        help="Authoritative committed role-schema hypergraph; legacy generated contract JSON is accepted explicitly.",
-    )
+    parser.add_argument("--role-schema", type=Path, default=DEFAULT_ROLE_SCHEMA)
     args = parser.parse_args()
     nodes, edges, bindings = validate(args.fixture, args.role_schema)
     print(
