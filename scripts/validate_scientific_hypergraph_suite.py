@@ -13,6 +13,8 @@ FIXTURES = [
     ROOT / "wiki/reference/metamodel/classical-mechanics-hypergraph.json",
     ROOT / "wiki/reference/metamodel/harmonic-oscillator-hypergraph.json",
     ROOT / "wiki/reference/metamodel/first-order-reaction-hypergraph.json",
+    ROOT / "wiki/reference/metamodel/ornstein-uhlenbeck-hypergraph.json",
+    ROOT / "wiki/reference/metamodel/heat-equation-hypergraph.json",
 ]
 
 
