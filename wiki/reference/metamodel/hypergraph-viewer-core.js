@@ -3,7 +3,7 @@
 const HV = window.HV = window.HV || {};
 HV.FIXTURES = {
   cc:'c2-q1-hypergraph-v0.json',
-  mechanics:'classical-mechanics-hypergraph.json',
+  mechanics:'classical-mechanics-hypergraph-v1.json',
   oscillator:'harmonic-oscillator-hypergraph.json',
   reaction:'first-order-reaction-hypergraph.json',
   stochastic:'ornstein-uhlenbeck-hypergraph.json',
@@ -12,7 +12,7 @@ HV.FIXTURES = {
   calibration:'calibration-covariance-hypergraph.json',
 };
 HV.SOURCE_LABEL = {
-  cc:'Collective Competence', mechanics:'Classical mechanics', oscillator:'Harmonic oscillator', reaction:'Reaction kinetics',
+  cc:'Collective Competence', mechanics:'Classical mechanics (typed-role v1)', oscillator:'Harmonic oscillator', reaction:'Reaction kinetics',
   stochastic:'Ornstein-Uhlenbeck stochastic process', heat:'Heat-equation PDE',
   multiscale:'Random walk -> diffusion multiscale', calibration:'Correlated calibration uncertainty'
 };
@@ -29,6 +29,8 @@ HV.RELATION_PROJECTIONS = {
 HV.q = id => document.getElementById(id);
 HV.els = Object.fromEntries(['fixture','projection','layer','relationType','search','relayout','fit','focus','status','graph','stage','loading','selTitle','selMeta','selDesc','roles'].map(id=>[id,HV.q(id)]));
 HV.state = {data:{nodes:[],hyperedges:[]},view:null,layout:null,selected:null,focus:null,transform:{x:0,y:0,k:1},pan:null,names:new Map([['shared','Shared kernel / schema']])};
+HV.roleContracts = null;
+HV.contractIndex = null;
 HV.isSharedNode = n => ['metamodel','schema'].includes(n.layer);
 HV.nodeWidth = n => Math.max(104,Math.min(210,64+String(n.label||n.id).length*5));
 HV.nodeHeight = 52; HV.relationHeight = 48;
@@ -39,23 +41,46 @@ HV.escapeHtml = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;
 HV.truncate = (s,n=26) => {s=String(s??'');return s.length>n?`${s.slice(0,n-1)}…`:s;};
 HV.colorForSource = source => {const ks=[...HV.state.names.keys()].filter(x=>x!=='shared').sort();const i=Math.max(0,ks.indexOf(source));return HV.DOMAIN_COLORS[i%HV.DOMAIN_COLORS.length];};
 HV.fetchJson = async path => {const r=await fetch(path,{cache:'no-store'});if(!r.ok)throw new Error(`${path}: HTTP ${r.status}`);return r.json();};
+HV.ensureRoleContracts = async () => {
+  if(HV.roleContracts) return;
+  HV.roleContracts = await HV.fetchJson('scientific-role-contracts.json');
+  const relationAliases=new Map(),roleAliases=new Map(),roleSpecs=new Map();
+  for(const [canonical,spec] of Object.entries(HV.roleContracts.relationTypes||{})){
+    relationAliases.set(canonical,canonical);for(const a of spec.aliases||[])relationAliases.set(a,canonical);
+    const rm=new Map();for(const [roleId,rs] of Object.entries(spec.roles||{})){roleSpecs.set(roleId,rs);rm.set(roleId,roleId);for(const a of rs.aliases||[])rm.set(a,roleId);}roleAliases.set(canonical,rm);
+  }
+  HV.contractIndex={relationAliases,roleAliases,roleSpecs};
+};
+HV.roleLabel = roleId => HV.contractIndex?.roleSpecs.get(roleId)?.label || roleId.replace(/^sci:/,'');
+HV.splitRoleKey = key => {const i=key.indexOf(':');return i<0?[key,null]:[key.slice(0,i),key.slice(i+1)||null];};
+HV.resolveV0Binding = (relationType,key,participant) => {
+  const canonical=HV.contractIndex.relationAliases.get(relationType);if(!canonical)throw new Error(`No role contract for ${relationType}`);
+  const [base,qualifier]=HV.splitRoleKey(key),role=HV.contractIndex.roleAliases.get(canonical)?.get(base)||HV.contractIndex.roleAliases.get(canonical)?.get(key);
+  if(!role)throw new Error(`Role ${key} is not declared for ${relationType}`);
+  return qualifier?{role,qualifier,participant}:{role,participant};
+};
+HV.displayRoles = bindings => {const roles={},counts=new Map();for(const b of bindings){const base=HV.roleLabel(b.role)+(b.qualifier?`:${b.qualifier}`:'');const n=(counts.get(base)||0)+1;counts.set(base,n);roles[n===1?base:`${base}#${n}`]=b.participant;}return roles;};
+HV.fetchParticipants = edge => edge.bindings?edge.bindings.map(b=>b.participant):Object.values(edge.roles||{});
 HV.normalizeDocument = (slug,doc) => {
   const nm=new Map((doc.nodes||[]).map(n=>[n.id,HV.isSharedNode(n)?n.id:`${slug}::${n.id}`]));
   const em=new Map();
-  for(const e of doc.hyperedges||[]){let shared=['metamodel','schema'].includes(e.layer);if(shared){for(const p of Object.values(e.roles||{})){if(nm.has(p)&&nm.get(p)!==p){shared=false;break;}}}em.set(e.id,shared?e.id:`${slug}::${e.id}`);}
-  return {
-    nodes:(doc.nodes||[]).map(n=>({...n,id:nm.get(n.id),originalId:n.id,source:HV.isSharedNode(n)?'shared':slug})),
-    hyperedges:(doc.hyperedges||[]).map(e=>({...e,id:em.get(e.id),originalId:e.id,type:nm.get(e.type)||e.type,roles:Object.fromEntries(Object.entries(e.roles||{}).map(([r,p])=>[r,em.get(p)||nm.get(p)||p])),source:['metamodel','schema'].includes(e.layer)&&em.get(e.id)===e.id?'shared':slug})),
-  };
+  for(const e of doc.hyperedges||[]){let shared=['metamodel','schema'].includes(e.layer);if(shared){for(const p of HV.fetchParticipants(e)){if(nm.has(p)&&nm.get(p)!==p){shared=false;break;}}}em.set(e.id,shared?e.id:`${slug}::${e.id}`);}
+  const nodes=(doc.nodes||[]).map(n=>({...n,id:nm.get(n.id),originalId:n.id,source:HV.isSharedNode(n)?'shared':slug}));
+  const hyperedges=(doc.hyperedges||[]).map(e=>{
+    const rawBindings=e.bindings||Object.entries(e.roles||{}).map(([key,p])=>HV.resolveV0Binding(e.type,key,p));
+    const bindings=rawBindings.map(b=>({...b,participant:em.get(b.participant)||nm.get(b.participant)||b.participant}));
+    return {...e,id:em.get(e.id),originalId:e.id,type:nm.get(e.type)||e.type,bindings,roles:HV.displayRoles(bindings),source:['metamodel','schema'].includes(e.layer)&&em.get(e.id)===e.id?'shared':slug,sourceModel:doc.model||'scientific-hypergraph-v0'};
+  });
+  return {nodes,hyperedges};
 };
-HV.sharedEdgeKey = e => `${e.type}|${JSON.stringify(Object.entries(e.roles||{}).sort(([a],[b])=>a.localeCompare(b)))}`;
+HV.sharedEdgeKey = e => `${e.type}|${JSON.stringify((e.bindings||[]).map(b=>({role:b.role,qualifier:b.qualifier||null,participant:b.participant})).sort((a,b)=>JSON.stringify(a).localeCompare(JSON.stringify(b))))}`;
 HV.mergeDocuments = entries => {
   const nm=new Map(),pending=[],canon=new Map(),alias=new Map();
   for(const {slug,doc} of entries){HV.state.names.set(slug,HV.SOURCE_LABEL[slug]||slug);const d=HV.normalizeDocument(slug,doc);for(const n of d.nodes)if(!nm.has(n.id))nm.set(n.id,n);for(const e of d.hyperedges){if(e.source==='shared'){const k=HV.sharedEdgeKey(e);if(canon.has(k)){alias.set(e.id,canon.get(k).id);continue;}canon.set(k,e);}pending.push(e);}}
-  const edges=new Map();for(const e of pending){const x={...e,id:alias.get(e.id)||e.id,roles:Object.fromEntries(Object.entries(e.roles||{}).map(([r,p])=>[r,alias.get(p)||p]))};if(!edges.has(x.id))edges.set(x.id,x);}
+  const edges=new Map();for(const e of pending){const bindings=(e.bindings||[]).map(b=>({...b,participant:alias.get(b.participant)||b.participant}));const x={...e,id:alias.get(e.id)||e.id,bindings,roles:HV.displayRoles(bindings)};if(!edges.has(x.id))edges.set(x.id,x);}
   return {nodes:[...nm.values()],hyperedges:[...edges.values()]};
 };
 HV.populateRelationTypes = () => {const old=HV.els.relationType.value,types=[...new Set(HV.state.data.hyperedges.map(e=>e.type))].sort((a,b)=>HV.labelOf(a).localeCompare(HV.labelOf(b)));HV.els.relationType.innerHTML='<option value="all">All relation types</option>'+types.map(t=>`<option value="${HV.escapeHtml(t)}">${HV.escapeHtml(HV.labelOf(t))}</option>`).join('');if(types.includes(old))HV.els.relationType.value=old;};
 HV.showLoading = (on,text='Laying out graph…') => {HV.els.loading.textContent=text;HV.els.loading.style.display=on?'block':'none';};
-HV.loadPreset = async key => {HV.showLoading(true,'Loading fixtures…');try{HV.state.names=new Map([['shared','Shared kernel / schema']]);const keys=key==='all'?Object.keys(HV.FIXTURES):[key];const entries=await Promise.all(keys.map(async slug=>({slug,doc:await HV.fetchJson(HV.FIXTURES[slug])})));HV.state.data=HV.mergeDocuments(entries);HV.state.selected=null;HV.state.focus=null;HV.populateRelationTypes();await HV.relayout(true);}catch(error){console.error(error);HV.els.status.textContent=`Load failed: ${error.message}`;HV.showLoading(false);}};
+HV.loadPreset = async key => {HV.showLoading(true,'Loading fixtures…');try{await HV.ensureRoleContracts();HV.state.names=new Map([['shared','Shared kernel / schema']]);const keys=key==='all'?Object.keys(HV.FIXTURES):[key];const entries=await Promise.all(keys.map(async slug=>({slug,doc:await HV.fetchJson(HV.FIXTURES[slug])})));HV.state.data=HV.mergeDocuments(entries);HV.state.selected=null;HV.state.focus=null;HV.populateRelationTypes();await HV.relayout(true);}catch(error){console.error(error);HV.els.status.textContent=`Load failed: ${error.message}`;HV.showLoading(false);}};
 })();
