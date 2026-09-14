@@ -10,7 +10,7 @@ compiled into the same n-ary graph without changing scientific meaning:
 After normalization ordinary nodes contain neither `kind` nor node-level `type`.
 RelationInstance.type and RoleBinding.role remain structural carrier pointers.
 Participant-type checks are evaluated from instanceOf relations (plus structural
-RelationInstance/RoleBinding categories), and selected cross-domain query results
+RelationInstance/RoleBinding categories), and selected scientific/query results
 must be identical before and after normalization.
 """
 
@@ -27,15 +27,18 @@ from migrate_hypergraph_v0_to_v1 import DEFAULT_ROLE_SCHEMA, load_contracts
 from probe_semantic_participant_types import FIXTURES, semantic_type_for_kind, type_list
 from validate_typed_hypergraph_fixture import contracts_with_local_declarations, contract_indexes
 from check_scientific_hypergraph_queries import (
+    BINDING_FIXTURE,
     analyses_consuming_measurements,
     inferred_quantity_values,
     fixed_equation_parameters,
     intervention_breakable_equivalence,
     claims_scoped_by_restricted_access,
+    binding_scoped_claims,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
 DIR = ROOT / "wiki/reference/metamodel"
+ALL_FIXTURES = [*FIXTURES, BINDING_FIXTURE]
 INSTANCE_OF = "sci:instanceOf"
 INSTANCE_ROLE = "sci:instance"
 TYPE_ROLE = "sci:type"
@@ -240,6 +243,7 @@ def query_signature(doc: dict[str, Any]) -> dict[str, Any]:
         "fixed_parameters": fixed_equation_parameters(doc),
         "breakable_equivalence": intervention_breakable_equivalence(doc),
         "restricted_claims": claims_scoped_by_restricted_access(doc),
+        "binding_scoped_claims": binding_scoped_claims(doc),
     }
 
 
@@ -292,13 +296,13 @@ def negative_semantic_checks() -> None:
 def main() -> int:
     total_generated_types = 0
     total_generated_instanceof = 0
-    for path in FIXTURES:
+    for path in ALL_FIXTURES:
         original = read(path)
         normalized = normalize(original)
         before = query_signature(original)
         after = query_signature(normalized)
         if before != after:
-            raise AssertionError(f"{path.name}: scientific query signature changed under graph-native normalization")
+            raise AssertionError(f"{path.name}: query signature changed under graph-native normalization\nbefore={before}\nafter={after}")
         nodes, edges, bindings, constrained = validate_normalized(original, normalized)
         generated_types = sum(1 for n in normalized["nodes"] if n.get("generatedBy") == "graph-native-typing-v2")
         generated_instanceof = sum(1 for e in normalized["hyperedges"] if e.get("generatedBy") == "graph-native-typing-v2")
@@ -313,9 +317,9 @@ def main() -> int:
     negative_semantic_checks()
 
     print(
-        f"PASS all {len(FIXTURES)} scientific fixtures under graph-native typing; "
+        f"PASS all {len(ALL_FIXTURES)} v1 fixtures under graph-native typing; "
         f"generated {total_generated_types} fixture-local type-node materializations and "
-        f"{total_generated_instanceof} instanceOf relations; scientific query signatures unchanged"
+        f"{total_generated_instanceof} instanceOf relations; scientific and binding query signatures unchanged"
     )
     print("NOTE this is a normalization experiment only; v1 files remain unchanged")
     return 0
