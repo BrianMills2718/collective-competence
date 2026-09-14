@@ -1,0 +1,32 @@
+name: Scientific Hypergraph
+
+on:
+  pull_request:
+    paths:
+      - 'wiki/reference/metamodel/**'
+      - 'wiki/reference/scientific-hypergraph-*.md'
+      - 'scripts/validate_hypergraph_fixture.py'
+      - 'scripts/validate_scientific_hypergraph_suite.py'
+      - '.github/workflows/scientific-hypergraph.yml'
+  push:
+    branches:
+      - docs/scientific-metamodel
+    paths:
+      - 'wiki/reference/metamodel/**'
+      - 'scripts/validate_hypergraph_fixture.py'
+      - 'scripts/validate_scientific_hypergraph_suite.py'
+      - '.github/workflows/scientific-hypergraph.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-fixtures:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate all scientific-hypergraph fixtures
+        run: python scripts/validate_scientific_hypergraph_suite.py
