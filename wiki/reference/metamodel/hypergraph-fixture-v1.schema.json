@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:scientific-hypergraph:fixture-v1",
   "title": "Scientific Hypergraph Fixture v1",
+  "description": "Normalized typed n-ary hypergraph fixture. Binding ids are optional; when present they identify first-class addressable RoleBinding model elements and share the semantic identity namespace with nodes and hyperedges. Cross-category uniqueness/reference validity is enforced by the semantic validator.",
   "type": "object",
   "required": ["model", "imports", "nodes", "hyperedges"],
   "properties": {
@@ -43,10 +44,18 @@
               "type": "object",
               "required": ["role", "participant"],
               "properties": {
-                "id": {"type": "string", "minLength": 1},
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Optional global semantic ID for this RoleBinding. If supplied, another relation may use this ID as a participant."
+                },
                 "role": {"type": "string", "minLength": 1},
                 "qualifier": {"type": "string", "minLength": 1},
-                "participant": {"type": "string", "minLength": 1}
+                "participant": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "ID of a node, RelationInstance, or addressable RoleBinding."
+                }
               },
               "additionalProperties": false
             }
