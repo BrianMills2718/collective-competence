@@ -4,6 +4,10 @@
 This validator has one intentionally tiny bootstrap: it knows how to interpret
 `sci:declaresRole` and the six bootstrap RoleTypes listed in the graph metadata.
 Everything above that boundary is ordinary graph data.
+
+In v1 serialization, a node-level `type` field is compact sugar for an
+`instanceOf(node, type)` incidence. Validation desugars that field when checking
+typing and connectedness; it is not a second semantic mechanism.
 """
 
 from __future__ import annotations
@@ -71,6 +75,24 @@ def validate(path: Path = DEFAULT_GRAPH) -> tuple[int, int, int]:
     declarations: dict[str, set[str]] = defaultdict(set)
     binding_count = 0
 
+    # Node `type` is compact serialization sugar for instanceOf. Desugar it for
+    # validation and connectedness, and check the expected meta-types.
+    for node in nodes:
+        node_id = node["id"]
+        node_type = node.get("type")
+        if node_type is not None:
+            type_ids = [node_type] if isinstance(node_type, str) else list(node_type)
+            for type_id in type_ids:
+                if type_id not in node_map:
+                    raise ValueError(f"{node_id}: compact type target {type_id!r} does not resolve to a node")
+                adjacency[node_id].add(type_id)
+                adjacency[type_id].add(node_id)
+        kind = node.get("kind")
+        if kind == "relationType" and node_id != "sci:RelationType" and node.get("type") != "sci:RelationType":
+            raise ValueError(f"{node_id}: relationType node must have compact type sci:RelationType")
+        if kind == "roleType" and node_id != "sci:RoleType" and node.get("type") != "sci:RoleType":
+            raise ValueError(f"{node_id}: roleType node must have compact type sci:RoleType")
+
     for edge in edges:
         eid = edge["id"]
         if edge.get("type") != BOOTSTRAP_RELATION:
@@ -134,11 +156,10 @@ def validate(path: Path = DEFAULT_GRAPH) -> tuple[int, int, int]:
         )
 
     declared_relation_nodes = {n["id"] for n in nodes if n.get("kind") == "relationType" and n["id"] != BOOTSTRAP_RELATION}
-    missing_declarations = declared_relation_nodes - set(declarations)
+    missing_declarations = declared_relation_nodes - {"sci:RelationType"} - set(declarations)
     if missing_declarations:
         raise ValueError("relation types without role declarations: " + ", ".join(sorted(missing_declarations)))
 
-    # The schema graph should be one incidence component under its declaration relations.
     start = next(iter(all_ids))
     seen = {start}
     queue = deque([start])
@@ -150,7 +171,7 @@ def validate(path: Path = DEFAULT_GRAPH) -> tuple[int, int, int]:
                 queue.append(neighbor)
     missing = all_ids - seen
     if missing:
-        raise ValueError("role schema is not one connected incidence component: " + ", ".join(sorted(missing)))
+        raise ValueError("role schema is not one connected incidence component after desugaring node typing: " + ", ".join(sorted(missing)))
 
     return len(nodes), len(edges), binding_count
 
