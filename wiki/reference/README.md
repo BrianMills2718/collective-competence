@@ -11,7 +11,11 @@ This area is the **cold/warm layer** of the project knowledge system. Use it whe
 - [Goal/competence identifiability landscape, September 2026](goal-competence-identifiability-landscape.md) — broader audit of behavioral systems theory, model discrimination, active diagnosis, causal equivalence, IRL, Goal Recognition Design, specification mining, active automata learning, and goal-directedness measurement; defines the baselines and novelty stop-rules for the discovery arm.
 - [Full research ontology](../ontology.md) — detailed definitions, formalization inventory, aliases, and conceptual relationships.
 - [Scientific model metamodel direction](scientific-model-metamodel.md) — exploratory design for a general scientific/empirical metamodel, with Collective Competence as the first white-box/black-box proving ground.
+- [Scientific hypergraph kernel](scientific-hypergraph-kernel.md) — current refinement: one typed, attributed n-ary hypergraph kernel; system, measurement, experiment, access, claims, and similar concepts become reusable relation/type schemas and views rather than separate foundational compartments.
+- [Scientific metamodel prior-art audit](scientific-model-metamodel-prior-art.md) — deletion/crosswalk pass identifying established standards that can supply most system, mathematical, measurement, workflow, provenance, evidence, and policy semantics.
 - [Scientific metamodel CC pilot](scientific-model-metamodel-cc-pilot.md) — first concrete pass using C1-002 and Q1-006 to expose observer/access roles, validity gates, mechanism structure, and conditional capability semantics.
+- [C2/Q1 metamodel pilot](scientific-model-metamodel-c2-q1-pilot.md) — one underlying C2 system examined through constructive and restricted-access studies without duplicating the model.
+- [Scientific metamodel composition probe](scientific-model-metamodel-composition-probe.md) — tests whether existing standards compose with only a thin remaining scientific-semantic layer.
 - [Detailed discovery goal register](../goals.md) — D1-D6, provenance, and historical phase discussion.
 - [Standing conjectures](../conjectures.md) — falsifiable domain conjectures and their refuters.
 - [Generative thesis](../competence-thesis.md) — exploratory conceptual motivation; not a source of current priority.
