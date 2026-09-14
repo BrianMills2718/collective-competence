@@ -14,6 +14,7 @@ on:
       - 'scripts/check_hypergraph_v1_migration.py'
       - 'scripts/check_hypergraph_v0_role_coverage.py'
       - 'scripts/check_local_relation_schema.py'
+      - 'scripts/check_gauge_equivalence.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
@@ -21,6 +22,7 @@ on:
       - 'scripts/smoke_typed_roles.mjs'
       - 'scripts/smoke_causal_identifiability.mjs'
       - 'scripts/smoke_dynamic_topology.mjs'
+      - 'scripts/smoke_gauge_equivalence.mjs'
       - '.github/workflows/scientific-hypergraph.yml'
   push:
     branches:
@@ -36,6 +38,7 @@ on:
       - 'scripts/check_hypergraph_v1_migration.py'
       - 'scripts/check_hypergraph_v0_role_coverage.py'
       - 'scripts/check_local_relation_schema.py'
+      - 'scripts/check_gauge_equivalence.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
@@ -43,6 +46,7 @@ on:
       - 'scripts/smoke_typed_roles.mjs'
       - 'scripts/smoke_causal_identifiability.mjs'
       - 'scripts/smoke_dynamic_topology.mjs'
+      - 'scripts/smoke_gauge_equivalence.mjs'
       - '.github/workflows/scientific-hypergraph.yml'
 
 permissions:
@@ -83,6 +87,8 @@ jobs:
         run: python scripts/check_hypergraph_v1_migration.py
       - name: Enforce fixture-local RelationType contracts
         run: python scripts/check_local_relation_schema.py
+      - name: Check gauge-equivalent representation semantics
+        run: python scripts/check_gauge_equivalence.py
 
   browser-smoke:
     runs-on: ubuntu-latest
@@ -105,6 +111,8 @@ jobs:
         run: node scripts/smoke_causal_identifiability.mjs
       - name: Smoke-test fixture-local dynamic topology schema
         run: node scripts/smoke_dynamic_topology.mjs
+      - name: Smoke-test gauge-equivalent representations
+        run: node scripts/smoke_gauge_equivalence.mjs
       - name: Upload viewer screenshot
         if: always()
         uses: actions/upload-artifact@v4
