@@ -1,13 +1,24 @@
 (() => {
 'use strict';
 const HV = window.HV = window.HV || {};
-HV.FIXTURES = {cc:'c2-q1-hypergraph-v0.json',mechanics:'classical-mechanics-hypergraph.json',oscillator:'harmonic-oscillator-hypergraph.json',reaction:'first-order-reaction-hypergraph.json'};
-HV.SOURCE_LABEL = {cc:'Collective Competence',mechanics:'Classical mechanics',oscillator:'Harmonic oscillator',reaction:'Reaction kinetics'};
+HV.FIXTURES = {
+  cc:'c2-q1-hypergraph-v0.json',
+  mechanics:'classical-mechanics-hypergraph.json',
+  oscillator:'harmonic-oscillator-hypergraph.json',
+  reaction:'first-order-reaction-hypergraph.json',
+  stochastic:'ornstein-uhlenbeck-hypergraph.json',
+  heat:'heat-equation-hypergraph.json',
+};
+HV.SOURCE_LABEL = {
+  cc:'Collective Competence', mechanics:'Classical mechanics', oscillator:'Harmonic oscillator', reaction:'Reaction kinetics',
+  stochastic:'Ornstein-Uhlenbeck stochastic process', heat:'Heat-equation PDE'
+};
 HV.COLORS = {metamodel:'#58a6ff',schema:'#c297ff',theory:'#66d48f',study:'#f1a65a',evidence:'#ff7b72',edge:'#758395'};
-HV.DOMAIN_COLORS = ['#64d58f','#54c7ec','#f1a65a','#f778ba','#a78bfa','#2dd4bf'];
+HV.DOMAIN_COLORS = ['#64d58f','#54c7ec','#f1a65a','#f778ba','#a78bfa','#2dd4bf','#fb7185','#facc15'];
 HV.NS = 'http://www.w3.org/2000/svg';
 HV.RELATION_PROJECTIONS = {
   measurement:new Set(['schema:Measurement','schema:QuantityValue','schema:Analysis']),
+  probability:new Set(['schema:Distribution']),
   access:new Set(['schema:StudyView']),
   identifiability:new Set(['schema:Identifiability']),
 };
