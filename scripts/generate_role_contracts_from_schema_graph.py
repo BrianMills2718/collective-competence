@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Generate the role-contract lookup index from the self-hosted role schema graph."""
+"""Generate the role-contract lookup index from the self-hosted role schema graph.
+
+The authoritative v1 graph uses `sci:roleParticipantKind`. The v2 normalization
+probe may instead use `sci:roleParticipantType`, whose participants are semantic
+type identities. Supporting both here lets the v1 cache remain byte/structure
+compatible while the probe tests graph-native participant typing.
+"""
 
 from __future__ import annotations
 
@@ -16,6 +22,7 @@ ROLE_MIN = "sci:roleMinimum"
 ROLE_MAX = "sci:roleMaximum"
 ROLE_QUALIFIABLE = "sci:roleQualifiable"
 ROLE_PARTICIPANT_KIND = "sci:roleParticipantKind"
+ROLE_PARTICIPANT_TYPE = "sci:roleParticipantType"
 
 
 def single(bindings: list[dict[str, Any]], role: str, required: bool = True) -> str | None:
@@ -34,6 +41,7 @@ def contracts_from_graph(graph: dict[str, Any]) -> dict[str, Any]:
         raise ValueError("schema graph must use scientific-hypergraph-v1")
     node_map = {n["id"]: n for n in graph.get("nodes", [])}
     declarations: dict[str, list[tuple[str, dict[str, Any]]]] = defaultdict(list)
+    saw_participant_types = False
 
     for edge in graph.get("hyperedges", []):
         if edge.get("type") != BOOTSTRAP_RELATION:
@@ -45,6 +53,9 @@ def contracts_from_graph(graph: dict[str, Any]) -> dict[str, Any]:
         max_id = single(bindings, ROLE_MAX, required=False)
         qual_id = single(bindings, ROLE_QUALIFIABLE)
         kinds = [b["participant"] for b in bindings if b.get("role") == ROLE_PARTICIPANT_KIND]
+        types = [b["participant"] for b in bindings if b.get("role") == ROLE_PARTICIPANT_TYPE]
+        if kinds and types:
+            raise ValueError(f"{edge.get('id')}: declaration mixes participantKinds and participantTypes")
         if relation_id not in node_map or role_id not in node_map:
             raise ValueError(f"{edge.get('id')}: declaration endpoints must resolve to nodes")
         role_spec: dict[str, Any] = {
@@ -56,11 +67,22 @@ def contracts_from_graph(graph: dict[str, Any]) -> dict[str, Any]:
         }
         if kinds:
             role_spec["participantKinds"] = [node_map[k].get("value", node_map[k].get("label", k)) for k in kinds]
+        if types:
+            saw_participant_types = True
+            missing = [t for t in types if t not in node_map]
+            if missing:
+                raise ValueError(f"{edge.get('id')}: participant type nodes do not resolve: {missing!r}")
+            # Type identity is the semantic content. Do not collapse it to a label/value.
+            role_spec["participantTypes"] = list(types)
         declarations[relation_id].append((role_id, role_spec))
 
     result: dict[str, Any] = {
-        "version": 1,
-        "description": "Role contracts for scientific-hypergraph-v1. Relation-type aliases support migration from v0 fixture vocabulary; role IDs are canonical RoleType identities.",
+        "version": 2 if saw_participant_types else 1,
+        "description": (
+            "Role contracts for graph-native semantic participant typing; participantTypes are semantic type identities."
+            if saw_participant_types
+            else "Role contracts for scientific-hypergraph-v1. Relation-type aliases support migration from v0 fixture vocabulary; role IDs are canonical RoleType identities."
+        ),
         "relationTypes": {},
     }
     for relation_id in sorted(declarations):
