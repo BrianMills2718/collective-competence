@@ -13,8 +13,9 @@ HV.FIXTURES = {
   calibration:'calibration-covariance-hypergraph-v1.json',
   causal:'causal-markov-equivalence-hypergraph-v1.json',
   topology:'dynamic-topology-hypergraph-v1.json',
+  gauge:'gauge-equivalence-hypergraph-v1.json',
 };
-HV.AGGREGATE_FIXTURES = ['cc','mechanics','oscillator','reaction','stochastic','heat','multiscale','calibration','causal','topology'];
+HV.AGGREGATE_FIXTURES = ['cc','mechanics','oscillator','reaction','stochastic','heat','multiscale','calibration','causal','topology','gauge'];
 HV.SOURCE_LABEL = {
   roleSchema:'Scientific relation / role metamodel',
   cc:'Collective Competence C2/Q1 (v1)',
@@ -27,5 +28,6 @@ HV.SOURCE_LABEL = {
   calibration:'Correlated calibration uncertainty (v1)',
   causal:'Causal Markov equivalence + intervention (v1)',
   topology:'Dynamic topology + entity creation (local schema v1)',
+  gauge:'Gauge-equivalent representations (local schema v1)',
 };
 })();
