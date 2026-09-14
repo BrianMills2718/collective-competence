@@ -10,6 +10,10 @@
     {"@id":"sci:eqExpression","@type":"sci:RoleType","rdfs:label":"expression"},
     {"@id":"sci:eqAssumption","@type":"sci:RoleType","rdfs:label":"assumption"},
     {"@id":"sci:eqRegime","@type":"sci:RoleType","rdfs:label":"regime"},
+    {"@id":"sci:eqParameter","@type":"sci:RoleType","rdfs:label":"parameter"},
+    {"@id":"sci:eqIndependentVariable","@type":"sci:RoleType","rdfs:label":"independent variable"},
+    {"@id":"sci:eqInitialCondition","@type":"sci:RoleType","rdfs:label":"initial condition"},
+    {"@id":"sci:eqContext","@type":"sci:RoleType","rdfs:label":"context"},
 
     {"@id":"sci:ProcessRelation","@type":"sci:RelationType","rdfs:label":"Process Relation"},
     {"@id":"sci:processParticipant","@type":"sci:RoleType","rdfs:label":"participant"},
@@ -21,8 +25,11 @@
     {"@id":"sci:AnalysisRelation","@type":"sci:RelationType","rdfs:label":"Analysis Relation"},
     {"@id":"sci:analysisInput","@type":"sci:RoleType","rdfs:label":"input"},
     {"@id":"sci:analysisMethod","@type":"sci:RoleType","rdfs:label":"method"},
+    {"@id":"sci:analysisModel","@type":"sci:RoleType","rdfs:label":"model"},
     {"@id":"sci:analysisAssumption","@type":"sci:RoleType","rdfs:label":"assumption"},
+    {"@id":"sci:analysisContext","@type":"sci:RoleType","rdfs:label":"context"},
     {"@id":"sci:analysisOutput","@type":"sci:RoleType","rdfs:label":"output"},
+    {"@id":"sci:analysisUncertainty","@type":"sci:RoleType","rdfs:label":"uncertainty"},
     {"@id":"sci:analysisAccess","@type":"sci:RoleType","rdfs:label":"access relation"},
 
     {"@id":"sci:MeasurementRelation","@type":"sci:RelationType","rdfs:label":"Measurement Relation"},
@@ -33,6 +40,7 @@
     {"@id":"sci:measurementObservation","@type":"sci:RoleType","rdfs:label":"observation"},
     {"@id":"sci:measurementResult","@type":"sci:RoleType","rdfs:label":"result"},
     {"@id":"sci:measurementUncertainty","@type":"sci:RoleType","rdfs:label":"uncertainty"},
+    {"@id":"sci:measurementContext","@type":"sci:RoleType","rdfs:label":"context"},
 
     {"@id":"sci:ExperimentRelation","@type":"sci:RelationType","rdfs:label":"Experiment Relation"},
     {"@id":"sci:experimentSubject","@type":"sci:RoleType","rdfs:label":"subject"},
