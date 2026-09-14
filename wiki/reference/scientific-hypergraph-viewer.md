@@ -133,7 +133,7 @@ Selecting an ordinary model element shows the relation instances in which it par
 
 ## Browser smoke test
 
-The semantic-radial implementation was exercised in a headless Chromium harness using four merged fixture documents. The smoke pass verified:
+The semantic-radial implementation was exercised in a headless Chromium harness using four merged fixture-shaped documents. The smoke pass verified:
 
 - four-fixture merge;
 - node/relation rendering;
@@ -143,7 +143,7 @@ The semantic-radial implementation was exercised in a headless Chromium harness 
 - clearing focus and fitting the graph;
 - no browser console errors.
 
-The test graph contained 72 displayed elements and 19 relation instances in the simplified four-domain harness used for layout iteration. The exact repository fixtures remain the authoritative acceptance inputs and should be exercised with the validation suite and normal served viewer during productization.
+The smoke harness used the same merge, projection, radial-layout, SVG-rendering, and interaction code as the branch viewer, but a simplified four-domain fixture snapshot. The authoritative repository fixtures must still be exercised in a normally served checkout during productization.
 
 ## External runtime dependency
 
