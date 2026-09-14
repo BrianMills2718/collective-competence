@@ -6,6 +6,11 @@ role contracts come from the committed self-hosted role-schema hypergraph. A v1
 fixture may additionally declare theory/domain RelationTypes and RoleTypes locally
 with the same `sci:declaresRole` bootstrap relation; local declarations extend but
 may not override the shared scientific schema.
+
+Role bindings are semantic incidence objects. A binding may be anonymous, but when
+it carries an `id` that ID is a first-class addressable ModelElement and may itself
+participate in another relation. This permits claims, evidence, provenance, or
+uncertainty to target one specific participant-to-role assignment.
 """
 
 from __future__ import annotations
@@ -100,11 +105,35 @@ def validate(path: Path, role_schema_path: Path = DEFAULT_ROLE_SCHEMA) -> tuple[
     edge_ids = [e.get("id") for e in edges]
     if any(not isinstance(x, str) or not x for x in node_ids + edge_ids):
         raise ValueError("all nodes and hyperedges require non-empty string IDs")
-    if len(node_ids + edge_ids) != len(set(node_ids + edge_ids)):
-        raise ValueError("duplicate node/hyperedge IDs")
+
+    # Collect addressable binding IDs before participant validation so a relation may
+    # target a binding defined anywhere in the document, including later in the file.
+    binding_ids: list[str] = []
+    binding_map: dict[str, tuple[str, int, dict[str, Any]]] = {}
+    for edge in edges:
+        bindings = edge.get("bindings")
+        if not isinstance(bindings, list):
+            continue
+        for i, binding in enumerate(bindings):
+            if not isinstance(binding, dict):
+                continue
+            bid = binding.get("id")
+            if bid is None:
+                continue
+            if not isinstance(bid, str) or not bid:
+                raise ValueError(f"{edge.get('id')}: binding {i} id must be a non-empty string")
+            binding_ids.append(bid)
+            binding_map[bid] = (edge.get("id", ""), i, binding)
+
+    all_declared_ids = node_ids + edge_ids + binding_ids
+    if len(all_declared_ids) != len(set(all_declared_ids)):
+        counts = Counter(all_declared_ids)
+        duplicates = sorted(x for x, count in counts.items() if count > 1)
+        raise ValueError("duplicate node/hyperedge/binding IDs: " + ", ".join(duplicates))
+
     node_map = {n["id"]: n for n in nodes}
     edge_map = {e["id"]: e for e in edges}
-    all_ids = set(node_map) | set(edge_map)
+    all_ids = set(node_map) | set(edge_map) | set(binding_map)
     adjacency: dict[str, set[str]] = defaultdict(set)
     binding_count = 0
 
@@ -128,7 +157,7 @@ def validate(path: Path, role_schema_path: Path = DEFAULT_ROLE_SCHEMA) -> tuple[
         if not isinstance(bindings, list) or not bindings:
             raise ValueError(f"{eid}: bindings must be a non-empty array")
         counts: Counter[str] = Counter()
-        seen_binding_ids: set[str] = set()
+
         for i, binding in enumerate(bindings):
             if not isinstance(binding, dict):
                 raise ValueError(f"{eid}: binding {i} must be an object")
@@ -142,22 +171,39 @@ def validate(path: Path, role_schema_path: Path = DEFAULT_ROLE_SCHEMA) -> tuple[
             role_spec = declared_roles[role_id]
             if qualifier is not None and not role_spec.get("qualifiable", False):
                 raise ValueError(f"{eid}: role {role_id!r} does not permit qualifiers")
-            bid = binding.get("id")
-            if bid is not None:
-                if bid in seen_binding_ids:
-                    raise ValueError(f"{eid}: duplicate binding ID {bid!r}")
-                seen_binding_ids.add(bid)
+
+            # Participant-kind constraints apply to derived binding/relation instances
+            # as well as explicit nodes when a contract chooses to constrain them.
             kinds = role_spec.get("participantKinds")
-            if kinds and participant in node_map:
-                kind = node_map[participant].get("kind")
+            if kinds:
+                if participant in node_map:
+                    kind = node_map[participant].get("kind")
+                elif participant in edge_map:
+                    kind = "relationInstance"
+                else:
+                    kind = "roleBinding"
                 if kind not in kinds:
                     raise ValueError(
                         f"{eid}: participant {participant!r} kind {kind!r} violates {role_id!r} constraint {kinds!r}"
                     )
+
             counts[role_id] += 1
             binding_count += 1
-            adjacency[eid].add(participant)
-            adjacency[participant].add(eid)
+            bid = binding.get("id")
+            if bid is not None:
+                # First-class incidence: relation -> binding -> participant. The binding
+                # also points to a local RoleType node when that role is declared locally.
+                adjacency[eid].add(bid)
+                adjacency[bid].add(eid)
+                adjacency[bid].add(participant)
+                adjacency[participant].add(bid)
+                if role_id in node_map:
+                    adjacency[bid].add(role_id)
+                    adjacency[role_id].add(bid)
+            else:
+                # Anonymous bindings remain valid when nothing needs to address them.
+                adjacency[eid].add(participant)
+                adjacency[participant].add(eid)
 
         for role_id, role_spec in declared_roles.items():
             count = counts[role_id]
