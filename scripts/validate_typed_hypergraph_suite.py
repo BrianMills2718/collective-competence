@@ -18,6 +18,7 @@ FIXTURES = [
     DIR / "heat-equation-hypergraph-v1.json",
     DIR / "random-walk-diffusion-multiscale-hypergraph-v1.json",
     DIR / "calibration-covariance-hypergraph-v1.json",
+    DIR / "causal-markov-equivalence-hypergraph-v1.json",
 ]
 
 
