@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "description": "Role contracts for scientific-hypergraph-v1. Relation-type aliases support migration from v0 fixture vocabulary; role IDs are canonical RoleType identities.",
+  "relationTypes": {
+    "sci:instanceOf": {
+      "aliases": ["meta:instanceOf"],
+      "roles": {
+        "sci:instance": {"label":"instance","aliases":["instance"],"min":1,"max":1,"qualifiable":false},
+        "sci:type": {"label":"type","aliases":["type"],"min":1,"max":1,"qualifiable":false}
+      }
+    },
+    "sci:specializes": {
+      "aliases": ["meta:specializes"],
+      "roles": {
+        "sci:subtype": {"label":"subtype","aliases":["subtype"],"min":1,"max":1,"qualifiable":false},
+        "sci:supertype": {"label":"supertype","aliases":["supertype"],"min":1,"max":1,"qualifiable":false}
+      }
+    },
+    "sci:EquationRelation": {
+      "aliases": ["schema:Equation"],
+      "roles": {
+        "sci:eqInput": {"label":"input","aliases":["input"],"min":0,"max":null,"qualifiable":true},
+        "sci:eqOutput": {"label":"output","aliases":["output"],"min":1,"max":null,"qualifiable":true},
+        "sci:eqExpression": {"label":"expression","aliases":["expression"],"min":1,"max":1,"qualifiable":false,"participantKinds":["expression"]},
+        "sci:eqParameter": {"label":"parameter","aliases":["parameter"],"min":0,"max":null,"qualifiable":true},
+        "sci:eqIndependentVariable": {"label":"independent variable","aliases":["independentVariable"],"min":0,"max":null,"qualifiable":true},
+        "sci:eqInitialCondition": {"label":"initial condition","aliases":["initialCondition"],"min":0,"max":null,"qualifiable":true},
+        "sci:eqDriver": {"label":"driver","aliases":["driver"],"min":0,"max":null,"qualifiable":true},
+        "sci:eqDomain": {"label":"domain","aliases":["domain"],"min":0,"max":null,"qualifiable":true},
+        "sci:eqBoundaryCondition": {"label":"boundary condition","aliases":["boundaryCondition"],"min":0,"max":null,"qualifiable":true,"participantKinds":["constraint","element"]},
+        "sci:eqOperator": {"label":"operator","aliases":["operator"],"min":0,"max":null,"qualifiable":true,"participantKinds":["operator","element"]},
+        "sci:eqConstraint": {"label":"constraint","aliases":["constraint"],"min":0,"max":null,"qualifiable":true,"participantKinds":["constraint","element"]},
+        "sci:eqAssumption": {"label":"assumption","aliases":["assumption"],"min":0,"max":null,"qualifiable":true},
+        "sci:eqRegime": {"label":"regime","aliases":["regime"],"min":0,"max":null,"qualifiable":true},
+        "sci:eqContext": {"label":"context","aliases":["context"],"min":0,"max":null,"qualifiable":true}
+      }
+    },
+    "sci:DistributionRelation": {
+      "aliases": ["schema:Distribution"],
+      "roles": {
+        "sci:distributionRandomObject": {"label":"random object","aliases":["randomObject"],"min":1,"max":null,"qualifiable":true},
+        "sci:distributionFamily": {"label":"distribution family","aliases":["family"],"min":1,"max":1,"qualifiable":false},
+        "sci:distributionParameter": {"label":"parameter","aliases":["parameter"],"min":0,"max":null,"qualifiable":true},
+        "sci:distributionCondition": {"label":"condition","aliases":["condition"],"min":0,"max":null,"qualifiable":true},
+        "sci:distributionModel": {"label":"model","aliases":["model"],"min":0,"max":null,"qualifiable":true},
+        "sci:distributionContext": {"label":"context","aliases":["context"],"min":0,"max":null,"qualifiable":true}
+      }
+    },
+    "sci:RepresentationRelation": {
+      "aliases": ["schema:Representation"],
+      "roles": {
+        "sci:representationSource": {"label":"source","aliases":["source"],"min":1,"max":null,"qualifiable":true},
+        "sci:representationTransform": {"label":"transform","aliases":["transform"],"min":1,"max":1,"qualifiable":false},
+        "sci:representationOutput": {"label":"output","aliases":["output"],"min":1,"max":null,"qualifiable":true},
+        "sci:representationScale": {"label":"scale","aliases":["scale"],"min":0,"max":null,"qualifiable":true},
+        "sci:representationAssumption": {"label":"assumption","aliases":["assumption"],"min":0,"max":null,"qualifiable":true},
+        "sci:representationLoss": {"label":"information loss / error","aliases":["informationLoss","error"],"min":0,"max":null,"qualifiable":true},
+        "sci:representationContext": {"label":"context","aliases":["context"],"min":0,"max":null,"qualifiable":true}
+      }
+    },
+    "sci:ProcessRelation": {
+      "aliases": ["schema:Process"],
+      "roles": {
+        "sci:processParticipant": {"label":"participant","aliases":["participant"],"min":1,"max":null,"qualifiable":true},
+        "sci:processInput": {"label":"input","aliases":["input"],"min":0,"max":null,"qualifiable":true},
+        "sci:processOutput": {"label":"output","aliases":["output"],"min":0,"max":null,"qualifiable":true},
+        "sci:processPrecondition": {"label":"precondition","aliases":["precondition"],"min":0,"max":null,"qualifiable":true},
+        "sci:processEffect": {"label":"effect","aliases":["effect"],"min":0,"max":null,"qualifiable":true}
+      }
+    },
+    "sci:AnalysisRelation": {
+      "aliases": ["schema:Analysis"],
+      "roles": {
+        "sci:analysisInput": {"label":"input","aliases":["input"],"min":0,"max":null,"qualifiable":true},
+        "sci:analysisMethod": {"label":"method","aliases":["method"],"min":1,"max":null,"qualifiable":true,"participantKinds":["method","element"]},
+        "sci:analysisModel": {"label":"model","aliases":["model"],"min":0,"max":null,"qualifiable":true},
+        "sci:analysisAssumption": {"label":"assumption","aliases":["assumption"],"min":0,"max":null,"qualifiable":true},
+        "sci:analysisContext": {"label":"context","aliases":["context"],"min":0,"max":null,"qualifiable":true},
+        "sci:analysisOutput": {"label":"output","aliases":["output"],"min":1,"max":null,"qualifiable":true},
+        "sci:analysisUncertainty": {"label":"uncertainty","aliases":["uncertainty"],"min":0,"max":null,"qualifiable":true,"participantKinds":["uncertainty","data","element"]},
+        "sci:analysisAccess": {"label":"access relation","aliases":["access","view"],"min":0,"max":null,"qualifiable":true}
+      }
+    },
+    "sci:MeasurementRelation": {
+      "aliases": ["schema:Measurement"],
+      "roles": {
+        "sci:measurementSubject": {"label":"subject","aliases":["subject"],"min":1,"max":1,"qualifiable":false},
+        "sci:measurementMeasurand": {"label":"measurand","aliases":["measurand"],"min":1,"max":1,"qualifiable":false},
+        "sci:measurementProcedure": {"label":"procedure","aliases":["procedure"],"min":0,"max":1,"qualifiable":false,"participantKinds":["procedure","element"]},
+        "sci:measurementInstrument": {"label":"instrument","aliases":["instrument"],"min":0,"max":null,"qualifiable":true,"participantKinds":["instrument","element"]},
+        "sci:measurementObservation": {"label":"observation","aliases":["observation"],"min":0,"max":null,"qualifiable":true},
+        "sci:measurementResult": {"label":"result","aliases":["result"],"min":1,"max":null,"qualifiable":true},
+        "sci:measurementUncertainty": {"label":"uncertainty","aliases":["uncertainty"],"min":0,"max":null,"qualifiable":true,"participantKinds":["uncertainty","data","element"]},
+        "sci:measurementContext": {"label":"context","aliases":["context"],"min":0,"max":null,"qualifiable":true}
+      }
+    },
+    "sci:ExperimentRelation": {
+      "aliases": ["schema:Experiment"],
+      "roles": {
+        "sci:experimentSubject": {"label":"subject","aliases":["subject"],"min":1,"max":1,"qualifiable":false},
+        "sci:experimentIntervention": {"label":"intervention","aliases":["intervention"],"min":0,"max":null,"qualifiable":true},
+        "sci:experimentCondition": {"label":"condition","aliases":["condition"],"min":0,"max":null,"qualifiable":true},
+        "sci:experimentComparator": {"label":"comparator","aliases":["comparator"],"min":0,"max":null,"qualifiable":true},
+        "sci:experimentObservation": {"label":"observation","aliases":["observation"],"min":0,"max":null,"qualifiable":true},
+        "sci:experimentAnalysis": {"label":"analysis","aliases":["analysis"],"min":0,"max":null,"qualifiable":true},
+        "sci:experimentValidity": {"label":"validity gate","aliases":["validity","validityGate"],"min":0,"max":null,"qualifiable":true},
+        "sci:experimentResult": {"label":"result","aliases":["result"],"min":0,"max":null,"qualifiable":true}
+      }
+    },
+    "sci:AccessRelation": {
+      "aliases": ["schema:Access","schema:StudyView"],
+      "roles": {
+        "sci:accessor": {"label":"accessor","aliases":["accessor","consumer"],"min":1,"max":1,"qualifiable":false},
+        "sci:accessPhase": {"label":"phase","aliases":["phase"],"min":0,"max":1,"qualifiable":false},
+        "sci:accessAllowed": {"label":"allowed","aliases":["allowed","included"],"min":0,"max":null,"qualifiable":true},
+        "sci:accessRestricted": {"label":"restricted","aliases":["restricted","excluded"],"min":0,"max":null,"qualifiable":true},
+        "sci:accessAllowedAction": {"label":"allowed action","aliases":["allowedAction"],"min":0,"max":null,"qualifiable":true}
+      }
+    },
+    "sci:ClaimRelation": {
+      "aliases": ["schema:Claim"],
+      "roles": {
+        "sci:claimProposition": {"label":"proposition","aliases":["proposition"],"min":1,"max":1,"qualifiable":false},
+        "sci:claimEvidence": {"label":"evidence","aliases":["evidence"],"min":0,"max":null,"qualifiable":true},
+        "sci:claimCounterevidence": {"label":"counterevidence","aliases":["counterevidence"],"min":0,"max":null,"qualifiable":true},
+        "sci:claimScope": {"label":"scope","aliases":["scope"],"min":0,"max":null,"qualifiable":true},
+        "sci:claimStatus": {"label":"status","aliases":["status"],"min":1,"max":1,"qualifiable":false}
+      }
+    },
+    "sci:IdentifiabilityRelation": {
+      "aliases": ["schema:Identifiability"],
+      "roles": {
+        "sci:idTarget": {"label":"target","aliases":["target"],"min":1,"max":1,"qualifiable":false},
+        "sci:idCandidateFamily": {"label":"candidate family","aliases":["candidateFamily"],"min":1,"max":1,"qualifiable":false},
+        "sci:idAccess": {"label":"access","aliases":["access","studyView"],"min":1,"max":1,"qualifiable":false},
+        "sci:idObservationModel": {"label":"observation model","aliases":["observationModel","observation"],"min":1,"max":null,"qualifiable":true},
+        "sci:idInterventionFamily": {"label":"intervention family","aliases":["interventionFamily"],"min":0,"max":null,"qualifiable":true},
+        "sci:idEquivalenceClass": {"label":"equivalence class","aliases":["equivalenceClass"],"min":0,"max":null,"qualifiable":true},
+        "sci:idStatus": {"label":"status","aliases":["status"],"min":1,"max":1,"qualifiable":false},
+        "sci:idEvidence": {"label":"evidence","aliases":["evidence"],"min":0,"max":null,"qualifiable":true}
+      }
+    },
+    "sci:QuantityValueRelation": {
+      "aliases": ["schema:QuantityValue"],
+      "roles": {
+        "sci:quantityKind": {"label":"quantity kind","aliases":["quantityKind"],"min":1,"max":1,"qualifiable":false},
+        "sci:quantitySubject": {"label":"subject","aliases":["subject"],"min":1,"max":1,"qualifiable":false},
+        "sci:numericalValue": {"label":"numerical value","aliases":["numericalValue"],"min":1,"max":1,"qualifiable":false,"participantKinds":["value"]},
+        "sci:quantityUnit": {"label":"unit","aliases":["unit"],"min":1,"max":1,"qualifiable":false,"participantKinds":["unit"]},
+        "sci:quantityUncertainty": {"label":"uncertainty","aliases":["uncertainty"],"min":0,"max":null,"qualifiable":true,"participantKinds":["uncertainty","data","element"]},
+        "sci:quantityContext": {"label":"context","aliases":["context"],"min":0,"max":null,"qualifiable":true}
+      }
+    }
+  }
+}
