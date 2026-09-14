@@ -19,6 +19,7 @@ on:
       - 'scripts/check_uncertain_lineage.py'
       - 'scripts/check_first_class_role_binding.py'
       - 'scripts/audit_scientific_hypergraph_adequacy.py'
+      - 'scripts/audit_kernel_ablation.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
@@ -49,6 +50,7 @@ on:
       - 'scripts/check_uncertain_lineage.py'
       - 'scripts/check_first_class_role_binding.py'
       - 'scripts/audit_scientific_hypergraph_adequacy.py'
+      - 'scripts/audit_kernel_ablation.py'
       - 'scripts/generate_role_contracts_from_schema_graph.py'
       - 'scripts/check_role_schema_roundtrip.py'
       - 'scripts/smoke_hypergraph_viewer.mjs'
@@ -109,6 +111,8 @@ jobs:
         run: python scripts/check_first_class_role_binding.py
       - name: Audit shared-schema reuse and local-schema pressure
         run: python scripts/audit_scientific_hypergraph_adequacy.py
+      - name: Audit candidate kernel primitive ablations
+        run: python scripts/audit_kernel_ablation.py
 
   browser-smoke:
     runs-on: ubuntu-latest
