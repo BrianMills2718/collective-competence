@@ -25,18 +25,25 @@ try{
   assert(await page.locator(`[data-id="${binding}"]`).count()===1,'addressable RoleBinding node did not render');
   assert(await page.locator(`[data-id="${claim}"]`).count()===1,'binding-scoped claim did not render');
 
+  const normalizedScope=await page.evaluate(({claim,binding})=>{
+    const edge=window.HV?.state?.data?.hyperedges?.find(e=>e.id===claim);
+    const scope=edge?.bindings?.find(b=>b.role==='sci:claimScope');
+    return {participant:scope?.participant,bindingNode:window.HV?.state?.data?.nodes?.find(n=>n.id===binding)};
+  },{claim,binding});
+  assert(normalizedScope.participant===binding,`claim scope normalized to ${normalizedScope.participant}, expected ${binding}`);
+  assert(normalizedScope.bindingNode?.kind==='roleBinding','normalized binding node is not kind=roleBinding');
+
   await page.locator(`[data-id="${claim}"]`).click();
   let text=await page.locator('#roles').textContent();
   assert(text?.includes('claimScope')||text?.includes('scope'),'claim inspector missing scope RoleType');
-  assert(text?.includes('analysis model')||text?.includes('analysis-model'),'claim scope does not resolve to the addressable binding');
 
   await page.locator(`[data-id="${binding}"]`).click();
   text=await page.locator('#roles').textContent();
   assert((await page.locator('#selMeta').textContent())?.includes('roleBinding'),'binding inspector does not identify RoleBinding kind');
-  assert(text?.includes('analysis model')||text?.includes('analysisModel'),'binding inspector missing canonical RoleType');
+  assert(text?.includes('sci:analysisModel'),'binding inspector missing canonical RoleType identity');
   assert(text?.includes('candidate model A'),'binding inspector missing bound participant');
   assert(text?.includes('h:analysis')||text?.includes('Analysis'),'binding inspector missing parent relation');
   assert(text?.includes('Claim')||text?.includes('claim'),'binding inspector missing inbound claim targeting the assignment');
   assert(errors.length===0,`browser errors: ${errors.join('\n')}`);
-  console.log('PASS first-class RoleBinding viewer: claim targets one addressable assignment and binding inspector exposes parent/role/participant/inbound claim');
+  console.log('PASS first-class RoleBinding viewer: normalized claim scope targets one addressable assignment and binding inspector exposes parent/role/participant/inbound claim');
 } finally {await browser.close();server.close();}
