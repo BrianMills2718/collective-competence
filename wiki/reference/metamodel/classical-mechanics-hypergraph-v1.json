@@ -1,0 +1,66 @@
+{
+  "model": "scientific-hypergraph-v1",
+  "imports": [
+    "hypergraph-kernel",
+    "scientific-relation-schemas",
+    "scientific-quantity-schemas",
+    "scientific-role-contracts"
+  ],
+  "nodes": [
+    {"id":"meta:RelationType","label":"Relation Type","layer":"metamodel","kind":"type"},
+    {"id":"meta:instanceOf","label":"instanceOf","layer":"metamodel","kind":"relationType"},
+    {"id":"schema:Equation","label":"Equation Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Measurement","label":"Measurement Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Analysis","label":"Analysis Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:QuantityValue","label":"Quantity Value Relation","layer":"schema","kind":"relationType"},
+
+    {"id":"phys:Particle","label":"Particle","layer":"theory","kind":"type"},
+    {"id":"phys:Mass","label":"Mass","layer":"theory","kind":"type"},
+    {"id":"phys:Position","label":"Position","layer":"theory","kind":"type"},
+    {"id":"phys:Velocity","label":"Velocity","layer":"theory","kind":"type"},
+    {"id":"phys:KineticEnergy","label":"Kinetic Energy","layer":"theory","kind":"type"},
+    {"id":"phys:ReferenceFrame","label":"Reference Frame","layer":"theory","kind":"type"},
+    {"id":"phys:ClassicalNR","label":"Classical nonrelativistic regime","layer":"theory","kind":"element"},
+    {"id":"phys:Translational","label":"Translational motion assumption","layer":"theory","kind":"element"},
+    {"id":"phys:DimensionalConstraint","label":"[K] = M L^2 T^-2","layer":"theory","kind":"constraint"},
+
+    {"id":"study:Ball","label":"ball","layer":"study","kind":"element"},
+    {"id":"study:LabFrame","label":"laboratory frame","layer":"study","kind":"element"},
+    {"id":"study:Balance","label":"balance","layer":"study","kind":"element"},
+    {"id":"study:CameraClock","label":"camera + clock","layer":"study","kind":"element"},
+    {"id":"study:WeighingProcedure","label":"weighing procedure","layer":"study","kind":"element"},
+    {"id":"study:TrackingProcedure","label":"tracking procedure","layer":"study","kind":"element"},
+    {"id":"study:FiniteDifference","label":"finite-difference velocity estimator","layer":"study","kind":"element"},
+    {"id":"study:PositionTimeSeries","label":"position-time observations","layer":"evidence","kind":"data"},
+    {"id":"study:KExpression","label":"K = 1/2 m v^2","layer":"study","kind":"expression"},
+
+    {"id":"value:2.00","label":"2.00","layer":"evidence","kind":"value"},
+    {"id":"value:0.01kg","label":"±0.01 kg","layer":"evidence","kind":"uncertainty"},
+    {"id":"unit:kg","label":"kg","layer":"schema","kind":"unit"},
+    {"id":"value:4.00","label":"4.00","layer":"evidence","kind":"value"},
+    {"id":"value:0.05mps","label":"±0.05 m/s","layer":"evidence","kind":"uncertainty"},
+    {"id":"unit:mps","label":"m/s","layer":"schema","kind":"unit"},
+    {"id":"value:16.0","label":"16.0","layer":"evidence","kind":"value"},
+    {"id":"value:0.41J","label":"±0.41 J","layer":"evidence","kind":"uncertainty"},
+    {"id":"unit:J","label":"J","layer":"schema","kind":"unit"}
+  ],
+  "hyperedges": [
+    {"id":"h:eq-type","type":"meta:instanceOf","layer":"schema","bindings":[{"role":"sci:instance","participant":"schema:Equation"},{"role":"sci:type","participant":"meta:RelationType"}]},
+    {"id":"h:measurement-type","type":"meta:instanceOf","layer":"schema","bindings":[{"role":"sci:instance","participant":"schema:Measurement"},{"role":"sci:type","participant":"meta:RelationType"}]},
+    {"id":"h:analysis-type","type":"meta:instanceOf","layer":"schema","bindings":[{"role":"sci:instance","participant":"schema:Analysis"},{"role":"sci:type","participant":"meta:RelationType"}]},
+    {"id":"h:qvalue-type","type":"meta:instanceOf","layer":"schema","bindings":[{"role":"sci:instance","participant":"schema:QuantityValue"},{"role":"sci:type","participant":"meta:RelationType"}]},
+
+    {"id":"h:ball-type","type":"meta:instanceOf","layer":"study","bindings":[{"role":"sci:instance","participant":"study:Ball"},{"role":"sci:type","participant":"phys:Particle"}]},
+    {"id":"h:frame-type","type":"meta:instanceOf","layer":"study","bindings":[{"role":"sci:instance","participant":"study:LabFrame"},{"role":"sci:type","participant":"phys:ReferenceFrame"}]},
+
+    {"id":"h:mass-value","type":"schema:QuantityValue","layer":"evidence","bindings":[{"role":"sci:quantityKind","participant":"phys:Mass"},{"role":"sci:quantitySubject","participant":"study:Ball"},{"role":"sci:numericalValue","participant":"value:2.00"},{"role":"sci:quantityUnit","participant":"unit:kg"},{"role":"sci:quantityUncertainty","participant":"value:0.01kg"}]},
+    {"id":"h:mass-measurement","type":"schema:Measurement","layer":"study","bindings":[{"role":"sci:measurementSubject","participant":"study:Ball"},{"role":"sci:measurementMeasurand","participant":"phys:Mass"},{"role":"sci:measurementProcedure","participant":"study:WeighingProcedure"},{"role":"sci:measurementInstrument","participant":"study:Balance"},{"role":"sci:measurementResult","participant":"h:mass-value"},{"role":"sci:measurementUncertainty","participant":"value:0.01kg"}]},
+
+    {"id":"h:position-measurement","type":"schema:Measurement","layer":"study","bindings":[{"role":"sci:measurementSubject","participant":"study:Ball"},{"role":"sci:measurementMeasurand","participant":"phys:Position"},{"role":"sci:measurementProcedure","participant":"study:TrackingProcedure"},{"role":"sci:measurementInstrument","participant":"study:CameraClock"},{"role":"sci:measurementObservation","participant":"study:PositionTimeSeries"},{"role":"sci:measurementResult","participant":"study:PositionTimeSeries"},{"role":"sci:measurementContext","participant":"study:LabFrame"}]},
+    {"id":"h:velocity-value","type":"schema:QuantityValue","layer":"evidence","bindings":[{"role":"sci:quantityKind","participant":"phys:Velocity"},{"role":"sci:quantitySubject","participant":"study:Ball"},{"role":"sci:numericalValue","participant":"value:4.00"},{"role":"sci:quantityUnit","participant":"unit:mps"},{"role":"sci:quantityUncertainty","participant":"value:0.05mps"},{"role":"sci:quantityContext","participant":"study:LabFrame"}]},
+    {"id":"h:velocity-analysis","type":"schema:Analysis","layer":"study","bindings":[{"role":"sci:analysisInput","participant":"study:PositionTimeSeries"},{"role":"sci:analysisMethod","participant":"study:FiniteDifference"},{"role":"sci:analysisContext","participant":"study:LabFrame"},{"role":"sci:analysisOutput","participant":"h:velocity-value"}]},
+
+    {"id":"h:ke-value","type":"schema:QuantityValue","layer":"evidence","bindings":[{"role":"sci:quantityKind","participant":"phys:KineticEnergy"},{"role":"sci:quantitySubject","participant":"study:Ball"},{"role":"sci:numericalValue","participant":"value:16.0"},{"role":"sci:quantityUnit","participant":"unit:J"},{"role":"sci:quantityUncertainty","participant":"value:0.41J"},{"role":"sci:quantityContext","participant":"study:LabFrame"}]},
+    {"id":"h:ke-equation","type":"schema:Equation","layer":"study","bindings":[{"role":"sci:eqInput","qualifier":"mass","participant":"h:mass-value"},{"role":"sci:eqInput","qualifier":"velocity","participant":"h:velocity-value"},{"role":"sci:eqOutput","participant":"h:ke-value"},{"role":"sci:eqExpression","participant":"study:KExpression"},{"role":"sci:eqAssumption","participant":"phys:Translational"},{"role":"sci:eqRegime","participant":"phys:ClassicalNR"},{"role":"sci:eqConstraint","participant":"phys:DimensionalConstraint"},{"role":"sci:eqContext","participant":"study:LabFrame"}]}
+  ]
+}
