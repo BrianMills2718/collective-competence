@@ -2,9 +2,8 @@
   "model": "scientific-hypergraph-v1",
   "imports": [
     "hypergraph-kernel",
-    "scientific-relation-schemas",
-    "scientific-quantity-schemas",
-    "scientific-role-contracts"
+    "scientific-role-schema-v1",
+    "scientific-quantity-schemas"
   ],
   "nodes": [
     {"id":"meta:RelationType","label":"Relation Type","layer":"metamodel","kind":"type"},
@@ -29,7 +28,7 @@
     {"id":"study:Balance","label":"balance","layer":"study","kind":"element"},
     {"id":"study:CameraClock","label":"camera + clock","layer":"study","kind":"element"},
     {"id":"study:WeighingProcedure","label":"weighing procedure","layer":"study","kind":"element"},
-    {"id":"study:TrackingProcedure","label":"tracking procedure","layer":"study","kind":"element"},
+    {"id":"study:TrackingProcedure","label":"tracking procedure","kind":"element","layer":"study"},
     {"id":"study:FiniteDifference","label":"finite-difference velocity estimator","layer":"study","kind":"element"},
     {"id":"study:PositionTimeSeries","label":"position-time observations","layer":"evidence","kind":"data"},
     {"id":"study:KExpression","label":"K = 1/2 m v^2","layer":"study","kind":"expression"},
