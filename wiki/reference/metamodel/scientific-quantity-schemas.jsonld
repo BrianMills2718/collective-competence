@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "sci": "urn:scientific-hypergraph:",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {"@id":"sci:QuantityValueRelation","@type":"sci:RelationType","rdfs:label":"Quantity Value Relation"},
+    {"@id":"sci:quantityKind","@type":"sci:RoleType","rdfs:label":"quantity kind"},
+    {"@id":"sci:quantitySubject","@type":"sci:RoleType","rdfs:label":"subject"},
+    {"@id":"sci:numericalValue","@type":"sci:RoleType","rdfs:label":"numerical value"},
+    {"@id":"sci:quantityUnit","@type":"sci:RoleType","rdfs:label":"unit"},
+    {"@id":"sci:quantityUncertainty","@type":"sci:RoleType","rdfs:label":"uncertainty"},
+    {"@id":"sci:quantityContext","@type":"sci:RoleType","rdfs:label":"context"},
+
+    {"@id":"sci:eqContext","@type":"sci:RoleType","rdfs:label":"equation context"},
+    {"@id":"sci:analysisContext","@type":"sci:RoleType","rdfs:label":"analysis context"},
+    {"@id":"sci:measurementContext","@type":"sci:RoleType","rdfs:label":"measurement context"}
+  ]
+}
