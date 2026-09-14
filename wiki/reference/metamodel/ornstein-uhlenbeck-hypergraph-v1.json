@@ -1,0 +1,727 @@
+{
+  "nodes": [
+    {
+      "id": "meta:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel",
+      "kind": "type"
+    },
+    {
+      "id": "meta:instanceOf",
+      "label": "instanceOf",
+      "layer": "metamodel",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Equation",
+      "label": "Equation Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Distribution",
+      "label": "Distribution Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Measurement",
+      "label": "Measurement Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Analysis",
+      "label": "Analysis Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:QuantityValue",
+      "label": "Quantity Value Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "sto:OrnsteinUhlenbeckProcess",
+      "label": "Ornstein-Uhlenbeck Process",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "sto:StateVariable",
+      "label": "Stochastic State Variable",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "sto:MeanReversionRate",
+      "label": "Mean Reversion Rate",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "sto:LongRunMean",
+      "label": "Long-Run Mean",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "sto:DiffusionScale",
+      "label": "Diffusion Scale",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "sto:WienerProcess",
+      "label": "Wiener Process",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "sto:GaussianDistribution",
+      "label": "Gaussian Distribution",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "sto:SamplePath",
+      "label": "Sample Path",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "sto:Time",
+      "label": "Time",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "study:OU1",
+      "label": "OU specimen",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:Time",
+      "label": "time",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:State",
+      "label": "X(t)",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:WienerDriver",
+      "label": "W(t)",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:SDEExpression",
+      "label": "dX = theta(mu-X)dt + sigma dW",
+      "layer": "study",
+      "kind": "expression"
+    },
+    {
+      "id": "study:StationaryVariance",
+      "label": "sigma^2 / (2 theta)",
+      "layer": "study",
+      "kind": "expression"
+    },
+    {
+      "id": "study:EulerMaruyama",
+      "label": "Euler-Maruyama simulator",
+      "layer": "study",
+      "kind": "method"
+    },
+    {
+      "id": "study:LikelihoodFit",
+      "label": "OU likelihood fit",
+      "layer": "study",
+      "kind": "method"
+    },
+    {
+      "id": "study:Observer",
+      "label": "state logger",
+      "layer": "study",
+      "kind": "instrument"
+    },
+    {
+      "id": "study:ObservationProcedure",
+      "label": "regular-time sampling",
+      "layer": "study",
+      "kind": "procedure"
+    },
+    {
+      "id": "study:SimulatedPath",
+      "label": "simulated sample path",
+      "layer": "evidence",
+      "kind": "data"
+    },
+    {
+      "id": "study:ObservedPath",
+      "label": "observed sample path",
+      "layer": "evidence",
+      "kind": "data"
+    },
+    {
+      "id": "value:theta",
+      "label": "0.70",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "value:mu",
+      "label": "1.20",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "value:sigma",
+      "label": "0.40",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "value:x0",
+      "label": "0.30",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "value:zero",
+      "label": "0",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "value:dt",
+      "label": "dt",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "value:thetaFit",
+      "label": "0.72",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "value:dTheta",
+      "label": "+/-0.05",
+      "layer": "evidence",
+      "kind": "uncertainty"
+    },
+    {
+      "id": "unit:s-1",
+      "label": "s^-1",
+      "layer": "schema",
+      "kind": "unit"
+    },
+    {
+      "id": "unit:state",
+      "label": "state unit",
+      "layer": "schema",
+      "kind": "unit"
+    },
+    {
+      "id": "unit:stateSqrtS",
+      "label": "state/sqrt(s)",
+      "layer": "schema",
+      "kind": "unit"
+    }
+  ],
+  "model": "scientific-hypergraph-v1",
+  "imports": [
+    "hypergraph-kernel",
+    "scientific-role-schema-v1",
+    "scientific-quantity-schemas"
+  ],
+  "hyperedges": [
+    {
+      "id": "h:eq-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Equation"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:dist-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Distribution"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:measurement-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Measurement"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:analysis-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Analysis"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:qvalue-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:QuantityValue"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:ou-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:OU1"
+        },
+        {
+          "role": "sci:type",
+          "participant": "sto:OrnsteinUhlenbeckProcess"
+        }
+      ]
+    },
+    {
+      "id": "h:time-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:Time"
+        },
+        {
+          "role": "sci:type",
+          "participant": "sto:Time"
+        }
+      ]
+    },
+    {
+      "id": "h:state-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:State"
+        },
+        {
+          "role": "sci:type",
+          "participant": "sto:StateVariable"
+        }
+      ]
+    },
+    {
+      "id": "h:driver-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:WienerDriver"
+        },
+        {
+          "role": "sci:type",
+          "participant": "sto:WienerProcess"
+        }
+      ]
+    },
+    {
+      "id": "h:sim-path-type",
+      "type": "meta:instanceOf",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:SimulatedPath"
+        },
+        {
+          "role": "sci:type",
+          "participant": "sto:SamplePath"
+        }
+      ]
+    },
+    {
+      "id": "h:obs-path-type",
+      "type": "meta:instanceOf",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:ObservedPath"
+        },
+        {
+          "role": "sci:type",
+          "participant": "sto:SamplePath"
+        }
+      ]
+    },
+    {
+      "id": "h:theta",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "sto:MeanReversionRate"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:OU1"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:theta"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:s-1"
+        }
+      ]
+    },
+    {
+      "id": "h:mu",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "sto:LongRunMean"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:OU1"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:mu"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:state"
+        }
+      ]
+    },
+    {
+      "id": "h:sigma",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "sto:DiffusionScale"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:OU1"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:sigma"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:stateSqrtS"
+        }
+      ]
+    },
+    {
+      "id": "h:x0",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "sto:StateVariable"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:OU1"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:x0"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:state"
+        }
+      ]
+    },
+    {
+      "id": "h:wiener-increment-law",
+      "type": "schema:Distribution",
+      "layer": "theory",
+      "bindings": [
+        {
+          "role": "sci:distributionRandomObject",
+          "participant": "study:WienerDriver"
+        },
+        {
+          "role": "sci:distributionFamily",
+          "participant": "sto:GaussianDistribution"
+        },
+        {
+          "role": "sci:distributionParameter",
+          "participant": "value:zero",
+          "qualifier": "mean"
+        },
+        {
+          "role": "sci:distributionParameter",
+          "participant": "value:dt",
+          "qualifier": "variance"
+        },
+        {
+          "role": "sci:distributionContext",
+          "participant": "study:Time"
+        }
+      ]
+    },
+    {
+      "id": "h:sde",
+      "type": "schema:Equation",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:eqInput",
+          "participant": "study:State",
+          "qualifier": "state"
+        },
+        {
+          "role": "sci:eqParameter",
+          "participant": "h:theta",
+          "qualifier": "theta"
+        },
+        {
+          "role": "sci:eqParameter",
+          "participant": "h:mu",
+          "qualifier": "mu"
+        },
+        {
+          "role": "sci:eqParameter",
+          "participant": "h:sigma",
+          "qualifier": "sigma"
+        },
+        {
+          "role": "sci:eqDriver",
+          "participant": "study:WienerDriver"
+        },
+        {
+          "role": "sci:eqOutput",
+          "participant": "study:State"
+        },
+        {
+          "role": "sci:eqExpression",
+          "participant": "study:SDEExpression"
+        },
+        {
+          "role": "sci:eqIndependentVariable",
+          "participant": "study:Time"
+        },
+        {
+          "role": "sci:eqInitialCondition",
+          "participant": "h:x0"
+        }
+      ]
+    },
+    {
+      "id": "h:stationary-law",
+      "type": "schema:Distribution",
+      "layer": "theory",
+      "bindings": [
+        {
+          "role": "sci:distributionRandomObject",
+          "participant": "study:State"
+        },
+        {
+          "role": "sci:distributionFamily",
+          "participant": "sto:GaussianDistribution"
+        },
+        {
+          "role": "sci:distributionParameter",
+          "participant": "h:mu",
+          "qualifier": "mean"
+        },
+        {
+          "role": "sci:distributionParameter",
+          "participant": "study:StationaryVariance",
+          "qualifier": "variance"
+        },
+        {
+          "role": "sci:distributionModel",
+          "participant": "h:sde"
+        }
+      ]
+    },
+    {
+      "id": "h:simulate",
+      "type": "schema:Analysis",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:analysisModel",
+          "participant": "h:sde"
+        },
+        {
+          "role": "sci:analysisMethod",
+          "participant": "study:EulerMaruyama"
+        },
+        {
+          "role": "sci:analysisInput",
+          "participant": "h:x0",
+          "qualifier": "initial"
+        },
+        {
+          "role": "sci:analysisContext",
+          "participant": "h:wiener-increment-law",
+          "qualifier": "noiseLaw"
+        },
+        {
+          "role": "sci:analysisOutput",
+          "participant": "study:SimulatedPath"
+        }
+      ]
+    },
+    {
+      "id": "h:measurement",
+      "type": "schema:Measurement",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:measurementSubject",
+          "participant": "study:OU1"
+        },
+        {
+          "role": "sci:measurementMeasurand",
+          "participant": "study:State"
+        },
+        {
+          "role": "sci:measurementProcedure",
+          "participant": "study:ObservationProcedure"
+        },
+        {
+          "role": "sci:measurementInstrument",
+          "participant": "study:Observer"
+        },
+        {
+          "role": "sci:measurementObservation",
+          "participant": "study:ObservedPath"
+        },
+        {
+          "role": "sci:measurementResult",
+          "participant": "study:ObservedPath"
+        }
+      ]
+    },
+    {
+      "id": "h:theta-fit-value",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "sto:MeanReversionRate"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:OU1"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:thetaFit"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:s-1"
+        },
+        {
+          "role": "sci:quantityUncertainty",
+          "participant": "value:dTheta"
+        }
+      ]
+    },
+    {
+      "id": "h:fit",
+      "type": "schema:Analysis",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:analysisInput",
+          "participant": "study:ObservedPath"
+        },
+        {
+          "role": "sci:analysisModel",
+          "participant": "h:sde"
+        },
+        {
+          "role": "sci:analysisMethod",
+          "participant": "study:LikelihoodFit"
+        },
+        {
+          "role": "sci:analysisAssumption",
+          "participant": "h:stationary-law",
+          "qualifier": "transitionLaw"
+        },
+        {
+          "role": "sci:analysisOutput",
+          "participant": "h:theta-fit-value"
+        },
+        {
+          "role": "sci:analysisUncertainty",
+          "participant": "value:dTheta"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,724 @@
+{
+  "nodes": [
+    {
+      "id": "meta:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel",
+      "kind": "type"
+    },
+    {
+      "id": "meta:instanceOf",
+      "label": "instanceOf",
+      "layer": "metamodel",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Equation",
+      "label": "Equation Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Distribution",
+      "label": "Distribution Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Analysis",
+      "label": "Analysis Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Representation",
+      "label": "Representation Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Claim",
+      "label": "Claim Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:QuantityValue",
+      "label": "Quantity Value Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "ms:RandomWalkModel",
+      "label": "Microscopic Random Walk",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "ms:DiffusionModel",
+      "label": "Macroscopic Diffusion Model",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "ms:Position",
+      "label": "Particle Position",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "ms:DensityField",
+      "label": "Probability Density Field",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "ms:StepLength",
+      "label": "Step Length",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "ms:TimeStep",
+      "label": "Time Step",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "ms:DiffusionCoefficient",
+      "label": "Diffusion Coefficient",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "ms:RademacherDistribution",
+      "label": "Symmetric +/- Step Distribution",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "ms:MicroScale",
+      "label": "Microscopic Scale",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "ms:MacroScale",
+      "label": "Macroscopic Scale",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "ms:EffectiveLimit",
+      "label": "Diffusive Scaling Limit",
+      "layer": "theory",
+      "kind": "assumption"
+    },
+    {
+      "id": "study:MicroWalk",
+      "label": "random-walk specimen",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:MacroDiffusion",
+      "label": "effective diffusion model",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:MicroPosition",
+      "label": "X_n",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:StepNoise",
+      "label": "xi_n",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:DensityField",
+      "label": "p(x,t)",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:MicroExpression",
+      "label": "X_(n+1) = X_n + xi_n",
+      "layer": "study",
+      "kind": "expression"
+    },
+    {
+      "id": "study:MacroExpression",
+      "label": "dp/dt = D d2p/dx2",
+      "layer": "study",
+      "kind": "expression"
+    },
+    {
+      "id": "study:DExpression",
+      "label": "D = dx^2/(2 dt)",
+      "layer": "study",
+      "kind": "expression"
+    },
+    {
+      "id": "study:EnsembleSimulator",
+      "label": "random-walk ensemble simulator",
+      "layer": "study",
+      "kind": "method"
+    },
+    {
+      "id": "study:CoarseGrain",
+      "label": "histogram / density coarse-graining",
+      "layer": "study",
+      "kind": "transform"
+    },
+    {
+      "id": "study:PDESolver",
+      "label": "diffusion PDE solver",
+      "layer": "study",
+      "kind": "method"
+    },
+    {
+      "id": "study:MicroEnsemble",
+      "label": "microscopic trajectory ensemble",
+      "layer": "evidence",
+      "kind": "data"
+    },
+    {
+      "id": "study:CoarseDensity",
+      "label": "coarse-grained density",
+      "layer": "evidence",
+      "kind": "data"
+    },
+    {
+      "id": "study:MacroTrajectory",
+      "label": "macroscopic density trajectory",
+      "layer": "evidence",
+      "kind": "data"
+    },
+    {
+      "id": "study:EffectiveProposition",
+      "label": "coarse random walk is represented by diffusion model at macro scale",
+      "layer": "evidence",
+      "kind": "proposition"
+    },
+    {
+      "id": "study:Supported",
+      "label": "supported in stated scaling regime",
+      "layer": "evidence",
+      "kind": "status"
+    },
+    {
+      "id": "value:dx",
+      "label": "0.01",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "value:dt",
+      "label": "0.00005",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "value:D",
+      "label": "1.0",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "value:macroScale",
+      "label": "many steps / coarse cells",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "value:representationError",
+      "label": "finite-scale approximation error",
+      "layer": "evidence",
+      "kind": "uncertainty"
+    },
+    {
+      "id": "unit:m",
+      "label": "m",
+      "layer": "schema",
+      "kind": "unit"
+    },
+    {
+      "id": "unit:s",
+      "label": "s",
+      "layer": "schema",
+      "kind": "unit"
+    },
+    {
+      "id": "unit:m2s",
+      "label": "m^2/s",
+      "layer": "schema",
+      "kind": "unit"
+    }
+  ],
+  "model": "scientific-hypergraph-v1",
+  "imports": [
+    "hypergraph-kernel",
+    "scientific-role-schema-v1",
+    "scientific-quantity-schemas"
+  ],
+  "hyperedges": [
+    {
+      "id": "h:eq-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Equation"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:dist-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Distribution"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:analysis-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Analysis"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:representation-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Representation"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:claim-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Claim"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:qvalue-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:QuantityValue"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:micro-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:MicroWalk"
+        },
+        {
+          "role": "sci:type",
+          "participant": "ms:RandomWalkModel"
+        }
+      ]
+    },
+    {
+      "id": "h:macro-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:MacroDiffusion"
+        },
+        {
+          "role": "sci:type",
+          "participant": "ms:DiffusionModel"
+        }
+      ]
+    },
+    {
+      "id": "h:position-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:MicroPosition"
+        },
+        {
+          "role": "sci:type",
+          "participant": "ms:Position"
+        }
+      ]
+    },
+    {
+      "id": "h:density-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:DensityField"
+        },
+        {
+          "role": "sci:type",
+          "participant": "ms:DensityField"
+        }
+      ]
+    },
+    {
+      "id": "h:dx",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "ms:StepLength"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:MicroWalk"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:dx"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:m"
+        },
+        {
+          "role": "sci:quantityContext",
+          "participant": "ms:MicroScale",
+          "qualifier": "scale"
+        }
+      ]
+    },
+    {
+      "id": "h:dt",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "ms:TimeStep"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:MicroWalk"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:dt"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:s"
+        },
+        {
+          "role": "sci:quantityContext",
+          "participant": "ms:MicroScale",
+          "qualifier": "scale"
+        }
+      ]
+    },
+    {
+      "id": "h:D",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "ms:DiffusionCoefficient"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:MacroDiffusion"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:D"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:m2s"
+        },
+        {
+          "role": "sci:quantityContext",
+          "participant": "ms:MacroScale",
+          "qualifier": "scale"
+        }
+      ]
+    },
+    {
+      "id": "h:step-law",
+      "type": "schema:Distribution",
+      "layer": "theory",
+      "bindings": [
+        {
+          "role": "sci:distributionRandomObject",
+          "participant": "study:StepNoise"
+        },
+        {
+          "role": "sci:distributionFamily",
+          "participant": "ms:RademacherDistribution"
+        },
+        {
+          "role": "sci:distributionParameter",
+          "participant": "h:dx",
+          "qualifier": "stepLength"
+        }
+      ]
+    },
+    {
+      "id": "h:micro-law",
+      "type": "schema:Equation",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:eqInput",
+          "participant": "study:MicroPosition",
+          "qualifier": "position"
+        },
+        {
+          "role": "sci:eqDriver",
+          "participant": "study:StepNoise"
+        },
+        {
+          "role": "sci:eqOutput",
+          "participant": "study:MicroPosition"
+        },
+        {
+          "role": "sci:eqExpression",
+          "participant": "study:MicroExpression"
+        },
+        {
+          "role": "sci:eqParameter",
+          "participant": "h:dt",
+          "qualifier": "timeStep"
+        }
+      ]
+    },
+    {
+      "id": "h:D-law",
+      "type": "schema:Equation",
+      "layer": "theory",
+      "bindings": [
+        {
+          "role": "sci:eqInput",
+          "participant": "h:dx",
+          "qualifier": "stepLength"
+        },
+        {
+          "role": "sci:eqInput",
+          "participant": "h:dt",
+          "qualifier": "timeStep"
+        },
+        {
+          "role": "sci:eqOutput",
+          "participant": "h:D"
+        },
+        {
+          "role": "sci:eqExpression",
+          "participant": "study:DExpression"
+        },
+        {
+          "role": "sci:eqAssumption",
+          "participant": "ms:EffectiveLimit"
+        }
+      ]
+    },
+    {
+      "id": "h:micro-sim",
+      "type": "schema:Analysis",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:analysisModel",
+          "participant": "h:micro-law"
+        },
+        {
+          "role": "sci:analysisMethod",
+          "participant": "study:EnsembleSimulator"
+        },
+        {
+          "role": "sci:analysisContext",
+          "participant": "h:step-law",
+          "qualifier": "noiseLaw"
+        },
+        {
+          "role": "sci:analysisOutput",
+          "participant": "study:MicroEnsemble"
+        }
+      ]
+    },
+    {
+      "id": "h:coarse-representation",
+      "type": "schema:Representation",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:representationSource",
+          "participant": "study:MicroEnsemble"
+        },
+        {
+          "role": "sci:representationTransform",
+          "participant": "study:CoarseGrain"
+        },
+        {
+          "role": "sci:representationOutput",
+          "participant": "study:CoarseDensity"
+        },
+        {
+          "role": "sci:representationScale",
+          "participant": "value:macroScale"
+        },
+        {
+          "role": "sci:representationAssumption",
+          "participant": "ms:EffectiveLimit"
+        },
+        {
+          "role": "sci:representationLoss",
+          "participant": "value:representationError"
+        },
+        {
+          "role": "sci:representationContext",
+          "participant": "h:micro-law",
+          "qualifier": "microModel"
+        }
+      ]
+    },
+    {
+      "id": "h:macro-law",
+      "type": "schema:Equation",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:eqInput",
+          "participant": "study:DensityField",
+          "qualifier": "field"
+        },
+        {
+          "role": "sci:eqParameter",
+          "participant": "h:D",
+          "qualifier": "D"
+        },
+        {
+          "role": "sci:eqOutput",
+          "participant": "study:DensityField"
+        },
+        {
+          "role": "sci:eqExpression",
+          "participant": "study:MacroExpression"
+        },
+        {
+          "role": "sci:eqAssumption",
+          "participant": "ms:EffectiveLimit"
+        }
+      ]
+    },
+    {
+      "id": "h:macro-solve",
+      "type": "schema:Analysis",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:analysisModel",
+          "participant": "h:macro-law"
+        },
+        {
+          "role": "sci:analysisMethod",
+          "participant": "study:PDESolver"
+        },
+        {
+          "role": "sci:analysisInput",
+          "participant": "study:CoarseDensity",
+          "qualifier": "initial"
+        },
+        {
+          "role": "sci:analysisOutput",
+          "participant": "study:MacroTrajectory"
+        }
+      ]
+    },
+    {
+      "id": "h:effective-claim",
+      "type": "schema:Claim",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:claimProposition",
+          "participant": "study:EffectiveProposition"
+        },
+        {
+          "role": "sci:claimEvidence",
+          "participant": "h:coarse-representation",
+          "qualifier": "coarseRepresentation"
+        },
+        {
+          "role": "sci:claimEvidence",
+          "participant": "h:macro-solve",
+          "qualifier": "macroPrediction"
+        },
+        {
+          "role": "sci:claimScope",
+          "participant": "value:macroScale"
+        },
+        {
+          "role": "sci:claimStatus",
+          "participant": "study:Supported"
+        }
+      ]
+    }
+  ]
+}

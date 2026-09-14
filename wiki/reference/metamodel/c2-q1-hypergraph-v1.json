@@ -1,0 +1,594 @@
+{
+  "nodes": [
+    {
+      "id": "meta:ModelElement",
+      "label": "Model Element",
+      "layer": "metamodel",
+      "kind": "type"
+    },
+    {
+      "id": "meta:ElementType",
+      "label": "Element Type",
+      "layer": "metamodel",
+      "kind": "type"
+    },
+    {
+      "id": "meta:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel",
+      "kind": "type"
+    },
+    {
+      "id": "meta:RoleType",
+      "label": "Role Type",
+      "layer": "metamodel",
+      "kind": "type"
+    },
+    {
+      "id": "meta:RelationInstance",
+      "label": "Relation Instance",
+      "layer": "metamodel",
+      "kind": "type"
+    },
+    {
+      "id": "meta:Constraint",
+      "label": "Constraint",
+      "layer": "metamodel",
+      "kind": "type"
+    },
+    {
+      "id": "meta:Expression",
+      "label": "Expression",
+      "layer": "metamodel",
+      "kind": "type"
+    },
+    {
+      "id": "meta:instanceOf",
+      "label": "instanceOf",
+      "layer": "metamodel",
+      "kind": "relationType"
+    },
+    {
+      "id": "meta:specializes",
+      "label": "specializes",
+      "layer": "metamodel",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Equation",
+      "label": "Equation Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Measurement",
+      "label": "Measurement Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Analysis",
+      "label": "Analysis Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:StudyView",
+      "label": "Study Visibility Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Identifiability",
+      "label": "Identifiability Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "cc:CompetenceAssessment",
+      "label": "Competence Assessment",
+      "layer": "theory",
+      "kind": "relationType"
+    },
+    {
+      "id": "cc:CoordinationTarget",
+      "label": "Coordination Target",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "study:C2System",
+      "label": "C2 contended channel",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:OwnNeed",
+      "label": "own_need",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:PopulationSize",
+      "label": "n_subunits",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:DerivedPhase",
+      "label": "derived phase",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:PhaseExpr",
+      "label": "phase = int(need) mod n_subunits",
+      "layer": "study",
+      "kind": "expression"
+    },
+    {
+      "id": "study:Observer",
+      "label": "software observer",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:AttemptedAction",
+      "label": "attempted action",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:AttemptTrace",
+      "label": "attempt trace",
+      "layer": "evidence",
+      "kind": "element"
+    },
+    {
+      "id": "study:ProposalPackage",
+      "label": "proposal package",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:ProposalMethod",
+      "label": "frozen proposal method",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:ProposalOutput",
+      "label": "frozen proposal output",
+      "layer": "evidence",
+      "kind": "element"
+    },
+    {
+      "id": "study:ProposalPhase",
+      "label": "proposal phase",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:SharedSignal",
+      "label": "shared signal",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:NativeCondition",
+      "label": "native condition",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:MechanismLabels",
+      "label": "mechanism labels",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:CandidateFamily",
+      "label": "coordination candidate family",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:NotAsserted",
+      "label": "not asserted",
+      "layer": "evidence",
+      "kind": "status"
+    }
+  ],
+  "model": "scientific-hypergraph-v1",
+  "imports": [
+    "hypergraph-kernel",
+    "scientific-role-schema-v1",
+    "scientific-quantity-schemas"
+  ],
+  "hyperedges": [
+    {
+      "id": "h:kernel-element-type",
+      "type": "meta:specializes",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:subtype",
+          "participant": "meta:ElementType"
+        },
+        {
+          "role": "sci:supertype",
+          "participant": "meta:ModelElement"
+        }
+      ]
+    },
+    {
+      "id": "h:kernel-relation-type",
+      "type": "meta:specializes",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:subtype",
+          "participant": "meta:RelationType"
+        },
+        {
+          "role": "sci:supertype",
+          "participant": "meta:ElementType"
+        }
+      ]
+    },
+    {
+      "id": "h:kernel-role-type",
+      "type": "meta:specializes",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:subtype",
+          "participant": "meta:RoleType"
+        },
+        {
+          "role": "sci:supertype",
+          "participant": "meta:ModelElement"
+        }
+      ]
+    },
+    {
+      "id": "h:kernel-relation-instance",
+      "type": "meta:specializes",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:subtype",
+          "participant": "meta:RelationInstance"
+        },
+        {
+          "role": "sci:supertype",
+          "participant": "meta:ModelElement"
+        }
+      ]
+    },
+    {
+      "id": "h:kernel-constraint",
+      "type": "meta:specializes",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:subtype",
+          "participant": "meta:Constraint"
+        },
+        {
+          "role": "sci:supertype",
+          "participant": "meta:ModelElement"
+        }
+      ]
+    },
+    {
+      "id": "h:kernel-expression",
+      "type": "meta:specializes",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:subtype",
+          "participant": "meta:Expression"
+        },
+        {
+          "role": "sci:supertype",
+          "participant": "meta:ModelElement"
+        }
+      ]
+    },
+    {
+      "id": "h:kernel-instanceof-type",
+      "type": "meta:specializes",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:subtype",
+          "participant": "meta:instanceOf"
+        },
+        {
+          "role": "sci:supertype",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:kernel-specializes-type",
+      "type": "meta:specializes",
+      "layer": "metamodel",
+      "bindings": [
+        {
+          "role": "sci:subtype",
+          "participant": "meta:specializes"
+        },
+        {
+          "role": "sci:supertype",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:type-equation",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Equation"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:type-measurement",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Measurement"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:type-analysis",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Analysis"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:type-visibility",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:StudyView"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:type-identifiability",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Identifiability"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:cc-competence-specializes",
+      "type": "meta:specializes",
+      "layer": "theory",
+      "bindings": [
+        {
+          "role": "sci:subtype",
+          "participant": "cc:CompetenceAssessment"
+        },
+        {
+          "role": "sci:supertype",
+          "participant": "schema:Measurement"
+        }
+      ]
+    },
+    {
+      "id": "h:cc-target-specializes",
+      "type": "meta:specializes",
+      "layer": "theory",
+      "bindings": [
+        {
+          "role": "sci:subtype",
+          "participant": "cc:CoordinationTarget"
+        },
+        {
+          "role": "sci:supertype",
+          "participant": "meta:ModelElement"
+        }
+      ]
+    },
+    {
+      "id": "h:phase-equation",
+      "type": "schema:Equation",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:eqInput",
+          "participant": "study:OwnNeed",
+          "qualifier": "need"
+        },
+        {
+          "role": "sci:eqInput",
+          "participant": "study:PopulationSize",
+          "qualifier": "population"
+        },
+        {
+          "role": "sci:eqOutput",
+          "participant": "study:DerivedPhase"
+        },
+        {
+          "role": "sci:eqExpression",
+          "participant": "study:PhaseExpr"
+        }
+      ]
+    },
+    {
+      "id": "h:declared-input-scope",
+      "type": "schema:StudyView",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:accessor",
+          "participant": "h:phase-equation"
+        },
+        {
+          "role": "sci:accessPhase",
+          "participant": "study:ProposalPhase"
+        },
+        {
+          "role": "sci:accessAllowed",
+          "participant": "study:OwnNeed"
+        },
+        {
+          "role": "sci:accessRestricted",
+          "participant": "study:PopulationSize"
+        }
+      ]
+    },
+    {
+      "id": "h:attempt-measurement",
+      "type": "schema:Measurement",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:measurementSubject",
+          "participant": "study:C2System"
+        },
+        {
+          "role": "sci:measurementMeasurand",
+          "participant": "study:AttemptedAction"
+        },
+        {
+          "role": "sci:measurementProcedure",
+          "participant": "study:Observer"
+        },
+        {
+          "role": "sci:measurementResult",
+          "participant": "study:AttemptTrace"
+        }
+      ]
+    },
+    {
+      "id": "h:q1-study-view",
+      "type": "schema:StudyView",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:accessor",
+          "participant": "h:q1-analysis"
+        },
+        {
+          "role": "sci:accessPhase",
+          "participant": "study:ProposalPhase"
+        },
+        {
+          "role": "sci:accessAllowed",
+          "participant": "study:ProposalPackage"
+        },
+        {
+          "role": "sci:accessRestricted",
+          "participant": "study:SharedSignal",
+          "qualifier": "signal"
+        },
+        {
+          "role": "sci:accessRestricted",
+          "participant": "study:NativeCondition",
+          "qualifier": "condition"
+        },
+        {
+          "role": "sci:accessRestricted",
+          "participant": "study:MechanismLabels",
+          "qualifier": "labels"
+        }
+      ]
+    },
+    {
+      "id": "h:q1-analysis",
+      "type": "schema:Analysis",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:analysisInput",
+          "participant": "study:ProposalPackage"
+        },
+        {
+          "role": "sci:analysisMethod",
+          "participant": "study:ProposalMethod"
+        },
+        {
+          "role": "sci:analysisOutput",
+          "participant": "study:ProposalOutput"
+        },
+        {
+          "role": "sci:analysisAccess",
+          "participant": "h:q1-study-view"
+        }
+      ]
+    },
+    {
+      "id": "h:q1-identifiability",
+      "type": "schema:Identifiability",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:idTarget",
+          "participant": "cc:CoordinationTarget"
+        },
+        {
+          "role": "sci:idCandidateFamily",
+          "participant": "study:CandidateFamily"
+        },
+        {
+          "role": "sci:idAccess",
+          "participant": "h:q1-study-view"
+        },
+        {
+          "role": "sci:idObservationModel",
+          "participant": "h:attempt-measurement"
+        },
+        {
+          "role": "sci:idStatus",
+          "participant": "study:NotAsserted"
+        },
+        {
+          "role": "sci:idEvidence",
+          "participant": "study:ProposalOutput"
+        }
+      ]
+    }
+  ]
+}

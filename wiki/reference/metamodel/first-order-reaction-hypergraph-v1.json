@@ -1,0 +1,618 @@
+{
+  "nodes": [
+    {
+      "id": "meta:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel",
+      "kind": "type"
+    },
+    {
+      "id": "meta:instanceOf",
+      "label": "instanceOf",
+      "layer": "metamodel",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Equation",
+      "label": "Equation Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Measurement",
+      "label": "Measurement Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Analysis",
+      "label": "Analysis Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:QuantityValue",
+      "label": "Quantity Value Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "rxn:ReactionSystem",
+      "label": "First-order reaction system",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "rxn:Concentration",
+      "label": "Concentration",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "rxn:RateConstant",
+      "label": "Rate Constant",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "rxn:Absorbance",
+      "label": "Absorbance",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "rxn:ExtinctionCoefficient",
+      "label": "Extinction Coefficient",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "rxn:PathLength",
+      "label": "Optical Path Length",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "rxn:Time",
+      "label": "Time",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "rxn:Trajectory",
+      "label": "Concentration Trajectory",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "rxn:WellMixed",
+      "label": "Well-mixed assumption",
+      "layer": "theory",
+      "kind": "assumption"
+    },
+    {
+      "id": "rxn:ConstantTemperature",
+      "label": "Constant temperature",
+      "layer": "theory",
+      "kind": "assumption"
+    },
+    {
+      "id": "study:Vessel",
+      "label": "reaction vessel",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:SpeciesA",
+      "label": "species A",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:Clock",
+      "label": "time",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:dCdt",
+      "label": "d[A]/dt",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:RateExpr",
+      "label": "d[A]/dt = -k[A]",
+      "layer": "study",
+      "kind": "expression"
+    },
+    {
+      "id": "study:BeerExpr",
+      "label": "Abs = epsilon*l*[A]",
+      "layer": "study",
+      "kind": "expression"
+    },
+    {
+      "id": "study:Spectrophotometer",
+      "label": "spectrophotometer",
+      "layer": "study",
+      "kind": "instrument"
+    },
+    {
+      "id": "study:AbsorbanceProcedure",
+      "label": "absorbance time-series procedure",
+      "layer": "study",
+      "kind": "procedure"
+    },
+    {
+      "id": "study:BeerLambertInverse",
+      "label": "Beer-Lambert inversion",
+      "layer": "study",
+      "kind": "method"
+    },
+    {
+      "id": "study:ExponentialFit",
+      "label": "first-order rate fit",
+      "layer": "study",
+      "kind": "method"
+    },
+    {
+      "id": "study:AbsorbanceTrace",
+      "label": "absorbance observations",
+      "layer": "evidence",
+      "kind": "data"
+    },
+    {
+      "id": "study:ConcentrationTrace",
+      "label": "derived concentration trajectory",
+      "layer": "evidence",
+      "kind": "data"
+    },
+    {
+      "id": "value:c0",
+      "label": "1.00",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "unit:molL",
+      "label": "mol/L",
+      "layer": "schema",
+      "kind": "unit"
+    },
+    {
+      "id": "value:kTheory",
+      "label": "0.200",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "value:kFit",
+      "label": "0.203",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "value:dK",
+      "label": "+/-0.006",
+      "layer": "evidence",
+      "kind": "uncertainty"
+    },
+    {
+      "id": "unit:s-1",
+      "label": "s^-1",
+      "layer": "schema",
+      "kind": "unit"
+    },
+    {
+      "id": "value:epsilon",
+      "label": "1.50",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "unit:Lmolcm",
+      "label": "L/(mol*cm)",
+      "layer": "schema",
+      "kind": "unit"
+    },
+    {
+      "id": "value:path",
+      "label": "1.00",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "unit:cm",
+      "label": "cm",
+      "layer": "schema",
+      "kind": "unit"
+    }
+  ],
+  "model": "scientific-hypergraph-v1",
+  "imports": [
+    "hypergraph-kernel",
+    "scientific-role-schema-v1",
+    "scientific-quantity-schemas"
+  ],
+  "hyperedges": [
+    {
+      "id": "h:eq-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Equation"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:measurement-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Measurement"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:analysis-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Analysis"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:qvalue-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:QuantityValue"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:vessel-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:Vessel"
+        },
+        {
+          "role": "sci:type",
+          "participant": "rxn:ReactionSystem"
+        }
+      ]
+    },
+    {
+      "id": "h:clock-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:Clock"
+        },
+        {
+          "role": "sci:type",
+          "participant": "rxn:Time"
+        }
+      ]
+    },
+    {
+      "id": "h:concentration-trace-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:ConcentrationTrace"
+        },
+        {
+          "role": "sci:type",
+          "participant": "rxn:Trajectory"
+        }
+      ]
+    },
+    {
+      "id": "h:c0-value",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "rxn:Concentration"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:SpeciesA"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:c0"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:molL"
+        }
+      ]
+    },
+    {
+      "id": "h:k-theory",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "rxn:RateConstant"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:Vessel"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:kTheory"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:s-1"
+        }
+      ]
+    },
+    {
+      "id": "h:epsilon-value",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "rxn:ExtinctionCoefficient"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:SpeciesA"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:epsilon"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:Lmolcm"
+        }
+      ]
+    },
+    {
+      "id": "h:path-value",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "rxn:PathLength"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:Vessel"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:path"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:cm"
+        }
+      ]
+    },
+    {
+      "id": "h:rate-law",
+      "type": "schema:Equation",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:eqInput",
+          "participant": "rxn:Concentration",
+          "qualifier": "concentration"
+        },
+        {
+          "role": "sci:eqParameter",
+          "participant": "h:k-theory",
+          "qualifier": "k"
+        },
+        {
+          "role": "sci:eqOutput",
+          "participant": "study:dCdt"
+        },
+        {
+          "role": "sci:eqExpression",
+          "participant": "study:RateExpr"
+        },
+        {
+          "role": "sci:eqIndependentVariable",
+          "participant": "study:Clock"
+        },
+        {
+          "role": "sci:eqInitialCondition",
+          "participant": "h:c0-value"
+        },
+        {
+          "role": "sci:eqAssumption",
+          "participant": "rxn:WellMixed",
+          "qualifier": "mixing"
+        },
+        {
+          "role": "sci:eqAssumption",
+          "participant": "rxn:ConstantTemperature",
+          "qualifier": "temperature"
+        }
+      ]
+    },
+    {
+      "id": "h:beer-lambert",
+      "type": "schema:Equation",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:eqInput",
+          "participant": "rxn:Concentration",
+          "qualifier": "concentration"
+        },
+        {
+          "role": "sci:eqParameter",
+          "participant": "h:epsilon-value",
+          "qualifier": "epsilon"
+        },
+        {
+          "role": "sci:eqParameter",
+          "participant": "h:path-value",
+          "qualifier": "pathLength"
+        },
+        {
+          "role": "sci:eqOutput",
+          "participant": "rxn:Absorbance"
+        },
+        {
+          "role": "sci:eqExpression",
+          "participant": "study:BeerExpr"
+        }
+      ]
+    },
+    {
+      "id": "h:abs-measurement",
+      "type": "schema:Measurement",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:measurementSubject",
+          "participant": "study:Vessel"
+        },
+        {
+          "role": "sci:measurementMeasurand",
+          "participant": "rxn:Absorbance"
+        },
+        {
+          "role": "sci:measurementProcedure",
+          "participant": "study:AbsorbanceProcedure"
+        },
+        {
+          "role": "sci:measurementInstrument",
+          "participant": "study:Spectrophotometer"
+        },
+        {
+          "role": "sci:measurementObservation",
+          "participant": "study:AbsorbanceTrace"
+        },
+        {
+          "role": "sci:measurementResult",
+          "participant": "study:AbsorbanceTrace"
+        }
+      ]
+    },
+    {
+      "id": "h:concentration-recovery",
+      "type": "schema:Analysis",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:analysisInput",
+          "participant": "study:AbsorbanceTrace"
+        },
+        {
+          "role": "sci:analysisModel",
+          "participant": "h:beer-lambert"
+        },
+        {
+          "role": "sci:analysisMethod",
+          "participant": "study:BeerLambertInverse"
+        },
+        {
+          "role": "sci:analysisOutput",
+          "participant": "study:ConcentrationTrace"
+        }
+      ]
+    },
+    {
+      "id": "h:k-fit",
+      "type": "schema:Analysis",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:analysisInput",
+          "participant": "study:ConcentrationTrace"
+        },
+        {
+          "role": "sci:analysisModel",
+          "participant": "h:rate-law"
+        },
+        {
+          "role": "sci:analysisMethod",
+          "participant": "study:ExponentialFit"
+        },
+        {
+          "role": "sci:analysisOutput",
+          "participant": "h:k-fit-value"
+        },
+        {
+          "role": "sci:analysisUncertainty",
+          "participant": "value:dK"
+        }
+      ]
+    },
+    {
+      "id": "h:k-fit-value",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "rxn:RateConstant"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:Vessel"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:kFit"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:s-1"
+        },
+        {
+          "role": "sci:quantityUncertainty",
+          "participant": "value:dK"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,772 @@
+{
+  "nodes": [
+    {
+      "id": "meta:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel",
+      "kind": "type"
+    },
+    {
+      "id": "meta:instanceOf",
+      "label": "instanceOf",
+      "layer": "metamodel",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Equation",
+      "label": "Equation Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Measurement",
+      "label": "Measurement Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:Analysis",
+      "label": "Analysis Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "schema:QuantityValue",
+      "label": "Quantity Value Relation",
+      "layer": "schema",
+      "kind": "relationType"
+    },
+    {
+      "id": "osc:HarmonicOscillator",
+      "label": "Harmonic Oscillator",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "osc:Displacement",
+      "label": "Displacement",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "osc:Velocity",
+      "label": "Velocity",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "osc:Acceleration",
+      "label": "Acceleration",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "osc:Mass",
+      "label": "Mass",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "osc:SpringConstant",
+      "label": "Spring Constant",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "osc:AngularFrequency",
+      "label": "Angular Frequency",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "osc:ReferenceFrame",
+      "label": "Reference Frame",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "osc:Trajectory",
+      "label": "State Trajectory",
+      "layer": "theory",
+      "kind": "type"
+    },
+    {
+      "id": "osc:NoDamping",
+      "label": "No damping",
+      "layer": "theory",
+      "kind": "assumption"
+    },
+    {
+      "id": "osc:LinearSpring",
+      "label": "Linear Hooke-law spring",
+      "layer": "theory",
+      "kind": "assumption"
+    },
+    {
+      "id": "study:Oscillator1",
+      "label": "mass-spring oscillator",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:LabFrame",
+      "label": "laboratory frame",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:Time",
+      "label": "time",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:dxdt",
+      "label": "dx/dt",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:dvdt",
+      "label": "dv/dt",
+      "layer": "study",
+      "kind": "element"
+    },
+    {
+      "id": "study:ExprX",
+      "label": "dx/dt = v",
+      "layer": "study",
+      "kind": "expression"
+    },
+    {
+      "id": "study:ExprV",
+      "label": "dv/dt = -(k/m)x",
+      "layer": "study",
+      "kind": "expression"
+    },
+    {
+      "id": "study:ExprOmega",
+      "label": "omega = sqrt(k/m)",
+      "layer": "study",
+      "kind": "expression"
+    },
+    {
+      "id": "study:NumericalIntegrator",
+      "label": "ODE integrator",
+      "layer": "study",
+      "kind": "method"
+    },
+    {
+      "id": "study:HarmonicFit",
+      "label": "harmonic frequency fit",
+      "layer": "study",
+      "kind": "method"
+    },
+    {
+      "id": "study:CameraClock",
+      "label": "camera + clock",
+      "layer": "study",
+      "kind": "instrument"
+    },
+    {
+      "id": "study:TrackingProcedure",
+      "label": "tracking procedure",
+      "layer": "study",
+      "kind": "procedure"
+    },
+    {
+      "id": "study:ModelTrajectory",
+      "label": "model trajectory",
+      "layer": "evidence",
+      "kind": "data"
+    },
+    {
+      "id": "study:ObservedTrajectory",
+      "label": "observed position-time trajectory",
+      "layer": "evidence",
+      "kind": "data"
+    },
+    {
+      "id": "value:m1",
+      "label": "1.00",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "unit:kg",
+      "label": "kg",
+      "layer": "schema",
+      "kind": "unit"
+    },
+    {
+      "id": "value:k4",
+      "label": "4.00",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "unit:Npm",
+      "label": "N/m",
+      "layer": "schema",
+      "kind": "unit"
+    },
+    {
+      "id": "value:x0",
+      "label": "0.10",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "unit:m",
+      "label": "m",
+      "layer": "schema",
+      "kind": "unit"
+    },
+    {
+      "id": "value:v0",
+      "label": "0.00",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "unit:mps",
+      "label": "m/s",
+      "layer": "schema",
+      "kind": "unit"
+    },
+    {
+      "id": "value:omegaTheory",
+      "label": "2.00",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "value:omegaFit",
+      "label": "2.01",
+      "layer": "evidence",
+      "kind": "value"
+    },
+    {
+      "id": "value:dOmega",
+      "label": "+/-0.03",
+      "layer": "evidence",
+      "kind": "uncertainty"
+    },
+    {
+      "id": "unit:rps",
+      "label": "rad/s",
+      "layer": "schema",
+      "kind": "unit"
+    }
+  ],
+  "model": "scientific-hypergraph-v1",
+  "imports": [
+    "hypergraph-kernel",
+    "scientific-role-schema-v1",
+    "scientific-quantity-schemas"
+  ],
+  "hyperedges": [
+    {
+      "id": "h:eq-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Equation"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:measurement-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Measurement"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:analysis-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:Analysis"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:qvalue-type",
+      "type": "meta:instanceOf",
+      "layer": "schema",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "schema:QuantityValue"
+        },
+        {
+          "role": "sci:type",
+          "participant": "meta:RelationType"
+        }
+      ]
+    },
+    {
+      "id": "h:osc-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:Oscillator1"
+        },
+        {
+          "role": "sci:type",
+          "participant": "osc:HarmonicOscillator"
+        }
+      ]
+    },
+    {
+      "id": "h:frame-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:LabFrame"
+        },
+        {
+          "role": "sci:type",
+          "participant": "osc:ReferenceFrame"
+        }
+      ]
+    },
+    {
+      "id": "h:dxdt-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:dxdt"
+        },
+        {
+          "role": "sci:type",
+          "participant": "osc:Velocity"
+        }
+      ]
+    },
+    {
+      "id": "h:dvdt-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:dvdt"
+        },
+        {
+          "role": "sci:type",
+          "participant": "osc:Acceleration"
+        }
+      ]
+    },
+    {
+      "id": "h:model-trajectory-type",
+      "type": "meta:instanceOf",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:instance",
+          "participant": "study:ModelTrajectory"
+        },
+        {
+          "role": "sci:type",
+          "participant": "osc:Trajectory"
+        }
+      ]
+    },
+    {
+      "id": "h:m-value",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "osc:Mass"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:Oscillator1"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:m1"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:kg"
+        }
+      ]
+    },
+    {
+      "id": "h:k-value",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "osc:SpringConstant"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:Oscillator1"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:k4"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:Npm"
+        }
+      ]
+    },
+    {
+      "id": "h:x0-value",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "osc:Displacement"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:Oscillator1"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:x0"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:m"
+        },
+        {
+          "role": "sci:quantityContext",
+          "participant": "study:LabFrame"
+        }
+      ]
+    },
+    {
+      "id": "h:v0-value",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "osc:Velocity"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:Oscillator1"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:v0"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:mps"
+        },
+        {
+          "role": "sci:quantityContext",
+          "participant": "study:LabFrame"
+        }
+      ]
+    },
+    {
+      "id": "h:dxdt-law",
+      "type": "schema:Equation",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:eqInput",
+          "participant": "osc:Velocity"
+        },
+        {
+          "role": "sci:eqOutput",
+          "participant": "study:dxdt"
+        },
+        {
+          "role": "sci:eqExpression",
+          "participant": "study:ExprX"
+        },
+        {
+          "role": "sci:eqIndependentVariable",
+          "participant": "study:Time"
+        },
+        {
+          "role": "sci:eqInitialCondition",
+          "participant": "h:x0-value"
+        },
+        {
+          "role": "sci:eqContext",
+          "participant": "study:LabFrame"
+        }
+      ]
+    },
+    {
+      "id": "h:dvdt-law",
+      "type": "schema:Equation",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:eqInput",
+          "participant": "osc:Displacement",
+          "qualifier": "state"
+        },
+        {
+          "role": "sci:eqParameter",
+          "participant": "h:k-value",
+          "qualifier": "k"
+        },
+        {
+          "role": "sci:eqParameter",
+          "participant": "h:m-value",
+          "qualifier": "m"
+        },
+        {
+          "role": "sci:eqOutput",
+          "participant": "study:dvdt"
+        },
+        {
+          "role": "sci:eqExpression",
+          "participant": "study:ExprV"
+        },
+        {
+          "role": "sci:eqIndependentVariable",
+          "participant": "study:Time"
+        },
+        {
+          "role": "sci:eqInitialCondition",
+          "participant": "h:v0-value"
+        },
+        {
+          "role": "sci:eqAssumption",
+          "participant": "osc:NoDamping",
+          "qualifier": "noDamping"
+        },
+        {
+          "role": "sci:eqAssumption",
+          "participant": "osc:LinearSpring",
+          "qualifier": "linearSpring"
+        },
+        {
+          "role": "sci:eqContext",
+          "participant": "study:LabFrame"
+        }
+      ]
+    },
+    {
+      "id": "h:omega-law",
+      "type": "schema:Equation",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:eqInput",
+          "participant": "h:k-value",
+          "qualifier": "k"
+        },
+        {
+          "role": "sci:eqInput",
+          "participant": "h:m-value",
+          "qualifier": "m"
+        },
+        {
+          "role": "sci:eqOutput",
+          "participant": "h:omega-theory"
+        },
+        {
+          "role": "sci:eqExpression",
+          "participant": "study:ExprOmega"
+        }
+      ]
+    },
+    {
+      "id": "h:omega-theory",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "osc:AngularFrequency"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:Oscillator1"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:omegaTheory"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:rps"
+        }
+      ]
+    },
+    {
+      "id": "h:trajectory-solve",
+      "type": "schema:Analysis",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:analysisModel",
+          "participant": "h:dxdt-law",
+          "qualifier": "x"
+        },
+        {
+          "role": "sci:analysisModel",
+          "participant": "h:dvdt-law",
+          "qualifier": "v"
+        },
+        {
+          "role": "sci:analysisInput",
+          "participant": "h:x0-value",
+          "qualifier": "x0"
+        },
+        {
+          "role": "sci:analysisInput",
+          "participant": "h:v0-value",
+          "qualifier": "v0"
+        },
+        {
+          "role": "sci:analysisMethod",
+          "participant": "study:NumericalIntegrator"
+        },
+        {
+          "role": "sci:analysisContext",
+          "participant": "study:LabFrame"
+        },
+        {
+          "role": "sci:analysisOutput",
+          "participant": "study:ModelTrajectory"
+        }
+      ]
+    },
+    {
+      "id": "h:position-measurement",
+      "type": "schema:Measurement",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:measurementSubject",
+          "participant": "study:Oscillator1"
+        },
+        {
+          "role": "sci:measurementMeasurand",
+          "participant": "osc:Displacement"
+        },
+        {
+          "role": "sci:measurementProcedure",
+          "participant": "study:TrackingProcedure"
+        },
+        {
+          "role": "sci:measurementInstrument",
+          "participant": "study:CameraClock"
+        },
+        {
+          "role": "sci:measurementObservation",
+          "participant": "study:ObservedTrajectory"
+        },
+        {
+          "role": "sci:measurementResult",
+          "participant": "study:ObservedTrajectory"
+        },
+        {
+          "role": "sci:measurementContext",
+          "participant": "study:LabFrame"
+        }
+      ]
+    },
+    {
+      "id": "h:omega-fit",
+      "type": "schema:Analysis",
+      "layer": "study",
+      "bindings": [
+        {
+          "role": "sci:analysisInput",
+          "participant": "study:ObservedTrajectory"
+        },
+        {
+          "role": "sci:analysisModel",
+          "participant": "h:trajectory-solve"
+        },
+        {
+          "role": "sci:analysisMethod",
+          "participant": "study:HarmonicFit"
+        },
+        {
+          "role": "sci:analysisContext",
+          "participant": "study:LabFrame"
+        },
+        {
+          "role": "sci:analysisOutput",
+          "participant": "h:omega-fit-value"
+        },
+        {
+          "role": "sci:analysisUncertainty",
+          "participant": "value:dOmega"
+        }
+      ]
+    },
+    {
+      "id": "h:omega-fit-value",
+      "type": "schema:QuantityValue",
+      "layer": "evidence",
+      "bindings": [
+        {
+          "role": "sci:quantityKind",
+          "participant": "osc:AngularFrequency"
+        },
+        {
+          "role": "sci:quantitySubject",
+          "participant": "study:Oscillator1"
+        },
+        {
+          "role": "sci:numericalValue",
+          "participant": "value:omegaFit"
+        },
+        {
+          "role": "sci:quantityUnit",
+          "participant": "unit:rps"
+        },
+        {
+          "role": "sci:quantityUncertainty",
+          "participant": "value:dOmega"
+        },
+        {
+          "role": "sci:quantityContext",
+          "participant": "study:LabFrame"
+        }
+      ]
+    }
+  ]
+}
