@@ -16,6 +16,8 @@ This area is the **cold/warm layer** of the project knowledge system. Use it whe
 - [Scientific metamodel CC pilot](scientific-model-metamodel-cc-pilot.md) — first concrete pass using C1-002 and Q1-006 to expose observer/access roles, validity gates, mechanism structure, and conditional capability semantics.
 - [C2/Q1 metamodel pilot](scientific-model-metamodel-c2-q1-pilot.md) — one underlying C2 system examined through constructive and restricted-access studies without duplicating the model.
 - [Scientific metamodel composition probe](scientific-model-metamodel-composition-probe.md) — tests whether existing standards compose with only a thin remaining scientific-semantic layer.
+- [Classical mechanics metamodel pilot](scientific-model-metamodel-classical-mechanics-pilot.md) — cross-domain test using mass, position, velocity, kinetic energy, measurement, reference frame, units, uncertainty, and higher-order relation composition.
+- [Dynamical systems metamodel pilot](scientific-model-metamodel-dynamics-pilot.md) — continuous-time stress tests using a harmonic oscillator and first-order reaction kinetics; both fit without a new kernel primitive.
 - [Detailed discovery goal register](../goals.md) — D1-D6, provenance, and historical phase discussion.
 - [Standing conjectures](../conjectures.md) — falsifiable domain conjectures and their refuters.
 - [Generative thesis](../competence-thesis.md) — exploratory conceptual motivation; not a source of current priority.
