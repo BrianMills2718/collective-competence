@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scientific Hypergraph Viewer Smoke Test</title>
+<style>
+:root{color-scheme:dark;font-family:Inter,system-ui,sans-serif;background:#0b0f14;color:#eef4fa}
+body{margin:0;display:grid;grid-template-rows:auto minmax(0,1fr);height:100vh}
+header{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#141a21;border-bottom:1px solid #2b3540}
+button{background:#0d131a;color:#eef4fa;border:1px solid #2b3540;border-radius:7px;padding:7px 10px;cursor:pointer}
+#summary{font-size:12px;color:#9aa7b4}.pass{color:#66d48f}.fail{color:#ff7b72}
+main{display:grid;grid-template-columns:minmax(0,1fr) 390px;min-height:0}
+iframe{width:100%;height:100%;border:0;background:#0b0f14}
+aside{border-left:1px solid #2b3540;background:#141a21;padding:14px;overflow:auto}
+h2{font-size:17px;margin:0 0 10px}.check{padding:7px 0;border-bottom:1px solid #232d37;font-size:12px;line-height:1.4}.name{font-weight:700}.detail{color:#9aa7b4;margin-top:2px;word-break:break-word}
+pre{font-size:10px;white-space:pre-wrap;color:#9aa7b4}
+</style>
+</head>
+<body>
+<header><strong>Exact-fixture viewer smoke test</strong><button id="run">Run checks</button><span id="summary">Waiting…</span></header>
+<main><iframe id="viewer" src="hypergraph-viewer.html"></iframe><aside><h2>Checks</h2><div id="results"></div><pre id="log"></pre></aside></main>
+<script>
+(() => {
+  const viewer = document.getElementById('viewer');
+  const results = document.getElementById('results');
+  const summary = document.getElementById('summary');
+  const log = document.getElementById('log');
+
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  async function waitFor(fn, timeout=12000, interval=80) {
+    const start = performance.now();
+    while (performance.now() - start < timeout) {
+      try { const value = fn(); if (value) return value; } catch (_) {}
+      await sleep(interval);
+    }
+    throw new Error('timeout waiting for viewer state');
+  }
+
+  function rectOverlap(a,b) {
+    const x = Math.max(0, Math.min(a.right,b.right)-Math.max(a.left,b.left));
+    const y = Math.max(0, Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top));
+    return x*y;
+  }
+
+  function collectOverlapStats(doc) {
+    const items = [...doc.querySelectorAll('#viewport .node, #viewport .relation')];
+    const rects = items.map(el => ({id:el.dataset.id, rect:el.getBoundingClientRect()}));
+    let any=0, significant=0, worst=0, pair=null;
+    for (let i=0;i<rects.length;i++) for (let j=i+1;j<rects.length;j++) {
+      const area = rectOverlap(rects[i].rect, rects[j].rect);
+      if (area <= 0) continue;
+      any++;
+      const minArea = Math.min(rects[i].rect.width*rects[i].rect.height, rects[j].rect.width*rects[j].rect.height) || 1;
+      const ratio = area/minArea;
+      if (ratio > 0.08) significant++;
+      if (ratio>worst) { worst=ratio; pair=[rects[i].id,rects[j].id]; }
+    }
+    return {count:items.length,any,significant,worst,pair};
+  }
+
+  function addCheck(name, ok, detail='') {
+    const d=document.createElement('div'); d.className='check';
+    d.innerHTML=`<div class="name ${ok?'pass':'fail'}">${ok?'PASS':'FAIL'} — ${name}</div><div class="detail"></div>`;
+    d.querySelector('.detail').textContent=detail; results.appendChild(d); return ok;
+  }
+
+  async function setSelect(win,id,value) {
+    const el=win.document.getElementById(id); el.value=value; el.dispatchEvent(new Event('change',{bubbles:true}));
+    await waitFor(() => !win.document.getElementById('loading')?.offsetParent && /elements/.test(win.document.getElementById('status')?.textContent||''));
+    await sleep(120);
+  }
+
+  async function run() {
+    results.innerHTML=''; log.textContent=''; summary.textContent='Running…';
+    const win=viewer.contentWindow, doc=viewer.contentDocument;
+    const checks=[];
+    try {
+      await waitFor(() => /elements/.test(doc.getElementById('status')?.textContent||''));
+      await sleep(200);
+      const status=doc.getElementById('status').textContent;
+      checks.push(addCheck('all authoritative fixtures loaded', /elements/.test(status)&&/hyperrelations/.test(status), status));
+
+      const ids=[...doc.querySelectorAll('#viewport .node,#viewport .relation')].map(x=>x.dataset.id).filter(Boolean);
+      checks.push(addCheck('rendered IDs are globally unique', new Set(ids).size===ids.length, `${ids.length} rendered IDs; ${new Set(ids).size} unique`));
+
+      const mechanicsLab=ids.some(x=>x==='mechanics::study:LabFrame');
+      const oscillatorLab=ids.some(x=>x==='oscillator::study:LabFrame');
+      checks.push(addCheck('fixture-local study identities remain distinct', mechanicsLab&&oscillatorLab, `mechanics LabFrame=${mechanicsLab}; oscillator LabFrame=${oscillatorLab}`));
+
+      const relationCount=doc.querySelectorAll('#viewport .relation').length;
+      const nodeCount=doc.querySelectorAll('#viewport .node').length;
+      checks.push(addCheck('incidence nodes rendered', relationCount>0&&nodeCount>0, `${nodeCount} model elements; ${relationCount} relation instances`));
+
+      const domains=doc.querySelectorAll('#viewport .domain-label').length;
+      checks.push(addCheck('radial overview exposes domain sectors', domains>=4, `${domains} domain labels`));
+
+      const radialStats=collectOverlapStats(doc);
+      checks.push(addCheck('radial layout avoids significant node collisions', radialStats.significant===0, `items=${radialStats.count}; overlaps=${radialStats.any}; significant=${radialStats.significant}; worst=${(radialStats.worst*100).toFixed(1)}%; pair=${radialStats.pair||'none'}`));
+
+      const firstRelation=doc.querySelector('#viewport .relation');
+      if(firstRelation){ firstRelation.dispatchEvent(new MouseEvent('click',{bubbles:true})); await sleep(80); }
+      checks.push(addCheck('relation inspector exposes role bindings', doc.querySelectorAll('#roles .role').length>=2, `${doc.querySelectorAll('#roles .role').length} inspector rows`));
+
+      const before=doc.querySelectorAll('#viewport .node,#viewport .relation').length;
+      doc.getElementById('focus').click(); await waitFor(()=>/elements/.test(doc.getElementById('status')?.textContent||'')); await sleep(120);
+      const after=doc.querySelectorAll('#viewport .node,#viewport .relation').length;
+      checks.push(addCheck('focus neighborhood reduces projection', after>0&&after<before, `${before} -> ${after}`));
+      doc.getElementById('focus').click(); await waitFor(()=>/elements/.test(doc.getElementById('status')?.textContent||''));
+
+      doc.getElementById('search').value='velocity'; doc.getElementById('search').dispatchEvent(new Event('input',{bubbles:true})); await sleep(40);
+      const dimmed=doc.querySelectorAll('#viewport .dim').length;
+      checks.push(addCheck('search dims non-matches without relayout', dimmed>0, `${dimmed} dimmed SVG elements`));
+      doc.getElementById('search').value=''; doc.getElementById('search').dispatchEvent(new Event('input',{bubbles:true}));
+
+      const layoutSelect=doc.getElementById('layoutMode');
+      if(layoutSelect && [...layoutSelect.options].some(o=>o.value==='elk')) {
+        await setSelect(win,'layoutMode','elk');
+        const elkStatus=doc.getElementById('status').textContent;
+        checks.push(addCheck('ELK layered alternate projection runs', /elk/i.test(elkStatus), elkStatus));
+        await setSelect(win,'layoutMode','radial');
+      } else {
+        checks.push(addCheck('ELK layered alternate projection runs', false, 'layoutMode=elk unavailable'));
+      }
+
+      const finalStats=collectOverlapStats(doc);
+      log.textContent=JSON.stringify({status:doc.getElementById('status').textContent, radialOverlap:finalStats},null,2);
+    } catch (err) {
+      checks.push(addCheck('smoke harness completed', false, err.stack||String(err)));
+    }
+    const passed=checks.filter(Boolean).length;
+    summary.className=passed===checks.length?'pass':'fail';
+    summary.textContent=`${passed}/${checks.length} checks passed`;
+  }
+
+  document.getElementById('run').addEventListener('click',run);
+  viewer.addEventListener('load',()=>setTimeout(run,100));
+})();
+</script>
+</body>
+</html>
