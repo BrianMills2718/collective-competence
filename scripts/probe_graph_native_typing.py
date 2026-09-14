@@ -35,6 +35,7 @@ from check_scientific_hypergraph_queries import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+DIR = ROOT / "wiki/reference/metamodel"
 INSTANCE_OF = "sci:instanceOf"
 INSTANCE_ROLE = "sci:instance"
 TYPE_ROLE = "sci:type"
@@ -242,6 +243,52 @@ def query_signature(doc: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def edge_by_id(doc: dict[str, Any], edge_id: str) -> dict[str, Any]:
+    for edge in doc.get("hyperedges", []):
+        if edge.get("id") == edge_id:
+            return edge
+    raise KeyError(edge_id)
+
+
+def replace_participant(edge: dict[str, Any], role: str, participant: str) -> None:
+    matches = [b for b in edge.get("bindings", []) if b.get("role") == role]
+    if len(matches) != 1:
+        raise AssertionError(f"{edge['id']}: expected exactly one {role} binding for negative probe, found {len(matches)}")
+    matches[0]["participant"] = participant
+
+
+def expect_semantic_type_failure(original: dict[str, Any], normalized: dict[str, Any], label: str) -> None:
+    try:
+        validate_normalized(original, normalized)
+    except ValueError as exc:
+        if "participantTypes" not in str(exc):
+            raise AssertionError(f"{label}: failed for the wrong reason: {exc}") from exc
+        print(f"PASS negative semantic typing: {label} rejected ({exc})")
+        return
+    raise AssertionError(f"{label}: invalid semantic participant unexpectedly validated")
+
+
+def negative_semantic_checks() -> None:
+    mechanics = read(DIR / "classical-mechanics-hypergraph-v1.json")
+    normalized = normalize(mechanics)
+
+    wrong_expression = deepcopy(normalized)
+    replace_participant(edge_by_id(wrong_expression, "h:ke-equation"), "sci:eqExpression", "study:Ball")
+    expect_semantic_type_failure(
+        mechanics,
+        wrong_expression,
+        "ordinary particle cannot fill EquationRelation expression role",
+    )
+
+    wrong_unit = deepcopy(normalized)
+    replace_participant(edge_by_id(wrong_unit, "h:mass-value"), "sci:quantityUnit", "value:2.00")
+    expect_semantic_type_failure(
+        mechanics,
+        wrong_unit,
+        "numeric Value cannot fill QuantityValueRelation unit role",
+    )
+
+
 def main() -> int:
     total_generated_types = 0
     total_generated_instanceof = 0
@@ -262,6 +309,8 @@ def main() -> int:
             f"queries invariant; +{generated_types} type nodes / +{generated_instanceof} instanceOf relations; "
             f"{constrained} type-constrained bindings"
         )
+
+    negative_semantic_checks()
 
     print(
         f"PASS all {len(FIXTURES)} scientific fixtures under graph-native typing; "
