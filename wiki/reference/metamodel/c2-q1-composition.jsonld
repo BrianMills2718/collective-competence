@@ -1,0 +1,252 @@
+{
+  "@context": {
+    "cc": "urn:collective-competence:",
+    "sci": "urn:scientific-model-profile:",
+    "prov": "http://www.w3.org/ns/prov#",
+    "pplan": "http://purl.org/net/p-plan#",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "cc:c2-system-model",
+      "@type": "prov:Entity",
+      "rdfs:label": "C2 contended-channel underlying system model"
+    },
+    {
+      "@id": "cc:c2-own-need",
+      "@type": "prov:Entity",
+      "rdfs:label": "Subunit own need model element"
+    },
+    {
+      "@id": "cc:c2-n-subunits",
+      "@type": "prov:Entity",
+      "rdfs:label": "Population size model element"
+    },
+    {
+      "@id": "cc:c2-derived-phase-implementation",
+      "@type": "prov:Agent",
+      "rdfs:label": "Realized derived-phase calculation"
+    },
+    {
+      "@id": "cc:c2-derived-phase-declared-access",
+      "@type": "odrl:Set",
+      "rdfs:label": "Declared anti-smuggling dependency policy",
+      "odrl:permission": [
+        {
+          "@type": "odrl:Permission",
+          "odrl:assignee": {"@id": "cc:c2-derived-phase-implementation"},
+          "odrl:target": {"@id": "cc:c2-own-need"},
+          "odrl:action": {"@id": "odrl:read"}
+        }
+      ],
+      "odrl:prohibition": [
+        {
+          "@type": "odrl:Prohibition",
+          "odrl:assignee": {"@id": "cc:c2-derived-phase-implementation"},
+          "odrl:target": {"@id": "cc:c2-n-subunits"},
+          "odrl:action": {"@id": "odrl:read"}
+        }
+      ]
+    },
+    {
+      "@id": "cc:c2-derived-phase-execution",
+      "@type": "prov:Activity",
+      "rdfs:label": "Actual derived-phase execution",
+      "prov:wasAssociatedWith": {"@id": "cc:c2-derived-phase-implementation"},
+      "prov:used": [
+        {"@id": "cc:c2-own-need"},
+        {"@id": "cc:c2-n-subunits"}
+      ]
+    },
+    {
+      "@id": "cc:c2-run",
+      "@type": "prov:Activity",
+      "rdfs:label": "C2 contended-channel run"
+    },
+    {
+      "@id": "cc:c2-observer-procedure",
+      "@type": "sosa:Procedure",
+      "rdfs:label": "Read-only software observer after decide and before allocate"
+    },
+    {
+      "@id": "cc:c2-attempted-action-property",
+      "@type": "sosa:ObservableProperty",
+      "rdfs:label": "Per-subunit attempted action"
+    },
+    {
+      "@id": "cc:c2-attempt-observation",
+      "@type": "sosa:Observation",
+      "rdfs:label": "Per-tick attempted-action observation",
+      "sosa:usedProcedure": {"@id": "cc:c2-observer-procedure"},
+      "sosa:hasFeatureOfInterest": {"@id": "cc:c2-run"},
+      "sosa:observedProperty": {"@id": "cc:c2-attempted-action-property"},
+      "sosa:hasResult": {"@id": "cc:c2-attempt-trace"}
+    },
+    {
+      "@id": "cc:c2-attempt-trace",
+      "@type": ["sosa:Result", "prov:Entity"],
+      "rdfs:label": "Attempt trace observation result",
+      "prov:wasGeneratedBy": {"@id": "cc:c2-attempt-observation"}
+    },
+    {
+      "@id": "cc:q1-006-plan",
+      "@type": "pplan:Plan",
+      "rdfs:label": "Q1-006 black-box proposal and reveal plan"
+    },
+    {
+      "@id": "cc:q1-package-step",
+      "@type": "pplan:Step",
+      "rdfs:label": "Package restricted observations",
+      "pplan:isStepOfPlan": {"@id": "cc:q1-006-plan"},
+      "pplan:hasOutputVar": {"@id": "cc:q1-restricted-package-variable"}
+    },
+    {
+      "@id": "cc:q1-proposal-step",
+      "@type": "pplan:Step",
+      "rdfs:label": "Run frozen proposal procedure",
+      "pplan:isStepOfPlan": {"@id": "cc:q1-006-plan"},
+      "pplan:isPreceededBy": {"@id": "cc:q1-package-step"},
+      "pplan:hasInputVar": {"@id": "cc:q1-restricted-package-variable"},
+      "pplan:hasOutputVar": {"@id": "cc:q1-proposal-output-variable"}
+    },
+    {
+      "@id": "cc:q1-reveal-step",
+      "@type": "pplan:Step",
+      "rdfs:label": "Reveal native condition mapping",
+      "pplan:isStepOfPlan": {"@id": "cc:q1-006-plan"},
+      "pplan:isPreceededBy": {"@id": "cc:q1-proposal-step"},
+      "pplan:hasInputVar": [
+        {"@id": "cc:q1-proposal-output-variable"},
+        {"@id": "cc:q1-condition-mapping-variable"}
+      ]
+    },
+    {
+      "@id": "cc:q1-restricted-package-variable",
+      "@type": "pplan:Variable",
+      "rdfs:label": "Restricted black-box observation package variable",
+      "pplan:isVariableOfPlan": {"@id": "cc:q1-006-plan"}
+    },
+    {
+      "@id": "cc:q1-proposal-output-variable",
+      "@type": "pplan:Variable",
+      "rdfs:label": "Frozen proposal output variable",
+      "pplan:isVariableOfPlan": {"@id": "cc:q1-006-plan"}
+    },
+    {
+      "@id": "cc:q1-condition-mapping-variable",
+      "@type": "pplan:Variable",
+      "rdfs:label": "Native condition mapping revealed after proposal freeze",
+      "pplan:isVariableOfPlan": {"@id": "cc:q1-006-plan"}
+    },
+    {
+      "@id": "cc:q1-restricted-package",
+      "@type": "prov:Entity",
+      "rdfs:label": "Concrete Q1-006 restricted package",
+      "pplan:correspondsToVariable": {"@id": "cc:q1-restricted-package-variable"},
+      "prov:wasDerivedFrom": {"@id": "cc:c2-attempt-trace"}
+    },
+    {
+      "@id": "cc:q1-shared-signal",
+      "@type": "prov:Entity",
+      "rdfs:label": "Privileged shared signal data/model element"
+    },
+    {
+      "@id": "cc:q1-native-condition",
+      "@type": "prov:Entity",
+      "rdfs:label": "Privileged native condition identity"
+    },
+    {
+      "@id": "cc:q1-mechanism-labels",
+      "@type": "prov:Entity",
+      "rdfs:label": "Privileged authored mechanism semantics"
+    },
+    {
+      "@id": "cc:q1-proposal-procedure",
+      "@type": "prov:Agent",
+      "rdfs:label": "Frozen Q1-006 proposal/inference procedure"
+    },
+    {
+      "@id": "cc:q1-proposal-access-policy",
+      "@type": "odrl:Set",
+      "rdfs:label": "Q1-006 proposal-phase black-box access policy",
+      "odrl:permission": [
+        {
+          "@type": "odrl:Permission",
+          "odrl:assignee": {"@id": "cc:q1-proposal-procedure"},
+          "odrl:target": {"@id": "cc:q1-restricted-package"},
+          "odrl:action": {"@id": "odrl:read"}
+        }
+      ],
+      "odrl:prohibition": [
+        {
+          "@type": "odrl:Prohibition",
+          "odrl:assignee": {"@id": "cc:q1-proposal-procedure"},
+          "odrl:target": {"@id": "cc:q1-shared-signal"},
+          "odrl:action": {"@id": "odrl:read"}
+        },
+        {
+          "@type": "odrl:Prohibition",
+          "odrl:assignee": {"@id": "cc:q1-proposal-procedure"},
+          "odrl:target": {"@id": "cc:q1-native-condition"},
+          "odrl:action": {"@id": "odrl:read"}
+        },
+        {
+          "@type": "odrl:Prohibition",
+          "odrl:assignee": {"@id": "cc:q1-proposal-procedure"},
+          "odrl:target": {"@id": "cc:q1-mechanism-labels"},
+          "odrl:action": {"@id": "odrl:read"}
+        }
+      ]
+    },
+    {
+      "@id": "cc:q1-proposal-activity",
+      "@type": "prov:Activity",
+      "rdfs:label": "Actual frozen proposal activity",
+      "pplan:correspondsToStep": {"@id": "cc:q1-proposal-step"},
+      "prov:wasAssociatedWith": {"@id": "cc:q1-proposal-procedure"},
+      "prov:used": {"@id": "cc:q1-restricted-package"}
+    },
+    {
+      "@id": "cc:q1-proposal-output",
+      "@type": "prov:Entity",
+      "rdfs:label": "Frozen proposal output",
+      "pplan:correspondsToVariable": {"@id": "cc:q1-proposal-output-variable"},
+      "prov:wasGeneratedBy": {"@id": "cc:q1-proposal-activity"}
+    },
+    {
+      "@id": "cc:q1-reveal-mapping",
+      "@type": "prov:Entity",
+      "rdfs:label": "Condition mapping made available only after proposal output was frozen",
+      "pplan:correspondsToVariable": {"@id": "cc:q1-condition-mapping-variable"}
+    },
+    {
+      "@id": "cc:q1-reveal-activity",
+      "@type": "prov:Activity",
+      "rdfs:label": "Reveal and evidence-assessment activity",
+      "pplan:correspondsToStep": {"@id": "cc:q1-reveal-step"},
+      "prov:used": [
+        {"@id": "cc:q1-proposal-output"},
+        {"@id": "cc:q1-reveal-mapping"}
+      ]
+    },
+    {
+      "@id": "cc:q1-coordination-target",
+      "@type": "prov:Entity",
+      "rdfs:label": "Presence versus absence of the target coordinating structure"
+    },
+    {
+      "@id": "cc:q1-identifiability-assessment",
+      "@type": "sci:IdentifiabilityAssertion",
+      "rdfs:label": "Identifiability claim intentionally not promoted from one method result",
+      "sci:target": {"@id": "cc:q1-coordination-target"},
+      "sci:underAccessPolicy": {"@id": "cc:q1-proposal-access-policy"},
+      "sci:underObservationProduct": {"@id": "cc:q1-restricted-package"},
+      "sci:status": {"@id": "sci:notAsserted"},
+      "sci:evidence": {"@id": "cc:q1-proposal-output"},
+      "sci:reason": "A frozen proposal procedure failing to recover the distinction does not establish fundamental non-identifiability under the access regime; a stronger identifiability claim requires reasoning over the admissible candidate/method/intervention family."
+    }
+  ]
+}
