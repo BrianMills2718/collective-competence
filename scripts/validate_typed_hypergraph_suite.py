@@ -19,6 +19,7 @@ FIXTURES = [
     DIR / "random-walk-diffusion-multiscale-hypergraph-v1.json",
     DIR / "calibration-covariance-hypergraph-v1.json",
     DIR / "causal-markov-equivalence-hypergraph-v1.json",
+    DIR / "dynamic-topology-hypergraph-v1.json",
 ]
 
 
