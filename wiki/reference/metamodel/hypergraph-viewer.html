@@ -16,7 +16,6 @@ aside{min-height:0;overflow:auto;background:var(--panel);border-left:1px solid v
 #loading{position:absolute;left:12px;bottom:12px;padding:6px 8px;border:1px solid var(--border);border-radius:6px;background:rgba(13,19,26,.9);font-size:11px;color:var(--muted);display:none}
 @media(max-width:900px){main{grid-template-columns:1fr;grid-template-rows:minmax(520px,65vh) auto}aside{border-left:0;border-top:1px solid var(--border)}}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/elkjs@0.12.0/lib/elk.bundled.js"></script>
 </head>
 <body>
 <header>
@@ -28,24 +27,22 @@ aside{min-height:0;overflow:auto;background:var(--panel);border-left:1px solid v
 <option value="oscillator">Harmonic oscillator</option>
 <option value="reaction">Reaction kinetics</option>
 </select>
-<select id="layoutMode" class="control"><option value="radial">Semantic radial (default)</option><option value="elk">ELK layered</option></select>
 <select id="layer" class="control"><option value="all">All layers</option><option value="metamodel">Metamodel</option><option value="schema">Schema</option><option value="theory">Theory</option><option value="study">Study</option><option value="evidence">Evidence</option></select>
 <select id="relationType" class="control"><option value="all">All relation types</option></select>
 <input id="search" class="control grow" placeholder="Search node, relation, role…">
 <button id="relayout" class="control">Relayout</button>
 <button id="fit" class="control">Fit</button>
 <button id="focus" class="control">Focus neighborhood</button>
-<label class="control">Open JSON<input id="file" type="file" accept="application/json,.json,.jsonld" multiple hidden></label>
-<span id="status" class="status">semantic radial</span>
+<span id="status" class="status">semantic hub</span>
 </header>
 <main>
 <section id="stage"><svg id="graph" aria-label="Scientific hypergraph"></svg><div id="loading">Laying out graph…</div></section>
 <aside>
-<div class="kicker">Inspector</div><div id="selTitle">Scientific hypergraph</div><div id="selMeta" class="small">No selection</div><div id="selDesc">Rounded nodes are model elements. Diamonds are first-class n-ary relation instances. Spokes are role bindings. Dashed spokes connect each relation instance to its relation type.</div><div id="roles" class="roles"></div>
+<div class="kicker">Inspector</div><div id="selTitle">Scientific hypergraph</div><div id="selMeta" class="small">No selection</div><div id="selDesc">Rounded nodes are model elements. Diamonds are first-class n-ary relation instances. Spokes are role bindings. Dashed spokes connect relation instances to relation types.</div><div id="roles" class="roles"></div>
 <div class="legend"><div><span class="sw" style="background:var(--meta)"></span>Metamodel</div><div><span class="sw" style="background:var(--schema)"></span>Schema</div><div><span class="sw" style="background:var(--theory)"></span>Theory</div><div><span class="sw" style="background:var(--study)"></span>Study</div><div><span class="sw" style="background:var(--evidence)"></span>Evidence</div><div><span class="diamond"></span>Hyperrelation</div></div>
-<div class="hint"><b>Canonical overview:</b> semantic radial. Kernel and shared schemas stay central; each scientific fixture receives a deterministic angular sector; relation instances sit inward of their participants; dense participant labels spill onto multiple radial tracks; ordering follows incidence barycenters. Role labels stay hidden at overview zoom and appear when you zoom or select a relation. <b>ELK layered</b> remains available as a second deterministic projection.</div>
+<div class="hint"><b>Layout:</b> deterministic hub-and-lobes Sugiyama. Shared kernel/schema stays in a central hub. Each scientific fixture occupies a layout-only lobe with semantic columns (theory → study → evidence) and repeated barycentric crossing reduction. Relation instances remain first-class nodes. Role labels are hidden at overview zoom and appear when you zoom or select a relation.</div>
 </aside>
 </main>
-<script src="hypergraph-viewer.js"></script>
+<script src="hypergraph-viewer-hub.js"></script>
 </body>
 </html>
