@@ -42,7 +42,9 @@ FIXTURES = [
 # authoring categories are still compiled deterministically rather than becoming a
 # new carrier feature. This makes the probe total over current/future v1 fixtures.
 KIND_TO_SEMANTIC_TYPE = {
-    "element": "sci:GenericElement",
+    # `element` is the authoring-level top/wildcard category. In semantic form it
+    # means ModelElement, which every addressable node/relation/binding also is.
+    "element": "sci:ModelElement",
     "type": "sci:ElementType",
     "relationType": "sci:RelationType",
     "roleType": "sci:RoleType",
@@ -71,13 +73,7 @@ KIND_TO_SEMANTIC_TYPE = {
 
 
 def semantic_type_for_kind(kind: str) -> str:
-    """Map any authoring kind to a stable semantic type identity.
-
-    Known categories receive readable shared names. Any other identifier is
-    canonicalized mechanically under `sci:AuthoringCategory_*`. The important
-    property of the probe is that validation consumes semantic type identities,
-    not the JSON `kind` field itself.
-    """
+    """Map any authoring kind to a stable semantic type identity."""
     known = KIND_TO_SEMANTIC_TYPE.get(kind)
     if known is not None:
         return known
@@ -100,7 +96,10 @@ def type_list(value: Any) -> list[str]:
 
 
 def semantic_types_for_node(node: dict[str, Any]) -> set[str]:
-    out = set(type_list(node.get("type")))
+    # ModelElement is the semantic top type for every node, regardless of its
+    # authoring category. This preserves the existing participantKinds `element`
+    # wildcard without retaining serialization-level kind semantics.
+    out = {"sci:ModelElement", *type_list(node.get("type"))}
     kind = node.get("kind")
     if kind is not None:
         out.add(semantic_type_for_kind(kind))
@@ -118,11 +117,11 @@ def compile_fixture(doc: dict[str, Any]) -> tuple[dict[str, Any], dict[str, set[
         node["semanticTypes"] = sorted(semantic[node["id"]])
 
     for edge in normalized.get("hyperedges", []):
-        semantic[edge["id"]] = {"sci:RelationInstance"}
+        semantic[edge["id"]] = {"sci:ModelElement", "sci:RelationInstance"}
         for binding in edge.get("bindings", []):
             bid = binding.get("id")
             if bid:
-                semantic[bid] = {"sci:RoleBinding"}
+                semantic[bid] = {"sci:ModelElement", "sci:RoleBinding"}
 
     return normalized, semantic
 
