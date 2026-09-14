@@ -1,0 +1,61 @@
+{
+  "model": "scientific-hypergraph-v0",
+  "nodes": [
+    {"id":"meta:ModelElement","label":"Model Element","layer":"metamodel","kind":"type"},
+    {"id":"meta:RelationType","label":"Relation Type","layer":"metamodel","kind":"type"},
+    {"id":"meta:RoleType","label":"Role Type","layer":"metamodel","kind":"type"},
+    {"id":"meta:RelationInstance","label":"Relation Instance","layer":"metamodel","kind":"type"},
+    {"id":"meta:Constraint","label":"Constraint","layer":"metamodel","kind":"type"},
+    {"id":"meta:Expression","label":"Expression","layer":"metamodel","kind":"type"},
+
+    {"id":"schema:Equation","label":"Equation Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Measurement","label":"Measurement Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Analysis","label":"Analysis Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:StudyView","label":"Study Visibility Relation","layer":"schema","kind":"relationType"},
+    {"id":"schema:Identifiability","label":"Identifiability Relation","layer":"schema","kind":"relationType"},
+
+    {"id":"cc:GoalCriterion","label":"Goal Criterion","layer":"theory","kind":"type"},
+    {"id":"cc:CompetenceProfile","label":"Competence Profile","layer":"theory","kind":"type"},
+    {"id":"cc:CompetenceAssessment","label":"Competence Assessment","layer":"theory","kind":"relationType"},
+    {"id":"cc:CoordinationTarget","label":"Coordination Target","layer":"theory","kind":"type"},
+
+    {"id":"study:C2System","label":"C2 contended channel","layer":"study","kind":"element"},
+    {"id":"study:OwnNeed","label":"own_need","layer":"study","kind":"element"},
+    {"id":"study:PopulationSize","label":"n_subunits","layer":"study","kind":"element"},
+    {"id":"study:DerivedPhase","label":"derived phase","layer":"study","kind":"element"},
+    {"id":"study:PhaseExpr","label":"phase = int(need) mod n_subunits","layer":"study","kind":"expression"},
+    {"id":"study:Observer","label":"software observer","layer":"study","kind":"element"},
+    {"id":"study:AttemptedAction","label":"attempted action","layer":"study","kind":"element"},
+    {"id":"study:AttemptTrace","label":"attempt trace","layer":"evidence","kind":"element"},
+    {"id":"study:ProposalPackage","label":"proposal package","layer":"study","kind":"element"},
+    {"id":"study:ProposalMethod","label":"frozen proposal method","layer":"study","kind":"element"},
+    {"id":"study:ProposalOutput","label":"frozen proposal output","layer":"evidence","kind":"element"},
+    {"id":"study:ProposalPhase","label":"proposal phase","layer":"study","kind":"element"},
+    {"id":"study:SharedSignal","label":"shared signal","layer":"study","kind":"element"},
+    {"id":"study:NativeCondition","label":"native condition","layer":"study","kind":"element"},
+    {"id":"study:MechanismLabels","label":"mechanism labels","layer":"study","kind":"element"},
+    {"id":"study:CandidateFamily","label":"coordination candidate family","layer":"study","kind":"element"},
+    {"id":"study:NotAsserted","label":"not asserted","layer":"evidence","kind":"status"}
+  ],
+  "hyperedges": [
+    {"id":"h:type-equation","type":"instanceOf","layer":"schema","roles":{"instance":"schema:Equation","type":"meta:RelationType"}},
+    {"id":"h:type-measurement","type":"instanceOf","layer":"schema","roles":{"instance":"schema:Measurement","type":"meta:RelationType"}},
+    {"id":"h:type-analysis","type":"instanceOf","layer":"schema","roles":{"instance":"schema:Analysis","type":"meta:RelationType"}},
+    {"id":"h:type-visibility","type":"instanceOf","layer":"schema","roles":{"instance":"schema:StudyView","type":"meta:RelationType"}},
+    {"id":"h:type-identifiability","type":"instanceOf","layer":"schema","roles":{"instance":"schema:Identifiability","type":"meta:RelationType"}},
+
+    {"id":"h:cc-competence-specializes","type":"specializes","layer":"theory","roles":{"subtype":"cc:CompetenceAssessment","supertype":"schema:Measurement"}},
+
+    {"id":"h:phase-equation","type":"schema:Equation","layer":"study","roles":{"input:need":"study:OwnNeed","input:population":"study:PopulationSize","output":"study:DerivedPhase","expression":"study:PhaseExpr"}},
+
+    {"id":"h:declared-input-scope","type":"schema:StudyView","layer":"study","roles":{"consumer":"h:phase-equation","phase":"study:ProposalPhase","included":"study:OwnNeed","excluded":"study:PopulationSize"}},
+
+    {"id":"h:attempt-measurement","type":"schema:Measurement","layer":"study","roles":{"subject":"study:C2System","measurand":"study:AttemptedAction","procedure":"study:Observer","result":"study:AttemptTrace"}},
+
+    {"id":"h:q1-study-view","type":"schema:StudyView","layer":"study","roles":{"consumer":"h:q1-analysis","phase":"study:ProposalPhase","included":"study:ProposalPackage","excluded:signal":"study:SharedSignal","excluded:condition":"study:NativeCondition","excluded:labels":"study:MechanismLabels"}},
+
+    {"id":"h:q1-analysis","type":"schema:Analysis","layer":"study","roles":{"input":"study:ProposalPackage","method":"study:ProposalMethod","output":"study:ProposalOutput","view":"h:q1-study-view"}},
+
+    {"id":"h:q1-identifiability","type":"schema:Identifiability","layer":"evidence","roles":{"target":"cc:CoordinationTarget","candidateFamily":"study:CandidateFamily","studyView":"h:q1-study-view","observation":"h:attempt-measurement","status":"study:NotAsserted","evidence":"study:ProposalOutput"}}
+  ]
+}
