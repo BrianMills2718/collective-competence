@@ -1,0 +1,149 @@
+{
+  "model": "scientific-hypergraph-v1",
+  "imports": [
+    "hypergraph-kernel",
+    "scientific-role-schema-v1"
+  ],
+  "nodes": [
+    {"id":"sci:RelationType","label":"Relation Type","layer":"metamodel","kind":"type"},
+    {"id":"sci:RoleType","label":"Role Type","layer":"metamodel","kind":"type"},
+    {"id":"sci:declaresRole","label":"declares role","layer":"metamodel","kind":"relationType","type":"sci:RelationType"},
+
+    {"id":"gauge:GaugeEquivalenceRelation","label":"Gauge Equivalence Relation","layer":"theory","kind":"relationType","type":"sci:RelationType"},
+    {"id":"gauge:representation","label":"representation","layer":"theory","kind":"roleType","type":"sci:RoleType"},
+    {"id":"gauge:transformation","label":"transformation","layer":"theory","kind":"roleType","type":"sci:RoleType"},
+    {"id":"gauge:invariant","label":"invariant","layer":"theory","kind":"roleType","type":"sci:RoleType"},
+    {"id":"gauge:equivalenceClass","label":"equivalence class","layer":"theory","kind":"roleType","type":"sci:RoleType"},
+
+    {"id":"gauge:value:one","label":"1","value":1,"layer":"theory","kind":"value"},
+    {"id":"gauge:value:two","label":"2","value":2,"layer":"theory","kind":"value"},
+    {"id":"gauge:value:false","label":"false","value":false,"layer":"theory","kind":"value"},
+    {"id":"gauge:value:true","label":"true","value":true,"layer":"theory","kind":"value"},
+
+    {"id":"gauge:A","label":"vector potential A(x)","layer":"theory","kind":"element"},
+    {"id":"gauge:APrime","label":"vector potential A'(x)","layer":"theory","kind":"element"},
+    {"id":"gauge:chi","label":"gauge function χ(x)","layer":"theory","kind":"element"},
+    {"id":"gauge:B","label":"magnetic field B(x)","layer":"theory","kind":"element"},
+    {"id":"gauge:Region","label":"spatial region Ω","layer":"theory","kind":"element"},
+    {"id":"gauge:grad","label":"gradient ∇","layer":"theory","kind":"operator"},
+    {"id":"gauge:curl","label":"curl ∇×","layer":"theory","kind":"operator"},
+    {"id":"gauge:TransformExpr","label":"A' = A + ∇χ","layer":"theory","kind":"expression"},
+    {"id":"gauge:FieldExprA","label":"B = ∇×A","layer":"theory","kind":"expression"},
+    {"id":"gauge:FieldExprAPrime","label":"B = ∇×A'","layer":"theory","kind":"expression"},
+    {"id":"gauge:Class","label":"[A] modulo gradients","layer":"theory","kind":"element"},
+    {"id":"gauge:InvariantProposition","label":"B is invariant under A → A + ∇χ","layer":"theory","kind":"element"},
+    {"id":"gauge:Supported","label":"supported","layer":"evidence","kind":"status"}
+  ],
+  "hyperedges": [
+    {
+      "id":"decl:gauge:representation",
+      "type":"sci:declaresRole",
+      "layer":"theory",
+      "bindings":[
+        {"role":"sci:declaredRelationType","participant":"gauge:GaugeEquivalenceRelation"},
+        {"role":"sci:declaredRoleType","participant":"gauge:representation"},
+        {"role":"sci:roleMinimum","participant":"gauge:value:two"},
+        {"role":"sci:roleMaximum","participant":"gauge:value:two"},
+        {"role":"sci:roleQualifiable","participant":"gauge:value:true"}
+      ]
+    },
+    {
+      "id":"decl:gauge:transformation",
+      "type":"sci:declaresRole",
+      "layer":"theory",
+      "bindings":[
+        {"role":"sci:declaredRelationType","participant":"gauge:GaugeEquivalenceRelation"},
+        {"role":"sci:declaredRoleType","participant":"gauge:transformation"},
+        {"role":"sci:roleMinimum","participant":"gauge:value:one"},
+        {"role":"sci:roleMaximum","participant":"gauge:value:one"},
+        {"role":"sci:roleQualifiable","participant":"gauge:value:false"}
+      ]
+    },
+    {
+      "id":"decl:gauge:invariant",
+      "type":"sci:declaresRole",
+      "layer":"theory",
+      "bindings":[
+        {"role":"sci:declaredRelationType","participant":"gauge:GaugeEquivalenceRelation"},
+        {"role":"sci:declaredRoleType","participant":"gauge:invariant"},
+        {"role":"sci:roleMinimum","participant":"gauge:value:one"},
+        {"role":"sci:roleQualifiable","participant":"gauge:value:false"}
+      ]
+    },
+    {
+      "id":"decl:gauge:class",
+      "type":"sci:declaresRole",
+      "layer":"theory",
+      "bindings":[
+        {"role":"sci:declaredRelationType","participant":"gauge:GaugeEquivalenceRelation"},
+        {"role":"sci:declaredRoleType","participant":"gauge:equivalenceClass"},
+        {"role":"sci:roleMinimum","participant":"gauge:value:one"},
+        {"role":"sci:roleMaximum","participant":"gauge:value:one"},
+        {"role":"sci:roleQualifiable","participant":"gauge:value:false"}
+      ]
+    },
+
+    {
+      "id":"gauge:transform",
+      "type":"sci:EquationRelation",
+      "layer":"study",
+      "bindings":[
+        {"role":"sci:eqInput","qualifier":"potential","participant":"gauge:A"},
+        {"role":"sci:eqInput","qualifier":"gaugeFunction","participant":"gauge:chi"},
+        {"role":"sci:eqOutput","participant":"gauge:APrime"},
+        {"role":"sci:eqExpression","participant":"gauge:TransformExpr"},
+        {"role":"sci:eqOperator","participant":"gauge:grad"},
+        {"role":"sci:eqDomain","participant":"gauge:Region"}
+      ]
+    },
+    {
+      "id":"gauge:field-from-A",
+      "type":"sci:EquationRelation",
+      "layer":"study",
+      "bindings":[
+        {"role":"sci:eqInput","participant":"gauge:A"},
+        {"role":"sci:eqOutput","participant":"gauge:B"},
+        {"role":"sci:eqExpression","participant":"gauge:FieldExprA"},
+        {"role":"sci:eqOperator","participant":"gauge:curl"},
+        {"role":"sci:eqDomain","participant":"gauge:Region"}
+      ]
+    },
+    {
+      "id":"gauge:field-from-APrime",
+      "type":"sci:EquationRelation",
+      "layer":"study",
+      "bindings":[
+        {"role":"sci:eqInput","participant":"gauge:APrime"},
+        {"role":"sci:eqOutput","participant":"gauge:B"},
+        {"role":"sci:eqExpression","participant":"gauge:FieldExprAPrime"},
+        {"role":"sci:eqOperator","participant":"gauge:curl"},
+        {"role":"sci:eqDomain","participant":"gauge:Region"}
+      ]
+    },
+    {
+      "id":"gauge:equivalence",
+      "type":"gauge:GaugeEquivalenceRelation",
+      "layer":"study",
+      "bindings":[
+        {"role":"gauge:representation","qualifier":"original","participant":"gauge:A"},
+        {"role":"gauge:representation","qualifier":"transformed","participant":"gauge:APrime"},
+        {"role":"gauge:transformation","participant":"gauge:transform"},
+        {"role":"gauge:invariant","participant":"gauge:B"},
+        {"role":"gauge:equivalenceClass","participant":"gauge:Class"}
+      ]
+    },
+    {
+      "id":"gauge:invariance-claim",
+      "type":"sci:ClaimRelation",
+      "layer":"evidence",
+      "bindings":[
+        {"role":"sci:claimProposition","participant":"gauge:InvariantProposition"},
+        {"role":"sci:claimEvidence","participant":"gauge:field-from-A"},
+        {"role":"sci:claimEvidence","participant":"gauge:field-from-APrime"},
+        {"role":"sci:claimEvidence","participant":"gauge:equivalence"},
+        {"role":"sci:claimScope","participant":"gauge:Region"},
+        {"role":"sci:claimStatus","participant":"gauge:Supported"}
+      ]
+    }
+  ]
+}
