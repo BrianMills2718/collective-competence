@@ -1,6 +1,7 @@
 {
   "nodes": [
     {"id":"meta:RelationType","label":"Relation Type","layer":"metamodel","kind":"type"},
+    {"id":"meta:instanceOf","label":"instanceOf","layer":"metamodel","kind":"relationType"},
     {"id":"schema:Equation","label":"Equation Relation","layer":"schema","kind":"relationType"},
     {"id":"schema:Measurement","label":"Measurement Relation","layer":"schema","kind":"relationType"},
     {"id":"schema:Analysis","label":"Analysis Relation","layer":"schema","kind":"relationType"},
