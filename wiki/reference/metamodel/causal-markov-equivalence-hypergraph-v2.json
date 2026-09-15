@@ -1,0 +1,1485 @@
+{
+  "model": "scientific-hypergraph-v2",
+  "imports": [
+    "hypergraph-kernel-v2",
+    "scientific-semantic-types-v2",
+    "scientific-role-schema-v2"
+  ],
+  "normalization": {
+    "sourceModel": "scientific-hypergraph-v1",
+    "algorithm": "graph-native-typing-v2",
+    "sourceArtifact": "causal-markov-equivalence-hypergraph-v1.json"
+  },
+  "elements": [
+    {
+      "id": "causal:CandidateFamily",
+      "label": "candidate family {A,B}",
+      "layer": "theory"
+    },
+    {
+      "id": "causal:M",
+      "label": "M",
+      "layer": "theory"
+    },
+    {
+      "id": "causal:ModelA",
+      "label": "SCM A: X → M → Y",
+      "layer": "theory"
+    },
+    {
+      "id": "causal:ModelB",
+      "label": "SCM B: X ← M → Y",
+      "layer": "theory"
+    },
+    {
+      "id": "causal:NormalFamily",
+      "label": "Gaussian noise family",
+      "layer": "theory"
+    },
+    {
+      "id": "causal:ObsEquivalenceClass",
+      "label": "observational Markov-equivalence class {A,B}",
+      "layer": "theory"
+    },
+    {
+      "id": "causal:ObservedVector",
+      "label": "observed vector (X,M,Y)",
+      "layer": "theory"
+    },
+    {
+      "id": "causal:TargetOrientation",
+      "label": "orientation of X—M causal edge",
+      "layer": "theory"
+    },
+    {
+      "id": "causal:X",
+      "label": "X",
+      "layer": "theory"
+    },
+    {
+      "id": "causal:Y",
+      "label": "Y",
+      "layer": "theory"
+    },
+    {
+      "id": "causal:epsM",
+      "label": "ε_M",
+      "layer": "theory"
+    },
+    {
+      "id": "causal:epsX",
+      "label": "ε_X",
+      "layer": "theory"
+    },
+    {
+      "id": "causal:epsY",
+      "label": "ε_Y",
+      "layer": "theory"
+    },
+    {
+      "id": "claim:CI",
+      "label": "X ⫫ Y | M",
+      "layer": "theory"
+    },
+    {
+      "id": "claim:InterventionDistinguishes",
+      "label": "do(X=x) distinguishes A from B",
+      "layer": "theory"
+    },
+    {
+      "id": "claim:ObsEq",
+      "label": "A and B are observationally equivalent",
+      "layer": "theory"
+    },
+    {
+      "id": "expr:A-M",
+      "label": "M := f_A(X, ε_M)",
+      "layer": "theory"
+    },
+    {
+      "id": "expr:A-X",
+      "label": "X := ε_X",
+      "layer": "theory"
+    },
+    {
+      "id": "expr:A-Y",
+      "label": "Y := g_A(M, ε_Y)",
+      "layer": "theory"
+    },
+    {
+      "id": "expr:B-M",
+      "label": "M := ε_M",
+      "layer": "theory"
+    },
+    {
+      "id": "expr:B-X",
+      "label": "X := f_B(M, ε_X)",
+      "layer": "theory"
+    },
+    {
+      "id": "expr:B-Y",
+      "label": "Y := g_B(M, ε_Y)",
+      "layer": "theory"
+    },
+    {
+      "id": "meta:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel"
+    },
+    {
+      "id": "status:InterventionIdentifies",
+      "label": "identified by intervention",
+      "layer": "evidence"
+    },
+    {
+      "id": "status:ObsUnderdetermined",
+      "label": "observationally underdetermined",
+      "layer": "evidence"
+    },
+    {
+      "id": "status:Supported",
+      "label": "supported",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:CIResult",
+      "label": "CI test result",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:CITest",
+      "label": "conditional-independence test",
+      "layer": "study"
+    },
+    {
+      "id": "study:CandidateSetTransform",
+      "label": "candidate-set construction",
+      "layer": "study"
+    },
+    {
+      "id": "study:CompareIntervention",
+      "label": "interventional comparison",
+      "layer": "study"
+    },
+    {
+      "id": "study:DistinguishingResult",
+      "label": "intervention distinguishes candidate SCMs",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:DoX",
+      "label": "do(X=x) intervention",
+      "layer": "study"
+    },
+    {
+      "id": "study:IntDataset",
+      "label": "interventional dataset",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:IntObserver",
+      "label": "post-intervention observation procedure",
+      "layer": "study"
+    },
+    {
+      "id": "study:IntPhase",
+      "label": "intervention phase",
+      "layer": "study"
+    },
+    {
+      "id": "study:JointObserver",
+      "label": "joint observation procedure",
+      "layer": "study"
+    },
+    {
+      "id": "study:MarkovCheck",
+      "label": "Markov-equivalence analysis",
+      "layer": "study"
+    },
+    {
+      "id": "study:ObsDataset",
+      "label": "observational dataset",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:ObsEqResult",
+      "label": "observational-equivalence result",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:ObsPhase",
+      "label": "observational phase",
+      "layer": "study"
+    },
+    {
+      "id": "study:ObsProjection",
+      "label": "observational projection",
+      "layer": "study"
+    },
+    {
+      "id": "study:OrientationLoss",
+      "label": "edge orientation lost under observational projection",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:System",
+      "label": "observed causal system",
+      "layer": "study"
+    }
+  ],
+  "relations": [
+    {
+      "id": "h:type-0",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:type-1",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:type-2",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:type-3",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:type-4",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:type-5",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:type-6",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:type-7",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:type-8",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:A-X",
+      "layer": "theory",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:A-M",
+      "layer": "theory",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:A-Y",
+      "layer": "theory",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:B-M",
+      "layer": "theory",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:B-X",
+      "layer": "theory",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:B-Y",
+      "layer": "theory",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:noise-dist",
+      "layer": "theory",
+      "relationType": "sci:DistributionRelation"
+    },
+    {
+      "id": "h:candidate-family",
+      "layer": "theory",
+      "relationType": "sci:RepresentationRelation"
+    },
+    {
+      "id": "h:obs-measurement",
+      "layer": "study",
+      "relationType": "sci:MeasurementRelation"
+    },
+    {
+      "id": "h:obs-access",
+      "layer": "study",
+      "relationType": "sci:AccessRelation"
+    },
+    {
+      "id": "h:ci-analysis",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "h:ci-claim",
+      "layer": "evidence",
+      "relationType": "sci:ClaimRelation"
+    },
+    {
+      "id": "h:obs-equivalence-analysis",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "h:obs-equivalence-claim",
+      "layer": "evidence",
+      "relationType": "sci:ClaimRelation"
+    },
+    {
+      "id": "h:obs-projection",
+      "layer": "theory",
+      "relationType": "sci:RepresentationRelation"
+    },
+    {
+      "id": "h:obs-identifiability",
+      "layer": "evidence",
+      "relationType": "sci:IdentifiabilityRelation"
+    },
+    {
+      "id": "h:int-measurement",
+      "layer": "study",
+      "relationType": "sci:MeasurementRelation"
+    },
+    {
+      "id": "h:int-access",
+      "layer": "study",
+      "relationType": "sci:AccessRelation"
+    },
+    {
+      "id": "h:int-analysis",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "h:int-experiment",
+      "layer": "study",
+      "relationType": "sci:ExperimentRelation"
+    },
+    {
+      "id": "h:int-claim",
+      "layer": "evidence",
+      "relationType": "sci:ClaimRelation"
+    },
+    {
+      "id": "h:int-identifiability",
+      "layer": "evidence",
+      "relationType": "sci:IdentifiabilityRelation"
+    },
+    {
+      "id": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:expr_A-X:sci_Expression",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:expr_A-M:sci_Expression",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:expr_A-Y:sci_Expression",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:expr_B-M:sci_Expression",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:expr_B-X:sci_Expression",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:expr_B-Y:sci_Expression",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:claim_CI:sci_Expression",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:claim_ObsEq:sci_Expression",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:claim_InterventionDistinguishes:sci_Expression",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:status_Supported:sci_Status",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:status_ObsUnderdetermined:sci_Status",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:status_InterventionIdentifies:sci_Status",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_JointObserver:sci_Procedure",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ObsDataset:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_CITest:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_CIResult:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_MarkovCheck:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ObsEqResult:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_CandidateSetTransform:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ObsProjection:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_OrientationLoss:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_IntObserver:sci_Procedure",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_IntDataset:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_CompareIntervention:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_DistinguishingResult:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    }
+  ],
+  "bindings": [
+    {
+      "relation": "h:type-0",
+      "role": "sci:instance",
+      "participant": "sci:EquationRelation"
+    },
+    {
+      "relation": "h:type-0",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:type-1",
+      "role": "sci:instance",
+      "participant": "sci:DistributionRelation"
+    },
+    {
+      "relation": "h:type-1",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:type-2",
+      "role": "sci:instance",
+      "participant": "sci:MeasurementRelation"
+    },
+    {
+      "relation": "h:type-2",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:type-3",
+      "role": "sci:instance",
+      "participant": "sci:AnalysisRelation"
+    },
+    {
+      "relation": "h:type-3",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:type-4",
+      "role": "sci:instance",
+      "participant": "sci:ExperimentRelation"
+    },
+    {
+      "relation": "h:type-4",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:type-5",
+      "role": "sci:instance",
+      "participant": "sci:AccessRelation"
+    },
+    {
+      "relation": "h:type-5",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:type-6",
+      "role": "sci:instance",
+      "participant": "sci:ClaimRelation"
+    },
+    {
+      "relation": "h:type-6",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:type-7",
+      "role": "sci:instance",
+      "participant": "sci:IdentifiabilityRelation"
+    },
+    {
+      "relation": "h:type-7",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:type-8",
+      "role": "sci:instance",
+      "participant": "sci:RepresentationRelation"
+    },
+    {
+      "relation": "h:type-8",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:A-X",
+      "role": "sci:eqDriver",
+      "participant": "causal:epsX"
+    },
+    {
+      "relation": "h:A-X",
+      "role": "sci:eqOutput",
+      "participant": "causal:X"
+    },
+    {
+      "relation": "h:A-X",
+      "role": "sci:eqExpression",
+      "participant": "expr:A-X"
+    },
+    {
+      "relation": "h:A-X",
+      "role": "sci:eqContext",
+      "participant": "causal:ModelA"
+    },
+    {
+      "relation": "h:A-M",
+      "role": "sci:eqInput",
+      "participant": "causal:X",
+      "qualifier": "cause"
+    },
+    {
+      "relation": "h:A-M",
+      "role": "sci:eqDriver",
+      "participant": "causal:epsM"
+    },
+    {
+      "relation": "h:A-M",
+      "role": "sci:eqOutput",
+      "participant": "causal:M"
+    },
+    {
+      "relation": "h:A-M",
+      "role": "sci:eqExpression",
+      "participant": "expr:A-M"
+    },
+    {
+      "relation": "h:A-M",
+      "role": "sci:eqContext",
+      "participant": "causal:ModelA"
+    },
+    {
+      "relation": "h:A-Y",
+      "role": "sci:eqInput",
+      "participant": "causal:M",
+      "qualifier": "cause"
+    },
+    {
+      "relation": "h:A-Y",
+      "role": "sci:eqDriver",
+      "participant": "causal:epsY"
+    },
+    {
+      "relation": "h:A-Y",
+      "role": "sci:eqOutput",
+      "participant": "causal:Y"
+    },
+    {
+      "relation": "h:A-Y",
+      "role": "sci:eqExpression",
+      "participant": "expr:A-Y"
+    },
+    {
+      "relation": "h:A-Y",
+      "role": "sci:eqContext",
+      "participant": "causal:ModelA"
+    },
+    {
+      "relation": "h:B-M",
+      "role": "sci:eqDriver",
+      "participant": "causal:epsM"
+    },
+    {
+      "relation": "h:B-M",
+      "role": "sci:eqOutput",
+      "participant": "causal:M"
+    },
+    {
+      "relation": "h:B-M",
+      "role": "sci:eqExpression",
+      "participant": "expr:B-M"
+    },
+    {
+      "relation": "h:B-M",
+      "role": "sci:eqContext",
+      "participant": "causal:ModelB"
+    },
+    {
+      "relation": "h:B-X",
+      "role": "sci:eqInput",
+      "participant": "causal:M",
+      "qualifier": "cause"
+    },
+    {
+      "relation": "h:B-X",
+      "role": "sci:eqDriver",
+      "participant": "causal:epsX"
+    },
+    {
+      "relation": "h:B-X",
+      "role": "sci:eqOutput",
+      "participant": "causal:X"
+    },
+    {
+      "relation": "h:B-X",
+      "role": "sci:eqExpression",
+      "participant": "expr:B-X"
+    },
+    {
+      "relation": "h:B-X",
+      "role": "sci:eqContext",
+      "participant": "causal:ModelB"
+    },
+    {
+      "relation": "h:B-Y",
+      "role": "sci:eqInput",
+      "participant": "causal:M",
+      "qualifier": "cause"
+    },
+    {
+      "relation": "h:B-Y",
+      "role": "sci:eqDriver",
+      "participant": "causal:epsY"
+    },
+    {
+      "relation": "h:B-Y",
+      "role": "sci:eqOutput",
+      "participant": "causal:Y"
+    },
+    {
+      "relation": "h:B-Y",
+      "role": "sci:eqExpression",
+      "participant": "expr:B-Y"
+    },
+    {
+      "relation": "h:B-Y",
+      "role": "sci:eqContext",
+      "participant": "causal:ModelB"
+    },
+    {
+      "relation": "h:noise-dist",
+      "role": "sci:distributionRandomObject",
+      "participant": "causal:epsX",
+      "qualifier": "x"
+    },
+    {
+      "relation": "h:noise-dist",
+      "role": "sci:distributionRandomObject",
+      "participant": "causal:epsM",
+      "qualifier": "m"
+    },
+    {
+      "relation": "h:noise-dist",
+      "role": "sci:distributionRandomObject",
+      "participant": "causal:epsY",
+      "qualifier": "y"
+    },
+    {
+      "relation": "h:noise-dist",
+      "role": "sci:distributionFamily",
+      "participant": "causal:NormalFamily"
+    },
+    {
+      "relation": "h:candidate-family",
+      "role": "sci:representationSource",
+      "participant": "causal:ModelA",
+      "qualifier": "A"
+    },
+    {
+      "relation": "h:candidate-family",
+      "role": "sci:representationSource",
+      "participant": "causal:ModelB",
+      "qualifier": "B"
+    },
+    {
+      "relation": "h:candidate-family",
+      "role": "sci:representationTransform",
+      "participant": "study:CandidateSetTransform"
+    },
+    {
+      "relation": "h:candidate-family",
+      "role": "sci:representationOutput",
+      "participant": "causal:CandidateFamily"
+    },
+    {
+      "relation": "h:obs-measurement",
+      "role": "sci:measurementSubject",
+      "participant": "study:System"
+    },
+    {
+      "relation": "h:obs-measurement",
+      "role": "sci:measurementMeasurand",
+      "participant": "causal:ObservedVector"
+    },
+    {
+      "relation": "h:obs-measurement",
+      "role": "sci:measurementProcedure",
+      "participant": "study:JointObserver"
+    },
+    {
+      "relation": "h:obs-measurement",
+      "role": "sci:measurementResult",
+      "participant": "study:ObsDataset"
+    },
+    {
+      "relation": "h:obs-access",
+      "role": "sci:accessor",
+      "participant": "h:ci-analysis"
+    },
+    {
+      "relation": "h:obs-access",
+      "role": "sci:accessPhase",
+      "participant": "study:ObsPhase"
+    },
+    {
+      "relation": "h:obs-access",
+      "role": "sci:accessAllowed",
+      "participant": "causal:X",
+      "qualifier": "X"
+    },
+    {
+      "relation": "h:obs-access",
+      "role": "sci:accessAllowed",
+      "participant": "causal:M",
+      "qualifier": "M"
+    },
+    {
+      "relation": "h:obs-access",
+      "role": "sci:accessAllowed",
+      "participant": "causal:Y",
+      "qualifier": "Y"
+    },
+    {
+      "relation": "h:obs-access",
+      "role": "sci:accessAllowed",
+      "participant": "study:ObsDataset",
+      "qualifier": "data"
+    },
+    {
+      "relation": "h:obs-access",
+      "role": "sci:accessRestricted",
+      "participant": "h:A-M",
+      "qualifier": "A-orientation"
+    },
+    {
+      "relation": "h:obs-access",
+      "role": "sci:accessRestricted",
+      "participant": "h:B-X",
+      "qualifier": "B-orientation"
+    },
+    {
+      "relation": "h:ci-analysis",
+      "role": "sci:analysisInput",
+      "participant": "study:ObsDataset"
+    },
+    {
+      "relation": "h:ci-analysis",
+      "role": "sci:analysisMethod",
+      "participant": "study:CITest"
+    },
+    {
+      "relation": "h:ci-analysis",
+      "role": "sci:analysisAccess",
+      "participant": "h:obs-access"
+    },
+    {
+      "relation": "h:ci-analysis",
+      "role": "sci:analysisOutput",
+      "participant": "study:CIResult"
+    },
+    {
+      "relation": "h:ci-claim",
+      "role": "sci:claimProposition",
+      "participant": "claim:CI"
+    },
+    {
+      "relation": "h:ci-claim",
+      "role": "sci:claimEvidence",
+      "participant": "study:CIResult"
+    },
+    {
+      "relation": "h:ci-claim",
+      "role": "sci:claimScope",
+      "participant": "h:obs-access"
+    },
+    {
+      "relation": "h:ci-claim",
+      "role": "sci:claimStatus",
+      "participant": "status:Supported"
+    },
+    {
+      "relation": "h:obs-equivalence-analysis",
+      "role": "sci:analysisInput",
+      "participant": "study:CIResult"
+    },
+    {
+      "relation": "h:obs-equivalence-analysis",
+      "role": "sci:analysisMethod",
+      "participant": "study:MarkovCheck"
+    },
+    {
+      "relation": "h:obs-equivalence-analysis",
+      "role": "sci:analysisModel",
+      "participant": "causal:ModelA",
+      "qualifier": "A"
+    },
+    {
+      "relation": "h:obs-equivalence-analysis",
+      "role": "sci:analysisModel",
+      "participant": "causal:ModelB",
+      "qualifier": "B"
+    },
+    {
+      "relation": "h:obs-equivalence-analysis",
+      "role": "sci:analysisAccess",
+      "participant": "h:obs-access"
+    },
+    {
+      "relation": "h:obs-equivalence-analysis",
+      "role": "sci:analysisOutput",
+      "participant": "study:ObsEqResult"
+    },
+    {
+      "relation": "h:obs-equivalence-claim",
+      "role": "sci:claimProposition",
+      "participant": "claim:ObsEq"
+    },
+    {
+      "relation": "h:obs-equivalence-claim",
+      "role": "sci:claimEvidence",
+      "participant": "study:ObsEqResult"
+    },
+    {
+      "relation": "h:obs-equivalence-claim",
+      "role": "sci:claimScope",
+      "participant": "h:obs-access"
+    },
+    {
+      "relation": "h:obs-equivalence-claim",
+      "role": "sci:claimStatus",
+      "participant": "status:Supported"
+    },
+    {
+      "relation": "h:obs-projection",
+      "role": "sci:representationSource",
+      "participant": "causal:ModelA",
+      "qualifier": "A"
+    },
+    {
+      "relation": "h:obs-projection",
+      "role": "sci:representationSource",
+      "participant": "causal:ModelB",
+      "qualifier": "B"
+    },
+    {
+      "relation": "h:obs-projection",
+      "role": "sci:representationTransform",
+      "participant": "study:ObsProjection"
+    },
+    {
+      "relation": "h:obs-projection",
+      "role": "sci:representationOutput",
+      "participant": "causal:ObsEquivalenceClass"
+    },
+    {
+      "relation": "h:obs-projection",
+      "role": "sci:representationLoss",
+      "participant": "study:OrientationLoss"
+    },
+    {
+      "relation": "h:obs-projection",
+      "role": "sci:representationContext",
+      "participant": "h:obs-access"
+    },
+    {
+      "relation": "h:obs-identifiability",
+      "role": "sci:idTarget",
+      "participant": "causal:TargetOrientation"
+    },
+    {
+      "relation": "h:obs-identifiability",
+      "role": "sci:idCandidateFamily",
+      "participant": "causal:CandidateFamily"
+    },
+    {
+      "relation": "h:obs-identifiability",
+      "role": "sci:idAccess",
+      "participant": "h:obs-access"
+    },
+    {
+      "relation": "h:obs-identifiability",
+      "role": "sci:idObservationModel",
+      "participant": "h:obs-measurement"
+    },
+    {
+      "relation": "h:obs-identifiability",
+      "role": "sci:idEquivalenceClass",
+      "participant": "causal:ObsEquivalenceClass"
+    },
+    {
+      "relation": "h:obs-identifiability",
+      "role": "sci:idStatus",
+      "participant": "status:ObsUnderdetermined"
+    },
+    {
+      "relation": "h:obs-identifiability",
+      "role": "sci:idEvidence",
+      "participant": "study:ObsEqResult"
+    },
+    {
+      "relation": "h:int-measurement",
+      "role": "sci:measurementSubject",
+      "participant": "study:System"
+    },
+    {
+      "relation": "h:int-measurement",
+      "role": "sci:measurementMeasurand",
+      "participant": "causal:ObservedVector"
+    },
+    {
+      "relation": "h:int-measurement",
+      "role": "sci:measurementProcedure",
+      "participant": "study:IntObserver"
+    },
+    {
+      "relation": "h:int-measurement",
+      "role": "sci:measurementResult",
+      "participant": "study:IntDataset"
+    },
+    {
+      "relation": "h:int-access",
+      "role": "sci:accessor",
+      "participant": "h:int-analysis"
+    },
+    {
+      "relation": "h:int-access",
+      "role": "sci:accessPhase",
+      "participant": "study:IntPhase"
+    },
+    {
+      "relation": "h:int-access",
+      "role": "sci:accessAllowed",
+      "participant": "causal:X",
+      "qualifier": "X"
+    },
+    {
+      "relation": "h:int-access",
+      "role": "sci:accessAllowed",
+      "participant": "causal:M",
+      "qualifier": "M"
+    },
+    {
+      "relation": "h:int-access",
+      "role": "sci:accessAllowed",
+      "participant": "causal:Y",
+      "qualifier": "Y"
+    },
+    {
+      "relation": "h:int-access",
+      "role": "sci:accessAllowed",
+      "participant": "study:IntDataset",
+      "qualifier": "data"
+    },
+    {
+      "relation": "h:int-access",
+      "role": "sci:accessAllowedAction",
+      "participant": "study:DoX"
+    },
+    {
+      "relation": "h:int-analysis",
+      "role": "sci:analysisInput",
+      "participant": "study:IntDataset"
+    },
+    {
+      "relation": "h:int-analysis",
+      "role": "sci:analysisMethod",
+      "participant": "study:CompareIntervention"
+    },
+    {
+      "relation": "h:int-analysis",
+      "role": "sci:analysisModel",
+      "participant": "causal:ModelA",
+      "qualifier": "A"
+    },
+    {
+      "relation": "h:int-analysis",
+      "role": "sci:analysisModel",
+      "participant": "causal:ModelB",
+      "qualifier": "B"
+    },
+    {
+      "relation": "h:int-analysis",
+      "role": "sci:analysisAccess",
+      "participant": "h:int-access"
+    },
+    {
+      "relation": "h:int-analysis",
+      "role": "sci:analysisOutput",
+      "participant": "study:DistinguishingResult"
+    },
+    {
+      "relation": "h:int-experiment",
+      "role": "sci:experimentSubject",
+      "participant": "study:System"
+    },
+    {
+      "relation": "h:int-experiment",
+      "role": "sci:experimentIntervention",
+      "participant": "study:DoX"
+    },
+    {
+      "relation": "h:int-experiment",
+      "role": "sci:experimentCondition",
+      "participant": "study:IntPhase"
+    },
+    {
+      "relation": "h:int-experiment",
+      "role": "sci:experimentObservation",
+      "participant": "study:IntDataset"
+    },
+    {
+      "relation": "h:int-experiment",
+      "role": "sci:experimentAnalysis",
+      "participant": "h:int-analysis"
+    },
+    {
+      "relation": "h:int-experiment",
+      "role": "sci:experimentResult",
+      "participant": "study:DistinguishingResult"
+    },
+    {
+      "relation": "h:int-claim",
+      "role": "sci:claimProposition",
+      "participant": "claim:InterventionDistinguishes"
+    },
+    {
+      "relation": "h:int-claim",
+      "role": "sci:claimEvidence",
+      "participant": "study:DistinguishingResult"
+    },
+    {
+      "relation": "h:int-claim",
+      "role": "sci:claimScope",
+      "participant": "h:int-experiment"
+    },
+    {
+      "relation": "h:int-claim",
+      "role": "sci:claimStatus",
+      "participant": "status:Supported"
+    },
+    {
+      "relation": "h:int-identifiability",
+      "role": "sci:idTarget",
+      "participant": "causal:TargetOrientation"
+    },
+    {
+      "relation": "h:int-identifiability",
+      "role": "sci:idCandidateFamily",
+      "participant": "causal:CandidateFamily"
+    },
+    {
+      "relation": "h:int-identifiability",
+      "role": "sci:idAccess",
+      "participant": "h:int-access"
+    },
+    {
+      "relation": "h:int-identifiability",
+      "role": "sci:idObservationModel",
+      "participant": "h:int-measurement"
+    },
+    {
+      "relation": "h:int-identifiability",
+      "role": "sci:idInterventionFamily",
+      "participant": "study:DoX"
+    },
+    {
+      "relation": "h:int-identifiability",
+      "role": "sci:idStatus",
+      "participant": "status:InterventionIdentifies"
+    },
+    {
+      "relation": "h:int-identifiability",
+      "role": "sci:idEvidence",
+      "participant": "study:DistinguishingResult"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:expr_A-X:sci_Expression",
+      "role": "sci:instance",
+      "participant": "expr:A-X"
+    },
+    {
+      "relation": "norm:instanceOf:expr_A-X:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:expr_A-M:sci_Expression",
+      "role": "sci:instance",
+      "participant": "expr:A-M"
+    },
+    {
+      "relation": "norm:instanceOf:expr_A-M:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:expr_A-Y:sci_Expression",
+      "role": "sci:instance",
+      "participant": "expr:A-Y"
+    },
+    {
+      "relation": "norm:instanceOf:expr_A-Y:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:expr_B-M:sci_Expression",
+      "role": "sci:instance",
+      "participant": "expr:B-M"
+    },
+    {
+      "relation": "norm:instanceOf:expr_B-M:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:expr_B-X:sci_Expression",
+      "role": "sci:instance",
+      "participant": "expr:B-X"
+    },
+    {
+      "relation": "norm:instanceOf:expr_B-X:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:expr_B-Y:sci_Expression",
+      "role": "sci:instance",
+      "participant": "expr:B-Y"
+    },
+    {
+      "relation": "norm:instanceOf:expr_B-Y:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:claim_CI:sci_Expression",
+      "role": "sci:instance",
+      "participant": "claim:CI"
+    },
+    {
+      "relation": "norm:instanceOf:claim_CI:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:claim_ObsEq:sci_Expression",
+      "role": "sci:instance",
+      "participant": "claim:ObsEq"
+    },
+    {
+      "relation": "norm:instanceOf:claim_ObsEq:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:claim_InterventionDistinguishes:sci_Expression",
+      "role": "sci:instance",
+      "participant": "claim:InterventionDistinguishes"
+    },
+    {
+      "relation": "norm:instanceOf:claim_InterventionDistinguishes:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:status_Supported:sci_Status",
+      "role": "sci:instance",
+      "participant": "status:Supported"
+    },
+    {
+      "relation": "norm:instanceOf:status_Supported:sci_Status",
+      "role": "sci:type",
+      "participant": "sci:Status"
+    },
+    {
+      "relation": "norm:instanceOf:status_ObsUnderdetermined:sci_Status",
+      "role": "sci:instance",
+      "participant": "status:ObsUnderdetermined"
+    },
+    {
+      "relation": "norm:instanceOf:status_ObsUnderdetermined:sci_Status",
+      "role": "sci:type",
+      "participant": "sci:Status"
+    },
+    {
+      "relation": "norm:instanceOf:status_InterventionIdentifies:sci_Status",
+      "role": "sci:instance",
+      "participant": "status:InterventionIdentifies"
+    },
+    {
+      "relation": "norm:instanceOf:status_InterventionIdentifies:sci_Status",
+      "role": "sci:type",
+      "participant": "sci:Status"
+    },
+    {
+      "relation": "norm:instanceOf:study_JointObserver:sci_Procedure",
+      "role": "sci:instance",
+      "participant": "study:JointObserver"
+    },
+    {
+      "relation": "norm:instanceOf:study_JointObserver:sci_Procedure",
+      "role": "sci:type",
+      "participant": "sci:Procedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObsDataset:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:ObsDataset"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObsDataset:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_CITest:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:CITest"
+    },
+    {
+      "relation": "norm:instanceOf:study_CITest:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_CIResult:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:CIResult"
+    },
+    {
+      "relation": "norm:instanceOf:study_CIResult:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_MarkovCheck:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:MarkovCheck"
+    },
+    {
+      "relation": "norm:instanceOf:study_MarkovCheck:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObsEqResult:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:ObsEqResult"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObsEqResult:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_CandidateSetTransform:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:CandidateSetTransform"
+    },
+    {
+      "relation": "norm:instanceOf:study_CandidateSetTransform:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObsProjection:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:ObsProjection"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObsProjection:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_OrientationLoss:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:OrientationLoss"
+    },
+    {
+      "relation": "norm:instanceOf:study_OrientationLoss:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_IntObserver:sci_Procedure",
+      "role": "sci:instance",
+      "participant": "study:IntObserver"
+    },
+    {
+      "relation": "norm:instanceOf:study_IntObserver:sci_Procedure",
+      "role": "sci:type",
+      "participant": "sci:Procedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_IntDataset:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:IntDataset"
+    },
+    {
+      "relation": "norm:instanceOf:study_IntDataset:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_CompareIntervention:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:CompareIntervention"
+    },
+    {
+      "relation": "norm:instanceOf:study_CompareIntervention:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_DistinguishingResult:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:DistinguishingResult"
+    },
+    {
+      "relation": "norm:instanceOf:study_DistinguishingResult:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "model": "scientific-hypergraph-v2",
+  "imports": [
+    "hypergraph-kernel-v2",
+    "scientific-semantic-types-v2",
+    "scientific-role-schema-v2"
+  ],
+  "normalization": {
+    "sourceModel": "scientific-hypergraph-v1",
+    "algorithm": "graph-native-typing-v2",
+    "sourceArtifact": "role-binding-epistemics-hypergraph-v1.json"
+  },
+  "elements": [
+    {
+      "id": "claim:ModelAssignment",
+      "label": "model A is the model correspondence used by this analysis",
+      "layer": "theory"
+    },
+    {
+      "id": "meta:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel"
+    },
+    {
+      "id": "status:Supported",
+      "label": "supported",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:AssignmentEvidence",
+      "label": "model-assignment evidence",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:FitMethod",
+      "label": "model-fitting procedure",
+      "layer": "study"
+    },
+    {
+      "id": "study:FitResult",
+      "label": "fit result",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:ModelA",
+      "label": "candidate model A",
+      "layer": "theory"
+    },
+    {
+      "id": "study:ObservedData",
+      "label": "observed data",
+      "layer": "evidence"
+    }
+  ],
+  "relations": [
+    {
+      "id": "h:type-analysis",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:type-claim",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:analysis",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "h:model-assignment-claim",
+      "layer": "evidence",
+      "relationType": "sci:ClaimRelation"
+    },
+    {
+      "id": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ObservedData:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_FitMethod:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_FitResult:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:claim_ModelAssignment:sci_Expression",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_AssignmentEvidence:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:status_Supported:sci_Status",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    }
+  ],
+  "bindings": [
+    {
+      "relation": "h:type-analysis",
+      "role": "sci:instance",
+      "participant": "sci:AnalysisRelation"
+    },
+    {
+      "relation": "h:type-analysis",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:type-claim",
+      "role": "sci:instance",
+      "participant": "sci:ClaimRelation"
+    },
+    {
+      "relation": "h:type-claim",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:analysis",
+      "role": "sci:analysisInput",
+      "participant": "study:ObservedData"
+    },
+    {
+      "relation": "h:analysis",
+      "role": "sci:analysisMethod",
+      "participant": "study:FitMethod"
+    },
+    {
+      "relation": "h:analysis",
+      "role": "sci:analysisModel",
+      "participant": "study:ModelA",
+      "id": "binding:analysis-model"
+    },
+    {
+      "relation": "h:analysis",
+      "role": "sci:analysisOutput",
+      "participant": "study:FitResult"
+    },
+    {
+      "relation": "h:model-assignment-claim",
+      "role": "sci:claimProposition",
+      "participant": "claim:ModelAssignment"
+    },
+    {
+      "relation": "h:model-assignment-claim",
+      "role": "sci:claimEvidence",
+      "participant": "study:AssignmentEvidence"
+    },
+    {
+      "relation": "h:model-assignment-claim",
+      "role": "sci:claimScope",
+      "participant": "binding:analysis-model"
+    },
+    {
+      "relation": "h:model-assignment-claim",
+      "role": "sci:claimStatus",
+      "participant": "status:Supported"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObservedData:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:ObservedData"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObservedData:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_FitMethod:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:FitMethod"
+    },
+    {
+      "relation": "norm:instanceOf:study_FitMethod:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_FitResult:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:FitResult"
+    },
+    {
+      "relation": "norm:instanceOf:study_FitResult:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:claim_ModelAssignment:sci_Expression",
+      "role": "sci:instance",
+      "participant": "claim:ModelAssignment"
+    },
+    {
+      "relation": "norm:instanceOf:claim_ModelAssignment:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:study_AssignmentEvidence:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:AssignmentEvidence"
+    },
+    {
+      "relation": "norm:instanceOf:study_AssignmentEvidence:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:status_Supported:sci_Status",
+      "role": "sci:instance",
+      "participant": "status:Supported"
+    },
+    {
+      "relation": "norm:instanceOf:status_Supported:sci_Status",
+      "role": "sci:type",
+      "participant": "sci:Status"
+    }
+  ]
+}

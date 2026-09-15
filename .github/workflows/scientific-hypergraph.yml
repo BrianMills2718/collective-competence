@@ -37,6 +37,13 @@ on:
       - 'scripts/smoke_gauge_equivalence.mjs'
       - 'scripts/smoke_stochastic_pde.mjs'
       - 'scripts/smoke_first_class_role_binding.mjs'
+      - 'scripts/build_scientific_hypergraph_v2.py'
+      - 'scripts/check_scientific_hypergraph_v2_build.py'
+      - 'scripts/validate_scientific_hypergraph_v2.py'
+      - 'scripts/validate_scientific_hypergraph_v2_suite.py'
+      - 'scripts/query_scientific_hypergraph_v2.py'
+      - 'scripts/check_scientific_hypergraph_v2_queries.py'
+      - 'scripts/smoke_role_schema_view.mjs'
       - '.github/workflows/scientific-hypergraph.yml'
   push:
     branches:
@@ -75,6 +82,14 @@ on:
       - 'scripts/smoke_gauge_equivalence.mjs'
       - 'scripts/smoke_stochastic_pde.mjs'
       - 'scripts/smoke_first_class_role_binding.mjs'
+      - 'scripts/build_scientific_hypergraph_v2.py'
+      - 'scripts/check_scientific_hypergraph_v2_build.py'
+      - 'scripts/validate_scientific_hypergraph_v2.py'
+      - 'scripts/validate_scientific_hypergraph_v2_suite.py'
+      - 'scripts/query_scientific_hypergraph_v2.py'
+      - 'scripts/check_scientific_hypergraph_v2_queries.py'
+      - 'scripts/smoke_role_schema_view.mjs'
+      - 'wiki/reference/scientific-hypergraph-*.md'
       - '.github/workflows/scientific-hypergraph.yml'
 
 permissions:
@@ -137,6 +152,12 @@ jobs:
         run: python scripts/probe_graph_native_typing.py
       - name: Probe self-hosted semantic participant-type role schema
         run: python scripts/probe_semantic_role_schema.py
+      - name: Verify canonical v2 artifacts rebuild deterministically
+        run: python scripts/check_scientific_hypergraph_v2_build.py
+      - name: Validate canonical v2 import closures
+        run: python scripts/validate_scientific_hypergraph_v2_suite.py
+      - name: Check canonical v2 AI query interface
+        run: python scripts/check_scientific_hypergraph_v2_queries.py
       - name: Check normalized v2 incidence-table round trips
         run: python scripts/check_graph_native_v2_roundtrip.py
       - name: Measure graph-native normalization expansion
@@ -169,6 +190,8 @@ jobs:
         run: node scripts/smoke_stochastic_pde.mjs
       - name: Smoke-test first-class RoleBinding inspection
         run: node scripts/smoke_first_class_role_binding.mjs
+      - name: Smoke-test self-hosted role schema view
+        run: node scripts/smoke_role_schema_view.mjs
       - name: Upload viewer screenshot
         if: always()
         uses: actions/upload-artifact@v4

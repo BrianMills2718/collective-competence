@@ -1,0 +1,652 @@
+{
+  "model": "scientific-hypergraph-v2",
+  "imports": [
+    "hypergraph-kernel-v2",
+    "scientific-semantic-types-v2",
+    "scientific-role-schema-v2"
+  ],
+  "normalization": {
+    "sourceModel": "scientific-hypergraph-v1",
+    "algorithm": "graph-native-typing-v2",
+    "sourceArtifact": "gauge-equivalence-hypergraph-v1.json"
+  },
+  "elements": [
+    {
+      "id": "gauge:A",
+      "label": "vector potential A(x)",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:APrime",
+      "label": "vector potential A'(x)",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:B",
+      "label": "magnetic field B(x)",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:Class",
+      "label": "[A] modulo gradients",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:FieldExprA",
+      "label": "B = ∇×A",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:FieldExprAPrime",
+      "label": "B = ∇×A'",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:GaugeEquivalenceRelation",
+      "label": "Gauge Equivalence Relation",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:InvariantProposition",
+      "label": "B is invariant under A → A + ∇χ",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:Region",
+      "label": "spatial region Ω",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:Supported",
+      "label": "supported",
+      "layer": "evidence"
+    },
+    {
+      "id": "gauge:TransformExpr",
+      "label": "A' = A + ∇χ",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:chi",
+      "label": "gauge function χ(x)",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:curl",
+      "label": "curl ∇×",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:equivalenceClass",
+      "label": "equivalence class",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:grad",
+      "label": "gradient ∇",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:invariant",
+      "label": "invariant",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:representation",
+      "label": "representation",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:transformation",
+      "label": "transformation",
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:value:false",
+      "label": "false",
+      "value": false,
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:value:one",
+      "label": "1",
+      "value": 1,
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:value:true",
+      "label": "true",
+      "value": true,
+      "layer": "theory"
+    },
+    {
+      "id": "gauge:value:two",
+      "label": "2",
+      "value": 2,
+      "layer": "theory"
+    }
+  ],
+  "relations": [
+    {
+      "id": "decl:gauge:representation",
+      "layer": "theory",
+      "relationType": "sci:declaresRole"
+    },
+    {
+      "id": "decl:gauge:transformation",
+      "layer": "theory",
+      "relationType": "sci:declaresRole"
+    },
+    {
+      "id": "decl:gauge:invariant",
+      "layer": "theory",
+      "relationType": "sci:declaresRole"
+    },
+    {
+      "id": "decl:gauge:class",
+      "layer": "theory",
+      "relationType": "sci:declaresRole"
+    },
+    {
+      "id": "gauge:transform",
+      "layer": "study",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "gauge:field-from-A",
+      "layer": "study",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "gauge:field-from-APrime",
+      "layer": "study",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "gauge:equivalence",
+      "layer": "study",
+      "relationType": "gauge:GaugeEquivalenceRelation"
+    },
+    {
+      "id": "gauge:invariance-claim",
+      "layer": "evidence",
+      "relationType": "sci:ClaimRelation"
+    },
+    {
+      "id": "norm:instanceOf:gauge_GaugeEquivalenceRelation:sci_RelationType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:gauge_representation:sci_RoleType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:gauge_transformation:sci_RoleType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:gauge_invariant:sci_RoleType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:gauge_equivalenceClass:sci_RoleType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:gauge_value_one:sci_Value",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:gauge_value_two:sci_Value",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:gauge_value_false:sci_Value",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:gauge_value_true:sci_Value",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:gauge_grad:sci_Operator",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:gauge_curl:sci_Operator",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:gauge_TransformExpr:sci_Expression",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:gauge_FieldExprA:sci_Expression",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:gauge_FieldExprAPrime:sci_Expression",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:gauge_Supported:sci_Status",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    }
+  ],
+  "bindings": [
+    {
+      "relation": "decl:gauge:representation",
+      "role": "sci:declaredRelationType",
+      "participant": "gauge:GaugeEquivalenceRelation"
+    },
+    {
+      "relation": "decl:gauge:representation",
+      "role": "sci:declaredRoleType",
+      "participant": "gauge:representation"
+    },
+    {
+      "relation": "decl:gauge:representation",
+      "role": "sci:roleMinimum",
+      "participant": "gauge:value:two"
+    },
+    {
+      "relation": "decl:gauge:representation",
+      "role": "sci:roleMaximum",
+      "participant": "gauge:value:two"
+    },
+    {
+      "relation": "decl:gauge:representation",
+      "role": "sci:roleQualifiable",
+      "participant": "gauge:value:true"
+    },
+    {
+      "relation": "decl:gauge:transformation",
+      "role": "sci:declaredRelationType",
+      "participant": "gauge:GaugeEquivalenceRelation"
+    },
+    {
+      "relation": "decl:gauge:transformation",
+      "role": "sci:declaredRoleType",
+      "participant": "gauge:transformation"
+    },
+    {
+      "relation": "decl:gauge:transformation",
+      "role": "sci:roleMinimum",
+      "participant": "gauge:value:one"
+    },
+    {
+      "relation": "decl:gauge:transformation",
+      "role": "sci:roleMaximum",
+      "participant": "gauge:value:one"
+    },
+    {
+      "relation": "decl:gauge:transformation",
+      "role": "sci:roleQualifiable",
+      "participant": "gauge:value:false"
+    },
+    {
+      "relation": "decl:gauge:invariant",
+      "role": "sci:declaredRelationType",
+      "participant": "gauge:GaugeEquivalenceRelation"
+    },
+    {
+      "relation": "decl:gauge:invariant",
+      "role": "sci:declaredRoleType",
+      "participant": "gauge:invariant"
+    },
+    {
+      "relation": "decl:gauge:invariant",
+      "role": "sci:roleMinimum",
+      "participant": "gauge:value:one"
+    },
+    {
+      "relation": "decl:gauge:invariant",
+      "role": "sci:roleQualifiable",
+      "participant": "gauge:value:false"
+    },
+    {
+      "relation": "decl:gauge:class",
+      "role": "sci:declaredRelationType",
+      "participant": "gauge:GaugeEquivalenceRelation"
+    },
+    {
+      "relation": "decl:gauge:class",
+      "role": "sci:declaredRoleType",
+      "participant": "gauge:equivalenceClass"
+    },
+    {
+      "relation": "decl:gauge:class",
+      "role": "sci:roleMinimum",
+      "participant": "gauge:value:one"
+    },
+    {
+      "relation": "decl:gauge:class",
+      "role": "sci:roleMaximum",
+      "participant": "gauge:value:one"
+    },
+    {
+      "relation": "decl:gauge:class",
+      "role": "sci:roleQualifiable",
+      "participant": "gauge:value:false"
+    },
+    {
+      "relation": "gauge:transform",
+      "role": "sci:eqInput",
+      "participant": "gauge:A",
+      "qualifier": "potential"
+    },
+    {
+      "relation": "gauge:transform",
+      "role": "sci:eqInput",
+      "participant": "gauge:chi",
+      "qualifier": "gaugeFunction"
+    },
+    {
+      "relation": "gauge:transform",
+      "role": "sci:eqOutput",
+      "participant": "gauge:APrime"
+    },
+    {
+      "relation": "gauge:transform",
+      "role": "sci:eqExpression",
+      "participant": "gauge:TransformExpr"
+    },
+    {
+      "relation": "gauge:transform",
+      "role": "sci:eqOperator",
+      "participant": "gauge:grad"
+    },
+    {
+      "relation": "gauge:transform",
+      "role": "sci:eqDomain",
+      "participant": "gauge:Region"
+    },
+    {
+      "relation": "gauge:field-from-A",
+      "role": "sci:eqInput",
+      "participant": "gauge:A"
+    },
+    {
+      "relation": "gauge:field-from-A",
+      "role": "sci:eqOutput",
+      "participant": "gauge:B"
+    },
+    {
+      "relation": "gauge:field-from-A",
+      "role": "sci:eqExpression",
+      "participant": "gauge:FieldExprA"
+    },
+    {
+      "relation": "gauge:field-from-A",
+      "role": "sci:eqOperator",
+      "participant": "gauge:curl"
+    },
+    {
+      "relation": "gauge:field-from-A",
+      "role": "sci:eqDomain",
+      "participant": "gauge:Region"
+    },
+    {
+      "relation": "gauge:field-from-APrime",
+      "role": "sci:eqInput",
+      "participant": "gauge:APrime"
+    },
+    {
+      "relation": "gauge:field-from-APrime",
+      "role": "sci:eqOutput",
+      "participant": "gauge:B"
+    },
+    {
+      "relation": "gauge:field-from-APrime",
+      "role": "sci:eqExpression",
+      "participant": "gauge:FieldExprAPrime"
+    },
+    {
+      "relation": "gauge:field-from-APrime",
+      "role": "sci:eqOperator",
+      "participant": "gauge:curl"
+    },
+    {
+      "relation": "gauge:field-from-APrime",
+      "role": "sci:eqDomain",
+      "participant": "gauge:Region"
+    },
+    {
+      "relation": "gauge:equivalence",
+      "role": "gauge:representation",
+      "participant": "gauge:A",
+      "qualifier": "original"
+    },
+    {
+      "relation": "gauge:equivalence",
+      "role": "gauge:representation",
+      "participant": "gauge:APrime",
+      "qualifier": "transformed"
+    },
+    {
+      "relation": "gauge:equivalence",
+      "role": "gauge:transformation",
+      "participant": "gauge:transform"
+    },
+    {
+      "relation": "gauge:equivalence",
+      "role": "gauge:invariant",
+      "participant": "gauge:B"
+    },
+    {
+      "relation": "gauge:equivalence",
+      "role": "gauge:equivalenceClass",
+      "participant": "gauge:Class"
+    },
+    {
+      "relation": "gauge:invariance-claim",
+      "role": "sci:claimProposition",
+      "participant": "gauge:InvariantProposition"
+    },
+    {
+      "relation": "gauge:invariance-claim",
+      "role": "sci:claimEvidence",
+      "participant": "gauge:field-from-A"
+    },
+    {
+      "relation": "gauge:invariance-claim",
+      "role": "sci:claimEvidence",
+      "participant": "gauge:field-from-APrime"
+    },
+    {
+      "relation": "gauge:invariance-claim",
+      "role": "sci:claimEvidence",
+      "participant": "gauge:equivalence"
+    },
+    {
+      "relation": "gauge:invariance-claim",
+      "role": "sci:claimScope",
+      "participant": "gauge:Region"
+    },
+    {
+      "relation": "gauge:invariance-claim",
+      "role": "sci:claimStatus",
+      "participant": "gauge:Supported"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_GaugeEquivalenceRelation:sci_RelationType",
+      "role": "sci:instance",
+      "participant": "gauge:GaugeEquivalenceRelation"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_GaugeEquivalenceRelation:sci_RelationType",
+      "role": "sci:type",
+      "participant": "sci:RelationType"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_representation:sci_RoleType",
+      "role": "sci:instance",
+      "participant": "gauge:representation"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_representation:sci_RoleType",
+      "role": "sci:type",
+      "participant": "sci:RoleType"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_transformation:sci_RoleType",
+      "role": "sci:instance",
+      "participant": "gauge:transformation"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_transformation:sci_RoleType",
+      "role": "sci:type",
+      "participant": "sci:RoleType"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_invariant:sci_RoleType",
+      "role": "sci:instance",
+      "participant": "gauge:invariant"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_invariant:sci_RoleType",
+      "role": "sci:type",
+      "participant": "sci:RoleType"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_equivalenceClass:sci_RoleType",
+      "role": "sci:instance",
+      "participant": "gauge:equivalenceClass"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_equivalenceClass:sci_RoleType",
+      "role": "sci:type",
+      "participant": "sci:RoleType"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_value_one:sci_Value",
+      "role": "sci:instance",
+      "participant": "gauge:value:one"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_value_one:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_value_two:sci_Value",
+      "role": "sci:instance",
+      "participant": "gauge:value:two"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_value_two:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_value_false:sci_Value",
+      "role": "sci:instance",
+      "participant": "gauge:value:false"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_value_false:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_value_true:sci_Value",
+      "role": "sci:instance",
+      "participant": "gauge:value:true"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_value_true:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_grad:sci_Operator",
+      "role": "sci:instance",
+      "participant": "gauge:grad"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_grad:sci_Operator",
+      "role": "sci:type",
+      "participant": "sci:Operator"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_curl:sci_Operator",
+      "role": "sci:instance",
+      "participant": "gauge:curl"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_curl:sci_Operator",
+      "role": "sci:type",
+      "participant": "sci:Operator"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_TransformExpr:sci_Expression",
+      "role": "sci:instance",
+      "participant": "gauge:TransformExpr"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_TransformExpr:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_FieldExprA:sci_Expression",
+      "role": "sci:instance",
+      "participant": "gauge:FieldExprA"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_FieldExprA:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_FieldExprAPrime:sci_Expression",
+      "role": "sci:instance",
+      "participant": "gauge:FieldExprAPrime"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_FieldExprAPrime:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_Supported:sci_Status",
+      "role": "sci:instance",
+      "participant": "gauge:Supported"
+    },
+    {
+      "relation": "norm:instanceOf:gauge_Supported:sci_Status",
+      "role": "sci:type",
+      "participant": "sci:Status"
+    }
+  ]
+}

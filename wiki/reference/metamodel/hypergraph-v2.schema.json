@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:scientific-hypergraph:v2",
+  "title": "Scientific Hypergraph v2 AI IR",
+  "description": "Canonical AI-facing normalized incidence representation.",
+  "type": "object",
+  "required": [
+    "model",
+    "imports",
+    "elements",
+    "relations",
+    "bindings"
+  ],
+  "properties": {
+    "model": {
+      "const": "scientific-hypergraph-v2"
+    },
+    "imports": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "normalization": {
+      "type": "object",
+      "properties": {
+        "sourceModel": {
+          "type": "string"
+        },
+        "sourceArtifact": {
+          "type": "string"
+        },
+        "algorithm": {
+          "const": "graph-native-typing-v2"
+        }
+      },
+      "additionalProperties": true
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string"
+          },
+          "layer": {
+            "type": "string"
+          }
+        },
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "kind"
+              ]
+            },
+            {
+              "required": [
+                "type"
+              ]
+            }
+          ]
+        },
+        "additionalProperties": true
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "relationType"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "relationType": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string"
+          },
+          "layer": {
+            "type": "string"
+          }
+        },
+        "not": {
+          "required": [
+            "bindings"
+          ]
+        },
+        "additionalProperties": true
+      }
+    },
+    "bindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "relation",
+          "role",
+          "participant"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "relation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "participant": {
+            "type": "string",
+            "minLength": 1
+          },
+          "qualifier": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}

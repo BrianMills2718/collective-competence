@@ -1,0 +1,1029 @@
+{
+  "model": "scientific-hypergraph-v2",
+  "imports": [
+    "hypergraph-kernel-v2",
+    "scientific-semantic-types-v2",
+    "scientific-role-schema-v2"
+  ],
+  "normalization": {
+    "sourceModel": "scientific-hypergraph-v1",
+    "algorithm": "graph-native-typing-v2",
+    "sourceArtifact": "calibration-covariance-hypergraph-v1.json"
+  },
+  "elements": [
+    {
+      "id": "cal:CalibrationOffset",
+      "label": "Calibration Offset",
+      "layer": "theory"
+    },
+    {
+      "id": "cal:CalibrationSlope",
+      "label": "Calibration Slope",
+      "layer": "theory"
+    },
+    {
+      "id": "cal:CovarianceMatrix",
+      "label": "Covariance Matrix",
+      "layer": "theory"
+    },
+    {
+      "id": "cal:MultivariateGaussian",
+      "label": "Multivariate Gaussian",
+      "layer": "theory"
+    },
+    {
+      "id": "cal:ReferenceTemperatureSet",
+      "label": "Reference Temperature Set",
+      "layer": "theory"
+    },
+    {
+      "id": "cal:Temperature",
+      "label": "Temperature",
+      "layer": "theory"
+    },
+    {
+      "id": "cal:Thermocouple",
+      "label": "Thermocouple",
+      "layer": "theory"
+    },
+    {
+      "id": "cal:Voltage",
+      "label": "Voltage",
+      "layer": "theory"
+    },
+    {
+      "id": "meta:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel"
+    },
+    {
+      "id": "study:CalibrationDataset",
+      "label": "reference voltage-temperature pairs",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:CalibrationProcedure",
+      "label": "reference calibration procedure",
+      "layer": "study"
+    },
+    {
+      "id": "study:CoefficientCovariance",
+      "label": "cov(a,b)",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:LinearCalibrationFit",
+      "label": "joint linear calibration fit",
+      "layer": "study"
+    },
+    {
+      "id": "study:MeasurementExpression",
+      "label": "T = a V + b",
+      "layer": "study"
+    },
+    {
+      "id": "study:ReferenceBath",
+      "label": "reference bath",
+      "layer": "study"
+    },
+    {
+      "id": "study:ReferenceTemperatures",
+      "label": "reference temperatures",
+      "layer": "study"
+    },
+    {
+      "id": "study:Thermocouple1",
+      "label": "thermocouple #1",
+      "layer": "study"
+    },
+    {
+      "id": "study:UncertaintyPropagation",
+      "label": "covariance-aware uncertainty propagation",
+      "layer": "study"
+    },
+    {
+      "id": "study:UnknownSample",
+      "label": "unknown-temperature sample",
+      "layer": "study"
+    },
+    {
+      "id": "study:VoltageProcedure",
+      "label": "sample voltage measurement",
+      "layer": "study"
+    },
+    {
+      "id": "unit:K",
+      "label": "K",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:KpermV",
+      "label": "K/mV",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:mV",
+      "label": "mV",
+      "layer": "schema"
+    },
+    {
+      "id": "value:dTemperature",
+      "label": "+/-0.8",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:dVoltage",
+      "label": "+/-0.01",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:offset",
+      "label": "273.0",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:slope",
+      "label": "25.0",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:temperature",
+      "label": "303.0",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:voltage",
+      "label": "1.20",
+      "layer": "evidence"
+    }
+  ],
+  "relations": [
+    {
+      "id": "h:eq-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:dist-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:measurement-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:analysis-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:qvalue-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:instrument-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:reference-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:covariance-type",
+      "layer": "evidence",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:slope",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:offset",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:calibration-measurement",
+      "layer": "study",
+      "relationType": "sci:MeasurementRelation"
+    },
+    {
+      "id": "h:calibration-fit",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "h:coefficient-joint-law",
+      "layer": "evidence",
+      "relationType": "sci:DistributionRelation"
+    },
+    {
+      "id": "h:voltage",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:sample-measurement",
+      "layer": "study",
+      "relationType": "sci:MeasurementRelation"
+    },
+    {
+      "id": "h:temperature",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:measurement-model",
+      "layer": "study",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:uncertainty-propagation",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:cal_Temperature:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:cal_Voltage:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:cal_CalibrationSlope:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:cal_CalibrationOffset:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:cal_CovarianceMatrix:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:cal_MultivariateGaussian:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:cal_Thermocouple:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:cal_ReferenceTemperatureSet:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_Thermocouple1:sci_Instrument",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_CalibrationProcedure:sci_Procedure",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_LinearCalibrationFit:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_VoltageProcedure:sci_Procedure",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_MeasurementExpression:sci_Expression",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_UncertaintyPropagation:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_CalibrationDataset:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_CoefficientCovariance:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_slope:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_offset:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_voltage:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_dVoltage:sci_Uncertainty",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_temperature:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_dTemperature:sci_Uncertainty",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_K:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_mV:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_KpermV:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    }
+  ],
+  "bindings": [
+    {
+      "relation": "h:eq-type",
+      "role": "sci:instance",
+      "participant": "sci:EquationRelation"
+    },
+    {
+      "relation": "h:eq-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:dist-type",
+      "role": "sci:instance",
+      "participant": "sci:DistributionRelation"
+    },
+    {
+      "relation": "h:dist-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:measurement-type",
+      "role": "sci:instance",
+      "participant": "sci:MeasurementRelation"
+    },
+    {
+      "relation": "h:measurement-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:instance",
+      "participant": "sci:AnalysisRelation"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:instance",
+      "participant": "sci:QuantityValueRelation"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:instrument-type",
+      "role": "sci:instance",
+      "participant": "study:Thermocouple1"
+    },
+    {
+      "relation": "h:instrument-type",
+      "role": "sci:type",
+      "participant": "cal:Thermocouple"
+    },
+    {
+      "relation": "h:reference-type",
+      "role": "sci:instance",
+      "participant": "study:ReferenceTemperatures"
+    },
+    {
+      "relation": "h:reference-type",
+      "role": "sci:type",
+      "participant": "cal:ReferenceTemperatureSet"
+    },
+    {
+      "relation": "h:covariance-type",
+      "role": "sci:instance",
+      "participant": "study:CoefficientCovariance"
+    },
+    {
+      "relation": "h:covariance-type",
+      "role": "sci:type",
+      "participant": "cal:CovarianceMatrix"
+    },
+    {
+      "relation": "h:slope",
+      "role": "sci:quantityKind",
+      "participant": "cal:CalibrationSlope"
+    },
+    {
+      "relation": "h:slope",
+      "role": "sci:quantitySubject",
+      "participant": "study:Thermocouple1"
+    },
+    {
+      "relation": "h:slope",
+      "role": "sci:numericalValue",
+      "participant": "value:slope"
+    },
+    {
+      "relation": "h:slope",
+      "role": "sci:quantityUnit",
+      "participant": "unit:KpermV"
+    },
+    {
+      "relation": "h:offset",
+      "role": "sci:quantityKind",
+      "participant": "cal:CalibrationOffset"
+    },
+    {
+      "relation": "h:offset",
+      "role": "sci:quantitySubject",
+      "participant": "study:Thermocouple1"
+    },
+    {
+      "relation": "h:offset",
+      "role": "sci:numericalValue",
+      "participant": "value:offset"
+    },
+    {
+      "relation": "h:offset",
+      "role": "sci:quantityUnit",
+      "participant": "unit:K"
+    },
+    {
+      "relation": "h:calibration-measurement",
+      "role": "sci:measurementSubject",
+      "participant": "study:ReferenceBath"
+    },
+    {
+      "relation": "h:calibration-measurement",
+      "role": "sci:measurementMeasurand",
+      "participant": "cal:Voltage"
+    },
+    {
+      "relation": "h:calibration-measurement",
+      "role": "sci:measurementProcedure",
+      "participant": "study:CalibrationProcedure"
+    },
+    {
+      "relation": "h:calibration-measurement",
+      "role": "sci:measurementInstrument",
+      "participant": "study:Thermocouple1"
+    },
+    {
+      "relation": "h:calibration-measurement",
+      "role": "sci:measurementObservation",
+      "participant": "study:CalibrationDataset"
+    },
+    {
+      "relation": "h:calibration-measurement",
+      "role": "sci:measurementResult",
+      "participant": "study:CalibrationDataset"
+    },
+    {
+      "relation": "h:calibration-measurement",
+      "role": "sci:measurementContext",
+      "participant": "study:ReferenceTemperatures",
+      "qualifier": "referenceTemperatures"
+    },
+    {
+      "relation": "h:calibration-fit",
+      "role": "sci:analysisInput",
+      "participant": "study:CalibrationDataset",
+      "qualifier": "dataset"
+    },
+    {
+      "relation": "h:calibration-fit",
+      "role": "sci:analysisInput",
+      "participant": "study:ReferenceTemperatures",
+      "qualifier": "reference"
+    },
+    {
+      "relation": "h:calibration-fit",
+      "role": "sci:analysisMethod",
+      "participant": "study:LinearCalibrationFit"
+    },
+    {
+      "relation": "h:calibration-fit",
+      "role": "sci:analysisOutput",
+      "participant": "h:slope",
+      "qualifier": "slope"
+    },
+    {
+      "relation": "h:calibration-fit",
+      "role": "sci:analysisOutput",
+      "participant": "h:offset",
+      "qualifier": "offset"
+    },
+    {
+      "relation": "h:calibration-fit",
+      "role": "sci:analysisOutput",
+      "participant": "study:CoefficientCovariance",
+      "qualifier": "covariance"
+    },
+    {
+      "relation": "h:coefficient-joint-law",
+      "role": "sci:distributionRandomObject",
+      "participant": "h:slope",
+      "qualifier": "slope"
+    },
+    {
+      "relation": "h:coefficient-joint-law",
+      "role": "sci:distributionRandomObject",
+      "participant": "h:offset",
+      "qualifier": "offset"
+    },
+    {
+      "relation": "h:coefficient-joint-law",
+      "role": "sci:distributionFamily",
+      "participant": "cal:MultivariateGaussian"
+    },
+    {
+      "relation": "h:coefficient-joint-law",
+      "role": "sci:distributionParameter",
+      "participant": "study:CoefficientCovariance",
+      "qualifier": "covariance"
+    },
+    {
+      "relation": "h:coefficient-joint-law",
+      "role": "sci:distributionModel",
+      "participant": "h:calibration-fit"
+    },
+    {
+      "relation": "h:voltage",
+      "role": "sci:quantityKind",
+      "participant": "cal:Voltage"
+    },
+    {
+      "relation": "h:voltage",
+      "role": "sci:quantitySubject",
+      "participant": "study:UnknownSample"
+    },
+    {
+      "relation": "h:voltage",
+      "role": "sci:numericalValue",
+      "participant": "value:voltage"
+    },
+    {
+      "relation": "h:voltage",
+      "role": "sci:quantityUnit",
+      "participant": "unit:mV"
+    },
+    {
+      "relation": "h:voltage",
+      "role": "sci:quantityUncertainty",
+      "participant": "value:dVoltage"
+    },
+    {
+      "relation": "h:sample-measurement",
+      "role": "sci:measurementSubject",
+      "participant": "study:UnknownSample"
+    },
+    {
+      "relation": "h:sample-measurement",
+      "role": "sci:measurementMeasurand",
+      "participant": "cal:Voltage"
+    },
+    {
+      "relation": "h:sample-measurement",
+      "role": "sci:measurementProcedure",
+      "participant": "study:VoltageProcedure"
+    },
+    {
+      "relation": "h:sample-measurement",
+      "role": "sci:measurementInstrument",
+      "participant": "study:Thermocouple1"
+    },
+    {
+      "relation": "h:sample-measurement",
+      "role": "sci:measurementResult",
+      "participant": "h:voltage"
+    },
+    {
+      "relation": "h:sample-measurement",
+      "role": "sci:measurementUncertainty",
+      "participant": "value:dVoltage"
+    },
+    {
+      "relation": "h:temperature",
+      "role": "sci:quantityKind",
+      "participant": "cal:Temperature"
+    },
+    {
+      "relation": "h:temperature",
+      "role": "sci:quantitySubject",
+      "participant": "study:UnknownSample"
+    },
+    {
+      "relation": "h:temperature",
+      "role": "sci:numericalValue",
+      "participant": "value:temperature"
+    },
+    {
+      "relation": "h:temperature",
+      "role": "sci:quantityUnit",
+      "participant": "unit:K"
+    },
+    {
+      "relation": "h:temperature",
+      "role": "sci:quantityUncertainty",
+      "participant": "value:dTemperature"
+    },
+    {
+      "relation": "h:measurement-model",
+      "role": "sci:eqInput",
+      "participant": "h:voltage",
+      "qualifier": "voltage"
+    },
+    {
+      "relation": "h:measurement-model",
+      "role": "sci:eqParameter",
+      "participant": "h:slope",
+      "qualifier": "slope"
+    },
+    {
+      "relation": "h:measurement-model",
+      "role": "sci:eqParameter",
+      "participant": "h:offset",
+      "qualifier": "offset"
+    },
+    {
+      "relation": "h:measurement-model",
+      "role": "sci:eqOutput",
+      "participant": "h:temperature"
+    },
+    {
+      "relation": "h:measurement-model",
+      "role": "sci:eqExpression",
+      "participant": "study:MeasurementExpression"
+    },
+    {
+      "relation": "h:uncertainty-propagation",
+      "role": "sci:analysisInput",
+      "participant": "h:voltage",
+      "qualifier": "measurement"
+    },
+    {
+      "relation": "h:uncertainty-propagation",
+      "role": "sci:analysisInput",
+      "participant": "h:coefficient-joint-law",
+      "qualifier": "calibrationDistribution"
+    },
+    {
+      "relation": "h:uncertainty-propagation",
+      "role": "sci:analysisModel",
+      "participant": "h:measurement-model"
+    },
+    {
+      "relation": "h:uncertainty-propagation",
+      "role": "sci:analysisMethod",
+      "participant": "study:UncertaintyPropagation"
+    },
+    {
+      "relation": "h:uncertainty-propagation",
+      "role": "sci:analysisOutput",
+      "participant": "h:temperature"
+    },
+    {
+      "relation": "h:uncertainty-propagation",
+      "role": "sci:analysisUncertainty",
+      "participant": "value:dTemperature"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:cal_Temperature:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "cal:Temperature"
+    },
+    {
+      "relation": "norm:instanceOf:cal_Temperature:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:cal_Voltage:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "cal:Voltage"
+    },
+    {
+      "relation": "norm:instanceOf:cal_Voltage:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:cal_CalibrationSlope:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "cal:CalibrationSlope"
+    },
+    {
+      "relation": "norm:instanceOf:cal_CalibrationSlope:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:cal_CalibrationOffset:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "cal:CalibrationOffset"
+    },
+    {
+      "relation": "norm:instanceOf:cal_CalibrationOffset:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:cal_CovarianceMatrix:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "cal:CovarianceMatrix"
+    },
+    {
+      "relation": "norm:instanceOf:cal_CovarianceMatrix:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:cal_MultivariateGaussian:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "cal:MultivariateGaussian"
+    },
+    {
+      "relation": "norm:instanceOf:cal_MultivariateGaussian:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:cal_Thermocouple:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "cal:Thermocouple"
+    },
+    {
+      "relation": "norm:instanceOf:cal_Thermocouple:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:cal_ReferenceTemperatureSet:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "cal:ReferenceTemperatureSet"
+    },
+    {
+      "relation": "norm:instanceOf:cal_ReferenceTemperatureSet:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:study_Thermocouple1:sci_Instrument",
+      "role": "sci:instance",
+      "participant": "study:Thermocouple1"
+    },
+    {
+      "relation": "norm:instanceOf:study_Thermocouple1:sci_Instrument",
+      "role": "sci:type",
+      "participant": "sci:Instrument"
+    },
+    {
+      "relation": "norm:instanceOf:study_CalibrationProcedure:sci_Procedure",
+      "role": "sci:instance",
+      "participant": "study:CalibrationProcedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_CalibrationProcedure:sci_Procedure",
+      "role": "sci:type",
+      "participant": "sci:Procedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_LinearCalibrationFit:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:LinearCalibrationFit"
+    },
+    {
+      "relation": "norm:instanceOf:study_LinearCalibrationFit:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_VoltageProcedure:sci_Procedure",
+      "role": "sci:instance",
+      "participant": "study:VoltageProcedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_VoltageProcedure:sci_Procedure",
+      "role": "sci:type",
+      "participant": "sci:Procedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_MeasurementExpression:sci_Expression",
+      "role": "sci:instance",
+      "participant": "study:MeasurementExpression"
+    },
+    {
+      "relation": "norm:instanceOf:study_MeasurementExpression:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:study_UncertaintyPropagation:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:UncertaintyPropagation"
+    },
+    {
+      "relation": "norm:instanceOf:study_UncertaintyPropagation:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_CalibrationDataset:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:CalibrationDataset"
+    },
+    {
+      "relation": "norm:instanceOf:study_CalibrationDataset:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_CoefficientCovariance:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:CoefficientCovariance"
+    },
+    {
+      "relation": "norm:instanceOf:study_CoefficientCovariance:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:value_slope:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:slope"
+    },
+    {
+      "relation": "norm:instanceOf:value_slope:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_offset:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:offset"
+    },
+    {
+      "relation": "norm:instanceOf:value_offset:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_voltage:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:voltage"
+    },
+    {
+      "relation": "norm:instanceOf:value_voltage:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_dVoltage:sci_Uncertainty",
+      "role": "sci:instance",
+      "participant": "value:dVoltage"
+    },
+    {
+      "relation": "norm:instanceOf:value_dVoltage:sci_Uncertainty",
+      "role": "sci:type",
+      "participant": "sci:Uncertainty"
+    },
+    {
+      "relation": "norm:instanceOf:value_temperature:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:temperature"
+    },
+    {
+      "relation": "norm:instanceOf:value_temperature:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_dTemperature:sci_Uncertainty",
+      "role": "sci:instance",
+      "participant": "value:dTemperature"
+    },
+    {
+      "relation": "norm:instanceOf:value_dTemperature:sci_Uncertainty",
+      "role": "sci:type",
+      "participant": "sci:Uncertainty"
+    },
+    {
+      "relation": "norm:instanceOf:unit_K:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:K"
+    },
+    {
+      "relation": "norm:instanceOf:unit_K:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:unit_mV:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:mV"
+    },
+    {
+      "relation": "norm:instanceOf:unit_mV:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:unit_KpermV:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:KpermV"
+    },
+    {
+      "relation": "norm:instanceOf:unit_KpermV:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    }
+  ]
+}

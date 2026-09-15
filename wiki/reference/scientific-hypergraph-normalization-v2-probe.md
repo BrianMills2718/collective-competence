@@ -5,6 +5,9 @@ lifecycle: active
 ---
 # Scientific hypergraph v2 normalization probe
 
+> **Decision update (AI-first target):** the primary consumer is AI software, not a human authoring interface. The normalization experiments described here have now executed successfully across all current fixtures. The resulting explicit incidence representation is promoted to the canonical machine-facing `scientific-hypergraph-v2` IR. See [Scientific Hypergraph v2 — AI-facing semantic IR](scientific-hypergraph-v2-ai-ir.md). v1 remains migration/import compatibility.
+
+
 [Kernel](scientific-hypergraph-kernel.md) · [Adequacy review](scientific-hypergraph-adequacy-review.md) · [v1 typed roles](scientific-hypergraph-typed-role-v1.md)
 
 ## Purpose

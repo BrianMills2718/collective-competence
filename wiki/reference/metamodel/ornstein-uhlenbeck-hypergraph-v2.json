@@ -1,0 +1,1164 @@
+{
+  "model": "scientific-hypergraph-v2",
+  "imports": [
+    "hypergraph-kernel-v2",
+    "scientific-semantic-types-v2",
+    "scientific-role-schema-v2"
+  ],
+  "normalization": {
+    "sourceModel": "scientific-hypergraph-v1",
+    "algorithm": "graph-native-typing-v2",
+    "sourceArtifact": "ornstein-uhlenbeck-hypergraph-v1.json"
+  },
+  "elements": [
+    {
+      "id": "meta:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel"
+    },
+    {
+      "id": "sto:DiffusionScale",
+      "label": "Diffusion Scale",
+      "layer": "theory"
+    },
+    {
+      "id": "sto:GaussianDistribution",
+      "label": "Gaussian Distribution",
+      "layer": "theory"
+    },
+    {
+      "id": "sto:LongRunMean",
+      "label": "Long-Run Mean",
+      "layer": "theory"
+    },
+    {
+      "id": "sto:MeanReversionRate",
+      "label": "Mean Reversion Rate",
+      "layer": "theory"
+    },
+    {
+      "id": "sto:OrnsteinUhlenbeckProcess",
+      "label": "Ornstein-Uhlenbeck Process",
+      "layer": "theory"
+    },
+    {
+      "id": "sto:SamplePath",
+      "label": "Sample Path",
+      "layer": "theory"
+    },
+    {
+      "id": "sto:StateVariable",
+      "label": "Stochastic State Variable",
+      "layer": "theory"
+    },
+    {
+      "id": "sto:Time",
+      "label": "Time",
+      "layer": "theory"
+    },
+    {
+      "id": "sto:WienerProcess",
+      "label": "Wiener Process",
+      "layer": "theory"
+    },
+    {
+      "id": "study:EulerMaruyama",
+      "label": "Euler-Maruyama simulator",
+      "layer": "study"
+    },
+    {
+      "id": "study:LikelihoodFit",
+      "label": "OU likelihood fit",
+      "layer": "study"
+    },
+    {
+      "id": "study:OU1",
+      "label": "OU specimen",
+      "layer": "study"
+    },
+    {
+      "id": "study:ObservationProcedure",
+      "label": "regular-time sampling",
+      "layer": "study"
+    },
+    {
+      "id": "study:ObservedPath",
+      "label": "observed sample path",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:Observer",
+      "label": "state logger",
+      "layer": "study"
+    },
+    {
+      "id": "study:SDEExpression",
+      "label": "dX = theta(mu-X)dt + sigma dW",
+      "layer": "study"
+    },
+    {
+      "id": "study:SimulatedPath",
+      "label": "simulated sample path",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:State",
+      "label": "X(t)",
+      "layer": "study"
+    },
+    {
+      "id": "study:StationaryVariance",
+      "label": "sigma^2 / (2 theta)",
+      "layer": "study"
+    },
+    {
+      "id": "study:Time",
+      "label": "time",
+      "layer": "study"
+    },
+    {
+      "id": "study:WienerDriver",
+      "label": "W(t)",
+      "layer": "study"
+    },
+    {
+      "id": "unit:s-1",
+      "label": "s^-1",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:state",
+      "label": "state unit",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:stateSqrtS",
+      "label": "state/sqrt(s)",
+      "layer": "schema"
+    },
+    {
+      "id": "value:dTheta",
+      "label": "+/-0.05",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:dt",
+      "label": "dt",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:mu",
+      "label": "1.20",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:sigma",
+      "label": "0.40",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:theta",
+      "label": "0.70",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:thetaFit",
+      "label": "0.72",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:x0",
+      "label": "0.30",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:zero",
+      "label": "0",
+      "layer": "evidence"
+    }
+  ],
+  "relations": [
+    {
+      "id": "h:eq-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:dist-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:measurement-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:analysis-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:qvalue-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:ou-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:time-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:state-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:driver-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:sim-path-type",
+      "layer": "evidence",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:obs-path-type",
+      "layer": "evidence",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:theta",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:mu",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:sigma",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:x0",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:wiener-increment-law",
+      "layer": "theory",
+      "relationType": "sci:DistributionRelation"
+    },
+    {
+      "id": "h:sde",
+      "layer": "study",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:stationary-law",
+      "layer": "theory",
+      "relationType": "sci:DistributionRelation"
+    },
+    {
+      "id": "h:simulate",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "h:measurement",
+      "layer": "study",
+      "relationType": "sci:MeasurementRelation"
+    },
+    {
+      "id": "h:theta-fit-value",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:fit",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:sto_OrnsteinUhlenbeckProcess:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:sto_StateVariable:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:sto_MeanReversionRate:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:sto_LongRunMean:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:sto_DiffusionScale:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:sto_WienerProcess:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:sto_GaussianDistribution:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:sto_SamplePath:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:sto_Time:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_SDEExpression:sci_Expression",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_StationaryVariance:sci_Expression",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_EulerMaruyama:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_LikelihoodFit:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_Observer:sci_Instrument",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ObservationProcedure:sci_Procedure",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_SimulatedPath:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ObservedPath:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_theta:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_mu:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_sigma:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_x0:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_zero:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_dt:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_thetaFit:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_dTheta:sci_Uncertainty",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_s-1:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_state:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_stateSqrtS:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    }
+  ],
+  "bindings": [
+    {
+      "relation": "h:eq-type",
+      "role": "sci:instance",
+      "participant": "sci:EquationRelation"
+    },
+    {
+      "relation": "h:eq-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:dist-type",
+      "role": "sci:instance",
+      "participant": "sci:DistributionRelation"
+    },
+    {
+      "relation": "h:dist-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:measurement-type",
+      "role": "sci:instance",
+      "participant": "sci:MeasurementRelation"
+    },
+    {
+      "relation": "h:measurement-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:instance",
+      "participant": "sci:AnalysisRelation"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:instance",
+      "participant": "sci:QuantityValueRelation"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:ou-type",
+      "role": "sci:instance",
+      "participant": "study:OU1"
+    },
+    {
+      "relation": "h:ou-type",
+      "role": "sci:type",
+      "participant": "sto:OrnsteinUhlenbeckProcess"
+    },
+    {
+      "relation": "h:time-type",
+      "role": "sci:instance",
+      "participant": "study:Time"
+    },
+    {
+      "relation": "h:time-type",
+      "role": "sci:type",
+      "participant": "sto:Time"
+    },
+    {
+      "relation": "h:state-type",
+      "role": "sci:instance",
+      "participant": "study:State"
+    },
+    {
+      "relation": "h:state-type",
+      "role": "sci:type",
+      "participant": "sto:StateVariable"
+    },
+    {
+      "relation": "h:driver-type",
+      "role": "sci:instance",
+      "participant": "study:WienerDriver"
+    },
+    {
+      "relation": "h:driver-type",
+      "role": "sci:type",
+      "participant": "sto:WienerProcess"
+    },
+    {
+      "relation": "h:sim-path-type",
+      "role": "sci:instance",
+      "participant": "study:SimulatedPath"
+    },
+    {
+      "relation": "h:sim-path-type",
+      "role": "sci:type",
+      "participant": "sto:SamplePath"
+    },
+    {
+      "relation": "h:obs-path-type",
+      "role": "sci:instance",
+      "participant": "study:ObservedPath"
+    },
+    {
+      "relation": "h:obs-path-type",
+      "role": "sci:type",
+      "participant": "sto:SamplePath"
+    },
+    {
+      "relation": "h:theta",
+      "role": "sci:quantityKind",
+      "participant": "sto:MeanReversionRate"
+    },
+    {
+      "relation": "h:theta",
+      "role": "sci:quantitySubject",
+      "participant": "study:OU1"
+    },
+    {
+      "relation": "h:theta",
+      "role": "sci:numericalValue",
+      "participant": "value:theta"
+    },
+    {
+      "relation": "h:theta",
+      "role": "sci:quantityUnit",
+      "participant": "unit:s-1"
+    },
+    {
+      "relation": "h:mu",
+      "role": "sci:quantityKind",
+      "participant": "sto:LongRunMean"
+    },
+    {
+      "relation": "h:mu",
+      "role": "sci:quantitySubject",
+      "participant": "study:OU1"
+    },
+    {
+      "relation": "h:mu",
+      "role": "sci:numericalValue",
+      "participant": "value:mu"
+    },
+    {
+      "relation": "h:mu",
+      "role": "sci:quantityUnit",
+      "participant": "unit:state"
+    },
+    {
+      "relation": "h:sigma",
+      "role": "sci:quantityKind",
+      "participant": "sto:DiffusionScale"
+    },
+    {
+      "relation": "h:sigma",
+      "role": "sci:quantitySubject",
+      "participant": "study:OU1"
+    },
+    {
+      "relation": "h:sigma",
+      "role": "sci:numericalValue",
+      "participant": "value:sigma"
+    },
+    {
+      "relation": "h:sigma",
+      "role": "sci:quantityUnit",
+      "participant": "unit:stateSqrtS"
+    },
+    {
+      "relation": "h:x0",
+      "role": "sci:quantityKind",
+      "participant": "sto:StateVariable"
+    },
+    {
+      "relation": "h:x0",
+      "role": "sci:quantitySubject",
+      "participant": "study:OU1"
+    },
+    {
+      "relation": "h:x0",
+      "role": "sci:numericalValue",
+      "participant": "value:x0"
+    },
+    {
+      "relation": "h:x0",
+      "role": "sci:quantityUnit",
+      "participant": "unit:state"
+    },
+    {
+      "relation": "h:wiener-increment-law",
+      "role": "sci:distributionRandomObject",
+      "participant": "study:WienerDriver"
+    },
+    {
+      "relation": "h:wiener-increment-law",
+      "role": "sci:distributionFamily",
+      "participant": "sto:GaussianDistribution"
+    },
+    {
+      "relation": "h:wiener-increment-law",
+      "role": "sci:distributionParameter",
+      "participant": "value:zero",
+      "qualifier": "mean"
+    },
+    {
+      "relation": "h:wiener-increment-law",
+      "role": "sci:distributionParameter",
+      "participant": "value:dt",
+      "qualifier": "variance"
+    },
+    {
+      "relation": "h:wiener-increment-law",
+      "role": "sci:distributionContext",
+      "participant": "study:Time"
+    },
+    {
+      "relation": "h:sde",
+      "role": "sci:eqInput",
+      "participant": "study:State",
+      "qualifier": "state"
+    },
+    {
+      "relation": "h:sde",
+      "role": "sci:eqParameter",
+      "participant": "h:theta",
+      "qualifier": "theta"
+    },
+    {
+      "relation": "h:sde",
+      "role": "sci:eqParameter",
+      "participant": "h:mu",
+      "qualifier": "mu"
+    },
+    {
+      "relation": "h:sde",
+      "role": "sci:eqParameter",
+      "participant": "h:sigma",
+      "qualifier": "sigma"
+    },
+    {
+      "relation": "h:sde",
+      "role": "sci:eqDriver",
+      "participant": "study:WienerDriver"
+    },
+    {
+      "relation": "h:sde",
+      "role": "sci:eqOutput",
+      "participant": "study:State"
+    },
+    {
+      "relation": "h:sde",
+      "role": "sci:eqExpression",
+      "participant": "study:SDEExpression"
+    },
+    {
+      "relation": "h:sde",
+      "role": "sci:eqIndependentVariable",
+      "participant": "study:Time"
+    },
+    {
+      "relation": "h:sde",
+      "role": "sci:eqInitialCondition",
+      "participant": "h:x0"
+    },
+    {
+      "relation": "h:stationary-law",
+      "role": "sci:distributionRandomObject",
+      "participant": "study:State"
+    },
+    {
+      "relation": "h:stationary-law",
+      "role": "sci:distributionFamily",
+      "participant": "sto:GaussianDistribution"
+    },
+    {
+      "relation": "h:stationary-law",
+      "role": "sci:distributionParameter",
+      "participant": "h:mu",
+      "qualifier": "mean"
+    },
+    {
+      "relation": "h:stationary-law",
+      "role": "sci:distributionParameter",
+      "participant": "study:StationaryVariance",
+      "qualifier": "variance"
+    },
+    {
+      "relation": "h:stationary-law",
+      "role": "sci:distributionModel",
+      "participant": "h:sde"
+    },
+    {
+      "relation": "h:simulate",
+      "role": "sci:analysisModel",
+      "participant": "h:sde"
+    },
+    {
+      "relation": "h:simulate",
+      "role": "sci:analysisMethod",
+      "participant": "study:EulerMaruyama"
+    },
+    {
+      "relation": "h:simulate",
+      "role": "sci:analysisInput",
+      "participant": "h:x0",
+      "qualifier": "initial"
+    },
+    {
+      "relation": "h:simulate",
+      "role": "sci:analysisContext",
+      "participant": "h:wiener-increment-law",
+      "qualifier": "noiseLaw"
+    },
+    {
+      "relation": "h:simulate",
+      "role": "sci:analysisOutput",
+      "participant": "study:SimulatedPath"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementSubject",
+      "participant": "study:OU1"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementMeasurand",
+      "participant": "study:State"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementProcedure",
+      "participant": "study:ObservationProcedure"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementInstrument",
+      "participant": "study:Observer"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementObservation",
+      "participant": "study:ObservedPath"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementResult",
+      "participant": "study:ObservedPath"
+    },
+    {
+      "relation": "h:theta-fit-value",
+      "role": "sci:quantityKind",
+      "participant": "sto:MeanReversionRate"
+    },
+    {
+      "relation": "h:theta-fit-value",
+      "role": "sci:quantitySubject",
+      "participant": "study:OU1"
+    },
+    {
+      "relation": "h:theta-fit-value",
+      "role": "sci:numericalValue",
+      "participant": "value:thetaFit"
+    },
+    {
+      "relation": "h:theta-fit-value",
+      "role": "sci:quantityUnit",
+      "participant": "unit:s-1"
+    },
+    {
+      "relation": "h:theta-fit-value",
+      "role": "sci:quantityUncertainty",
+      "participant": "value:dTheta"
+    },
+    {
+      "relation": "h:fit",
+      "role": "sci:analysisInput",
+      "participant": "study:ObservedPath"
+    },
+    {
+      "relation": "h:fit",
+      "role": "sci:analysisModel",
+      "participant": "h:sde"
+    },
+    {
+      "relation": "h:fit",
+      "role": "sci:analysisMethod",
+      "participant": "study:LikelihoodFit"
+    },
+    {
+      "relation": "h:fit",
+      "role": "sci:analysisAssumption",
+      "participant": "h:stationary-law",
+      "qualifier": "transitionLaw"
+    },
+    {
+      "relation": "h:fit",
+      "role": "sci:analysisOutput",
+      "participant": "h:theta-fit-value"
+    },
+    {
+      "relation": "h:fit",
+      "role": "sci:analysisUncertainty",
+      "participant": "value:dTheta"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:sto_OrnsteinUhlenbeckProcess:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "sto:OrnsteinUhlenbeckProcess"
+    },
+    {
+      "relation": "norm:instanceOf:sto_OrnsteinUhlenbeckProcess:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:sto_StateVariable:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "sto:StateVariable"
+    },
+    {
+      "relation": "norm:instanceOf:sto_StateVariable:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:sto_MeanReversionRate:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "sto:MeanReversionRate"
+    },
+    {
+      "relation": "norm:instanceOf:sto_MeanReversionRate:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:sto_LongRunMean:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "sto:LongRunMean"
+    },
+    {
+      "relation": "norm:instanceOf:sto_LongRunMean:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:sto_DiffusionScale:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "sto:DiffusionScale"
+    },
+    {
+      "relation": "norm:instanceOf:sto_DiffusionScale:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:sto_WienerProcess:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "sto:WienerProcess"
+    },
+    {
+      "relation": "norm:instanceOf:sto_WienerProcess:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:sto_GaussianDistribution:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "sto:GaussianDistribution"
+    },
+    {
+      "relation": "norm:instanceOf:sto_GaussianDistribution:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:sto_SamplePath:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "sto:SamplePath"
+    },
+    {
+      "relation": "norm:instanceOf:sto_SamplePath:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:sto_Time:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "sto:Time"
+    },
+    {
+      "relation": "norm:instanceOf:sto_Time:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:study_SDEExpression:sci_Expression",
+      "role": "sci:instance",
+      "participant": "study:SDEExpression"
+    },
+    {
+      "relation": "norm:instanceOf:study_SDEExpression:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:study_StationaryVariance:sci_Expression",
+      "role": "sci:instance",
+      "participant": "study:StationaryVariance"
+    },
+    {
+      "relation": "norm:instanceOf:study_StationaryVariance:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:study_EulerMaruyama:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:EulerMaruyama"
+    },
+    {
+      "relation": "norm:instanceOf:study_EulerMaruyama:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_LikelihoodFit:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:LikelihoodFit"
+    },
+    {
+      "relation": "norm:instanceOf:study_LikelihoodFit:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_Observer:sci_Instrument",
+      "role": "sci:instance",
+      "participant": "study:Observer"
+    },
+    {
+      "relation": "norm:instanceOf:study_Observer:sci_Instrument",
+      "role": "sci:type",
+      "participant": "sci:Instrument"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObservationProcedure:sci_Procedure",
+      "role": "sci:instance",
+      "participant": "study:ObservationProcedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObservationProcedure:sci_Procedure",
+      "role": "sci:type",
+      "participant": "sci:Procedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_SimulatedPath:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:SimulatedPath"
+    },
+    {
+      "relation": "norm:instanceOf:study_SimulatedPath:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObservedPath:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:ObservedPath"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObservedPath:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:value_theta:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:theta"
+    },
+    {
+      "relation": "norm:instanceOf:value_theta:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_mu:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:mu"
+    },
+    {
+      "relation": "norm:instanceOf:value_mu:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_sigma:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:sigma"
+    },
+    {
+      "relation": "norm:instanceOf:value_sigma:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_x0:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:x0"
+    },
+    {
+      "relation": "norm:instanceOf:value_x0:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_zero:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:zero"
+    },
+    {
+      "relation": "norm:instanceOf:value_zero:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_dt:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:dt"
+    },
+    {
+      "relation": "norm:instanceOf:value_dt:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_thetaFit:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:thetaFit"
+    },
+    {
+      "relation": "norm:instanceOf:value_thetaFit:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_dTheta:sci_Uncertainty",
+      "role": "sci:instance",
+      "participant": "value:dTheta"
+    },
+    {
+      "relation": "norm:instanceOf:value_dTheta:sci_Uncertainty",
+      "role": "sci:type",
+      "participant": "sci:Uncertainty"
+    },
+    {
+      "relation": "norm:instanceOf:unit_s-1:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:s-1"
+    },
+    {
+      "relation": "norm:instanceOf:unit_s-1:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:unit_state:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:state"
+    },
+    {
+      "relation": "norm:instanceOf:unit_state:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:unit_stateSqrtS:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:stateSqrtS"
+    },
+    {
+      "relation": "norm:instanceOf:unit_stateSqrtS:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "model": "scientific-hypergraph-v2",
+  "authority": "scientific-hypergraph-carrier-v2",
+  "imports": [],
+  "bootstrap": {
+    "relationTypes": {
+      "sci:instanceOf": {
+        "roles": {
+          "sci:instance": {
+            "min": 1,
+            "max": 1
+          },
+          "sci:type": {
+            "min": 1,
+            "max": 1
+          }
+        }
+      },
+      "sci:specializes": {
+        "roles": {
+          "sci:subtype": {
+            "min": 1,
+            "max": 1
+          },
+          "sci:supertype": {
+            "min": 1,
+            "max": 1
+          }
+        }
+      },
+      "sci:declaresRole": {
+        "roles": {
+          "sci:declaredRelationType": {
+            "min": 1,
+            "max": 1
+          },
+          "sci:declaredRoleType": {
+            "min": 1,
+            "max": 1
+          },
+          "sci:roleMinimum": {
+            "min": 1,
+            "max": 1
+          },
+          "sci:roleMaximum": {
+            "min": 0,
+            "max": 1
+          },
+          "sci:roleQualifiable": {
+            "min": 1,
+            "max": 1
+          },
+          "sci:roleParticipantType": {
+            "min": 0,
+            "max": null
+          }
+        }
+      }
+    }
+  },
+  "elements": [
+    {
+      "id": "sci:ModelElement",
+      "label": "Model Element",
+      "layer": "metamodel"
+    },
+    {
+      "id": "sci:instanceOf",
+      "label": "instance of",
+      "layer": "metamodel"
+    },
+    {
+      "id": "sci:specializes",
+      "label": "specializes",
+      "layer": "metamodel"
+    },
+    {
+      "id": "sci:declaresRole",
+      "label": "declares role",
+      "layer": "metamodel"
+    },
+    {
+      "id": "sci:instance",
+      "label": "instance",
+      "layer": "metamodel"
+    },
+    {
+      "id": "sci:type",
+      "label": "type",
+      "layer": "metamodel"
+    },
+    {
+      "id": "sci:subtype",
+      "label": "subtype",
+      "layer": "metamodel"
+    },
+    {
+      "id": "sci:supertype",
+      "label": "supertype",
+      "layer": "metamodel"
+    },
+    {
+      "id": "sci:declaredRelationType",
+      "label": "declared relation type",
+      "layer": "metamodel"
+    },
+    {
+      "id": "sci:declaredRoleType",
+      "label": "declared role type",
+      "layer": "metamodel"
+    },
+    {
+      "id": "sci:roleMinimum",
+      "label": "minimum cardinality",
+      "layer": "metamodel"
+    },
+    {
+      "id": "sci:roleMaximum",
+      "label": "maximum cardinality",
+      "layer": "metamodel"
+    },
+    {
+      "id": "sci:roleQualifiable",
+      "label": "qualifiable",
+      "layer": "metamodel"
+    },
+    {
+      "id": "sci:roleParticipantType",
+      "label": "participant type",
+      "layer": "metamodel"
+    }
+  ],
+  "relations": [],
+  "bindings": []
+}

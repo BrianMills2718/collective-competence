@@ -1,0 +1,497 @@
+{
+  "model": "scientific-hypergraph-v2",
+  "imports": [
+    "hypergraph-kernel-v2"
+  ],
+  "normalization": {
+    "sourceModel": "scientific-hypergraph-v1",
+    "algorithm": "graph-native-typing-v2"
+  },
+  "elements": [
+    {
+      "id": "sci:Assumption",
+      "label": "Assumption",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Condition",
+      "label": "Condition",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Constraint",
+      "label": "Constraint",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:DataArtifact",
+      "label": "Data Artifact",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:ElementType",
+      "label": "Element Type",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Expression",
+      "label": "Expression",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Instrument",
+      "label": "Instrument",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Intervention",
+      "label": "Intervention",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Method",
+      "label": "Method",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Model",
+      "label": "Model",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Observation",
+      "label": "Observation",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Operator",
+      "label": "Operator",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Policy",
+      "label": "Policy",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Procedure",
+      "label": "Procedure",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Regime",
+      "label": "Regime",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:RelationInstance",
+      "label": "Relation Instance",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:RelationType",
+      "label": "Relation Type",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:RoleBinding",
+      "label": "Role Binding",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:RoleType",
+      "label": "Role Type",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Status",
+      "label": "Status",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Target",
+      "label": "Target",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Uncertainty",
+      "label": "Uncertainty",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Unit",
+      "label": "Unit",
+      "layer": "schema"
+    },
+    {
+      "id": "sci:Value",
+      "label": "Value",
+      "layer": "schema"
+    }
+  ],
+  "relations": [
+    {
+      "id": "sem:element-type",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:relation-type",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:role-type",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:relation-instance",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:role-binding",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:expression",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:constraint",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:value",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:uncertainty",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:data",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:instrument",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:method",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:operator",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:procedure",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:status",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:unit",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:assumption",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:regime",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:condition",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:intervention",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:observation",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:model",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:policy",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    },
+    {
+      "id": "sem:target",
+      "layer": "schema",
+      "relationType": "sci:specializes"
+    }
+  ],
+  "bindings": [
+    {
+      "relation": "sem:element-type",
+      "role": "sci:subtype",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "sem:element-type",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:relation-type",
+      "role": "sci:subtype",
+      "participant": "sci:RelationType"
+    },
+    {
+      "relation": "sem:relation-type",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:role-type",
+      "role": "sci:subtype",
+      "participant": "sci:RoleType"
+    },
+    {
+      "relation": "sem:role-type",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:relation-instance",
+      "role": "sci:subtype",
+      "participant": "sci:RelationInstance"
+    },
+    {
+      "relation": "sem:relation-instance",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:role-binding",
+      "role": "sci:subtype",
+      "participant": "sci:RoleBinding"
+    },
+    {
+      "relation": "sem:role-binding",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:expression",
+      "role": "sci:subtype",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "sem:expression",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:constraint",
+      "role": "sci:subtype",
+      "participant": "sci:Constraint"
+    },
+    {
+      "relation": "sem:constraint",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:value",
+      "role": "sci:subtype",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "sem:value",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:uncertainty",
+      "role": "sci:subtype",
+      "participant": "sci:Uncertainty"
+    },
+    {
+      "relation": "sem:uncertainty",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:data",
+      "role": "sci:subtype",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "sem:data",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:instrument",
+      "role": "sci:subtype",
+      "participant": "sci:Instrument"
+    },
+    {
+      "relation": "sem:instrument",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:method",
+      "role": "sci:subtype",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "sem:method",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:operator",
+      "role": "sci:subtype",
+      "participant": "sci:Operator"
+    },
+    {
+      "relation": "sem:operator",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:procedure",
+      "role": "sci:subtype",
+      "participant": "sci:Procedure"
+    },
+    {
+      "relation": "sem:procedure",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:status",
+      "role": "sci:subtype",
+      "participant": "sci:Status"
+    },
+    {
+      "relation": "sem:status",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:unit",
+      "role": "sci:subtype",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "sem:unit",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:assumption",
+      "role": "sci:subtype",
+      "participant": "sci:Assumption"
+    },
+    {
+      "relation": "sem:assumption",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:regime",
+      "role": "sci:subtype",
+      "participant": "sci:Regime"
+    },
+    {
+      "relation": "sem:regime",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:condition",
+      "role": "sci:subtype",
+      "participant": "sci:Condition"
+    },
+    {
+      "relation": "sem:condition",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:intervention",
+      "role": "sci:subtype",
+      "participant": "sci:Intervention"
+    },
+    {
+      "relation": "sem:intervention",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:observation",
+      "role": "sci:subtype",
+      "participant": "sci:Observation"
+    },
+    {
+      "relation": "sem:observation",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:model",
+      "role": "sci:subtype",
+      "participant": "sci:Model"
+    },
+    {
+      "relation": "sem:model",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:policy",
+      "role": "sci:subtype",
+      "participant": "sci:Policy"
+    },
+    {
+      "relation": "sem:policy",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    },
+    {
+      "relation": "sem:target",
+      "role": "sci:subtype",
+      "participant": "sci:Target"
+    },
+    {
+      "relation": "sem:target",
+      "role": "sci:supertype",
+      "participant": "sci:ModelElement"
+    }
+  ],
+  "authority": "scientific-semantic-type-profile-v2"
+}

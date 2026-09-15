@@ -5,12 +5,15 @@ HV.projectionSeed = mode => {
   const nodes=new Set(),edges=new Set(),allN=HV.state.data.nodes,allE=HV.state.data.hyperedges,eids=new Set(allE.map(e=>e.id));
   if(mode==='all'){
     const layer=HV.els.layer.value,type=HV.els.relationType.value;
-    if(layer==='all'&&type==='all'){allN.filter(n=>!n.importedForNormalization).forEach(n=>nodes.add(n.id));allE.filter(e=>!HV.isTypingEdge?.(e)).forEach(e=>edges.add(e.id));return{nodes,edges};}
-    if(type==='all')allN.filter(n=>!n.importedForNormalization&&(layer==='all'||n.layer===layer)).forEach(n=>nodes.add(n.id));
-    allE.filter(e=>(layer==='all'||e.layer===layer)&&(type==='all'? !HV.isTypingEdge?.(e):e.type===type)).forEach(e=>edges.add(e.id));
-    return{nodes,edges};
+    if(layer==='all'&&type==='all'){
+      allN.filter(n=>!n.importedForNormalization).forEach(n=>nodes.add(n.id));
+      allE.filter(e=>!HV.isTypingEdge?.(e)).forEach(e=>edges.add(e.id));
+    }else{
+      if(type==='all')allN.filter(n=>!n.importedForNormalization&&(layer==='all'||n.layer===layer)).forEach(n=>nodes.add(n.id));
+      allE.filter(e=>(layer==='all'||e.layer===layer)&&(type==='all'?!HV.isTypingEdge?.(e):e.type===type)).forEach(e=>edges.add(e.id));
+    }
   }
-  if(mode==='theory'){
+  else if(mode==='theory'){
     const theory=new Set(allN.filter(n=>n.layer==='theory').map(n=>n.id));theory.forEach(id=>nodes.add(id));
     for(const e of allE)if(!HV.isTypingEdge?.(e)&&(HV.canonicalRelationType(e.type)==='sci:EquationRelation'||e.layer==='theory'||Object.values(e.roles||{}).some(p=>theory.has(p))))edges.add(e.id);
   }else if(mode==='evidence'){

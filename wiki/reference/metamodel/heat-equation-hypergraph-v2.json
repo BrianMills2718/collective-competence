@@ -1,0 +1,1061 @@
+{
+  "model": "scientific-hypergraph-v2",
+  "imports": [
+    "hypergraph-kernel-v2",
+    "scientific-semantic-types-v2",
+    "scientific-role-schema-v2"
+  ],
+  "normalization": {
+    "sourceModel": "scientific-hypergraph-v1",
+    "algorithm": "graph-native-typing-v2",
+    "sourceArtifact": "heat-equation-hypergraph-v1.json"
+  },
+  "elements": [
+    {
+      "id": "heat:BoundaryCondition",
+      "label": "Boundary Condition",
+      "layer": "theory"
+    },
+    {
+      "id": "heat:FieldTrajectory",
+      "label": "Field Trajectory",
+      "layer": "theory"
+    },
+    {
+      "id": "heat:HeatEquation",
+      "label": "Heat Equation Model",
+      "layer": "theory"
+    },
+    {
+      "id": "heat:InitialField",
+      "label": "Initial Field",
+      "layer": "theory"
+    },
+    {
+      "id": "heat:SpatialDomain",
+      "label": "Spatial Domain",
+      "layer": "theory"
+    },
+    {
+      "id": "heat:SpatialPointSet",
+      "label": "Spatial Point Set",
+      "layer": "theory"
+    },
+    {
+      "id": "heat:TemperatureField",
+      "label": "Temperature Field",
+      "layer": "theory"
+    },
+    {
+      "id": "heat:ThermalDiffusivity",
+      "label": "Thermal Diffusivity",
+      "layer": "theory"
+    },
+    {
+      "id": "heat:Time",
+      "label": "Time",
+      "layer": "theory"
+    },
+    {
+      "id": "meta:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel"
+    },
+    {
+      "id": "study:FiniteDifferenceSolver",
+      "label": "finite-difference PDE solver",
+      "layer": "study"
+    },
+    {
+      "id": "study:HeatSpecimen",
+      "label": "1-D conducting rod",
+      "layer": "study"
+    },
+    {
+      "id": "study:InitialProfile",
+      "label": "T(x,0)=sin(pi x/L)",
+      "layer": "study"
+    },
+    {
+      "id": "study:InverseDiffusivityFit",
+      "label": "diffusivity inverse fit",
+      "layer": "study"
+    },
+    {
+      "id": "study:Laplacian1D",
+      "label": "second spatial derivative",
+      "layer": "study"
+    },
+    {
+      "id": "study:LeftBoundary",
+      "label": "T(0,t)=0",
+      "layer": "study"
+    },
+    {
+      "id": "study:ModelFieldTrajectory",
+      "label": "simulated field trajectory",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:ObservedSensorSeries",
+      "label": "sensor time series",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:PDEExpression",
+      "label": "dT/dt = alpha d2T/dx2",
+      "layer": "study"
+    },
+    {
+      "id": "study:RightBoundary",
+      "label": "T(L,t)=0",
+      "layer": "study"
+    },
+    {
+      "id": "study:SamplingProcedure",
+      "label": "fixed-location time sampling",
+      "layer": "study"
+    },
+    {
+      "id": "study:SensorArray",
+      "label": "temperature sensor array",
+      "layer": "study"
+    },
+    {
+      "id": "study:SensorLocations",
+      "label": "sensor locations",
+      "layer": "study"
+    },
+    {
+      "id": "study:TemperatureField",
+      "label": "T(x,t)",
+      "layer": "study"
+    },
+    {
+      "id": "study:Time",
+      "label": "time",
+      "layer": "study"
+    },
+    {
+      "id": "study:XDomain",
+      "label": "x in [0,L]",
+      "layer": "study"
+    },
+    {
+      "id": "unit:m",
+      "label": "m",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:m2s",
+      "label": "m^2/s",
+      "layer": "schema"
+    },
+    {
+      "id": "value:L",
+      "label": "1.00",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:alpha",
+      "label": "1.00e-4",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:alphaFit",
+      "label": "1.03e-4",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:dAlpha",
+      "label": "+/-0.05e-4",
+      "layer": "evidence"
+    }
+  ],
+  "relations": [
+    {
+      "id": "h:eq-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:measurement-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:analysis-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:qvalue-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:specimen-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:domain-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:time-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:field-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:left-bc-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:right-bc-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:initial-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:sensor-location-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:trajectory-type",
+      "layer": "evidence",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:alpha",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:length",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:pde",
+      "layer": "study",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:solve",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "h:measurement",
+      "layer": "study",
+      "relationType": "sci:MeasurementRelation"
+    },
+    {
+      "id": "h:alpha-fit-value",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:inverse-fit",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:heat_HeatEquation:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:heat_TemperatureField:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:heat_SpatialDomain:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:heat_Time:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:heat_ThermalDiffusivity:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:heat_BoundaryCondition:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:heat_InitialField:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:heat_FieldTrajectory:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:heat_SpatialPointSet:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_LeftBoundary:sci_Constraint",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_RightBoundary:sci_Constraint",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_InitialProfile:sci_Constraint",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_Laplacian1D:sci_Operator",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_PDEExpression:sci_Expression",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_FiniteDifferenceSolver:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_InverseDiffusivityFit:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_SensorArray:sci_Instrument",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_SamplingProcedure:sci_Procedure",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ModelFieldTrajectory:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ObservedSensorSeries:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_alpha:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_alphaFit:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_dAlpha:sci_Uncertainty",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_L:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_m2s:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_m:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    }
+  ],
+  "bindings": [
+    {
+      "relation": "h:eq-type",
+      "role": "sci:instance",
+      "participant": "sci:EquationRelation"
+    },
+    {
+      "relation": "h:eq-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:measurement-type",
+      "role": "sci:instance",
+      "participant": "sci:MeasurementRelation"
+    },
+    {
+      "relation": "h:measurement-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:instance",
+      "participant": "sci:AnalysisRelation"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:instance",
+      "participant": "sci:QuantityValueRelation"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:specimen-type",
+      "role": "sci:instance",
+      "participant": "study:HeatSpecimen"
+    },
+    {
+      "relation": "h:specimen-type",
+      "role": "sci:type",
+      "participant": "heat:HeatEquation"
+    },
+    {
+      "relation": "h:domain-type",
+      "role": "sci:instance",
+      "participant": "study:XDomain"
+    },
+    {
+      "relation": "h:domain-type",
+      "role": "sci:type",
+      "participant": "heat:SpatialDomain"
+    },
+    {
+      "relation": "h:time-type",
+      "role": "sci:instance",
+      "participant": "study:Time"
+    },
+    {
+      "relation": "h:time-type",
+      "role": "sci:type",
+      "participant": "heat:Time"
+    },
+    {
+      "relation": "h:field-type",
+      "role": "sci:instance",
+      "participant": "study:TemperatureField"
+    },
+    {
+      "relation": "h:field-type",
+      "role": "sci:type",
+      "participant": "heat:TemperatureField"
+    },
+    {
+      "relation": "h:left-bc-type",
+      "role": "sci:instance",
+      "participant": "study:LeftBoundary"
+    },
+    {
+      "relation": "h:left-bc-type",
+      "role": "sci:type",
+      "participant": "heat:BoundaryCondition"
+    },
+    {
+      "relation": "h:right-bc-type",
+      "role": "sci:instance",
+      "participant": "study:RightBoundary"
+    },
+    {
+      "relation": "h:right-bc-type",
+      "role": "sci:type",
+      "participant": "heat:BoundaryCondition"
+    },
+    {
+      "relation": "h:initial-type",
+      "role": "sci:instance",
+      "participant": "study:InitialProfile"
+    },
+    {
+      "relation": "h:initial-type",
+      "role": "sci:type",
+      "participant": "heat:InitialField"
+    },
+    {
+      "relation": "h:sensor-location-type",
+      "role": "sci:instance",
+      "participant": "study:SensorLocations"
+    },
+    {
+      "relation": "h:sensor-location-type",
+      "role": "sci:type",
+      "participant": "heat:SpatialPointSet"
+    },
+    {
+      "relation": "h:trajectory-type",
+      "role": "sci:instance",
+      "participant": "study:ModelFieldTrajectory"
+    },
+    {
+      "relation": "h:trajectory-type",
+      "role": "sci:type",
+      "participant": "heat:FieldTrajectory"
+    },
+    {
+      "relation": "h:alpha",
+      "role": "sci:quantityKind",
+      "participant": "heat:ThermalDiffusivity"
+    },
+    {
+      "relation": "h:alpha",
+      "role": "sci:quantitySubject",
+      "participant": "study:HeatSpecimen"
+    },
+    {
+      "relation": "h:alpha",
+      "role": "sci:numericalValue",
+      "participant": "value:alpha"
+    },
+    {
+      "relation": "h:alpha",
+      "role": "sci:quantityUnit",
+      "participant": "unit:m2s"
+    },
+    {
+      "relation": "h:length",
+      "role": "sci:quantityKind",
+      "participant": "heat:SpatialDomain"
+    },
+    {
+      "relation": "h:length",
+      "role": "sci:quantitySubject",
+      "participant": "study:HeatSpecimen"
+    },
+    {
+      "relation": "h:length",
+      "role": "sci:numericalValue",
+      "participant": "value:L"
+    },
+    {
+      "relation": "h:length",
+      "role": "sci:quantityUnit",
+      "participant": "unit:m"
+    },
+    {
+      "relation": "h:pde",
+      "role": "sci:eqInput",
+      "participant": "study:TemperatureField",
+      "qualifier": "field"
+    },
+    {
+      "relation": "h:pde",
+      "role": "sci:eqParameter",
+      "participant": "h:alpha",
+      "qualifier": "diffusivity"
+    },
+    {
+      "relation": "h:pde",
+      "role": "sci:eqParameter",
+      "participant": "h:length",
+      "qualifier": "length"
+    },
+    {
+      "relation": "h:pde",
+      "role": "sci:eqOutput",
+      "participant": "study:TemperatureField"
+    },
+    {
+      "relation": "h:pde",
+      "role": "sci:eqExpression",
+      "participant": "study:PDEExpression"
+    },
+    {
+      "relation": "h:pde",
+      "role": "sci:eqIndependentVariable",
+      "participant": "study:XDomain",
+      "qualifier": "space"
+    },
+    {
+      "relation": "h:pde",
+      "role": "sci:eqIndependentVariable",
+      "participant": "study:Time",
+      "qualifier": "time"
+    },
+    {
+      "relation": "h:pde",
+      "role": "sci:eqDomain",
+      "participant": "study:XDomain"
+    },
+    {
+      "relation": "h:pde",
+      "role": "sci:eqBoundaryCondition",
+      "participant": "study:LeftBoundary",
+      "qualifier": "left"
+    },
+    {
+      "relation": "h:pde",
+      "role": "sci:eqBoundaryCondition",
+      "participant": "study:RightBoundary",
+      "qualifier": "right"
+    },
+    {
+      "relation": "h:pde",
+      "role": "sci:eqInitialCondition",
+      "participant": "study:InitialProfile"
+    },
+    {
+      "relation": "h:pde",
+      "role": "sci:eqOperator",
+      "participant": "study:Laplacian1D"
+    },
+    {
+      "relation": "h:solve",
+      "role": "sci:analysisModel",
+      "participant": "h:pde"
+    },
+    {
+      "relation": "h:solve",
+      "role": "sci:analysisMethod",
+      "participant": "study:FiniteDifferenceSolver"
+    },
+    {
+      "relation": "h:solve",
+      "role": "sci:analysisContext",
+      "participant": "study:XDomain",
+      "qualifier": "domain"
+    },
+    {
+      "relation": "h:solve",
+      "role": "sci:analysisOutput",
+      "participant": "study:ModelFieldTrajectory"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementSubject",
+      "participant": "study:HeatSpecimen"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementMeasurand",
+      "participant": "study:TemperatureField"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementProcedure",
+      "participant": "study:SamplingProcedure"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementInstrument",
+      "participant": "study:SensorArray"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementObservation",
+      "participant": "study:ObservedSensorSeries"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementResult",
+      "participant": "study:ObservedSensorSeries"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementContext",
+      "participant": "study:SensorLocations",
+      "qualifier": "locations"
+    },
+    {
+      "relation": "h:alpha-fit-value",
+      "role": "sci:quantityKind",
+      "participant": "heat:ThermalDiffusivity"
+    },
+    {
+      "relation": "h:alpha-fit-value",
+      "role": "sci:quantitySubject",
+      "participant": "study:HeatSpecimen"
+    },
+    {
+      "relation": "h:alpha-fit-value",
+      "role": "sci:numericalValue",
+      "participant": "value:alphaFit"
+    },
+    {
+      "relation": "h:alpha-fit-value",
+      "role": "sci:quantityUnit",
+      "participant": "unit:m2s"
+    },
+    {
+      "relation": "h:alpha-fit-value",
+      "role": "sci:quantityUncertainty",
+      "participant": "value:dAlpha"
+    },
+    {
+      "relation": "h:inverse-fit",
+      "role": "sci:analysisInput",
+      "participant": "study:ObservedSensorSeries"
+    },
+    {
+      "relation": "h:inverse-fit",
+      "role": "sci:analysisModel",
+      "participant": "h:pde"
+    },
+    {
+      "relation": "h:inverse-fit",
+      "role": "sci:analysisMethod",
+      "participant": "study:InverseDiffusivityFit"
+    },
+    {
+      "relation": "h:inverse-fit",
+      "role": "sci:analysisContext",
+      "participant": "study:SensorLocations",
+      "qualifier": "sensors"
+    },
+    {
+      "relation": "h:inverse-fit",
+      "role": "sci:analysisOutput",
+      "participant": "h:alpha-fit-value"
+    },
+    {
+      "relation": "h:inverse-fit",
+      "role": "sci:analysisUncertainty",
+      "participant": "value:dAlpha"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:heat_HeatEquation:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "heat:HeatEquation"
+    },
+    {
+      "relation": "norm:instanceOf:heat_HeatEquation:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:heat_TemperatureField:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "heat:TemperatureField"
+    },
+    {
+      "relation": "norm:instanceOf:heat_TemperatureField:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:heat_SpatialDomain:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "heat:SpatialDomain"
+    },
+    {
+      "relation": "norm:instanceOf:heat_SpatialDomain:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:heat_Time:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "heat:Time"
+    },
+    {
+      "relation": "norm:instanceOf:heat_Time:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:heat_ThermalDiffusivity:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "heat:ThermalDiffusivity"
+    },
+    {
+      "relation": "norm:instanceOf:heat_ThermalDiffusivity:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:heat_BoundaryCondition:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "heat:BoundaryCondition"
+    },
+    {
+      "relation": "norm:instanceOf:heat_BoundaryCondition:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:heat_InitialField:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "heat:InitialField"
+    },
+    {
+      "relation": "norm:instanceOf:heat_InitialField:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:heat_FieldTrajectory:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "heat:FieldTrajectory"
+    },
+    {
+      "relation": "norm:instanceOf:heat_FieldTrajectory:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:heat_SpatialPointSet:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "heat:SpatialPointSet"
+    },
+    {
+      "relation": "norm:instanceOf:heat_SpatialPointSet:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:study_LeftBoundary:sci_Constraint",
+      "role": "sci:instance",
+      "participant": "study:LeftBoundary"
+    },
+    {
+      "relation": "norm:instanceOf:study_LeftBoundary:sci_Constraint",
+      "role": "sci:type",
+      "participant": "sci:Constraint"
+    },
+    {
+      "relation": "norm:instanceOf:study_RightBoundary:sci_Constraint",
+      "role": "sci:instance",
+      "participant": "study:RightBoundary"
+    },
+    {
+      "relation": "norm:instanceOf:study_RightBoundary:sci_Constraint",
+      "role": "sci:type",
+      "participant": "sci:Constraint"
+    },
+    {
+      "relation": "norm:instanceOf:study_InitialProfile:sci_Constraint",
+      "role": "sci:instance",
+      "participant": "study:InitialProfile"
+    },
+    {
+      "relation": "norm:instanceOf:study_InitialProfile:sci_Constraint",
+      "role": "sci:type",
+      "participant": "sci:Constraint"
+    },
+    {
+      "relation": "norm:instanceOf:study_Laplacian1D:sci_Operator",
+      "role": "sci:instance",
+      "participant": "study:Laplacian1D"
+    },
+    {
+      "relation": "norm:instanceOf:study_Laplacian1D:sci_Operator",
+      "role": "sci:type",
+      "participant": "sci:Operator"
+    },
+    {
+      "relation": "norm:instanceOf:study_PDEExpression:sci_Expression",
+      "role": "sci:instance",
+      "participant": "study:PDEExpression"
+    },
+    {
+      "relation": "norm:instanceOf:study_PDEExpression:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:study_FiniteDifferenceSolver:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:FiniteDifferenceSolver"
+    },
+    {
+      "relation": "norm:instanceOf:study_FiniteDifferenceSolver:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_InverseDiffusivityFit:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:InverseDiffusivityFit"
+    },
+    {
+      "relation": "norm:instanceOf:study_InverseDiffusivityFit:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_SensorArray:sci_Instrument",
+      "role": "sci:instance",
+      "participant": "study:SensorArray"
+    },
+    {
+      "relation": "norm:instanceOf:study_SensorArray:sci_Instrument",
+      "role": "sci:type",
+      "participant": "sci:Instrument"
+    },
+    {
+      "relation": "norm:instanceOf:study_SamplingProcedure:sci_Procedure",
+      "role": "sci:instance",
+      "participant": "study:SamplingProcedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_SamplingProcedure:sci_Procedure",
+      "role": "sci:type",
+      "participant": "sci:Procedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_ModelFieldTrajectory:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:ModelFieldTrajectory"
+    },
+    {
+      "relation": "norm:instanceOf:study_ModelFieldTrajectory:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObservedSensorSeries:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:ObservedSensorSeries"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObservedSensorSeries:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:value_alpha:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:alpha"
+    },
+    {
+      "relation": "norm:instanceOf:value_alpha:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_alphaFit:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:alphaFit"
+    },
+    {
+      "relation": "norm:instanceOf:value_alphaFit:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_dAlpha:sci_Uncertainty",
+      "role": "sci:instance",
+      "participant": "value:dAlpha"
+    },
+    {
+      "relation": "norm:instanceOf:value_dAlpha:sci_Uncertainty",
+      "role": "sci:type",
+      "participant": "sci:Uncertainty"
+    },
+    {
+      "relation": "norm:instanceOf:value_L:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:L"
+    },
+    {
+      "relation": "norm:instanceOf:value_L:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:unit_m2s:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:m2s"
+    },
+    {
+      "relation": "norm:instanceOf:unit_m2s:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:unit_m:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:m"
+    },
+    {
+      "relation": "norm:instanceOf:unit_m:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    }
+  ]
+}

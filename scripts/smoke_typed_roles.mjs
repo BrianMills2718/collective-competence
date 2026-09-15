@@ -19,15 +19,15 @@ try{
   await page.selectOption('#fixture','mechanics');
   await page.waitForFunction(()=>/elements/.test(document.querySelector('#status')?.textContent||''),null,{timeout:15000});
   const relation=page.locator('[data-id="mechanics::h:ke-equation"]');
-  assert(await relation.count()===1,'typed v1 kinetic-energy equation relation not rendered');
+  assert(await relation.count()===1,'typed v2 kinetic-energy equation relation not rendered');
   await relation.click();
   const meta=await page.locator('#selMeta').textContent();
-  assert(meta?.includes('scientific-hypergraph-v1'),`inspector did not identify v1 source model: ${meta}`);
+  assert(meta?.includes('scientific-hypergraph-v2'),`inspector did not identify v2 source model: ${meta}`);
   const text=await page.locator('#roles').textContent();
   assert(text?.includes('sci:eqInput'),'inspector missing sci:eqInput RoleType identity');
   assert(text?.includes('input:mass'),'inspector missing mass qualifier');
   assert(text?.includes('input:velocity'),'inspector missing velocity qualifier');
   assert(text?.includes('sci:eqOutput'),'inspector missing sci:eqOutput RoleType identity');
   assert(errors.length===0,`browser errors: ${errors.join('\n')}`);
-  console.log('PASS typed-role viewer: v1 mechanics exposes canonical RoleType identities and qualifiers');
+  console.log('PASS typed-role viewer: v2 mechanics exposes canonical RoleType identities and qualifiers');
 } finally {await browser.close();server.close();}

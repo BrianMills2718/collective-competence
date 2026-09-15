@@ -2,14 +2,15 @@
 
 [Hypergraph kernel](scientific-hypergraph-kernel.md) · [Adequacy review](scientific-hypergraph-adequacy-review.md) · [Metamodel direction](scientific-model-metamodel.md)
 
-The generated viewer lives at [`metamodel/hypergraph-viewer.html`](metamodel/hypergraph-viewer.html). It loads machine-readable `scientific-hypergraph-v1` fixtures and renders views of one typed n-ary hypergraph; it does not embed hand-placed scientific graph data.
+The generated viewer lives at [`metamodel/hypergraph-viewer.html`](metamodel/hypergraph-viewer.html). It loads canonical `scientific-hypergraph-v2` domain fixtures and renders projections of the AI-facing semantic IR; it does not define or embed a separate visualization model. v0/v1 remain migration compatibility inputs.
 
 ## Run and validate
 
 From the repository root:
 
 ```bash
-python scripts/validate_typed_hypergraph_suite.py
+python scripts/validate_scientific_hypergraph_v2_suite.py
+python scripts/check_scientific_hypergraph_v2_queries.py
 python scripts/audit_scientific_hypergraph_adequacy.py
 python -m http.server 8000
 ```
@@ -22,11 +23,11 @@ http://localhost:8000/wiki/reference/metamodel/hypergraph-viewer.html
 
 CI serves the repository and drives the viewer in Chromium against the exact branch fixtures.
 
-## Authoritative schema and typed roles
+## Canonical AI IR and typed roles
 
-`metamodel/scientific-role-schema-v1.json` is the committed authority for shared scientific `RelationType -> RoleType` declarations. The JSON contract index is generated/cache output and CI rejects semantic drift.
+The canonical machine stack is `hypergraph-kernel-v2.json` + `scientific-semantic-types-v2.json` + `scientific-role-schema-v2.json`. Domain v2 files import those shared graphs. v1 role-schema/cache files remain migration/regression inputs.
 
-Every v1 incidence is an explicit binding:
+Every v2 incidence is an explicit top-level binding:
 
 ```text
 relation instance
@@ -43,7 +44,7 @@ A fixture may also declare **theory-local RelationTypes and RoleTypes** using th
 
 Bindings remain visually implicit by default. When a binding has an `id`, however, the viewer materializes it as a `roleBinding` element so another relation can target that exact participant-to-role assignment.
 
-The selectable structural fixture `role-binding-epistemics-hypergraph-v1.json` demonstrates:
+The selectable structural fixture `role-binding-epistemics-hypergraph-v2.json` demonstrates:
 
 ```text
 AnalysisRelation
@@ -60,7 +61,7 @@ Selecting the binding shows its parent relation, canonical `RoleType`, qualifier
 
 This structural fixture is selectable separately and is not included in the scientific-domain aggregate metrics below.
 
-## Built-in v1 scientific proving grounds
+## Built-in v2 scientific proving grounds
 
 The aggregate viewer currently loads thirteen scientific fixtures:
 
@@ -128,6 +129,7 @@ The toolbar exposes reproducible graph-query projections:
 - **Access**
 - **Evidence**
 - **Identifiability**
+- **Typing / specialization**
 
 Manual layer and relation-type filters remain available in Overview. Named projections disable those filters so projection definitions remain reproducible.
 
@@ -138,14 +140,14 @@ Search dims nonmatches without changing layout. **Focus neighborhood** creates a
 The accepted thirteen-domain Chromium regression reports:
 
 ```text
-420 ordinary elements
-209 hyperrelations
-629 rendered incidence items
+433 visible elements
+152 visible scientific hyperrelations
+585 rendered overview items
 13 domain lobes
-4 significant shape overlaps
+0 significant shape overlaps
 0 severe shape overlaps
-14.9% worst shape overlap
-47 type-bundle junctions
+0.0% worst shape overlap
+37 type-bundle junctions
 ```
 
 The significant-overlap count is monitored rather than treated as zero-only; the hard regression remains **zero severe node/relation-shape collisions**.
@@ -153,14 +155,15 @@ The significant-overlap count is monitored rather than treated as zero-only; the
 Current projection counts are regression indicators:
 
 ```text
-Theory                   545 rendered items
-Measurement / analysis   365
+Theory                   503 rendered items
+Measurement / analysis   369
 Probability                71
-Representation             66
-Access                     71
-Evidence                  452
-Identifiability           105
-Overview                  629
+Representation             77
+Access                     69
+Evidence                  441
+Identifiability           103
+Typing / specialization  794
+Overview                  585
 ```
 
 The browser suite verifies:
@@ -177,7 +180,7 @@ The browser suite verifies:
 
 ## Schema and adequacy checkpoints
 
-`dynamic-topology-hypergraph-v1.json`, `gauge-equivalence-hypergraph-v1.json`, and `uncertain-lineage-hypergraph-v1.json` declare theory-local relations without modifying the shared scientific schema.
+`dynamic-topology-hypergraph-v2.json`, `gauge-equivalence-hypergraph-v2.json`, and `uncertain-lineage-hypergraph-v2.json` declare theory-local relations without modifying the shared scientific schema.
 
 The generic validator derives those local contracts from each fixture and enforces their role cardinalities. This removes pressure to turn the shared schema into a registry of every theory-specific relation.
 
@@ -196,8 +199,9 @@ So far the shared profile is doing substantive cross-domain work.
 
 The viewer is split into:
 
-- `hypergraph-viewer-core.js` — normalization, identity handling, merging;
-- `hypergraph-viewer-fixtures.js` — v1 fixture registry;
+- `hypergraph-viewer-core.js` — identity handling, shared role-contract compatibility, merging;
+- `hypergraph-viewer-semantic-ir.js` — v2 semantic-IR loading plus v0/v1 migration normalization;
+- `hypergraph-viewer-fixtures.js` — canonical v2 domain fixture registry;
 - `hypergraph-viewer-first-class-bindings.js` — materialization/resolution of ID-bearing RoleBindings;
 - `hypergraph-viewer-layout.js` / `hypergraph-viewer-multidomain.js` — projections and deterministic layout;
 - `hypergraph-viewer-render.js` — SVG rendering and type-link bundling;

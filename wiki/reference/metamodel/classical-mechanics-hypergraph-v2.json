@@ -1,0 +1,800 @@
+{
+  "model": "scientific-hypergraph-v2",
+  "imports": [
+    "hypergraph-kernel-v2",
+    "scientific-semantic-types-v2",
+    "scientific-role-schema-v2"
+  ],
+  "normalization": {
+    "sourceModel": "scientific-hypergraph-v1",
+    "algorithm": "graph-native-typing-v2",
+    "sourceArtifact": "classical-mechanics-hypergraph-v1.json"
+  },
+  "elements": [
+    {
+      "id": "meta:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel"
+    },
+    {
+      "id": "phys:ClassicalNR",
+      "label": "Classical nonrelativistic regime",
+      "layer": "theory"
+    },
+    {
+      "id": "phys:DimensionalConstraint",
+      "label": "[K] = M L^2 T^-2",
+      "layer": "theory"
+    },
+    {
+      "id": "phys:KineticEnergy",
+      "label": "Kinetic Energy",
+      "layer": "theory"
+    },
+    {
+      "id": "phys:Mass",
+      "label": "Mass",
+      "layer": "theory"
+    },
+    {
+      "id": "phys:Particle",
+      "label": "Particle",
+      "layer": "theory"
+    },
+    {
+      "id": "phys:Position",
+      "label": "Position",
+      "layer": "theory"
+    },
+    {
+      "id": "phys:ReferenceFrame",
+      "label": "Reference Frame",
+      "layer": "theory"
+    },
+    {
+      "id": "phys:Translational",
+      "label": "Translational motion assumption",
+      "layer": "theory"
+    },
+    {
+      "id": "phys:Velocity",
+      "label": "Velocity",
+      "layer": "theory"
+    },
+    {
+      "id": "study:Balance",
+      "label": "balance",
+      "layer": "study"
+    },
+    {
+      "id": "study:Ball",
+      "label": "ball",
+      "layer": "study"
+    },
+    {
+      "id": "study:CameraClock",
+      "label": "camera + clock",
+      "layer": "study"
+    },
+    {
+      "id": "study:FiniteDifference",
+      "label": "finite-difference velocity estimator",
+      "layer": "study"
+    },
+    {
+      "id": "study:KExpression",
+      "label": "K = 1/2 m v^2",
+      "layer": "study"
+    },
+    {
+      "id": "study:LabFrame",
+      "label": "laboratory frame",
+      "layer": "study"
+    },
+    {
+      "id": "study:PositionTimeSeries",
+      "label": "position-time observations",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:TrackingProcedure",
+      "label": "tracking procedure",
+      "layer": "study"
+    },
+    {
+      "id": "study:WeighingProcedure",
+      "label": "weighing procedure",
+      "layer": "study"
+    },
+    {
+      "id": "unit:J",
+      "label": "J",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:kg",
+      "label": "kg",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:mps",
+      "label": "m/s",
+      "layer": "schema"
+    },
+    {
+      "id": "value:0.01kg",
+      "label": "±0.01 kg",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:0.05mps",
+      "label": "±0.05 m/s",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:0.41J",
+      "label": "±0.41 J",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:16.0",
+      "label": "16.0",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:2.00",
+      "label": "2.00",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:4.00",
+      "label": "4.00",
+      "layer": "evidence"
+    }
+  ],
+  "relations": [
+    {
+      "id": "h:eq-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:measurement-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:analysis-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:qvalue-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:ball-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:frame-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:mass-value",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:mass-measurement",
+      "layer": "study",
+      "relationType": "sci:MeasurementRelation"
+    },
+    {
+      "id": "h:position-measurement",
+      "layer": "study",
+      "relationType": "sci:MeasurementRelation"
+    },
+    {
+      "id": "h:velocity-value",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:velocity-analysis",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "h:ke-value",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:ke-equation",
+      "layer": "study",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:phys_Particle:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:phys_Mass:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:phys_Position:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:phys_Velocity:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:phys_KineticEnergy:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:phys_ReferenceFrame:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:phys_DimensionalConstraint:sci_Constraint",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_PositionTimeSeries:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_KExpression:sci_Expression",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_2.00:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_0.01kg:sci_Uncertainty",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_kg:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_4.00:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_0.05mps:sci_Uncertainty",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_mps:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_16.0:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_0.41J:sci_Uncertainty",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_J:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    }
+  ],
+  "bindings": [
+    {
+      "relation": "h:eq-type",
+      "role": "sci:instance",
+      "participant": "sci:EquationRelation"
+    },
+    {
+      "relation": "h:eq-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:measurement-type",
+      "role": "sci:instance",
+      "participant": "sci:MeasurementRelation"
+    },
+    {
+      "relation": "h:measurement-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:instance",
+      "participant": "sci:AnalysisRelation"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:instance",
+      "participant": "sci:QuantityValueRelation"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:ball-type",
+      "role": "sci:instance",
+      "participant": "study:Ball"
+    },
+    {
+      "relation": "h:ball-type",
+      "role": "sci:type",
+      "participant": "phys:Particle"
+    },
+    {
+      "relation": "h:frame-type",
+      "role": "sci:instance",
+      "participant": "study:LabFrame"
+    },
+    {
+      "relation": "h:frame-type",
+      "role": "sci:type",
+      "participant": "phys:ReferenceFrame"
+    },
+    {
+      "relation": "h:mass-value",
+      "role": "sci:quantityKind",
+      "participant": "phys:Mass"
+    },
+    {
+      "relation": "h:mass-value",
+      "role": "sci:quantitySubject",
+      "participant": "study:Ball"
+    },
+    {
+      "relation": "h:mass-value",
+      "role": "sci:numericalValue",
+      "participant": "value:2.00"
+    },
+    {
+      "relation": "h:mass-value",
+      "role": "sci:quantityUnit",
+      "participant": "unit:kg"
+    },
+    {
+      "relation": "h:mass-value",
+      "role": "sci:quantityUncertainty",
+      "participant": "value:0.01kg"
+    },
+    {
+      "relation": "h:mass-measurement",
+      "role": "sci:measurementSubject",
+      "participant": "study:Ball"
+    },
+    {
+      "relation": "h:mass-measurement",
+      "role": "sci:measurementMeasurand",
+      "participant": "phys:Mass"
+    },
+    {
+      "relation": "h:mass-measurement",
+      "role": "sci:measurementProcedure",
+      "participant": "study:WeighingProcedure"
+    },
+    {
+      "relation": "h:mass-measurement",
+      "role": "sci:measurementInstrument",
+      "participant": "study:Balance"
+    },
+    {
+      "relation": "h:mass-measurement",
+      "role": "sci:measurementResult",
+      "participant": "h:mass-value"
+    },
+    {
+      "relation": "h:mass-measurement",
+      "role": "sci:measurementUncertainty",
+      "participant": "value:0.01kg"
+    },
+    {
+      "relation": "h:position-measurement",
+      "role": "sci:measurementSubject",
+      "participant": "study:Ball"
+    },
+    {
+      "relation": "h:position-measurement",
+      "role": "sci:measurementMeasurand",
+      "participant": "phys:Position"
+    },
+    {
+      "relation": "h:position-measurement",
+      "role": "sci:measurementProcedure",
+      "participant": "study:TrackingProcedure"
+    },
+    {
+      "relation": "h:position-measurement",
+      "role": "sci:measurementInstrument",
+      "participant": "study:CameraClock"
+    },
+    {
+      "relation": "h:position-measurement",
+      "role": "sci:measurementObservation",
+      "participant": "study:PositionTimeSeries"
+    },
+    {
+      "relation": "h:position-measurement",
+      "role": "sci:measurementResult",
+      "participant": "study:PositionTimeSeries"
+    },
+    {
+      "relation": "h:position-measurement",
+      "role": "sci:measurementContext",
+      "participant": "study:LabFrame"
+    },
+    {
+      "relation": "h:velocity-value",
+      "role": "sci:quantityKind",
+      "participant": "phys:Velocity"
+    },
+    {
+      "relation": "h:velocity-value",
+      "role": "sci:quantitySubject",
+      "participant": "study:Ball"
+    },
+    {
+      "relation": "h:velocity-value",
+      "role": "sci:numericalValue",
+      "participant": "value:4.00"
+    },
+    {
+      "relation": "h:velocity-value",
+      "role": "sci:quantityUnit",
+      "participant": "unit:mps"
+    },
+    {
+      "relation": "h:velocity-value",
+      "role": "sci:quantityUncertainty",
+      "participant": "value:0.05mps"
+    },
+    {
+      "relation": "h:velocity-value",
+      "role": "sci:quantityContext",
+      "participant": "study:LabFrame"
+    },
+    {
+      "relation": "h:velocity-analysis",
+      "role": "sci:analysisInput",
+      "participant": "study:PositionTimeSeries"
+    },
+    {
+      "relation": "h:velocity-analysis",
+      "role": "sci:analysisMethod",
+      "participant": "study:FiniteDifference"
+    },
+    {
+      "relation": "h:velocity-analysis",
+      "role": "sci:analysisContext",
+      "participant": "study:LabFrame"
+    },
+    {
+      "relation": "h:velocity-analysis",
+      "role": "sci:analysisOutput",
+      "participant": "h:velocity-value"
+    },
+    {
+      "relation": "h:ke-value",
+      "role": "sci:quantityKind",
+      "participant": "phys:KineticEnergy"
+    },
+    {
+      "relation": "h:ke-value",
+      "role": "sci:quantitySubject",
+      "participant": "study:Ball"
+    },
+    {
+      "relation": "h:ke-value",
+      "role": "sci:numericalValue",
+      "participant": "value:16.0"
+    },
+    {
+      "relation": "h:ke-value",
+      "role": "sci:quantityUnit",
+      "participant": "unit:J"
+    },
+    {
+      "relation": "h:ke-value",
+      "role": "sci:quantityUncertainty",
+      "participant": "value:0.41J"
+    },
+    {
+      "relation": "h:ke-value",
+      "role": "sci:quantityContext",
+      "participant": "study:LabFrame"
+    },
+    {
+      "relation": "h:ke-equation",
+      "role": "sci:eqInput",
+      "participant": "h:mass-value",
+      "qualifier": "mass"
+    },
+    {
+      "relation": "h:ke-equation",
+      "role": "sci:eqInput",
+      "participant": "h:velocity-value",
+      "qualifier": "velocity"
+    },
+    {
+      "relation": "h:ke-equation",
+      "role": "sci:eqOutput",
+      "participant": "h:ke-value"
+    },
+    {
+      "relation": "h:ke-equation",
+      "role": "sci:eqExpression",
+      "participant": "study:KExpression"
+    },
+    {
+      "relation": "h:ke-equation",
+      "role": "sci:eqAssumption",
+      "participant": "phys:Translational"
+    },
+    {
+      "relation": "h:ke-equation",
+      "role": "sci:eqRegime",
+      "participant": "phys:ClassicalNR"
+    },
+    {
+      "relation": "h:ke-equation",
+      "role": "sci:eqConstraint",
+      "participant": "phys:DimensionalConstraint"
+    },
+    {
+      "relation": "h:ke-equation",
+      "role": "sci:eqContext",
+      "participant": "study:LabFrame"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:phys_Particle:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "phys:Particle"
+    },
+    {
+      "relation": "norm:instanceOf:phys_Particle:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:phys_Mass:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "phys:Mass"
+    },
+    {
+      "relation": "norm:instanceOf:phys_Mass:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:phys_Position:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "phys:Position"
+    },
+    {
+      "relation": "norm:instanceOf:phys_Position:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:phys_Velocity:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "phys:Velocity"
+    },
+    {
+      "relation": "norm:instanceOf:phys_Velocity:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:phys_KineticEnergy:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "phys:KineticEnergy"
+    },
+    {
+      "relation": "norm:instanceOf:phys_KineticEnergy:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:phys_ReferenceFrame:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "phys:ReferenceFrame"
+    },
+    {
+      "relation": "norm:instanceOf:phys_ReferenceFrame:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:phys_DimensionalConstraint:sci_Constraint",
+      "role": "sci:instance",
+      "participant": "phys:DimensionalConstraint"
+    },
+    {
+      "relation": "norm:instanceOf:phys_DimensionalConstraint:sci_Constraint",
+      "role": "sci:type",
+      "participant": "sci:Constraint"
+    },
+    {
+      "relation": "norm:instanceOf:study_PositionTimeSeries:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:PositionTimeSeries"
+    },
+    {
+      "relation": "norm:instanceOf:study_PositionTimeSeries:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_KExpression:sci_Expression",
+      "role": "sci:instance",
+      "participant": "study:KExpression"
+    },
+    {
+      "relation": "norm:instanceOf:study_KExpression:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:value_2.00:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:2.00"
+    },
+    {
+      "relation": "norm:instanceOf:value_2.00:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_0.01kg:sci_Uncertainty",
+      "role": "sci:instance",
+      "participant": "value:0.01kg"
+    },
+    {
+      "relation": "norm:instanceOf:value_0.01kg:sci_Uncertainty",
+      "role": "sci:type",
+      "participant": "sci:Uncertainty"
+    },
+    {
+      "relation": "norm:instanceOf:unit_kg:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:kg"
+    },
+    {
+      "relation": "norm:instanceOf:unit_kg:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:value_4.00:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:4.00"
+    },
+    {
+      "relation": "norm:instanceOf:value_4.00:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_0.05mps:sci_Uncertainty",
+      "role": "sci:instance",
+      "participant": "value:0.05mps"
+    },
+    {
+      "relation": "norm:instanceOf:value_0.05mps:sci_Uncertainty",
+      "role": "sci:type",
+      "participant": "sci:Uncertainty"
+    },
+    {
+      "relation": "norm:instanceOf:unit_mps:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:mps"
+    },
+    {
+      "relation": "norm:instanceOf:unit_mps:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:value_16.0:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:16.0"
+    },
+    {
+      "relation": "norm:instanceOf:value_16.0:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_0.41J:sci_Uncertainty",
+      "role": "sci:instance",
+      "participant": "value:0.41J"
+    },
+    {
+      "relation": "norm:instanceOf:value_0.41J:sci_Uncertainty",
+      "role": "sci:type",
+      "participant": "sci:Uncertainty"
+    },
+    {
+      "relation": "norm:instanceOf:unit_J:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:J"
+    },
+    {
+      "relation": "norm:instanceOf:unit_J:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    }
+  ]
+}

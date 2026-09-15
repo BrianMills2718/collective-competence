@@ -36,7 +36,7 @@ try{
     if(mode==='representation') assert(await hasId('sci:RepresentationRelation','schema:Representation'),'representation projection missing Representation relation type');
     if(mode==='access') assert(await hasId('sci:AccessRelation','schema:StudyView'),'access projection missing Access relation type');
     if(mode==='identifiability') assert(await hasId('sci:IdentifiabilityRelation','schema:Identifiability'),'identifiability projection missing Identifiability relation type');
-    if(mode==='typing'){const typed=await page.evaluate(()=>window.HV.state.view.hyperedges.filter(e=>e.type==='sci:instanceOf'&&e.normalizationGenerated).length);assert(typed>0,'typing projection missing generated instanceOf relations');}
+    if(mode==='typing'){const typed=await page.evaluate(()=>window.HV.state.view.hyperedges.filter(e=>window.HV.canonicalRelationType(e.type)==='sci:instanceOf').length);assert(typed>0,'typing projection missing canonical instanceOf relations');}
     console.log(`PASS projection ${mode}: ${count} rendered items`);
   }
 

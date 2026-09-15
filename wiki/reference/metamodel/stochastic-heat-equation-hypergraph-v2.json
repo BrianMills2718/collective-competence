@@ -1,0 +1,1047 @@
+{
+  "model": "scientific-hypergraph-v2",
+  "imports": [
+    "hypergraph-kernel-v2",
+    "scientific-semantic-types-v2",
+    "scientific-role-schema-v2"
+  ],
+  "normalization": {
+    "sourceModel": "scientific-hypergraph-v1",
+    "algorithm": "graph-native-typing-v2",
+    "sourceArtifact": "stochastic-heat-equation-hypergraph-v1.json"
+  },
+  "elements": [
+    {
+      "id": "meta:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel"
+    },
+    {
+      "id": "spde:Diffusivity",
+      "label": "Diffusivity κ",
+      "layer": "theory"
+    },
+    {
+      "id": "spde:Field",
+      "label": "Spatial Field",
+      "layer": "theory"
+    },
+    {
+      "id": "spde:NoiseScale",
+      "label": "Noise Scale σ",
+      "layer": "theory"
+    },
+    {
+      "id": "spde:RandomField",
+      "label": "Random Field",
+      "layer": "theory"
+    },
+    {
+      "id": "spde:SpatialDomain",
+      "label": "Spatial Domain",
+      "layer": "theory"
+    },
+    {
+      "id": "spde:StochasticHeatSystem",
+      "label": "Stochastic Heat System",
+      "layer": "theory"
+    },
+    {
+      "id": "spde:Time",
+      "label": "Time",
+      "layer": "theory"
+    },
+    {
+      "id": "study:BayesianEstimator",
+      "label": "Bayesian SPDE parameter estimator",
+      "layer": "study"
+    },
+    {
+      "id": "study:BoundaryLeft",
+      "label": "u(0,t)=0",
+      "layer": "study"
+    },
+    {
+      "id": "study:BoundaryRight",
+      "label": "u(L,t)=0",
+      "layer": "study"
+    },
+    {
+      "id": "study:CovarianceCondition",
+      "label": "Cov[ξ(x,t),ξ(x′,t′)] = δ(x-x′)δ(t-t′)",
+      "layer": "theory"
+    },
+    {
+      "id": "study:FieldU",
+      "label": "u(x,t)",
+      "layer": "study"
+    },
+    {
+      "id": "study:GaussianWhiteField",
+      "label": "Gaussian spatiotemporal white-noise field",
+      "layer": "theory"
+    },
+    {
+      "id": "study:InitialField",
+      "label": "u(x,0) = u₀(x)",
+      "layer": "study"
+    },
+    {
+      "id": "study:Laplacian",
+      "label": "spatial Laplacian ∂²/∂x²",
+      "layer": "study"
+    },
+    {
+      "id": "study:NoiseXi",
+      "label": "ξ(x,t)",
+      "layer": "study"
+    },
+    {
+      "id": "study:ObservedField",
+      "label": "observed field samples",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:Omega",
+      "label": "Ω = [0,L]",
+      "layer": "study"
+    },
+    {
+      "id": "study:SPDEExpr",
+      "label": "∂ₜu = κ∂ₓₓu + σξ(x,t)",
+      "layer": "study"
+    },
+    {
+      "id": "study:SPDESolver",
+      "label": "stochastic PDE solver",
+      "layer": "study"
+    },
+    {
+      "id": "study:SensorArray",
+      "label": "spatial sensor array",
+      "layer": "study"
+    },
+    {
+      "id": "study:SensorProcedure",
+      "label": "sample u(xᵢ,tⱼ)",
+      "layer": "study"
+    },
+    {
+      "id": "study:SimulatedPath",
+      "label": "simulated field sample path",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:System",
+      "label": "1-D stochastic thermal field",
+      "layer": "study"
+    },
+    {
+      "id": "study:Time",
+      "label": "time t",
+      "layer": "study"
+    },
+    {
+      "id": "unit:fieldNoise",
+      "label": "field·m/√s",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:m2ps",
+      "label": "m²/s",
+      "layer": "schema"
+    },
+    {
+      "id": "value:dKappa",
+      "label": "±0.012",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:kappaFit",
+      "label": "0.207",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:kappaTheory",
+      "label": "0.200",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:sigma",
+      "label": "0.100",
+      "layer": "evidence"
+    }
+  ],
+  "relations": [
+    {
+      "id": "h:eq-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:distribution-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:measurement-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:analysis-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:qvalue-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:system-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:field-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:noise-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:domain-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:time-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:kappa-theory",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:sigma-value",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:noise-distribution",
+      "layer": "study",
+      "relationType": "sci:DistributionRelation"
+    },
+    {
+      "id": "h:spde",
+      "layer": "study",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:simulate",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "h:measurement",
+      "layer": "study",
+      "relationType": "sci:MeasurementRelation"
+    },
+    {
+      "id": "h:kappa-fit",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:infer-kappa",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:spde_StochasticHeatSystem:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:spde_Field:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:spde_RandomField:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:spde_SpatialDomain:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:spde_Time:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:spde_Diffusivity:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:spde_NoiseScale:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_InitialField:sci_Constraint",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_BoundaryLeft:sci_Constraint",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_BoundaryRight:sci_Constraint",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_Laplacian:sci_Operator",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_SPDEExpr:sci_Expression",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_CovarianceCondition:sci_Constraint",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_SPDESolver:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_SimulatedPath:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_SensorArray:sci_Instrument",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_SensorProcedure:sci_Procedure",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ObservedField:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_BayesianEstimator:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_kappaTheory:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_kappaFit:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_dKappa:sci_Uncertainty",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_sigma:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_m2ps:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_fieldNoise:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    }
+  ],
+  "bindings": [
+    {
+      "relation": "h:eq-type",
+      "role": "sci:instance",
+      "participant": "sci:EquationRelation"
+    },
+    {
+      "relation": "h:eq-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:distribution-type",
+      "role": "sci:instance",
+      "participant": "sci:DistributionRelation"
+    },
+    {
+      "relation": "h:distribution-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:measurement-type",
+      "role": "sci:instance",
+      "participant": "sci:MeasurementRelation"
+    },
+    {
+      "relation": "h:measurement-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:instance",
+      "participant": "sci:AnalysisRelation"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:instance",
+      "participant": "sci:QuantityValueRelation"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:system-type",
+      "role": "sci:instance",
+      "participant": "study:System"
+    },
+    {
+      "relation": "h:system-type",
+      "role": "sci:type",
+      "participant": "spde:StochasticHeatSystem"
+    },
+    {
+      "relation": "h:field-type",
+      "role": "sci:instance",
+      "participant": "study:FieldU"
+    },
+    {
+      "relation": "h:field-type",
+      "role": "sci:type",
+      "participant": "spde:Field"
+    },
+    {
+      "relation": "h:noise-type",
+      "role": "sci:instance",
+      "participant": "study:NoiseXi"
+    },
+    {
+      "relation": "h:noise-type",
+      "role": "sci:type",
+      "participant": "spde:RandomField"
+    },
+    {
+      "relation": "h:domain-type",
+      "role": "sci:instance",
+      "participant": "study:Omega"
+    },
+    {
+      "relation": "h:domain-type",
+      "role": "sci:type",
+      "participant": "spde:SpatialDomain"
+    },
+    {
+      "relation": "h:time-type",
+      "role": "sci:instance",
+      "participant": "study:Time"
+    },
+    {
+      "relation": "h:time-type",
+      "role": "sci:type",
+      "participant": "spde:Time"
+    },
+    {
+      "relation": "h:kappa-theory",
+      "role": "sci:quantityKind",
+      "participant": "spde:Diffusivity"
+    },
+    {
+      "relation": "h:kappa-theory",
+      "role": "sci:quantitySubject",
+      "participant": "study:System"
+    },
+    {
+      "relation": "h:kappa-theory",
+      "role": "sci:numericalValue",
+      "participant": "value:kappaTheory"
+    },
+    {
+      "relation": "h:kappa-theory",
+      "role": "sci:quantityUnit",
+      "participant": "unit:m2ps"
+    },
+    {
+      "relation": "h:kappa-theory",
+      "role": "sci:quantityContext",
+      "participant": "study:Omega"
+    },
+    {
+      "relation": "h:sigma-value",
+      "role": "sci:quantityKind",
+      "participant": "spde:NoiseScale"
+    },
+    {
+      "relation": "h:sigma-value",
+      "role": "sci:quantitySubject",
+      "participant": "study:System"
+    },
+    {
+      "relation": "h:sigma-value",
+      "role": "sci:numericalValue",
+      "participant": "value:sigma"
+    },
+    {
+      "relation": "h:sigma-value",
+      "role": "sci:quantityUnit",
+      "participant": "unit:fieldNoise"
+    },
+    {
+      "relation": "h:sigma-value",
+      "role": "sci:quantityContext",
+      "participant": "study:Omega"
+    },
+    {
+      "relation": "h:noise-distribution",
+      "role": "sci:distributionRandomObject",
+      "participant": "study:NoiseXi"
+    },
+    {
+      "relation": "h:noise-distribution",
+      "role": "sci:distributionFamily",
+      "participant": "study:GaussianWhiteField"
+    },
+    {
+      "relation": "h:noise-distribution",
+      "role": "sci:distributionParameter",
+      "participant": "h:sigma-value",
+      "qualifier": "scale"
+    },
+    {
+      "relation": "h:noise-distribution",
+      "role": "sci:distributionCondition",
+      "participant": "study:CovarianceCondition"
+    },
+    {
+      "relation": "h:noise-distribution",
+      "role": "sci:distributionContext",
+      "participant": "study:Omega"
+    },
+    {
+      "relation": "h:spde",
+      "role": "sci:eqInput",
+      "participant": "study:FieldU",
+      "qualifier": "state"
+    },
+    {
+      "relation": "h:spde",
+      "role": "sci:eqParameter",
+      "participant": "h:kappa-theory",
+      "qualifier": "diffusivity"
+    },
+    {
+      "relation": "h:spde",
+      "role": "sci:eqParameter",
+      "participant": "h:sigma-value",
+      "qualifier": "noiseScale"
+    },
+    {
+      "relation": "h:spde",
+      "role": "sci:eqDriver",
+      "participant": "h:noise-distribution"
+    },
+    {
+      "relation": "h:spde",
+      "role": "sci:eqOutput",
+      "participant": "study:SimulatedPath"
+    },
+    {
+      "relation": "h:spde",
+      "role": "sci:eqExpression",
+      "participant": "study:SPDEExpr"
+    },
+    {
+      "relation": "h:spde",
+      "role": "sci:eqIndependentVariable",
+      "participant": "study:Time",
+      "qualifier": "time"
+    },
+    {
+      "relation": "h:spde",
+      "role": "sci:eqDomain",
+      "participant": "study:Omega"
+    },
+    {
+      "relation": "h:spde",
+      "role": "sci:eqInitialCondition",
+      "participant": "study:InitialField"
+    },
+    {
+      "relation": "h:spde",
+      "role": "sci:eqBoundaryCondition",
+      "participant": "study:BoundaryLeft",
+      "qualifier": "left"
+    },
+    {
+      "relation": "h:spde",
+      "role": "sci:eqBoundaryCondition",
+      "participant": "study:BoundaryRight",
+      "qualifier": "right"
+    },
+    {
+      "relation": "h:spde",
+      "role": "sci:eqOperator",
+      "participant": "study:Laplacian"
+    },
+    {
+      "relation": "h:simulate",
+      "role": "sci:analysisModel",
+      "participant": "h:spde"
+    },
+    {
+      "relation": "h:simulate",
+      "role": "sci:analysisMethod",
+      "participant": "study:SPDESolver"
+    },
+    {
+      "relation": "h:simulate",
+      "role": "sci:analysisInput",
+      "participant": "study:InitialField"
+    },
+    {
+      "relation": "h:simulate",
+      "role": "sci:analysisOutput",
+      "participant": "study:SimulatedPath"
+    },
+    {
+      "relation": "h:simulate",
+      "role": "sci:analysisContext",
+      "participant": "study:Omega"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementSubject",
+      "participant": "study:System"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementMeasurand",
+      "participant": "study:FieldU"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementProcedure",
+      "participant": "study:SensorProcedure"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementInstrument",
+      "participant": "study:SensorArray"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementObservation",
+      "participant": "study:ObservedField"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementResult",
+      "participant": "study:ObservedField"
+    },
+    {
+      "relation": "h:measurement",
+      "role": "sci:measurementContext",
+      "participant": "study:Omega"
+    },
+    {
+      "relation": "h:kappa-fit",
+      "role": "sci:quantityKind",
+      "participant": "spde:Diffusivity"
+    },
+    {
+      "relation": "h:kappa-fit",
+      "role": "sci:quantitySubject",
+      "participant": "study:System"
+    },
+    {
+      "relation": "h:kappa-fit",
+      "role": "sci:numericalValue",
+      "participant": "value:kappaFit"
+    },
+    {
+      "relation": "h:kappa-fit",
+      "role": "sci:quantityUnit",
+      "participant": "unit:m2ps"
+    },
+    {
+      "relation": "h:kappa-fit",
+      "role": "sci:quantityUncertainty",
+      "participant": "value:dKappa"
+    },
+    {
+      "relation": "h:kappa-fit",
+      "role": "sci:quantityContext",
+      "participant": "study:Omega"
+    },
+    {
+      "relation": "h:infer-kappa",
+      "role": "sci:analysisInput",
+      "participant": "study:ObservedField"
+    },
+    {
+      "relation": "h:infer-kappa",
+      "role": "sci:analysisModel",
+      "participant": "h:spde"
+    },
+    {
+      "relation": "h:infer-kappa",
+      "role": "sci:analysisMethod",
+      "participant": "study:BayesianEstimator"
+    },
+    {
+      "relation": "h:infer-kappa",
+      "role": "sci:analysisOutput",
+      "participant": "h:kappa-fit"
+    },
+    {
+      "relation": "h:infer-kappa",
+      "role": "sci:analysisUncertainty",
+      "participant": "value:dKappa"
+    },
+    {
+      "relation": "h:infer-kappa",
+      "role": "sci:analysisContext",
+      "participant": "study:Omega"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:spde_StochasticHeatSystem:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "spde:StochasticHeatSystem"
+    },
+    {
+      "relation": "norm:instanceOf:spde_StochasticHeatSystem:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:spde_Field:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "spde:Field"
+    },
+    {
+      "relation": "norm:instanceOf:spde_Field:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:spde_RandomField:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "spde:RandomField"
+    },
+    {
+      "relation": "norm:instanceOf:spde_RandomField:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:spde_SpatialDomain:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "spde:SpatialDomain"
+    },
+    {
+      "relation": "norm:instanceOf:spde_SpatialDomain:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:spde_Time:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "spde:Time"
+    },
+    {
+      "relation": "norm:instanceOf:spde_Time:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:spde_Diffusivity:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "spde:Diffusivity"
+    },
+    {
+      "relation": "norm:instanceOf:spde_Diffusivity:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:spde_NoiseScale:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "spde:NoiseScale"
+    },
+    {
+      "relation": "norm:instanceOf:spde_NoiseScale:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:study_InitialField:sci_Constraint",
+      "role": "sci:instance",
+      "participant": "study:InitialField"
+    },
+    {
+      "relation": "norm:instanceOf:study_InitialField:sci_Constraint",
+      "role": "sci:type",
+      "participant": "sci:Constraint"
+    },
+    {
+      "relation": "norm:instanceOf:study_BoundaryLeft:sci_Constraint",
+      "role": "sci:instance",
+      "participant": "study:BoundaryLeft"
+    },
+    {
+      "relation": "norm:instanceOf:study_BoundaryLeft:sci_Constraint",
+      "role": "sci:type",
+      "participant": "sci:Constraint"
+    },
+    {
+      "relation": "norm:instanceOf:study_BoundaryRight:sci_Constraint",
+      "role": "sci:instance",
+      "participant": "study:BoundaryRight"
+    },
+    {
+      "relation": "norm:instanceOf:study_BoundaryRight:sci_Constraint",
+      "role": "sci:type",
+      "participant": "sci:Constraint"
+    },
+    {
+      "relation": "norm:instanceOf:study_Laplacian:sci_Operator",
+      "role": "sci:instance",
+      "participant": "study:Laplacian"
+    },
+    {
+      "relation": "norm:instanceOf:study_Laplacian:sci_Operator",
+      "role": "sci:type",
+      "participant": "sci:Operator"
+    },
+    {
+      "relation": "norm:instanceOf:study_SPDEExpr:sci_Expression",
+      "role": "sci:instance",
+      "participant": "study:SPDEExpr"
+    },
+    {
+      "relation": "norm:instanceOf:study_SPDEExpr:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:study_CovarianceCondition:sci_Constraint",
+      "role": "sci:instance",
+      "participant": "study:CovarianceCondition"
+    },
+    {
+      "relation": "norm:instanceOf:study_CovarianceCondition:sci_Constraint",
+      "role": "sci:type",
+      "participant": "sci:Constraint"
+    },
+    {
+      "relation": "norm:instanceOf:study_SPDESolver:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:SPDESolver"
+    },
+    {
+      "relation": "norm:instanceOf:study_SPDESolver:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_SimulatedPath:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:SimulatedPath"
+    },
+    {
+      "relation": "norm:instanceOf:study_SimulatedPath:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_SensorArray:sci_Instrument",
+      "role": "sci:instance",
+      "participant": "study:SensorArray"
+    },
+    {
+      "relation": "norm:instanceOf:study_SensorArray:sci_Instrument",
+      "role": "sci:type",
+      "participant": "sci:Instrument"
+    },
+    {
+      "relation": "norm:instanceOf:study_SensorProcedure:sci_Procedure",
+      "role": "sci:instance",
+      "participant": "study:SensorProcedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_SensorProcedure:sci_Procedure",
+      "role": "sci:type",
+      "participant": "sci:Procedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObservedField:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:ObservedField"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObservedField:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_BayesianEstimator:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:BayesianEstimator"
+    },
+    {
+      "relation": "norm:instanceOf:study_BayesianEstimator:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:value_kappaTheory:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:kappaTheory"
+    },
+    {
+      "relation": "norm:instanceOf:value_kappaTheory:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_kappaFit:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:kappaFit"
+    },
+    {
+      "relation": "norm:instanceOf:value_kappaFit:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_dKappa:sci_Uncertainty",
+      "role": "sci:instance",
+      "participant": "value:dKappa"
+    },
+    {
+      "relation": "norm:instanceOf:value_dKappa:sci_Uncertainty",
+      "role": "sci:type",
+      "participant": "sci:Uncertainty"
+    },
+    {
+      "relation": "norm:instanceOf:value_sigma:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:sigma"
+    },
+    {
+      "relation": "norm:instanceOf:value_sigma:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:unit_m2ps:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:m2ps"
+    },
+    {
+      "relation": "norm:instanceOf:unit_m2ps:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:unit_fieldNoise:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:fieldNoise"
+    },
+    {
+      "relation": "norm:instanceOf:unit_fieldNoise:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    }
+  ]
+}

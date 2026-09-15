@@ -12,7 +12,7 @@ HV.SEMANTIC_PROFILE='scientific-semantic-types-v2-probe.json';
 const slugify=s=>String(s).replace(/[^A-Za-z0-9_.-]+/g,'_').replace(/^_+|_+$/g,'')||'x';
 const typeList=v=>v==null?[]:(Array.isArray(v)?v:[v]);
 HV.semanticTypeForKind=kind=>HV.semanticKindMap.get(kind)||`sci:AuthoringCategory_${slugify(kind)}`;
-HV.isTypingEdge=e=>!!e?.normalizationGenerated&&e.type==='sci:instanceOf';
+HV.isTypingEdge=e=>['sci:instanceOf','sci:specializes'].includes(HV.canonicalRelationType(e?.type));
 HV.semanticTypesOf=id=>HV.typeIndex.get(id)||new Set();
 HV.canonicalRelationType=id=>HV.contractIndex?.relationAliases.get(id)||id;
 HV.hasType=(id,type)=>HV.semanticTypesOf(id).has(type);
@@ -50,7 +50,29 @@ const existingPairs=doc=>{
   return out;
 };
 
+const normalizeV2Document=(slug,doc)=>{
+  const nm=new Map((doc.elements||[]).map(e=>[e.id,`${slug}::${e.id}`]));
+  const rm=new Map((doc.relations||[]).map(r=>[r.id,`${slug}::${r.id}`]));
+  const bm=new Map();for(const b of doc.bindings||[])if(b.id)bm.set(b.id,`${slug}::${b.id}`);
+  const byRelation=new Map();for(const b of doc.bindings||[]){if(!byRelation.has(b.relation))byRelation.set(b.relation,[]);byRelation.get(b.relation).push(b);}
+  const labels=new Map((doc.elements||[]).map(e=>[e.id,e.label||e.id]));
+  const nodes=(doc.elements||[]).map(e=>({...e,id:nm.get(e.id),originalId:e.id,source:slug,semanticTypeHints:['sci:ModelElement']}));
+  const bindingNodes=[];
+  const hyperedges=(doc.relations||[]).map(r=>{
+    const id=rm.get(r.id),raw=byRelation.get(r.id)||[];
+    const bindings=raw.map(b=>{
+      const participant=bm.get(b.participant)||rm.get(b.participant)||nm.get(b.participant)||b.participant;
+      const bid=b.id?bm.get(b.id):undefined,x=bid?{...b,id:bid,participant}:{...b,participant};delete x.relation;
+      if(bid){const roleText=HV.roleLabel(b.role)+(b.qualifier?`:${b.qualifier}`:'');bindingNodes.push({id:bid,originalId:b.id,label:`${roleText} → ${labels.get(b.participant)||b.participant}`,layer:r.layer||'study',source:slug,structuralKind:'roleBinding',parentRelation:id,role:b.role,qualifier:b.qualifier||null,boundParticipant:participant,semanticTypeHints:['sci:ModelElement','sci:RoleBinding']});}
+      return x;
+    });
+    return {...r,id,originalId:r.id,type:r.relationType,bindings,roles:HV.displayRoles(bindings),source:slug,sourceModel:doc.model};
+  });
+  return {nodes:[...nodes,...bindingNodes],hyperedges};
+};
+
 HV.normalizeDocument=(slug,doc)=>{
+  if(doc.model==='scientific-hypergraph-v2')return normalizeV2Document(slug,doc);
   const shared=n=>HV.isSharedNode(n);
   const nm=new Map((doc.nodes||[]).map(n=>[n.id,shared(n)?n.id:`${slug}::${n.id}`]));
   const em=new Map();

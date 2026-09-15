@@ -1,0 +1,818 @@
+{
+  "model": "scientific-hypergraph-v2",
+  "imports": [
+    "hypergraph-kernel-v2",
+    "scientific-semantic-types-v2",
+    "scientific-role-schema-v2"
+  ],
+  "normalization": {
+    "sourceModel": "scientific-hypergraph-v1",
+    "algorithm": "graph-native-typing-v2",
+    "sourceArtifact": "dynamic-topology-hypergraph-v1.json"
+  },
+  "elements": [
+    {
+      "id": "topo:BondChangeRelation",
+      "label": "Bond Change Relation",
+      "layer": "theory"
+    },
+    {
+      "id": "topo:DivisionRelation",
+      "label": "Division Relation",
+      "layer": "theory"
+    },
+    {
+      "id": "topo:T0",
+      "label": "T0: {P}",
+      "layer": "evidence"
+    },
+    {
+      "id": "topo:T1",
+      "label": "T1: {A,B}",
+      "layer": "evidence"
+    },
+    {
+      "id": "topo:T2",
+      "label": "T2: {A—B}",
+      "layer": "evidence"
+    },
+    {
+      "id": "topo:bondEndpoint",
+      "label": "bond endpoint",
+      "layer": "theory"
+    },
+    {
+      "id": "topo:bondOperation",
+      "label": "bond operation",
+      "layer": "theory"
+    },
+    {
+      "id": "topo:childA",
+      "label": "daughter cell A",
+      "layer": "study"
+    },
+    {
+      "id": "topo:childB",
+      "label": "daughter cell B",
+      "layer": "study"
+    },
+    {
+      "id": "topo:colony",
+      "label": "cell colony",
+      "layer": "study"
+    },
+    {
+      "id": "topo:divisionChild",
+      "label": "child",
+      "layer": "theory"
+    },
+    {
+      "id": "topo:divisionParent",
+      "label": "parent",
+      "layer": "theory"
+    },
+    {
+      "id": "topo:eventTime",
+      "label": "event time",
+      "layer": "theory"
+    },
+    {
+      "id": "topo:formBond",
+      "label": "form bond",
+      "layer": "study"
+    },
+    {
+      "id": "topo:parentCell",
+      "label": "parent cell P",
+      "layer": "study"
+    },
+    {
+      "id": "topo:t1",
+      "label": "t = 1",
+      "layer": "study"
+    },
+    {
+      "id": "topo:t2",
+      "label": "t = 2",
+      "layer": "study"
+    },
+    {
+      "id": "topo:topologyAfter",
+      "label": "topology after",
+      "layer": "theory"
+    },
+    {
+      "id": "topo:topologyBefore",
+      "label": "topology before",
+      "layer": "theory"
+    },
+    {
+      "id": "topo:value:false",
+      "label": "false",
+      "value": false,
+      "layer": "theory"
+    },
+    {
+      "id": "topo:value:one",
+      "label": "1",
+      "value": 1,
+      "layer": "theory"
+    },
+    {
+      "id": "topo:value:true",
+      "label": "true",
+      "value": true,
+      "layer": "theory"
+    },
+    {
+      "id": "topo:value:two",
+      "label": "2",
+      "value": 2,
+      "layer": "theory"
+    }
+  ],
+  "relations": [
+    {
+      "id": "decl:division:parent",
+      "layer": "theory",
+      "relationType": "sci:declaresRole"
+    },
+    {
+      "id": "decl:division:child",
+      "layer": "theory",
+      "relationType": "sci:declaresRole"
+    },
+    {
+      "id": "decl:division:time",
+      "layer": "theory",
+      "relationType": "sci:declaresRole"
+    },
+    {
+      "id": "decl:division:before",
+      "layer": "theory",
+      "relationType": "sci:declaresRole"
+    },
+    {
+      "id": "decl:division:after",
+      "layer": "theory",
+      "relationType": "sci:declaresRole"
+    },
+    {
+      "id": "decl:bond:endpoint",
+      "layer": "theory",
+      "relationType": "sci:declaresRole"
+    },
+    {
+      "id": "decl:bond:operation",
+      "layer": "theory",
+      "relationType": "sci:declaresRole"
+    },
+    {
+      "id": "decl:bond:time",
+      "layer": "theory",
+      "relationType": "sci:declaresRole"
+    },
+    {
+      "id": "decl:bond:before",
+      "layer": "theory",
+      "relationType": "sci:declaresRole"
+    },
+    {
+      "id": "decl:bond:after",
+      "layer": "theory",
+      "relationType": "sci:declaresRole"
+    },
+    {
+      "id": "topo:division-1",
+      "layer": "study",
+      "relationType": "topo:DivisionRelation"
+    },
+    {
+      "id": "topo:bond-1",
+      "layer": "study",
+      "relationType": "topo:BondChangeRelation"
+    },
+    {
+      "id": "topo:colony-membership",
+      "layer": "study",
+      "relationType": "sci:RepresentationRelation"
+    },
+    {
+      "id": "norm:instanceOf:topo_DivisionRelation:sci_RelationType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_BondChangeRelation:sci_RelationType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_divisionParent:sci_RoleType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_divisionChild:sci_RoleType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_eventTime:sci_RoleType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_topologyBefore:sci_RoleType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_topologyAfter:sci_RoleType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_bondEndpoint:sci_RoleType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_bondOperation:sci_RoleType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_value_one:sci_Value",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_value_two:sci_Value",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_value_false:sci_Value",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_value_true:sci_Value",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_t1:sci_Value",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_t2:sci_Value",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_T0:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_T1:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:topo_T2:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    }
+  ],
+  "bindings": [
+    {
+      "relation": "decl:division:parent",
+      "role": "sci:declaredRelationType",
+      "participant": "topo:DivisionRelation"
+    },
+    {
+      "relation": "decl:division:parent",
+      "role": "sci:declaredRoleType",
+      "participant": "topo:divisionParent"
+    },
+    {
+      "relation": "decl:division:parent",
+      "role": "sci:roleMinimum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:division:parent",
+      "role": "sci:roleMaximum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:division:parent",
+      "role": "sci:roleQualifiable",
+      "participant": "topo:value:false"
+    },
+    {
+      "relation": "decl:division:child",
+      "role": "sci:declaredRelationType",
+      "participant": "topo:DivisionRelation"
+    },
+    {
+      "relation": "decl:division:child",
+      "role": "sci:declaredRoleType",
+      "participant": "topo:divisionChild"
+    },
+    {
+      "relation": "decl:division:child",
+      "role": "sci:roleMinimum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:division:child",
+      "role": "sci:roleQualifiable",
+      "participant": "topo:value:false"
+    },
+    {
+      "relation": "decl:division:time",
+      "role": "sci:declaredRelationType",
+      "participant": "topo:DivisionRelation"
+    },
+    {
+      "relation": "decl:division:time",
+      "role": "sci:declaredRoleType",
+      "participant": "topo:eventTime"
+    },
+    {
+      "relation": "decl:division:time",
+      "role": "sci:roleMinimum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:division:time",
+      "role": "sci:roleMaximum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:division:time",
+      "role": "sci:roleQualifiable",
+      "participant": "topo:value:false"
+    },
+    {
+      "relation": "decl:division:before",
+      "role": "sci:declaredRelationType",
+      "participant": "topo:DivisionRelation"
+    },
+    {
+      "relation": "decl:division:before",
+      "role": "sci:declaredRoleType",
+      "participant": "topo:topologyBefore"
+    },
+    {
+      "relation": "decl:division:before",
+      "role": "sci:roleMinimum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:division:before",
+      "role": "sci:roleMaximum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:division:before",
+      "role": "sci:roleQualifiable",
+      "participant": "topo:value:false"
+    },
+    {
+      "relation": "decl:division:after",
+      "role": "sci:declaredRelationType",
+      "participant": "topo:DivisionRelation"
+    },
+    {
+      "relation": "decl:division:after",
+      "role": "sci:declaredRoleType",
+      "participant": "topo:topologyAfter"
+    },
+    {
+      "relation": "decl:division:after",
+      "role": "sci:roleMinimum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:division:after",
+      "role": "sci:roleMaximum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:division:after",
+      "role": "sci:roleQualifiable",
+      "participant": "topo:value:false"
+    },
+    {
+      "relation": "decl:bond:endpoint",
+      "role": "sci:declaredRelationType",
+      "participant": "topo:BondChangeRelation"
+    },
+    {
+      "relation": "decl:bond:endpoint",
+      "role": "sci:declaredRoleType",
+      "participant": "topo:bondEndpoint"
+    },
+    {
+      "relation": "decl:bond:endpoint",
+      "role": "sci:roleMinimum",
+      "participant": "topo:value:two"
+    },
+    {
+      "relation": "decl:bond:endpoint",
+      "role": "sci:roleMaximum",
+      "participant": "topo:value:two"
+    },
+    {
+      "relation": "decl:bond:endpoint",
+      "role": "sci:roleQualifiable",
+      "participant": "topo:value:true"
+    },
+    {
+      "relation": "decl:bond:operation",
+      "role": "sci:declaredRelationType",
+      "participant": "topo:BondChangeRelation"
+    },
+    {
+      "relation": "decl:bond:operation",
+      "role": "sci:declaredRoleType",
+      "participant": "topo:bondOperation"
+    },
+    {
+      "relation": "decl:bond:operation",
+      "role": "sci:roleMinimum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:bond:operation",
+      "role": "sci:roleMaximum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:bond:operation",
+      "role": "sci:roleQualifiable",
+      "participant": "topo:value:false"
+    },
+    {
+      "relation": "decl:bond:time",
+      "role": "sci:declaredRelationType",
+      "participant": "topo:BondChangeRelation"
+    },
+    {
+      "relation": "decl:bond:time",
+      "role": "sci:declaredRoleType",
+      "participant": "topo:eventTime"
+    },
+    {
+      "relation": "decl:bond:time",
+      "role": "sci:roleMinimum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:bond:time",
+      "role": "sci:roleMaximum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:bond:time",
+      "role": "sci:roleQualifiable",
+      "participant": "topo:value:false"
+    },
+    {
+      "relation": "decl:bond:before",
+      "role": "sci:declaredRelationType",
+      "participant": "topo:BondChangeRelation"
+    },
+    {
+      "relation": "decl:bond:before",
+      "role": "sci:declaredRoleType",
+      "participant": "topo:topologyBefore"
+    },
+    {
+      "relation": "decl:bond:before",
+      "role": "sci:roleMinimum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:bond:before",
+      "role": "sci:roleMaximum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:bond:before",
+      "role": "sci:roleQualifiable",
+      "participant": "topo:value:false"
+    },
+    {
+      "relation": "decl:bond:after",
+      "role": "sci:declaredRelationType",
+      "participant": "topo:BondChangeRelation"
+    },
+    {
+      "relation": "decl:bond:after",
+      "role": "sci:declaredRoleType",
+      "participant": "topo:topologyAfter"
+    },
+    {
+      "relation": "decl:bond:after",
+      "role": "sci:roleMinimum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:bond:after",
+      "role": "sci:roleMaximum",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "decl:bond:after",
+      "role": "sci:roleQualifiable",
+      "participant": "topo:value:false"
+    },
+    {
+      "relation": "topo:division-1",
+      "role": "topo:divisionParent",
+      "participant": "topo:parentCell"
+    },
+    {
+      "relation": "topo:division-1",
+      "role": "topo:divisionChild",
+      "participant": "topo:childA"
+    },
+    {
+      "relation": "topo:division-1",
+      "role": "topo:divisionChild",
+      "participant": "topo:childB"
+    },
+    {
+      "relation": "topo:division-1",
+      "role": "topo:eventTime",
+      "participant": "topo:t1"
+    },
+    {
+      "relation": "topo:division-1",
+      "role": "topo:topologyBefore",
+      "participant": "topo:T0"
+    },
+    {
+      "relation": "topo:division-1",
+      "role": "topo:topologyAfter",
+      "participant": "topo:T1"
+    },
+    {
+      "relation": "topo:bond-1",
+      "role": "topo:bondEndpoint",
+      "participant": "topo:childA",
+      "qualifier": "left"
+    },
+    {
+      "relation": "topo:bond-1",
+      "role": "topo:bondEndpoint",
+      "participant": "topo:childB",
+      "qualifier": "right"
+    },
+    {
+      "relation": "topo:bond-1",
+      "role": "topo:bondOperation",
+      "participant": "topo:formBond"
+    },
+    {
+      "relation": "topo:bond-1",
+      "role": "topo:eventTime",
+      "participant": "topo:t2"
+    },
+    {
+      "relation": "topo:bond-1",
+      "role": "topo:topologyBefore",
+      "participant": "topo:T1"
+    },
+    {
+      "relation": "topo:bond-1",
+      "role": "topo:topologyAfter",
+      "participant": "topo:T2"
+    },
+    {
+      "relation": "topo:colony-membership",
+      "role": "sci:representationSource",
+      "participant": "topo:division-1"
+    },
+    {
+      "relation": "topo:colony-membership",
+      "role": "sci:representationSource",
+      "participant": "topo:bond-1"
+    },
+    {
+      "relation": "topo:colony-membership",
+      "role": "sci:representationTransform",
+      "participant": "topo:colony"
+    },
+    {
+      "relation": "topo:colony-membership",
+      "role": "sci:representationOutput",
+      "participant": "topo:T2"
+    },
+    {
+      "relation": "norm:instanceOf:topo_DivisionRelation:sci_RelationType",
+      "role": "sci:instance",
+      "participant": "topo:DivisionRelation"
+    },
+    {
+      "relation": "norm:instanceOf:topo_DivisionRelation:sci_RelationType",
+      "role": "sci:type",
+      "participant": "sci:RelationType"
+    },
+    {
+      "relation": "norm:instanceOf:topo_BondChangeRelation:sci_RelationType",
+      "role": "sci:instance",
+      "participant": "topo:BondChangeRelation"
+    },
+    {
+      "relation": "norm:instanceOf:topo_BondChangeRelation:sci_RelationType",
+      "role": "sci:type",
+      "participant": "sci:RelationType"
+    },
+    {
+      "relation": "norm:instanceOf:topo_divisionParent:sci_RoleType",
+      "role": "sci:instance",
+      "participant": "topo:divisionParent"
+    },
+    {
+      "relation": "norm:instanceOf:topo_divisionParent:sci_RoleType",
+      "role": "sci:type",
+      "participant": "sci:RoleType"
+    },
+    {
+      "relation": "norm:instanceOf:topo_divisionChild:sci_RoleType",
+      "role": "sci:instance",
+      "participant": "topo:divisionChild"
+    },
+    {
+      "relation": "norm:instanceOf:topo_divisionChild:sci_RoleType",
+      "role": "sci:type",
+      "participant": "sci:RoleType"
+    },
+    {
+      "relation": "norm:instanceOf:topo_eventTime:sci_RoleType",
+      "role": "sci:instance",
+      "participant": "topo:eventTime"
+    },
+    {
+      "relation": "norm:instanceOf:topo_eventTime:sci_RoleType",
+      "role": "sci:type",
+      "participant": "sci:RoleType"
+    },
+    {
+      "relation": "norm:instanceOf:topo_topologyBefore:sci_RoleType",
+      "role": "sci:instance",
+      "participant": "topo:topologyBefore"
+    },
+    {
+      "relation": "norm:instanceOf:topo_topologyBefore:sci_RoleType",
+      "role": "sci:type",
+      "participant": "sci:RoleType"
+    },
+    {
+      "relation": "norm:instanceOf:topo_topologyAfter:sci_RoleType",
+      "role": "sci:instance",
+      "participant": "topo:topologyAfter"
+    },
+    {
+      "relation": "norm:instanceOf:topo_topologyAfter:sci_RoleType",
+      "role": "sci:type",
+      "participant": "sci:RoleType"
+    },
+    {
+      "relation": "norm:instanceOf:topo_bondEndpoint:sci_RoleType",
+      "role": "sci:instance",
+      "participant": "topo:bondEndpoint"
+    },
+    {
+      "relation": "norm:instanceOf:topo_bondEndpoint:sci_RoleType",
+      "role": "sci:type",
+      "participant": "sci:RoleType"
+    },
+    {
+      "relation": "norm:instanceOf:topo_bondOperation:sci_RoleType",
+      "role": "sci:instance",
+      "participant": "topo:bondOperation"
+    },
+    {
+      "relation": "norm:instanceOf:topo_bondOperation:sci_RoleType",
+      "role": "sci:type",
+      "participant": "sci:RoleType"
+    },
+    {
+      "relation": "norm:instanceOf:topo_value_one:sci_Value",
+      "role": "sci:instance",
+      "participant": "topo:value:one"
+    },
+    {
+      "relation": "norm:instanceOf:topo_value_one:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:topo_value_two:sci_Value",
+      "role": "sci:instance",
+      "participant": "topo:value:two"
+    },
+    {
+      "relation": "norm:instanceOf:topo_value_two:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:topo_value_false:sci_Value",
+      "role": "sci:instance",
+      "participant": "topo:value:false"
+    },
+    {
+      "relation": "norm:instanceOf:topo_value_false:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:topo_value_true:sci_Value",
+      "role": "sci:instance",
+      "participant": "topo:value:true"
+    },
+    {
+      "relation": "norm:instanceOf:topo_value_true:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:topo_t1:sci_Value",
+      "role": "sci:instance",
+      "participant": "topo:t1"
+    },
+    {
+      "relation": "norm:instanceOf:topo_t1:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:topo_t2:sci_Value",
+      "role": "sci:instance",
+      "participant": "topo:t2"
+    },
+    {
+      "relation": "norm:instanceOf:topo_t2:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:topo_T0:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "topo:T0"
+    },
+    {
+      "relation": "norm:instanceOf:topo_T0:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:topo_T1:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "topo:T1"
+    },
+    {
+      "relation": "norm:instanceOf:topo_T1:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:topo_T2:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "topo:T2"
+    },
+    {
+      "relation": "norm:instanceOf:topo_T2:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    }
+  ]
+}

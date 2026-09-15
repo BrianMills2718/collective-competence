@@ -1,0 +1,1055 @@
+{
+  "model": "scientific-hypergraph-v2",
+  "imports": [
+    "hypergraph-kernel-v2",
+    "scientific-semantic-types-v2",
+    "scientific-role-schema-v2"
+  ],
+  "normalization": {
+    "sourceModel": "scientific-hypergraph-v1",
+    "algorithm": "graph-native-typing-v2",
+    "sourceArtifact": "first-order-reaction-hypergraph-v1.json"
+  },
+  "elements": [
+    {
+      "id": "meta:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel"
+    },
+    {
+      "id": "rxn:Absorbance",
+      "label": "Absorbance",
+      "layer": "theory"
+    },
+    {
+      "id": "rxn:Concentration",
+      "label": "Concentration",
+      "layer": "theory"
+    },
+    {
+      "id": "rxn:ConstantTemperature",
+      "label": "Constant temperature",
+      "layer": "theory"
+    },
+    {
+      "id": "rxn:ExtinctionCoefficient",
+      "label": "Extinction Coefficient",
+      "layer": "theory"
+    },
+    {
+      "id": "rxn:PathLength",
+      "label": "Optical Path Length",
+      "layer": "theory"
+    },
+    {
+      "id": "rxn:RateConstant",
+      "label": "Rate Constant",
+      "layer": "theory"
+    },
+    {
+      "id": "rxn:ReactionSystem",
+      "label": "First-order reaction system",
+      "layer": "theory"
+    },
+    {
+      "id": "rxn:Time",
+      "label": "Time",
+      "layer": "theory"
+    },
+    {
+      "id": "rxn:Trajectory",
+      "label": "Concentration Trajectory",
+      "layer": "theory"
+    },
+    {
+      "id": "rxn:WellMixed",
+      "label": "Well-mixed assumption",
+      "layer": "theory"
+    },
+    {
+      "id": "study:AbsorbanceProcedure",
+      "label": "absorbance time-series procedure",
+      "layer": "study"
+    },
+    {
+      "id": "study:AbsorbanceTrace",
+      "label": "absorbance observations",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:BeerExpr",
+      "label": "Abs = epsilon*l*[A]",
+      "layer": "study"
+    },
+    {
+      "id": "study:BeerLambertInverse",
+      "label": "Beer-Lambert inversion",
+      "layer": "study"
+    },
+    {
+      "id": "study:Clock",
+      "label": "time",
+      "layer": "study"
+    },
+    {
+      "id": "study:ConcentrationTrace",
+      "label": "derived concentration trajectory",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:ExponentialFit",
+      "label": "first-order rate fit",
+      "layer": "study"
+    },
+    {
+      "id": "study:RateExpr",
+      "label": "d[A]/dt = -k[A]",
+      "layer": "study"
+    },
+    {
+      "id": "study:SpeciesA",
+      "label": "species A",
+      "layer": "study"
+    },
+    {
+      "id": "study:Spectrophotometer",
+      "label": "spectrophotometer",
+      "layer": "study"
+    },
+    {
+      "id": "study:Vessel",
+      "label": "reaction vessel",
+      "layer": "study"
+    },
+    {
+      "id": "study:dCdt",
+      "label": "d[A]/dt",
+      "layer": "study"
+    },
+    {
+      "id": "unit:Lmolcm",
+      "label": "L/(mol*cm)",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:cm",
+      "label": "cm",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:molL",
+      "label": "mol/L",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:s-1",
+      "label": "s^-1",
+      "layer": "schema"
+    },
+    {
+      "id": "value:c0",
+      "label": "1.00",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:dK",
+      "label": "+/-0.006",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:epsilon",
+      "label": "1.50",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:kFit",
+      "label": "0.203",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:kTheory",
+      "label": "0.200",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:path",
+      "label": "1.00",
+      "layer": "evidence"
+    }
+  ],
+  "relations": [
+    {
+      "id": "h:eq-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:measurement-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:analysis-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:qvalue-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:vessel-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:clock-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:concentration-trace-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:c0-value",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:k-theory",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:epsilon-value",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:path-value",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:rate-law",
+      "layer": "study",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:beer-lambert",
+      "layer": "study",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:abs-measurement",
+      "layer": "study",
+      "relationType": "sci:MeasurementRelation"
+    },
+    {
+      "id": "h:concentration-recovery",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "h:k-fit",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "h:k-fit-value",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:rxn_ReactionSystem:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:rxn_Concentration:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:rxn_RateConstant:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:rxn_Absorbance:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:rxn_ExtinctionCoefficient:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:rxn_PathLength:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:rxn_Time:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:rxn_Trajectory:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:rxn_WellMixed:sci_Assumption",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:rxn_ConstantTemperature:sci_Assumption",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_RateExpr:sci_Expression",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_BeerExpr:sci_Expression",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_Spectrophotometer:sci_Instrument",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_AbsorbanceProcedure:sci_Procedure",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_BeerLambertInverse:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ExponentialFit:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_AbsorbanceTrace:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ConcentrationTrace:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_c0:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_molL:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_kTheory:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_kFit:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_dK:sci_Uncertainty",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_s-1:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_epsilon:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_Lmolcm:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_path:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_cm:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    }
+  ],
+  "bindings": [
+    {
+      "relation": "h:eq-type",
+      "role": "sci:instance",
+      "participant": "sci:EquationRelation"
+    },
+    {
+      "relation": "h:eq-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:measurement-type",
+      "role": "sci:instance",
+      "participant": "sci:MeasurementRelation"
+    },
+    {
+      "relation": "h:measurement-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:instance",
+      "participant": "sci:AnalysisRelation"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:instance",
+      "participant": "sci:QuantityValueRelation"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:vessel-type",
+      "role": "sci:instance",
+      "participant": "study:Vessel"
+    },
+    {
+      "relation": "h:vessel-type",
+      "role": "sci:type",
+      "participant": "rxn:ReactionSystem"
+    },
+    {
+      "relation": "h:clock-type",
+      "role": "sci:instance",
+      "participant": "study:Clock"
+    },
+    {
+      "relation": "h:clock-type",
+      "role": "sci:type",
+      "participant": "rxn:Time"
+    },
+    {
+      "relation": "h:concentration-trace-type",
+      "role": "sci:instance",
+      "participant": "study:ConcentrationTrace"
+    },
+    {
+      "relation": "h:concentration-trace-type",
+      "role": "sci:type",
+      "participant": "rxn:Trajectory"
+    },
+    {
+      "relation": "h:c0-value",
+      "role": "sci:quantityKind",
+      "participant": "rxn:Concentration"
+    },
+    {
+      "relation": "h:c0-value",
+      "role": "sci:quantitySubject",
+      "participant": "study:SpeciesA"
+    },
+    {
+      "relation": "h:c0-value",
+      "role": "sci:numericalValue",
+      "participant": "value:c0"
+    },
+    {
+      "relation": "h:c0-value",
+      "role": "sci:quantityUnit",
+      "participant": "unit:molL"
+    },
+    {
+      "relation": "h:k-theory",
+      "role": "sci:quantityKind",
+      "participant": "rxn:RateConstant"
+    },
+    {
+      "relation": "h:k-theory",
+      "role": "sci:quantitySubject",
+      "participant": "study:Vessel"
+    },
+    {
+      "relation": "h:k-theory",
+      "role": "sci:numericalValue",
+      "participant": "value:kTheory"
+    },
+    {
+      "relation": "h:k-theory",
+      "role": "sci:quantityUnit",
+      "participant": "unit:s-1"
+    },
+    {
+      "relation": "h:epsilon-value",
+      "role": "sci:quantityKind",
+      "participant": "rxn:ExtinctionCoefficient"
+    },
+    {
+      "relation": "h:epsilon-value",
+      "role": "sci:quantitySubject",
+      "participant": "study:SpeciesA"
+    },
+    {
+      "relation": "h:epsilon-value",
+      "role": "sci:numericalValue",
+      "participant": "value:epsilon"
+    },
+    {
+      "relation": "h:epsilon-value",
+      "role": "sci:quantityUnit",
+      "participant": "unit:Lmolcm"
+    },
+    {
+      "relation": "h:path-value",
+      "role": "sci:quantityKind",
+      "participant": "rxn:PathLength"
+    },
+    {
+      "relation": "h:path-value",
+      "role": "sci:quantitySubject",
+      "participant": "study:Vessel"
+    },
+    {
+      "relation": "h:path-value",
+      "role": "sci:numericalValue",
+      "participant": "value:path"
+    },
+    {
+      "relation": "h:path-value",
+      "role": "sci:quantityUnit",
+      "participant": "unit:cm"
+    },
+    {
+      "relation": "h:rate-law",
+      "role": "sci:eqInput",
+      "participant": "rxn:Concentration",
+      "qualifier": "concentration"
+    },
+    {
+      "relation": "h:rate-law",
+      "role": "sci:eqParameter",
+      "participant": "h:k-theory",
+      "qualifier": "k"
+    },
+    {
+      "relation": "h:rate-law",
+      "role": "sci:eqOutput",
+      "participant": "study:dCdt"
+    },
+    {
+      "relation": "h:rate-law",
+      "role": "sci:eqExpression",
+      "participant": "study:RateExpr"
+    },
+    {
+      "relation": "h:rate-law",
+      "role": "sci:eqIndependentVariable",
+      "participant": "study:Clock"
+    },
+    {
+      "relation": "h:rate-law",
+      "role": "sci:eqInitialCondition",
+      "participant": "h:c0-value"
+    },
+    {
+      "relation": "h:rate-law",
+      "role": "sci:eqAssumption",
+      "participant": "rxn:WellMixed",
+      "qualifier": "mixing"
+    },
+    {
+      "relation": "h:rate-law",
+      "role": "sci:eqAssumption",
+      "participant": "rxn:ConstantTemperature",
+      "qualifier": "temperature"
+    },
+    {
+      "relation": "h:beer-lambert",
+      "role": "sci:eqInput",
+      "participant": "rxn:Concentration",
+      "qualifier": "concentration"
+    },
+    {
+      "relation": "h:beer-lambert",
+      "role": "sci:eqParameter",
+      "participant": "h:epsilon-value",
+      "qualifier": "epsilon"
+    },
+    {
+      "relation": "h:beer-lambert",
+      "role": "sci:eqParameter",
+      "participant": "h:path-value",
+      "qualifier": "pathLength"
+    },
+    {
+      "relation": "h:beer-lambert",
+      "role": "sci:eqOutput",
+      "participant": "rxn:Absorbance"
+    },
+    {
+      "relation": "h:beer-lambert",
+      "role": "sci:eqExpression",
+      "participant": "study:BeerExpr"
+    },
+    {
+      "relation": "h:abs-measurement",
+      "role": "sci:measurementSubject",
+      "participant": "study:Vessel"
+    },
+    {
+      "relation": "h:abs-measurement",
+      "role": "sci:measurementMeasurand",
+      "participant": "rxn:Absorbance"
+    },
+    {
+      "relation": "h:abs-measurement",
+      "role": "sci:measurementProcedure",
+      "participant": "study:AbsorbanceProcedure"
+    },
+    {
+      "relation": "h:abs-measurement",
+      "role": "sci:measurementInstrument",
+      "participant": "study:Spectrophotometer"
+    },
+    {
+      "relation": "h:abs-measurement",
+      "role": "sci:measurementObservation",
+      "participant": "study:AbsorbanceTrace"
+    },
+    {
+      "relation": "h:abs-measurement",
+      "role": "sci:measurementResult",
+      "participant": "study:AbsorbanceTrace"
+    },
+    {
+      "relation": "h:concentration-recovery",
+      "role": "sci:analysisInput",
+      "participant": "study:AbsorbanceTrace"
+    },
+    {
+      "relation": "h:concentration-recovery",
+      "role": "sci:analysisModel",
+      "participant": "h:beer-lambert"
+    },
+    {
+      "relation": "h:concentration-recovery",
+      "role": "sci:analysisMethod",
+      "participant": "study:BeerLambertInverse"
+    },
+    {
+      "relation": "h:concentration-recovery",
+      "role": "sci:analysisOutput",
+      "participant": "study:ConcentrationTrace"
+    },
+    {
+      "relation": "h:k-fit",
+      "role": "sci:analysisInput",
+      "participant": "study:ConcentrationTrace"
+    },
+    {
+      "relation": "h:k-fit",
+      "role": "sci:analysisModel",
+      "participant": "h:rate-law"
+    },
+    {
+      "relation": "h:k-fit",
+      "role": "sci:analysisMethod",
+      "participant": "study:ExponentialFit"
+    },
+    {
+      "relation": "h:k-fit",
+      "role": "sci:analysisOutput",
+      "participant": "h:k-fit-value"
+    },
+    {
+      "relation": "h:k-fit",
+      "role": "sci:analysisUncertainty",
+      "participant": "value:dK"
+    },
+    {
+      "relation": "h:k-fit-value",
+      "role": "sci:quantityKind",
+      "participant": "rxn:RateConstant"
+    },
+    {
+      "relation": "h:k-fit-value",
+      "role": "sci:quantitySubject",
+      "participant": "study:Vessel"
+    },
+    {
+      "relation": "h:k-fit-value",
+      "role": "sci:numericalValue",
+      "participant": "value:kFit"
+    },
+    {
+      "relation": "h:k-fit-value",
+      "role": "sci:quantityUnit",
+      "participant": "unit:s-1"
+    },
+    {
+      "relation": "h:k-fit-value",
+      "role": "sci:quantityUncertainty",
+      "participant": "value:dK"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_ReactionSystem:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "rxn:ReactionSystem"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_ReactionSystem:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_Concentration:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "rxn:Concentration"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_Concentration:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_RateConstant:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "rxn:RateConstant"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_RateConstant:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_Absorbance:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "rxn:Absorbance"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_Absorbance:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_ExtinctionCoefficient:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "rxn:ExtinctionCoefficient"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_ExtinctionCoefficient:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_PathLength:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "rxn:PathLength"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_PathLength:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_Time:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "rxn:Time"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_Time:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_Trajectory:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "rxn:Trajectory"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_Trajectory:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_WellMixed:sci_Assumption",
+      "role": "sci:instance",
+      "participant": "rxn:WellMixed"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_WellMixed:sci_Assumption",
+      "role": "sci:type",
+      "participant": "sci:Assumption"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_ConstantTemperature:sci_Assumption",
+      "role": "sci:instance",
+      "participant": "rxn:ConstantTemperature"
+    },
+    {
+      "relation": "norm:instanceOf:rxn_ConstantTemperature:sci_Assumption",
+      "role": "sci:type",
+      "participant": "sci:Assumption"
+    },
+    {
+      "relation": "norm:instanceOf:study_RateExpr:sci_Expression",
+      "role": "sci:instance",
+      "participant": "study:RateExpr"
+    },
+    {
+      "relation": "norm:instanceOf:study_RateExpr:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:study_BeerExpr:sci_Expression",
+      "role": "sci:instance",
+      "participant": "study:BeerExpr"
+    },
+    {
+      "relation": "norm:instanceOf:study_BeerExpr:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:study_Spectrophotometer:sci_Instrument",
+      "role": "sci:instance",
+      "participant": "study:Spectrophotometer"
+    },
+    {
+      "relation": "norm:instanceOf:study_Spectrophotometer:sci_Instrument",
+      "role": "sci:type",
+      "participant": "sci:Instrument"
+    },
+    {
+      "relation": "norm:instanceOf:study_AbsorbanceProcedure:sci_Procedure",
+      "role": "sci:instance",
+      "participant": "study:AbsorbanceProcedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_AbsorbanceProcedure:sci_Procedure",
+      "role": "sci:type",
+      "participant": "sci:Procedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_BeerLambertInverse:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:BeerLambertInverse"
+    },
+    {
+      "relation": "norm:instanceOf:study_BeerLambertInverse:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_ExponentialFit:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:ExponentialFit"
+    },
+    {
+      "relation": "norm:instanceOf:study_ExponentialFit:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_AbsorbanceTrace:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:AbsorbanceTrace"
+    },
+    {
+      "relation": "norm:instanceOf:study_AbsorbanceTrace:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_ConcentrationTrace:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:ConcentrationTrace"
+    },
+    {
+      "relation": "norm:instanceOf:study_ConcentrationTrace:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:value_c0:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:c0"
+    },
+    {
+      "relation": "norm:instanceOf:value_c0:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:unit_molL:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:molL"
+    },
+    {
+      "relation": "norm:instanceOf:unit_molL:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:value_kTheory:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:kTheory"
+    },
+    {
+      "relation": "norm:instanceOf:value_kTheory:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_kFit:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:kFit"
+    },
+    {
+      "relation": "norm:instanceOf:value_kFit:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_dK:sci_Uncertainty",
+      "role": "sci:instance",
+      "participant": "value:dK"
+    },
+    {
+      "relation": "norm:instanceOf:value_dK:sci_Uncertainty",
+      "role": "sci:type",
+      "participant": "sci:Uncertainty"
+    },
+    {
+      "relation": "norm:instanceOf:unit_s-1:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:s-1"
+    },
+    {
+      "relation": "norm:instanceOf:unit_s-1:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:value_epsilon:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:epsilon"
+    },
+    {
+      "relation": "norm:instanceOf:value_epsilon:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:unit_Lmolcm:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:Lmolcm"
+    },
+    {
+      "relation": "norm:instanceOf:unit_Lmolcm:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:value_path:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:path"
+    },
+    {
+      "relation": "norm:instanceOf:value_path:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:unit_cm:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:cm"
+    },
+    {
+      "relation": "norm:instanceOf:unit_cm:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    }
+  ]
+}

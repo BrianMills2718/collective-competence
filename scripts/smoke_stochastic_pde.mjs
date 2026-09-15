@@ -36,7 +36,7 @@ try{
   assert(text?.includes('sci:analysisInput')||text?.includes('input'),'inference inspector missing analysis-input RoleType');
   assert(text?.includes('observed field samples'),'inference inspector missing measured field input');
   assert(text?.includes('sci:analysisOutput')||text?.includes('output'),'inference inspector missing analysis-output RoleType');
-  assert(text?.includes('schema:QuantityValue')||text?.includes('Quantity Value'),'inference inspector does not expose a QuantityValue relation as output');
+  assert(text?.includes('sci:QuantityValueRelation')||text?.includes('QuantityValue Relation')||text?.includes('Quantity Value'),'inference inspector does not expose a canonical QuantityValue relation as output');
   assert(text?.includes('sci:analysisUncertainty')||text?.includes('uncertainty'),'inference inspector missing uncertainty RoleType');
 
   await page.locator('[data-id="spde::h:kappa-fit"]').click();

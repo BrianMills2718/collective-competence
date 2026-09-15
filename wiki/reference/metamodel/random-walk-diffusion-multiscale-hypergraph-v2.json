@@ -1,0 +1,1192 @@
+{
+  "model": "scientific-hypergraph-v2",
+  "imports": [
+    "hypergraph-kernel-v2",
+    "scientific-semantic-types-v2",
+    "scientific-role-schema-v2"
+  ],
+  "normalization": {
+    "sourceModel": "scientific-hypergraph-v1",
+    "algorithm": "graph-native-typing-v2",
+    "sourceArtifact": "random-walk-diffusion-multiscale-hypergraph-v1.json"
+  },
+  "elements": [
+    {
+      "id": "meta:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel"
+    },
+    {
+      "id": "ms:DensityField",
+      "label": "Probability Density Field",
+      "layer": "theory"
+    },
+    {
+      "id": "ms:DiffusionCoefficient",
+      "label": "Diffusion Coefficient",
+      "layer": "theory"
+    },
+    {
+      "id": "ms:DiffusionModel",
+      "label": "Macroscopic Diffusion Model",
+      "layer": "theory"
+    },
+    {
+      "id": "ms:EffectiveLimit",
+      "label": "Diffusive Scaling Limit",
+      "layer": "theory"
+    },
+    {
+      "id": "ms:MacroScale",
+      "label": "Macroscopic Scale",
+      "layer": "theory"
+    },
+    {
+      "id": "ms:MicroScale",
+      "label": "Microscopic Scale",
+      "layer": "theory"
+    },
+    {
+      "id": "ms:Position",
+      "label": "Particle Position",
+      "layer": "theory"
+    },
+    {
+      "id": "ms:RademacherDistribution",
+      "label": "Symmetric +/- Step Distribution",
+      "layer": "theory"
+    },
+    {
+      "id": "ms:RandomWalkModel",
+      "label": "Microscopic Random Walk",
+      "layer": "theory"
+    },
+    {
+      "id": "ms:StepLength",
+      "label": "Step Length",
+      "layer": "theory"
+    },
+    {
+      "id": "ms:TimeStep",
+      "label": "Time Step",
+      "layer": "theory"
+    },
+    {
+      "id": "sci:AuthoringCategory_proposition",
+      "label": "AuthoringCategory_proposition",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2"
+    },
+    {
+      "id": "sci:AuthoringCategory_transform",
+      "label": "AuthoringCategory_transform",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2"
+    },
+    {
+      "id": "study:CoarseDensity",
+      "label": "coarse-grained density",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:CoarseGrain",
+      "label": "histogram / density coarse-graining",
+      "layer": "study"
+    },
+    {
+      "id": "study:DExpression",
+      "label": "D = dx^2/(2 dt)",
+      "layer": "study"
+    },
+    {
+      "id": "study:DensityField",
+      "label": "p(x,t)",
+      "layer": "study"
+    },
+    {
+      "id": "study:EffectiveProposition",
+      "label": "coarse random walk is represented by diffusion model at macro scale",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:EnsembleSimulator",
+      "label": "random-walk ensemble simulator",
+      "layer": "study"
+    },
+    {
+      "id": "study:MacroDiffusion",
+      "label": "effective diffusion model",
+      "layer": "study"
+    },
+    {
+      "id": "study:MacroExpression",
+      "label": "dp/dt = D d2p/dx2",
+      "layer": "study"
+    },
+    {
+      "id": "study:MacroTrajectory",
+      "label": "macroscopic density trajectory",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:MicroEnsemble",
+      "label": "microscopic trajectory ensemble",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:MicroExpression",
+      "label": "X_(n+1) = X_n + xi_n",
+      "layer": "study"
+    },
+    {
+      "id": "study:MicroPosition",
+      "label": "X_n",
+      "layer": "study"
+    },
+    {
+      "id": "study:MicroWalk",
+      "label": "random-walk specimen",
+      "layer": "study"
+    },
+    {
+      "id": "study:PDESolver",
+      "label": "diffusion PDE solver",
+      "layer": "study"
+    },
+    {
+      "id": "study:StepNoise",
+      "label": "xi_n",
+      "layer": "study"
+    },
+    {
+      "id": "study:Supported",
+      "label": "supported in stated scaling regime",
+      "layer": "evidence"
+    },
+    {
+      "id": "unit:m",
+      "label": "m",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:m2s",
+      "label": "m^2/s",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:s",
+      "label": "s",
+      "layer": "schema"
+    },
+    {
+      "id": "value:D",
+      "label": "1.0",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:dt",
+      "label": "0.00005",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:dx",
+      "label": "0.01",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:macroScale",
+      "label": "many steps / coarse cells",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:representationError",
+      "label": "finite-scale approximation error",
+      "layer": "evidence"
+    }
+  ],
+  "relations": [
+    {
+      "id": "h:eq-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:dist-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:analysis-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:representation-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:claim-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:qvalue-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:micro-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:macro-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:position-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:density-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:dx",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:dt",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:D",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:step-law",
+      "layer": "theory",
+      "relationType": "sci:DistributionRelation"
+    },
+    {
+      "id": "h:micro-law",
+      "layer": "study",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:D-law",
+      "layer": "theory",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:micro-sim",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "h:coarse-representation",
+      "layer": "study",
+      "relationType": "sci:RepresentationRelation"
+    },
+    {
+      "id": "h:macro-law",
+      "layer": "study",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:macro-solve",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "h:effective-claim",
+      "layer": "evidence",
+      "relationType": "sci:ClaimRelation"
+    },
+    {
+      "id": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:ms_RandomWalkModel:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:ms_DiffusionModel:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:ms_Position:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:ms_DensityField:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:ms_StepLength:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:ms_TimeStep:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:ms_DiffusionCoefficient:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:ms_RademacherDistribution:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:ms_MicroScale:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:ms_MacroScale:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:ms_EffectiveLimit:sci_Assumption",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_MicroExpression:sci_Expression",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_MacroExpression:sci_Expression",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_DExpression:sci_Expression",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_EnsembleSimulator:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_CoarseGrain:sci_AuthoringCategory_transform",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_PDESolver:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_MicroEnsemble:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_CoarseDensity:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_MacroTrajectory:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_EffectiveProposition:sci_AuthoringCategory_proposition",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_Supported:sci_Status",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_dx:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_dt:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_D:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_macroScale:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_representationError:sci_Uncertainty",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_m:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_s:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_m2s:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    }
+  ],
+  "bindings": [
+    {
+      "relation": "h:eq-type",
+      "role": "sci:instance",
+      "participant": "sci:EquationRelation"
+    },
+    {
+      "relation": "h:eq-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:dist-type",
+      "role": "sci:instance",
+      "participant": "sci:DistributionRelation"
+    },
+    {
+      "relation": "h:dist-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:instance",
+      "participant": "sci:AnalysisRelation"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:representation-type",
+      "role": "sci:instance",
+      "participant": "sci:RepresentationRelation"
+    },
+    {
+      "relation": "h:representation-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:claim-type",
+      "role": "sci:instance",
+      "participant": "sci:ClaimRelation"
+    },
+    {
+      "relation": "h:claim-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:instance",
+      "participant": "sci:QuantityValueRelation"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:micro-type",
+      "role": "sci:instance",
+      "participant": "study:MicroWalk"
+    },
+    {
+      "relation": "h:micro-type",
+      "role": "sci:type",
+      "participant": "ms:RandomWalkModel"
+    },
+    {
+      "relation": "h:macro-type",
+      "role": "sci:instance",
+      "participant": "study:MacroDiffusion"
+    },
+    {
+      "relation": "h:macro-type",
+      "role": "sci:type",
+      "participant": "ms:DiffusionModel"
+    },
+    {
+      "relation": "h:position-type",
+      "role": "sci:instance",
+      "participant": "study:MicroPosition"
+    },
+    {
+      "relation": "h:position-type",
+      "role": "sci:type",
+      "participant": "ms:Position"
+    },
+    {
+      "relation": "h:density-type",
+      "role": "sci:instance",
+      "participant": "study:DensityField"
+    },
+    {
+      "relation": "h:density-type",
+      "role": "sci:type",
+      "participant": "ms:DensityField"
+    },
+    {
+      "relation": "h:dx",
+      "role": "sci:quantityKind",
+      "participant": "ms:StepLength"
+    },
+    {
+      "relation": "h:dx",
+      "role": "sci:quantitySubject",
+      "participant": "study:MicroWalk"
+    },
+    {
+      "relation": "h:dx",
+      "role": "sci:numericalValue",
+      "participant": "value:dx"
+    },
+    {
+      "relation": "h:dx",
+      "role": "sci:quantityUnit",
+      "participant": "unit:m"
+    },
+    {
+      "relation": "h:dx",
+      "role": "sci:quantityContext",
+      "participant": "ms:MicroScale",
+      "qualifier": "scale"
+    },
+    {
+      "relation": "h:dt",
+      "role": "sci:quantityKind",
+      "participant": "ms:TimeStep"
+    },
+    {
+      "relation": "h:dt",
+      "role": "sci:quantitySubject",
+      "participant": "study:MicroWalk"
+    },
+    {
+      "relation": "h:dt",
+      "role": "sci:numericalValue",
+      "participant": "value:dt"
+    },
+    {
+      "relation": "h:dt",
+      "role": "sci:quantityUnit",
+      "participant": "unit:s"
+    },
+    {
+      "relation": "h:dt",
+      "role": "sci:quantityContext",
+      "participant": "ms:MicroScale",
+      "qualifier": "scale"
+    },
+    {
+      "relation": "h:D",
+      "role": "sci:quantityKind",
+      "participant": "ms:DiffusionCoefficient"
+    },
+    {
+      "relation": "h:D",
+      "role": "sci:quantitySubject",
+      "participant": "study:MacroDiffusion"
+    },
+    {
+      "relation": "h:D",
+      "role": "sci:numericalValue",
+      "participant": "value:D"
+    },
+    {
+      "relation": "h:D",
+      "role": "sci:quantityUnit",
+      "participant": "unit:m2s"
+    },
+    {
+      "relation": "h:D",
+      "role": "sci:quantityContext",
+      "participant": "ms:MacroScale",
+      "qualifier": "scale"
+    },
+    {
+      "relation": "h:step-law",
+      "role": "sci:distributionRandomObject",
+      "participant": "study:StepNoise"
+    },
+    {
+      "relation": "h:step-law",
+      "role": "sci:distributionFamily",
+      "participant": "ms:RademacherDistribution"
+    },
+    {
+      "relation": "h:step-law",
+      "role": "sci:distributionParameter",
+      "participant": "h:dx",
+      "qualifier": "stepLength"
+    },
+    {
+      "relation": "h:micro-law",
+      "role": "sci:eqInput",
+      "participant": "study:MicroPosition",
+      "qualifier": "position"
+    },
+    {
+      "relation": "h:micro-law",
+      "role": "sci:eqDriver",
+      "participant": "study:StepNoise"
+    },
+    {
+      "relation": "h:micro-law",
+      "role": "sci:eqOutput",
+      "participant": "study:MicroPosition"
+    },
+    {
+      "relation": "h:micro-law",
+      "role": "sci:eqExpression",
+      "participant": "study:MicroExpression"
+    },
+    {
+      "relation": "h:micro-law",
+      "role": "sci:eqParameter",
+      "participant": "h:dt",
+      "qualifier": "timeStep"
+    },
+    {
+      "relation": "h:D-law",
+      "role": "sci:eqInput",
+      "participant": "h:dx",
+      "qualifier": "stepLength"
+    },
+    {
+      "relation": "h:D-law",
+      "role": "sci:eqInput",
+      "participant": "h:dt",
+      "qualifier": "timeStep"
+    },
+    {
+      "relation": "h:D-law",
+      "role": "sci:eqOutput",
+      "participant": "h:D"
+    },
+    {
+      "relation": "h:D-law",
+      "role": "sci:eqExpression",
+      "participant": "study:DExpression"
+    },
+    {
+      "relation": "h:D-law",
+      "role": "sci:eqAssumption",
+      "participant": "ms:EffectiveLimit"
+    },
+    {
+      "relation": "h:micro-sim",
+      "role": "sci:analysisModel",
+      "participant": "h:micro-law"
+    },
+    {
+      "relation": "h:micro-sim",
+      "role": "sci:analysisMethod",
+      "participant": "study:EnsembleSimulator"
+    },
+    {
+      "relation": "h:micro-sim",
+      "role": "sci:analysisContext",
+      "participant": "h:step-law",
+      "qualifier": "noiseLaw"
+    },
+    {
+      "relation": "h:micro-sim",
+      "role": "sci:analysisOutput",
+      "participant": "study:MicroEnsemble"
+    },
+    {
+      "relation": "h:coarse-representation",
+      "role": "sci:representationSource",
+      "participant": "study:MicroEnsemble"
+    },
+    {
+      "relation": "h:coarse-representation",
+      "role": "sci:representationTransform",
+      "participant": "study:CoarseGrain"
+    },
+    {
+      "relation": "h:coarse-representation",
+      "role": "sci:representationOutput",
+      "participant": "study:CoarseDensity"
+    },
+    {
+      "relation": "h:coarse-representation",
+      "role": "sci:representationScale",
+      "participant": "value:macroScale"
+    },
+    {
+      "relation": "h:coarse-representation",
+      "role": "sci:representationAssumption",
+      "participant": "ms:EffectiveLimit"
+    },
+    {
+      "relation": "h:coarse-representation",
+      "role": "sci:representationLoss",
+      "participant": "value:representationError"
+    },
+    {
+      "relation": "h:coarse-representation",
+      "role": "sci:representationContext",
+      "participant": "h:micro-law",
+      "qualifier": "microModel"
+    },
+    {
+      "relation": "h:macro-law",
+      "role": "sci:eqInput",
+      "participant": "study:DensityField",
+      "qualifier": "field"
+    },
+    {
+      "relation": "h:macro-law",
+      "role": "sci:eqParameter",
+      "participant": "h:D",
+      "qualifier": "D"
+    },
+    {
+      "relation": "h:macro-law",
+      "role": "sci:eqOutput",
+      "participant": "study:DensityField"
+    },
+    {
+      "relation": "h:macro-law",
+      "role": "sci:eqExpression",
+      "participant": "study:MacroExpression"
+    },
+    {
+      "relation": "h:macro-law",
+      "role": "sci:eqAssumption",
+      "participant": "ms:EffectiveLimit"
+    },
+    {
+      "relation": "h:macro-solve",
+      "role": "sci:analysisModel",
+      "participant": "h:macro-law"
+    },
+    {
+      "relation": "h:macro-solve",
+      "role": "sci:analysisMethod",
+      "participant": "study:PDESolver"
+    },
+    {
+      "relation": "h:macro-solve",
+      "role": "sci:analysisInput",
+      "participant": "study:CoarseDensity",
+      "qualifier": "initial"
+    },
+    {
+      "relation": "h:macro-solve",
+      "role": "sci:analysisOutput",
+      "participant": "study:MacroTrajectory"
+    },
+    {
+      "relation": "h:effective-claim",
+      "role": "sci:claimProposition",
+      "participant": "study:EffectiveProposition"
+    },
+    {
+      "relation": "h:effective-claim",
+      "role": "sci:claimEvidence",
+      "participant": "h:coarse-representation",
+      "qualifier": "coarseRepresentation"
+    },
+    {
+      "relation": "h:effective-claim",
+      "role": "sci:claimEvidence",
+      "participant": "h:macro-solve",
+      "qualifier": "macroPrediction"
+    },
+    {
+      "relation": "h:effective-claim",
+      "role": "sci:claimScope",
+      "participant": "value:macroScale"
+    },
+    {
+      "relation": "h:effective-claim",
+      "role": "sci:claimStatus",
+      "participant": "study:Supported"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:ms_RandomWalkModel:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "ms:RandomWalkModel"
+    },
+    {
+      "relation": "norm:instanceOf:ms_RandomWalkModel:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:ms_DiffusionModel:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "ms:DiffusionModel"
+    },
+    {
+      "relation": "norm:instanceOf:ms_DiffusionModel:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:ms_Position:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "ms:Position"
+    },
+    {
+      "relation": "norm:instanceOf:ms_Position:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:ms_DensityField:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "ms:DensityField"
+    },
+    {
+      "relation": "norm:instanceOf:ms_DensityField:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:ms_StepLength:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "ms:StepLength"
+    },
+    {
+      "relation": "norm:instanceOf:ms_StepLength:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:ms_TimeStep:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "ms:TimeStep"
+    },
+    {
+      "relation": "norm:instanceOf:ms_TimeStep:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:ms_DiffusionCoefficient:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "ms:DiffusionCoefficient"
+    },
+    {
+      "relation": "norm:instanceOf:ms_DiffusionCoefficient:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:ms_RademacherDistribution:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "ms:RademacherDistribution"
+    },
+    {
+      "relation": "norm:instanceOf:ms_RademacherDistribution:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:ms_MicroScale:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "ms:MicroScale"
+    },
+    {
+      "relation": "norm:instanceOf:ms_MicroScale:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:ms_MacroScale:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "ms:MacroScale"
+    },
+    {
+      "relation": "norm:instanceOf:ms_MacroScale:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:ms_EffectiveLimit:sci_Assumption",
+      "role": "sci:instance",
+      "participant": "ms:EffectiveLimit"
+    },
+    {
+      "relation": "norm:instanceOf:ms_EffectiveLimit:sci_Assumption",
+      "role": "sci:type",
+      "participant": "sci:Assumption"
+    },
+    {
+      "relation": "norm:instanceOf:study_MicroExpression:sci_Expression",
+      "role": "sci:instance",
+      "participant": "study:MicroExpression"
+    },
+    {
+      "relation": "norm:instanceOf:study_MicroExpression:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:study_MacroExpression:sci_Expression",
+      "role": "sci:instance",
+      "participant": "study:MacroExpression"
+    },
+    {
+      "relation": "norm:instanceOf:study_MacroExpression:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:study_DExpression:sci_Expression",
+      "role": "sci:instance",
+      "participant": "study:DExpression"
+    },
+    {
+      "relation": "norm:instanceOf:study_DExpression:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:study_EnsembleSimulator:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:EnsembleSimulator"
+    },
+    {
+      "relation": "norm:instanceOf:study_EnsembleSimulator:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_CoarseGrain:sci_AuthoringCategory_transform",
+      "role": "sci:instance",
+      "participant": "study:CoarseGrain"
+    },
+    {
+      "relation": "norm:instanceOf:study_CoarseGrain:sci_AuthoringCategory_transform",
+      "role": "sci:type",
+      "participant": "sci:AuthoringCategory_transform"
+    },
+    {
+      "relation": "norm:instanceOf:study_PDESolver:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:PDESolver"
+    },
+    {
+      "relation": "norm:instanceOf:study_PDESolver:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_MicroEnsemble:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:MicroEnsemble"
+    },
+    {
+      "relation": "norm:instanceOf:study_MicroEnsemble:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_CoarseDensity:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:CoarseDensity"
+    },
+    {
+      "relation": "norm:instanceOf:study_CoarseDensity:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_MacroTrajectory:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:MacroTrajectory"
+    },
+    {
+      "relation": "norm:instanceOf:study_MacroTrajectory:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_EffectiveProposition:sci_AuthoringCategory_proposition",
+      "role": "sci:instance",
+      "participant": "study:EffectiveProposition"
+    },
+    {
+      "relation": "norm:instanceOf:study_EffectiveProposition:sci_AuthoringCategory_proposition",
+      "role": "sci:type",
+      "participant": "sci:AuthoringCategory_proposition"
+    },
+    {
+      "relation": "norm:instanceOf:study_Supported:sci_Status",
+      "role": "sci:instance",
+      "participant": "study:Supported"
+    },
+    {
+      "relation": "norm:instanceOf:study_Supported:sci_Status",
+      "role": "sci:type",
+      "participant": "sci:Status"
+    },
+    {
+      "relation": "norm:instanceOf:value_dx:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:dx"
+    },
+    {
+      "relation": "norm:instanceOf:value_dx:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_dt:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:dt"
+    },
+    {
+      "relation": "norm:instanceOf:value_dt:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_D:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:D"
+    },
+    {
+      "relation": "norm:instanceOf:value_D:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_macroScale:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:macroScale"
+    },
+    {
+      "relation": "norm:instanceOf:value_macroScale:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_representationError:sci_Uncertainty",
+      "role": "sci:instance",
+      "participant": "value:representationError"
+    },
+    {
+      "relation": "norm:instanceOf:value_representationError:sci_Uncertainty",
+      "role": "sci:type",
+      "participant": "sci:Uncertainty"
+    },
+    {
+      "relation": "norm:instanceOf:unit_m:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:m"
+    },
+    {
+      "relation": "norm:instanceOf:unit_m:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:unit_s:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:s"
+    },
+    {
+      "relation": "norm:instanceOf:unit_s:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:unit_m2s:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:m2s"
+    },
+    {
+      "relation": "norm:instanceOf:unit_m2s:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    }
+  ]
+}

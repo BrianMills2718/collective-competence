@@ -1,0 +1,1283 @@
+{
+  "model": "scientific-hypergraph-v2",
+  "imports": [
+    "hypergraph-kernel-v2",
+    "scientific-semantic-types-v2",
+    "scientific-role-schema-v2"
+  ],
+  "normalization": {
+    "sourceModel": "scientific-hypergraph-v1",
+    "algorithm": "graph-native-typing-v2",
+    "sourceArtifact": "harmonic-oscillator-hypergraph-v1.json"
+  },
+  "elements": [
+    {
+      "id": "meta:RelationType",
+      "label": "Relation Type",
+      "layer": "metamodel"
+    },
+    {
+      "id": "osc:Acceleration",
+      "label": "Acceleration",
+      "layer": "theory"
+    },
+    {
+      "id": "osc:AngularFrequency",
+      "label": "Angular Frequency",
+      "layer": "theory"
+    },
+    {
+      "id": "osc:Displacement",
+      "label": "Displacement",
+      "layer": "theory"
+    },
+    {
+      "id": "osc:HarmonicOscillator",
+      "label": "Harmonic Oscillator",
+      "layer": "theory"
+    },
+    {
+      "id": "osc:LinearSpring",
+      "label": "Linear Hooke-law spring",
+      "layer": "theory"
+    },
+    {
+      "id": "osc:Mass",
+      "label": "Mass",
+      "layer": "theory"
+    },
+    {
+      "id": "osc:NoDamping",
+      "label": "No damping",
+      "layer": "theory"
+    },
+    {
+      "id": "osc:ReferenceFrame",
+      "label": "Reference Frame",
+      "layer": "theory"
+    },
+    {
+      "id": "osc:SpringConstant",
+      "label": "Spring Constant",
+      "layer": "theory"
+    },
+    {
+      "id": "osc:Trajectory",
+      "label": "State Trajectory",
+      "layer": "theory"
+    },
+    {
+      "id": "osc:Velocity",
+      "label": "Velocity",
+      "layer": "theory"
+    },
+    {
+      "id": "study:CameraClock",
+      "label": "camera + clock",
+      "layer": "study"
+    },
+    {
+      "id": "study:ExprOmega",
+      "label": "omega = sqrt(k/m)",
+      "layer": "study"
+    },
+    {
+      "id": "study:ExprV",
+      "label": "dv/dt = -(k/m)x",
+      "layer": "study"
+    },
+    {
+      "id": "study:ExprX",
+      "label": "dx/dt = v",
+      "layer": "study"
+    },
+    {
+      "id": "study:HarmonicFit",
+      "label": "harmonic frequency fit",
+      "layer": "study"
+    },
+    {
+      "id": "study:LabFrame",
+      "label": "laboratory frame",
+      "layer": "study"
+    },
+    {
+      "id": "study:ModelTrajectory",
+      "label": "model trajectory",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:NumericalIntegrator",
+      "label": "ODE integrator",
+      "layer": "study"
+    },
+    {
+      "id": "study:ObservedTrajectory",
+      "label": "observed position-time trajectory",
+      "layer": "evidence"
+    },
+    {
+      "id": "study:Oscillator1",
+      "label": "mass-spring oscillator",
+      "layer": "study"
+    },
+    {
+      "id": "study:Time",
+      "label": "time",
+      "layer": "study"
+    },
+    {
+      "id": "study:TrackingProcedure",
+      "label": "tracking procedure",
+      "layer": "study"
+    },
+    {
+      "id": "study:dvdt",
+      "label": "dv/dt",
+      "layer": "study"
+    },
+    {
+      "id": "study:dxdt",
+      "label": "dx/dt",
+      "layer": "study"
+    },
+    {
+      "id": "unit:Npm",
+      "label": "N/m",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:kg",
+      "label": "kg",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:m",
+      "label": "m",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:mps",
+      "label": "m/s",
+      "layer": "schema"
+    },
+    {
+      "id": "unit:rps",
+      "label": "rad/s",
+      "layer": "schema"
+    },
+    {
+      "id": "value:dOmega",
+      "label": "+/-0.03",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:k4",
+      "label": "4.00",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:m1",
+      "label": "1.00",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:omegaFit",
+      "label": "2.01",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:omegaTheory",
+      "label": "2.00",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:v0",
+      "label": "0.00",
+      "layer": "evidence"
+    },
+    {
+      "id": "value:x0",
+      "label": "0.10",
+      "layer": "evidence"
+    }
+  ],
+  "relations": [
+    {
+      "id": "h:eq-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:measurement-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:analysis-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:qvalue-type",
+      "layer": "schema",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:osc-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:frame-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:dxdt-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:dvdt-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:model-trajectory-type",
+      "layer": "study",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "h:m-value",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:k-value",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:x0-value",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:v0-value",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:dxdt-law",
+      "layer": "study",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:dvdt-law",
+      "layer": "study",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:omega-law",
+      "layer": "study",
+      "relationType": "sci:EquationRelation"
+    },
+    {
+      "id": "h:omega-theory",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "h:trajectory-solve",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "h:position-measurement",
+      "layer": "study",
+      "relationType": "sci:MeasurementRelation"
+    },
+    {
+      "id": "h:omega-fit",
+      "layer": "study",
+      "relationType": "sci:AnalysisRelation"
+    },
+    {
+      "id": "h:omega-fit-value",
+      "layer": "evidence",
+      "relationType": "sci:QuantityValueRelation"
+    },
+    {
+      "id": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:osc_HarmonicOscillator:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:osc_Displacement:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:osc_Velocity:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:osc_Acceleration:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:osc_Mass:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:osc_SpringConstant:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:osc_AngularFrequency:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:osc_ReferenceFrame:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:osc_Trajectory:sci_ElementType",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:osc_NoDamping:sci_Assumption",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:osc_LinearSpring:sci_Assumption",
+      "layer": "theory",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ExprX:sci_Expression",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ExprV:sci_Expression",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ExprOmega:sci_Expression",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_NumericalIntegrator:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_HarmonicFit:sci_Method",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_CameraClock:sci_Instrument",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_TrackingProcedure:sci_Procedure",
+      "layer": "study",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ModelTrajectory:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:study_ObservedTrajectory:sci_DataArtifact",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_m1:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_kg:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_k4:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_Npm:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_x0:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_m:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_v0:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_mps:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_omegaTheory:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_omegaFit:sci_Value",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:value_dOmega:sci_Uncertainty",
+      "layer": "evidence",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    },
+    {
+      "id": "norm:instanceOf:unit_rps:sci_Unit",
+      "layer": "schema",
+      "generatedBy": "graph-native-typing-v2",
+      "relationType": "sci:instanceOf"
+    }
+  ],
+  "bindings": [
+    {
+      "relation": "h:eq-type",
+      "role": "sci:instance",
+      "participant": "sci:EquationRelation"
+    },
+    {
+      "relation": "h:eq-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:measurement-type",
+      "role": "sci:instance",
+      "participant": "sci:MeasurementRelation"
+    },
+    {
+      "relation": "h:measurement-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:instance",
+      "participant": "sci:AnalysisRelation"
+    },
+    {
+      "relation": "h:analysis-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:instance",
+      "participant": "sci:QuantityValueRelation"
+    },
+    {
+      "relation": "h:qvalue-type",
+      "role": "sci:type",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "h:osc-type",
+      "role": "sci:instance",
+      "participant": "study:Oscillator1"
+    },
+    {
+      "relation": "h:osc-type",
+      "role": "sci:type",
+      "participant": "osc:HarmonicOscillator"
+    },
+    {
+      "relation": "h:frame-type",
+      "role": "sci:instance",
+      "participant": "study:LabFrame"
+    },
+    {
+      "relation": "h:frame-type",
+      "role": "sci:type",
+      "participant": "osc:ReferenceFrame"
+    },
+    {
+      "relation": "h:dxdt-type",
+      "role": "sci:instance",
+      "participant": "study:dxdt"
+    },
+    {
+      "relation": "h:dxdt-type",
+      "role": "sci:type",
+      "participant": "osc:Velocity"
+    },
+    {
+      "relation": "h:dvdt-type",
+      "role": "sci:instance",
+      "participant": "study:dvdt"
+    },
+    {
+      "relation": "h:dvdt-type",
+      "role": "sci:type",
+      "participant": "osc:Acceleration"
+    },
+    {
+      "relation": "h:model-trajectory-type",
+      "role": "sci:instance",
+      "participant": "study:ModelTrajectory"
+    },
+    {
+      "relation": "h:model-trajectory-type",
+      "role": "sci:type",
+      "participant": "osc:Trajectory"
+    },
+    {
+      "relation": "h:m-value",
+      "role": "sci:quantityKind",
+      "participant": "osc:Mass"
+    },
+    {
+      "relation": "h:m-value",
+      "role": "sci:quantitySubject",
+      "participant": "study:Oscillator1"
+    },
+    {
+      "relation": "h:m-value",
+      "role": "sci:numericalValue",
+      "participant": "value:m1"
+    },
+    {
+      "relation": "h:m-value",
+      "role": "sci:quantityUnit",
+      "participant": "unit:kg"
+    },
+    {
+      "relation": "h:k-value",
+      "role": "sci:quantityKind",
+      "participant": "osc:SpringConstant"
+    },
+    {
+      "relation": "h:k-value",
+      "role": "sci:quantitySubject",
+      "participant": "study:Oscillator1"
+    },
+    {
+      "relation": "h:k-value",
+      "role": "sci:numericalValue",
+      "participant": "value:k4"
+    },
+    {
+      "relation": "h:k-value",
+      "role": "sci:quantityUnit",
+      "participant": "unit:Npm"
+    },
+    {
+      "relation": "h:x0-value",
+      "role": "sci:quantityKind",
+      "participant": "osc:Displacement"
+    },
+    {
+      "relation": "h:x0-value",
+      "role": "sci:quantitySubject",
+      "participant": "study:Oscillator1"
+    },
+    {
+      "relation": "h:x0-value",
+      "role": "sci:numericalValue",
+      "participant": "value:x0"
+    },
+    {
+      "relation": "h:x0-value",
+      "role": "sci:quantityUnit",
+      "participant": "unit:m"
+    },
+    {
+      "relation": "h:x0-value",
+      "role": "sci:quantityContext",
+      "participant": "study:LabFrame"
+    },
+    {
+      "relation": "h:v0-value",
+      "role": "sci:quantityKind",
+      "participant": "osc:Velocity"
+    },
+    {
+      "relation": "h:v0-value",
+      "role": "sci:quantitySubject",
+      "participant": "study:Oscillator1"
+    },
+    {
+      "relation": "h:v0-value",
+      "role": "sci:numericalValue",
+      "participant": "value:v0"
+    },
+    {
+      "relation": "h:v0-value",
+      "role": "sci:quantityUnit",
+      "participant": "unit:mps"
+    },
+    {
+      "relation": "h:v0-value",
+      "role": "sci:quantityContext",
+      "participant": "study:LabFrame"
+    },
+    {
+      "relation": "h:dxdt-law",
+      "role": "sci:eqInput",
+      "participant": "osc:Velocity"
+    },
+    {
+      "relation": "h:dxdt-law",
+      "role": "sci:eqOutput",
+      "participant": "study:dxdt"
+    },
+    {
+      "relation": "h:dxdt-law",
+      "role": "sci:eqExpression",
+      "participant": "study:ExprX"
+    },
+    {
+      "relation": "h:dxdt-law",
+      "role": "sci:eqIndependentVariable",
+      "participant": "study:Time"
+    },
+    {
+      "relation": "h:dxdt-law",
+      "role": "sci:eqInitialCondition",
+      "participant": "h:x0-value"
+    },
+    {
+      "relation": "h:dxdt-law",
+      "role": "sci:eqContext",
+      "participant": "study:LabFrame"
+    },
+    {
+      "relation": "h:dvdt-law",
+      "role": "sci:eqInput",
+      "participant": "osc:Displacement",
+      "qualifier": "state"
+    },
+    {
+      "relation": "h:dvdt-law",
+      "role": "sci:eqParameter",
+      "participant": "h:k-value",
+      "qualifier": "k"
+    },
+    {
+      "relation": "h:dvdt-law",
+      "role": "sci:eqParameter",
+      "participant": "h:m-value",
+      "qualifier": "m"
+    },
+    {
+      "relation": "h:dvdt-law",
+      "role": "sci:eqOutput",
+      "participant": "study:dvdt"
+    },
+    {
+      "relation": "h:dvdt-law",
+      "role": "sci:eqExpression",
+      "participant": "study:ExprV"
+    },
+    {
+      "relation": "h:dvdt-law",
+      "role": "sci:eqIndependentVariable",
+      "participant": "study:Time"
+    },
+    {
+      "relation": "h:dvdt-law",
+      "role": "sci:eqInitialCondition",
+      "participant": "h:v0-value"
+    },
+    {
+      "relation": "h:dvdt-law",
+      "role": "sci:eqAssumption",
+      "participant": "osc:NoDamping",
+      "qualifier": "noDamping"
+    },
+    {
+      "relation": "h:dvdt-law",
+      "role": "sci:eqAssumption",
+      "participant": "osc:LinearSpring",
+      "qualifier": "linearSpring"
+    },
+    {
+      "relation": "h:dvdt-law",
+      "role": "sci:eqContext",
+      "participant": "study:LabFrame"
+    },
+    {
+      "relation": "h:omega-law",
+      "role": "sci:eqInput",
+      "participant": "h:k-value",
+      "qualifier": "k"
+    },
+    {
+      "relation": "h:omega-law",
+      "role": "sci:eqInput",
+      "participant": "h:m-value",
+      "qualifier": "m"
+    },
+    {
+      "relation": "h:omega-law",
+      "role": "sci:eqOutput",
+      "participant": "h:omega-theory"
+    },
+    {
+      "relation": "h:omega-law",
+      "role": "sci:eqExpression",
+      "participant": "study:ExprOmega"
+    },
+    {
+      "relation": "h:omega-theory",
+      "role": "sci:quantityKind",
+      "participant": "osc:AngularFrequency"
+    },
+    {
+      "relation": "h:omega-theory",
+      "role": "sci:quantitySubject",
+      "participant": "study:Oscillator1"
+    },
+    {
+      "relation": "h:omega-theory",
+      "role": "sci:numericalValue",
+      "participant": "value:omegaTheory"
+    },
+    {
+      "relation": "h:omega-theory",
+      "role": "sci:quantityUnit",
+      "participant": "unit:rps"
+    },
+    {
+      "relation": "h:trajectory-solve",
+      "role": "sci:analysisModel",
+      "participant": "h:dxdt-law",
+      "qualifier": "x"
+    },
+    {
+      "relation": "h:trajectory-solve",
+      "role": "sci:analysisModel",
+      "participant": "h:dvdt-law",
+      "qualifier": "v"
+    },
+    {
+      "relation": "h:trajectory-solve",
+      "role": "sci:analysisInput",
+      "participant": "h:x0-value",
+      "qualifier": "x0"
+    },
+    {
+      "relation": "h:trajectory-solve",
+      "role": "sci:analysisInput",
+      "participant": "h:v0-value",
+      "qualifier": "v0"
+    },
+    {
+      "relation": "h:trajectory-solve",
+      "role": "sci:analysisMethod",
+      "participant": "study:NumericalIntegrator"
+    },
+    {
+      "relation": "h:trajectory-solve",
+      "role": "sci:analysisContext",
+      "participant": "study:LabFrame"
+    },
+    {
+      "relation": "h:trajectory-solve",
+      "role": "sci:analysisOutput",
+      "participant": "study:ModelTrajectory"
+    },
+    {
+      "relation": "h:position-measurement",
+      "role": "sci:measurementSubject",
+      "participant": "study:Oscillator1"
+    },
+    {
+      "relation": "h:position-measurement",
+      "role": "sci:measurementMeasurand",
+      "participant": "osc:Displacement"
+    },
+    {
+      "relation": "h:position-measurement",
+      "role": "sci:measurementProcedure",
+      "participant": "study:TrackingProcedure"
+    },
+    {
+      "relation": "h:position-measurement",
+      "role": "sci:measurementInstrument",
+      "participant": "study:CameraClock"
+    },
+    {
+      "relation": "h:position-measurement",
+      "role": "sci:measurementObservation",
+      "participant": "study:ObservedTrajectory"
+    },
+    {
+      "relation": "h:position-measurement",
+      "role": "sci:measurementResult",
+      "participant": "study:ObservedTrajectory"
+    },
+    {
+      "relation": "h:position-measurement",
+      "role": "sci:measurementContext",
+      "participant": "study:LabFrame"
+    },
+    {
+      "relation": "h:omega-fit",
+      "role": "sci:analysisInput",
+      "participant": "study:ObservedTrajectory"
+    },
+    {
+      "relation": "h:omega-fit",
+      "role": "sci:analysisModel",
+      "participant": "h:trajectory-solve"
+    },
+    {
+      "relation": "h:omega-fit",
+      "role": "sci:analysisMethod",
+      "participant": "study:HarmonicFit"
+    },
+    {
+      "relation": "h:omega-fit",
+      "role": "sci:analysisContext",
+      "participant": "study:LabFrame"
+    },
+    {
+      "relation": "h:omega-fit",
+      "role": "sci:analysisOutput",
+      "participant": "h:omega-fit-value"
+    },
+    {
+      "relation": "h:omega-fit",
+      "role": "sci:analysisUncertainty",
+      "participant": "value:dOmega"
+    },
+    {
+      "relation": "h:omega-fit-value",
+      "role": "sci:quantityKind",
+      "participant": "osc:AngularFrequency"
+    },
+    {
+      "relation": "h:omega-fit-value",
+      "role": "sci:quantitySubject",
+      "participant": "study:Oscillator1"
+    },
+    {
+      "relation": "h:omega-fit-value",
+      "role": "sci:numericalValue",
+      "participant": "value:omegaFit"
+    },
+    {
+      "relation": "h:omega-fit-value",
+      "role": "sci:quantityUnit",
+      "participant": "unit:rps"
+    },
+    {
+      "relation": "h:omega-fit-value",
+      "role": "sci:quantityUncertainty",
+      "participant": "value:dOmega"
+    },
+    {
+      "relation": "h:omega-fit-value",
+      "role": "sci:quantityContext",
+      "participant": "study:LabFrame"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "meta:RelationType"
+    },
+    {
+      "relation": "norm:instanceOf:meta_RelationType:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:osc_HarmonicOscillator:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "osc:HarmonicOscillator"
+    },
+    {
+      "relation": "norm:instanceOf:osc_HarmonicOscillator:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:osc_Displacement:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "osc:Displacement"
+    },
+    {
+      "relation": "norm:instanceOf:osc_Displacement:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:osc_Velocity:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "osc:Velocity"
+    },
+    {
+      "relation": "norm:instanceOf:osc_Velocity:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:osc_Acceleration:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "osc:Acceleration"
+    },
+    {
+      "relation": "norm:instanceOf:osc_Acceleration:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:osc_Mass:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "osc:Mass"
+    },
+    {
+      "relation": "norm:instanceOf:osc_Mass:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:osc_SpringConstant:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "osc:SpringConstant"
+    },
+    {
+      "relation": "norm:instanceOf:osc_SpringConstant:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:osc_AngularFrequency:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "osc:AngularFrequency"
+    },
+    {
+      "relation": "norm:instanceOf:osc_AngularFrequency:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:osc_ReferenceFrame:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "osc:ReferenceFrame"
+    },
+    {
+      "relation": "norm:instanceOf:osc_ReferenceFrame:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:osc_Trajectory:sci_ElementType",
+      "role": "sci:instance",
+      "participant": "osc:Trajectory"
+    },
+    {
+      "relation": "norm:instanceOf:osc_Trajectory:sci_ElementType",
+      "role": "sci:type",
+      "participant": "sci:ElementType"
+    },
+    {
+      "relation": "norm:instanceOf:osc_NoDamping:sci_Assumption",
+      "role": "sci:instance",
+      "participant": "osc:NoDamping"
+    },
+    {
+      "relation": "norm:instanceOf:osc_NoDamping:sci_Assumption",
+      "role": "sci:type",
+      "participant": "sci:Assumption"
+    },
+    {
+      "relation": "norm:instanceOf:osc_LinearSpring:sci_Assumption",
+      "role": "sci:instance",
+      "participant": "osc:LinearSpring"
+    },
+    {
+      "relation": "norm:instanceOf:osc_LinearSpring:sci_Assumption",
+      "role": "sci:type",
+      "participant": "sci:Assumption"
+    },
+    {
+      "relation": "norm:instanceOf:study_ExprX:sci_Expression",
+      "role": "sci:instance",
+      "participant": "study:ExprX"
+    },
+    {
+      "relation": "norm:instanceOf:study_ExprX:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:study_ExprV:sci_Expression",
+      "role": "sci:instance",
+      "participant": "study:ExprV"
+    },
+    {
+      "relation": "norm:instanceOf:study_ExprV:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:study_ExprOmega:sci_Expression",
+      "role": "sci:instance",
+      "participant": "study:ExprOmega"
+    },
+    {
+      "relation": "norm:instanceOf:study_ExprOmega:sci_Expression",
+      "role": "sci:type",
+      "participant": "sci:Expression"
+    },
+    {
+      "relation": "norm:instanceOf:study_NumericalIntegrator:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:NumericalIntegrator"
+    },
+    {
+      "relation": "norm:instanceOf:study_NumericalIntegrator:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_HarmonicFit:sci_Method",
+      "role": "sci:instance",
+      "participant": "study:HarmonicFit"
+    },
+    {
+      "relation": "norm:instanceOf:study_HarmonicFit:sci_Method",
+      "role": "sci:type",
+      "participant": "sci:Method"
+    },
+    {
+      "relation": "norm:instanceOf:study_CameraClock:sci_Instrument",
+      "role": "sci:instance",
+      "participant": "study:CameraClock"
+    },
+    {
+      "relation": "norm:instanceOf:study_CameraClock:sci_Instrument",
+      "role": "sci:type",
+      "participant": "sci:Instrument"
+    },
+    {
+      "relation": "norm:instanceOf:study_TrackingProcedure:sci_Procedure",
+      "role": "sci:instance",
+      "participant": "study:TrackingProcedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_TrackingProcedure:sci_Procedure",
+      "role": "sci:type",
+      "participant": "sci:Procedure"
+    },
+    {
+      "relation": "norm:instanceOf:study_ModelTrajectory:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:ModelTrajectory"
+    },
+    {
+      "relation": "norm:instanceOf:study_ModelTrajectory:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObservedTrajectory:sci_DataArtifact",
+      "role": "sci:instance",
+      "participant": "study:ObservedTrajectory"
+    },
+    {
+      "relation": "norm:instanceOf:study_ObservedTrajectory:sci_DataArtifact",
+      "role": "sci:type",
+      "participant": "sci:DataArtifact"
+    },
+    {
+      "relation": "norm:instanceOf:value_m1:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:m1"
+    },
+    {
+      "relation": "norm:instanceOf:value_m1:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:unit_kg:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:kg"
+    },
+    {
+      "relation": "norm:instanceOf:unit_kg:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:value_k4:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:k4"
+    },
+    {
+      "relation": "norm:instanceOf:value_k4:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:unit_Npm:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:Npm"
+    },
+    {
+      "relation": "norm:instanceOf:unit_Npm:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:value_x0:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:x0"
+    },
+    {
+      "relation": "norm:instanceOf:value_x0:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:unit_m:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:m"
+    },
+    {
+      "relation": "norm:instanceOf:unit_m:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:value_v0:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:v0"
+    },
+    {
+      "relation": "norm:instanceOf:value_v0:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:unit_mps:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:mps"
+    },
+    {
+      "relation": "norm:instanceOf:unit_mps:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    },
+    {
+      "relation": "norm:instanceOf:value_omegaTheory:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:omegaTheory"
+    },
+    {
+      "relation": "norm:instanceOf:value_omegaTheory:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_omegaFit:sci_Value",
+      "role": "sci:instance",
+      "participant": "value:omegaFit"
+    },
+    {
+      "relation": "norm:instanceOf:value_omegaFit:sci_Value",
+      "role": "sci:type",
+      "participant": "sci:Value"
+    },
+    {
+      "relation": "norm:instanceOf:value_dOmega:sci_Uncertainty",
+      "role": "sci:instance",
+      "participant": "value:dOmega"
+    },
+    {
+      "relation": "norm:instanceOf:value_dOmega:sci_Uncertainty",
+      "role": "sci:type",
+      "participant": "sci:Uncertainty"
+    },
+    {
+      "relation": "norm:instanceOf:unit_rps:sci_Unit",
+      "role": "sci:instance",
+      "participant": "unit:rps"
+    },
+    {
+      "relation": "norm:instanceOf:unit_rps:sci_Unit",
+      "role": "sci:type",
+      "participant": "sci:Unit"
+    }
+  ]
+}
