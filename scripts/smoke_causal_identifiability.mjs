@@ -5,7 +5,7 @@ const MIME={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=u
 const safe=u=>{const p=decodeURIComponent(new URL(u,`http://127.0.0.1:${PORT}`).pathname),r=path.resolve(ROOT,`.${p}`);return r.startsWith(ROOT+path.sep)||r===ROOT?r:null};
 async function serve(req,res){const f=safe(req.url||'/');if(!f||!existsSync(f)){res.writeHead(404);return res.end('not found')}res.writeHead(200,{'content-type':MIME[path.extname(f)]||'application/octet-stream','cache-control':'no-store'});res.end(await readFile(f));}
 function assert(ok,msg){if(!ok)throw new Error(msg)}
-const server=createServer((a,b)=>void serve(a,b));await new Promise(r=>server.listen(PORT,'127.0.0.1',r));const browser=await chromium.launch({headless:true}),page=await browser.newPage({viewport:{width:1700,height:1100}}),errors=[];page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});page.on('pageerror',e=>errors.push(String(e)));
+const server=createServer((a,b)=>void serve(a,b));await new Promise(r=>server.listen(PORT,'127.0.0.1',r));const browser=await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE?{executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE}:{})}),page=await browser.newPage({viewport:{width:1700,height:1100}}),errors=[];page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});page.on('pageerror',e=>errors.push(String(e)));
 try{
   await page.goto(`http://127.0.0.1:${PORT}${VIEWER}`,{waitUntil:'domcontentloaded'});
   await page.selectOption('#fixture','causal');

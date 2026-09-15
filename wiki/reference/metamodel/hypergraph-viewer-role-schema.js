@@ -35,7 +35,7 @@ function roleSchemaLayout(view){
 
   const metadata=view.nodes.filter(n=>!positions.has(n.id));
   const classNodes=metadata.filter(n=>n.id==='sci:RelationType'||n.id==='sci:RoleType');
-  const values=metadata.filter(n=>n.kind==='value'&&n.id!=='sci:RelationType'&&n.id!=='sci:RoleType').sort((a,b)=>String(a.label).localeCompare(String(b.label)));
+  const values=metadata.filter(n=>HV.hasType?.(n.id,'sci:Value')&&n.id!=='sci:RelationType'&&n.id!=='sci:RoleType').sort((a,b)=>String(a.label).localeCompare(String(b.label)));
   const other=metadata.filter(n=>!classNodes.includes(n)&&!values.includes(n)).sort((a,b)=>a.id.localeCompare(b.id));
   classNodes.forEach((n,i)=>positions.set(n.id,{x:-270,y:-80+i*130,w:HV.nodeWidth(n),h:HV.nodeHeight}));
   values.forEach((n,i)=>positions.set(n.id,{x:1020,y:-150+i*66,w:HV.nodeWidth(n),h:HV.nodeHeight}));
@@ -60,7 +60,7 @@ HV.renderBundledTypeEdges=edgeGroup=>{
   // as two bundled meta-typing trunks so RoleType/RelationType membership is visible.
   for(const target of ['sci:RelationType','sci:RoleType']){
     const targetPos=layout.positions.get(target);if(!targetPos)continue;
-    const members=HV.state.view.nodes.filter(n=>n.type===target&&layout.positions.has(n.id));
+    const members=HV.state.view.nodes.filter(n=>HV.hasType?.(n.id,target)&&layout.positions.has(n.id));
     if(!members.length)continue;
     const a=HV.canvasPoint(targetPos),junction={x:a.x+150,y:a.y};
     HV.curve(edgeGroup,a,junction,'type-edge type-trunk',.28);

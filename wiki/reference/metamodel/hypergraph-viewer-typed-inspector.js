@@ -5,7 +5,7 @@ HV.selectItem=id=>{
   const S=HV.state,E=HV.els;S.selected=id;
   const item=HV.index().get(id),relation=S.data.hyperedges.find(e=>e.id===id);if(!item)return;
   E.selTitle.textContent=item.label||(relation?HV.labelOf(relation.type):id);
-  E.selMeta.textContent=`${relation?'n-ary relation':item.kind||'element'} · ${item.layer||''} · ${item.source||''}${relation?` · ${relation.sourceModel}`:''}`;
+  E.selMeta.textContent=`${relation?'n-ary relation':HV.displayCategory(item)} · ${item.layer||''} · ${item.source||''}${relation?` · ${relation.sourceModel}`:''}`;
   if(relation){
     E.selDesc.textContent='First-class n-ary relation with typed incidence bindings. Each binding resolves to a RoleType; ID-bearing bindings are themselves addressable ModelElements.';
     const header=`<div class="role"><div class="roleName">relation type</div><div>${HV.escapeHtml(HV.labelOf(relation.type))}<br><span class="small">${HV.escapeHtml(relation.type)}</span></div></div>`;
@@ -15,7 +15,7 @@ HV.selectItem=id=>{
       return `<div class="role"><div class="roleName">${HV.escapeHtml(label)}<br><span class="small">${HV.escapeHtml(b.role)}</span>${bindingId}</div><div>${HV.escapeHtml(HV.labelOf(b.participant))}</div></div>`;
     }).join('');
     E.roles.innerHTML=header+rows;
-  }else if(item.kind==='roleBinding'){
+  }else if(HV.hasType(id,'sci:RoleBinding')){
     const inbound=S.data.hyperedges.filter(e=>(e.bindings||[]).some(b=>b.participant===id));
     E.selDesc.textContent='Addressable RoleBinding: one specific participant-to-role assignment in a parent relation. Scientific claims, evidence, provenance, or uncertainty may target this binding without reidentifying the whole relation.';
     const rows=[

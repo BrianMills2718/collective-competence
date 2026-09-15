@@ -14,7 +14,7 @@ async function serve(req,res){const file=safePath(req.url||'/');if(!file||!exist
 function assert(ok,msg){if(!ok)throw new Error(msg);}
 
 const server=createServer((req,res)=>void serve(req,res));await new Promise(r=>server.listen(PORT,'127.0.0.1',r));
-const browser=await chromium.launch({headless:true});const page=await browser.newPage({viewport:{width:1500,height:1000}});const errors=[];page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});page.on('pageerror',e=>errors.push(String(e)));
+const browser=await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE?{executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE}:{})});const page=await browser.newPage({viewport:{width:1500,height:1000}});const errors=[];page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});page.on('pageerror',e=>errors.push(String(e)));
 try{
   await page.goto(`http://127.0.0.1:${PORT}${VIEWER}`,{waitUntil:'domcontentloaded'});
   await page.selectOption('#fixture','binding');
@@ -28,10 +28,11 @@ try{
   const normalizedScope=await page.evaluate(({claim,binding})=>{
     const edge=window.HV?.state?.data?.hyperedges?.find(e=>e.id===claim);
     const scope=edge?.bindings?.find(b=>b.role==='sci:claimScope');
-    return {participant:scope?.participant,bindingNode:window.HV?.state?.data?.nodes?.find(n=>n.id===binding)};
+    return {participant:scope?.participant,bindingNode:window.HV?.state?.data?.nodes?.find(n=>n.id===binding),semanticRoleBinding:window.HV?.hasType?.(binding,'sci:RoleBinding')};
   },{claim,binding});
   assert(normalizedScope.participant===binding,`claim scope normalized to ${normalizedScope.participant}, expected ${binding}`);
-  assert(normalizedScope.bindingNode?.kind==='roleBinding','normalized binding node is not kind=roleBinding');
+  assert(normalizedScope.bindingNode?.structuralKind==='roleBinding','normalized binding node lost structural RoleBinding metadata');
+  assert(normalizedScope.semanticRoleBinding===true,'normalized binding node is not semantically typed sci:RoleBinding');
 
   await page.locator(`[data-id="${claim}"]`).click();
   let text=await page.locator('#roles').textContent();
@@ -39,7 +40,7 @@ try{
 
   await page.locator(`[data-id="${binding}"]`).click();
   text=await page.locator('#roles').textContent();
-  assert((await page.locator('#selMeta').textContent())?.includes('roleBinding'),'binding inspector does not identify RoleBinding kind');
+  assert(/rolebinding/i.test((await page.locator('#selMeta').textContent())||''),'binding inspector does not identify semantic RoleBinding type');
   assert(text?.includes('sci:analysisModel'),'binding inspector missing canonical RoleType identity');
   assert(text?.includes('candidate model A'),'binding inspector missing bound participant');
   assert(text?.includes('h:analysis')||text?.includes('Analysis'),'binding inspector missing parent relation');

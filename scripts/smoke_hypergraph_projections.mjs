@@ -13,27 +13,30 @@ function safePath(urlPath){const pathname=decodeURIComponent(new URL(urlPath,`ht
 async function serve(req,res){const file=safePath(req.url||'/');if(!file||!existsSync(file)){res.writeHead(404);res.end('not found');return;}const body=await readFile(file);res.writeHead(200,{'content-type':MIME[path.extname(file)]||'application/octet-stream','cache-control':'no-store'});res.end(body);}
 function assert(ok,msg){if(!ok)throw new Error(msg);}
 const server=createServer((req,res)=>{void serve(req,res);});await new Promise(r=>server.listen(PORT,'127.0.0.1',r));
-const browser=await chromium.launch({headless:true});const page=await browser.newPage({viewport:{width:1800,height:1200}});const errors=[];page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});page.on('pageerror',e=>errors.push(String(e)));
+const browser=await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE?{executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE}:{})});const page=await browser.newPage({viewport:{width:1800,height:1200}});const errors=[];page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});page.on('pageerror',e=>errors.push(String(e)));
 try{
   await page.goto(`http://127.0.0.1:${PORT}${VIEWER}`,{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>/elements/.test(document.querySelector('#status')?.textContent||''),null,{timeout:20000});
-  const options=await page.locator('#projection option').count();assert(options===8,`expected 8 projection options, found ${options}`);
+  const options=await page.locator('#projection option').count();assert(options===9,`expected 9 projection options, found ${options}`);
   const overviewCount=await page.locator('#viewport .node,#viewport .relation').count();assert(overviewCount>250,`unexpectedly small eight-fixture overview: ${overviewCount}`);
   const bundles=await page.locator('#viewport .bundle-junction').count();assert(bundles>0,'type-edge bundling inactive in overview');
 
-  for(const mode of ['theory','measurement','probability','representation','access','evidence','identifiability']){
+  for(const mode of ['theory','measurement','probability','representation','access','evidence','identifiability','typing']){
     await page.selectOption('#projection',mode);
     await page.waitForFunction(m=>(document.querySelector('#status')?.textContent||'').includes(m),mode,{timeout:12000});
     const count=await page.locator('#viewport .node,#viewport .relation').count();
     assert(count>0,`${mode} projection is empty`);
-    assert(count<overviewCount,`${mode} projection did not reduce the graph: ${count} >= ${overviewCount}`);
+    if(mode!=='typing') assert(count<overviewCount,`${mode} projection did not reduce the graph: ${count} >= ${overviewCount}`);
+    else assert(count>overviewCount,`typing projection should expose normalized typing infrastructure: ${count} <= ${overviewCount}`);
     const disabled=await page.evaluate(()=>({layer:document.querySelector('#layer')?.disabled,type:document.querySelector('#relationType')?.disabled}));
     assert(disabled.layer&&disabled.type,`${mode} projection should disable manual layer/type filters`);
-    if(mode==='measurement') assert(await page.locator('[data-id="schema:Measurement"]').count()===1,'measurement projection missing Measurement relation type');
-    if(mode==='probability') assert(await page.locator('[data-id="schema:Distribution"]').count()===1,'probability projection missing Distribution relation type');
-    if(mode==='representation') assert(await page.locator('[data-id="schema:Representation"]').count()===1,'representation projection missing Representation relation type');
-    if(mode==='access') assert(await page.locator('[data-id="schema:StudyView"]').count()===1,'access projection missing StudyView relation type');
-    if(mode==='identifiability') assert(await page.locator('[data-id="schema:Identifiability"]').count()===1,'identifiability projection missing Identifiability relation type');
+    const hasId=async (...ids)=>{for(const id of ids)if(await page.locator(`[data-id="${id}"]`).count())return true;return false;};
+    if(mode==='measurement') assert(await hasId('sci:MeasurementRelation','schema:Measurement'),'measurement projection missing Measurement relation type');
+    if(mode==='probability') assert(await hasId('sci:DistributionRelation','schema:Distribution'),'probability projection missing Distribution relation type');
+    if(mode==='representation') assert(await hasId('sci:RepresentationRelation','schema:Representation'),'representation projection missing Representation relation type');
+    if(mode==='access') assert(await hasId('sci:AccessRelation','schema:StudyView'),'access projection missing Access relation type');
+    if(mode==='identifiability') assert(await hasId('sci:IdentifiabilityRelation','schema:Identifiability'),'identifiability projection missing Identifiability relation type');
+    if(mode==='typing'){const typed=await page.evaluate(()=>window.HV.state.view.hyperedges.filter(e=>e.type==='sci:instanceOf'&&e.normalizationGenerated).length);assert(typed>0,'typing projection missing generated instanceOf relations');}
     console.log(`PASS projection ${mode}: ${count} rendered items`);
   }
 

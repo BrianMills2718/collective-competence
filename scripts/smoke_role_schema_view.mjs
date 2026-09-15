@@ -13,11 +13,11 @@ function safePath(urlPath){const pathname=decodeURIComponent(new URL(urlPath,`ht
 async function serve(req,res){const file=safePath(req.url||'/');if(!file||!existsSync(file)){res.writeHead(404);res.end('not found');return;}res.writeHead(200,{'content-type':MIME[path.extname(file)]||'application/octet-stream','cache-control':'no-store'});res.end(await readFile(file));}
 function assert(ok,msg){if(!ok)throw new Error(msg);}
 const server=createServer((req,res)=>void serve(req,res));await new Promise(r=>server.listen(PORT,'127.0.0.1',r));
-const browser=await chromium.launch({headless:true});const page=await browser.newPage({viewport:{width:1900,height:1200}});const errors=[];page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});page.on('pageerror',e=>errors.push(String(e)));
+const browser=await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE?{executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE}:{})});const page=await browser.newPage({viewport:{width:1900,height:1200}});const errors=[];page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});page.on('pageerror',e=>errors.push(String(e)));
 try{
   await page.goto(`http://127.0.0.1:${PORT}${VIEWER}`,{waitUntil:'domcontentloaded'});
   await page.selectOption('#fixture','roleSchema');
-  await page.waitForFunction(()=>/elements/.test(document.querySelector('#status')?.textContent||''),null,{timeout:15000});
+  await page.waitForFunction(()=>window.HV?.state?.preset==='roleSchema'&&window.HV?.state?.view?.nodes?.length===121&&window.HV?.state?.view?.hyperedges?.length===90,null,{timeout:15000});
   const counts=await page.evaluate(()=>({nodes:document.querySelectorAll('#viewport .node').length,relations:document.querySelectorAll('#viewport .relation').length}));
   assert(counts.nodes===121,`expected 121 role-schema nodes, found ${counts.nodes}`);
   assert(counts.relations===90,`expected 90 declaresRole relations, found ${counts.relations}`);

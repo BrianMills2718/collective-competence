@@ -111,5 +111,23 @@ HV.mergeDocuments = entries => {
 };
 HV.populateRelationTypes = () => {const old=HV.els.relationType.value,types=[...new Set(HV.state.data.hyperedges.map(e=>e.type))].sort((a,b)=>HV.labelOf(a).localeCompare(HV.labelOf(b)));HV.els.relationType.innerHTML='<option value="all">All relation types</option>'+types.map(t=>`<option value="${HV.escapeHtml(t)}">${HV.escapeHtml(HV.labelOf(t))}</option>`).join('');if(types.includes(old))HV.els.relationType.value=old;};
 HV.showLoading = (on,text='Laying out graph…') => {HV.els.loading.textContent=text;HV.els.loading.style.display=on?'block':'none';};
-HV.loadPreset = async key => {HV.showLoading(true,'Loading fixtures…');try{await HV.ensureRoleContracts();HV.state.names=new Map([['shared','Shared kernel / schema']]);HV.state.preset=key;const keys=key==='all'?HV.AGGREGATE_FIXTURES:[key];const entries=await Promise.all(keys.map(async slug=>({slug,doc:slug==='roleSchema'?HV.roleSchemaGraph:await HV.fetchJson(HV.FIXTURES[slug])})));HV.state.data=HV.mergeDocuments(entries);HV.state.selected=null;HV.state.focus=null;HV.populateRelationTypes();await HV.relayout(true);}catch(error){console.error(error);HV.els.status.textContent=`Load failed: ${error.message}`;HV.showLoading(false);}};
+HV.loadSequence=0;
+HV.loadPreset = async key => {
+  const ticket=++HV.loadSequence;
+  HV.showLoading(true,'Loading fixtures…');
+  try{
+    await HV.ensureRoleContracts();
+    const keys=key==='all'?HV.AGGREGATE_FIXTURES:[key];
+    const entries=await Promise.all(keys.map(async slug=>({slug,doc:slug==='roleSchema'?HV.roleSchemaGraph:await HV.fetchJson(HV.FIXTURES[slug])})));
+    if(ticket!==HV.loadSequence)return;
+    HV.state.names=new Map([['shared','Shared kernel / schema']]);
+    HV.state.preset=key;
+    HV.state.data=HV.mergeDocuments(entries);
+    HV.state.selected=null;HV.state.focus=null;HV.populateRelationTypes();
+    await HV.relayout(true);
+  }catch(error){
+    if(ticket!==HV.loadSequence)return;
+    console.error(error);HV.els.status.textContent=`Load failed: ${error.message}`;HV.showLoading(false);
+  }
+};
 })();
