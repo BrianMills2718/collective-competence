@@ -18,15 +18,15 @@ def signals(index: int, left_amp: float = 1.0, right_amp: float = 1.0) -> tuple[
     return left, right
 
 
-def relative_position(index: int, left_amp: float = 1.0, right_amp: float = 1.0) -> float:
+def relative_position(index: int, left_amp: float = 1.0, right_amp: float = 1.0) -> float | None:
     left, right = signals(index, left_amp, right_amp)
     total = left + right
-    return right / total if total else 0.5
+    return right / total if total > 0.0 else None
 
 
 def ratio_accepts(index: int, left_amp: float = 1.0, right_amp: float = 1.0) -> bool:
     p = relative_position(index, left_amp, right_amp)
-    return RATIO_LOW <= p <= RATIO_HIGH
+    return p is not None and RATIO_LOW <= p <= RATIO_HIGH
 
 TARGET = frozenset(i for i in range(ARENA_SIZE) if ratio_accepts(i))
 TARGET_LEFT = min(TARGET)

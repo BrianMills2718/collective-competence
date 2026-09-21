@@ -1,6 +1,6 @@
 from model import (
     TARGET, TARGET_LEFT, TARGET_RIGHT, TARGET_SIZE,
-    amputate, edge_signature, grow, policy_gate, seed_state,
+    amputate, edge_signature, grow, policy_gate, ratio_accepts, relative_position, seed_state,
 )
 
 
@@ -53,3 +53,19 @@ def test_ratio_encoding_has_differential_source_boundary():
     assert balanced == TARGET
     assert imbalanced != TARGET
     assert ablated != TARGET
+
+
+def test_no_signal_does_not_mean_middle():
+    assert relative_position(32, 0.0, 0.0) is None
+    assert not ratio_accepts(32, 0.0, 0.0)
+
+
+def test_any_single_surviving_target_cell_can_regenerate_but_zero_cells_cannot():
+    gate = policy_gate("ratio", 1.0, 1.0)
+    for survivor in TARGET:
+        final, births = grow({survivor}, gate)
+        assert final == TARGET
+        assert births == TARGET_SIZE - 1
+    final, births = grow(set(), gate)
+    assert final == frozenset()
+    assert births == 0

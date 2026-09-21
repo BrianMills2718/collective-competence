@@ -91,6 +91,235 @@
       "symmetric_difference": 40
     }
   ],
+  "fragment_regeneration": {
+    "empty_start": {
+      "births": 0,
+      "count": 0,
+      "exact_target": false,
+      "leftmost": null,
+      "rightmost": null,
+      "symmetric_difference": 24
+    },
+    "single_survivor_cases": [
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 20,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 21,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 22,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 23,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 24,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 25,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 26,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 27,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 28,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 29,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 30,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 31,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 32,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 33,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 34,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 35,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 36,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 37,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 38,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 39,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 40,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 41,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 42,
+        "symmetric_difference": 0
+      },
+      {
+        "births": 23,
+        "count": 24,
+        "exact_target": true,
+        "leftmost": 20,
+        "rightmost": 43,
+        "survivor": 43,
+        "symmetric_difference": 0
+      }
+    ],
+    "single_survivor_exact_recoveries": 24
+  },
   "local_edge_symmetry": {
     "identical": true,
     "normal_boundary_signature": [
@@ -216,6 +445,15 @@
     {
       "births": 0,
       "condition": "left_source_absent",
+      "count": 16,
+      "exact_target": false,
+      "leftmost": 20,
+      "rightmost": 35,
+      "symmetric_difference": 8
+    },
+    {
+      "births": 0,
+      "condition": "both_sources_absent",
       "count": 16,
       "exact_target": false,
       "leftmost": 20,

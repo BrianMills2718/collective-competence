@@ -54,6 +54,7 @@ def characterize() -> dict:
     for left_amp, right_amp, label in (
         (1.0, 0.0, "right_source_absent"),
         (0.0, 1.0, "left_source_absent"),
+        (0.0, 0.0, "both_sources_absent"),
     ):
         final, births = grow(amputate("right", 8), policy_gate("ratio", left_amp, right_amp))
         ablations.append({
@@ -61,6 +62,15 @@ def characterize() -> dict:
             "births": births,
             **morphology_metrics(final),
         })
+
+
+    fragment_regeneration = []
+    for survivor in sorted(TARGET):
+        final, births = grow({survivor}, policy_gate("ratio", 1.0, 1.0))
+        fragment_regeneration.append({
+            "survivor": survivor, "births": births, **morphology_metrics(final),
+        })
+    empty_final, empty_births = grow(set(), policy_gate("ratio", 1.0, 1.0))
 
     repair_summary = {
         "declared_cases_per_policy": len(COMMON_AMPLITUDES) * len(DAMAGE_KINDS) * len(DAMAGE_WIDTHS),
@@ -103,6 +113,11 @@ def characterize() -> dict:
         "repair_summary": repair_summary,
         "relative_source_imbalance": imbalance,
         "source_ablations": ablations,
+        "fragment_regeneration": {
+            "single_survivor_cases": fragment_regeneration,
+            "single_survivor_exact_recoveries": sum(r["exact_target"] for r in fragment_regeneration),
+            "empty_start": {"births": empty_births, **morphology_metrics(empty_final)},
+        },
     }
 
 
