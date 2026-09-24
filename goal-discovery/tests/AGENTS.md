@@ -1,5 +1,3 @@
-<!-- GENERATED from CLAUDE.md by scripts/sync_agent_context.py; do not edit. -->
-
 # Evidence and verification
 
 - Test the changed scientific or user-visible boundary with the smallest useful
@@ -13,5 +11,5 @@
   observation contract permits when these affect the claim.
 - Missing optional data is missing evidence, not a passed experiment. Retain the
   exact skip/error reason and do not retune old results to make checks green.
-- Documentation checks should catch broken routes, stale generated instructions,
+- Documentation checks should catch broken routes, stale instruction files,
   and duplicate experiment IDs. They cannot automatically certify useful synthesis.

@@ -410,7 +410,7 @@ byte-identically. Its five dials each come from one of the failures above.
 ## 8. Information measures, the determinism control, and repeated disturbance (2026-09-05/06)
 
 Added 2026-09-06. Section 7 stopped at Q1-008, so this document — the one the
-[bootstrap](../CLAUDE.md) names first for *"what have we learned?"* — did not
+[bootstrap](../AGENTS.md) names first for *"what have we learned?"* — did not
 cover the two experiments the programme's headline actually rests on.
 
 **There is no causal emergence on either specimen, and this is the most solid

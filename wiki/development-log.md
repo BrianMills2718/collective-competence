@@ -304,7 +304,7 @@ that one has succeeded.
 
 ## 2026-09-06 — three zero-context agents were sent in, and one found a defect in the headline
 
-**Method, and why it was used.** The [bootstrap](../CLAUDE.md) has always
+**Method, and why it was used.** The [bootstrap](../AGENTS.md) has always
 specified a fresh-reader review — *"test whether a reader can recover the goal,
 current state, evidence limits, and next action without reconstructing
 history"* — and it had never been run against an actual fresh reader. Three
@@ -924,7 +924,7 @@ substrate's acceptance criterion able to fail.
   `skipif(not PACKAGE.exists())`. Measured: 382 passed / 17 skipped in the
   authoring checkout against 369 passed / 30 skipped in a clone of the same
   commit, both exit 0. They now fail with a diagnostic instead, per
-  [tests/CLAUDE.md](../goal-discovery/tests/CLAUDE.md)'s rule that missing
+  [tests/CLAUDE.md](../goal-discovery/tests/AGENTS.md)'s rule that missing
   optional data is missing evidence, not a passed experiment.
 - **New guard:** `scripts/check_evidence_custody.py` fails when any
   `results/…` path cited by a tracked document is untracked, with
@@ -1450,10 +1450,10 @@ results. The old snapshots contain obsolete status and next-step language, so
 Git history plus this referenced log should explain the transition while the
 current concern owners direct work.
 
-**References:** [instruction projection](../scripts/sync_agent_context.py),
+**References:** [instruction projection](../scripts/check_agent_context.py),
 [artifact-intent registry](../scripts/artifact_intents.yaml),
 [active document catalog](../roadmap/artifacts.md),
-[documentation rules](../goal-discovery/docs/CLAUDE.md),
+[documentation rules](../goal-discovery/docs/AGENTS.md),
 [current allocation protocol](../goal-discovery/docs/plans/progress_allocation_protocol.md),
 [current research plan](../goal-discovery/docs/plans/current_research_plan.md),
 and [project guide](../goal-discovery/README.md).

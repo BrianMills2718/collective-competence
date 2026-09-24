@@ -14,7 +14,6 @@ becoming current instructions.
 ## Project entrypoints
 
 - [AGENTS.md](../AGENTS.md)
-- [CLAUDE.md](../CLAUDE.md)
 - [README.md](../README.md)
 
 ## experiments
@@ -109,13 +108,11 @@ becoming current instructions.
 ## goal-discovery
 
 - [AGENTS.md](../goal-discovery/AGENTS.md)
-- [CLAUDE.md](../goal-discovery/CLAUDE.md)
 - [README.md](../goal-discovery/README.md)
 
 ## goal-discovery/docs
 
 - [AGENTS.md](../goal-discovery/docs/AGENTS.md)
-- [CLAUDE.md](../goal-discovery/docs/CLAUDE.md)
 - [PROJECT.md](../goal-discovery/docs/PROJECT.md)
 - [outcome_backcasting_final_report.md](../goal-discovery/docs/outcome_backcasting_final_report.md)
 
@@ -394,7 +391,6 @@ becoming current instructions.
 ## goal-discovery/src
 
 - [AGENTS.md](../goal-discovery/src/AGENTS.md)
-- [CLAUDE.md](../goal-discovery/src/CLAUDE.md)
 
 ## goal-discovery/src/experiments/sorting
 
@@ -415,7 +411,6 @@ becoming current instructions.
 ## goal-discovery/tests
 
 - [AGENTS.md](../goal-discovery/tests/AGENTS.md)
-- [CLAUDE.md](../goal-discovery/tests/CLAUDE.md)
 
 ## misc
 
@@ -452,4 +447,6 @@ becoming current instructions.
 ## wiki/reference
 
 - [README.md](../wiki/reference/README.md)
+- [goal-competence-identifiability-landscape.md](../wiki/reference/goal-competence-identifiability-landscape.md)
+- [levin-software-ecosystem-survey.md](../wiki/reference/levin-software-ecosystem-survey.md)
 - [research-landscape.md](../wiki/reference/research-landscape.md)

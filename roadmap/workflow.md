@@ -3,8 +3,8 @@ doc-role: context-and-maintenance-navigation
 authority: derived
 lifecycle: active
 sources:
-  - ../CLAUDE.md
-  - ../goal-discovery/docs/CLAUDE.md
+  - ../AGENTS.md
+  - ../goal-discovery/docs/AGENTS.md
 ---
 # Work from the goal, keep knowledge usable
 
@@ -18,11 +18,11 @@ wiki is the single project-information entrypoint reached from it. Neither
 replaces the other: instructions say how to orient and work; wiki topics explain
 the project and connect current knowledge to evidence.
 
-[Root CLAUDE](../CLAUDE.md) is authored; [root AGENTS](../AGENTS.md) is generated.
-Read the applicable [laboratory](../goal-discovery/CLAUDE.md),
-[documentation](../goal-discovery/docs/CLAUDE.md),
-[source](../goal-discovery/src/CLAUDE.md), and
-[test](../goal-discovery/tests/CLAUDE.md) rules explicitly.
+[Root AGENTS](../AGENTS.md) is authored and loaded by both Claude Code and Codex.
+Read the applicable [laboratory](../goal-discovery/AGENTS.md),
+[documentation](../goal-discovery/docs/AGENTS.md),
+[source](../goal-discovery/src/AGENTS.md), and
+[test](../goal-discovery/tests/AGENTS.md) rules explicitly.
 There are no claims of automatically loaded nested instructions.
 
 ## Task-sized context

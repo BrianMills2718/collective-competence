@@ -14,7 +14,7 @@ no top-level explanation and nothing noticed.
 The repository's other checks are each correct and each blind to this:
 `render_knowledge_index.py` validates the generated projections and the
 experiment register; `check_evidence_custody.py` validates cited result packages;
-`sync_agent_context.py` validates instruction pairs; `check_archive_index.py`
+`check_agent_context.py` validates authored instructions; `check_archive_index.py`
 validates archived entries. None of them reads an ordinary Markdown link.
 
 Scope, deliberately narrow: tracked Markdown files, relative links only. External
