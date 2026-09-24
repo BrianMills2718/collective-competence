@@ -6,6 +6,6 @@ The programme is **reuse-first and interrogation-first**. Broad phenomena such a
 
 **Enter through the [project wiki](wiki/index.md).** For a return after a long hiatus, read [current work](wiki/current.md) and [findings](wiki/findings.md) next; the [native experiment map](experiments/README.md) then routes to exact evidence. The detailed novelty constraints and external-system surveys live under [reference](wiki/reference/README.md).
 
-Agents first read [CLAUDE.md](CLAUDE.md), exposed through the generated [AGENTS.md](AGENTS.md), then follow the wiki and applicable subtree rules. Sorting and the hand-authored regeneration systems are calibration surfaces, not the scope or novelty claim of the project.
+Agents first read the authored [AGENTS.md](AGENTS.md), then follow the wiki and applicable subtree rules. Sorting and the hand-authored regeneration systems are calibration surfaces, not the scope or novelty claim of the project.
 
 `wiki/current.md` is the sole current-priority/handoff surface. Historical plans, roadmaps, scoreboards, and development logs are reference material; native experiment records remain authoritative for what was actually run.

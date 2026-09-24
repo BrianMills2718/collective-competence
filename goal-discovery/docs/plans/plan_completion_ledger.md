@@ -77,7 +77,7 @@ is evidence/proposal context, not the canonical ecosystem documentation policy.
 
 ## Maintenance authority
 
-Use [documentation instructions](../CLAUDE.md) and the wiki's
+Use [documentation instructions](../AGENTS.md) and the wiki's
 [maintenance loop](../../../roadmap/workflow.md#maintenance-loop).
 This ledger owns lifecycle dispositions, not a second documentation policy.
 Keep original evidence at its native path; change a disposition only after

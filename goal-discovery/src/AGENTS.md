@@ -1,5 +1,3 @@
-<!-- GENERATED from CLAUDE.md by scripts/sync_agent_context.py; do not edit. -->
-
 # Simulation, analysis, and visualization
 
 - Before changing behavior, read the task's wiki topic, native protocol, model

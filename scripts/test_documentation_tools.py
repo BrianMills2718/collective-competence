@@ -20,7 +20,7 @@ def module(name):
 
 
 knowledge = module("render_knowledge_index")
-agents = module("sync_agent_context")
+agents = module("check_agent_context")
 
 
 class DocumentationControls(unittest.TestCase):
@@ -210,27 +210,25 @@ class DocumentationControls(unittest.TestCase):
         )["roadmap/artifacts.md"]
         self.assertNotIn(old, output)
 
-    def test_instruction_projection_and_drift(self):
+    def test_authored_instruction_scopes_and_legacy_rejection(self):
         directories = (Path("."), Path("goal-discovery"), Path("arbitrary/nested"))
         for directory in directories:
-            source = self.root / directory / "CLAUDE.md"
-            source.parent.mkdir(parents=True, exist_ok=True)
-            source.write_text(f"# Rules for {directory}\n", encoding="utf-8")
+            target = self.root / directory / "AGENTS.md"
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(f"# Rules for {directory}\n", encoding="utf-8")
         excluded = self.root / ".venv/CLAUDE.md"
         excluded.parent.mkdir(parents=True)
         excluded.write_text("# Dependency rules\n", encoding="utf-8")
         with patch.object(agents, "ROOT", self.root), contextlib.redirect_stdout(io.StringIO()):
-            with patch("sys.argv", ["sync_agent_context.py", "--write"]):
+            with patch("sys.argv", ["check_agent_context.py", "--check"]):
                 self.assertEqual(agents.main(), 0)
-                for directory in directories:
-                    target = self.root / directory / "AGENTS.md"
-                    self.assertTrue(target.is_file())
-                    self.assertIn(f"# Rules for {directory}", target.read_text(encoding="utf-8"))
-                self.assertFalse(excluded.with_name("AGENTS.md").exists())
-            with patch("sys.argv", ["sync_agent_context.py", "--check"]):
-                self.assertEqual(agents.main(), 0)
-                (self.root / "arbitrary/nested/CLAUDE.md").write_text(
-                    "# Revised documentation rules\n", encoding="utf-8"
+                legacy = self.root / "arbitrary/nested/CLAUDE.md"
+                legacy.write_text("# Legacy rules\n", encoding="utf-8")
+                self.assertEqual(agents.main(), 1)
+                legacy.unlink()
+                (self.root / "arbitrary/nested/AGENTS.md").write_text(
+                    "<!-- GENERATED from CLAUDE.md by scripts/sync_agent_context.py; do not edit. -->\n",
+                    encoding="utf-8",
                 )
                 self.assertEqual(agents.main(), 1)
 
@@ -241,7 +239,7 @@ class RepositoryNavigationContract(unittest.TestCase):
     def test_bootstrap_routes_to_generalized_wiki(self):
         wiki = knowledge.ROOT / "wiki/index.md"
         self.assertTrue(wiki.is_file())
-        for path in ("README.md", "CLAUDE.md"):
+        for path in ("README.md", "AGENTS.md"):
             self.assertIn("wiki/index.md", (knowledge.ROOT / path).read_text(encoding="utf-8"))
 
     def test_roadmap_is_not_declared_as_wiki_index(self):
@@ -265,7 +263,7 @@ class RepositoryNavigationContract(unittest.TestCase):
         ontology = (knowledge.ROOT / "wiki/ontology.md").read_text(encoding="utf-8")
         concepts = (knowledge.ROOT / "wiki/concepts.md").read_text(encoding="utf-8")
         docs_rules = (
-            knowledge.ROOT / "goal-discovery/docs/CLAUDE.md"
+            knowledge.ROOT / "goal-discovery/docs/AGENTS.md"
         ).read_text(encoding="utf-8")
         self.assertIn("doc-role: domain-ontology", ontology)
         self.assertIn("authority: canonical", ontology)
@@ -286,9 +284,9 @@ class RepositoryNavigationContract(unittest.TestCase):
     def test_hot_current_is_the_handoff_owner(self):
         current = (knowledge.ROOT / "wiki/current.md").read_text(encoding="utf-8")
         self.assertIn("only hot page", current.casefold())
-        self.assertIn("Resume here after a hiatus", current)
+        self.assertIn("## Resume after a hiatus", current)
         self.assertIn("Growing Neural Cellular", current)
-        for rel in ("README.md", "CLAUDE.md", "goal-discovery/CLAUDE.md", "goal-discovery/README.md"):
+        for rel in ("README.md", "AGENTS.md", "goal-discovery/AGENTS.md", "goal-discovery/README.md"):
             text = (knowledge.ROOT / rel).read_text(encoding="utf-8")
             self.assertIn("wiki/current.md", text)
             self.assertNotIn("current_research_plan.md) owns", text)
@@ -505,11 +503,20 @@ class FreeLunchVocabularyGate(unittest.TestCase):
     supported. This gate counts.
     """
 
-    TERMS: ClassVar[dict[str, int]] = {
-        "least action": 2,
-        "free lunch": 7,
-        "gap junction": 2,
-        "composition of competence": 1,
+    TERMS: ClassVar[dict[str, tuple[str, ...]]] = {
+        "least action": ("wiki/conjectures.md", "wiki/development-log.md"),
+        "free lunch": (
+            "experiments/platonic-ingression/narrative/part2.md",
+            "experiments/platonic-ingression/narrative/part3.md",
+            "experiments/platonic-ingression/narrative/part6.md",
+            "wiki/conjectures.md", "wiki/development-log.md", "wiki/ontology.md",
+        ),
+        "gap junction": (
+            "wiki/development-log.md", "wiki/ontology.md",
+            "wiki/reference/levin-software-ecosystem-survey.md",
+            "wiki/reference/research-landscape.md",
+        ),
+        "composition of competence": ("experiments/07-endogenous-size-control/README.md",),
     }
 
     def test_the_vocabulary_counts_are_true(self):
@@ -519,21 +526,17 @@ class FreeLunchVocabularyGate(unittest.TestCase):
             ["git", "ls-files", "*.md"], cwd=knowledge.ROOT,
             capture_output=True, text=True, check=True,
         ).stdout.split()
-        for term, claimed in self.TERMS.items():
-            actual = sum(
-                1 for rel in tracked
+        for term, expected_paths in self.TERMS.items():
+            actual_paths = sorted(
+                rel for rel in tracked
                 if rel != "wiki/competence-thesis.md"
                 and term in (knowledge.ROOT / rel).read_text(
                     encoding="utf-8", errors="replace").lower()
             )
-            self.assertEqual(
-                actual, claimed,
-                f"'{term}' is in {actual} tracked Markdown files (excluding the "
-                f"thesis); the thesis table says {claimed}. Recount and update "
-                "both the table and this gate.")
-            self.assertIn(f"| {term} | 0 | {claimed} |", thesis,
-                          f"the thesis table no longer quotes {claimed} for "
-                          f"'{term}'; update this gate")
+            self.assertEqual(actual_paths, sorted(expected_paths),
+                             f"'{term}' appears in unexpected Markdown files")
+            self.assertIn(f"| {term} | 0 | {len(expected_paths)} |", thesis,
+                          f"thesis vocabulary table must match exact source membership")
 
 
 # Keep this at the very end of the file. It sat two thirds of the way up until

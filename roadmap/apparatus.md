@@ -100,6 +100,6 @@ declarations rather than deriving one from a directory, engine, or visualization
   The current work/native experiment record owns integration verification; historical receipts are not
   proof that every archived raw artifact is available or independently rechecked.
 
-Read [source instructions](../goal-discovery/src/CLAUDE.md) before changing
-implementation and [test instructions](../goal-discovery/tests/CLAUDE.md) before
+Read [source instructions](../goal-discovery/src/AGENTS.md) before changing
+implementation and [test instructions](../goal-discovery/tests/AGENTS.md) before
 changing verification. This map does not own simulator semantics.

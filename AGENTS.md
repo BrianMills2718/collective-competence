@@ -1,5 +1,3 @@
-<!-- GENERATED from CLAUDE.md by scripts/sync_agent_context.py; do not edit. -->
-
 # Competence research agenda — agent bootstrap
 
 ## Start here
@@ -40,10 +38,10 @@ The programme is now **reuse-first and interrogation-first**. Broad demonstratio
 
 | Work scope | Additional instructions |
 |---|---|
-| `goal-discovery/` laboratory work | [`goal-discovery/CLAUDE.md`](goal-discovery/CLAUDE.md) |
-| research records/docs | [`goal-discovery/docs/CLAUDE.md`](goal-discovery/docs/CLAUDE.md) |
-| source/UI/analysis | [`goal-discovery/src/CLAUDE.md`](goal-discovery/src/CLAUDE.md) |
-| tests | [`goal-discovery/tests/CLAUDE.md`](goal-discovery/tests/CLAUDE.md) |
+| `goal-discovery/` laboratory work | [`goal-discovery/AGENTS.md`](goal-discovery/AGENTS.md) |
+| research records/docs | [`goal-discovery/docs/AGENTS.md`](goal-discovery/docs/AGENTS.md) |
+| source/UI/analysis | [`goal-discovery/src/AGENTS.md`](goal-discovery/src/AGENTS.md) |
+| tests | [`goal-discovery/tests/AGENTS.md`](goal-discovery/tests/AGENTS.md) |
 
 The canonical checkout is intentionally read-only; use the repository's worktree convention for writes and runs that produce output.
 
@@ -83,4 +81,4 @@ After material work, update the smallest owning hot page plus the native evidenc
 
 Historical mistakes belong in current narrative only when they materially constrain the current scientific interpretation. Git and the reference layer preserve the rest.
 
-`AGENTS.md` is generated from this file by `scripts/sync_agent_context.py`; keep the pair synchronized.
+`AGENTS.md` is the authored instruction source for Claude Code and Codex; update the nearest file directly.

@@ -193,8 +193,8 @@ excluding this file:
 | Term | Files, when first written | Files now | What changed |
 |---|---|---|---|
 | least action | 0 | 2 | `conjectures.md` and `development-log.md` |
-| free lunch | 0 | 7 | **`ontology.md` now defines it** — "Free lunch: one quantity, two boundary conventions", with two boundary conventions and a candidate-measure table |
-| gap junction | 0 | 2 | `ontology.md` and `development-log.md` |
+| free lunch | 0 | 6 | **`ontology.md` now defines it** — "Free lunch: one quantity, two boundary conventions", with two boundary conventions and a candidate-measure table |
+| gap junction | 0 | 4 | `ontology.md`, `development-log.md`, and two research landscape surveys |
 | composition of competence | 0 | 1 | now also appears in Experiment 07 |
 
 Counts are over tracked Markdown, excluding this file, and are **checked by
