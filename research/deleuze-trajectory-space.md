@@ -154,11 +154,11 @@ For example:
 
 Or, more generally:
 
-[
-	heta_{t+1}=f(	heta_t,x_t,	ext{population state},	ext{resource state})
-]
 
-where the constraint parameter (	heta) itself evolves.
+theta_(t+1) = f(theta_t, x_t, population_state, resource_state)
+
+
+where the constraint parameter (theta) itself evolves.
 
 The objection remains that "approximately fixed" is scale-dependent. A rule fixed within an exam but changed every semester is a mold at one temporal resolution and modulation at another. Therefore the distinction is model-relative, not ontologically absolute.
 
@@ -172,9 +172,9 @@ Let:
 
 - (s_t) be a system state;
 - (A(s_t)) be available actions/interventions;
-- (	au=(s_0,s_1,ldots)) be a trajectory;
+- (tau=(s_0,s_1,ldots)) be a trajectory;
 - (C) be the constraint architecture;
-- (P(	aumid C,pi)) be the trajectory distribution under policy/dynamics (pi).
+- (P(tau |  C,pi)) be the trajectory distribution under policy/dynamics (pi).
 
 Then a mechanism of control need not choose one future. It can alter:
 
@@ -237,15 +237,15 @@ The clean division of labor is therefore:
 
 A simple form is:
 
-[
-max_{pi}mathbb{E}[U(	au)mid pi]
-]
+
+maximize over pi: E[U(tau) | pi]
+
 
 and the realistic version must include uncertainty over the causal model (M):
 
-[
-max_{pi}mathbb{E}_{M,	au}[U(	au)mid pi,M].
-]
+
+maximize over pi: E_(M,tau)[U(tau) | pi, M]
+
 
 Therefore Deleuzian analysis is not a rival objective function. At best it is a descriptive heuristic for identifying causal architecture that a consequentialist would then evaluate.
 
@@ -339,15 +339,9 @@ In the discussion:
 
 The thermostat example remains useful:
 
-[
-	ext{measured temperature}
-ightarrow
-	ext{error relative to setpoint}
-ightarrow
-	ext{heating action}
-ightarrow
-	ext{new temperature}.
-]
+
+measured temperature -> error relative to setpoint -> heating action -> new temperature
+
 
 Repository caution: passive attraction to an equilibrium, active feedback, compensation, and adaptation must remain separate claims.
 
@@ -375,12 +369,9 @@ Working translation:
 
 Possible formal proxy:
 
-[
-	au
-otin R_C(s)
-quad	ext{but}quad
-	auin R_{C'}(s),
-]
+
+tau is not in R_C(s), but tau is in R_C'(s)
+
 
 where changing the constraint architecture from (C) to (C') makes the route reachable.
 
@@ -402,7 +393,7 @@ Let:
 - (sin S) = current state;
 - (C) = constraint architecture;
 - (A_C(s)) = actions/transitions admissible under (C);
-- (Gsubseteq S) or (G(	au)) = goal criterion;
+- (G is a subset of S) or (G(tau)) = goal criterion;
 - (pi) = native policy/dynamics;
 - (D) = challenge family.
 
@@ -412,10 +403,9 @@ Then several quantities should remain separate.
 
 A goal state exists in the modeled state space:
 
-[
-Gcap S
-eqarnothing.
-]
+
+G intersects S is non-empty
+
 
 This says almost nothing about competence.
 
@@ -423,16 +413,15 @@ This says almost nothing about competence.
 
 Define the reachable set:
 
-[
-R_C(s)={s' : exists	ext{ admissible path from }s	ext{ to }s'	ext{ under }C}.
-]
+
+R_C(s) = {s' such that an admissible path from s to s' exists under C}
+
 
 Criterion reachability is:
 
-[
-Gcap R_C(s)
-eqarnothing.
-]
+
+G intersects R_C(s) is non-empty
+
 
 This is opportunity, not realized competence.
 
@@ -440,9 +429,9 @@ This is opportunity, not realized competence.
 
 Define:
 
-[
-d_C(s,G)
-]
+
+d_C(s, G)
+
 
 as the minimum cost of a route from (s) to any state satisfying (G), under a declared cost model.
 
@@ -459,9 +448,9 @@ The cost could be:
 
 Let:
 
-[
-N_C(s,G)
-]
+
+N_C(s, G)
+
 
 represent the number or diversity of substantively distinct routes to (G).
 
@@ -471,9 +460,9 @@ This resembles the repository's distinction between having an available route an
 
 ### 4.5 Native realization
 
-[
-P_pi(Gmid s,C)
-]
+
+P_pi(G | s, C)
+
 
 asks whether the system's own dynamics exploit reachable opportunities.
 
@@ -483,9 +472,9 @@ This is closer to competence than bare reachability.
 
 Under a challenge family (D):
 
-[
-P_pi(Gmid s,C,D).
-]
+
+P_pi(G | s, C, D)
+
 
 This is where recovery, robustness, flexibility, adaptation, and other profile dimensions become relevant.
 
@@ -495,10 +484,9 @@ Two trajectories can arrive at states that are equivalent under a chosen represe
 
 Formally, for histories (H_1,H_2):
 
-[
-P(	au_{>t}mid x_t,H_1)
-eq P(	au_{>t}mid x_t,H_2)
-]
+
+P(tau after t | x_t, H1) != P(tau after t | x_t, H2)
+
 
 even when the chosen observed macrostate (x_t) is the same.
 
@@ -506,7 +494,7 @@ This exposes whether the representation is Markov-sufficient for the question. I
 
 ### 4.8 Striation as a vector of changes, not one scalar
 
-A constraint change (Cightarrow C') can alter:
+A constraint change (C ->  C') can alter:
 
 - (|R_C(s)|): reachable-set size;
 - (d_C(s,G)): minimum route cost;
@@ -788,12 +776,9 @@ For each (Z_i):
 
 A candidate objective might be conceptually:
 
-[
-J(phi)=
-	ext{intervention prediction retained}
--
-lambda,	ext{representation complexity}.
-]
+
+J(phi) = intervention_prediction_retained - lambda * representation_complexity
+
 
 This is only a sketch. The repository should prefer an established causal-abstraction or state-representation method if one fits, rather than inventing a bespoke metric.
 
@@ -832,27 +817,27 @@ For each intervention/constraint (C), report separately where feasible:
 
 The project already has a competence profile, but this lens emphasizes that competence can fail for structurally different reasons:
 
-[
-	ext{goal exists but unreachable}
-]
+
+goal exists but is unreachable
+
 
 versus
 
-[
-	ext{reachable but policy fails}
-]
+
+goal is reachable but the native policy fails to realize it
+
 
 versus
 
-[
-	ext{policy succeeds only on a narrow route}
-]
+
+native policy succeeds only through a narrow/fragile route
+
 
 versus
 
-[
-	ext{many redundant routes support robust recovery}.
-]
+
+multiple redundant routes support robust recovery
+
 
 Those differences matter mechanistically and could support predictive transfer.
 
@@ -879,23 +864,23 @@ The mold/modulation distinction can become a technical question if expressed as:
 
 A simple fixed-rule system has:
 
-[
-P(s_{t+1}mid s_t)
-]
+
+P(s_(t+1) | s_t)
+
 
 with fixed parameters.
 
 A modulating system has something like:
 
-[
-P(s_{t+1}mid s_t,	heta_t)
-]
+
+P(s_(t+1) | s_t, theta_t)
+
 
 and:
 
-[
-	heta_{t+1}=f(	heta_t,s_t,o_t).
-]
+
+theta_(t+1) = f(theta_t, s_t, o_t)
+
 
 This can represent:
 
@@ -972,15 +957,15 @@ Examples include:
 
 Formally, compare:
 
-[
+
 R_C(s)
-]
+
 
 and:
 
-[
-R_{C'}(s).
-]
+
+R_C'(s)
+
 
 The important result is the change in reachability/route structure, not the philosophical label.
 
@@ -1005,23 +990,17 @@ Two systems may both converge to the same region:
 
 ### Passive system
 
-[
-s_t ightarrow G
-]
+
+s_t -> G
+
 
 because (G) is simply a stable attractor.
 
 ### Active regulator
 
-[
-	ext{deviation}
-ightarrow
-	ext{sensing}
-ightarrow
-	ext{corrective action}
-ightarrow
-G.
-]
+
+deviation -> sensing -> corrective action -> G
+
 
 The first can be robust in a narrow sense but need not support claims about sensing, compensation, or adaptive regulation.
 
@@ -1094,9 +1073,9 @@ A null result is acceptable and scientifically important.
 
 The discussion explicitly rejected:
 
-[
-	ext{less control}=	ext{better}.
-]
+
+less control = better
+
 
 Examples make the failure obvious:
 
@@ -1113,19 +1092,15 @@ Therefore "liberating" and "constraining" should not be terminal value labels in
 
 A consequentialist evaluation layer would instead ask:
 
-[
-	ext{constraint architecture}
-ightarrow
-P(	au)
-ightarrow
-U(	au).
-]
+
+constraint architecture -> P(tau) -> U(tau)
+
 
 A more realistic version accounts for model uncertainty:
 
-[
-mathbb{E}_{M,	au}[U(	au)mid C,pi,M].
-]
+
+E_(M,tau)[U(tau) | C, pi, M]
+
 
 This also explains why optionality may have **instrumental** rather than intrinsic value. Preserving reversible routes can be useful when the model of the future is uncertain. That is option value, not necessarily a metaphysical value of freedom.
 
