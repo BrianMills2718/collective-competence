@@ -1694,9 +1694,317 @@ Together they suggest a broader picture:
 
 That is a potentially important extension of the current trajectory-space framing, but it still requires operational definitions and established-method comparison before becoming a project claim.
 
+
 ---
 
-## 24. Final research stance
+## 24. Further research lanes: composition, observability, plasticity, and bounded reachability
+
+These additional directions emerged from the same trajectory-space discussion. They are plausible extensions of the programme but are not established findings.
+
+### 24.1 Observability–controllability–policy decomposition
+
+The repository already distinguishes missing information from missing actions. This can be sharpened into a general failure taxonomy.
+
+A goal-relative failure can occur because:
+
+1. **observability failure** — the system cannot distinguish states that require different responses;
+2. **controllability/reachability failure** — the system cannot reach the required state with its available actions;
+3. **policy/realization failure** — the required state is observable and reachable, but the native dynamics/policy fail to exploit the available route.
+
+In compact form:
+
+```text
+failure
+  -> cannot distinguish relevant states
+  -> cannot reach required states
+  -> can distinguish and reach, but policy fails
+```
+
+This is potentially useful because several existing experiments already instantiate different branches of this decomposition:
+
+- reporter failure and hidden abundance ambiguity are observability failures;
+- lineage extinction without fate plasticity is an action/reachability failure;
+- P2-005 explicitly isolates reachable-but-unrealized routes.
+
+A strong research question is:
+
+> Can competence failures across different substrates be classified prospectively by which of these three bottlenecks is experimentally load-bearing?
+
+The taxonomy should remain open to mixed failures where more than one bottleneck is active.
+
+### 24.2 Competence composition
+
+A central question for a project named Collective Competence is:
+
+> **Under what conditions do competent parts compose into a competent whole, and when does composition destroy or transform competence?**
+
+There is no reason to expect additivity:
+
+```text
+K(A + B) != K(A) + K(B)
+```
+
+Possible regimes include:
+
+- competent parts produce an incompetent whole;
+- individually weak parts produce a highly competent whole;
+- coupling creates a new competence unavailable to either part alone;
+- adding a competent component reduces whole-system competence;
+- the whole inherits only a subset of part-level competencies;
+- the whole gains robustness at the cost of component flexibility.
+
+This suggests a compositional research programme in which the important variable is not only the competence of components, but the **coupling architecture** between them.
+
+Potential questions:
+
+1. Which competence dimensions are compositional?
+2. Which require specific coupling topologies?
+3. When does adding a component enlarge reachable state space but reduce robust realization?
+4. When does redundancy increase reliability versus create interference?
+5. Can a whole-level competence be predicted from component capability profiles plus coupling descriptors?
+
+A useful negative result would be that no substrate-neutral composition rule survives transfer.
+
+### 24.3 Robustness–plasticity tradeoffs
+
+Strong canalization toward a stable target can improve recovery from familiar perturbations while reducing adaptation to novel conditions.
+
+This suggests a tension:
+
+```text
+stronger stabilization
+    -> familiar-perturbation robustness may increase
+    -> adaptability/plasticity may decrease
+```
+
+This is not a universal law; it is a hypothesis family.
+
+The important distinction is between:
+
+- **robustness** — staying or returning to a criterion under perturbation;
+- **plasticity** — changing policy, structure, or representation to handle new conditions;
+- **flexibility** — achieving the same criterion by different means;
+- **adaptation** — retained change that improves later performance.
+
+Potential experiments could hold nominal performance constant while varying plasticity and then challenge systems with out-of-distribution perturbations.
+
+This lane connects the earlier "territorialization" language to a concrete scientific tension: deep basins can be useful until the environment changes enough that leaving the basin becomes necessary.
+
+### 24.4 Endogenous goal change
+
+The previous section considered systems that can modify state and action spaces. A more difficult case is when the effective goal criterion itself changes.
+
+Conceptually:
+
+```text
+G_t -> G_(t+1)
+```
+
+This raises several identification problems.
+
+A changed trajectory may reflect:
+
+- policy adaptation toward the same goal;
+- changed estimate of the environment;
+- changed representation of the goal;
+- genuine goal drift;
+- a switch among multiple latent objectives.
+
+Potential research questions:
+
+1. What intervention evidence would distinguish policy adaptation from goal change?
+2. Can a restricted-access analyst detect a goal switch without semantic labels?
+3. When several candidate goals explain pre-change behavior, can a post-change intervention shrink the equivalence class?
+4. How should competence be defined when the criterion itself is time-varying?
+
+This is particularly relevant to Goal Discovery because a fixed candidate-goal family may be insufficient if the system changes what it is regulating toward.
+
+### 24.5 Multi-objective competence and Pareto structure
+
+Many real systems face more than one goal or viability constraint.
+
+Instead of one scalar objective, consider:
+
+```text
+U_1, U_2, ..., U_n
+```
+
+A system may then occupy a **Pareto frontier**: improving one objective necessarily worsens at least one other objective.
+
+This matters because "more competent" can become ill-defined even within one scale.
+
+Potential questions:
+
+- Does an intervention move the system to a better Pareto region or merely trade one competence dimension for another?
+- Are cross-scale conflicts actually multi-objective tradeoffs in disguise?
+- Can challenge families reveal hidden objectives because different perturbations expose different tradeoff surfaces?
+- Does a collective improve by dynamically reweighting objectives rather than maximizing a fixed one?
+
+The repository should avoid collapsing such cases into one scalar unless the aggregation rule is explicitly supplied.
+
+### 24.6 Causal bottlenecks and load-bearing leverage
+
+Some small component, signal, or interaction can control a disproportionately large part of future trajectory space.
+
+A useful operational question is:
+
+> How much does intervening on component or relation i contract, expand, or redirect the reachable and robust trajectory set?
+
+Possible bottleneck measures could compare:
+
+- change in reachable-set size;
+- change in minimum route cost;
+- change in route redundancy;
+- change in recovery probability;
+- change in competence-profile dimensions.
+
+This is close to the repository's existing "causally load-bearing" language but emphasizes **leverage over trajectory geometry**.
+
+A component can be causally load-bearing even if it is physically small, rarely active, or statistically unremarkable under passive observation.
+
+That makes intervention-based measurement essential.
+
+### 24.7 Timescale-dependent agency and boundary selection
+
+The earlier discussion objected to undefined claims of "temporary" or "stable" organization. The same issue applies to agent boundaries.
+
+The most useful boundary may depend on the prediction/intervention horizon.
+
+Conceptually:
+
+```text
+B_star = B_star(T)
+```
+
+where T is the horizon or timescale of interest.
+
+Examples in principle:
+
+- at millisecond scales, a local neural/cellular subsystem may be the useful unit;
+- at developmental timescales, tissue-level organization may be more predictive;
+- at longer horizons, organism–environment or social collectives may become the more useful boundary.
+
+This suggests that boundary discovery should not search for one timeless privileged agent.
+
+Instead ask:
+
+> Which boundary/coarse-graining is most interventionally useful at horizon T for criterion family G and challenge family D?
+
+A boundary that is excellent for short-horizon prediction may be poor for long-horizon control.
+
+### 24.8 Adversarial competence and co-adaptive environments
+
+Most current competence examples treat the environment as passive or exogenously changing.
+
+A harder case is an environment containing another adaptive system that reacts strategically.
+
+Then:
+
+```text
+P(s_(t+1) | s_t, a_t, E_t)
+E_(t+1) = f(E_t, system behavior)
+```
+
+The environment becomes part of the feedback loop.
+
+Relevant phenomena include:
+
+- arms races;
+- deceptive signals;
+- strategic obstruction;
+- adaptive countermeasures;
+- cooperation/competition mixtures;
+- changing action costs in response to observed policy.
+
+Potential research questions:
+
+1. Does a competence profile measured against passive perturbations predict performance against adaptive adversaries?
+2. Which capabilities become load-bearing only under co-adaptation?
+3. Can route redundancy protect against adversarial blocking?
+4. Does an adversary reveal hidden constraints that random damage does not?
+
+This could extend the challenge-family concept from perturbation distributions to **responsive opponents**.
+
+### 24.9 Counterfactual identity under component replacement
+
+Regeneration and collective reorganization raise an identity question:
+
+> If components are replaced while a system preserves its competence profile and causal organization, in what operational sense is it the same agent/system?
+
+A possible research-friendly approach is to treat identity as preservation of some counterfactual organization rather than preservation of matter.
+
+Candidate invariants might include:
+
+- response to intervention family;
+- goal-equivalence class;
+- reachable/robust trajectory structure;
+- controller architecture;
+- competence profile.
+
+This should not become a metaphysical claim by default.
+
+A useful question is:
+
+> Which transformations can replace parts while preserving the system's experimentally measured counterfactual behavior?
+
+This is particularly relevant to regeneration because a recovered morphology may contain different material components while preserving higher-level function.
+
+### 24.10 Resource-bounded reachability
+
+Binary graph reachability is often too permissive.
+
+A target that is reachable only after an astronomically long sequence or with unrealistic energy/information requirements is not practically available.
+
+A more useful object is something like:
+
+```text
+R_C(s ; T, E, I)
+```
+
+where:
+
+- T = time budget;
+- E = energy/resource budget;
+- I = information/observation budget.
+
+This connects naturally to the repository's challenge/resource-family language.
+
+Potential questions:
+
+- How does competence change as resource budgets tighten?
+- Are two systems equally reachable but radically different in practical route cost?
+- Does one architecture preserve performance by spending more information, time, or energy?
+- Can apparent failure be reclassified as resource-bounded rather than structurally unreachable?
+
+This extension also gives a cleaner interpretation of "accessible possibility" than unconstrained physical possibility.
+
+### 24.11 Why competence composition and the three-way failure decomposition are especially central
+
+Two of these lanes appear especially foundational for the repository.
+
+First:
+
+> **competence composition** asks what it means for a collective to possess a competence not reducible to simply listing component competencies.
+
+Second:
+
+> **observability–controllability–policy decomposition** asks exactly where a competence failure occurs.
+
+Together they suggest a disciplined framing:
+
+```text
+components + coupling
+    -> what information distinctions are available?
+    -> what state transitions are available?
+    -> what routes does the native policy realize?
+    -> what competence profile appears at the collective scale?
+```
+
+This could provide a rigorous bridge from mechanism to collective-level competence without assuming that emergence, agency, or intelligence follows merely from impressive global behavior.
+
+---
+
+## 25. Final research stance
 
 The discussion does not justify adding Deleuze as a foundational theory of the project.
 
