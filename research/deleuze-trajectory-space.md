@@ -2002,9 +2002,315 @@ components + coupling
 
 This could provide a rigorous bridge from mechanism to collective-level competence without assuming that emergence, agency, or intelligence follows merely from impressive global behavior.
 
+
 ---
 
-## 25. Final research stance
+## 25. Additional lanes: requisite variety, intervention bases, meta-competence, and abstraction
+
+These ideas emerged after the prior research sections. They are candidate directions only and should be evaluated against established cybernetics, control, diagnosis, and experimental-design literatures before any new framework is built.
+
+### 25.1 Requisite variety
+
+Ashby's Law of Requisite Variety is highly relevant to the repository's existing separation of information, action repertoire, and challenge family.
+
+A compact intuition is:
+
+```text
+effective response variety
+    must be sufficient for
+relevant disturbance variety
+```
+
+The important word is **relevant**. A regulator does not need a unique response to every microscopic disturbance; it needs enough distinctions and actions to handle the disturbance classes that require different corrective responses.
+
+This creates a useful decomposition:
+
+- disturbance classes that matter for the criterion;
+- observations that distinguish those classes;
+- actions capable of producing the required different responses;
+- policy/controller that maps distinctions to actions.
+
+Several existing experiments already resemble failures of requisite variety:
+
+- different hidden abundances become observationally indistinguishable after reporter failure even though they require different repair actions;
+- a system can know the desired composition but lack an action capable of regenerating a missing lineage;
+- barriers can remove required routes even when the target and local rule remain intact.
+
+A useful research question is:
+
+> Can competence failure be predicted by a mismatch between challenge-relevant disturbance classes and the system's effective distinguishable-response repertoire?
+
+This could potentially unify observability and controllability without collapsing them.
+
+### 25.2 Minimal intervention basis
+
+Goal Discovery asks which interventions discriminate rival explanations. A sharper question is:
+
+> **What is the smallest intervention family sufficient to distinguish the surviving model/goal/competence equivalence classes?**
+
+Suppose the current evidence leaves rivals:
+
+```text
+M1, M2, ..., Mn
+```
+
+The objective is to find a compact intervention set I_star such that the rivals make different counterfactual predictions under I_star.
+
+This turns active experiment design into a compression problem:
+
+```text
+many possible interventions
+    ->
+smallest sufficient discriminating basis
+```
+
+Possible quantities include:
+
+- number of interventions;
+- total intervention cost;
+- experimental time;
+- expected information gain;
+- robustness of discrimination to noise;
+- whether the result transfers across initial conditions.
+
+This is especially relevant to the repository because it already values abstention and preservation of equivalence classes. The next experiment need not identify everything; it should be chosen to maximally reduce the ambiguity that matters.
+
+A strong benchmark would compare any project-specific intervention-selection method against established active diagnosis, optimal experiment design, Goal Recognition Design, or active automata/model-learning methods.
+
+### 25.3 Critical transitions in competence
+
+Competence boundaries may sometimes be sharp rather than smoothly degrading.
+
+A parameter can vary gradually while the system remains competent until a threshold region is crossed, after which recovery collapses or a different regime appears.
+
+Potential signatures near such a boundary could include:
+
+- increasing recovery time;
+- increased variance across matched stochastic streams;
+- increased sensitivity to small perturbations;
+- shrinking route redundancy;
+- sudden loss of reachability;
+- basin boundary crossing.
+
+Experiment 12's different recovery regimes across lesion sizes make this conceptually relevant, but the existing sparse radius points are not enough to claim a critical phenomenon.
+
+A careful research question would be:
+
+> Does competence loss occur through a smooth degradation or through identifiable regime transitions in a declared challenge parameter space?
+
+This should be tested with sufficiently dense sampling and without importing phase-transition language merely because a curve looks steep.
+
+### 25.4 Temporal abstraction of competence
+
+A competence at one scale may become an atomic action at a higher scale.
+
+For example:
+
+```text
+many micro actions
+    ->
+reliable lower-level skill
+    ->
+one macro-level action primitive
+```
+
+This suggests a hierarchy in which:
+
+- lower-level dynamics implement a skill;
+- higher-level control treats that skill as an available action;
+- higher-order competencies compose those action primitives.
+
+This may provide a cleaner account of multiscale agency than merely asserting that agents exist at many scales.
+
+Potential questions:
+
+1. When is a lower-level competence reliable enough to be abstracted as a macro action?
+2. What error model should accompany that abstraction?
+3. How does higher-level planning change when a lower-level skill degrades?
+4. Can macro competence be predicted from a library of lower-level options plus their failure boundaries?
+
+This also connects competence composition to hierarchical control and options/skills in reinforcement learning.
+
+### 25.5 Meta-competence and self-diagnosis
+
+A system may not only recover from failure but identify **why** recovery is failing and change strategy accordingly.
+
+A useful hierarchy is:
+
+```text
+ordinary competence
+    -> act toward criterion
+
+robust competence
+    -> continue or recover under perturbation
+
+meta-competence
+    -> diagnose the failure class
+    -> reconfigure sensing/action/policy
+    -> restore competence if possible
+```
+
+Relevant failure classes might include:
+
+- sensor/reporter failure;
+- actuator failure;
+- action-space restriction;
+- resource depletion;
+- structural unreachability;
+- memory loss;
+- model mismatch.
+
+The repository's reporter-failure and action-repertoire experiments make this especially relevant.
+
+Potential research question:
+
+> Can a system distinguish failure modes that produce similar immediate performance loss and select different corrective responses appropriate to each?
+
+This would require matched failures that are behaviorally similar at first but demand different interventions.
+
+### 25.6 Competence universality classes
+
+Different substrates may implement competence through very different mechanisms while sharing the same abstract failure structure.
+
+Possible classes include:
+
+- observation-limited;
+- action-limited;
+- route/barrier-limited;
+- memory-limited;
+- coordination-limited;
+- resource-limited;
+- plasticity-limited;
+- diagnosis-limited.
+
+The stronger claim would not be that these are universal natural kinds, but that they form useful **counterfactual equivalence classes** across systems.
+
+A transferable class would require:
+
+1. the same intervention distinction to predict failure across independently authored systems;
+2. similar counterfactual signatures despite different implementation details;
+3. better explanatory or predictive value than substrate-specific surface descriptors.
+
+This may fit the project's transfer-first strategy better than searching for one universal scalar of competence.
+
+### 25.7 Morphological and environmental computation
+
+Some of a system's apparent intelligence or control burden may be carried by body structure or environmental regularities rather than an explicit controller.
+
+A useful decomposition is:
+
+```text
+controller organization
++
+body/morphology
++
+environmental structure
+    ->
+observed competence
+```
+
+Changing the focal boundary can therefore move apparent "computation" between:
+
+- controller;
+- body;
+- environment.
+
+This is directly relevant to dynamic enclosure and boundary discovery.
+
+Potential questions:
+
+- Can morphology reduce the control complexity required for successful behavior?
+- Does changing environmental structure preserve competence after controller simplification?
+- Which intervention reveals whether the body/environment is causally load-bearing rather than merely correlated with success?
+- Does the best predictive boundary include persistent environmental structure?
+
+This lane should connect to established morphological-computation and embodied-cognition work rather than inventing a parallel vocabulary.
+
+### 25.8 Early-warning signals for competence loss
+
+Most failure-boundary mapping detects the boundary by observing actual failure.
+
+A stronger capability would be to identify signs that the system is approaching loss of competence **before** the criterion is violated.
+
+Candidate signatures could include:
+
+- increasing recovery time;
+- rising intervention cost;
+- reduced route redundancy;
+- increased sensitivity to small perturbations;
+- growing dependence on one bottleneck;
+- increased variance across matched replications;
+- narrowing viability margin.
+
+The key question is:
+
+> Can an external observer—or the system itself—predict impending loss of recoverability from pre-failure dynamics?
+
+This connects failure-boundary work to diagnosis and intervention timing.
+
+A strong result would require prospective prediction of later failure, not retrospective fitting after the boundary is known.
+
+### 25.9 A possible progression from competence to meta-competence
+
+Several of these ideas form a coherent progression:
+
+```text
+1. requisite variety
+   enough distinctions and actions exist
+
+2. intervention identification
+   determine which distinctions are causally relevant
+
+3. failure diagnosis
+   identify which capability or constraint is failing now
+
+4. adaptive reconfiguration
+   alter sensing, action repertoire, policy, or structure
+
+5. restored competence
+   return to or redefine a viable goal-relative regime
+```
+
+This progression could be useful because it connects several currently separate research themes:
+
+- information sufficiency;
+- reachability;
+- active experiment design;
+- diagnosis;
+- plasticity;
+- adaptive control.
+
+It also suggests a stronger notion of competence than merely producing a successful trajectory.
+
+### 25.10 Why these lanes may matter
+
+Among this set, three directions appear especially likely to change experimental design rather than only vocabulary:
+
+- **requisite variety** — because it may unify information and action limitations relative to challenge complexity;
+- **minimal intervention basis** — because it turns identifiability into an explicit experiment-selection problem;
+- **meta-competence/self-diagnosis** — because it asks whether a system can discriminate the cause of its own failure and reconfigure accordingly.
+
+Together they point toward a general architecture for experimentally characterizing problem-solving systems:
+
+```text
+challenge variety
+    ->
+available distinctions
+    ->
+available actions
+    ->
+route realization
+    ->
+failure diagnosis
+    ->
+adaptive reconfiguration
+```
+
+Any such architecture should still be treated as a hypothesis scaffold. Established cybernetics, fault diagnosis, active experiment design, adaptive control, and systems engineering should be used as comparators before claiming a distinct project contribution.
+
+---
+
+## 26. Final research stance
 
 The discussion does not justify adding Deleuze as a foundational theory of the project.
 
