@@ -1424,9 +1424,298 @@ If the ideas in this note become active work, literature/reuse searches should i
 
 The repository's reuse-first rule should apply before any bespoke "territorialization," "striation," or "dynamic enclosure" metric is implemented.
 
+
 ---
 
-## 23. Final research stance
+## 23. Additional discussion lanes worth preserving
+
+These directions emerged after the first research note was drafted. They are closely related to the same trajectory-space framework and should be treated as candidate research questions, not established project findings.
+
+### 23.1 Cross-scale conflict in competence
+
+Much of the Collective Competence programme asks how component capabilities and interactions produce whole-level competence. An equally important inverse question is:
+
+> **When does increasing competence at one scale reduce competence at another?**
+
+For nested systems, it may be possible that:
+
+[
+Delta K_{	ext{collective}} > 0
+]
+
+while:
+
+[
+Delta K_{	ext{component}} < 0.
+]
+
+Examples in principle include:
+
+- a tissue becoming better at maintaining global morphology by restricting the option space of individual cells;
+- an organization becoming more coordinated while reducing the independent controllability of its members;
+- a higher-level controller eliminating local degrees of freedom to gain robustness at the collective level.
+
+This would make multiscale competency less harmonious than a simple "competence scales upward" narrative.
+
+A useful experimental question is:
+
+> Under what interventions do gains in whole-system robustness, recovery, or controllability systematically trade off against lower-level reachable states, local empowerment, flexibility, or resource access?
+
+This should not be framed normatively by default. A reduction in component option space can be beneficial, harmful, or neutral depending on the criterion under study.
+
+This lane may also provide a more rigorous interpretation of the earlier "liberating versus constraining forces" discussion: the same architecture can expand one scale's reachable/controllable trajectory set while narrowing another's.
+
+### 23.2 A good causal coarse-grain is not automatically an agent
+
+The discussion around Hoel-style causal emergence and Levin-style multiscale agency exposes an important distinction.
+
+A macro-description can be:
+
+- causally coherent;
+- predictively useful;
+- interventionally sufficient;
+- highly compressed;
+
+without necessarily being an **agent**.
+
+It may be useful to distinguish at least four layers:
+
+1. **causal coherence** — macrovariables capture reliable causal structure;
+2. **control coherence** — interventions at that level provide a useful description of steering;
+3. **goal coherence** — a stable goal-relative criterion can be attributed at that level;
+4. **competence** — the system robustly attains, maintains, restores, or adapts toward that criterion over a declared challenge family.
+
+This suggests a hierarchy rather than an identity:
+
+[
+	ext{good coarse-grain}
+
+otRightarrow
+	ext{controller}
+
+otRightarrow
+	ext{agent}
+
+otRightarrow
+	ext{high competence}.
+]
+
+The exact implication structure is itself a research question.
+
+This is especially relevant because Q1-009 already showed that one intuitively meaningful macro partition did **not** exhibit positive causal emergence, and that an empowerment measure did **not** warrant an agency interpretation.
+
+A future macro-boundary search should therefore avoid treating "high causal effectiveness" as sufficient evidence for agency.
+
+### 23.3 Representation-relative hysteresis and Markov sufficiency
+
+The earlier path-dependence discussion can be sharpened through a representation question.
+
+Suppose that, under an observed representation (X_t),
+
+[
+P(X_{t+1}mid X_t,H)
+
+eq
+P(X_{t+1}mid X_t),
+]
+
+where (H) is prior history.
+
+This appears history-dependent.
+
+But after adding latent variables (Z_t), it may become:
+
+[
+P(X_{t+1},Z_{t+1}mid X_t,Z_t,H)
+=
+P(X_{t+1},Z_{t+1}mid X_t,Z_t).
+]
+
+Then the apparent hysteresis was partly a consequence of an insufficient state representation.
+
+This motivates a research question:
+
+> **At what representation does history cease to provide additional predictive power over future trajectories?**
+
+For Experiment 12, this could mean comparing:
+
+- visible morphology only;
+- visible morphology plus local hidden-state summaries;
+- visible morphology plus spatial latent compatibility;
+- full NCA state.
+
+A useful outcome would be a **representation ladder** showing where the process becomes approximately Markov-sufficient for recovery prediction.
+
+This would help separate:
+
+- hidden-state path dependence;
+- basin dependence;
+- irreversible structural changes;
+- mere observational insufficiency.
+
+It would also make "memory" claims more precise.
+
+### 23.4 Goal equivalence versus causal/mechanistic equivalence
+
+The repository already handles goal ambiguity carefully: multiple candidate criteria may remain behaviorally equivalent under a declared observation/intervention contract.
+
+There is an analogous hierarchy for mechanisms.
+
+Two systems or explanations may be:
+
+1. **observationally equivalent** — same observed trajectories under passive observation;
+2. **interventionally equivalent** — same outputs under the allowed intervention family;
+3. **mechanistically distinct** — different internal causal organizations despite observational/interventional equivalence under the current contract.
+
+So:
+
+[
+	ext{mechanistic identity}
+subseteq
+	ext{interventional equivalence class}
+subseteq
+	ext{observational equivalence class}.
+]
+
+This suggests that competence itself may sometimes be best represented not as a property of one mechanism but as an **equivalence class of counterfactual behavior under a declared intervention family**.
+
+That would align naturally with the project's emphasis on access contracts and abstention.
+
+Potential research question:
+
+> Can two mechanistically different systems be competence-equivalent over one challenge family but separate under a targeted intervention chosen to distinguish their counterfactual structure?
+
+This also creates a bridge between Goal Discovery, active model discrimination, and mechanism inference.
+
+### 23.5 Option value under model uncertainty
+
+The earlier discussion rejected the idea that "more freedom" or "more trajectories" is automatically good.
+
+However, preserving future options can have **instrumental value** under uncertainty even when optionality has no intrinsic value.
+
+A standard value-of-information/option-value form is:
+
+[
+V_{	ext{option}}
+=
+E[max_a U(a)mid	ext{future information}]
+-
+max_a E[U(a)mid	ext{current information}].
+]
+
+The intuition is:
+
+- committing early may maximize expected utility under the current model;
+- preserving reversibility may become better if future information can change which action is optimal;
+- therefore "less striation" or "more reachable alternatives" can sometimes be useful because the model is uncertain, not because freedom is intrinsically valuable.
+
+This gives a consequentialist explanation for why irreversibility and lock-in can matter.
+
+Potential relevance to the repository:
+
+- compare interventions with similar short-horizon performance but different retained future reachability;
+- measure whether preserved route diversity improves performance after later environmental changes;
+- distinguish immediate utility from retained option value.
+
+This could connect competence, flexibility, adaptation, and uncertainty without introducing a normative commitment beyond the chosen utility/criterion.
+
+### 23.6 The observer/metric can enter the causal loop
+
+Goal Discovery currently treats analyst access and representation carefully, but a stronger reflexive case is possible:
+
+> the act of measuring/classifying a system changes the system because the classification becomes consequential.
+
+This creates a loop:
+
+[
+	ext{measurement}
+ightarrow
+	ext{policy/selection}
+ightarrow
+	ext{behavioral adaptation}
+ightarrow
+	ext{new measurement}.
+]
+
+This is relevant to Goodhart-like dynamics, algorithmic scoring, adaptive institutions, and any system where agents respond to the metric used to evaluate them.
+
+The important distinction is between:
+
+- **passive observation** — measurement does not alter the transition structure;
+- **measurement-coupled control** — a score or inferred state is fed back into access, rewards, penalties, or environment;
+- **strategic adaptation** — the measured system changes behavior in response to the metric.
+
+This is arguably one of the strongest technically meaningful descendants of the original "society of control" discussion.
+
+Potential research questions:
+
+- When does a metric remain predictive after becoming control-relevant?
+- How quickly does behavior adapt to the measurement rule?
+- Does adaptive metric replacement create a higher-order modulation loop?
+- Can an intervention distinguish genuine competence improvement from metric gaming?
+
+### 23.7 Endogenous modification of the problem/action space
+
+Most competence analyses assume a fixed:
+
+- state space (S);
+- action set (A);
+- goal criterion (G).
+
+But sufficiently capable systems can modify the very space in which they act.
+
+Examples include:
+
+- inventing a tool;
+- creating a new communication channel;
+- changing morphology;
+- altering the environment;
+- creating new institutions;
+- adding a new sensor;
+- changing the representation used to define success.
+
+Then:
+
+[
+(S_t,A_t,G_t)
+ightarrow
+(S_{t+1},A_{t+1},G_{t+1}).
+]
+
+This is more than navigating a fixed problem space. It is **transforming the problem space**.
+
+This may be an important distinction between ordinary control and open-ended competence.
+
+Potential research questions:
+
+1. Can a system increase its competence by changing its own action repertoire rather than improving policy within a fixed repertoire?
+2. Can it create new observables that make previously indistinguishable states separable?
+3. Can it alter topology so previously unreachable targets become reachable?
+4. Can it redefine an effective macrovariable or boundary in response to challenge?
+5. How should competence be measured when (S), (A), or (G) changes during the episode?
+
+This lane seems particularly relevant to morphogenesis, tool use, collective reorganization, and adaptive systems.
+
+### 23.8 Why cross-scale conflict and problem-space modification are especially interesting
+
+Among these additional lanes, two appear least reducible to ordinary static reachability analysis:
+
+- **cross-scale competence conflict**;
+- **endogenous modification of state/action/problem space**.
+
+The first asks how constraint benefits and costs redistribute across nested levels.
+
+The second asks how a system changes the transition graph itself rather than merely navigating it.
+
+Together they suggest a broader picture:
+
+> A collective can be competent not only because it moves effectively through a given trajectory landscape, but because it can reshape that landscape—possibly improving controllability at one scale while constraining it at another.
+
+That is a potentially important extension of the current trajectory-space framing, but it still requires operational definitions and established-method comparison before becoming a project claim.
+
+---
+
+## 24. Final research stance
 
 The discussion does not justify adding Deleuze as a foundational theory of the project.
 
