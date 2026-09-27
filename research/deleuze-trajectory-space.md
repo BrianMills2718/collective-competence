@@ -1439,15 +1439,10 @@ Much of the Collective Competence programme asks how component capabilities and 
 
 For nested systems, it may be possible that:
 
-[
-Delta K_{	ext{collective}} > 0
-]
-
-while:
-
-[
-Delta K_{	ext{component}} < 0.
-]
+```text
+delta K_collective > 0
+delta K_component  < 0
+```
 
 Examples in principle include:
 
@@ -1487,18 +1482,12 @@ It may be useful to distinguish at least four layers:
 
 This suggests a hierarchy rather than an identity:
 
-[
-	ext{good coarse-grain}
-
-otRightarrow
-	ext{controller}
-
-otRightarrow
-	ext{agent}
-
-otRightarrow
-	ext{high competence}.
-]
+```text
+good coarse-grain
+    does not imply controller
+    does not imply agent
+    does not imply high competence
+```
 
 The exact implication structure is itself a research question.
 
@@ -1510,26 +1499,23 @@ A future macro-boundary search should therefore avoid treating "high causal effe
 
 The earlier path-dependence discussion can be sharpened through a representation question.
 
-Suppose that, under an observed representation (X_t),
+Suppose that, under an observed representation X_t:
 
-[
-P(X_{t+1}mid X_t,H)
+```text
+P(X_(t+1) | X_t, H) != P(X_(t+1) | X_t)
+```
 
-eq
-P(X_{t+1}mid X_t),
-]
-
-where (H) is prior history.
+where H is prior history.
 
 This appears history-dependent.
 
-But after adding latent variables (Z_t), it may become:
+But after adding latent variables Z_t, it may become:
 
-[
-P(X_{t+1},Z_{t+1}mid X_t,Z_t,H)
+```text
+P(X_(t+1), Z_(t+1) | X_t, Z_t, H)
 =
-P(X_{t+1},Z_{t+1}mid X_t,Z_t).
-]
+P(X_(t+1), Z_(t+1) | X_t, Z_t)
+```
 
 Then the apparent hysteresis was partly a consequence of an insufficient state representation.
 
@@ -1567,15 +1553,13 @@ Two systems or explanations may be:
 2. **interventionally equivalent** — same outputs under the allowed intervention family;
 3. **mechanistically distinct** — different internal causal organizations despite observational/interventional equivalence under the current contract.
 
-So:
+A useful inclusion relation is:
 
-[
-	ext{mechanistic identity}
-subseteq
-	ext{interventional equivalence class}
-subseteq
-	ext{observational equivalence class}.
-]
+```text
+mechanistic identity
+    is narrower than interventional equivalence
+    is narrower than observational equivalence
+```
 
 This suggests that competence itself may sometimes be best represented not as a property of one mechanism but as an **equivalence class of counterfactual behavior under a declared intervention family**.
 
@@ -1593,15 +1577,15 @@ The earlier discussion rejected the idea that "more freedom" or "more trajectori
 
 However, preserving future options can have **instrumental value** under uncertainty even when optionality has no intrinsic value.
 
-A standard value-of-information/option-value form is:
+A standard option-value form is:
 
-[
-V_{	ext{option}}
+```text
+V_option
 =
-E[max_a U(a)mid	ext{future information}]
+E[max_a U(a) | future information]
 -
-max_a E[U(a)mid	ext{current information}].
-]
+max_a E[U(a) | current information]
+```
 
 The intuition is:
 
@@ -1627,15 +1611,12 @@ Goal Discovery currently treats analyst access and representation carefully, but
 
 This creates a loop:
 
-[
-	ext{measurement}
-ightarrow
-	ext{policy/selection}
-ightarrow
-	ext{behavioral adaptation}
-ightarrow
-	ext{new measurement}.
-]
+```text
+measurement
+    -> policy/selection
+    -> behavioral adaptation
+    -> new measurement
+```
 
 This is relevant to Goodhart-like dynamics, algorithmic scoring, adaptive institutions, and any system where agents respond to the metric used to evaluate them.
 
@@ -1658,9 +1639,9 @@ Potential research questions:
 
 Most competence analyses assume a fixed:
 
-- state space (S);
-- action set (A);
-- goal criterion (G).
+- state space S;
+- action set A;
+- goal criterion G.
 
 But sufficiently capable systems can modify the very space in which they act.
 
@@ -1676,11 +1657,11 @@ Examples include:
 
 Then:
 
-[
-(S_t,A_t,G_t)
-ightarrow
-(S_{t+1},A_{t+1},G_{t+1}).
-]
+```text
+(S_t, A_t, G_t)
+    ->
+(S_(t+1), A_(t+1), G_(t+1))
+```
 
 This is more than navigating a fixed problem space. It is **transforming the problem space**.
 
@@ -1692,7 +1673,7 @@ Potential research questions:
 2. Can it create new observables that make previously indistinguishable states separable?
 3. Can it alter topology so previously unreachable targets become reachable?
 4. Can it redefine an effective macrovariable or boundary in response to challenge?
-5. How should competence be measured when (S), (A), or (G) changes during the episode?
+5. How should competence be measured when S, A, or G changes during the episode?
 
 This lane seems particularly relevant to morphogenesis, tool use, collective reorganization, and adaptive systems.
 
