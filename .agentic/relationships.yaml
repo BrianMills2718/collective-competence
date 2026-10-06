@@ -11,14 +11,21 @@ decisions:
 plans:
   CC-PLAN-001:
     path: docs/plans/001-post-nca-regulatory-network-comparator.md
-    status: planned_blocked
+    status: active
     intends_to_close:
       - GAP-EXTERNAL-REACHABILITY-COMPARATOR
-    blocked_by:
+    coordinates_with:
+      - issue: 87
+    provider:
+      package: biodivine_aeon
+      version: 1.4.2
+      upstream_revision: abc98ec3794d4eaa9aa5dcd77c4aca00c316c1dd
+      license: MIT
+    resolved_gates:
       - issue: 77
-        relation: review_gate
+        disposition: completed
       - issue: 75
-        relation: provider_license_gate
+        disposition: cellnition_not_used
     informed_by:
       - experiments/12-growing-nca/README.md
       - wiki/reference/research-landscape.md
