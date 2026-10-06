@@ -1,0 +1,302 @@
+{
+  "disposition": "no_added_value",
+  "environment": {
+    "collective_competence_revision": "38a77959e2243ef4d180490d3e95958caa9fa17e"
+  },
+  "incremental_value_audit": {
+    "added_information_fields": [],
+    "decision_changes_beyond_native": [],
+    "disposition": "no_added_value",
+    "field_audit": [
+      {
+        "kind": "native_derived",
+        "native_path": "source_target_permanent.Erythrocyte.attainable",
+        "profile_field": "Erythrocyte.attainable"
+      },
+      {
+        "kind": "native_derived",
+        "native_path": "source_target_permanent.Erythrocyte.minimum_size",
+        "profile_field": "Erythrocyte.minimum_control_variables"
+      },
+      {
+        "kind": "native_derived",
+        "native_path": "len(source_target_permanent.Erythrocyte.alternatives)",
+        "profile_field": "Erythrocyte.minimal_control_alternative_count"
+      },
+      {
+        "kind": "native_derived",
+        "native_path": "source_target_permanent.Erythrocyte.robustness_threshold",
+        "profile_field": "Erythrocyte.robustness_threshold"
+      },
+      {
+        "kind": "native_derived",
+        "native_path": "phenotype_only_permanent.minimum_size - source_target_permanent.Erythrocyte.minimum_size",
+        "profile_field": "Erythrocyte.source_specific_savings_vs_phenotype_only"
+      },
+      {
+        "kind": "native_derived",
+        "native_path": "source_target_permanent.Monocyte.attainable",
+        "profile_field": "Monocyte.attainable"
+      },
+      {
+        "kind": "native_derived",
+        "native_path": "source_target_permanent.Monocyte.minimum_size",
+        "profile_field": "Monocyte.minimum_control_variables"
+      },
+      {
+        "kind": "native_derived",
+        "native_path": "len(source_target_permanent.Monocyte.alternatives)",
+        "profile_field": "Monocyte.minimal_control_alternative_count"
+      },
+      {
+        "kind": "native_derived",
+        "native_path": "source_target_permanent.Monocyte.robustness_threshold",
+        "profile_field": "Monocyte.robustness_threshold"
+      },
+      {
+        "kind": "native_derived",
+        "native_path": "phenotype_only_permanent.minimum_size - source_target_permanent.Monocyte.minimum_size",
+        "profile_field": "Monocyte.source_specific_savings_vs_phenotype_only"
+      },
+      {
+        "kind": "native_derived",
+        "native_path": "source_target_permanent.Granulocyte.attainable",
+        "profile_field": "Granulocyte.attainable"
+      },
+      {
+        "kind": "native_derived",
+        "native_path": "source_target_permanent.Granulocyte.minimum_size",
+        "profile_field": "Granulocyte.minimum_control_variables"
+      },
+      {
+        "kind": "native_derived",
+        "native_path": "len(source_target_permanent.Granulocyte.alternatives)",
+        "profile_field": "Granulocyte.minimal_control_alternative_count"
+      },
+      {
+        "kind": "native_derived",
+        "native_path": "source_target_permanent.Granulocyte.robustness_threshold",
+        "profile_field": "Granulocyte.robustness_threshold"
+      },
+      {
+        "kind": "native_derived",
+        "native_path": "phenotype_only_permanent.minimum_size - source_target_permanent.Granulocyte.minimum_size",
+        "profile_field": "Granulocyte.source_specific_savings_vs_phenotype_only"
+      },
+      {
+        "kind": "native_derived",
+        "native_path": "phenotype_only_permanent.minimum_size",
+        "profile_field": "phenotype_only_minimum_control_variables"
+      }
+    ],
+    "negative_control": {
+      "passed": true,
+      "rule": "Every normalized field must name its native AEON source; a field without native provenance is classified as added."
+    },
+    "refuter_triggered": false
+  },
+  "native_outputs": {
+    "phenotype_only_permanent": {
+      "alternatives": [
+        {
+          "perturbation": {
+            "Fli1": true,
+            "PU1": false
+          },
+          "robustness": 1.0
+        }
+      ],
+      "attainable": true,
+      "control_type": "phenotype_permanent",
+      "minimum_size": 2,
+      "oscillation_type": "forbidden",
+      "robustness_threshold": 1.0,
+      "target": "Megakaryocyte"
+    },
+    "source_target_permanent": {
+      "Erythrocyte": {
+        "alternatives": [
+          {
+            "perturbation": {
+              "EKLF": false
+            },
+            "robustness": 1.0
+          },
+          {
+            "perturbation": {
+              "Fli1": true
+            },
+            "robustness": 1.0
+          }
+        ],
+        "attainable": true,
+        "control_type": "permanent",
+        "minimum_size": 1,
+        "robustness_threshold": 1.0,
+        "source": "Erythrocyte",
+        "target": "Megakaryocyte"
+      },
+      "Granulocyte": {
+        "alternatives": [
+          {
+            "perturbation": {
+              "Fli1": true,
+              "PU1": false
+            },
+            "robustness": 1.0
+          }
+        ],
+        "attainable": true,
+        "control_type": "permanent",
+        "minimum_size": 2,
+        "robustness_threshold": 1.0,
+        "source": "Granulocyte",
+        "target": "Megakaryocyte"
+      },
+      "Monocyte": {
+        "alternatives": [
+          {
+            "perturbation": {
+              "Fli1": true,
+              "PU1": false
+            },
+            "robustness": 1.0
+          }
+        ],
+        "attainable": true,
+        "control_type": "permanent",
+        "minimum_size": 2,
+        "robustness_threshold": 1.0,
+        "source": "Monocyte",
+        "target": "Megakaryocyte"
+      }
+    }
+  },
+  "normalized_competence_profile": {
+    "challenge_family": "directed transitions to the upstream Megakaryocyte phenotype",
+    "context_dimension": "upstream source phenotype",
+    "flexibility_dimension": "count of minimal native control alternatives",
+    "phenotype_only_field_provenance": {
+      "kind": "native_derived",
+      "path": "phenotype_only_permanent.minimum_size"
+    },
+    "phenotype_only_minimum_control_variables": 2,
+    "resource_dimension": "minimum number of permanently perturbed variables",
+    "robustness_dimension": "AEON native perturbation robustness threshold",
+    "source_profiles": [
+      {
+        "attainable": true,
+        "field_provenance": {
+          "attainable": {
+            "kind": "native_derived",
+            "path": "source_target_permanent.Erythrocyte.attainable"
+          },
+          "minimal_control_alternative_count": {
+            "kind": "native_derived",
+            "path": "len(source_target_permanent.Erythrocyte.alternatives)"
+          },
+          "minimum_control_variables": {
+            "kind": "native_derived",
+            "path": "source_target_permanent.Erythrocyte.minimum_size"
+          },
+          "robustness_threshold": {
+            "kind": "native_derived",
+            "path": "source_target_permanent.Erythrocyte.robustness_threshold"
+          },
+          "source_specific_savings_vs_phenotype_only": {
+            "kind": "native_derived",
+            "path": "phenotype_only_permanent.minimum_size - source_target_permanent.Erythrocyte.minimum_size"
+          }
+        },
+        "minimal_control_alternative_count": 2,
+        "minimum_control_variables": 1,
+        "robustness_threshold": 1.0,
+        "source": "Erythrocyte",
+        "source_specific_savings_vs_phenotype_only": 1,
+        "target": "Megakaryocyte"
+      },
+      {
+        "attainable": true,
+        "field_provenance": {
+          "attainable": {
+            "kind": "native_derived",
+            "path": "source_target_permanent.Monocyte.attainable"
+          },
+          "minimal_control_alternative_count": {
+            "kind": "native_derived",
+            "path": "len(source_target_permanent.Monocyte.alternatives)"
+          },
+          "minimum_control_variables": {
+            "kind": "native_derived",
+            "path": "source_target_permanent.Monocyte.minimum_size"
+          },
+          "robustness_threshold": {
+            "kind": "native_derived",
+            "path": "source_target_permanent.Monocyte.robustness_threshold"
+          },
+          "source_specific_savings_vs_phenotype_only": {
+            "kind": "native_derived",
+            "path": "phenotype_only_permanent.minimum_size - source_target_permanent.Monocyte.minimum_size"
+          }
+        },
+        "minimal_control_alternative_count": 1,
+        "minimum_control_variables": 2,
+        "robustness_threshold": 1.0,
+        "source": "Monocyte",
+        "source_specific_savings_vs_phenotype_only": 0,
+        "target": "Megakaryocyte"
+      },
+      {
+        "attainable": true,
+        "field_provenance": {
+          "attainable": {
+            "kind": "native_derived",
+            "path": "source_target_permanent.Granulocyte.attainable"
+          },
+          "minimal_control_alternative_count": {
+            "kind": "native_derived",
+            "path": "len(source_target_permanent.Granulocyte.alternatives)"
+          },
+          "minimum_control_variables": {
+            "kind": "native_derived",
+            "path": "source_target_permanent.Granulocyte.minimum_size"
+          },
+          "robustness_threshold": {
+            "kind": "native_derived",
+            "path": "source_target_permanent.Granulocyte.robustness_threshold"
+          },
+          "source_specific_savings_vs_phenotype_only": {
+            "kind": "native_derived",
+            "path": "phenotype_only_permanent.minimum_size - source_target_permanent.Granulocyte.minimum_size"
+          }
+        },
+        "minimal_control_alternative_count": 1,
+        "minimum_control_variables": 2,
+        "robustness_threshold": 1.0,
+        "source": "Granulocyte",
+        "source_specific_savings_vs_phenotype_only": 0,
+        "target": "Megakaryocyte"
+      }
+    ]
+  },
+  "p0_evidence": {
+    "implementation_revision": "b374a3915411c9f5854a8f0bf8b19345566d0389",
+    "path": "experiments/13-regulatory-network-comparator/results/native_reproduction.json",
+    "sha256": "1873de4f0c4b9a751bb5c72514e435c242a497a9cac6ac20d00d8d2c9a9a6264"
+  },
+  "phase": "V1_bounded_comparator",
+  "prediction": {
+    "expected_disposition": "no_added_value",
+    "refuter": "A predeclared CC field must not be directly derivable from native AEON output, must change a concrete decision or prediction, and must survive a control.",
+    "statement": "With source/target semantics supplied, AEON already subsumes the declared white-box attainability, source/context, minimum-resource, alternative-control, and robustness information in this comparison."
+  },
+  "prediction_supported": true,
+  "provider": {
+    "commit": "abc98ec3794d4eaa9aa5dcd77c4aca00c316c1dd",
+    "package": "biodivine_aeon",
+    "repository": "sybila/biodivine-aeon-py",
+    "version": "1.4.2"
+  },
+  "scope_limit": "This disposition applies only to the declared white-box V1 dimensions on the pinned AEON myeloid case. It does not establish that every possible competence or restricted-access claim is reducible to AEON.",
+  "status": "complete"
+}
