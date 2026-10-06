@@ -33,7 +33,7 @@ uv run --frozen --all-extras pytest -q
 
 Tests for optional research spikes may report explicit skips. This command is the handoff verification contract; run it rather than relying on an old recorded test count.
 
-[`../wiki/current.md`](../wiki/current.md) owns the active next decision and repository handoff. This guide owns the local run commands. A localhost URL alone does not identify the running revision.
+[`../wiki/current.md`](../wiki/current.md) is the derived handoff projection; accepted current work is authorized by [`../docs/plans/`](../docs/plans/README.md). This guide owns the local run commands. A localhost URL alone does not identify the running revision.
 
 ## Start with settling versus reference
 
