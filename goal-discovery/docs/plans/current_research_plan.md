@@ -15,7 +15,7 @@ sources:
 ---
 # Historical Goal Discovery research plan
 
-> **Superseded 2026-09-08. Do not use this page to choose current work.** The current programme handoff and next action live in [`../../../wiki/current.md`](../../../wiki/current.md). This file preserves the former Goal Discovery lane plan and dated repository/checkpoint material for provenance. Everything below may describe priorities or repository state that no longer applies.
+> **Superseded 2026-09-08. Do not use this page to choose current work.** Current bounded work is authorized under [`../../../docs/plans/`](../../../docs/plans/README.md); [`../../../wiki/current.md`](../../../wiki/current.md) is the derived handoff projection. This file preserves the former Goal Discovery lane plan and dated repository/checkpoint material for provenance. Everything below may describe priorities or repository state that no longer applies.
 
 
 [Project wiki](../../../wiki/index.md) · [Ontology](../../../wiki/ontology.md) ·
