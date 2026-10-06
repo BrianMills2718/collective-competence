@@ -176,4 +176,4 @@ The standalone page opens directly on the default H2 matched morphology comparis
 
 ## Next
 
-The Experiment 12 white-box map is now frozen. **Do not add another NCA parameter sweep by default.** The next project step is issue #77: build the saved-evidence NCA workbench using the already accepted Panel/HoloViews/Bokeh stack and have the project owner review it. Only after that review should the project begin the post-NCA comparator/integration sequence or a blinded Goal Discovery benchmark.
+The Experiment 12 white-box map is frozen and the saved-evidence workbench has been implemented. **Do not add another NCA parameter sweep by default.** The remaining issue #77 gate is project-owner visual/interaction review of that workbench. If it passes, close #77 and begin the post-NCA comparator/integration sequence; if it fails, repair only the concrete review defect unless new scientific evidence justifies reopening the experiment.
