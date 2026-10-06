@@ -6,10 +6,16 @@ This area is the **cold/warm layer** of the project knowledge system. Use it whe
 
 ## Boundary rules
 
-- This reference layer is **not** a second current-status system. `wiki/current.md` alone owns volatile priority and next action.
+- This reference layer is **not** a second current-status system. `wiki/current.md` is a derived handoff projection; accepted current plans under `docs/plans/` authorize bounded future work.
 - General-purpose IRs, schemas, or tooling with a life independent of this programme should have a separate repository authority; keep only the project-specific adapter, instance, or pointer here.
 - Long-form exploratory theory belongs outside the hot path. Retain it here only when its provenance has durable value; promote only compact falsifiable implications into live questions, conjectures, or experiments.
 - Generated scoreboards and status pages are historical/registered-lane projections. They never outrank native evidence or the hot wiki.
+
+## Current native governance
+
+- [Decisions](../../docs/decisions/README.md) — durable repository-level choices.
+- [Current plans](../../docs/plans/README.md) — accepted bounded future-work authorization.
+- [Machine-readable relationship graph](../../.agentic/relationships.yaml) — current decision/plan/experiment/code/test/evidence/navigation linkage.
 
 ## Scientific Hypergraph
 
