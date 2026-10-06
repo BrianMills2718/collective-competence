@@ -13,6 +13,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+regulatory-network-comparator = [
+    "biodivine-aeon==1.4.2",
+]
 composition-exploration = [
     "discopy==1.2.2",
 ]

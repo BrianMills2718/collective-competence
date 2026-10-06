@@ -13,3 +13,6 @@ worktrees/
 
 # Local execution cursors and receipts are runtime state, not project content.
 .company-planning/
+
+# Pinned external models are fetched and hash-verified, not vendored.
+experiments/13-regulatory-network-comparator/upstream_cache/

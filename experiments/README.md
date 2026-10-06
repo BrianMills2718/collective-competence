@@ -2,7 +2,7 @@
 
 This directory is the shortest route from the project wiki to the evidence that actually ran. Read [`../wiki/findings.md`](../wiki/findings.md) for synthesis and [`../wiki/current.md`](../wiki/current.md) for the active question; use the experiment README here when precision matters.
 
-The numbered sequence is a **development path, not a universal ladder of intelligence or competence**. Experiments 01–11 establish simple distinctions and constructive primitives. Experiment 12 begins the current phase of testing those distinctions in a richer externally specified system.
+The numbered sequence is a **development path, not a universal ladder of intelligence or competence**. Experiments 01–11 establish simple distinctions and constructive primitives. Experiment 12 begins the external phase on a learned regenerative system; Experiment 13 tests the programme against a mature external reachability/control method rather than another bespoke substrate.
 
 | Experiment | Role | Main question/result |
 |---|---|---|
@@ -17,7 +17,8 @@ The numbered sequence is a **development path, not a universal ladder of intelli
 | [09 composition / lineage](09-composition-lineage/README.md) | information vs capability | Perfect knowledge of what is missing is insufficient when surviving cells cannot generate the missing lineage; plasticity changes reachability. |
 | [10 endogenous composition](10-endogenous-composition/README.md) | fallible current-state sensing | Self-produced composition signals support repair but reporter/source failure can create false deficit signals and pathological compensation. |
 | [11 learned composition memory](11-learned-composition-memory/README.md) | desired-state memory | Healthy history supplies setpoints without hard-coded target counts; memory has a finite repair horizon and does not authenticate a broken current-state reporter. |
-| [12 Growing NCA](12-growing-nca/README.md) | **current external phase-2 specimen** | Reproduces published Growing NCA models, maps a finite regeneration basin, and finds a replicated hidden-state consistency effect with fixed upstream weights. |
+| [12 Growing NCA](12-growing-nca/README.md) | first external phase-2 specimen | Reproduces published Growing NCA models and freezes a multidimensional white-box recovery map with fixed upstream weights. |
+| [13 AEON comparator](13-regulatory-network-comparator/README.md) | **active methodological comparator** | Reproduces AEON native Boolean-network attractor/control behavior before testing whether the competence layer adds anything beyond an established method. |
 
 ## Retained reference lines
 
@@ -26,4 +27,4 @@ The numbered sequence is a **development path, not a universal ladder of intelli
 
 ## Evidence rule
 
-The native README, code, and committed result package are authoritative for what an experiment did. Wiki summaries are navigation/synthesis. Historical plans and development logs explain why work changed but do not override native evidence or [`wiki/current.md`](../wiki/current.md).
+The native README, code, and committed result package are authoritative for what an experiment did. Wiki summaries are navigation/synthesis. Historical plans and development logs explain why work changed but do not override native evidence. [`wiki/current.md`](../wiki/current.md) is a derived handoff projection; accepted top-level plans authorize bounded future work.
