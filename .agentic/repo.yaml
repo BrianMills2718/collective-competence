@@ -18,12 +18,13 @@ authorities:
 
 planning:
   active_plan: docs/plans/001-post-nca-regulatory-network-comparator.md
-  active_plan_status: planned_blocked
-  current_blockers:
-    - issue: 77
-      reason: owner review of completed Experiment 12 evidence workbench
-    - issue: 75
-      reason: provider/license disposition before comparator implementation
+  active_plan_status: active
+  coordination_issue: 87
+  selected_provider:
+    name: biodivine_aeon
+    version: 1.4.2
+    upstream: sybila/biodivine-aeon-py@abc98ec3794d4eaa9aa5dcd77c4aca00c316c1dd
+    license: MIT
 
 relationships:
   source: .agentic/relationships.yaml
