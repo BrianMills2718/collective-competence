@@ -5,7 +5,6 @@ import subprocess
 from pathlib import Path
 
 import pytest
-
 from reproduce_native import (
     MANIFEST,
     RESULT_PATH,
@@ -66,7 +65,7 @@ def test_native_reproduction_preserves_upstream_marker_ambiguity():
     monocyte = result["native_outputs"]["phenotypes"]["Monocyte"]
     assert monocyte["match_count"] == 2
     assert monocyte["match_cardinalities"] == [1, 1]
-    assert "first intersecting attractor" in result["upstream"]["selection_rule"]
+    assert "first attractor intersecting" in result["upstream"]["selection_rule"]
     assert "cJun=True matches two" in result["selection_limit"]
 
 
@@ -90,6 +89,7 @@ def test_committed_result_preserves_p0_contract_and_revision_lineage():
     check = subprocess.run(
         ["git", "merge-base", "--is-ancestor", evidence_revision, "HEAD"],
         cwd=ROOT,
+        check=False,
         capture_output=True,
         text=True,
     )

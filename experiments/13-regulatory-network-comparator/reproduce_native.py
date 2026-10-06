@@ -7,10 +7,10 @@ from __future__ import annotations
 
 import argparse
 import hashlib
-import importlib.metadata as metadata
 import json
 import subprocess
 import sys
+from importlib import metadata
 from pathlib import Path
 from urllib.parse import quote
 from urllib.request import urlopen
