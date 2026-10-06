@@ -3,6 +3,8 @@ doc-role: project-wiki-index
 authority: derived
 lifecycle: active
 sources:
+  - ../docs/decisions/0001-native-authorities-derived-wiki.md
+  - ../docs/plans/README.md
   - questions.md
   - findings.md
   - concepts.md
@@ -11,7 +13,9 @@ sources:
 ---
 # Competence research
 
-This project asks **which experimentally separable constraints determine goal-relative competencies and failure boundaries of dynamical systems, and which candidate goals and competence claims are identifiable from behavior under a declared observation/intervention contract**.
+This is the **progressive-disclosure front door** for Collective Competence. It is a derived navigation/synthesis surface, not a native authority. Follow consequential claims to the owning decision, accepted plan, experiment record, code/test contract, or result artifact.
+
+The project asks **which experimentally separable constraints determine goal-relative competencies and failure boundaries of dynamical systems, and which candidate goals and competence claims are identifiable from behavior under a declared observation/intervention contract**.
 
 It has two complementary arms:
 
@@ -20,31 +24,30 @@ It has two complementary arms:
 
 The **Dynamical Laboratory** is shared apparatus. Black-box versus white-box is an access contract, not the definition of either arm.
 
-## Authority map
+## Native authority map
 
-Each kind of project truth has one preferred owner.
-
-| Question | Authority |
+| Question | Follow to |
 |---|---|
-| What should happen next? | [Current work](current.md) |
-| What questions are live? | [Research questions](questions.md) |
-| What has the evidence established? | [Findings](findings.md) |
-| What do the working terms mean? | [Concepts](concepts.md) |
-| How are experiments designed/adopted? | [Dynamical Laboratory](laboratory.md) |
-| What did a specific experiment do and observe? | Its native README, code, and result package via the [experiment map](../experiments/README.md) |
-| What prior art/history constrains interpretation? | [Reference and history](reference/README.md) |
+| What bounded future work is authorized? | [Current plans](../docs/plans/README.md) and the active plan |
+| Which durable repository choices govern this? | [Decisions](../docs/decisions/README.md) |
+| What did a specific experiment do and conclude? | Its native README via the [Experiment map](../experiments/README.md) |
+| What procedure actually ran? | The experiment's code at the cited revision |
+| What software/intervention contracts were verified? | The experiment's tests |
+| What was actually observed? | The committed result/evidence artifacts |
+| How are current artifacts related? | [Machine-readable relationships](../.agentic/relationships.yaml) |
 
-Generated scoreboards/status pages summarize an older registered Goal Discovery/instrument lane. Historical plans, audits, logs, and `research_state.yaml` preserve provenance. **None of them owns current priority.**
+The pages below are compact derived views over those owners:
 
-## Repository boundary
+- [Current work](current.md) — handoff projection of the active gate/frontier.
+- [Research questions](questions.md) — working question synthesis.
+- [Findings](findings.md) — cross-experiment synthesis; native experiment evidence outranks it.
+- [Concepts](concepts.md) — compact working vocabulary; detailed ontology remains reference authority where needed.
+- [Dynamical Laboratory](laboratory.md) — working experimental-method synthesis.
+- [Reference and history](reference/README.md) — prior art, ontology, audits, old plans, chronology, and generated historical views.
 
-Keep here what is specific to this scientific programme: questions, experiments, evidence, scientific interpretation, and apparatus/adapters required by those experiments.
+Generated scoreboards/status pages and the historical `goal-discovery/docs/plans/` corpus preserve earlier lanes. They do not authorize current work.
 
-General-purpose infrastructure with an independent scope should have its own authority. The general Scientific Hypergraph IR therefore lives in `BrianMills2718/scientific-hypergraph`; this repository is a downstream scientific consumer/proving ground.
-
-Long-form exploratory theory is not working-project authority. Promote only the compact, falsifiable implication needed by a live question or experiment; keep the larger discussion outside the hot path (or in cold reference when provenance itself matters).
-
-## Scientific stance
+## Current scientific stance
 
 The programme is **reuse-first and interrogation-first**:
 
@@ -57,17 +60,28 @@ The programme is **reuse-first and interrogation-first**:
 
 The intended progression is **calibration → fixed external systems → close methodological comparators → mechanistic biological models / real intervention corpora**.
 
+## Repository boundary
+
+Keep here project-specific scientific questions, experiments, evidence, interpretation, and apparatus/adapters required by those experiments.
+
+General-purpose infrastructure with an independent scope gets its own authority. The general Scientific Hypergraph IR therefore lives in `BrianMills2718/scientific-hypergraph`; this repository is a downstream scientific consumer/proving ground.
+
+Long-form exploratory theory is not execution authority. Promote only the compact falsifiable implication, decision, or plan needed by live research.
+
 ## Evidence hierarchy
 
-1. **Native protocol, code, raw/result package** — what was actually done and observed.
-2. **Experiment/result record** — interpretation and declared limits.
-3. **Findings/current wiki** — compact synthesis and navigation.
-4. **Reference/history** — prior art, detailed methods, decisions, audits, and chronology.
+For scientific claims:
 
-If a summary conflicts with native evidence, the native evidence wins and the summary should be corrected.
+1. committed observations/result artifacts;
+2. native experiment protocol/README plus exact code/test revision;
+3. derived cross-experiment synthesis such as `wiki/findings.md`;
+4. navigation/current projections;
+5. historical plans/audits/logs.
+
+A plan can finish with a contradicted or null result. A green test verifies only its contract. If a wiki summary conflicts with native evidence, correct the wiki.
 
 ## Resume after a hiatus
 
-Read this page → [Current work](current.md) → [Findings](findings.md), then open the relevant native experiment. Do not reconstruct the project by reading history first.
+Read this page → [Current work](current.md) → the linked active plan/experiment. Use [Findings](findings.md) for synthesis, not as a substitute for native evidence.
 
 **Documentation should reduce the amount a reader must load, not increase it.**
