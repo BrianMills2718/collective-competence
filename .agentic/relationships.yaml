@@ -1,0 +1,67 @@
+schema_version: 1
+
+decisions:
+  CC-DEC-001:
+    path: docs/decisions/0001-native-authorities-derived-wiki.md
+    governs:
+      - docs/plans/
+      - wiki/
+      - .agentic/relationships.yaml
+
+plans:
+  CC-PLAN-001:
+    path: docs/plans/001-post-nca-regulatory-network-comparator.md
+    status: planned_blocked
+    intends_to_close:
+      - GAP-EXTERNAL-REACHABILITY-COMPARATOR
+    blocked_by:
+      - issue: 77
+        relation: review_gate
+      - issue: 75
+        relation: provider_license_gate
+    informed_by:
+      - experiments/12-growing-nca/README.md
+      - wiki/reference/research-landscape.md
+      - wiki/reference/goal-competence-identifiability-landscape.md
+      - wiki/reference/levin-software-ecosystem-survey.md
+    planned_artifacts:
+      - experiments/13-regulatory-network-comparator/README.md
+      - experiments/13-regulatory-network-comparator/provider_manifest.json
+      - experiments/13-regulatory-network-comparator/reproduce_native.py
+      - experiments/13-regulatory-network-comparator/compare.py
+      - experiments/13-regulatory-network-comparator/test_comparator.py
+      - experiments/13-regulatory-network-comparator/results/native_reproduction.json
+      - experiments/13-regulatory-network-comparator/results/comparison.json
+
+experiments:
+  EXP-12-GROWING-NCA:
+    record: experiments/12-growing-nca/README.md
+    procedure:
+      - experiments/12-growing-nca/nca_numpy.py
+      - experiments/12-growing-nca/run.py
+      - experiments/12-growing-nca/action_gate_probe.py
+    verification:
+      - experiments/12-growing-nca/test_model.py
+      - experiments/12-growing-nca/test_action_gate.py
+    evidence_root: experiments/12-growing-nca/results/
+    informs:
+      - CC-PLAN-001
+    synthesized_by:
+      - wiki/findings.md
+      - wiki/current.md
+
+derived_navigation:
+  wiki/index.md:
+    routes_to:
+      - docs/decisions/0001-native-authorities-derived-wiki.md
+      - docs/plans/README.md
+      - experiments/README.md
+  wiki/current.md:
+    projects:
+      - CC-PLAN-001
+      - EXP-12-GROWING-NCA
+      - issue:77
+      - issue:75
+  wiki/findings.md:
+    synthesizes:
+      - EXP-12-GROWING-NCA
