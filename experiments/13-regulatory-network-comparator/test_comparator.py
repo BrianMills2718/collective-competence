@@ -8,6 +8,8 @@ from pathlib import Path
 import pytest
 from compare import (
     RESULT_PATH as V1_RESULT_PATH,
+)
+from compare import (
     audit_incremental_value,
     normalize_native_profile,
     run_comparison,

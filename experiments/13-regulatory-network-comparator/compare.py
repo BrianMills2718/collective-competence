@@ -13,15 +13,16 @@ import subprocess
 from pathlib import Path
 
 import biodivine_aeon as aeon
-
 from reproduce_native import (
     MANIFEST,
-    RESULT_PATH as P0_RESULT_PATH,
     ensure_model,
     package_version,
     repository_dirty,
     repository_revision,
     validate_against_frozen_p0,
+)
+from reproduce_native import (
+    RESULT_PATH as P0_RESULT_PATH,
 )
 
 HERE = Path(__file__).resolve().parent
