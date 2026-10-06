@@ -21,9 +21,10 @@ sources:
 [Source provenance](sources/README.md)
 
 This charter states the durable scientific scope and boundaries of the shared
-Dynamical Laboratory. It does **not** own current priority: `wiki/current.md` is
-the sole current handoff surface. Historical phase plans under `docs/plans/` and
-older state ledgers are retained context, not current authority.
+Dynamical Laboratory. It does **not** own current priority: top-level `docs/plans/`
+owns accepted bounded future-work authorization, while `wiki/current.md` is a
+derived handoff projection. Historical phase plans under this subtree and older
+state ledgers are retained context, not current authority.
 
 ## North star
 
