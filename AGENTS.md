@@ -71,14 +71,20 @@ The canonical checkout is intentionally read-only; use the repository's worktree
 - For discovery claims, record rival criteria that remain compatible with the evidence and the intervention that would discriminate them.
 - A method's success is not "it guessed the author's label." It should recover only the resolution supported by the evidence and abstain from stronger claims.
 
-## Documentation discipline
+## Documentation and repository discipline
 
 Documentation should **reduce the amount an agent must read**.
 
 Keep current working knowledge in the six hot wiki pages. Detailed experiment records, external-system surveys, and technical documents are warm reference. Audits, chronology, closed failures, and superseded plans are cold history.
 
-After material work, update the smallest owning hot page plus the native evidence/record that actually changed. Do not create another status surface when [`wiki/current.md`](wiki/current.md) can be updated.
+Use **one owner per kind of truth**. `wiki/current.md` alone owns volatile priority and next action; native experiment records own what was actually run; `wiki/findings.md` owns cross-cutting scientific synthesis. Link to an owner instead of restating it.
 
-Historical mistakes belong in current narrative only when they materially constrain the current scientific interpretation. Git and the reference layer preserve the rest.
+Do not create a new roadmap, status, handoff, research-state, or conceptual surface when an existing owner can absorb the change. A new durable document needs a distinct responsibility that cannot be handled by linking or a short addition to an existing owner.
+
+General-purpose infrastructure whose scope is independent of Collective Competence belongs in its own repository, with this repo retaining only the adapter, project-specific instance, or reference needed by an experiment. The general Scientific Hypergraph IR is one such extracted authority.
+
+Long-form exploratory/philosophical discussion is not working-project authority. Keep it outside the hot path; promote only a compact falsifiable question, conjecture, or intervention implication when it changes a live experiment.
+
+After material work, update the smallest owning hot page plus the native evidence/record that actually changed. Historical mistakes belong in current narrative only when they materially constrain current scientific interpretation; Git and the reference layer preserve the rest.
 
 `AGENTS.md` is the authored instruction source for Claude Code and Codex; update the nearest file directly.
