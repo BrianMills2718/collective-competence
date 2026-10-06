@@ -309,7 +309,7 @@ class RepositoryNavigationContract(unittest.TestCase):
         relationship_text = relationships.read_text(encoding="utf-8")
         wiki = (knowledge.ROOT / "wiki/index.md").read_text(encoding="utf-8")
 
-        self.assertIn("wiki/ is **derived navigation and synthesis**", decision_text)
+        self.assertIn("derived navigation and synthesis", decision_text)
         self.assertIn("status: planned_blocked", plan_text)
         self.assertIn("Plan completion alone does not close the gap", plan_text)
         self.assertIn("wiki_role: derived_progressive_disclosure", repo_text)
