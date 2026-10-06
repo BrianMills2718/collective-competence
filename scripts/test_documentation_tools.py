@@ -317,6 +317,16 @@ class RepositoryNavigationContract(unittest.TestCase):
         self.assertIn("EXP-12-GROWING-NCA", relationship_text)
         self.assertIn("progressive-disclosure front door", wiki.casefold())
         self.assertIn("derived navigation/synthesis surface", wiki.casefold())
+        for rel in (
+            "wiki/index.md",
+            "wiki/current.md",
+            "wiki/questions.md",
+            "wiki/findings.md",
+            "wiki/concepts.md",
+            "wiki/laboratory.md",
+        ):
+            page = (knowledge.ROOT / rel).read_text(encoding="utf-8")
+            self.assertIn("authority: derived", page, rel)
 
     def test_old_current_plan_is_explicitly_historical(self):
         plan = (knowledge.ROOT / "goal-discovery/docs/plans/current_research_plan.md").read_text(encoding="utf-8")
