@@ -4,6 +4,10 @@
 
 This area is the **cold/warm layer** of the project knowledge system. Use it when a task needs exact provenance, historical decisions, detailed methodology, external scientific context, or the full record. Ordinary orientation should begin with the six working wiki pages instead.
 
+## Scientific Hypergraph
+
+- [Scientific Hypergraph extraction](scientific-hypergraph-extraction.md) — the general AI-facing scientific IR now lives in `BrianMills2718/scientific-hypergraph`; Collective Competence is a downstream consumer.
+
 ## Detailed scientific sources
 
 - [Research landscape, September 2026](research-landscape.md) — neighboring literatures, novelty constraints, and the current complexity ladder from primitives to external NCA/multicellular systems.
