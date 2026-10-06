@@ -4,6 +4,13 @@
 
 This area is the **cold/warm layer** of the project knowledge system. Use it when a task needs exact provenance, historical decisions, detailed methodology, external scientific context, or the full record. Ordinary orientation should begin with the six working wiki pages instead.
 
+## Boundary rules
+
+- This reference layer is **not** a second current-status system. `wiki/current.md` alone owns volatile priority and next action.
+- General-purpose IRs, schemas, or tooling with a life independent of this programme should have a separate repository authority; keep only the project-specific adapter, instance, or pointer here.
+- Long-form exploratory theory belongs outside the hot path. Retain it here only when its provenance has durable value; promote only compact falsifiable implications into live questions, conjectures, or experiments.
+- Generated scoreboards and status pages are historical/registered-lane projections. They never outrank native evidence or the hot wiki.
+
 ## Scientific Hypergraph
 
 - [Scientific Hypergraph extraction](scientific-hypergraph-extraction.md) — the general AI-facing scientific IR now lives in `BrianMills2718/scientific-hypergraph`; Collective Competence is a downstream consumer.
