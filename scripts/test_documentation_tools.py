@@ -281,15 +281,42 @@ class RepositoryNavigationContract(unittest.TestCase):
         ):
             self.assertIn(term.casefold(), ontology.casefold())
 
-    def test_hot_current_is_the_handoff_owner(self):
+    def test_current_wiki_is_a_derived_handoff_projection(self):
         current = (knowledge.ROOT / "wiki/current.md").read_text(encoding="utf-8")
-        self.assertIn("only hot page", current.casefold())
+        self.assertIn("authority: derived", current)
+        self.assertIn("derived handoff projection", current.casefold())
+        self.assertIn("does not authorize implementation", current.casefold())
         self.assertIn("## Resume after a hiatus", current)
         self.assertIn("Growing Neural Cellular", current)
+        self.assertIn("docs/plans/001-post-nca-regulatory-network-comparator.md", current)
         for rel in ("README.md", "AGENTS.md", "goal-discovery/AGENTS.md", "goal-discovery/README.md"):
             text = (knowledge.ROOT / rel).read_text(encoding="utf-8")
             self.assertIn("wiki/current.md", text)
             self.assertNotIn("current_research_plan.md) owns", text)
+
+    def test_native_plan_and_relationship_authorities_exist(self):
+        decision = knowledge.ROOT / "docs/decisions/0001-native-authorities-derived-wiki.md"
+        plan = knowledge.ROOT / "docs/plans/001-post-nca-regulatory-network-comparator.md"
+        repo_meta = knowledge.ROOT / ".agentic/repo.yaml"
+        relationships = knowledge.ROOT / ".agentic/relationships.yaml"
+
+        for path in (decision, plan, repo_meta, relationships):
+            self.assertTrue(path.is_file(), path)
+
+        decision_text = decision.read_text(encoding="utf-8")
+        plan_text = plan.read_text(encoding="utf-8")
+        repo_text = repo_meta.read_text(encoding="utf-8")
+        relationship_text = relationships.read_text(encoding="utf-8")
+        wiki = (knowledge.ROOT / "wiki/index.md").read_text(encoding="utf-8")
+
+        self.assertIn("wiki/ is **derived navigation and synthesis**", decision_text)
+        self.assertIn("status: planned_blocked", plan_text)
+        self.assertIn("Plan completion alone does not close the gap", plan_text)
+        self.assertIn("wiki_role: derived_progressive_disclosure", repo_text)
+        self.assertIn("CC-PLAN-001", relationship_text)
+        self.assertIn("EXP-12-GROWING-NCA", relationship_text)
+        self.assertIn("progressive-disclosure front door", wiki.casefold())
+        self.assertIn("derived navigation/synthesis surface", wiki.casefold())
 
     def test_old_current_plan_is_explicitly_historical(self):
         plan = (knowledge.ROOT / "goal-discovery/docs/plans/current_research_plan.md").read_text(encoding="utf-8")
