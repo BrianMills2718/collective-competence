@@ -3,7 +3,7 @@
 Read the repository bootstrap and project wiki first. This historically named subtree contains the Goal and Competence Discovery lane and much of the shared Dynamical Laboratory implementation. It does not define the broader research agenda or make every contained experiment a discovery study.
 
 - Use `../wiki/concepts.md` for compact terminology, `../wiki/ontology.md` when the detailed canonical ontology is needed, and `docs/PROJECT.md` for scientific scope.
-- `../wiki/current.md` alone owns current priorities and the handoff boundary. `docs/plans/current_research_plan.md`, old phase IDs, and most of `docs/research_state.yaml` are retained historical material.
+- `../wiki/current.md` is the derived handoff projection. Accepted current work is authorized by top-level `../docs/plans/`; `docs/plans/current_research_plan.md`, old phase IDs, and most of `docs/research_state.yaml` are retained historical material.
 - The investigation unit is a **question + rival explanations + challenge family + intervention + baseline**, not a simulator, chart, or library chosen in isolation.
 - Record which goals, features, metrics, candidate families, and hypotheses were supplied by hand.
 - Declare specimen origin, analyst access, and research purpose independently. Freeze blind-first interpretations before revealing authored mechanisms or intended semantics.

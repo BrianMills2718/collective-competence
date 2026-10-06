@@ -176,4 +176,4 @@ The standalone page opens directly on the default H2 matched morphology comparis
 
 ## Next
 
-The Experiment 12 white-box map is frozen and the saved-evidence workbench has been implemented. **Do not add another NCA parameter sweep by default.** The remaining issue #77 gate is project-owner visual/interaction review of that workbench. If it passes, close #77 and begin the post-NCA comparator/integration sequence; if it fails, repair only the concrete review defect unless new scientific evidence justifies reopening the experiment.
+The Experiment 12 white-box map is frozen and the saved-evidence workbench has been implemented. **Do not add another NCA parameter sweep by default.** The remaining issue #77 gate is project-owner visual/interaction review of that workbench. The bounded post-NCA comparator is authorized only by [CC-PLAN-001](../../docs/plans/001-post-nca-regulatory-network-comparator.md), which remains blocked on #77 and the provider/license gate in #75. If the workbench review fails, repair only the concrete review defect unless new scientific evidence justifies reopening this experiment.

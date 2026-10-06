@@ -30,11 +30,12 @@ The programme is now **reuse-first and interrogation-first**. Broad demonstratio
 
 ## Before modifying code or evidence
 
-1. Read the relevant hot wiki page.
-2. Read the native experiment README/protocol and the code you will change.
-3. If the work makes a novelty claim, selects a comparator, or adds a new substrate, inspect the relevant landscape survey under `wiki/reference/` first.
-4. **Pass the reuse gate before building.** For any proposed new simulator, dynamical model, analysis algorithm, or substantial visualization primitive, identify maintained/published alternatives first. Record which options were checked and why they cannot answer the experiment. "I can implement it faster myself" is not a scientific justification.
-5. Read the applicable subtree instructions:
+1. Read the relevant hot wiki page for orientation, then follow it to the native authority.
+2. For new scientific/implementation scope, identify the accepted plan under `docs/plans/` that authorizes the work; ordinary maintenance must not silently expand scientific scope.
+3. Read the native experiment README/protocol and the code you will change.
+4. If the work makes a novelty claim, selects a comparator, or adds a new substrate, inspect the relevant landscape survey under `wiki/reference/` first.
+5. **Pass the reuse gate before building.** For any proposed new simulator, dynamical model, analysis algorithm, or substantial visualization primitive, identify maintained/published alternatives first. Record which options were checked and why they cannot answer the experiment. "I can implement it faster myself" is not a scientific justification.
+6. Read the applicable subtree instructions:
 
 | Work scope | Additional instructions |
 |---|---|
@@ -71,20 +72,29 @@ The canonical checkout is intentionally read-only; use the repository's worktree
 - For discovery claims, record rival criteria that remain compatible with the evidence and the intervention that would discriminate them.
 - A method's success is not "it guessed the author's label." It should recover only the resolution supported by the evidence and abstain from stronger claims.
 
-## Documentation and repository discipline
+## Documentation, plans, and repository discipline
 
 Documentation should **reduce the amount an agent must read**.
 
-Keep current working knowledge in the six hot wiki pages. Detailed experiment records, external-system surveys, and technical documents are warm reference. Audits, chronology, closed failures, and superseded plans are cold history.
+The wiki is **derived progressive-disclosure navigation and synthesis**. It is the front door, not a second native authority. Follow consequential claims to the owning decision, accepted plan, experiment record, code/test contract, or result artifact.
 
-Use **one owner per kind of truth**. `wiki/current.md` alone owns volatile priority and next action; native experiment records own what was actually run; `wiki/findings.md` owns cross-cutting scientific synthesis. Link to an owner instead of restating it.
+Use one owner per mutable fact:
+- `docs/decisions/` — durable repository-level choices;
+- `docs/plans/` — accepted bounded future-work authorization;
+- native experiment README — experiment interpretation, scope, and limits;
+- experiment code — executed procedure;
+- tests — software/intervention contract verification;
+- committed result artifacts — observations;
+- `wiki/` — derived navigation/synthesis over those owners.
 
-Do not create a new roadmap, status, handoff, research-state, or conceptual surface when an existing owner can absorb the change. A new durable document needs a distinct responsibility that cannot be handled by linking or a short addition to an existing owner.
+A plan must begin from an explicit gap, constrain the intended artifacts/tests/evidence, and state stop rules/non-goals. **Plan completion never establishes a scientific finding or closes a scientific gap by itself**; fresh evidence and re-characterization do.
 
-General-purpose infrastructure whose scope is independent of Collective Competence belongs in its own repository, with this repo retaining only the adapter, project-specific instance, or reference needed by an experiment. The general Scientific Hypergraph IR is one such extracted authority.
+Historical `goal-discovery/docs/plans/`, audits, generated status views, chronology, and superseded records remain provenance. Do not reactivate imperative language from them without a new accepted plan.
 
-Long-form exploratory/philosophical discussion is not working-project authority. Keep it outside the hot path; promote only a compact falsifiable question, conjecture, or intervention implication when it changes a live experiment.
+Do not create another roadmap, status, handoff, research-state, or conceptual surface when a native owner or derived wiki route already covers the concern. General-purpose infrastructure whose scope is independent of Collective Competence belongs in its own repository; the general Scientific Hypergraph IR is one such extracted authority.
 
-After material work, update the smallest owning hot page plus the native evidence/record that actually changed. Historical mistakes belong in current narrative only when they materially constrain current scientific interpretation; Git and the reference layer preserve the rest.
+Long-form exploratory/philosophical discussion is not working-project authority. Promote only a compact falsifiable question, conjecture, decision, or intervention implication when it changes live research.
+
+Keep `.agentic/relationships.yaml` synchronized when a current decision/plan/experiment changes its code, test, evidence, or navigation relationships. Prefer explicit relationships over asking future agents to infer them from prose.
 
 `AGENTS.md` is the authored instruction source for Claude Code and Codex; update the nearest file directly.

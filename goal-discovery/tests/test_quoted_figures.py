@@ -143,10 +143,10 @@ class QuotedFigureControls(unittest.TestCase):
         """Result packages are JSON or CSV depending on which experiment wrote them.
 
         A guard that reads only JSON stops covering the CSV half without saying
-        so. This drifts the D2 repeated-disturbance cost quoted in the goal
-        register away from `experiments/01-self-sorting/results/repeat.csv`.
+        so. This drifts the D2 repeated-disturbance cost quoted in the
+        development log away from `experiments/01-self-sorting/results/repeat.csv`.
         """
-        self.rewrite("wiki/goals.md", "cost rises 52 →", "cost rises 52 → 999 not")
+        self.rewrite("wiki/development-log.md", "rises 52 → 153", "rises 52 → 999")
         result = self.run_checker()
         self.assertEqual(result.returncode, 1, result.stdout)
         self.assertIn("writes 999", result.stdout)

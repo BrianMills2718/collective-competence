@@ -1,7 +1,7 @@
 # Historical checkpoint fields are evidence, not the current project agenda.
-# Live priorities and handoff route through ../wiki/current.md.
+# Live priorities are authorized by ../../docs/plans/; ../wiki/current.md is a derived handoff projection.
 documentation_authority: historical
-current_plan: ../wiki/current.md
+current_plan: ../../docs/plans/README.md
 current_context:
   objective: Open-ended laboratory for constructing competent systems and inferring candidate goals/competence across increasingly rich substrates.
   current_plan: ../wiki/current.md

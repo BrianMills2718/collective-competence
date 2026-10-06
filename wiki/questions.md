@@ -1,6 +1,6 @@
 ---
 doc-role: working-research-questions
-authority: working-summary
+authority: derived
 lifecycle: active
 sources:
   - ontology.md
@@ -12,6 +12,8 @@ sources:
   - current.md
 ---
 # Research questions
+
+This is a derived working synthesis of the programme's live questions. Accepted plans authorize bounded future work; native experiment records/evidence determine what has been answered.
 
 [Wiki home](index.md) · [Findings](findings.md) · [Current work](current.md) · [Concepts](concepts.md)
 

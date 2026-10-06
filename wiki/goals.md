@@ -18,9 +18,10 @@ sources:
 
 > **Status note, 2026-09-09.** This file preserves the detailed D1–D6 Goal
 > Discovery calibration questions and the evidence/history attached to them. It
-> no longer owns phase order or current priority. `wiki/current.md` is the sole
-> priority authority, and the programme is now in phase 2 external interrogation
-> on Growing NCA after the first-phase calibration work was judged done enough.
+> no longer owns phase order or current priority. Accepted top-level plans under
+> `docs/plans/` authorize bounded future work; `wiki/current.md` is the derived
+> handoff projection. The programme is now in phase 2 external interrogation on
+> Growing NCA after the first-phase calibration work was judged done enough.
 >
 > The owner decisions recorded here on 2026-09-05/06 were real decisions at that
 > time and remain part of the project history. They should not be read as an

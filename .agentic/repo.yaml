@@ -1,0 +1,33 @@
+schema_version: "0.1-local"
+repository:
+  id: collective-competence
+  purpose: intervention-based competence research and restricted-access goal/competence identification
+
+navigation:
+  wiki_entrypoint: wiki/index.md
+  wiki_role: derived_progressive_disclosure
+
+authorities:
+  decision_roots:
+    - docs/decisions/
+  plan_roots:
+    - docs/plans/
+  experiment_roots:
+    - experiments/
+  evidence_rule: native_experiment_records_code_tests_and_results_outrank_wiki_synthesis
+
+planning:
+  active_plan: docs/plans/001-post-nca-regulatory-network-comparator.md
+  active_plan_status: planned_blocked
+  current_blockers:
+    - issue: 77
+      reason: owner review of completed Experiment 12 evidence workbench
+    - issue: 75
+      reason: provider/license disposition before comparator implementation
+
+relationships:
+  source: .agentic/relationships.yaml
+
+historical:
+  retained_plan_root: goal-discovery/docs/plans/
+  generated_status_surfaces_are_authority: false

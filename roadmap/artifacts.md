@@ -16,6 +16,16 @@ becoming current instructions.
 - [AGENTS.md](../AGENTS.md)
 - [README.md](../README.md)
 
+## docs/decisions
+
+- [0001-native-authorities-derived-wiki.md](../docs/decisions/0001-native-authorities-derived-wiki.md)
+- [README.md](../docs/decisions/README.md)
+
+## docs/plans
+
+- [001-post-nca-regulatory-network-comparator.md](../docs/plans/001-post-nca-regulatory-network-comparator.md)
+- [README.md](../docs/plans/README.md)
+
 ## experiments
 
 - [README.md](../experiments/README.md)
@@ -450,3 +460,4 @@ becoming current instructions.
 - [goal-competence-identifiability-landscape.md](../wiki/reference/goal-competence-identifiability-landscape.md)
 - [levin-software-ecosystem-survey.md](../wiki/reference/levin-software-ecosystem-survey.md)
 - [research-landscape.md](../wiki/reference/research-landscape.md)
+- [scientific-hypergraph-extraction.md](../wiki/reference/scientific-hypergraph-extraction.md)
