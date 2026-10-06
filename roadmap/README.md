@@ -59,7 +59,7 @@ declared observations and analyst prior
 ```
 
 This path asks what can be inferred without importing the system author's
-interpretation. The [current work page](../wiki/current.md) owns the active decision for this lane; this roadmap does not duplicate that volatile state.
+interpretation. The [current work page](../wiki/current.md) is a derived handoff projection; accepted top-level [plans](../docs/plans/README.md) authorize bounded future work. This roadmap does not duplicate that volatile state.
 
 ## Shared dependency structure
 
