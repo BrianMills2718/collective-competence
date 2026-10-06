@@ -383,9 +383,9 @@ and that repository's living document,
 now folded in here as real, independently-checked science rather than left as
 an external pointer. Documented here as a well-specified candidate for this
 project's own Goal and Competence Discovery / Collective Competence arms — not
-yet an active priority, since [the current work page](current.md)
-alone owns that, and its own rules are explicit that no external programme
-becomes the agenda by default.
+yet an active priority. [The current work page](current.md) is a derived handoff
+projection, while accepted plans under `docs/plans/` authorize bounded future
+work; no external programme becomes the agenda by default.
 
 **Layer note.** This section states a *candidate mechanism* — a claim about how
 some systems behave, which could turn out false — rather than a definition. The
