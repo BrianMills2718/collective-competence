@@ -41,6 +41,10 @@ For the same Megakaryocyte target, AEON's own case study already reports source-
 
 A renamed field, aggregate, or visualization of AEON output does not count as added value.
 
+## V1 result (recorded, not yet interpreted)
+
+P0 native reproduction and the V1 comparison have both run (Experiment 13, pull request #89). [`comparison.json`](../experiments/13-regulatory-network-comparator/results/comparison.json) records disposition `no_added_value` with the prediction supported, limited to the declared V1 dimensions on the pinned case. The interpretation step below still gates V2.
+
 ## Guardrails
 
 - Default implementation order: **search → reuse → wrap → intervene → compare**.

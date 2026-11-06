@@ -55,4 +55,6 @@ uv run --frozen --extra regulatory-network-comparator \
 
 P0 implementation is present. `results/native_reproduction.json` is generated only after the implementation commit so its recorded repository revision identifies the exact code that produced the evidence.
 
-V1 is already frozen in CC-PLAN-001 but is **not executed in this P0 change**.
+P0 evidence: `results/native_reproduction.json`, generated at implementation revision `b374a39`.
+
+V1 (the frozen CC-PLAN-001 comparison) has since been executed: `results/comparison.json` records phase `V1_bounded_comparator`, status `complete`, disposition `no_added_value` and `prediction_supported: true`. Its scope limit applies: the disposition covers only the declared white-box V1 dimensions on the pinned AEON myeloid case. Interpreting V1, and any V2 plan amendment, has not been done.
