@@ -1,0 +1,64 @@
+{
+  "provider": {
+    "package": "biodivine_aeon",
+    "version": "1.4.2",
+    "license": "MIT",
+    "repository": "sybila/biodivine-aeon-py",
+    "commit": "abc98ec3794d4eaa9aa5dcd77c4aca00c316c1dd"
+  },
+  "upstream_case_study": {
+    "notebook_path": "example/case-study/control/main.ipynb",
+    "notebook_git_blob": "88371a3554517d1ddedddb24b17be472c02949b7",
+    "model_path": "example/case-study/control/myeloid_witness.aeon",
+    "model_git_blob": "41a5404b5e11733a4ac52b6bbf1cc2d1823ab764",
+    "model_sha256": "13f3c96b5498b1d7eda008ecc4717b78238b33aee283efe271717089829e916b",
+    "selection_rule": "For each named phenotype, mirror the upstream notebook: take the first attractor intersecting the supplied one-variable phenotype marker."
+  },
+  "p0_expectations": {
+    "phenotypes": {
+      "Erythrocyte": {
+        "marker": {"EKLF": true},
+        "selected_cardinality": 1,
+        "selected_state": {
+          "CEBPa": false, "EKLF": true, "EgrNab": false, "FOG1": true,
+          "Fli1": false, "GATA1": true, "GATA2": false, "Gfi1": false,
+          "PU1": false, "SCL": true, "cJun": false
+        }
+      },
+      "Megakaryocyte": {
+        "marker": {"Fli1": true},
+        "selected_cardinality": 1,
+        "selected_state": {
+          "CEBPa": false, "EKLF": false, "EgrNab": false, "FOG1": true,
+          "Fli1": true, "GATA1": true, "GATA2": false, "Gfi1": false,
+          "PU1": false, "SCL": true, "cJun": false
+        }
+      },
+      "Monocyte": {
+        "marker": {"cJun": true},
+        "selected_cardinality": 1,
+        "selected_state": {
+          "CEBPa": false, "EKLF": false, "EgrNab": true, "FOG1": false,
+          "Fli1": false, "GATA1": false, "GATA2": false, "Gfi1": false,
+          "PU1": true, "SCL": false, "cJun": true
+        }
+      },
+      "Granulocyte": {
+        "marker": {"Gfi1": true},
+        "selected_cardinality": 1,
+        "selected_state": {
+          "CEBPa": true, "EKLF": false, "EgrNab": false, "FOG1": false,
+          "Fli1": false, "GATA1": false, "GATA2": false, "Gfi1": true,
+          "PU1": true, "SCL": false, "cJun": false
+        }
+      }
+    },
+    "permanent_control": {
+      "source": "Erythrocyte",
+      "target": "Megakaryocyte",
+      "robustness_threshold": 1.0,
+      "minimum_size": 1,
+      "alternatives": [{"Fli1": true}, {"EKLF": false}]
+    }
+  }
+}
